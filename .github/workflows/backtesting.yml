@@ -1,0 +1,39 @@
+name: Backtesting
+on:
+  workflow_dispatch:
+    inputs:
+      league:
+        description: Open Matchday competition folder
+        required: true
+        default: POR_1_primeira-liga
+      season:
+        description: Season code (e.g. 2526)
+        required: true
+        default: "2526"
+  schedule:
+    - cron: "30 5 * * 1"
+permissions:
+  contents: read
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Download historical results
+        run: |
+          LEAGUE="\${{ inputs.league || 'POR_1_primeira-liga' }}"
+          SEASON="\${{ inputs.season || '2526' }}"
+          mkdir -p data
+          curl -fL "https://raw.githubusercontent.com/oladeeayo/open-matchday/master/data/\${LEAGUE}/results_\${SEASON}.csv" -o data/results.csv
+      - name: Run unit tests
+        run: node --test tests/backtest.test.cjs
+      - name: Run chronological backtest
+        run: node scripts/backtest.cjs data/results.csv 10 backtest-report.json
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: backtest-report
+          path: backtest-report.json
