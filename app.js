@@ -191,16 +191,21 @@ function wdwTeamPathCandidates(team,leagueId){
  const raw=String(team||"").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
  return [...new Set([known,"/results/"+key+"/","/results/"+raw+"/","/results/fc-"+key+"/"].filter(Boolean))];
 }
-async function findWdwTeamPathFromLeagueIndex(team,leagueId){
+async function loadWdwLeagueTeams(leagueId){
  const slug=WDW_LEAGUES[leagueId];
- if(!slug)return {path:null,reason:"unsupported_league"};
+ if(!slug)return [];
  if(!Object.prototype.hasOwnProperty.call(dataState.wdwLeagueLinks,leagueId)){
   const doc=await fetchWdwPage("/tips/"+slug+"/");
   dataState.wdwLeagueLinks[leagueId]=[...doc.querySelectorAll('a[href^="/results/"]')]
-   .map(a=>({name:a.textContent.trim().replace(/\\s+Results\\s*$/i,"").trim(),href:a.getAttribute("href")}))
+   .map(a=>({name:a.textContent.trim().replace(/\s+Results\s*$/i,"").trim(),href:a.getAttribute("href")}))
    .filter(x=>x.name&&x.href);
  }
- const links=dataState.wdwLeagueLinks[leagueId],wanted=wdwTeamKey(team);
+ return dataState.wdwLeagueLinks[leagueId];
+}
+async function findWdwTeamPathFromLeagueIndex(team,leagueId){
+ const links=await loadWdwLeagueTeams(leagueId);
+ if(!WDW_LEAGUES[leagueId])return {path:null,reason:"unsupported_league"};
+ const wanted=wdwTeamKey(team);
  let hit=links.find(x=>wdwTeamKey(x.name)===wanted);
  if(!hit){
   const aliases=Object.entries(WDW_ALIASES).filter(([k,v])=>wdwTeamKey(k)===wanted||wdwTeamKey(v)===wanted).map(([,v])=>wdwTeamKey(v));
@@ -335,6 +340,7 @@ async function fetchSourceCSV(url){
  return text;
 }
 function updateLeagueCoverage(matches){
+ if(!matches.length){const box=$("data-coverage");if(box)box.textContent="Sem resultados reconhecidos na fonte principal. A procurar cobertura na fonte secundária.";return;}
  const stats=[
   ["Cantos",m=>m.hc!==null&&m.ac!==null],
   ["Remates",m=>m.homeShots!==null&&m.awayShots!==null],
@@ -351,21 +357,42 @@ function teamOptionsForSeason(matches,completeMatches,allowWdw){
  return [...new Set(source.flatMap(m=>[m.home,m.away]).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
 }
 async function loadHistoricalData(){
- const status=$("data-status"),button=$("load-data");button.disabled=true;status.textContent="A obter o ficheiro histórico da competição…";if($("data-coverage"))$("data-coverage").textContent="A verificar cobertura das estatísticas…";
- try{const league=$("league").value,season=$("season").value,url="https://raw.githubusercontent.com/oladeeayo/open-matchday/master/data/"+league+"/results_"+season+".csv";const csv=await fetchSourceCSV(url);const matches=parseSourceCSV(csv).map(normalizeSourceMatch).filter(Boolean).sort((a,b)=>b.date.localeCompare(a.date));if(!matches.length)throw new Error("O ficheiro foi obtido, mas não contém resultados reconhecidos.");
- const isComplete=m=>[m.hg,m.ag,m.hc,m.ac,m.homeShots,m.awayShots,m.homeTarget,m.awayTarget,m.homeFouls,m.awayFouls].every(v=>v!==null&&v!==undefined&&Number.isFinite(Number(v)));
- const completeMatches=matches.filter(isComplete);
- const now=new Date(),currentSeasonStart=now.getMonth()>=6?now.getFullYear():now.getFullYear()-1;
- const currentSeasonId=String(currentSeasonStart%100).padStart(2,"0")+String((currentSeasonStart+1)%100).padStart(2,"0");
- const allowWdw=season===currentSeasonId;
- const teams=teamOptionsForSeason(matches,completeMatches,allowWdw);
- dataState.matches=matches;updateLeagueCoverage(matches);dataState.teams=teams;
- for(const id of ["homePick","awayPick"]){
-  const select=$(id);select.innerHTML='<option value="">Escolhe uma equipa</option>'+teams.map(t=>'<option value="'+t.replace(/&/g,"&amp;").replace(/"/g,"&quot;")+'">'+t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")+'</option>').join("");select.disabled=teams.length===0;
- }
- status.textContent=matches.length+" resultados lidos; "+completeMatches.length+" jogos com todos os dados obrigatórios; "+(allowWdw?"equipas candidatas: "+teams.length+" (a validar também no WinDrawWin).":"equipas elegíveis com amostra completa na fonte principal: "+teams.length)+". Jogos incompletos nunca entram nas amostras nem nas previsões.";
- applyTeamSelection("home");applyTeamSelection("away");dataState.wdwLeagueLinks={};dataState.wdwTeams={};dataState.wdwSummaries={};$("wdw-home-data").textContent="A aguardar seleção da equipa da casa."; $("wdw-away-data").textContent="A aguardar seleção da equipa visitante."; $("wdw-status").textContent=WDW_PROXY_URL?(allowWdw?"WinDrawWin: seleciona as equipas para validar as amostras completas.":"WinDrawWin: disponível apenas para a época atual."):"WinDrawWin: proxy criado; falta publicar e configurar o endereço do Worker.";
- }catch(e){status.textContent="Não foi possível carregar os dados: "+e.message+". A simulação automática fica indisponível até os dados históricos serem carregados.";if($("data-coverage"))$("data-coverage").textContent="Cobertura estatística não disponível."; }finally{button.disabled=false;}
+ const status=$("data-status"),button=$("load-data");button.disabled=true;status.textContent="A obter os dados da competição nas fontes disponíveis…";if($("data-coverage"))$("data-coverage").textContent="A verificar a cobertura real das estatísticas…";
+ try{
+  const league=$("league").value,season=$("season").value;
+  const now=new Date(),currentSeasonStart=now.getMonth()>=6?now.getFullYear():now.getFullYear()-1;
+  const currentSeasonId=String(currentSeasonStart%100).padStart(2,"0")+String((currentSeasonStart+1)%100).padStart(2,"0");
+  const allowWdw=season===currentSeasonId;
+  let matches=[],primaryError="";
+  const url="https://raw.githubusercontent.com/oladeeayo/open-matchday/master/data/"+league+"/results_"+season+".csv";
+  try{
+   const csv=await fetchSourceCSV(url);
+   matches=parseSourceCSV(csv).map(normalizeSourceMatch).filter(Boolean).sort((a,b)=>b.date.localeCompare(a.date));
+  }catch(e){primaryError=String(e?.message||e);}
+  const isComplete=m=>[m.hg,m.ag,m.hc,m.ac,m.homeShots,m.awayShots,m.homeTarget,m.awayTarget,m.homeFouls,m.awayFouls].every(v=>v!==null&&v!==undefined&&Number.isFinite(Number(v)));
+  const completeMatches=matches.filter(isComplete);
+  let wdwTeams=[],wdwIndexError="";
+  if(allowWdw&&WDW_PROXY_URL&&WDW_LEAGUES[league]){
+   try{wdwTeams=await loadWdwLeagueTeams(league);}
+   catch(e){wdwIndexError=String(e?.message||e);}
+  }
+  const primaryTeams=teamOptionsForSeason(matches,completeMatches,allowWdw);
+  const teams=[...new Set([...primaryTeams,...wdwTeams.map(x=>x.name).filter(Boolean)])].sort((a,b)=>a.localeCompare(b));
+  if(!matches.length&&!teams.length){
+   const reason=primaryError?"Fonte principal: "+primaryError+". ":"";
+   throw new Error(reason+(wdwIndexError?"WinDrawWin: "+wdwIndexError:allowWdw?"Não foram encontradas equipas nas fontes disponíveis.":"A fonte secundária só está ativa na época atual."));
+  }
+  dataState.matches=matches;dataState.wdwTeams={};dataState.wdwSummaries={};updateLeagueCoverage(matches);dataState.teams=teams;
+  for(const id of ["homePick","awayPick"]){
+   const select=$(id);select.innerHTML='<option value="">Escolhe uma equipa</option>'+teams.map(t=>'<option value="'+t.replace(/&/g,"&amp;").replace(/"/g,"&quot;")+'">'+t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")+'</option>').join("");select.disabled=teams.length===0;
+  }
+  const sourceLabel=matches.length?matches.length+" resultados Open Matchday; "+completeMatches.length+" jogos completos":"Sem resultados Open Matchday";
+  status.textContent=sourceLabel+"; "+wdwTeams.length+" equipas descobertas no WinDrawWin; "+teams.length+" equipas disponíveis para validação. Só jogos com os dez campos obrigatórios podem entrar nas amostras.";
+  if(!matches.length&&primaryError)status.textContent+=" Erro/ausência na fonte principal: "+primaryError;
+  applyTeamSelection("home");applyTeamSelection("away");
+  $("wdw-home-data").textContent="A aguardar seleção da equipa da casa."; $("wdw-away-data").textContent="A aguardar seleção da equipa visitante.";
+  $("wdw-status").textContent=WDW_PROXY_URL?(allowWdw?"WinDrawWin: equipas descobertas no índice da competição; seleciona as duas para validar os jogos completos.":"WinDrawWin: disponível apenas para a época atual."):"WinDrawWin: proxy não configurado.";
+ }catch(e){status.textContent="Não foi possível carregar os dados: "+e.message+". A simulação automática fica indisponível até existirem amostras completas.";if($("data-coverage"))$("data-coverage").textContent="Cobertura estatística não disponível."; }finally{button.disabled=false;}
 }
 function teamSample(team,venue,metric){
  const limit=$("sample").value,requested=limit==="all"?Infinity:Number(limit);
