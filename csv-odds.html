@@ -31,6 +31,7 @@
           <div class="section-head"><div><em>02</em><h2>Filtros do histórico</h2></div><button id="clearFilters" class="quiet">Limpar filtros</button></div>
           <div class="filters">
             <label>Pesquisa livre<input id="search" type="search" placeholder="Equipa, competição ou país"></label>
+            <label>Continente<select id="continent"><option value="">Todos os continentes</option></select></label>
             <label>País<select id="country"><option value="">Todos os países</option></select></label>
             <label>Competição<select id="league"><option value="">Todas as competições</option></select></label>
             <label>Equipa<input id="team" type="search" placeholder="Nome ou parte do nome"></label>
@@ -84,6 +85,7 @@
             <label>Tolerância ±<input id="tolerance" type="number" min="0.01" max="5" step="0.01" value="0.15"></label>
           </div>
           <div class="analysis-grid">
+            <article><span>Previsão do mercado (1X2)</span><strong id="marketPrediction">—</strong><small id="marketPredictionProb">—</small></article>
             <article><span>Jogos históricos semelhantes</span><strong id="currentSample">—</strong></article>
             <article><span>Probabilidade justa mercado · 1</span><strong id="current1Prob">—</strong></article>
             <article><span>Probabilidade justa mercado · X</span><strong id="currentXProb">—</strong></article>
@@ -91,6 +93,10 @@
             <article><span>Margem do mercado atual</span><strong id="currentMargin">—</strong></article>
             <article><span>Frequência histórica · 1 / X / 2</span><strong id="current1Freq">—</strong><small id="currentXFreq">—</small><small id="current2Freq">—</small></article>
           </div>
+          <div class="analysis-grid score-forecast">
+            <article><span>Marcadores exatos mais frequentes</span><strong id="exactScores">—</strong><small>Amostra de <span id="exactSample">—</span> jogos semelhantes</small></article>
+          </div>
+          <p id="exactNote" class="hint">A previsão do marcador será baseada nos resultados FT da amostra histórica.</p>
           <p id="currentNote" class="hint">Introduz as três odds do jogo: 1, X e 2.</p>
         </section>
         <section class="panel">
