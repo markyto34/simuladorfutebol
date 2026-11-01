@@ -11,7 +11,7 @@ function simulate(){try{
 const h=$( "homeName").value.trim()||"Casa",a=$("awayName").value.trim()||"Fora",adv=num("adv")/100,disp=num("disp")/100;
 const hg=(num("hgFor")+num("agAgainst"))/2*(1+adv),ag=(num("agFor")+num("hgAgainst"))/2;
 const hc=(num("hcFor")+num("acAgainst"))/2,ac=(num("acFor")+num("hcAgainst"))/2;
-if([hg,ag,hc,ac].some(x=>x>30))throw Error("Uma média introduzida é demasiado elevada. Verifica os dados.");
+if([hg,ag,hc,ac].some(x=>x>30))throw Error("Os dados históricos apresentam uma média fora do intervalo esperado.");
 let home=0,draw=0,away=0,g15=0,g25=0,g35=0,c85=0,c95=0,c105=0,sumG=0,sumC=0,sumHG=0,sumAG=0,scoreMap={};
 for(let i=0;i<N;i++){const x=poisson(hg),y=poisson(ag),c=negBin(hc,disp),d=negBin(ac,disp),gt=x+y,ct=c+d;sumG+=gt;sumC+=ct;sumHG+=x;sumAG+=y;if(x>y)home++;else if(x===y)draw++;else away++;if(gt>=2)g15++;if(gt>=3)g25++;if(gt>=4)g35++;if(ct>=9)c85++;if(ct>=10)c95++;if(ct>=11)c105++;const key=x+"-"+y;scoreMap[key]=(scoreMap[key]||0)+1}
 const modal=Object.entries(scoreMap).sort((x,y)=>y[1]-x[1])[0][0],mean=(sumHG/N).toFixed(2)+" – "+(sumAG/N).toFixed(2);
@@ -63,7 +63,7 @@ async function loadHistoricalData(){
  try{const league=$("league").value,season=$("season").value,url="https://raw.githubusercontent.com/oladeeayo/open-matchday/master/data/"+league+"/results_"+season+".csv";const csv=await fetchSourceCSV(url);const matches=parseSourceCSV(csv).map(normalizeSourceMatch).filter(Boolean).sort((a,b)=>b.date.localeCompare(a.date));if(!matches.length)throw new Error("O ficheiro foi obtido, mas não contém resultados reconhecidos.");
  dataState.matches=matches;dataState.teams=[...new Set(matches.flatMap(m=>[m.home,m.away]))].sort((a,b)=>a.localeCompare(b));for(const id of ["homePick","awayPick"]){const select=$(id);select.innerHTML='<option value="">Escolhe uma equipa</option>'+dataState.teams.map(t=>'<option value="'+t.replace(/&/g,"&amp;").replace(/"/g,"&quot;")+'">'+t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")+'</option>').join("");select.disabled=false;}
  status.textContent=matches.length+" jogos históricos válidos carregados; "+dataState.teams.length+" equipas disponíveis. Escolhe as duas equipas para preencher as médias.";applyTeamSelection("home");applyTeamSelection("away");
- }catch(e){status.textContent="Não foi possível carregar os dados: "+e.message+". Podes continuar a usar a entrada manual.";}finally{button.disabled=false;}
+ }catch(e){status.textContent="Não foi possível carregar os dados: "+e.message+". A simulação automática fica indisponível até os dados históricos serem carregados.";}finally{button.disabled=false;}
 }
 function teamSample(team,venue,metric){let games=dataState.matches.filter(m=>(m.home===team||m.away===team)&&(venue==="all"||(venue==="home"&&m.home===team)||(venue==="away"&&m.away===team)));const limit=$("sample").value;if(limit!=="all")games=games.slice(0,Number(limit));return games.map(m=>{const home=m.home===team;if(metric==="goalsFor")return home?m.hg:m.ag;if(metric==="goalsAgainst")return home?m.ag:m.hg;if(metric==="cornersFor")return home?m.hc:m.ac;if(metric==="cornersAgainst")return home?m.ac:m.hc;if(metric==="shotsFor")return home?m.homeShots:m.awayShots;if(metric==="shotsAgainst")return home?m.awayShots:m.homeShots;if(metric==="targetFor")return home?m.homeTarget:m.awayTarget;if(metric==="targetAgainst")return home?m.awayTarget:m.homeTarget;if(metric==="foulsFor")return home?m.homeFouls:m.awayFouls;if(metric==="foulsAgainst")return home?m.awayFouls:m.homeFouls;if(metric==="yellowFor")return home?m.homeYellow:m.awayYellow;if(metric==="yellowAgainst")return home?m.awayYellow:m.homeYellow;if(metric==="redFor")return home?m.homeRed:m.awayRed;if(metric==="redAgainst")return home?m.awayRed:m.homeRed;}).filter(v=>v!==null&&v!==undefined);}
 function mean(values){return values.length?values.reduce((a,b)=>a+b,0)/values.length:null;}
@@ -77,7 +77,7 @@ function applyTeamSelection(side){
  $(side==="home"?"homeName":"awayName").value=team;
  const status=$("data-status"),sample=$("sample").value==="all"?"todos os jogos":"últimos "+$("sample").value+" jogos";
  const count=(a,b)=>Math.min(coverage[a]||0,coverage[b]||0);
- status.textContent=team+": médias "+(venue==="home"?"em casa":"fora")+" preenchidas. Amostras — golos: "+count("goalsFor","goalsAgainst")+"; cantos: "+count("cornersFor","cornersAgainst")+"; remates: "+count("shotsFor","shotsAgainst")+"; remates à baliza: "+count("targetFor","targetAgainst")+"; faltas: "+count("foulsFor","foulsAgainst")+"; amarelos: "+count("yellowFor","yellowAgainst")+"; vermelhos: "+count("redFor","redAgainst")+". Janela: "+sample+". Campos sem dados continuam editáveis.";
+ status.textContent=team+": médias "+(venue==="home"?"em casa":"fora")+" preenchidas. Amostras — golos: "+count("goalsFor","goalsAgainst")+"; cantos: "+count("cornersFor","cornersAgainst")+"; remates: "+count("shotsFor","shotsAgainst")+"; remates à baliza: "+count("targetFor","targetAgainst")+"; faltas: "+count("foulsFor","foulsAgainst")+"; amarelos: "+count("yellowFor","yellowAgainst")+"; vermelhos: "+count("redFor","redAgainst")+". Janela: "+sample+". Campos sem cobertura ficam indisponíveis; não são substituídos por zeros.";
 }
 $("load-data").addEventListener("click",loadHistoricalData);
 $("homePick").addEventListener("change",()=>applyTeamSelection("home"));
