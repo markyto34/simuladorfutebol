@@ -350,8 +350,10 @@ async function loadHistoricalData(){
 }
 function teamSample(team,venue,metric){
  const limit=$("sample").value,requested=limit==="all"?Infinity:Number(limit);
- const games=dataState.matches.filter(m=>(m.home===team||m.away===team)&&(venue==="all"||(venue==="home"&&m.home===team)||(venue==="away"&&m.away===team)));
- const wdw=dataState.wdwTeams[wdwCacheKey($("league").value,team)]||[];
+ const league=$("league").value,season=$("season").value;
+ const allowWdw=season==="2627";
+ const primary=dataState.matches.filter(m=>(m.home===team||m.away===team)&&(venue==="all"||(venue==="home"&&m.home===team)||(venue==="away"&&m.away===team)));
+ const wdw=allowWdw?(dataState.wdwTeams[wdwCacheKey(league,team)]||[]):[];
  const sourceValue=(m,h)=>{
   if(metric==="goalsFor")return h?m.hg:m.ag;
   if(metric==="goalsAgainst")return h?m.ag:m.hg;
@@ -370,55 +372,53 @@ function teamSample(team,venue,metric){
   if(metric==="redFor")return h?m.homeRed:m.awayRed;
   return h?m.awayRed:m.homeRed;
  };
- const wdwValue=(m,h)=>{
-  if(metric==="goalsFor")return h?m.hg:m.ag;
-  if(metric==="goalsAgainst")return h?m.ag:m.hg;
-  if(metric==="htGoalsFor")return m.htHome===null||m.htAway===null?null:(h?m.htHome:m.htAway);
-  if(metric==="htGoalsAgainst")return m.htHome===null||m.htAway===null?null:(h?m.htAway:m.htHome);
-  if(metric==="cornersFor")return h?m.homeCorners:m.awayCorners;
-  if(metric==="cornersAgainst")return h?m.awayCorners:m.homeCorners;
-  if(metric==="shotsFor")return h?(m.homeTarget===null||m.homeShotsOff===null?null:m.homeTarget+m.homeShotsOff):(m.awayTarget===null||m.awayShotsOff===null?null:m.awayTarget+m.awayShotsOff);
-  if(metric==="shotsAgainst")return h?(m.awayTarget===null||m.awayShotsOff===null?null:m.awayTarget+m.awayShotsOff):(m.homeTarget===null||m.homeShotsOff===null?null:m.homeTarget+m.homeShotsOff);
-  if(metric==="targetFor")return h?m.homeTarget:m.awayTarget;
-  if(metric==="targetAgainst")return h?m.awayTarget:m.homeTarget;
-  if(metric==="foulsFor")return h?m.homeFouls:m.awayFouls;
-  if(metric==="foulsAgainst")return h?m.awayFouls:m.homeFouls;
+ const wdwValue=(w,h)=>{
+  if(metric==="goalsFor")return h?w.hg:w.ag;
+  if(metric==="goalsAgainst")return h?w.ag:w.hg;
+  if(metric==="htGoalsFor")return w.htHome===null||w.htAway===null?null:(h?w.htHome:w.htAway);
+  if(metric==="htGoalsAgainst")return w.htHome===null||w.htAway===null?null:(h?w.htAway:w.htHome);
+  if(metric==="cornersFor")return h?w.homeCorners:w.awayCorners;
+  if(metric==="cornersAgainst")return h?w.awayCorners:w.homeCorners;
+  if(metric==="shotsFor")return h?(w.homeTarget===null||w.homeShotsOff===null?null:w.homeTarget+w.homeShotsOff):(w.awayTarget===null||w.awayShotsOff===null?null:w.awayTarget+w.awayShotsOff);
+  if(metric==="shotsAgainst")return h?(w.awayTarget===null||w.awayShotsOff===null?null:w.awayTarget+w.awayShotsOff):(w.homeTarget===null||w.homeShotsOff===null?null:w.homeTarget+w.homeShotsOff);
+  if(metric==="targetFor")return h?w.homeTarget:w.awayTarget;
+  if(metric==="targetAgainst")return h?w.awayTarget:w.homeTarget;
+  if(metric==="foulsFor")return h?w.homeFouls:w.awayFouls;
+  if(metric==="foulsAgainst")return h?w.awayFouls:w.homeFouls;
   return null;
  };
- const matching=m=>{
-  const h=m.home===team,op=h?m.away:m.home;
-  return wdw.find(w=>w.teamHome===h&&wdwTeamKey(w.teamHome?w.away:w.home)===wdwTeamKey(op)&&(w.teamHome?w.hg:w.ag)=== (h?m.hg:m.ag)&&(w.teamHome?w.ag:w.hg)===(h?m.ag:m.hg)&&(!w.dateKey||!m.date||w.dateKey===m.date.slice(5)));
+ const sameFixture=(m,w)=>{
+  if(!w.dateKey||!m.date||m.date.slice(5)!==w.dateKey)return false;
+  return wdwTeamKey(m.home)===wdwTeamKey(w.home)&&wdwTeamKey(m.away)===wdwTeamKey(w.away)&&m.hg===w.hg&&m.ag===w.ag;
  };
- const complete=(m,w,h)=>{
-  const get=(field,wField)=>m[field]!==null&&m[field]!==undefined?m[field]:(w?wField:null);
-  const homeCorners=get("hc",w?(h?w.homeCorners:w.awayCorners):null),awayCorners=get("ac",w?(h?w.awayCorners:w.homeCorners):null);
-  const homeTarget=get("homeTarget",w?(h?w.homeTarget:w.awayTarget):null),awayTarget=get("awayTarget",w?(h?w.awayTarget:w.homeTarget):null);
-  const homeOff=get("homeShots",w?(h?w.homeShotsOff:w.awayShotsOff):null),awayOff=get("awayShots",w?(h?w.awayShotsOff:w.homeShotsOff):null);
-  const homeFouls=get("homeFouls",w?(h?w.homeFouls:w.awayFouls):null),awayFouls=get("awayFouls",w?(h?w.awayFouls:w.homeFouls):null);
-  return [m.hg,m.ag,homeCorners,awayCorners,homeTarget,awayTarget,homeOff,awayOff,homeFouls,awayFouls].every(v=>v!==null&&v!==undefined&&Number.isFinite(Number(v)));
+ const matching=m=>wdw.find(w=>w.teamHome===(m.home===team)&&sameFixture(m,w))||null;
+ const complete=(m,w)=>{
+  const get=(primaryValue,secondaryValue)=>primaryValue!==null&&primaryValue!==undefined?primaryValue:secondaryValue;
+  const hc=get(m.hc,w?.homeCorners),ac=get(m.ac,w?.awayCorners);
+  const hs=get(m.homeShots,w?(w.homeTarget===null||w.homeShotsOff===null?null:w.homeTarget+w.homeShotsOff):null);
+  const as=get(m.awayShots,w?(w.awayTarget===null||w.awayShotsOff===null?null:w.awayTarget+w.awayShotsOff):null);
+  const ht=get(m.homeTarget,w?.homeTarget),at=get(m.awayTarget,w?.awayTarget);
+  const hf=get(m.homeFouls,w?.homeFouls),af=get(m.awayFouls,w?.awayFouls);
+  return [m.hg,m.ag,hc,ac,hs,as,ht,at,hf,af].every(v=>v!==null&&v!==undefined&&Number.isFinite(Number(v)));
  };
  const valueFrom=(m,w,h)=>{
-  if(metric==="goalsFor"||metric==="goalsAgainst")return sourceValue(m,h);
-  if(metric==="htGoalsFor"||metric==="htGoalsAgainst"){const primary=sourceValue(m,h);return primary!==null&&primary!==undefined?primary:(w?wdwValue(w,h):null);}
-  if(metric==="cornersFor"||metric==="cornersAgainst"||metric==="targetFor"||metric==="targetAgainst"||metric==="foulsFor"||metric==="foulsAgainst"){
-   const primary=sourceValue(m,h);return primary!==null&&primary!==undefined?primary:(w?wdwValue(w,h):null);
-  }
-  if(metric==="shotsFor"||metric==="shotsAgainst"){
-   const primary=sourceValue(m,h);if(primary!==null&&primary!==undefined)return primary;
-   return w?wdwValue(w,h):null;
-  }
-  const primary=sourceValue(m,h);return primary;
+  const primaryValue=sourceValue(m,h);
+  if(primaryValue!==null&&primaryValue!==undefined)return primaryValue;
+  return w?wdwValue(w,h):null;
  };
- const rows=games.map(m=>{
-  const h=m.home===team,w=matching(m);
-  return {m,w,h,complete:complete(m,w,h)};
- }).filter(x=>x.complete);
- let values=rows.map(x=>valueFrom(x.m,x.w,x.h)).filter(v=>v!==null&&v!==undefined);
- if(!games.length){
-  const fallback=wdw.filter(m=>venue==="all"||(venue==="home"&&m.teamHome)||(venue==="away"&&!m.teamHome));
-  values=fallback.filter(w=>complete({hg:w.hg,ag:w.ag,hc:null,ac:null,homeTarget:null,awayTarget:null,homeShots:null,awayShots:null,homeFouls:null,awayFouls:null},w,w.teamHome))
-   .map(w=>wdwValue(w,w.teamHome)).filter(v=>v!==null&&v!==undefined);
+ const records=primary.map(m=>({m,w:matching(m),h:m.home===team,wdwOnly:false}));
+ // Add WinDrawWin-only fixtures as a genuine secondary sample, but only for the current mapped season.
+ if(allowWdw){
+  for(const w of wdw){
+   const h=w.teamHome;
+   if(venue==="home"&&!h||venue==="away"&&h)continue;
+   const exists=primary.some(m=>sameFixture(m,w));
+   if(exists)continue;
+   records.push({m:{date:"",home:w.home,away:w.away,hg:w.hg,ag:w.ag,htHome:w.htHome,htAway:w.htAway,hc:null,ac:null,homeShots:null,awayShots:null,homeTarget:null,awayTarget:null,homeFouls:null,awayFouls:null,homeYellow:null,awayYellow:null,homeRed:null,awayRed:null},w,h,wdwOnly:true});
+  }
  }
+ const rows=records.filter(x=>complete(x.m,x.w));
+ const values=rows.map(x=>valueFrom(x.m,x.w,x.h)).filter(v=>v!==null&&v!==undefined&&Number.isFinite(Number(v)));
  return limit==="all"?values:values.slice(0,requested);
 }
 function mean(values){return values.length?values.reduce((a,b)=>a+b,0)/values.length:null;}
