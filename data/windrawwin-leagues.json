@@ -547,7 +547,17 @@
       "shots_available": null,
       "fouls_available": null,
       "cards_available": null,
-      "integration_status": "catalogued_not_integrated"
+      "integration_status": "available_from_open_matchday",
+      "open_matchday_id": "CZE_1_chance-liga",
+      "open_matchday_coverage": {
+        "matches": 99,
+        "corners": 0,
+        "shots": 0,
+        "target": 0,
+        "fouls": 0,
+        "yellow": 0,
+        "red": 0
+      }
     },
     {
       "country": "Chéquia",
@@ -713,7 +723,17 @@
       "shots_available": null,
       "fouls_available": null,
       "cards_available": null,
-      "integration_status": "catalogued_not_integrated"
+      "integration_status": "available_from_open_matchday",
+      "open_matchday_id": "UKR_1_premier-league",
+      "open_matchday_coverage": {
+        "matches": 79,
+        "corners": 0,
+        "shots": 0,
+        "target": 0,
+        "fouls": 0,
+        "yellow": 0,
+        "red": 0
+      }
     },
     {
       "country": "Ucrânia",
@@ -808,6 +828,40 @@
       "fouls_available": null,
       "cards_available": null,
       "integration_status": "catalogued_not_integrated"
+    },
+    {
+      "country": "Áustria",
+      "name": "Bundesliga",
+      "source": "Open Matchday",
+      "source_url": "https://github.com/oladeeayo/open-matchday",
+      "integration_status": "available_from_open_matchday",
+      "open_matchday_id": "AUT_1_bundesliga",
+      "open_matchday_coverage": {
+        "matches": 63,
+        "corners": 0,
+        "shots": 0,
+        "target": 0,
+        "fouls": 0,
+        "yellow": 0,
+        "red": 0
+      }
+    },
+    {
+      "country": "País de Gales",
+      "name": "Cymru Premier",
+      "source": "Open Matchday",
+      "source_url": "https://github.com/oladeeayo/open-matchday",
+      "integration_status": "available_from_open_matchday",
+      "open_matchday_id": "WAL_1_cymru-premier",
+      "open_matchday_coverage": {
+        "matches": 111,
+        "corners": 0,
+        "shots": 0,
+        "target": 0,
+        "fouls": 0,
+        "yellow": 0,
+        "red": 0
+      }
     }
   ]
 }
