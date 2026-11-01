@@ -391,7 +391,7 @@ function teamSample(team,venue,metric){
  let values=rows.map(x=>valueFrom(x.m,x.w,x.h)).filter(v=>v!==null&&v!==undefined);
  if(!games.length){
   const fallback=wdw.filter(m=>venue==="all"||(venue==="home"&&m.teamHome)||(venue==="away"&&!m.teamHome));
-  values=fallback.filter(w=>complete({hg:w.hg,ag:w.ag,hc:w.homeCorners,ac:w.awayCorners,homeTarget:w.homeTarget,awayTarget:w.awayTarget,homeShots:null,awayShots:null,homeFouls:w.homeFouls,awayFouls:w.awayFouls},w,true))
+  values=fallback.filter(w=>complete({hg:w.hg,ag:w.ag,hc:null,ac:null,homeTarget:null,awayTarget:null,homeShots:null,awayShots:null,homeFouls:null,awayFouls:null},w,w.teamHome))
    .map(w=>wdwValue(w,w.teamHome)).filter(v=>v!==null&&v!==undefined);
  }
  return limit==="all"?values:values.slice(0,requested);
