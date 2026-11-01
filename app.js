@@ -26,4 +26,37 @@ $("run").addEventListener("click",simulate);
 $("adv").addEventListener("input",e=>$("advOut").textContent=e.target.value+"%");
 $("disp").addEventListener("input",e=>$("dispOut").textContent=e.target.value+"%");
 $("reset").addEventListener("click",()=>location.reload());
+
+/* Importação automática baseada no formato CSV já usado no futebol-stats. */
+const dataState={matches:[],teams:[]};
+function parseSourceCSV(text){
+ const rows=[];let row=[],field="",quoted=false;
+ for(let i=0;i<text.length;i++){const c=text[i];if(quoted){if(c==='"'&&text[i+1]==='"'){field+='"';i++;}else if(c==='"')quoted=false;else field+=c;}else if(c==='"')quoted=true;else if(c===","){row.push(field);field="";}else if(c==="\\n"){row.push(field);rows.push(row);row=[];field="";}else if(c!=="\\r")field+=c;}
+ if(field||row.length){row.push(field);rows.push(row);}if(!rows.length)return [];
+ const headers=rows.shift().map(x=>x.trim().replace(/^\\uFEFF/,""));
+ return rows.filter(r=>r.some(v=>String(v).trim())).map(r=>Object.fromEntries(headers.map((h,i)=>[h,(r[i]||"").trim()])));
+}
+function sourceVal(row,names){for(const n of names){const key=Object.keys(row).find(k=>k.toLowerCase()===n.toLowerCase());if(key&&row[key]!=="")return row[key];}return "";}
+function sourceNum(row,names){const raw=String(sourceVal(row,names)).trim().replace(/\\s/g,"").replace(",",".");if(!raw)return null;const n=Number(raw);return Number.isFinite(n)&&n>=0?n:null;}
+function sourceDate(raw){const s=String(raw||"").trim();let m=s.match(/^(\\d{4})[-/.](\\d{1,2})[-/.](\\d{1,2})/);if(m)return m[1]+"-"+m[2].padStart(2,"0")+"-"+m[3].padStart(2,"0");m=s.match(/^(\\d{1,2})[-/.](\\d{1,2})[-/.](\\d{4})/);if(m)return m[3]+"-"+m[2].padStart(2,"0")+"-"+m[1].padStart(2,"0");const d=new Date(s);return Number.isNaN(d.getTime())?"":d.toISOString().slice(0,10);}
+function normalizeSourceMatch(r){const home=sourceVal(r,["home","home_team","HomeTeam"]),away=sourceVal(r,["away","away_team","AwayTeam"]);const hg=sourceNum(r,["ft_home","home_score","home_goals","FTHG"]),ag=sourceNum(r,["ft_away","away_score","away_goals","FTAG"]);if(!home||!away||hg===null||ag===null)return null;return {date:sourceDate(sourceVal(r,["date","match_date","Date"])),home,away,hg,ag,hc:sourceNum(r,["home_corners","HomeCorners","HC","home_corner"]),ac:sourceNum(r,["away_corners","AwayCorners","AC","away_corner"])};}
+async function fetchSourceCSV(url){const key="simulador-futebol:"+url;try{const cached=sessionStorage.getItem(key);if(cached){const c=JSON.parse(cached);if(c&&Date.now()-c.at<900000&&typeof c.text==="string")return c.text;}}catch(e){}const response=await fetch(url);if(!response.ok)throw new Error("A fonte respondeu com HTTP "+response.status);const text=await response.text();try{sessionStorage.setItem(key,JSON.stringify({at:Date.now(),text}));}catch(e){}return text;}
+async function loadHistoricalData(){
+ const status=$("data-status"),button=$("load-data");button.disabled=true;status.textContent="A obter o ficheiro histórico da competição…";
+ try{const league=$("league").value,season=$("season").value,url="https://raw.githubusercontent.com/oladeeayo/open-matchday/master/data/"+league+"/results_"+season+".csv";const csv=await fetchSourceCSV(url);const matches=parseSourceCSV(csv).map(normalizeSourceMatch).filter(Boolean).sort((a,b)=>b.date.localeCompare(a.date));if(!matches.length)throw new Error("O ficheiro foi obtido, mas não contém resultados reconhecidos.");
+ dataState.matches=matches;dataState.teams=[...new Set(matches.flatMap(m=>[m.home,m.away]))].sort((a,b)=>a.localeCompare(b));for(const id of ["homePick","awayPick"]){const select=$(id);select.innerHTML='<option value="">Escolhe uma equipa</option>'+dataState.teams.map(t=>'<option value="'+t.replace(/&/g,"&amp;").replace(/"/g,"&quot;")+'">'+t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")+'</option>').join("");select.disabled=false;}
+ status.textContent=matches.length+" jogos históricos válidos carregados; "+dataState.teams.length+" equipas disponíveis. Escolhe as duas equipas para preencher as médias.";applyTeamSelection("home");applyTeamSelection("away");
+ }catch(e){status.textContent="Não foi possível carregar os dados: "+e.message+". Podes continuar a usar a entrada manual.";}finally{button.disabled=false;}
+}
+function teamSample(team,venue,metric){let games=dataState.matches.filter(m=>(m.home===team||m.away===team)&&(venue==="all"||(venue==="home"&&m.home===team)||(venue==="away"&&m.away===team)));const limit=$("sample").value;if(limit!=="all")games=games.slice(0,Number(limit));return games.map(m=>{const home=m.home===team;if(metric==="goalsFor")return home?m.hg:m.ag;if(metric==="goalsAgainst")return home?m.ag:m.hg;if(metric==="cornersFor")return home?m.hc:m.ac;if(metric==="cornersAgainst")return home?m.ac:m.hc;}).filter(v=>v!==null&&v!==undefined);}
+function mean(values){return values.length?values.reduce((a,b)=>a+b,0)/values.length:null;}
+function fillInput(id,value){if(value!==null&&Number.isFinite(value))$(id).value=value.toFixed(2);}
+function applyTeamSelection(side){const team=$(side==="home"?"homePick":"awayPick").value;if(!team)return;const venue=side==="home"?"home":"away";const suffix=side==="home"?"h":"a";const fields=[["goalsFor",suffix+"gFor"],["goalsAgainst",suffix+"gAgainst"],["cornersFor",suffix+"cFor"],["cornersAgainst",suffix+"cAgainst"]];let notes=[];for(const [metric,id] of fields){const values=teamSample(team,venue,metric),avg=mean(values);if(avg!==null){fillInput(id,avg);notes.push(metric==="goalsFor"?"golos marcados":metric==="goalsAgainst"?"golos sofridos":metric==="cornersFor"?"cantos a favor":"cantos concedidos");}}
+ $(side==="home"?"homeName":"awayName").value=team;const status=$("data-status");status.textContent=team+": médias preenchidas com os jogos "+(venue==="home"?"em casa":"fora")+" disponíveis na amostra selecionada. Métricas sem cobertura continuam editáveis.";
+}
+$("load-data").addEventListener("click",loadHistoricalData);
+$("homePick").addEventListener("change",()=>applyTeamSelection("home"));
+$("awayPick").addEventListener("change",()=>applyTeamSelection("away"));
+$("sample").addEventListener("change",()=>{if($("homePick").value)applyTeamSelection("home");if($("awayPick").value)applyTeamSelection("away");});
+
 })();
