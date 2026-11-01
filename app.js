@@ -15,6 +15,23 @@ if([hg,ag,hc,ac].some(x=>x>30))throw Error("Uma média introduzida é demasiado 
 let home=0,draw=0,away=0,g15=0,g25=0,g35=0,c85=0,c95=0,c105=0,sumG=0,sumC=0,sumHG=0,sumAG=0,scoreMap={};
 for(let i=0;i<N;i++){const x=poisson(hg),y=poisson(ag),c=negBin(hc,disp),d=negBin(ac,disp),gt=x+y,ct=c+d;sumG+=gt;sumC+=ct;sumHG+=x;sumAG+=y;if(x>y)home++;else if(x===y)draw++;else away++;if(gt>=2)g15++;if(gt>=3)g25++;if(gt>=4)g35++;if(ct>=9)c85++;if(ct>=10)c95++;if(ct>=11)c105++;const key=x+"-"+y;scoreMap[key]=(scoreMap[key]||0)+1}
 const modal=Object.entries(scoreMap).sort((x,y)=>y[1]-x[1])[0][0],mean=(sumHG/N).toFixed(2)+" – "+(sumAG/N).toFixed(2);
+const extraSpecs=[
+ {key:"Remates",ids:["hshotsFor","hshotsAgainst","ashotsFor","ashotsAgainst"],thresholds:[19.5,21.5,23.5],dispersion:.22},
+ {key:"Remates à baliza",ids:["htargetFor","htargetAgainst","atargetFor","atargetAgainst"],thresholds:[5.5,7.5,9.5],dispersion:.28},
+ {key:"Faltas",ids:["hfoulsFor","hfoulsAgainst","afoulsFor","afoulsAgainst"],thresholds:[19.5,21.5,23.5],dispersion:.22},
+ {key:"Cartões amarelos",ids:["hyellowFor","hyellowAgainst","ayellowFor","ayellowAgainst"],thresholds:[2.5,3.5,4.5],dispersion:.45},
+ {key:"Cartões vermelhos",ids:["hredFor","hredAgainst","aredFor","aredAgainst"],thresholds:[.5,1.5],dispersion:.7}
+];
+const extraHtml=[];
+for(const spec of extraSpecs){
+ const values=spec.ids.map(id=>$(id).value.trim()===""?null:Number($(id).value));
+ if(values.some(v=>v===null||!Number.isFinite(v)||v<0))continue;
+ const homeMean=(values[0]+values[3])/2,awayMean=(values[2]+values[1])/2,totalMean=homeMean+awayMean;
+ let hits=spec.thresholds.map(()=>0),sum=0;
+ for(let j=0;j<N;j++){const total=negBin(homeMean,spec.dispersion)+negBin(awayMean,spec.dispersion);sum+=total;spec.thresholds.forEach((t,k)=>{if(total>t)hits[k]++;});}
+ extraHtml.push('<article class="card extra-result"><small>'+spec.key.toUpperCase()+'</small><div class="big">'+(sum/N).toFixed(2)+'</div><p>média total esperada · casa '+homeMean.toFixed(2)+' / fora '+awayMean.toFixed(2)+'</p>'+spec.thresholds.map((t,k)=>line('Mais de '+t.toFixed(1),hits[k])).join('')+'</article>');
+}
+$("extraMarkets").innerHTML=extraHtml.length?extraHtml.join(""):'<p class="model-note">Sem cobertura suficiente para prever remates, faltas ou cartões. Preenche as quatro médias de cada estatística para ativar o respetivo modelo.</p>';
 $("outcomes").innerHTML=[["Vitória "+h,home],["Empate",draw],["Vitória "+a,away]].map(([l,p])=>'<div class="bar-row"><div class="bar-label"><span>'+l+'</span><b>'+pct(p)+'</b></div><div class="bar-track"><div class="bar-fill" style="width:'+100*p/N+'%"></div></div></div>').join("");
 $("meanScore").textContent=mean;$("modalScore").textContent=modal;$("meanGoals").textContent=(sumG/N).toFixed(2);$("meanCorners").textContent=(sumC/N).toFixed(2);
 $("goalMarkets").innerHTML=[line("Mais de 1.5 golos",g15),line("Mais de 2.5 golos",g25),line("Mais de 3.5 golos",g35)].join("");
