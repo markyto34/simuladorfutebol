@@ -157,55 +157,82 @@ function parseWdwSummary(doc,team,matches){const body=doc.body?.innerText||"";co
 function renderWdwSummary(side,team){const box=$(side==="home"?"wdw-home-data":"wdw-away-data");if(!box)return;const s=dataState.wdwSummaries[team];if(!s){box.textContent="A aguardar dados WinDrawWin.";return;}const fmt=v=>v===null||!Number.isFinite(v)?"Sem dados":v.toFixed(1)+(v===s.possession?"%":"");const parts=["Amostra recente: "+s.sample+" jogos","Forma (5): "+(s.form||"Sem dados")+" · V/E/D "+s.wins+"/"+s.draws+"/"+s.losses,"Golos marcados/sofridos: "+(s.goalsFor===null?"Sem dados":s.goalsFor.toFixed(2))+" / "+(s.goalsAgainst===null?"Sem dados":s.goalsAgainst.toFixed(2)),"Clean sheets: "+(s.cleanSheets===null?"Sem dados":s.cleanSheets.toFixed(1)+"%"),"Golos na 1.ª parte: "+(s.htGoals===null?"Sem dados":s.htGoals.toFixed(2))+" · O0,5/O1,5 HT: "+(s.ht05===null?"Sem dados":s.ht05.toFixed(1)+"%")+"/"+(s.ht15===null?"Sem dados":s.ht15.toFixed(1)+"%"),"Posse média: "+(s.possession===null?"Sem dados":s.possession.toFixed(1)+"%"),"Remates por jogo: "+(s.shots===null?"Sem dados":s.shots.toFixed(1)),"Remates à baliza: "+(s.shotsOnTarget===null?"Sem dados":s.shotsOnTarget.toFixed(1)),"BTTS: "+(s.btts===null?"Sem dados":s.btts.toFixed(1)+"% ("+s.bttsCount+"/"+s.bttsPlayed+")"),"Mais de 2,5 golos: "+(s.over25===null?"Sem dados":s.over25.toFixed(1)+"% ("+s.over25Count+"/"+s.over25Played+")"),"Cantos totais/jogo: "+(s.cornersTotal===null?"Sem dados":s.cornersTotal.toFixed(2)),"Cantos em casa/fora: "+(s.cornersHome===null||s.cornersAway===null?"Sem dados":s.cornersHome.toFixed(2)+" / "+s.cornersAway.toFixed(2))];box.textContent=parts.join(" · ");}
 function wdwDateKey(raw){const m=String(raw||"").match(/\b(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]{3,9})\b/i);if(!m)return "";const months={jan:"01",feb:"02",mar:"03",apr:"04",may:"05",jun:"06",jul:"07",aug:"08",sep:"09",oct:"10",nov:"11",dec:"12"};const month=months[m[2].slice(0,3).toLowerCase()];return month?month+"-"+m[1].padStart(2,"0"):"";}function parseWdwMatchRows(doc,team){const out=[];const heading=doc.querySelector("h1")?.textContent?.replace(/ Results.*$/i,"").trim()||team;const rows=[...doc.querySelectorAll("tr")];for(const tr of rows){const cells=[...tr.cells].map(c=>c.textContent.replace(/\s+/g," ").trim());if(cells.length<14)continue;const dateKey=wdwDateKey(cells[0]);const fixture=cells[1]||"";if(!/\s+v\s+/i.test(fixture))continue;const parts=fixture.split(/\s+v\s+/i);if(parts.length!==2)continue;const home=parts[0].trim(),away=parts[1].trim(),score=(cells[2]||"").match(/^(\d+)\s*[-:]\s*(\d+)$/),htScore=(cells[3]||"").match(/^(\d+)\s*[-:]\s*(\d+)$/);if(!score)continue;const h=(v)=>{const s=String(v||"").trim().replace("%","").replace(",",".");if(!s||/no additional|^[-—]$/i.test(s))return null;const n=Number(s);return Number.isFinite(n)&&n>=0?n:null;};const vals=cells.slice(4,14).map(h);if(vals.length<10)continue;const teamIsHome=wdwTeamKey(home)===wdwTeamKey(heading)||wdwTeamKey(home)===wdwTeamKey(team);const teamIsAway=wdwTeamKey(away)===wdwTeamKey(heading)||wdwTeamKey(away)===wdwTeamKey(team);if(!teamIsHome&&!teamIsAway)continue;out.push({dateKey,home,away,hg:Number(score[1]),ag:Number(score[2]),htHome:htScore?Number(htScore[1]):null,htAway:htScore?Number(htScore[2]):null,homePoss:vals[0],homeCorners:vals[1],homeFouls:vals[2],homeTarget:vals[3],homeShotsOff:vals[4],awayPoss:vals[5],awayCorners:vals[6],awayFouls:vals[7],awayTarget:vals[8],awayShotsOff:vals[9],teamHome:teamIsHome,source:"WinDrawWin"});}return out;}
 function wdwCacheKey(leagueId,team){return leagueId+"::"+wdwTeamKey(team);}
-async function findWdwTeamPath(team,leagueId){
+function wdwTeamPathCandidates(team,leagueId){
+ const known=WDW_TEAM_PATHS[leagueId]?.[wdwTeamKey(team)];
+ const key=wdwTeamKey(team).replace(/\\s+/g,"-");
+ const raw=String(team||"").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+ return [...new Set([known,"/results/"+key+"/","/results/"+raw+"/","/results/fc-"+key+"/"].filter(Boolean))];
+}
+async function findWdwTeamPathFromLeagueIndex(team,leagueId){
  const slug=WDW_LEAGUES[leagueId];
  if(!slug)return {path:null,reason:"unsupported_league"};
- // Preferir caminhos de equipa confirmados: não dependem do índice /tips da competição.
- const directPath=WDW_TEAM_PATHS[leagueId]?.[wdwTeamKey(team)];
- if(directPath)return {path:directPath,reason:null,source:"confirmed_team_path"};
  if(!Object.prototype.hasOwnProperty.call(dataState.wdwLeagueLinks,leagueId)){
   const doc=await fetchWdwPage("/tips/"+slug+"/");
   dataState.wdwLeagueLinks[leagueId]=[...doc.querySelectorAll('a[href^="/results/"]')]
-   .map(a=>({name:a.textContent.trim().replace(/\s+Results\s*$/i,"").trim(),href:a.getAttribute("href")}))
+   .map(a=>({name:a.textContent.trim().replace(/\\s+Results\\s*$/i,"").trim(),href:a.getAttribute("href")}))
    .filter(x=>x.name&&x.href);
  }
- const links=dataState.wdwLeagueLinks[leagueId];
- const wanted=wdwTeamKey(team);
+ const links=dataState.wdwLeagueLinks[leagueId],wanted=wdwTeamKey(team);
  let hit=links.find(x=>wdwTeamKey(x.name)===wanted);
  if(!hit){
-  const aliases=Object.entries(WDW_ALIASES)
-   .filter(([k,v])=>wdwTeamKey(k)===wanted||wdwTeamKey(v)===wanted)
-   .map(([,v])=>wdwTeamKey(v));
+  const aliases=Object.entries(WDW_ALIASES).filter(([k,v])=>wdwTeamKey(k)===wanted||wdwTeamKey(v)===wanted).map(([,v])=>wdwTeamKey(v));
   hit=links.find(x=>aliases.includes(wdwTeamKey(x.name)));
  }
  return hit?{path:hit.href,reason:null}:{path:null,reason:"team_not_listed",availableTeams:links.length};
 }
+async function findWdwTeamPath(team,leagueId){
+ if(!WDW_LEAGUES[leagueId])return {paths:[],reason:"unsupported_league"};
+ // Estratégia universal: tentar primeiro o URL individual da equipa, sem depender do índice da competição.
+ return {paths:wdwTeamPathCandidates(team,leagueId),reason:null};
+}
 async function loadWdwTeam(side){
  const team=$(side==="home"?"homePick":"awayPick").value;
  if(!team)return;
- const status=$("wdw-status"),league=$( "league").value,key=wdwCacheKey(league,team);
+ const status=$("wdw-status"),league=$("league").value,key=wdwCacheKey(league,team);
  if(dataState.wdwTeams[key]){
   applyTeamSelection(side);renderWdwSummary(side,key);
   status.textContent="WinDrawWin: dados em cache para "+team+" nesta competição ("+dataState.wdwTeams[key].length+" jogos).";
   return;
  }
- if(!WDW_PROXY_URL){status.textContent="WinDrawWin: proxy criado, mas ainda falta publicar/configurar o endereço do Worker.";return;}
+ if(!WDW_PROXY_URL){status.textContent="WinDrawWin: proxy ainda não configurado. A fonte principal continua ativa.";return;}
  try{
   const result=await findWdwTeamPath(team,league);
-  if(!result.path){
-   status.textContent=result.reason==="unsupported_league"
-    ?"WinDrawWin: esta competição ainda não tem um mapeamento confirmado. A fonte principal continua ativa."
-    :result.availableTeams===0
-     ?"WinDrawWin: o índice de equipas desta competição devolveu zero resultados. Isto não significa que o nome da equipa esteja errado; a fonte principal continua ativa."
-     :"WinDrawWin: a equipa «"+team+"» não foi encontrada no índice da competição ("+result.availableTeams+" equipas). A fonte principal continua ativa.";
+  if(result.reason==="unsupported_league"){
+   status.textContent="WinDrawWin: competição sem mapeamento de origem. A fonte principal continua ativa.";
    return;
   }
-  const doc=await fetchWdwPage(result.path),matches=parseWdwMatchRows(doc,team);
-  if(!matches.length){status.textContent="WinDrawWin: página encontrada para "+team+", mas sem estatísticas numéricas reconhecidas.";return;}
+  let doc=null,matches=[],usedPath=null,lastError="";
+  for(const path of result.paths){
+   try{
+    const candidate=await fetchWdwPage(path),candidateMatches=parseWdwMatchRows(candidate,team);
+    if(candidateMatches.length){doc=candidate;matches=candidateMatches;usedPath=path;break;}
+   }catch(e){
+    lastError=String(e?.message||e);
+    if(/respondeu 403|HTTP 403/i.test(lastError))break;
+   }
+  }
+  // Fallback: índice da competição, útil quando o URL da equipa tem um slug irregular.
+  if(!matches.length&&!/respondeu 403|HTTP 403/i.test(lastError)){
+   try{
+    const indexed=await findWdwTeamPathFromLeagueIndex(team,league);
+    if(indexed.path){
+     const candidate=await fetchWdwPage(indexed.path),candidateMatches=parseWdwMatchRows(candidate,team);
+     if(candidateMatches.length){doc=candidate;matches=candidateMatches;usedPath=indexed.path;}
+    }else if(indexed.availableTeams===0){
+     lastError="O índice da competição devolveu zero equipas.";
+    }
+   }catch(e){lastError=String(e?.message||e);}
+  }
+  if(!matches.length){
+   status.textContent=/respondeu 403|HTTP 403/i.test(lastError)
+    ?"WinDrawWin: o servidor recusou o acesso (HTTP 403). Não é um erro no nome da equipa; a fonte principal continua ativa."
+    :"WinDrawWin: não foi possível confirmar uma página de resultados para «"+team+"» nesta competição. "+(lastError||"A fonte principal continua ativa.");
+   return;
+  }
   dataState.wdwTeams[key]=matches;
   dataState.wdwSummaries[key]=parseWdwSummary(doc,team,matches);
   applyTeamSelection(side);renderWdwSummary(side,key);
-  status.textContent="WinDrawWin: "+matches.length+" jogos recentes lidos para "+team+" nesta competição. Estatísticas adicionais só serão usadas quando a fonte principal não tiver cobertura.";
+  status.textContent="WinDrawWin: "+matches.length+" jogos recentes lidos para "+team+" ("+usedPath+"). A fonte principal mantém prioridade quando tem dados.";
  }catch(e){status.textContent="WinDrawWin: "+e.message;}
 }
 function parseSourceCSV(text){
