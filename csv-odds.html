@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#101a16">
-  <meta name="description" content="Laboratório de análise histórica e pré-jogo das três odds 1X2.">
+  <meta name="description" content="Laboratório histórico de mercados de futebol por primeira parte, segunda parte e resultado final, com análise conjunta das odds 1X2.">
   <title>CSV de Odds | Simulador Futebol</title>
   <link rel="stylesheet" href="csv-odds.css">
 </head>
@@ -18,13 +18,13 @@
     <main>
       <header><div><p class="eyebrow">INVESTIGAÇÃO HISTÓRICA E PRÉ-JOGO</p><h1>CSV de Odds</h1></div><a class="back" href="index.html">← Voltar ao simulador</a></header>
       <section class="intro">
-        <div><h2>Estuda o mercado 1X2 com dados históricos.</h2><p>A base de dados é carregada automaticamente. Analisa sempre o conjunto completo de odds 1, X e 2, investiga padrões e compara jogos atuais com encontros históricos semelhantes.</p></div>
+        <div><h2>Estuda vários mercados com as três odds 1X2.</h2><p>A base de dados é carregada automaticamente. Analisa a primeira parte, a segunda parte, o resultado final e as combinações intervalo/final. Compara competições e jogos atuais com históricos de odds 1, X e 2 semelhantes.</p></div>
         <div class="count"><b id="recordCount">A carregar</b><small>REGISTOS NA BASE HISTÓRICA</small></div>
       </section>
       <section class="panel import-panel">
         <div class="section-head"><div><em>01</em><h2>Estado da base de dados</h2></div><small>CARREGAMENTO AUTOMÁTICO</small></div>
         <p id="status" class="status" role="status" aria-live="polite">A ligar à base de dados histórica…</p>
-        <div class="schema-note">A base de dados é obtida automaticamente a partir do ficheiro de origem. O navegador não pede upload. A análise 1X2 só inclui jogos com resultado FT e as três odds válidas. Os resultados são de tempo regulamentar; prolongamentos não alteram o mercado FT.</div>
+        <div class="schema-note">A base de dados é obtida automaticamente a partir do ficheiro de origem. O navegador não pede upload. Todos os mercados exigem as três odds 1, X e 2 válidas. Cada mercado usa apenas jogos com o respetivo resultado completo: a falta do intervalo ou da segunda parte não é convertida em zero. O mercado 1X2 final usa sempre o FT regulamentar, sem prolongamento.</div>
       </section>
       <section id="workspace" hidden>
         <section class="panel">
@@ -86,7 +86,7 @@
           </div>
           <div class="analysis-grid">
             <article><span>Previsão do mercado (1X2)</span><strong id="marketPrediction">—</strong><small id="marketPredictionProb">—</small></article>
-            <article><span>Jogos históricos semelhantes</span><strong id="currentSample">—</strong></article>
+            <article><span>Jogos semelhantes com FT completo</span><strong id="currentSample">—</strong></article>
             <article><span>Probabilidade justa mercado · 1</span><strong id="current1Prob">—</strong></article>
             <article><span>Probabilidade justa mercado · X</span><strong id="currentXProb">—</strong></article>
             <article><span>Probabilidade justa mercado · 2</span><strong id="current2Prob">—</strong></article>
