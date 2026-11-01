@@ -87,7 +87,17 @@
       "shots_available": null,
       "fouls_available": null,
       "cards_available": null,
-      "integration_status": "catalogued_not_integrated"
+      "integration_status": "available_from_open_matchday",
+      "open_matchday_id": "ENG_5_national-league",
+      "open_matchday_coverage": {
+        "matches": 189,
+        "corners": 177,
+        "shots": 177,
+        "target": 177,
+        "fouls": 177,
+        "yellow": 177,
+        "red": 177
+      }
     },
     {
       "country": "Escócia",
@@ -375,7 +385,17 @@
       "shots_available": null,
       "fouls_available": null,
       "cards_available": null,
-      "integration_status": "catalogued_not_integrated"
+      "integration_status": "available_from_open_matchday",
+      "open_matchday_id": "DEN_1_superliga",
+      "open_matchday_coverage": {
+        "matches": 73,
+        "corners": 0,
+        "shots": 0,
+        "target": 0,
+        "fouls": 0,
+        "yellow": 0,
+        "red": 0
+      }
     },
     {
       "country": "Dinamarca",
@@ -423,7 +443,17 @@
       "shots_available": null,
       "fouls_available": null,
       "cards_available": null,
-      "integration_status": "catalogued_not_integrated"
+      "integration_status": "available_from_open_matchday",
+      "open_matchday_id": "SWE_1_allsvenskan",
+      "open_matchday_coverage": {
+        "matches": 105,
+        "corners": 0,
+        "shots": 0,
+        "target": 0,
+        "fouls": 0,
+        "yellow": 0,
+        "red": 0
+      }
     },
     {
       "country": "Suécia",
@@ -459,7 +489,17 @@
       "shots_available": null,
       "fouls_available": null,
       "cards_available": null,
-      "integration_status": "catalogued_not_integrated"
+      "integration_status": "available_from_open_matchday",
+      "open_matchday_id": "SUI_1_super-league",
+      "open_matchday_coverage": {
+        "matches": 69,
+        "corners": 0,
+        "shots": 0,
+        "target": 0,
+        "fouls": 0,
+        "yellow": 0,
+        "red": 0
+      }
     },
     {
       "country": "Suíça",
@@ -579,7 +619,17 @@
       "shots_available": null,
       "fouls_available": null,
       "cards_available": null,
-      "integration_status": "catalogued_not_integrated"
+      "integration_status": "available_from_open_matchday",
+      "open_matchday_id": "ROU_1_liga-1",
+      "open_matchday_coverage": {
+        "matches": 103,
+        "corners": 0,
+        "shots": 0,
+        "target": 0,
+        "fouls": 0,
+        "yellow": 0,
+        "red": 0
+      }
     },
     {
       "country": "Sérvia",
@@ -699,7 +749,17 @@
       "shots_available": null,
       "fouls_available": null,
       "cards_available": null,
-      "integration_status": "catalogued_not_integrated"
+      "integration_status": "available_from_open_matchday",
+      "open_matchday_id": "ARG_1_liga-profesional",
+      "open_matchday_coverage": {
+        "matches": 466,
+        "corners": 0,
+        "shots": 0,
+        "target": 0,
+        "fouls": 0,
+        "yellow": 0,
+        "red": 0
+      }
     },
     {
       "country": "México",
