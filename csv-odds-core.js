@@ -247,7 +247,7 @@
         over15: binaryMarket(matches, "ht", s => s[0] + s[1] > 1),
         over25: binaryMarket(matches, "ht", s => s[0] + s[1] > 2),
         btts: binaryMarket(matches, "ht", s => s[0] > 0 && s[1] > 0),
-        exactScores: scoreFrequencies(firstHalf)
+        exactScores: scoreFrequencies(firstHalf, "ht")
       },
       secondHalf: {
         result: categoricalMarket(matches, "secondHalf", s => s[0] > s[1] ? "1" : s[0] < s[1] ? "2" : "X"),
@@ -259,7 +259,7 @@
           count: matches.filter(m => hasCompleteOdds(m.odds) && m.ht.every(Number.isInteger) && m.secondHalf.every(Number.isInteger)).length,
           secondHalfMore: 0, firstHalfMore: 0, equal: 0
         },
-        exactScores: scoreFrequencies(secondHalf)
+        exactScores: scoreFrequencies(secondHalf, "secondHalf")
       },
       fullTime: {
         result: categoricalMarket(matches, "ft", s => s[0] > s[1] ? "1" : s[0] < s[1] ? "2" : "X"),
@@ -274,7 +274,7 @@
         awayOver15: binaryMarket(matches, "ft", s => s[1] > 1),
         homeCleanSheet: binaryMarket(matches, "ft", s => s[1] === 0),
         awayCleanSheet: binaryMarket(matches, "ft", s => s[0] === 0),
-        exactScores: scoreFrequencies(fullTime)
+        exactScores: scoreFrequencies(fullTime, "ft")
       },
       halfFull: { count: halfFull.length, outcomes: {} }
     };
@@ -299,10 +299,11 @@
     return result;
   }
 
-  function scoreFrequencies(matches) {
+  function scoreFrequencies(matches, scoreKey) {
     const counts = new Map();
     matches.forEach(m => {
-      const key = m[0] + "-" + m[1];
+      const score = m[scoreKey];
+      const key = score[0] + "-" + score[1];
       counts.set(key, (counts.get(key) || 0) + 1);
     });
     const total = matches.length;
