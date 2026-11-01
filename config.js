@@ -1,0 +1,1 @@
+window.SIMULADOR_CONFIG = { windrawwinProxyUrl: "" };\n
