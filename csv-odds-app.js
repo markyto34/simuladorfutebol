@@ -61,7 +61,7 @@
       const tr=document.createElement("tr"),td=document.createElement("td");td.colSpan=8;td.className="empty";td.textContent="Não existem jogos para os filtros selecionados.";tr.append(td);$("matchesBody").append(tr);
     } else rows.forEach(m=>{
       const tr=document.createElement("tr");
-      const cells=[dateText(m.date),m.league,m.home+" – "+m.away,scoreText(m.ht),scoreText(m.ft),scoreText(m.final),
+      const cells=[dateText(m.date),m.league,m.home+" – "+m.away,scoreText(m.ht),scoreText(m.secondHalf),scoreText(m.ft),scoreText(m.final),
         ["1","X","2"].map(k=>m.odds[k]===null?"—":fmt(m.odds[k],2)).join(" / ")];
       cells.forEach(value=>{const td=document.createElement("td");td.textContent=value;tr.append(td);});
       const state=document.createElement("td");state.textContent=m.completed?"Concluído":"Pendente";if(!m.completed)state.className="pending";tr.append(state);$("matchesBody").append(tr);
