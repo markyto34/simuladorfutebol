@@ -238,6 +238,33 @@ async function loadWdwTeam(side){
   status.textContent="WinDrawWin: "+matches.length+" jogos recentes lidos para "+team+" ("+usedPath+"). A fonte principal mantém prioridade quando tem dados.";
  }catch(e){status.textContent="WinDrawWin: "+e.message;}
 }
+
+async function loadWdwMatchPair(){
+ const home=$( "homePick").value,away=$( "awayPick").value,league=$( "league").value;
+ const status=$("wdw-status");
+ if(!home||!away){
+  status.textContent="WinDrawWin: seleciona as duas equipas para validar o mapeamento do encontro.";
+  return;
+ }
+ if(wdwTeamKey(home)===wdwTeamKey(away)){
+  status.textContent="WinDrawWin: as duas seleções apontam para a mesma equipa. Confirma os nomes.";
+  return;
+ }
+ status.textContent="WinDrawWin: a procurar e validar "+home+" e "+away+" na mesma competição…";
+ $("wdw-home-data").textContent="A validar equipa da casa: "+home+"…";
+ $("wdw-away-data").textContent="A validar equipa visitante: "+away+"…";
+ await Promise.all([loadWdwTeam("home"),loadWdwTeam("away")]);
+ const hk=wdwCacheKey(league,home),ak=wdwCacheKey(league,away);
+ const homeOk=Array.isArray(dataState.wdwTeams[hk])&&dataState.wdwTeams[hk].length>0;
+ const awayOk=Array.isArray(dataState.wdwTeams[ak])&&dataState.wdwTeams[ak].length>0;
+ if(homeOk&&awayOk){
+  status.textContent="WinDrawWin: mapeamento confirmado para as duas equipas — "+home+" ("+dataState.wdwTeams[hk].length+" jogos) e "+away+" ("+dataState.wdwTeams[ak].length+" jogos), na mesma competição.";
+ }else{
+  const missing=[!homeOk?home:null,!awayOk?away:null].filter(Boolean);
+  status.textContent="WinDrawWin: mapeamento incompleto. Não foi possível confirmar: "+missing.join(" e ")+". Os dados complementares só ficam disponíveis para a equipa cuja página foi encontrada; a fonte principal mantém-se ativa.";
+ }
+}
+
 function parseSourceCSV(text){
  const rows=[];let row=[],field="",quoted=false;
  for(let i=0;i<text.length;i++){const c=text[i];if(quoted){if(c==='"'&&text[i+1]==='"'){field+='"';i++;}else if(c==='"')quoted=false;else field+=c;}else if(c==='"')quoted=true;else if(c===","){row.push(field);field="";}else if(c==="\n"){row.push(field);rows.push(row);row=[];field="";}else if(c!=="\r")field+=c;}
@@ -325,8 +352,8 @@ function applyTeamSelection(side){
  status.textContent=team+": médias "+(venue==="home"?"em casa":"fora")+" preenchidas. Amostras — golos: "+count("goalsFor","goalsAgainst")+"; cantos: "+count("cornersFor","cornersAgainst")+"; remates: "+count("shotsFor","shotsAgainst")+"; remates à baliza: "+count("targetFor","targetAgainst")+"; faltas: "+count("foulsFor","foulsAgainst")+"; amarelos: "+count("yellowFor","yellowAgainst")+"; vermelhos: "+count("redFor","redAgainst")+". Janela: "+sample+". Campos sem cobertura ficam indisponíveis; não são substituídos por zeros.";
 }
 $("load-data").addEventListener("click",loadHistoricalData);
-$("homePick").addEventListener("change",()=>{$("wdw-home-data").textContent="A consultar dados WinDrawWin…";applyTeamSelection("home");loadWdwTeam("home");});
-$("awayPick").addEventListener("change",()=>{$("wdw-away-data").textContent="A consultar dados WinDrawWin…";applyTeamSelection("away");loadWdwTeam("away");});
+$("homePick").addEventListener("change",()=>{applyTeamSelection("home");loadWdwMatchPair();});
+$("awayPick").addEventListener("change",()=>{applyTeamSelection("away");loadWdwMatchPair();});
 $("sample").addEventListener("change",()=>{if($("homePick").value)applyTeamSelection("home");if($("awayPick").value)applyTeamSelection("away");});
 
 /* Atualiza a base automaticamente ao abrir a aplicação. */
