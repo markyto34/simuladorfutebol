@@ -105,7 +105,13 @@
           </div>
         </section>
         <section class="panel">
-          <div class="section-head"><div><em>06</em><h2>Backtesting cronológico</h2></div><small>TREINO VS. VALIDAÇÃO</small></div>
+          <div class="section-head"><div><em>06</em><h2>Mercados por período</h2></div><small>FREQUÊNCIAS HISTÓRICAS</small></div>
+          <p class="section-copy">Compara os mercados da primeira parte, segunda parte, resultado final e intervalo/final. Cada estatística mostra a sua própria amostra válida. A seleção respeita simultaneamente os intervalos das três odds 1/X/2.</p>
+          <div id="periodMarkets" class="market-period-grid"></div>
+          <p class="hint">Não confundimos ausência de dados com zero golos. Se um resultado parcial estiver em falta, esse jogo não entra na amostra desse mercado.</p>
+        </section>
+        <section class="panel">
+          <div class="section-head"><div><em>07</em><h2>Backtesting cronológico</h2></div><small>TREINO VS. VALIDAÇÃO</small></div>
           <p class="section-copy">Usa os intervalos 1/X/2 definidos acima. Escolhe uma data de corte: os jogos anteriores formam a amostra de treino e os jogos dessa data em diante formam a amostra de validação.</p>
           <div class="backtest-controls"><label>Data de corte<input id="splitDate" type="date"></label><button id="runBacktest" class="quiet">Executar backtesting</button></div>
           <div class="analysis-grid">
