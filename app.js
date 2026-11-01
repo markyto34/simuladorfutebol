@@ -387,8 +387,16 @@ function teamSample(team,venue,metric){
   if(metric==="foulsAgainst")return h?w.awayFouls:w.homeFouls;
   return null;
  };
+ const wdwMatchDate=w=>{
+  if(!allowWdw||!w.dateKey)return "";
+  const [month,day]=w.dateKey.split("-").map(Number);
+  const startYear=2000+Number(season.slice(0,2));
+  const year=month>=7?startYear:startYear+1;
+  return year+"-"+String(month).padStart(2,"0")+"-"+String(day).padStart(2,"0");
+ };
  const sameFixture=(m,w)=>{
-  if(!w.dateKey||!m.date||m.date.slice(5)!==w.dateKey)return false;
+  const date=wdwMatchDate(w);
+  if(!date||!m.date||m.date!==date)return false;
   return wdwTeamKey(m.home)===wdwTeamKey(w.home)&&wdwTeamKey(m.away)===wdwTeamKey(w.away)&&m.hg===w.hg&&m.ag===w.ag;
  };
  const matching=m=>wdw.find(w=>w.teamHome===(m.home===team)&&sameFixture(m,w))||null;
@@ -414,9 +422,10 @@ function teamSample(team,venue,metric){
    if(venue==="home"&&!h||venue==="away"&&h)continue;
    const exists=primary.some(m=>sameFixture(m,w));
    if(exists)continue;
-   records.push({m:{date:"",home:w.home,away:w.away,hg:w.hg,ag:w.ag,htHome:w.htHome,htAway:w.htAway,hc:null,ac:null,homeShots:null,awayShots:null,homeTarget:null,awayTarget:null,homeFouls:null,awayFouls:null,homeYellow:null,awayYellow:null,homeRed:null,awayRed:null},w,h,wdwOnly:true});
+   records.push({m:{date:wdwMatchDate(w),home:w.home,away:w.away,hg:w.hg,ag:w.ag,htHome:w.htHome,htAway:w.htAway,hc:null,ac:null,homeShots:null,awayShots:null,homeTarget:null,awayTarget:null,homeFouls:null,awayFouls:null,homeYellow:null,awayYellow:null,homeRed:null,awayRed:null},w,h,wdwOnly:true});
   }
  }
+ records.sort((a,b)=>(b.m.date||"").localeCompare(a.m.date||""));
  const rows=records.filter(x=>complete(x.m,x.w));
  const values=rows.map(x=>valueFrom(x.m,x.w,x.h)).filter(v=>v!==null&&v!==undefined&&Number.isFinite(Number(v)));
  return limit==="all"?values:values.slice(0,requested);
