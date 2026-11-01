@@ -13,4 +13,7 @@ jobs:
         with:
           node-version: 22
       - run: node --check app.js
-      - run: node --test tests/backtest.test.cjs
+      - run: node --check config.js
+      - run: node --check windrawwin-proxy/src/index.js
+      - run: node scripts/validate-config.cjs
+      - run: node --test tests/*.test.cjs
