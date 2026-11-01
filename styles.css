@@ -3,5 +3,5 @@
 
 .extra-grid{margin-top:16px}.extra-result .big{margin-top:12px}.extra-result>p{min-height:28px;line-height:1.5}@media(max-width:900px){.extra-grid{grid-template-columns:1fr 1fr}}@media(max-width:560px){.extra-grid{grid-template-columns:1fr}}
 
-/* Valores estatísticos apresentados como resultados, nunca como campos editáveis. */
-.metric-value{display:block;width:100%;min-height:42px;background:#0e1712;color:#a9e9bc;border:1px solid #34483c;border-radius:8px;padding:12px;font-size:13px;font-weight:700}.team-name{display:block;min-height:42px;background:#0e1712;color:#f0f6f2;border:1px solid #34483c;border-radius:8px;padding:12px;font-size:13px;font-weight:700}
+/* Médias históricas em texto simples: sem caixas, bordas ou aparência de campos. */
+.metric-value{display:block;min-height:24px;padding:2px 0 8px;background:transparent;border:0;border-radius:0;color:#a9e9bc;font-size:15px;font-weight:700}.team-name{display:block;min-height:24px;padding:2px 0 8px;background:transparent;border:0;border-radius:0;color:#f0f6f2;font-size:15px;font-weight:700}
