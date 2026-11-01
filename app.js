@@ -383,6 +383,7 @@ function teamSample(team,venue,metric){
  };
  const valueFrom=(m,w,h)=>{
   if(metric==="goalsFor"||metric==="goalsAgainst")return sourceValue(m,h);
+  if(metric==="htGoalsFor"||metric==="htGoalsAgainst"){const primary=sourceValue(m,h);return primary!==null&&primary!==undefined?primary:(w?wdwValue(w,h):null);}
   if(metric==="cornersFor"||metric==="cornersAgainst"||metric==="targetFor"||metric==="targetAgainst"||metric==="foulsFor"||metric==="foulsAgainst"){
    const primary=sourceValue(m,h);return primary!==null&&primary!==undefined?primary:(w?wdwValue(w,h):null);
   }
