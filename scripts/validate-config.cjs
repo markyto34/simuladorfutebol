@@ -54,4 +54,19 @@ if (sampleStart < 0 || sampleEnd < 0) {
 
 if (!app.includes("if(hasHalfTime&&poisson(hht)+poisson(aht)>=1)ht05++")) fail("Mercado Over 0,5 HT não é calculado de forma independente dos golos FT.");
 if (!app.includes("escapeHtml(value=>") && !app.includes("const escapeHtml=value=>")) fail("Nomes das equipas não são escapados na apresentação HTML.");
-if (!process.exitCode) console.log("OK: configuração, proxy, scripts, integração de dados, modelo HT e validação das duas equipas.");
+
+const loadStart = app.indexOf("async function loadHistoricalData()");
+const loadEnd = app.indexOf("\\nfunction teamSample(", loadStart);
+if (loadStart < 0 || loadEnd < 0) {
+  fail("Função loadHistoricalData não encontrada.");
+} else {
+  const loader = app.slice(loadStart, loadEnd);
+  if (!loader.includes("const isComplete=m=>[m.hg,m.ag,m.hc,m.ac,m.homeShots,m.awayShots,m.homeTarget,m.awayTarget,m.homeFouls,m.awayFouls].every")) fail("O seletor de equipas não filtra jogos sem todos os grupos estatísticos obrigatórios.");
+  if (!loader.includes('["homePick",homeTeams]') || !loader.includes('["awayPick",awayTeams]')) fail("Os seletores CASA e FORA não aplicam elegibilidade específica por localização.");
+  if (!loader.includes("completeMatches.length")) fail("O estado de carregamento não informa quantos jogos estão completos.");
+}
+const applyStart = app.indexOf("function applyTeamSelection(side)");
+const applyEnd = app.indexOf("\\n", app.indexOf("}", applyStart) + 1);
+if (applyStart < 0 || !app.slice(applyStart, applyStart + 1800).includes('if(!team){for(const [,id] of fields)fillInput(id,null)')) fail("A seleção vazia não limpa médias antigas.");
+
+if (!process.exitCode) console.log("OK: configuração, proxy, scripts, integração, completude dos jogos, modelo HT e validação das equipas.");
