@@ -193,12 +193,15 @@
   }
 
   function backtestTriplet(matches, ranges, splitDate) {
-    const eligible = rangeMatches(matches, ranges).filter(m => m.date instanceof Date && !Number.isNaN(m.date.getTime()));
-    const split = splitDate ? new Date(splitDate) : null;
-    const training = split ? eligible.filter(m => m.date < split) : eligible;
-    const validation = split ? eligible.filter(m => m.date >= split) : [];
-    return { splitDate: split && !Number.isNaN(split.getTime()) ? split.toISOString() : null,
-      training: analyzeTriplet(training), validation: split ? analyzeTriplet(validation) : null,
+    const eligible = rangeMatches(matches, ranges)
+      .filter(m => m.date instanceof Date && !Number.isNaN(m.date.getTime()))
+      .sort((a, b) => a.date - b.date);
+    const parsedSplit = splitDate ? new Date(splitDate) : null;
+    const validSplit = parsedSplit instanceof Date && !Number.isNaN(parsedSplit.getTime());
+    const training = validSplit ? eligible.filter(m => m.date < parsedSplit) : eligible;
+    const validation = validSplit ? eligible.filter(m => m.date >= parsedSplit) : [];
+    return { splitDate: validSplit ? parsedSplit.toISOString() : null,
+      training: analyzeTriplet(training), validation: validSplit ? analyzeTriplet(validation) : null,
       eligible: eligible.length, chronological: eligible.every((m, i) => i === 0 || eligible[i - 1].date <= m.date) };
   }
 
