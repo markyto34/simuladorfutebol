@@ -206,7 +206,109 @@
       ["1", "X", "2"].every(key => Math.abs(m.odds[key] - currentOdds[key]) <= tolerance));
     const analysis = analyzeTriplet(cohort);
     return { currentOdds, tolerance, market: impliedProbabilities(currentOdds), sample: cohort.length,
-      historical: analysis.outcomes, averageOverround: analysis.averageOverround, matches: cohort };
+      historical: analysis.outcomes, averageOverround: analysis.averageOverround, marketAnalysis: analyzePeriodMarkets(cohort), matches: cohort };
+  }
+
+  function marketRows(matches, scoreKey) {
+    return matches.filter(m => hasCompleteOdds(m.odds) && Array.isArray(m[scoreKey]) &&
+      m[scoreKey].length === 2 && m[scoreKey].every(Number.isInteger));
+  }
+
+  function binaryMarket(matches, scoreKey, predicate) {
+    const eligible = marketRows(matches, scoreKey);
+    const hits = eligible.filter(m => predicate(m[scoreKey], m)).length;
+    return { count: eligible.length, hits, frequency: eligible.length ? hits / eligible.length * 100 : null };
+  }
+
+  function categoricalMarket(matches, scoreKey, selector) {
+    const eligible = marketRows(matches, scoreKey);
+    const counts = { "1": 0, X: 0, "2": 0 };
+    eligible.forEach(m => {
+      const outcome = selector(m[scoreKey], m);
+      if (Object.prototype.hasOwnProperty.call(counts, outcome)) counts[outcome]++;
+    });
+    return { count: eligible.length, outcomes: Object.fromEntries(
+      Object.entries(counts).map(([key, value]) => [key, {
+        count: value, frequency: eligible.length ? value / eligible.length * 100 : null
+      }])
+    ) };
+  }
+
+  function analyzePeriodMarkets(matches) {
+    const firstHalf = marketRows(matches, "ht");
+    const secondHalf = marketRows(matches, "secondHalf");
+    const fullTime = marketRows(matches, "ft");
+    const halfFull = matches.filter(m => hasCompleteOdds(m.odds) &&
+      m.ht.every(Number.isInteger) && m.ft.every(Number.isInteger));
+    const result = {
+      firstHalf: {
+        result: categoricalMarket(matches, "ht", s => s[0] > s[1] ? "1" : s[0] < s[1] ? "2" : "X"),
+        over05: binaryMarket(matches, "ht", s => s[0] + s[1] > 0),
+        over15: binaryMarket(matches, "ht", s => s[0] + s[1] > 1),
+        over25: binaryMarket(matches, "ht", s => s[0] + s[1] > 2),
+        btts: binaryMarket(matches, "ht", s => s[0] > 0 && s[1] > 0),
+        exactScores: scoreFrequencies(firstHalf, "ht")
+      },
+      secondHalf: {
+        result: categoricalMarket(matches, "secondHalf", s => s[0] > s[1] ? "1" : s[0] < s[1] ? "2" : "X"),
+        over05: binaryMarket(matches, "secondHalf", s => s[0] + s[1] > 0),
+        over15: binaryMarket(matches, "secondHalf", s => s[0] + s[1] > 1),
+        over25: binaryMarket(matches, "secondHalf", s => s[0] + s[1] > 2),
+        btts: binaryMarket(matches, "secondHalf", s => s[0] > 0 && s[1] > 0),
+        moreGoalsThanFirst: {
+          count: matches.filter(m => hasCompleteOdds(m.odds) && m.ht.every(Number.isInteger) && m.secondHalf.every(Number.isInteger)).length,
+          secondHalfMore: 0, firstHalfMore: 0, equal: 0
+        },
+        exactScores: scoreFrequencies(secondHalf, "secondHalf")
+      },
+      fullTime: {
+        result: categoricalMarket(matches, "ft", s => s[0] > s[1] ? "1" : s[0] < s[1] ? "2" : "X"),
+        over15: binaryMarket(matches, "ft", s => s[0] + s[1] > 1),
+        over25: binaryMarket(matches, "ft", s => s[0] + s[1] > 2),
+        over35: binaryMarket(matches, "ft", s => s[0] + s[1] > 3),
+        over45: binaryMarket(matches, "ft", s => s[0] + s[1] > 4),
+        btts: binaryMarket(matches, "ft", s => s[0] > 0 && s[1] > 0),
+        homeOver05: binaryMarket(matches, "ft", s => s[0] > 0),
+        homeOver15: binaryMarket(matches, "ft", s => s[0] > 1),
+        awayOver05: binaryMarket(matches, "ft", s => s[1] > 0),
+        awayOver15: binaryMarket(matches, "ft", s => s[1] > 1),
+        homeCleanSheet: binaryMarket(matches, "ft", s => s[1] === 0),
+        awayCleanSheet: binaryMarket(matches, "ft", s => s[0] === 0),
+        exactScores: scoreFrequencies(fullTime, "ft")
+      },
+      halfFull: { count: halfFull.length, outcomes: {} }
+    };
+    result.secondHalf.moreGoalsThanFirst = { count: 0, secondHalfMore: 0, firstHalfMore: 0, equal: 0 };
+    matches.forEach(m => {
+      if (!hasCompleteOdds(m.odds) || !m.ht.every(Number.isInteger) || !m.secondHalf.every(Number.isInteger)) return;
+      const first = m.ht[0] + m.ht[1], second = m.secondHalf[0] + m.secondHalf[1];
+      result.secondHalf.moreGoalsThanFirst.count++;
+      if (second > first) result.secondHalf.moreGoalsThanFirst.secondHalfMore++;
+      else if (first > second) result.secondHalf.moreGoalsThanFirst.firstHalfMore++;
+      else result.secondHalf.moreGoalsThanFirst.equal++;
+    });
+    halfFull.forEach(m => {
+      const ht = m.ht[0] > m.ht[1] ? "1" : m.ht[0] < m.ht[1] ? "2" : "X";
+      const ft = m.ft[0] > m.ft[1] ? "1" : m.ft[0] < m.ft[1] ? "2" : "X";
+      const key = ht + "/" + ft;
+      result.halfFull.outcomes[key] = (result.halfFull.outcomes[key] || 0) + 1;
+    });
+    result.halfFull.outcomes = Object.fromEntries(Object.entries(result.halfFull.outcomes).map(([key,count]) => [key,{
+      count, frequency: halfFull.length ? count / halfFull.length * 100 : null
+    }]));
+    return result;
+  }
+
+  function scoreFrequencies(matches, scoreKey) {
+    const counts = new Map();
+    matches.forEach(m => {
+      const score = m[scoreKey];
+      const key = score[0] + "-" + score[1];
+      counts.set(key, (counts.get(key) || 0) + 1);
+    });
+    const total = matches.length;
+    return { count: total, top: [...counts.entries()].sort((a,b) => b[1]-a[1]).slice(0,5)
+      .map(([score,count]) => ({ score: score.replace("-", "–"), count, frequency: total ? count/total*100 : null })) };
   }
 
   function forecastExactScores(matches, limit) {
@@ -252,7 +354,7 @@
   }
 
   const api = { parseCSV, normalizeRows, summarize, analyzeOdds, analyzeTriplet, impliedProbabilities,
-    hasCompleteOdds, rangeMatches, evaluateCurrentOdds, forecastExactScores, continentForCountry, backtestTriplet, wilsonInterval, filterMatches };
+    hasCompleteOdds, rangeMatches, evaluateCurrentOdds, analyzePeriodMarkets, forecastExactScores, continentForCountry, backtestTriplet, wilsonInterval, filterMatches };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   root.CSVOdds = api;
 })(typeof globalThis !== "undefined" ? globalThis : this);
