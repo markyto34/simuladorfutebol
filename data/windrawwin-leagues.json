@@ -3,7 +3,7 @@
   "source_url": "https://www.windrawwin.com/predictions/",
   "captured_on": "2026-11-01",
   "purpose": "Catálogo inicial de competições identificadas nas páginas públicas do WinDrawWin. Não contém resultados nem estatísticas reproduzidas.",
-  "status_note": "A presença no catálogo confirma apenas que a competição aparece no site. Não confirma histórico exportável, cobertura estatística completa, nem autorização para recolha automatizada.",
+  "status_note": "Integração inicial do parser WinDrawWin preparada para 10 competições. A importação depende da publicação do Worker e da cobertura disponível por equipa/jogo. O catálogo completo não representa cobertura estatística verificada em todas as competições.",
   "competitions": [
     {
       "country": "Portugal",
@@ -15,7 +15,23 @@
       "shots_available": null,
       "fouls_available": null,
       "cards_available": null,
-      "integration_status": "catalogued_not_integrated"
+      "integration_status": "parser_implemented_proxy_pending",
+      "windrawwin_slug": "portugal-primeira-liga",
+      "windrawwin_data_fields": [
+        "team_results",
+        "goals",
+        "half_time_score",
+        "possession",
+        "corners",
+        "fouls",
+        "shots_on_goal",
+        "shots_off_goal",
+        "btts",
+        "over_2_5",
+        "clean_sheets",
+        "team_form"
+      ],
+      "windrawwin_season_scope": "current_season"
     },
     {
       "country": "Portugal",
@@ -39,7 +55,23 @@
       "shots_available": null,
       "fouls_available": null,
       "cards_available": null,
-      "integration_status": "catalogued_not_integrated"
+      "integration_status": "parser_implemented_proxy_pending",
+      "windrawwin_slug": "england-premier-league",
+      "windrawwin_data_fields": [
+        "team_results",
+        "goals",
+        "half_time_score",
+        "possession",
+        "corners",
+        "fouls",
+        "shots_on_goal",
+        "shots_off_goal",
+        "btts",
+        "over_2_5",
+        "clean_sheets",
+        "team_form"
+      ],
+      "windrawwin_season_scope": "current_season"
     },
     {
       "country": "Inglaterra",
@@ -87,7 +119,7 @@
       "shots_available": null,
       "fouls_available": null,
       "cards_available": null,
-      "integration_status": "available_from_open_matchday",
+      "integration_status": "parser_implemented_proxy_pending",
       "open_matchday_id": "ENG_5_national-league",
       "open_matchday_coverage": {
         "matches": 189,
@@ -97,7 +129,23 @@
         "fouls": 177,
         "yellow": 177,
         "red": 177
-      }
+      },
+      "windrawwin_slug": "england-national-league",
+      "windrawwin_data_fields": [
+        "team_results",
+        "goals",
+        "half_time_score",
+        "possession",
+        "corners",
+        "fouls",
+        "shots_on_goal",
+        "shots_off_goal",
+        "btts",
+        "over_2_5",
+        "clean_sheets",
+        "team_form"
+      ],
+      "windrawwin_season_scope": "current_season"
     },
     {
       "country": "Escócia",
@@ -169,7 +217,23 @@
       "shots_available": null,
       "fouls_available": null,
       "cards_available": null,
-      "integration_status": "catalogued_not_integrated"
+      "integration_status": "parser_implemented_proxy_pending",
+      "windrawwin_slug": "spain-la-liga",
+      "windrawwin_data_fields": [
+        "team_results",
+        "goals",
+        "half_time_score",
+        "possession",
+        "corners",
+        "fouls",
+        "shots_on_goal",
+        "shots_off_goal",
+        "btts",
+        "over_2_5",
+        "clean_sheets",
+        "team_form"
+      ],
+      "windrawwin_season_scope": "current_season"
     },
     {
       "country": "Espanha",
@@ -193,7 +257,23 @@
       "shots_available": null,
       "fouls_available": null,
       "cards_available": null,
-      "integration_status": "catalogued_not_integrated"
+      "integration_status": "parser_implemented_proxy_pending",
+      "windrawwin_slug": "italy-serie-a",
+      "windrawwin_data_fields": [
+        "team_results",
+        "goals",
+        "half_time_score",
+        "possession",
+        "corners",
+        "fouls",
+        "shots_on_goal",
+        "shots_off_goal",
+        "btts",
+        "over_2_5",
+        "clean_sheets",
+        "team_form"
+      ],
+      "windrawwin_season_scope": "current_season"
     },
     {
       "country": "Itália",
@@ -229,7 +309,23 @@
       "shots_available": null,
       "fouls_available": null,
       "cards_available": null,
-      "integration_status": "catalogued_not_integrated"
+      "integration_status": "parser_implemented_proxy_pending",
+      "windrawwin_slug": "germany-bundesliga",
+      "windrawwin_data_fields": [
+        "team_results",
+        "goals",
+        "half_time_score",
+        "possession",
+        "corners",
+        "fouls",
+        "shots_on_goal",
+        "shots_off_goal",
+        "btts",
+        "over_2_5",
+        "clean_sheets",
+        "team_form"
+      ],
+      "windrawwin_season_scope": "current_season"
     },
     {
       "country": "Alemanha",
@@ -313,7 +409,23 @@
       "shots_available": null,
       "fouls_available": null,
       "cards_available": null,
-      "integration_status": "catalogued_not_integrated"
+      "integration_status": "parser_implemented_proxy_pending",
+      "windrawwin_slug": "france-ligue-1",
+      "windrawwin_data_fields": [
+        "team_results",
+        "goals",
+        "half_time_score",
+        "possession",
+        "corners",
+        "fouls",
+        "shots_on_goal",
+        "shots_off_goal",
+        "btts",
+        "over_2_5",
+        "clean_sheets",
+        "team_form"
+      ],
+      "windrawwin_season_scope": "current_season"
     },
     {
       "country": "França",
@@ -337,7 +449,23 @@
       "shots_available": null,
       "fouls_available": null,
       "cards_available": null,
-      "integration_status": "catalogued_not_integrated"
+      "integration_status": "parser_implemented_proxy_pending",
+      "windrawwin_slug": "netherlands-eredivisie",
+      "windrawwin_data_fields": [
+        "team_results",
+        "goals",
+        "half_time_score",
+        "possession",
+        "corners",
+        "fouls",
+        "shots_on_goal",
+        "shots_off_goal",
+        "btts",
+        "over_2_5",
+        "clean_sheets",
+        "team_form"
+      ],
+      "windrawwin_season_scope": "current_season"
     },
     {
       "country": "Países Baixos",
@@ -385,7 +513,7 @@
       "shots_available": null,
       "fouls_available": null,
       "cards_available": null,
-      "integration_status": "available_from_open_matchday",
+      "integration_status": "parser_implemented_proxy_pending",
       "open_matchday_id": "DEN_1_superliga",
       "open_matchday_coverage": {
         "matches": 73,
@@ -395,7 +523,23 @@
         "fouls": 0,
         "yellow": 0,
         "red": 0
-      }
+      },
+      "windrawwin_slug": "denmark-superliga",
+      "windrawwin_data_fields": [
+        "team_results",
+        "goals",
+        "half_time_score",
+        "possession",
+        "corners",
+        "fouls",
+        "shots_on_goal",
+        "shots_off_goal",
+        "btts",
+        "over_2_5",
+        "clean_sheets",
+        "team_form"
+      ],
+      "windrawwin_season_scope": "current_season"
     },
     {
       "country": "Dinamarca",
@@ -863,5 +1007,6 @@
         "red": 0
       }
     }
-  ]
+  ],
+  "updated_on": "2026-11-01"
 }
