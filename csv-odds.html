@@ -25,7 +25,7 @@
         <div class="section-head"><div><em>01</em><h2>Importar base de dados</h2></div><small>CSV · 1X2 · RESULTADOS</small></div>
         <label class="file-drop" for="csvFile"><span class="upload-icon">↑</span><strong>Seleciona o ficheiro CSV</strong><span>O ficheiro é lido no teu dispositivo e não é enviado para um servidor.</span><input id="csvFile" type="file" accept=".csv,text/csv"></label>
         <p id="status" class="status" role="status">À espera de um ficheiro CSV. O formato esperado contém date_time, COUNTRY, LEAGUE, TEAM_HOME, TEAM_AWAY e odds 1X2.</p>
-        <div class="schema-note">O resultado principal é calculado a partir de <code>score_final_home</code> e <code>score_final_away</code>. O resultado FT e os parciais são apresentados separadamente quando existem. Jogos sem resultado final são classificados como pendentes — nunca como derrotas.</div>
+        <div class="schema-note">O mercado 1X2 usa <code>score_ft_home</code> e <code>score_ft_away</code> (tempo regulamentar), em linha com as colunas <code>odd_ft_1</code>, <code>odd_ft_x</code> e <code>odd_ft_2</code>. O resultado final da fonte é mostrado à parte, pois pode incluir prolongamento. Jogos sem FT completo são pendentes — nunca derrotas.</div>
       </section>
       <section id="workspace" hidden>
         <section class="panel">
@@ -34,7 +34,7 @@
             <label>Pesquisa livre<input id="search" type="search" placeholder="Equipa, competição ou país"></label>
             <label>País<select id="country"><option value="">Todos os países</option></select></label>
             <label>Competição<select id="league"><option value="">Todas as competições</option></select></label>
-            <label>Equipa<select id="team"><option value="">Todas as equipas</option></select></label>
+            <label>Equipa<input id="team" type="search" placeholder="Nome ou parte do nome"></label>
             <label>Desde<input id="from" type="date"></label>
             <label>Até<input id="to" type="date"></label>
             <label>Estado<select id="statusFilter"><option value="all">Todos os jogos</option><option value="completed">Concluídos</option><option value="pending">Sem resultado final</option></select></label>
