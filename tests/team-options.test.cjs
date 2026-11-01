@@ -22,3 +22,18 @@ test("Não inventa equipas quando não há resultados elegíveis", () => {
  assert.deepEqual(Array.from(context.selectTeams([],[],true)),[]);
  assert.deepEqual(Array.from(context.selectTeams(all,[],false)),[]);
 });
+
+test("A época atual descobre equipas no índice WDW mesmo sem resultados da fonte principal", () => {
+ assert.match(source, /async function loadWdwLeagueTeams\(leagueId\)/);
+ assert.match(source, /wdwTeams\.map\(x=>x\.name\)/);
+ assert.match(source, /if\(!matches\.length&&!teams\.length\)/);
+ assert.match(source, /Sem resultados Open Matchday/);
+});
+test("O carregamento combina equipas da fonte principal e do índice WDW", () => {
+ const start=source.indexOf("async function loadHistoricalData()");
+ const end=source.indexOf("\nfunction teamSample(",start);
+ const loader=source.slice(start,end);
+ assert.ok(loader.includes("loadWdwLeagueTeams(league)"));
+ assert.ok(loader.includes("primaryTeams,...wdwTeams.map"));
+ assert.ok(loader.includes("dataState.matches=matches"));
+});
