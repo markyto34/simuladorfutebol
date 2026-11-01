@@ -59,7 +59,23 @@
     return ["1", "X", "2"].every(key => validOdd(odds && odds[key]));
   }
 
-  function normalizeRows(rawRows) {
+
+  const CONTINENT_COUNTRIES = {
+    "Europa": ["Albania","Andorra","Armenia","Austria","Azerbaijan","Belarus","Belgium","Bélgica","Bosnia","Bosnia and Herzegovina","Bulgaria","Croatia","Cyprus","Czech Republic","Czechia","Denmark","England","Estonia","Faroe Islands","Finland","France","Georgia","Germany","Gibraltar","Greece","Hungary","Iceland","Ireland","Italy","Kosovo","Latvia","Liechtenstein","Lithuania","Luxembourg","Malta","Moldova","Montenegro","Netherlands","North Macedonia","Northern Ireland","Norway","Poland","Portugal","Romania","Russia","San Marino","Scotland","Serbia","Slovakia","Slovenia","Spain","Sweden","Switzerland","Turkey","Türkiye","Ukraine","Wales"];
+    "Ásia": ["Afghanistan","Bahrain","Bangladesh","Bhutan","Brunei","Cambodia","China","Hong Kong","India","Indonesia","Iran","Iraq","Israel","Japan","Jordan","Kazakhstan","Kuwait","Kyrgyzstan","Laos","Lebanon","Malaysia","Maldives","Mongolia","Myanmar","Nepal","North Korea","Oman","Pakistan","Palestine","Philippines","Qatar","Saudi Arabia","Singapore","South Korea","Sri Lanka","Syria","Taiwan","Tajikistan","Thailand","Turkmenistan","United Arab Emirates","Uzbekistan","Vietnam","Yemen"];
+    "África": ["Algeria","Angola","Benin","Botswana","Burkina Faso","Burundi","Cameroon","Cape Verde","Central African Republic","Chad","Comoros","Congo","DR Congo","Democratic Republic of the Congo","Djibouti","Egypt","Equatorial Guinea","Eritrea","Eswatini","Ethiopia","Gabon","Gambia","Ghana","Guinea","Guinea-Bissau","Ivory Coast","Kenya","Lesotho","Liberia","Libya","Madagascar","Malawi","Mali","Mauritania","Mauritius","Morocco","Mozambique","Namibia","Niger","Nigeria","Rwanda","Sao Tome and Principe","Senegal","Seychelles","Sierra Leone","Somalia","South Africa","South Sudan","Sudan","Tanzania","Togo","Tunisia","Uganda","Zambia","Zimbabwe"];
+    "América do Norte": ["Antigua and Barbuda","Bahamas","Barbados","Belize","Bermuda","Canada","Costa Rica","Cuba","Dominica","Dominican Republic","El Salvador","Grenada","Guatemala","Haiti","Honduras","Jamaica","Mexico","Nicaragua","Panama","Puerto Rico","Saint Kitts and Nevis","Saint Lucia","Saint Vincent and the Grenadines","Trinidad and Tobago","United States","USA","US"];
+    "América do Sul": ["Argentina","Bolivia","Brazil","Brasil","Chile","Colombia","Ecuador","Guyana","Paraguay","Peru","Suriname","Uruguay","Venezuela"];
+    "Oceânia": ["Australia","Fiji","New Zealand","Papua New Guinea","Solomon Islands","Tahiti","Vanuatu"];
+  };
+  function continentForCountry(country) {
+    const value = String(country || "").trim().toLocaleLowerCase();
+    for (const [continent, countries] of Object.entries(CONTINENT_COUNTRIES)) {
+      if (countries.some(name => name.toLocaleLowerCase() === value)) return continent;
+    }
+    return "Por identificar";
+  }
+\n  function normalizeRows(rawRows) {
     return rawRows.map((r, index) => {
       const finalHome = score(r.score_final_home), finalAway = score(r.score_final_away);
       const ftHome = score(r.score_ft_home), ftAway = score(r.score_ft_away);
@@ -192,7 +208,20 @@
       historical: analysis.outcomes, averageOverround: analysis.averageOverround, matches: cohort };
   }
 
-  function backtestTriplet(matches, ranges, splitDate) {
+
+  function forecastExactScores(matches, limit) {
+    const eligible = matches.filter(m => m.completed && m.ft[0] !== null && m.ft[1] !== null);
+    const counts = new Map();
+    eligible.forEach(m => {
+      const key = m.ft[0] + "-" + m.ft[1];
+      counts.set(key, (counts.get(key) || 0) + 1);
+    });
+    const ranked = [...counts.entries()].sort((a,b) => b[1] - a[1] || a[0].localeCompare(b[0], "en", {numeric:true}));
+    return { sample: eligible.length, scores: ranked.slice(0, limit || 5).map(([score, count]) => ({
+      score: score.replace("-", "–"), count, frequency: count / eligible.length * 100
+    })) };
+  }
+\n  function backtestTriplet(matches, ranges, splitDate) {
     const eligible = rangeMatches(matches, ranges)
       .filter(m => m.date instanceof Date && !Number.isNaN(m.date.getTime()))
       .sort((a, b) => a.date - b.date);
@@ -208,7 +237,7 @@
   function filterMatches(matches, filters) {
     const q = (filters.search || "").trim().toLocaleLowerCase();
     return matches.filter(m => {
-      if (filters.country && m.country !== filters.country) return false;
+      if (filters.continent && m.continent !== filters.continent) return false;\n      if (filters.country && m.country !== filters.country) return false;
       if (filters.league && m.league !== filters.league) return false;
       if (filters.team) { const team = filters.team.trim().toLocaleLowerCase(); if (!(m.home.toLocaleLowerCase().includes(team) || m.away.toLocaleLowerCase().includes(team))) return false; }
       if (filters.from && (!m.date || m.date < filters.from)) return false;
@@ -221,7 +250,7 @@
   }
 
   const api = { parseCSV, normalizeRows, summarize, analyzeOdds, analyzeTriplet, impliedProbabilities,
-    hasCompleteOdds, rangeMatches, evaluateCurrentOdds, backtestTriplet, wilsonInterval, filterMatches };
+    hasCompleteOdds, rangeMatches, evaluateCurrentOdds, forecastExactScores, continentForCountry, backtestTriplet, wilsonInterval, filterMatches };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   root.CSVOdds = api;
 })(typeof globalThis !== "undefined" ? globalThis : this);
