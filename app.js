@@ -48,7 +48,7 @@ $("reset").addEventListener("click",()=>location.reload());
 const dataState={matches:[],teams:[],wdwTeams:{},wdwSummaries:{},wdwLeagueLinks:null};
 const WDW_PROXY_URL=String(window.SIMULADOR_CONFIG?.windrawwinProxyUrl||"").replace(/\/$/,"");
 const WDW_LEAGUES={"POR_1_primeira-liga":"portugal-primeira-liga","ENG_1_premier-league":"england-premier-league","ESP_1_la-liga":"spain-la-liga","ITA_1_serie-a":"italy-serie-a","GER_1_bundesliga":"germany-bundesliga","FRA_1_ligue-1":"france-ligue-1","NED_1_eredivisie":"netherlands-eredivisie","BRA_1_serie-a":"brazil-serie-a","DEN_1_superliga":"denmark-superliga","ENG_5_national-league":"england-national-league"};
-const WDW_ALIASES={"sporting cp":"sporting lisbon","sporting clube de portugal":"sporting lisbon","academico":"academico viseu","academico viseu":"academico viseu","vitoria":"guimaraes","casa pia":"casa pia atletico","nacional":"nacional madeira","maritimo m":"maritimo"};
+const WDW_ALIASES={"sporting cp":"sporting lisbon","sporting clube de portugal":"sporting lisbon","academico":"academico viseu","academico viseu":"academico viseu","vitoria":"guimaraes","casa pia":"casa pia atletico","nacional":"nacional madeira","maritimo m":"maritimo","estoril praia":"estoril","gd estoril praia":"estoril"};
 const WDW_TEAM_PATHS={"porto":"/results/fc-porto/","estoril":"/results/estoril/"};
 function normalizeTeamName(value){return String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/\b(fc|cf|sc|afc|club|clube|de|the)\b/g," ").replace(/[^a-z0-9]+/g," ").trim().replace(/\s+/g," ");}
 function wdwTeamKey(value){const n=normalizeTeamName(value);return normalizeTeamName(WDW_ALIASES[n]||n);}
