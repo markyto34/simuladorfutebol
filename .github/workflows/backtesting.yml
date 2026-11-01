@@ -26,10 +26,10 @@ jobs:
           node-version: 22
       - name: Download historical results
         run: |
-          LEAGUE="\${{ inputs.league || 'POR_1_primeira-liga' }}"
-          SEASON="\${{ inputs.season || '2526' }}"
+          LEAGUE="${{ inputs.league || 'POR_1_primeira-liga' }}"
+          SEASON="${{ inputs.season || '2526' }}"
           mkdir -p data
-          curl -fL "https://raw.githubusercontent.com/oladeeayo/open-matchday/master/data/\${LEAGUE}/results_\${SEASON}.csv" -o data/results.csv
+          curl -fL "https://raw.githubusercontent.com/oladeeayo/open-matchday/master/data/${LEAGUE}/results_${SEASON}.csv" -o data/results.csv
       - name: Run unit tests
         run: node --test tests/backtest.test.cjs
       - name: Run chronological backtest
