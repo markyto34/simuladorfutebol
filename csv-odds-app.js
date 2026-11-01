@@ -58,7 +58,7 @@
     const start = page * PAGE_SIZE, rows = filtered.slice(start,start+PAGE_SIZE);
     $("matchesBody").replaceChildren();
     if (!rows.length) {
-      const tr=document.createElement("tr"),td=document.createElement("td");td.colSpan=8;td.className="empty";td.textContent="Não existem jogos para os filtros selecionados.";tr.append(td);$("matchesBody").append(tr);
+      const tr=document.createElement("tr"),td=document.createElement("td");td.colSpan=9;td.className="empty";td.textContent="Não existem jogos para os filtros selecionados.";tr.append(td);$("matchesBody").append(tr);
     } else rows.forEach(m=>{
       const tr=document.createElement("tr");
       const cells=[dateText(m.date),m.league,m.home+" – "+m.away,scoreText(m.ht),scoreText(m.secondHalf),scoreText(m.ft),scoreText(m.final),
