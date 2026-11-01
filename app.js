@@ -47,7 +47,7 @@ $("reset").addEventListener("click",()=>location.reload());
 /* Importação automática baseada no formato CSV já usado no futebol-stats. */
 const dataState={matches:[],teams:[],wdwTeams:{},wdwSummaries:{},wdwLeagueLinks:null};
 const WDW_PROXY_URL=String(window.SIMULADOR_CONFIG?.windrawwinProxyUrl||"").replace(/\/$/,"");
-const WDW_LEAGUES={"POR_1_primeira-liga":"portugal-primeira-liga"};
+const WDW_LEAGUES={"POR_1_primeira-liga":"portugal-primeira-liga","ENG_1_premier-league":"england-premier-league","ESP_1_la-liga":"spain-la-liga","ITA_1_serie-a":"italy-serie-a","GER_1_bundesliga":"germany-bundesliga","FRA_1_ligue-1":"france-ligue-1"};
 const WDW_ALIASES={"sporting cp":"sporting lisbon","sporting clube de portugal":"sporting lisbon","academico viseu":"academico viseu","fc porto":"fc porto","vitoria sc":"vitoria guimaraes","vitoria de guimaraes":"guimaraes"};
 function normalizeTeamName(value){return String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/\b(fc|cf|sc|afc|club|clube|de|the)\b/g," ").replace(/[^a-z0-9]+/g," ").trim().replace(/\s+/g," ");}
 function wdwTeamKey(value){const n=normalizeTeamName(value);return normalizeTeamName(WDW_ALIASES[n]||n);}
