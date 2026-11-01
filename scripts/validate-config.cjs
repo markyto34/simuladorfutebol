@@ -61,12 +61,14 @@ if (loadStart < 0 || loadEnd < 0) {
   fail("Função loadHistoricalData não encontrada.");
 } else {
   const loader = app.slice(loadStart, loadEnd);
-  if (!loader.includes("const isComplete=m=>[m.hg,m.ag,m.hc,m.ac,m.homeShots,m.awayShots,m.homeTarget,m.awayTarget,m.homeFouls,m.awayFouls].every")) fail("O seletor de equipas não filtra jogos sem todos os grupos estatísticos obrigatórios.");
-  if (!loader.includes('["homePick",homeTeams]') || !loader.includes('["awayPick",awayTeams]')) fail("Os seletores CASA e FORA não aplicam elegibilidade específica por localização.");
+  if (!loader.includes("const isComplete=m=>[m.hg,m.ag,m.hc,m.ac,m.homeShots,m.awayShots,m.homeTarget,m.awayTarget,m.homeFouls,m.awayFouls].every")) fail("A validação dos dez campos obrigatórios não está ativa.");
+  if (!loader.includes("teamOptionsForSeason(matches,completeMatches,allowWdw)")) fail("A seleção de equipas não distingue época atual de épocas históricas.");
+  if (!loader.includes('for(const id of ["homePick","awayPick"])')) fail("Os dois seletores não partilham a lista validada de equipas.");
   if (!loader.includes("completeMatches.length")) fail("O estado de carregamento não informa quantos jogos estão completos.");
 }
 const applyStart = app.indexOf("function applyTeamSelection(side)");
 const applyEnd = app.indexOf("\\n", app.indexOf("}", applyStart) + 1);
 if (applyStart < 0 || !app.slice(applyStart, applyStart + 1800).includes('if(!team){for(const [,id] of fields)fillInput(id,null)')) fail("A seleção vazia não limpa médias antigas.");
 
+if (!app.includes("function teamOptionsForSeason(matches,completeMatches,allowWdw)")) fail("Função de seleção de equipas por época não existe.");
 if (!process.exitCode) console.log("OK: configuração, proxy, scripts, integração, completude dos jogos, modelo HT e validação das equipas.");

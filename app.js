@@ -346,19 +346,25 @@ function updateLeagueCoverage(matches){
  const parts=stats.map(([label,test])=>{const n=matches.filter(test).length;return label+": "+n+"/"+matches.length+" ("+(100*n/matches.length).toFixed(0)+"%)";});
  const box=$("data-coverage");if(box)box.textContent="Cobertura real deste ficheiro: "+parts.join(" · ")+".";
 }
+function teamOptionsForSeason(matches,completeMatches,allowWdw){
+ const source=allowWdw?matches:completeMatches;
+ return [...new Set(source.flatMap(m=>[m.home,m.away]).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+}
 async function loadHistoricalData(){
  const status=$("data-status"),button=$("load-data");button.disabled=true;status.textContent="A obter o ficheiro histórico da competição…";if($("data-coverage"))$("data-coverage").textContent="A verificar cobertura das estatísticas…";
- try{const league=$("league").value,season=$("season").value,url="https://raw.githubusercontent.com/oladeeayo/open-matchday/master/data/"+league+"/results_"+season+".csv";const csv=await fetchSourceCSV(url);const matches=parseSourceCSV(csv).map(normalizeSourceMatch).filter(Boolean).sort((a,b)=>b.date.localeCompare(a.date));if(!matches.length)throw new Error("O ficheiro foi obtido, mas não contém resultados reconhecidos.");
+ try{const league=$("league").value,season=$("season").value,url="https://raw.githubusercontent.com/oladeeayo/open-matchday/master/data/"+league+"/results_"+season+".csv";const csv=await fetchSourceCSV(url);const matches=parseSourceCSV(csv).map(normalizeSourceMatch).filter(Boolean).sort((a,b)=>b.date.localeocaleCompare(a.date));if(!matches.length)throw new Error("O ficheiro foi obtido, mas não contém resultados reconhecidos.");
  const isComplete=m=>[m.hg,m.ag,m.hc,m.ac,m.homeShots,m.awayShots,m.homeTarget,m.awayTarget,m.homeFouls,m.awayFouls].every(v=>v!==null&&v!==undefined&&Number.isFinite(Number(v)));
  const completeMatches=matches.filter(isComplete);
- const homeTeams=[...new Set(completeMatches.map(m=>m.home))].sort((a,b)=>a.localeCompare(b));
- const awayTeams=[...new Set(completeMatches.map(m=>m.away))].sort((a,b)=>a.localeCompare(b));
- dataState.matches=matches;updateLeagueCoverage(matches);dataState.teams=[...new Set([...homeTeams,...awayTeams])].sort((a,b)=>a.localeCompare(b));
- for(const [id,teams] of [["homePick",homeTeams],["awayPick",awayTeams]]){
+ const now=new Date(),currentSeasonStart=now.getMonth()>=6?now.getFullYear():now.getFullYear()-1;
+ const currentSeasonId=String(currentSeasonStart%100).padStart(2,"0")+String((currentSeasonStart+1)%100).padStart(2,"0");
+ const allowWdw=season===currentSeasonId;
+ const teams=teamOptionsForSeason(matches,completeMatches,allowWdw);
+ dataState.matches=matches;updateLeagueCoverage(matches);dataState.teams=teams;
+ for(const id of ["homePick","awayPick"]){
   const select=$(id);select.innerHTML='<option value="">Escolhe uma equipa</option>'+teams.map(t=>'<option value="'+t.replace(/&/g,"&amp;").replace(/"/g,"&quot;")+'">'+t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")+'</option>').join("");select.disabled=teams.length===0;
  }
- status.textContent=matches.length+" resultados lidos; "+completeMatches.length+" jogos com todos os dados obrigatórios; "+homeTeams.length+" equipas elegíveis para CASA e "+awayTeams.length+" para FORA. Jogos incompletos não entram na seleção nem nas amostras.";
- applyTeamSelection("home");applyTeamSelection("away");dataState.wdwLeagueLinks={};dataState.wdwTeams={};dataState.wdwSummaries={};$("wdw-home-data").textContent="A aguardar seleção da equipa da casa."; $("wdw-away-data").textContent="A aguardar seleção da equipa visitante."; $("wdw-status").textContent=WDW_PROXY_URL?"WinDrawWin: à espera da seleção das equipas.":"WinDrawWin: proxy criado; falta publicar e configurar o endereço do Worker.";
+ status.textContent=matches.length+" resultados lidos; "+completeMatches.length+" jogos com todos os dados obrigatórios; "+(allowWdw?"equipas candidatas: "+teams.length+" (a validar também no WinDrawWin).":"equipas elegíveis com amostra completa na fonte principal: "+teams.length)+". Jogos incompletos nunca entram nas amostras nem nas previsões.";
+ applyTeamSelection("home");applyTeamSelection("away");dataState.wdwLeagueLinks={};dataState.wdwTeams={};dataState.wdwSummaries={};$("wdw-home-data").textContent="A aguardar seleção da equipa da casa."; $("wdw-away-data").textContent="A aguardar seleção da equipa visitante."; $("wdw-status").textContent=WDW_PROXY_URL?(allowWdw?"WinDrawWin: seleciona as equipas para validar as amostras completas.":"WinDrawWin: disponível apenas para a época atual."):"WinDrawWin: proxy criado; falta publicar e configurar o endereço do Worker.";
  }catch(e){status.textContent="Não foi possível carregar os dados: "+e.message+". A simulação automática fica indisponível até os dados históricos serem carregados.";if($("data-coverage"))$("data-coverage").textContent="Cobertura estatística não disponível."; }finally{button.disabled=false;}
 }
 function teamSample(team,venue,metric){
