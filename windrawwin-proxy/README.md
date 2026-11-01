@@ -11,9 +11,14 @@ The first version deliberately returns the upstream HTML unchanged. The next int
 
 ## Deploy
 
-1. Create a Cloudflare Worker named `simuladorfutebol-windrawwin-proxy`.
-2. From this directory, run `npx wrangler deploy`.
-3. Set the resulting Worker URL in the simulator as `WINDRAWWIN_PROXY_URL` (or the equivalent runtime config).
+The repository includes a GitHub Actions workflow. In GitHub, open **Settings → Secrets and variables → Actions** and add:
+
+- `CLOUDFLARE_API_TOKEN` — an API token with Cloudflare Workers Scripts edit permission for the target account.
+- `CLOUDFLARE_ACCOUNT_ID` — the Cloudflare account ID.
+
+Pushing a change under `windrawwin-proxy/` runs the deployment workflow. The Worker name is `simuladorfutebol-windrawwin-proxy`; its URL will be `https://simuladorfutebol-windrawwin-proxy.<your-workers-subdomain>.workers.dev` when Workers Dev is enabled.
+
+After the first successful deployment, put that exact URL in `config.js` as `windrawwinProxyUrl`. Do not paste the API token into the source code or into ChatGPT.
 
 The Worker currently allows browser requests from `https://simuladorfutebol.onrender.com`. If the production domain changes, update `ALLOWED_ORIGINS` in `src/index.js`.
 
