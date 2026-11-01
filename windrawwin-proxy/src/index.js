@@ -76,11 +76,21 @@ export default {
           redirect: "follow"
         });
         if (!upstream.ok) {
-          return json({ error: "upstream_error", status: upstream.status }, 502, headers);
+          return json({
+            error: "upstream_error",
+            upstream_status: upstream.status,
+            upstream_status_text: upstream.statusText || null,
+            requested_path: path
+          }, 502, headers);
         }
         const contentType = upstream.headers.get("content-type") || "";
-        if (!contentType.includes("text/html")) {
-          return json({ error: "unexpected_content_type" }, 502, headers);
+        if (!contentType.toLowerCase().includes("text/html")) {
+          return json({
+            error: "unexpected_content_type",
+            upstream_status: upstream.status,
+            content_type: contentType || "not_provided",
+            requested_path: path
+          }, 502, headers);
         }
         const body = await upstream.text();
         if (body.length > 3_000_000) {
@@ -95,8 +105,12 @@ export default {
           }
         });
         ctx.waitUntil(cache.put(cacheKey, response.clone()));
-      } catch {
-        return json({ error: "upstream_unavailable" }, 502, headers);
+      } catch (error) {
+        return json({
+          error: "upstream_unavailable",
+          detail: String(error?.message || error || "unknown_fetch_error").slice(0, 240),
+          requested_path: path
+        }, 502, headers);
       }
     } else {
       response = new Response(response.body, {
