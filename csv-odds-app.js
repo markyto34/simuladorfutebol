@@ -184,6 +184,7 @@
   $("clearFilters").addEventListener("click",()=>{
     ["search","continent","country","league","team","from","to"].forEach(id=>$(id).value="");
     $("statusFilter").value="all";
+    updateCountryOptions();
     ["min1","max1","minX","maxX","min2","max2"].forEach(id=>$(id).value="");
     update();
   });
