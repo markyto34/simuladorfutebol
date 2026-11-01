@@ -136,19 +136,16 @@
     };
   }
 
-  function rangeMatches(matches, ranges) {
+  function filterOddsRanges(matches, ranges) {
     ranges = ranges || {};
-    return matches.filter(m => {
-      if (!m.completed || !hasCompleteOdds(m.odds)) return false;
-      return ["1", "X", "2"].every(key => {
-        const range = ranges[key] || {};
-        const min = range.min === undefined || range.min === null || range.min === "" ? 1.0000001 : Number(range.min);
-        const max = range.max === undefined || range.max === null || range.max === "" ? 1000 : Number(range.max);
-        return Number.isFinite(min) && Number.isFinite(max) && min <= max &&
-          m.odds[key] >= min && m.odds[key] <= max;
-      });
-    });
+    return matches.filter(m => hasCompleteOdds(m.odds) && ["1","X","2"].every(key => {
+      const range = ranges[key] || {};
+      const min = range.min === undefined || range.min === null || range.min === "" ? 1.0000001 : Number(range.min);
+      const max = range.max === undefined || range.max === null || range.max === "" ? 1000 : Number(range.max);
+      return Number.isFinite(min) && Number.isFinite(max) && min <= max && m.odds[key] >= min && m.odds[key] <= max;
+    }));
   }
+  function rangeMatches(matches, ranges) { return filterOddsRanges(matches, ranges).filter(m => m.completed); }
 
   function analyzeOdds(matches, market, minOdd, maxOdd) {
     const eligible = matches.filter(m => m.completed && Number.isFinite(m.odds[market]) &&
@@ -202,11 +199,13 @@
   function evaluateCurrentOdds(matches, currentOdds, tolerance) {
     if (!hasCompleteOdds(currentOdds)) throw new Error("É necessário introduzir as três odds válidas: 1, X e 2.");
     tolerance = Number.isFinite(Number(tolerance)) ? Math.max(0, Number(tolerance)) : 0.15;
-    const cohort = matches.filter(m => m.completed && hasCompleteOdds(m.odds) &&
+    const oddsCohort = matches.filter(m => hasCompleteOdds(m.odds) &&
       ["1", "X", "2"].every(key => Math.abs(m.odds[key] - currentOdds[key]) <= tolerance));
-    const analysis = analyzeTriplet(cohort);
-    return { currentOdds, tolerance, market: impliedProbabilities(currentOdds), sample: cohort.length,
-      historical: analysis.outcomes, averageOverround: analysis.averageOverround, marketAnalysis: analyzePeriodMarkets(cohort), matches: cohort };
+    const completedCohort = oddsCohort.filter(m => m.completed);
+    const analysis = analyzeTriplet(completedCohort);
+    return { currentOdds, tolerance, market: impliedProbabilities(currentOdds), sample: analysis.count,
+      matchedOddsSample: oddsCohort.length, historical: analysis.outcomes, averageOverround: analysis.averageOverround,
+      marketAnalysis: analyzePeriodMarkets(oddsCohort), matches: completedCohort };
   }
 
   function marketRows(matches, scoreKey) {
@@ -354,7 +353,7 @@
   }
 
   const api = { parseCSV, normalizeRows, summarize, analyzeOdds, analyzeTriplet, impliedProbabilities,
-    hasCompleteOdds, rangeMatches, evaluateCurrentOdds, analyzePeriodMarkets, forecastExactScores, continentForCountry, backtestTriplet, wilsonInterval, filterMatches };
+    hasCompleteOdds, filterOddsRanges, rangeMatches, evaluateCurrentOdds, analyzePeriodMarkets, forecastExactScores, continentForCountry, backtestTriplet, wilsonInterval, filterMatches };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   root.CSVOdds = api;
 })(typeof globalThis !== "undefined" ? globalThis : this);
