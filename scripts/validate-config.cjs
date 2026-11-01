@@ -36,7 +36,7 @@ if (!proxy.includes('incoming.pathname === "/health"')) fail("Endpoint /health d
 if (!proxy.includes("function safePath")) fail("Validação de caminhos do proxy não existe.");
 
 const sampleStart = app.indexOf("function teamSample(");
-const sampleEnd = app.indexOf("\\nfunction mean(values)", sampleStart);
+const sampleEnd = app.indexOf("\nfunction mean(values)", sampleStart);
 if (sampleStart < 0 || sampleEnd < 0) {
   fail("Função teamSample não encontrada.");
 } else {
