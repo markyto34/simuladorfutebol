@@ -17,7 +17,13 @@
     if (values.includes(previous)) el.value = previous;
   }
   function fillFilters() {
-    setOptions("country", unique(allMatches.map(m=>m.country)), "Todos os países");
+    setOptions("continent", unique(allMatches.map(m=>m.continent)), "Todos os continentes");
+    updateCountryOptions();
+  }
+  function updateCountryOptions() {
+    const selectedContinent = $("continent").value;
+    const countries = allMatches.filter(m => !selectedContinent || m.continent === selectedContinent).map(m => m.country);
+    setOptions("country", unique(countries), "Todos os países");
     setOptions("league", unique(allMatches.map(m=>m.league)), "Todas as competições");
   }
   function getFiltered() {
@@ -25,7 +31,7 @@
     const from = fromValue ? new Date(fromValue + "T00:00:00") : null;
     const to = toValue ? new Date(toValue + "T23:59:59.999") : null;
     return CSVOdds.filterMatches(allMatches, {
-      search:$("search").value, country:$("country").value, league:$("league").value,
+      continent:$("continent").value, search:$("search").value, country:$("country").value, league:$("league").value,
       team:$("team").value, from, to, status:$("statusFilter").value
     });
   }
@@ -86,8 +92,7 @@
       $("current1Freq").textContent = pct(result.historical["1"].frequency);
       $("currentXFreq").textContent = pct(result.historical.X.frequency);
       $("current2Freq").textContent = pct(result.historical["2"].frequency);
-      const marketKeys = ["1","X","2"];
-      const favourite = marketKeys.reduce((best,key) => result.market.fair[key] > result.market.fair[best] ? key : best, "1");
+      const favourite = ["1","X","2"].reduce((best,key) => result.market.fair[key] > result.market.fair[best] ? key : best, "1");
       const marketNames = {"1":"Vitória da casa (1)","X":"Empate (X)","2":"Vitória visitante (2)"};
       $("marketPrediction").textContent = marketNames[favourite];
       $("marketPredictionProb").textContent = pct(result.market.fair[favourite]);
