@@ -115,7 +115,7 @@
     $("drawCount").textContent = s.counts.X.toLocaleString("pt-PT") + " jogos";
     $("awayCount").textContent = s.counts["2"].toLocaleString("pt-PT") + " jogos";
     $("homeBar").style.width = s.percentages["1"] + "%"; $("drawBar").style.width = s.percentages.X + "%"; $("awayBar").style.width = s.percentages["2"] + "%";
-    updateTriplet(); renderMarketGroups("periodMarkets", CSVOdds.analyzePeriodMarkets(CSVOdds.filterOddsRanges(filtered, tripletRanges()))); updateCurrentOdds(); renderTable();
+    updateTriplet(); renderMarketGroups("periodMarkets", CSVOdds.analyzePeriodMarkets(CSVOdds.filterOddsRanges(filtered, tripletRanges()))); clearHistoricalSearch("Os filtros do histórico foram alterados. Volta a pesquisar para atualizar os resultados."); renderTable();
   }
   function updateTriplet() {
     const a = CSVOdds.analyzeTriplet(filtered, tripletRanges());
@@ -133,45 +133,46 @@
       ? "Amostra com resultado FT e as três odds válidas. Cada resultado é simulado separadamente com 1 unidade por jogo."
       : "Não existem jogos concluídos com as três odds dentro destes intervalos.";
   }
-  function updateCurrentOdds() {
+  function clearHistoricalSearch(message) {
+    $("historicalSearchResult").hidden = true;
+    $("currentNote").textContent = message || "Preenche as odds 1, X e 2 e carrega em Pesquisar.";
+  }
+  function searchHistoricalOdds() {
     const odds = {"1":Number($("current1").value),X:Number($("currentX").value),"2":Number($("current2").value)};
     if (!CSVOdds.hasCompleteOdds(odds)) {
-      $("currentSample").textContent = "—";
-      ["current1Prob","currentXProb","current2Prob","currentMargin","current1Freq","currentXFreq","current2Freq","marketPrediction","marketPredictionProb","exactSample","exactScores"].forEach(id=>$(id).textContent="—");
-      renderMarketGroups("similarMarkets", CSVOdds.analyzePeriodMarkets([]));
-      $("currentNote").textContent = "Introduz as três odds do jogo: 1, X e 2.";
+      clearHistoricalSearch("Introduz três odds válidas: 1, X e 2.");
+      return;
+    }
+    const tolerance = Number($("tolerance").value || 0.15);
+    if (!Number.isFinite(tolerance) || tolerance < 0 || tolerance > 5) {
+      clearHistoricalSearch("A tolerância deve estar entre 0 e 5.");
       return;
     }
     try {
-      const tolerance = Number($("tolerance").value || 0.15);
       const result = CSVOdds.evaluateCurrentOdds(filtered, odds, tolerance);
-      $("currentSample").textContent = result.sample.toLocaleString("pt-PT");
-      renderMarketGroups("similarMarkets", result.marketAnalysis);
-      $("current1Prob").textContent = pct(result.market.fair["1"]);
-      $("currentXProb").textContent = pct(result.market.fair.X);
-      $("current2Prob").textContent = pct(result.market.fair["2"]);
-      $("currentMargin").textContent = pct(result.market.overround);
+      if (!result.sample) {
+        clearHistoricalSearch("Não encontrámos jogos históricos concluídos com as três odds dentro da tolerância de ±" + fmt(tolerance,2) + ". Podes aumentar ligeiramente a tolerância.");
+        return;
+      }
+      const labels = {"1":"Vitória da casa (1)","X":"Empate (X)","2":"Vitória visitante (2)"};
+      const favourite = ["1","X","2"].reduce((best,key) =>
+        result.historical[key].frequency > result.historical[best].frequency ? key : best, "1");
+      $("historicalPrediction").textContent = "Resultado histórico mais frequente: " + labels[favourite];
+      $("currentSample").textContent = result.sample.toLocaleString("pt-PT") + " jogos";
       $("current1Freq").textContent = pct(result.historical["1"].frequency);
       $("currentXFreq").textContent = pct(result.historical.X.frequency);
       $("current2Freq").textContent = pct(result.historical["2"].frequency);
-      const favourite = ["1","X","2"].reduce((best,key) => result.market.fair[key] > result.market.fair[best] ? key : best, "1");
-      const marketNames = {"1":"Vitória da casa (1)","X":"Empate (X)","2":"Vitória visitante (2)"};
-      $("marketPrediction").textContent = marketNames[favourite];
-      $("marketPredictionProb").textContent = pct(result.market.fair[favourite]);
-      const exact = CSVOdds.forecastExactScores(result.matches, 5);
-      $("exactSample").textContent = exact.sample.toLocaleString("pt-PT");
+      $("historicalOver15").textContent = pct(result.marketAnalysis.fullTime.over15.frequency);
+      $("historicalOver25").textContent = pct(result.marketAnalysis.fullTime.over25.frequency);
+      $("historicalBtts").textContent = pct(result.marketAnalysis.fullTime.btts.frequency);
+      const exact = CSVOdds.forecastExactScores(result.matches, 3);
       $("exactScores").textContent = exact.scores.length
-        ? exact.scores.map(s => s.score + " (" + pct(s.frequency) + "; " + s.count + " jogos)").join(" · ")
-        : "Sem resultados FT suficientes para estimar marcadores.";
-      $("exactNote").textContent = exact.sample
-        ? "Marcadores mais frequentes na amostra histórica semelhante às três odds. Frequências empíricas, não probabilidades de marcador exato calibradas."
-        : "Não há jogos históricos semelhantes concluídos para estimar o marcador.";
-      $("currentNote").textContent = result.sample
-        ? "Comparação com jogos históricos em que cada uma das três odds ficou dentro da tolerância absoluta de ±" + fmt(tolerance,2) + ". É uma amostra de semelhança, não uma previsão."
-        : "Não encontrámos jogos históricos dentro da tolerância escolhida. Aumentar a tolerância aumenta a amostra, mas também reduz a semelhança.";
+        ? exact.scores.map(s => s.score + " (" + pct(s.frequency) + ")").join(" · ")
+        : "Sem marcadores completos.";
+      $("historicalSearchResult").hidden = false;
+      $("currentNote").textContent = "Pesquisa concluída. Foram comparadas simultaneamente as três odds com tolerância absoluta de ±" + fmt(tolerance,2) + ".";
     } catch (err) {
-      renderMarketGroups("similarMarkets", CSVOdds.analyzePeriodMarkets([]));
-      $("currentNote").textContent = err.message;
+      clearHistoricalSearch(err.message);
     }
   }
   function runBacktest() {
@@ -242,7 +243,7 @@
   $("continent").addEventListener("change",()=>{updateCountryOptions();update();});
   ["country","league","from","to","statusFilter"].forEach(id=>$(id).addEventListener("change",update));
   ["min1","max1","minX","maxX","min2","max2"].forEach(id=>$(id).addEventListener("input",()=>{updateTriplet();renderMarketGroups("periodMarkets", CSVOdds.analyzePeriodMarkets(CSVOdds.filterOddsRanges(filtered, tripletRanges())));$("backtestStatus").textContent="Os intervalos foram alterados. Executa novamente o backtesting para atualizar a validação.";}));
-  ["current1","currentX","current2","tolerance"].forEach(id=>$(id).addEventListener("input",updateCurrentOdds));
+  $("searchHistoricalOdds").addEventListener("click",searchHistoricalOdds);
   $("runBacktest").addEventListener("click",runBacktest);
   $("clearFilters").addEventListener("click",()=>{
     ["search","continent","country","league","team","from","to"].forEach(id=>$(id).value="");
