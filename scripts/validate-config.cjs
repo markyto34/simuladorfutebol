@@ -34,4 +34,20 @@ if (!app.includes('loadWdwMatchPair();')) fail("Os seletores de equipas não aci
 if (!proxy.includes('https://simuladorfutebol.onrender.com')) fail("Origem do site não autorizada no proxy.");
 if (!proxy.includes('incoming.pathname === "/health"')) fail("Endpoint /health do proxy não existe.");
 if (!proxy.includes("function safePath")) fail("Validação de caminhos do proxy não existe.");
-if (!process.exitCode) console.log("OK: configuração, proxy, scripts e validação das duas equipas.");
+
+const sampleStart = app.indexOf("function teamSample(");
+const sampleEnd = app.indexOf("\\nfunction mean(values)", sampleStart);
+if (sampleStart < 0 || sampleEnd < 0) {
+  fail("Função teamSample não encontrada.");
+} else {
+  const sample = app.slice(sampleStart, sampleEnd);
+  if (!sample.includes("const allowWdw=season===currentSeasonId")) fail("WinDrawWin deve ser usado apenas na época atual.");
+  if (!sample.includes("const wdwMatchDate=w=>")) fail("Data WinDrawWin não é convertida para o ano correto da época.");
+  if (!sample.includes("m.date!==date")) fail("Correspondência entre fontes não valida a data completa.");
+  if (!sample.includes("records.push({m:{date:wdwMatchDate(w)")) fail("Jogos exclusivos WinDrawWin não são adicionados à amostra.");
+  if (!sample.includes("records.sort((a,b)=>(b.m.date||\"\").localeCompare(a.m.date||\"\")")) fail("A amostra combinada não é ordenada cronologicamente.");
+  if (!sample.includes("[m.hg,m.ag,hc,ac,hs,as,ht,at,hf,af].every")) fail("Filtro de completude não valida os cinco grupos obrigatórios.");
+  if (!sample.includes("return limit===\"all\"?values:values.slice(0,requested)")) fail("Limite da amostra não é aplicado após combinar as fontes.");
+}
+
+if (!process.exitCode) console.log("OK: configuração, proxy, scripts, integração de dados e validação das duas equipas.");
