@@ -3,7 +3,7 @@
   "source_url": "https://www.windrawwin.com/predictions/",
   "captured_on": "2026-11-01",
   "purpose": "Catálogo inicial de competições identificadas nas páginas públicas do WinDrawWin. Não contém resultados nem estatísticas reproduzidas.",
-  "status_note": "Integração inicial do parser WinDrawWin preparada para 10 competições. A importação depende da publicação do Worker e da cobertura disponível por equipa/jogo. O catálogo completo não representa cobertura estatística verificada em todas as competições.",
+  "status_note": "O simulador tem slugs de competição WinDrawWin configurados para as 65 competições do seletor. Isto confirma apenas a configuração dos identificadores: não garante que todas as páginas/equipas estejam publicadas ou acessíveis, nem cobertura estatística em todas as ligas. A disponibilidade é validada por equipa em tempo de consulta; HTTP 403 e dados ausentes são reportados sem inventar estatísticas.",
   "competitions": [
     {
       "country": "Portugal",
