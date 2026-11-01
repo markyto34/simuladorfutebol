@@ -161,6 +161,7 @@ async function fetchWdwPage(path){
  return new DOMParser().parseFromString(body,"text/html");
 }
 function wdwRequiredComplete(m){const required=[m.hg,m.ag,m.homeCorners,m.awayCorners,m.homeFouls,m.awayFouls,m.homeTarget,m.awayTarget,m.homeShotsOff,m.awayShotsOff];return required.every(v=>v!==null&&v!==undefined&&!(typeof v==="string"&&v.trim()==="")&&Number.isFinite(Number(v))&&Number(v)>=0);}
+function wdwHasCompleteMatches(matches){return Array.isArray(matches)&&matches.some(wdwRequiredComplete);}
 function parseWdwSummary(doc,team,matches){const complete=matches.filter(wdwRequiredComplete);const poss=complete.map(m=>m.teamHome?m.homePoss:m.awayPoss).filter(v=>v!==null&&Number.isFinite(v));const sot=complete.map(m=>m.teamHome?m.homeTarget:m.awayTarget);const shots=complete.map(m=>m.teamHome?m.homeTarget+m.homeShotsOff:m.awayTarget+m.awayShotsOff);const gf=complete.map(m=>m.teamHome?m.hg:m.ag),ga=complete.map(m=>m.teamHome?m.ag:m.hg);const ht=complete.filter(m=>m.htHome!==null&&m.htAway!==null).map(m=>m.htHome+m.htAway);const ht05=ht.length?100*ht.filter(v=>v>=1).length/ht.length:null,ht15=ht.length?100*ht.filter(v=>v>=2).length/ht.length:null;const wins=complete.filter(m=>(m.teamHome?m.hg>m.ag:m.ag>m.hg)).length,draws=complete.filter(m=>m.hg===m.ag).length,losses=complete.length-wins-draws;const clean=complete.filter(m=>(m.teamHome?m.ag:m.hg)===0).length;const both=complete.filter(m=>m.hg>0&&m.ag>0).length;const over25Rows=complete.filter(m=>m.hg+m.ag>2).length;const form=complete.slice(0,5).map(m=>{const f=m.teamHome?m.hg:m.ag,a=m.teamHome?m.ag:m.hg;return f>a?"V":f===a?"E":"D";}).join(" ");const homeGames=complete.filter(m=>m.teamHome),awayGames=complete.filter(m=>!m.teamHome);return {btts:complete.length?100*both/complete.length:null,bttsCount:both,bttsPlayed:complete.length,over25:complete.length?100*over25Rows/complete.length:null,over25Count:over25Rows,over25Played:complete.length,cornersTotal:mean(complete.map(m=>m.homeCorners+m.awayCorners)),cornersHome:mean(homeGames.map(m=>m.homeCorners)),cornersAway:mean(awayGames.map(m=>m.awayCorners)),possession:mean(poss),shots:mean(shots),shotsOnTarget:mean(sot),goalsFor:mean(gf),goalsAgainst:mean(ga),htGoals:mean(ht),ht05,ht15,cleanSheets:complete.length?100*clean/complete.length:null,form,wins,draws,losses,sample:complete.length,excludedIncomplete:matches.length-complete.length};}
 function renderWdwSummary(side,team){
  const heading=$(side==="home"?"wdw-home-data":"wdw-away-data")?.parentElement?.querySelector("h4");
@@ -259,7 +260,7 @@ async function loadWdwTeam(side){
   dataState.wdwTeams[key]=matches;
   dataState.wdwSummaries[key]=parseWdwSummary(doc,team,matches);
   applyTeamSelection(side);renderWdwSummary(side,key);
-  status.textContent="WinDrawWin: "+matches.length+" jogos recentes lidos para "+team+" ("+usedPath+"). A fonte principal mantém prioridade quando tem dados.";
+  const completeCount=matches.filter(wdwRequiredComplete).length;status.textContent="WinDrawWin: "+completeCount+" jogos completos lidos para "+team+"; "+(matches.length-completeCount)+" incompletos excluídos ("+usedPath+"). A fonte principal mantém prioridade quando tem dados.";
  }catch(e){status.textContent="WinDrawWin: "+e.message;}
 }
 
@@ -279,10 +280,10 @@ async function loadWdwMatchPair(){
  $("wdw-away-data").textContent="A validar equipa visitante: "+away+"…";
  await Promise.all([loadWdwTeam("home"),loadWdwTeam("away")]);
  const hk=wdwCacheKey(league,home),ak=wdwCacheKey(league,away);
- const homeOk=Array.isArray(dataState.wdwTeams[hk])&&dataState.wdwTeams[hk].length>0;
- const awayOk=Array.isArray(dataState.wdwTeams[ak])&&dataState.wdwTeams[ak].length>0;
+ const homeOk=wdwHasCompleteMatches(dataState.wdwTeams[hk]);
+ const awayOk=wdwHasCompleteMatches(dataState.wdwTeams[ak]);
  if(homeOk&&awayOk){
-  status.textContent="WinDrawWin: mapeamento confirmado para as duas equipas — "+home+" ("+dataState.wdwTeams[hk].length+" jogos) e "+away+" ("+dataState.wdwTeams[ak].length+" jogos), na mesma competição.";
+  status.textContent="WinDrawWin: ambas as equipas têm pelo menos um jogo com estatísticas obrigatórias completas — "+home+" ("+dataState.wdwTeams[hk].filter(wdwRequiredComplete).length+") e "+away+" ("+dataState.wdwTeams[ak].filter(wdwRequiredComplete).length+"), na mesma competição.";
  }else{
   const missing=[!homeOk?home:null,!awayOk?away:null].filter(Boolean);
   status.textContent="WinDrawWin: mapeamento incompleto. Não foi possível confirmar: "+missing.join(" e ")+". Os dados complementares só ficam disponíveis para a equipa cuja página foi encontrada; a fonte principal mantém-se ativa.";
