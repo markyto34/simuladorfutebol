@@ -137,12 +137,24 @@ async function fetchSourceCSV(url){
  try{sessionStorage.setItem(key,JSON.stringify({at:Date.now(),text}));}catch(e){}
  return text;
 }
+function updateLeagueCoverage(matches){
+ const stats=[
+  ["Cantos",m=>m.hc!==null&&m.ac!==null],
+  ["Remates",m=>m.homeShots!==null&&m.awayShots!==null],
+  ["Remates à baliza",m=>m.homeTarget!==null&&m.awayTarget!==null],
+  ["Faltas",m=>m.homeFouls!==null&&m.awayFouls!==null],
+  ["Amarelos",m=>m.homeYellow!==null&&m.awayYellow!==null],
+  ["Vermelhos",m=>m.homeRed!==null&&m.awayRed!==null]
+ ];
+ const parts=stats.map(([label,test])=>{const n=matches.filter(test).length;return label+": "+n+"/"+matches.length+" ("+(100*n/matches.length).toFixed(0)+"%)";});
+ const box=$("data-coverage");if(box)box.textContent="Cobertura real deste ficheiro: "+parts.join(" · ")+".";
+}
 async function loadHistoricalData(){
- const status=$("data-status"),button=$("load-data");button.disabled=true;status.textContent="A obter o ficheiro histórico da competição…";
+ const status=$("data-status"),button=$("load-data");button.disabled=true;status.textContent="A obter o ficheiro histórico da competição…";if($("data-coverage"))$("data-coverage").textContent="A verificar cobertura das estatísticas…";
  try{const league=$("league").value,season=$("season").value,url="https://raw.githubusercontent.com/oladeeayo/open-matchday/master/data/"+league+"/results_"+season+".csv";const csv=await fetchSourceCSV(url);const matches=parseSourceCSV(csv).map(normalizeSourceMatch).filter(Boolean).sort((a,b)=>b.date.localeCompare(a.date));if(!matches.length)throw new Error("O ficheiro foi obtido, mas não contém resultados reconhecidos.");
- dataState.matches=matches;dataState.teams=[...new Set(matches.flatMap(m=>[m.home,m.away]))].sort((a,b)=>a.localeCompare(b));for(const id of ["homePick","awayPick"]){const select=$(id);select.innerHTML='<option value="">Escolhe uma equipa</option>'+dataState.teams.map(t=>'<option value="'+t.replace(/&/g,"&amp;").replace(/"/g,"&quot;")+'">'+t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")+'</option>').join("");select.disabled=false;}
+ dataState.matches=matches;updateLeagueCoverage(matches);dataState.teams=[...new Set(matches.flatMap(m=>[m.home,m.away]))].sort((a,b)=>a.localeCompare(b));for(const id of ["homePick","awayPick"]){const select=$(id);select.innerHTML='<option value="">Escolhe uma equipa</option>'+dataState.teams.map(t=>'<option value="'+t.replace(/&/g,"&amp;").replace(/"/g,"&quot;")+'">'+t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")+'</option>').join("");select.disabled=false;}
  status.textContent=matches.length+" jogos históricos válidos carregados; "+dataState.teams.length+" equipas disponíveis. Escolhe as duas equipas para preencher as médias.";applyTeamSelection("home");applyTeamSelection("away");dataState.wdwLeagueLinks=null;dataState.wdwTeams={};dataState.wdwSummaries={};$("wdw-home-data").textContent="A aguardar seleção da equipa da casa."; $("wdw-away-data").textContent="A aguardar seleção da equipa visitante."; $("wdw-status").textContent=WDW_PROXY_URL?"WinDrawWin: à espera da seleção das equipas.":"WinDrawWin: proxy criado; falta publicar e configurar o endereço do Worker.";
- }catch(e){status.textContent="Não foi possível carregar os dados: "+e.message+". A simulação automática fica indisponível até os dados históricos serem carregados.";}finally{button.disabled=false;}
+ }catch(e){status.textContent="Não foi possível carregar os dados: "+e.message+". A simulação automática fica indisponível até os dados históricos serem carregados.";if($("data-coverage"))$("data-coverage").textContent="Cobertura estatística não disponível."; }finally{button.disabled=false;}
 }
 function teamSample(team,venue,metric){
  const limit=$("sample").value,requested=limit==="all"?Infinity:Number(limit);
