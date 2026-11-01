@@ -4,7 +4,8 @@ Aplicação independente do repositório `futebol-stats`. Reutiliza o formato de
 
 ## Funcionalidades atuais
 - Interface responsiva em português.
-- Entrada manual de médias de golos e cantos.
+- Entrada manual de médias de golos, cantos, remates, faltas e cartões.
+- Importação automática de remates, remates à baliza, faltas e cartões quando disponíveis.
 - Importação automática de resultados CSV por competição e época a partir de Open Matchday.
 - Seleção de equipas com preenchimento automático de médias casa/fora.
 - Amostras configuráveis: últimos 5, 10, 15 ou todos os jogos disponíveis.
@@ -18,7 +19,7 @@ Aplicação independente do repositório `futebol-stats`. Reutiliza o formato de
 Os resultados são obtidos dos CSV publicados por [oladeeayo/open-matchday](https://github.com/oladeeayo/open-matchday), no formato:
 `https://raw.githubusercontent.com/oladeeayo/open-matchday/master/data/<competicao>/results_<epoca>.csv`
 
-A aplicação suporta as competições configuradas na interface e as épocas 2023/24 a 2026/27, desde que o respetivo ficheiro exista na fonte. A cobertura de cantos depende dos campos publicados em cada CSV; quando faltam dados, os campos continuam editáveis manualmente e não são convertidos em zero.
+A aplicação suporta as competições configuradas na interface e as épocas 2023/24 a 2026/27, desde que o respetivo ficheiro exista na fonte. A fonte publica os CSVs diariamente. O esquema inclui remates, remates à baliza, faltas, cantos, cartões amarelos e vermelhos, mas a cobertura detalhada é desigual (cerca de 19% das linhas no conjunto publicado). Campos vazios significam dados indisponíveis, nunca zero. A aplicação importa os campos disponíveis e mantém os restantes editáveis. A utilização do conjunto Open Matchday é para fins informativos não comerciais, com atribuição à fonte.
 
 ## Executar
 Abre `index.html` num navegador moderno. Não requer instalação nem chave API. Para publicação, pode ser alojado como site estático (por exemplo, Cloudflare Pages ou GitHub Pages).
@@ -32,7 +33,7 @@ O modelo atual é experimental. Ainda não ajusta por força da competição, qu
 1. Validar o parser com CSVs reais de várias ligas e épocas.
 2. Criar testes automatizados e backtesting walk-forward para golos e cantos.
 3. Adicionar tendências de forma recente, força de calendário e regularização por liga.
-4. Acrescentar remates, faltas, cartões e posse, apenas onde a fonte tiver cobertura verificável.
+4. Melhorar os modelos para remates, faltas e cartões após backtesting específico e validação da cobertura.
 5. Construir histórico de análises e comparação entre equipas.
 
 ## Backtesting
@@ -40,3 +41,7 @@ O motor `scripts/backtest.cjs` executa um teste cronológico (walk-forward): par
 
 ## Publicação
 O ficheiro `render.yaml` prepara a publicação como site estático no Render. O repositório também pode ser alojado no Cloudflare Pages ou GitHub Pages; a ligação da conta de alojamento é necessária para concluir o primeiro deploy.
+
+
+## Atualização automática e cobertura de estatísticas
+A aplicação carrega automaticamente o CSV selecionado ao abrir a página e mantém uma cache de sessão de 15 minutos. O Open Matchday publica os dados diariamente. A fonte inclui remates, remates à baliza, faltas, cantos e cartões amarelos/vermelhos, mas a cobertura detalhada é limitada e varia por competição. O esquema atual não inclui posse de bola. Os valores ausentes permanecem nulos e são excluídos das médias. A fonte é utilizada para fins informativos não comerciais e deve ser atribuída a [open-matchday](https://github.com/oladeeayo/open-matchday).
