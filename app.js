@@ -131,7 +131,7 @@ const WDW_LEAGUES={
  "UKR_1_premier-league":"ukraine-upl"
 };
 const WDW_ALIASES={"sporting cp":"sporting lisbon","sporting clube de portugal":"sporting lisbon","academico":"academico viseu","academico viseu":"academico viseu","vitoria":"guimaraes","casa pia":"casa pia atletico","nacional":"nacional madeira","maritimo m":"maritimo","estoril praia":"estoril","gd estoril praia":"estoril"};
-const WDW_TEAM_PATHS={"porto":"/results/fc-porto/","estoril":"/results/estoril/"};
+const WDW_TEAM_PATHS={"POR_1_primeira-liga":{"porto":"/results/fc-porto/","estoril":"/results/estoril/","famalicao":"/results/famalicao/"}};
 function normalizeTeamName(value){return String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/\b(fc|cf|sc|afc|club|clube|de|the)\b/g," ").replace(/[^a-z0-9]+/g," ").trim().replace(/\s+/g," ");}
 function wdwTeamKey(value){const n=normalizeTeamName(value);return normalizeTeamName(WDW_ALIASES[n]||n);}
 async function fetchWdwPage(path){
@@ -160,6 +160,9 @@ function wdwCacheKey(leagueId,team){return leagueId+"::"+wdwTeamKey(team);}
 async function findWdwTeamPath(team,leagueId){
  const slug=WDW_LEAGUES[leagueId];
  if(!slug)return {path:null,reason:"unsupported_league"};
+ // Preferir caminhos de equipa confirmados: não dependem do índice /tips da competição.
+ const directPath=WDW_TEAM_PATHS[leagueId]?.[wdwTeamKey(team)];
+ if(directPath)return {path:directPath,reason:null,source:"confirmed_team_path"};
  if(!Object.prototype.hasOwnProperty.call(dataState.wdwLeagueLinks,leagueId)){
   const doc=await fetchWdwPage("/tips/"+slug+"/");
   dataState.wdwLeagueLinks[leagueId]=[...doc.querySelectorAll('a[href^="/results/"]')]
@@ -192,7 +195,9 @@ async function loadWdwTeam(side){
   if(!result.path){
    status.textContent=result.reason==="unsupported_league"
     ?"WinDrawWin: esta competição ainda não tem um mapeamento confirmado. A fonte principal continua ativa."
-    :"WinDrawWin: a competição foi consultada, mas a equipa «"+team+"» não aparece entre as "+result.availableTeams+" equipas encontradas. É necessário confirmar o nome.";
+    :result.availableTeams===0
+     ?"WinDrawWin: o índice de equipas desta competição devolveu zero resultados. Isto não significa que o nome da equipa esteja errado; a fonte principal continua ativa."
+     :"WinDrawWin: a equipa «"+team+"» não foi encontrada no índice da competição ("+result.availableTeams+" equipas). A fonte principal continua ativa.";
    return;
   }
   const doc=await fetchWdwPage(result.path),matches=parseWdwMatchRows(doc,team);
