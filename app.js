@@ -162,7 +162,7 @@ function wdwDateKey(raw){const m=String(raw||"").match(/\b(\d{1,2})(?:st|nd|rd|t
 function wdwCacheKey(leagueId,team){return leagueId+"::"+wdwTeamKey(team);}
 function wdwTeamPathCandidates(team,leagueId){
  const known=WDW_TEAM_PATHS[leagueId]?.[wdwTeamKey(team)];
- const key=wdwTeamKey(team).replace(/\\s+/g,"-");
+ const key=wdwTeamKey(team).split(" ").join("-");
  const raw=String(team||"").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
  return [...new Set([known,"/results/"+key+"/","/results/"+raw+"/","/results/fc-"+key+"/"].filter(Boolean))];
 }
