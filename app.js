@@ -12,6 +12,10 @@ function simulate(){
   const h=$("homeName").value.trim()||"Casa",a=$("awayName").value.trim()||"Fora",adv=Number($("adv").value)/100,disp=Number($("disp").value)/100;
   const read=id=>{const raw=$(id).value.trim();if(raw==="")return null;const v=Number(raw);if(!Number.isFinite(v)||v<0)throw Error("Confirma os valores numéricos: não podem ser negativos.");return v;};
   const goalValues=["hgFor","agAgainst","agFor","hgAgainst"].map(read);
+  const htValues=["hhtFor","ahtAgainst","ahtFor","hhtAgainst"].map(read);
+  const hasHalfTime=htValues.every(v=>v!==null);
+  const hht=hasHalfTime?(htValues[0]+htValues[1])/2*(1+adv):null;
+  const aht=hasHalfTime?(htValues[2]+htValues[3])/2:null;
   const cornerValues=["hcFor","acAgainst","acFor","hcAgainst"].map(read);
   const hasGoals=goalValues.every(v=>v!==null),hasCorners=cornerValues.every(v=>v!==null);
   const hg=hasGoals?(goalValues[0]+goalValues[1])/2*(1+adv):null;
@@ -28,9 +32,9 @@ function simulate(){
   ];
   const extraValues=extraSpecs.map(spec=>({spec,values:spec.ids.map(read)})).filter(x=>x.values.every(v=>v!==null));
   if(!hasGoals&&!hasCorners&&!extraValues.length)throw Error("Não existem dados suficientes para simular. São necessárias médias completas de golos, cantos ou de outro indicador.");
-  let home=0,draw=0,away=0,g15=0,g25=0,g35=0,c85=0,c95=0,c105=0,sumG=0,sumC=0,sumHG=0,sumAG=0,scoreMap={};
+  let home=0,draw=0,away=0,g15=0,g25=0,g35=0,c85=0,c95=0,c105=0,ht05=0,btts=0,sumG=0,sumC=0,sumHG=0,sumAG=0,scoreMap={};
   for(let i=0;i<N;i++){
-   if(hasGoals){const x=poisson(hg),y=poisson(ag),gt=x+y;sumG+=gt;sumHG+=x;sumAG+=y;if(x>y)home++;else if(x===y)draw++;else away++;if(gt>=2)g15++;if(gt>=3)g25++;if(gt>=4)g35++;const key=x+"-"+y;scoreMap[key]=(scoreMap[key]||0)+1;}
+   if(hasGoals){const x=poisson(hg),y=poisson(ag),gt=x+y;sumG+=gt;sumHG+=x;sumAG+=y;if(x>y)home++;else if(x===y)draw++;else away++;if(x>0&&y>0)btts++;if(hasHalfTime&&poisson(hht)+poisson(aht)>=1)ht05++;if(gt>=2)g15++;if(gt>=3)g25++;if(gt>=4)g35++;const key=x+"-"+y;scoreMap[key]=(scoreMap[key]||0)+1;}
    if(hasCorners){const c=negBin(hc,disp),d=negBin(ac,disp),ct=c+d;sumC+=ct;if(ct>=9)c85++;if(ct>=10)c95++;if(ct>=11)c105++;}
   }
   const noData='<p class="model-note">Sem dados suficientes nesta competição/amostra. O indicador não será estimado.</p>';
@@ -41,7 +45,7 @@ function simulate(){
   $("modalScore").textContent=modal;
   $("meanGoals").textContent=hasGoals?(sumG/N).toFixed(2):"—";
   $("meanCorners").textContent=hasCorners?(sumC/N).toFixed(2):"—";
-  $("goalMarkets").innerHTML=hasGoals?[line("Mais de 1.5 golos",g15),line("Mais de 2.5 golos",g25),line("Mais de 3.5 golos",g35)].join(""):noData;
+  $("goalMarkets").innerHTML=hasGoals?[line("Mais de 1.5 golos",g15),line("Mais de 2.5 golos",g25),line("Mais de 3.5 golos",g35),line("Ambas marcam — Sim",btts),hasHalfTime?line("Over 0,5 golos HT",ht05):'<div class="line-item"><span>Over 0,5 golos HT</span><b>Sem dados</b></div>'].join(""):noData;
   $("cornerMarkets").innerHTML=hasCorners?[line("Mais de 8.5 cantos",c85),line("Mais de 9.5 cantos",c95),line("Mais de 10.5 cantos",c105)].join(""):noData;
   const extraHtml=[];
   for(const item of extraValues){
@@ -51,7 +55,7 @@ function simulate(){
    extraHtml.push('<article class="card extra-result"><small>'+spec.key.toUpperCase()+'</small><div class="big">'+(sum/N).toFixed(2)+'</div><p>média total esperada · casa '+homeMean.toFixed(2)+' / fora '+awayMean.toFixed(2)+'</p>'+spec.thresholds.map((t,k)=>line("Mais de "+t.toFixed(1),hits[k])).join("")+'</article>');
   }
   $("extraMarkets").innerHTML=extraHtml.length?extraHtml.join(""):'<p class="model-note">Sem cobertura suficiente para prever remates, faltas ou cartões. Os indicadores adicionais só são simulados quando a fonte contém as quatro médias necessárias.</p>';
-  $("summary").textContent=[hasGoals?"Expectativa de "+(sumG/N).toFixed(2)+" golos ("+h+": "+(sumHG/N).toFixed(2)+"; "+a+": "+(sumAG/N).toFixed(2)+")": "Golos: sem dados suficientes",hasCorners?"Expectativa de "+(sumC/N).toFixed(2)+" cantos":"Cantos: sem dados suficientes",extraHtml.length?"Indicadores adicionais calculados: "+extraValues.map(x=>x.spec.key.toLowerCase()).join(", "):""].filter(Boolean).join(". ")+".";
+  $("summary").textContent=[hasGoals?"Expectativa de "+(sumG/N).toFixed(2)+" golos ("+h+": "+(sumHG/N).toFixed(2)+"; "+a+": "+(sumAG/N).toFixed(2)+")": "Golos: sem dados suficientes",hasGoals?"BTTS estimado: "+pct(btts):"",hasHalfTime?"Over 0,5 HT estimado: "+pct(ht05):"Over 0,5 HT: sem dados suficientes",hasCorners?"Expectativa de "+(sumC/N).toFixed(2)+" cantos":"Cantos: sem dados suficientes",extraHtml.length?"Indicadores adicionais calculados: "+extraValues.map(x=>x.spec.key.toLowerCase()).join(", "):""].filter(Boolean).join(". ")+".";
   $("resultados").classList.remove("hidden");$("resultados").scrollIntoView({behavior:"smooth",block:"start"});
  }catch(e){alert(e.message)}
 }
@@ -335,6 +339,8 @@ function teamSample(team,venue,metric){
  const sourceValue=(m,h)=>{
   if(metric==="goalsFor")return h?m.hg:m.ag;
   if(metric==="goalsAgainst")return h?m.ag:m.hg;
+  if(metric==="htGoalsFor")return m.htHome===null||m.htAway===null?null:(h?m.htHome:m.htAway);
+  if(metric==="htGoalsAgainst")return m.htHome===null||m.htAway===null?null:(h?m.htAway:m.htHome);
   if(metric==="cornersFor")return h?m.hc:m.ac;
   if(metric==="cornersAgainst")return h?m.ac:m.hc;
   if(metric==="shotsFor")return h?m.homeShots:m.awayShots;
@@ -351,6 +357,8 @@ function teamSample(team,venue,metric){
  const wdwValue=(m,h)=>{
   if(metric==="goalsFor")return h?m.hg:m.ag;
   if(metric==="goalsAgainst")return h?m.ag:m.hg;
+  if(metric==="htGoalsFor")return m.htHome===null||m.htAway===null?null:(h?m.htHome:m.htAway);
+  if(metric==="htGoalsAgainst")return m.htHome===null||m.htAway===null?null:(h?m.htAway:m.htHome);
   if(metric==="cornersFor")return h?m.homeCorners:m.awayCorners;
   if(metric==="cornersAgainst")return h?m.awayCorners:m.homeCorners;
   if(metric==="shotsFor")return h?(m.homeTarget===null||m.homeShotsOff===null?null:m.homeTarget+m.homeShotsOff):(m.awayTarget===null||m.awayShotsOff===null?null:m.awayTarget+m.awayShotsOff);
@@ -401,7 +409,7 @@ function fillInput(id,value){const display=$(id+"Display");if(value!==null&&Numb
 function applyTeamSelection(side){
  const team=$(side==="home"?"homePick":"awayPick").value;if(!team)return;
  const venue=side==="home"?"home":"away",suffix=side==="home"?"h":"a";
- const fields=[["goalsFor",suffix+"gFor"],["goalsAgainst",suffix+"gAgainst"],["cornersFor",suffix+"cFor"],["cornersAgainst",suffix+"cAgainst"],["shotsFor",suffix+"shotsFor"],["shotsAgainst",suffix+"shotsAgainst"],["targetFor",suffix+"targetFor"],["targetAgainst",suffix+"targetAgainst"],["foulsFor",suffix+"foulsFor"],["foulsAgainst",suffix+"foulsAgainst"],["yellowFor",suffix+"yellowFor"],["yellowAgainst",suffix+"yellowAgainst"],["redFor",suffix+"redFor"],["redAgainst",suffix+"redAgainst"]];
+ const fields=[["goalsFor",suffix+"gFor"],["goalsAgainst",suffix+"gAgainst"],["htGoalsFor",suffix+"htFor"],["htGoalsAgainst",suffix+"htAgainst"],["cornersFor",suffix+"cFor"],["cornersAgainst",suffix+"cAgainst"],["shotsFor",suffix+"shotsFor"],["shotsAgainst",suffix+"shotsAgainst"],["targetFor",suffix+"targetFor"],["targetAgainst",suffix+"targetAgainst"],["foulsFor",suffix+"foulsFor"],["foulsAgainst",suffix+"foulsAgainst"],["yellowFor",suffix+"yellowFor"],["yellowAgainst",suffix+"yellowAgainst"],["redFor",suffix+"redFor"],["redAgainst",suffix+"redAgainst"]];
  const coverage={};
  for(const [metric,id] of fields){const values=teamSample(team,venue,metric),avg=mean(values);fillInput(id,avg);coverage[metric]=values.length;}
  $(side==="home"?"homeName":"awayName").value=team;$(side==="home"?"homeNameDisplay":"awayNameDisplay").textContent=team;
