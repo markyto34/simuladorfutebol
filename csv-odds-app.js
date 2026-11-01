@@ -171,7 +171,8 @@
   }
 
   ["search","team"].forEach(id=>$(id).addEventListener("input",update));
-  ["continent","country","league","from","to","statusFilter"].forEach(id=>$(id).addEventListener("change",update));
+  $("continent").addEventListener("change",()=>{updateCountryOptions();update();});
+  ["country","league","from","to","statusFilter"].forEach(id=>$(id).addEventListener("change",update));
   ["min1","max1","minX","maxX","min2","max2"].forEach(id=>$(id).addEventListener("input",()=>{updateTriplet();$("backtestStatus").textContent="Os intervalos foram alterados. Executa novamente o backtesting para atualizar a validação.";}));
   ["current1","currentX","current2","tolerance"].forEach(id=>$(id).addEventListener("input",updateCurrentOdds));
   $("runBacktest").addEventListener("click",runBacktest);
