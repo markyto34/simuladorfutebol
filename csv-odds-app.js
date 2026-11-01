@@ -115,7 +115,7 @@
     $("drawCount").textContent = s.counts.X.toLocaleString("pt-PT") + " jogos";
     $("awayCount").textContent = s.counts["2"].toLocaleString("pt-PT") + " jogos";
     $("homeBar").style.width = s.percentages["1"] + "%"; $("drawBar").style.width = s.percentages.X + "%"; $("awayBar").style.width = s.percentages["2"] + "%";
-    updateTriplet(); renderMarketGroups("periodMarkets", CSVOdds.analyzePeriodMarkets(CSVOdds.rangeMatches(filtered, tripletRanges()))); updateCurrentOdds(); renderTable();
+    updateTriplet(); renderMarketGroups("periodMarkets", CSVOdds.analyzePeriodMarkets(CSVOdds.filterOddsRanges(filtered, tripletRanges()))); updateCurrentOdds(); renderTable();
   }
   function updateTriplet() {
     const a = CSVOdds.analyzeTriplet(filtered, tripletRanges());
@@ -241,7 +241,7 @@
   ["search","team"].forEach(id=>$(id).addEventListener("input",update));
   $("continent").addEventListener("change",()=>{updateCountryOptions();update();});
   ["country","league","from","to","statusFilter"].forEach(id=>$(id).addEventListener("change",update));
-  ["min1","max1","minX","maxX","min2","max2"].forEach(id=>$(id).addEventListener("input",()=>{updateTriplet();renderMarketGroups("periodMarkets", CSVOdds.analyzePeriodMarkets(CSVOdds.rangeMatches(filtered, tripletRanges())));$("backtestStatus").textContent="Os intervalos foram alterados. Executa novamente o backtesting para atualizar a validação.";}));
+  ["min1","max1","minX","maxX","min2","max2"].forEach(id=>$(id).addEventListener("input",()=>{updateTriplet();renderMarketGroups("periodMarkets", CSVOdds.analyzePeriodMarkets(CSVOdds.filterOddsRanges(filtered, tripletRanges())));$("backtestStatus").textContent="Os intervalos foram alterados. Executa novamente o backtesting para atualizar a validação.";}));
   ["current1","currentX","current2","tolerance"].forEach(id=>$(id).addEventListener("input",updateCurrentOdds));
   $("runBacktest").addEventListener("click",runBacktest);
   $("clearFilters").addEventListener("click",()=>{
