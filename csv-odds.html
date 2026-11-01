@@ -98,6 +98,11 @@
           </div>
           <p id="exactNote" class="hint">A previsão do marcador será baseada nos resultados FT da amostra histórica.</p>
           <p id="currentNote" class="hint">Introduz as três odds do jogo: 1, X e 2.</p>
+          <div class="similar-market-wrap">
+            <h3>Padrões dos jogos históricos semelhantes às odds atuais</h3>
+            <div id="similarMarkets" class="market-period-grid"></div>
+            <p class="hint">Cada mercado utiliza apenas os jogos semelhantes com os resultados necessários completos. As frequências não são odds nem garantias.</p>
+          </div>
         </section>
         <section class="panel">
           <div class="section-head"><div><em>06</em><h2>Backtesting cronológico</h2></div><small>TREINO VS. VALIDAÇÃO</small></div>
@@ -112,7 +117,7 @@
           <p id="backtestStatus" class="hint">Escolhe uma data e executa o teste. A validação cronológica é essencial para evitar avaliar a estratégia com os mesmos jogos usados para a desenvolver.</p>
         </section>
         <section class="panel">
-          <div class="section-head"><div><em>07</em><h2>Jogos da seleção</h2></div><small id="tableInfo">0 REGISTOS</small></div>
+          <div class="section-head"><div><em>08</em><h2>Jogos da seleção</h2></div><small id="tableInfo">0 REGISTOS</small></div>
           <div class="table-wrap"><table><thead><tr><th>Data</th><th>Competição</th><th>Encontro</th><th>Intervalo</th><th>2.ª parte</th><th>FT</th><th>Final</th><th>Odds 1 / X / 2</th><th>Estado</th></tr></thead><tbody id="matchesBody"><tr><td colspan="9" class="empty">A carregar base de dados…</td></tr></tbody></table></div>
           <div class="pagination"><button id="prevPage" class="quiet">← Anterior</button><span id="pageLabel">Página 1</span><button id="nextPage" class="quiet">Seguinte →</button></div>
         </section>
