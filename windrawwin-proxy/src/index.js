@@ -27,7 +27,7 @@ function safePath(raw) {
   let url;
   try { url = new URL(raw, UPSTREAM); } catch { return null; }
   if (url.origin !== UPSTREAM) return null;
-  if (!/^\/(predictions|football-statistics|team-statistics|teams|leagues|results)(\/|$)/i.test(url.pathname)) return null;
+  if (!/^\/(predictions|football-statistics|team-statistics|teams|leagues|results|statistics)(\/|$)/i.test(url.pathname)) return null;
   return url.pathname + url.search;
 }
 
