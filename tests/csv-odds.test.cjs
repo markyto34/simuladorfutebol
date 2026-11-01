@@ -59,3 +59,62 @@ test("resultado 1X2 usa FT e não o resultado final que pode incluir prolongamen
   assert.deepEqual(match.ft, [1,1]);
   assert.deepEqual(match.final, [2,1]);
 });
+
+
+test("analisa sempre o conjunto completo de odds 1/X/2", () => {
+  const rows = csv.normalizeRows([
+    {date_time:"2026-01-01 12:00:00",TEAM_HOME:"A",TEAM_AWAY:"B",score_ft_home:"2",score_ft_away:"0",odd_ft_1:"1.50",odd_ft_x:"4.00",odd_ft_2:"6.00"},
+    {date_time:"2026-01-02 12:00:00",TEAM_HOME:"C",TEAM_AWAY:"D",score_ft_home:"1",score_ft_away:"1",odd_ft_1:"2.20",odd_ft_x:"3.20",odd_ft_2:"3.10"},
+    {date_time:"2026-01-03 12:00:00",TEAM_HOME:"E",TEAM_AWAY:"F",score_ft_home:"0",score_ft_away:"1",odd_ft_1:"2.00",odd_ft_x:"",odd_ft_2:"3.00"},
+    {date_time:"2026-01-04 12:00:00",TEAM_HOME:"G",TEAM_AWAY:"H",score_ft_home:"",score_ft_away:"",odd_ft_1:"2.00",odd_ft_x:"3.00",odd_ft_2:"4.00"}
+  ]);
+  const result = csv.analyzeTriplet(rows);
+  assert.equal(result.count, 2);
+  assert.equal(result.outcomes["1"].wins, 1);
+  assert.equal(result.outcomes.X.wins, 1);
+  assert.equal(result.outcomes["2"].wins, 0);
+  assert.equal(result.outcomes["1"].profitUnits, -0.5);
+  assert.ok(Math.abs(result.outcomes.X.profitUnits - 1.2) < 1e-9);
+  assert.ok(result.outcomes["1"].confidence95.lower < result.outcomes["1"].frequency);
+});
+
+test("normaliza as probabilidades 1/X/2 e calcula a margem do mercado", () => {
+  const p = csv.impliedProbabilities({"1":2, X:4, "2":4});
+  assert.equal(Math.round(p.fair["1"] + p.fair.X + p.fair["2"]), 100);
+  assert.equal(Math.round(p.overround * 100) / 100, 0);
+  assert.equal(p.fair["1"], 50);
+});
+
+test("filtra combinações simultâneas de odds 1/X/2", () => {
+  const rows = csv.normalizeRows([
+    {TEAM_HOME:"A",TEAM_AWAY:"B",score_ft_home:"1",score_ft_away:"0",odd_ft_1:"1.55",odd_ft_x:"3.50",odd_ft_2:"5.50"},
+    {TEAM_HOME:"C",TEAM_AWAY:"D",score_ft_home:"0",score_ft_away:"1",odd_ft_1:"1.55",odd_ft_x:"4.50",odd_ft_2:"5.50"}
+  ]);
+  const result = csv.analyzeTriplet(rows, {
+    "1":{min:1.5,max:1.6}, X:{min:3.2,max:3.8}, "2":{min:5,max:6}
+  });
+  assert.equal(result.count, 1);
+  assert.equal(result.outcomes["1"].wins, 1);
+});
+
+test("compara odds atuais com jogos históricos de perfil semelhante", () => {
+  const rows = csv.normalizeRows([
+    {TEAM_HOME:"A",TEAM_AWAY:"B",score_ft_home:"1",score_ft_away:"0",odd_ft_1:"1.50",odd_ft_x:"4.00",odd_ft_2:"6.00"},
+    {TEAM_HOME:"C",TEAM_AWAY:"D",score_ft_home:"0",score_ft_away:"0",odd_ft_1:"1.55",odd_ft_x:"3.95",odd_ft_2:"6.10"},
+    {TEAM_HOME:"E",TEAM_AWAY:"F",score_ft_home:"0",score_ft_away:"1",odd_ft_1:"3.00",odd_ft_x:"3.00",odd_ft_2:"2.50"}
+  ]);
+  const result = csv.evaluateCurrentOdds(rows, {"1":1.52,X:4,"2":6.05}, 0.1);
+  assert.equal(result.sample, 2);
+  assert.equal(result.historical["1"].wins, 1);
+  assert.ok(result.market.fair["1"] > 0);
+});
+
+test("backtesting separa treino e validação por data", () => {
+  const rows = csv.normalizeRows([
+    {date_time:"2025-01-01 12:00:00",TEAM_HOME:"A",TEAM_AWAY:"B",score_ft_home:"1",score_ft_away:"0",odd_ft_1:"1.50",odd_ft_x:"4.00",odd_ft_2:"6.00"},
+    {date_time:"2026-01-01 12:00:00",TEAM_HOME:"C",TEAM_AWAY:"D",score_ft_home:"0",score_ft_away:"1",odd_ft_1:"1.50",odd_ft_x:"4.00",odd_ft_2:"6.00"}
+  ]);
+  const result = csv.backtestTriplet(rows, undefined, "2026-01-01");
+  assert.equal(result.training.count, 1);
+  assert.equal(result.validation.count, 1);
+});
