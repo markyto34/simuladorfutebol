@@ -1,0 +1,25 @@
+name: Validate simulator JavaScript
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "app.js"
+      - "config.js"
+      - "windrawwin-proxy/**"
+      - ".github/workflows/validate-simulator.yml"
+  workflow_dispatch:
+
+jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Check JavaScript syntax
+        run: |
+          node --check app.js
+          node --check config.js
+          node --check windrawwin-proxy/src/index.js
