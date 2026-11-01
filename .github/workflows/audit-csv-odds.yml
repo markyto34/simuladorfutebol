@@ -1,0 +1,25 @@
+name: Auditar CSV de Odds
+on:
+  push:
+    branches:
+      - audit/csv-odds-20261101
+    paths:
+      - '.github/workflows/audit-csv-odds.yml'
+      - 'scripts/audit-csv-odds.cjs'
+      - 'ganhonasodds_com_20261101.csv'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obter repositório
+        uses: actions/checkout@v4
+      - name: Executar auditoria
+        run: node scripts/audit-csv-odds.cjs | tee csv-odds-audit.md
+      - name: Guardar relatório
+        uses: actions/upload-artifact@v4
+        with:
+          name: csv-odds-audit
+          path: csv-odds-audit.md
