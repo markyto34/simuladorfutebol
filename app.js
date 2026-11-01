@@ -136,6 +136,7 @@ const WDW_LEAGUES={
  "KAZ_1_premier-league":"kazakhstan-premier-league",
  "UKR_1_premier-league":"ukraine-upl"
 };
+const WDW_CALENDAR_YEAR_LEAGUES=new Set(["BRA_1_serie-a","BRA_2_serie-b","ARG_1_liga-profesional","ARG_2_primera-nacional","USA_1_mls","JPN_1_j1-league","AUS_1_a-league","CHN_1_super-league","SWE_1_allsvenskan","NOR_1_eliteserien","FIN_1_veikkausliiga","KAZ_1_premier-league","IRE_2_first-division","WAL_1_cymru-premier"]);
 const WDW_ALIASES={"sporting cp":"sporting lisbon","sporting clube de portugal":"sporting lisbon","academico":"academico viseu","academico viseu":"academico viseu","vitoria":"guimaraes","casa pia":"casa pia atletico","nacional":"nacional madeira","maritimo m":"maritimo","estoril praia":"estoril","gd estoril praia":"estoril"};
 const WDW_TEAM_PATHS={"POR_1_primeira-liga":{"porto":"/results/fc-porto/","estoril":"/results/estoril/","famalicao":"/results/famalicao/"}};
 function normalizeTeamName(value){return String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/\b(fc|cf|sc|afc|club|clube|de|the)\b/g," ").replace(/[^a-z0-9]+/g," ").trim().replace(/\s+/g," ");}
@@ -395,7 +396,7 @@ function teamSample(team,venue,metric){
   if(!allowWdw||!w.dateKey)return "";
   const [month,day]=w.dateKey.split("-").map(Number);
   const startYear=2000+Number(season.slice(0,2));
-  const year=month>=7?startYear:startYear+1;
+  const year=WDW_CALENDAR_YEAR_LEAGUES.has(league)?startYear:(month>=7?startYear:startYear+1);
   return year+"-"+String(month).padStart(2,"0")+"-"+String(day).padStart(2,"0");
  };
  const sameFixture=(m,w)=>{
