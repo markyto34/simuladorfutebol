@@ -18,3 +18,12 @@
 .wdw-columns h4{margin:0 0 8px;font-size:.78rem;letter-spacing:.1em}
 .wdw-columns p{margin:0;font-size:.86rem;line-height:1.65;color:var(--muted,#aab5ae)}
 @media(max-width:600px){.wdw-columns{grid-template-columns:1fr}}
+
+.wdw-stat-groups{display:grid;gap:16px}
+.wdw-stat-group{padding:15px;border:1px solid var(--line,#26352f);border-radius:10px;background:rgba(255,255,255,.018)}
+.wdw-stat-group h5{margin:0 0 12px;color:#a8e4bc;font-size:.76rem;letter-spacing:.09em;text-transform:uppercase}
+.wdw-stat-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.wdw-stat{min-width:0;display:flex;flex-direction:column;gap:6px;padding:11px 12px;border-radius:8px;background:rgba(255,255,255,.035)}
+.wdw-stat span{color:var(--muted,#aab5ae);font-size:.78rem;line-height:1.4}
+.wdw-stat strong{color:#eef5f0;font-size:1rem;font-weight:700;overflow-wrap:anywhere}
+@media(max-width:600px){.wdw-stat-list{grid-template-columns:1fr}.wdw-stat{padding:12px 13px}.wdw-stat strong{font-size:1.02rem}}
