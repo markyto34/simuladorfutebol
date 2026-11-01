@@ -13,8 +13,10 @@
         else field += c;
       } else if (c === '"' && field.length === 0) quoted = true;
       else if (c === ",") { row.push(field); field = ""; }
-      else if (c === "\n" || c === "\r") {
-        if (c === "\r" && next === "\n") i++;
+      else if (c === "
+" || c === "\r") {
+        if (c === "\r" && next === "
+") i++;
         row.push(field); field = "";
         if (row.some(v => v.trim() !== "")) rows.push(row);
         row = [];
@@ -66,7 +68,7 @@
     "África": ["Algeria","Angola","Benin","Botswana","Burkina Faso","Burundi","Cameroon","Cape Verde","Central African Republic","Chad","Comoros","Congo","DR Congo","Democratic Republic of the Congo","Djibouti","Egypt","Equatorial Guinea","Eritrea","Eswatini","Ethiopia","Gabon","Gambia","Ghana","Guinea","Guinea-Bissau","Ivory Coast","Kenya","Lesotho","Liberia","Libya","Madagascar","Malawi","Mali","Mauritania","Mauritius","Morocco","Mozambique","Namibia","Niger","Nigeria","Rwanda","Sao Tome and Principe","Senegal","Seychelles","Sierra Leone","Somalia","South Africa","South Sudan","Sudan","Tanzania","Togo","Tunisia","Uganda","Zambia","Zimbabwe"],
     "América do Norte": ["Antigua and Barbuda","Bahamas","Barbados","Belize","Bermuda","Canada","Costa Rica","Cuba","Dominica","Dominican Republic","El Salvador","Grenada","Guatemala","Haiti","Honduras","Jamaica","Mexico","Nicaragua","Panama","Puerto Rico","Saint Kitts and Nevis","Saint Lucia","Saint Vincent and the Grenadines","Trinidad and Tobago","United States","USA","US"],
     "América do Sul": ["Argentina","Bolivia","Brazil","Brasil","Chile","Colombia","Ecuador","Guyana","Paraguay","Peru","Suriname","Uruguay","Venezuela"],
-    "Oceânia": ["Australia","Fiji","New Zealand","Papua New Guinea","Solomon Islands","Tahiti","Vanuatu"];
+    "Oceânia": ["Australia","Fiji","New Zealand","Papua New Guinea","Solomon Islands","Tahiti","Vanuatu"]
   };
   function continentForCountry(country) {
     const value = String(country || "").trim().toLocaleLowerCase();
@@ -75,7 +77,8 @@
     }
     return "Por identificar";
   }
-\n  function normalizeRows(rawRows) {
+
+  function normalizeRows(rawRows) {
     return rawRows.map((r, index) => {
       const finalHome = score(r.score_final_home), finalAway = score(r.score_final_away);
       const ftHome = score(r.score_ft_home), ftAway = score(r.score_ft_away);
@@ -221,7 +224,8 @@
       score: score.replace("-", "–"), count, frequency: count / eligible.length * 100
     })) };
   }
-\n  function backtestTriplet(matches, ranges, splitDate) {
+
+  function backtestTriplet(matches, ranges, splitDate) {
     const eligible = rangeMatches(matches, ranges)
       .filter(m => m.date instanceof Date && !Number.isNaN(m.date.getTime()))
       .sort((a, b) => a.date - b.date);
@@ -237,7 +241,8 @@
   function filterMatches(matches, filters) {
     const q = (filters.search || "").trim().toLocaleLowerCase();
     return matches.filter(m => {
-      if (filters.continent && m.continent !== filters.continent) return false;\n      if (filters.country && m.country !== filters.country) return false;
+      if (filters.continent && m.continent !== filters.continent) return false;
+      if (filters.country && m.country !== filters.country) return false;
       if (filters.league && m.league !== filters.league) return false;
       if (filters.team) { const team = filters.team.trim().toLocaleLowerCase(); if (!(m.home.toLocaleLowerCase().includes(team) || m.away.toLocaleLowerCase().includes(team))) return false; }
       if (filters.from && (!m.date || m.date < filters.from)) return false;
