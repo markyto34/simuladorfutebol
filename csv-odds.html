@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101a16">
+  <meta name="description" content="Laboratório de análise histórica de resultados e odds 1X2.">
+  <title>CSV de Odds | Simulador Futebol</title>
+  <link rel="stylesheet" href="csv-odds.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="index.html">⚽ SIMULADOR<span>.FUTEBOL</span></a>
+      <p class="eyebrow">ÁREA DE TRABALHO</p>
+      <nav><a href="index.html">◉ Simulador Futebol</a><a class="active" href="csv-odds.html">▦ CSV de Odds</a></nav>
+      <div class="side-foot">● Laboratório independente<small>Dados processados no teu navegador</small></div>
+    </aside>
+    <main>
+      <header><div><p class="eyebrow">INVESTIGAÇÃO HISTÓRICA</p><h1>CSV de Odds</h1></div><a class="back" href="index.html">← Voltar ao simulador</a></header>
+      <section class="intro">
+        <div><h2>Descobre o que o histórico realmente mostra.</h2><p>Importa o teu CSV e explora resultados, competições, equipas e frequências associadas às odds 1X2. A análise é feita localmente no navegador.</p></div>
+        <div class="count"><b id="recordCount">—</b><small>JOGOS IMPORTADOS</small></div>
+      </section>
+      <section class="panel import-panel">
+        <div class="section-head"><div><em>01</em><h2>Importar base de dados</h2></div><small>CSV · 1X2 · RESULTADOS</small></div>
+        <label class="file-drop" for="csvFile"><span class="upload-icon">↑</span><strong>Seleciona o ficheiro CSV</strong><span>O ficheiro é lido no teu dispositivo e não é enviado para um servidor.</span><input id="csvFile" type="file" accept=".csv,text/csv"></label>
+        <p id="status" class="status" role="status">À espera de um ficheiro CSV. O formato esperado contém date_time, COUNTRY, LEAGUE, TEAM_HOME, TEAM_AWAY e odds 1X2.</p>
+        <div class="schema-note">O resultado principal é calculado a partir de <code>score_final_home</code> e <code>score_final_away</code>. O resultado FT e os parciais são apresentados separadamente quando existem. Jogos sem resultado final são classificados como pendentes — nunca como derrotas.</div>
+      </section>
+      <section id="workspace" hidden>
+        <section class="panel">
+          <div class="section-head"><div><em>02</em><h2>Filtros do histórico</h2></div><button id="clearFilters" class="quiet">Limpar filtros</button></div>
+          <div class="filters">
+            <label>Pesquisa livre<input id="search" type="search" placeholder="Equipa, competição ou país"></label>
+            <label>País<select id="country"><option value="">Todos os países</option></select></label>
+            <label>Competição<select id="league"><option value="">Todas as competições</option></select></label>
+            <label>Equipa<select id="team"><option value="">Todas as equipas</option></select></label>
+            <label>Desde<input id="from" type="date"></label>
+            <label>Até<input id="to" type="date"></label>
+            <label>Estado<select id="statusFilter"><option value="all">Todos os jogos</option><option value="completed">Concluídos</option><option value="pending">Sem resultado final</option></select></label>
+          </div>
+        </section>
+        <section class="kpis">
+          <article class="kpi"><span>Jogos filtrados</span><strong id="kpiTotal">0</strong><small>Inclui pendentes</small></article>
+          <article class="kpi"><span>Concluídos</span><strong id="kpiCompleted">0</strong><small>Com resultado final</small></article>
+          <article class="kpi"><span>Pendentes</span><strong id="kpiPending">0</strong><small>Sem resultado final</small></article>
+          <article class="kpi"><span>Competições</span><strong id="kpiLeagues">0</strong><small>Na seleção atual</small></article>
+        </section>
+        <section class="panel">
+          <div class="section-head"><div><em>03</em><h2>Frequência dos resultados</h2></div><small>APENAS JOGOS CONCLUÍDOS</small></div>
+          <div class="outcome-grid">
+            <article><span>Vitória da casa</span><strong id="homePct">—</strong><small id="homeCount">0 jogos</small><div class="track"><i id="homeBar"></i></div></article>
+            <article><span>Empate</span><strong id="drawPct">—</strong><small id="drawCount">0 jogos</small><div class="track"><i id="drawBar"></i></div></article>
+            <article><span>Vitória visitante</span><strong id="awayPct">—</strong><small id="awayCount">0 jogos</small><div class="track"><i id="awayBar"></i></div></article>
+          </div>
+          <p class="hint">As percentagens descrevem apenas a amostra filtrada. Não são probabilidades futuras nem garantias de repetição.</p>
+        </section>
+        <section class="panel">
+          <div class="section-head"><div><em>04</em><h2>Laboratório de intervalos de odds</h2></div><small>1X2 · HISTÓRICO</small></div>
+          <p class="section-copy">Escolhe um resultado e um intervalo de odds. O laboratório mede quantas vezes esse resultado aconteceu nos jogos em que a odd estava dentro do intervalo.</p>
+          <div class="odds-controls">
+            <label>Mercado<select id="market"><option value="1">Vitória da casa (1)</option><option value="X">Empate (X)</option><option value="2">Vitória visitante (2)</option></select></label>
+            <label>Odd mínima<input id="minOdd" type="number" min="1.01" max="1000" step="0.01" value="1.30"></label>
+            <label>Odd máxima<input id="maxOdd" type="number" min="1.01" max="1000" step="0.01" value="1.60"></label>
+          </div>
+          <div class="analysis-grid">
+            <article><span>Amostra elegível</span><strong id="oddsN">—</strong></article>
+            <article><span>Acertos</span><strong id="oddsWins">—</strong></article>
+            <article><span>Frequência observada</span><strong id="oddsHit">—</strong></article>
+            <article><span>Probabilidade implícita média*</span><strong id="oddsImplied">—</strong></article>
+            <article><span>Odd média</span><strong id="oddsAverage">—</strong></article>
+            <article><span>Retorno histórico teórico</span><strong id="oddsRoi">—</strong></article>
+          </div>
+          <p class="hint">* Média de 1/odd, sem remoção da margem da casa. O retorno é uma simulação simples de unidade fixa por jogo, usando as odds registadas no CSV; não representa uma estratégia validada nem garante que as odds fossem executáveis.</p>
+        </section>
+        <section class="panel">
+          <div class="section-head"><div><em>05</em><h2>Jogos da seleção</h2></div><small id="tableInfo">0 REGISTOS</small></div>
+          <div class="table-wrap"><table><thead><tr><th>Data</th><th>Competição</th><th>Encontro</th><th>Intervalo</th><th>FT</th><th>Final</th><th>Odds 1 / X / 2</th><th>Estado</th></tr></thead><tbody id="matchesBody"><tr><td colspan="8" class="empty">Importa um CSV para começar.</td></tr></tbody></table></div>
+          <div class="pagination"><button id="prevPage" class="quiet">← Anterior</button><span id="pageLabel">Página 1</span><button id="nextPage" class="quiet">Seguinte →</button></div>
+        </section>
+      </section>
+      <footer>CSV DE ODDS <span>Ferramenta de investigação histórica · Sem ligação ao simulador principal</span></footer>
+    </main>
+  </div>
+  <script src="csv-odds-core.js"></script><script src="csv-odds-app.js"></script>
+</body></html>
