@@ -352,7 +352,7 @@ function teamOptionsForSeason(matches,completeMatches,allowWdw){
 }
 async function loadHistoricalData(){
  const status=$("data-status"),button=$("load-data");button.disabled=true;status.textContent="A obter o ficheiro histórico da competição…";if($("data-coverage"))$("data-coverage").textContent="A verificar cobertura das estatísticas…";
- try{const league=$("league").value,season=$("season").value,url="https://raw.githubusercontent.com/oladeeayo/open-matchday/master/data/"+league+"/results_"+season+".csv";const csv=await fetchSourceCSV(url);const matches=parseSourceCSV(csv).map(normalizeSourceMatch).filter(Boolean).sort((a,b)=>b.date.localeocaleCompare(a.date));if(!matches.length)throw new Error("O ficheiro foi obtido, mas não contém resultados reconhecidos.");
+ try{const league=$("league").value,season=$("season").value,url="https://raw.githubusercontent.com/oladeeayo/open-matchday/master/data/"+league+"/results_"+season+".csv";const csv=await fetchSourceCSV(url);const matches=parseSourceCSV(csv).map(normalizeSourceMatch).filter(Boolean).sort((a,b)=>b.date.localeCompare(a.date));if(!matches.length)throw new Error("O ficheiro foi obtido, mas não contém resultados reconhecidos.");
  const isComplete=m=>[m.hg,m.ag,m.hc,m.ac,m.homeShots,m.awayShots,m.homeTarget,m.awayTarget,m.homeFouls,m.awayFouls].every(v=>v!==null&&v!==undefined&&Number.isFinite(Number(v)));
  const completeMatches=matches.filter(isComplete);
  const now=new Date(),currentSeasonStart=now.getMonth()>=6?now.getFullYear():now.getFullYear()-1;
