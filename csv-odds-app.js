@@ -17,7 +17,7 @@
   function fillFilters() {
     setOptions("country", unique(allMatches.map(m=>m.country)), "Todos os países");
     setOptions("league", unique(allMatches.map(m=>m.league)), "Todas as competições");
-    setOptions("team", unique(allMatches.flatMap(m=>[m.home,m.away])), "Todas as equipas");
+    
   }
   function getFiltered() {
     const fromValue = $("from").value, toValue = $("to").value;
@@ -83,7 +83,8 @@
       fillFilters();$("workspace").hidden=false;
       $("recordCount").textContent=allMatches.length.toLocaleString("pt-PT");
       const completed=allMatches.filter(m=>m.completed).length;
-      $("status").textContent="Importação concluída: "+allMatches.length.toLocaleString("pt-PT")+" linhas, "+completed.toLocaleString("pt-PT")+" jogos com resultado final e "+(allMatches.length-completed).toLocaleString("pt-PT")+" sem resultado final. O conteúdo permanece neste navegador.";
+      const mismatches=allMatches.filter(m=>m.completed && m.final[0]!==null && m.final[1]!==null && (m.ft[0]!==m.final[0] || m.ft[1]!==m.final[1])).length;
+      $("status").textContent="Importação concluída: "+allMatches.length.toLocaleString("pt-PT")+" linhas, "+completed.toLocaleString("pt-PT")+" jogos com FT completo e "+(allMatches.length-completed).toLocaleString("pt-PT")+" sem FT. Em "+mismatches.toLocaleString("pt-PT")+" jogos, o resultado final da fonte difere do FT; para o mercado 1X2 é usado sempre o FT. O ficheiro permanece neste navegador.";
       update();
     } catch(err) {
       allMatches=[];$("workspace").hidden=true;
@@ -91,7 +92,8 @@
       $("recordCount").textContent="—";
     }
   });
-  ["search","country","league","team","from","to","statusFilter"].forEach(id=>$(id).addEventListener(id==="search"?"input":"change",update));
+  ["search","team"].forEach(id=>$(id).addEventListener("input",update));
+  ["country","league","from","to","statusFilter"].forEach(id=>$(id).addEventListener("change",update));
   ["market","minOdd","maxOdd"].forEach(id=>$(id).addEventListener("input",updateOdds));
   $("clearFilters").addEventListener("click",()=>{
     ["search","country","league","team","from","to"].forEach(id=>$(id).value="");
