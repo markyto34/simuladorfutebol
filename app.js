@@ -31,7 +31,7 @@ for(const spec of extraSpecs){
  for(let j=0;j<N;j++){const total=negBin(homeMean,spec.dispersion)+negBin(awayMean,spec.dispersion);sum+=total;spec.thresholds.forEach((t,k)=>{if(total>t)hits[k]++;});}
  extraHtml.push('<article class="card extra-result"><small>'+spec.key.toUpperCase()+'</small><div class="big">'+(sum/N).toFixed(2)+'</div><p>média total esperada · casa '+homeMean.toFixed(2)+' / fora '+awayMean.toFixed(2)+'</p>'+spec.thresholds.map((t,k)=>line('Mais de '+t.toFixed(1),hits[k])).join('')+'</article>');
 }
-$("extraMarkets").innerHTML=extraHtml.length?extraHtml.join(""):'<p class="model-note">Sem cobertura suficiente para prever remates, faltas ou cartões. Preenche as quatro médias de cada estatística para ativar o respetivo modelo.</p>';
+$("extraMarkets").innerHTML=extraHtml.length?extraHtml.join(""):'<p class="model-note">Sem cobertura suficiente para prever remates, faltas ou cartões. Os indicadores adicionais só são simulados quando a fonte contém as quatro médias necessárias.</p>';
 $("outcomes").innerHTML=[["Vitória "+h,home],["Empate",draw],["Vitória "+a,away]].map(([l,p])=>'<div class="bar-row"><div class="bar-label"><span>'+l+'</span><b>'+pct(p)+'</b></div><div class="bar-track"><div class="bar-fill" style="width:'+100*p/N+'%"></div></div></div>').join("");
 $("meanScore").textContent=mean;$("modalScore").textContent=modal;$("meanGoals").textContent=(sumG/N).toFixed(2);$("meanCorners").textContent=(sumC/N).toFixed(2);
 $("goalMarkets").innerHTML=[line("Mais de 1.5 golos",g15),line("Mais de 2.5 golos",g25),line("Mais de 3.5 golos",g35)].join("");
@@ -67,14 +67,14 @@ async function loadHistoricalData(){
 }
 function teamSample(team,venue,metric){let games=dataState.matches.filter(m=>(m.home===team||m.away===team)&&(venue==="all"||(venue==="home"&&m.home===team)||(venue==="away"&&m.away===team)));const limit=$("sample").value;if(limit!=="all")games=games.slice(0,Number(limit));return games.map(m=>{const home=m.home===team;if(metric==="goalsFor")return home?m.hg:m.ag;if(metric==="goalsAgainst")return home?m.ag:m.hg;if(metric==="cornersFor")return home?m.hc:m.ac;if(metric==="cornersAgainst")return home?m.ac:m.hc;if(metric==="shotsFor")return home?m.homeShots:m.awayShots;if(metric==="shotsAgainst")return home?m.awayShots:m.homeShots;if(metric==="targetFor")return home?m.homeTarget:m.awayTarget;if(metric==="targetAgainst")return home?m.awayTarget:m.homeTarget;if(metric==="foulsFor")return home?m.homeFouls:m.awayFouls;if(metric==="foulsAgainst")return home?m.awayFouls:m.homeFouls;if(metric==="yellowFor")return home?m.homeYellow:m.awayYellow;if(metric==="yellowAgainst")return home?m.awayYellow:m.homeYellow;if(metric==="redFor")return home?m.homeRed:m.awayRed;if(metric==="redAgainst")return home?m.awayRed:m.homeRed;}).filter(v=>v!==null&&v!==undefined);}
 function mean(values){return values.length?values.reduce((a,b)=>a+b,0)/values.length:null;}
-function fillInput(id,value){if(value!==null&&Number.isFinite(value))$(id).value=value.toFixed(2);}
+function fillInput(id,value){const display=$(id+"Display");if(value!==null&&Number.isFinite(value)){$(id).value=value.toFixed(2);if(display)display.textContent=value.toFixed(2);}else{$(id).value="";if(display)display.textContent="Sem dados";}}
 function applyTeamSelection(side){
  const team=$(side==="home"?"homePick":"awayPick").value;if(!team)return;
  const venue=side==="home"?"home":"away",suffix=side==="home"?"h":"a";
  const fields=[["goalsFor",suffix+"gFor"],["goalsAgainst",suffix+"gAgainst"],["cornersFor",suffix+"cFor"],["cornersAgainst",suffix+"cAgainst"],["shotsFor",suffix+"shotsFor"],["shotsAgainst",suffix+"shotsAgainst"],["targetFor",suffix+"targetFor"],["targetAgainst",suffix+"targetAgainst"],["foulsFor",suffix+"foulsFor"],["foulsAgainst",suffix+"foulsAgainst"],["yellowFor",suffix+"yellowFor"],["yellowAgainst",suffix+"yellowAgainst"],["redFor",suffix+"redFor"],["redAgainst",suffix+"redAgainst"]];
  const coverage={};
- for(const [metric,id] of fields){const values=teamSample(team,venue,metric),avg=mean(values);if(avg!==null)fillInput(id,avg);else $(id).value="";coverage[metric]=values.length;}
- $(side==="home"?"homeName":"awayName").value=team;
+ for(const [metric,id] of fields){const values=teamSample(team,venue,metric),avg=mean(values);fillInput(id,avg);coverage[metric]=values.length;}
+ $(side==="home"?"homeName":"awayName").value=team;$(side==="home"?"homeNameDisplay":"awayNameDisplay").textContent=team;
  const status=$("data-status"),sample=$("sample").value==="all"?"todos os jogos":"últimos "+$("sample").value+" jogos";
  const count=(a,b)=>Math.min(coverage[a]||0,coverage[b]||0);
  status.textContent=team+": médias "+(venue==="home"?"em casa":"fora")+" preenchidas. Amostras — golos: "+count("goalsFor","goalsAgainst")+"; cantos: "+count("cornersFor","cornersAgainst")+"; remates: "+count("shotsFor","shotsAgainst")+"; remates à baliza: "+count("targetFor","targetAgainst")+"; faltas: "+count("foulsFor","foulsAgainst")+"; amarelos: "+count("yellowFor","yellowAgainst")+"; vermelhos: "+count("redFor","redAgainst")+". Janela: "+sample+". Campos sem cobertura ficam indisponíveis; não são substituídos por zeros.";
