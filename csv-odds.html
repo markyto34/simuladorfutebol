@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#101a16">
-  <meta name="description" content="Laboratório de análise histórica de resultados e odds 1X2.">
+  <meta name="description" content="Laboratório de análise histórica e pré-jogo das três odds 1X2.">
   <title>CSV de Odds | Simulador Futebol</title>
   <link rel="stylesheet" href="csv-odds.css">
 </head>
@@ -13,19 +13,18 @@
       <a class="brand" href="index.html">⚽ SIMULADOR<span>.FUTEBOL</span></a>
       <p class="eyebrow">ÁREA DE TRABALHO</p>
       <nav><a href="index.html">◉ Simulador Futebol</a><a class="active" href="csv-odds.html">▦ CSV de Odds</a></nav>
-      <div class="side-foot">● Laboratório independente<small>Dados processados no teu navegador</small></div>
+      <div class="side-foot">● Laboratório independente<small>Base histórica carregada automaticamente</small></div>
     </aside>
     <main>
-      <header><div><p class="eyebrow">INVESTIGAÇÃO HISTÓRICA</p><h1>CSV de Odds</h1></div><a class="back" href="index.html">← Voltar ao simulador</a></header>
+      <header><div><p class="eyebrow">INVESTIGAÇÃO HISTÓRICA E PRÉ-JOGO</p><h1>CSV de Odds</h1></div><a class="back" href="index.html">← Voltar ao simulador</a></header>
       <section class="intro">
-        <div><h2>Descobre o que o histórico realmente mostra.</h2><p>Importa o teu CSV e explora resultados, competições, equipas e frequências associadas às odds 1X2. A análise é feita localmente no navegador.</p></div>
-        <div class="count"><b id="recordCount">—</b><small>JOGOS IMPORTADOS</small></div>
+        <div><h2>Estuda o mercado 1X2 com dados históricos.</h2><p>A base de dados é carregada automaticamente. Analisa sempre o conjunto completo de odds 1, X e 2, investiga padrões e compara jogos atuais com encontros históricos semelhantes.</p></div>
+        <div class="count"><b id="recordCount">A carregar</b><small>REGISTOS NA BASE HISTÓRICA</small></div>
       </section>
       <section class="panel import-panel">
-        <div class="section-head"><div><em>01</em><h2>Importar base de dados</h2></div><small>CSV · 1X2 · RESULTADOS</small></div>
-        <label class="file-drop" for="csvFile"><span class="upload-icon">↑</span><strong>Seleciona o ficheiro CSV</strong><span>O ficheiro é lido no teu dispositivo e não é enviado para um servidor.</span><input id="csvFile" type="file" accept=".csv,text/csv"></label>
-        <p id="status" class="status" role="status">À espera de um ficheiro CSV. O formato esperado contém date_time, COUNTRY, LEAGUE, TEAM_HOME, TEAM_AWAY e odds 1X2.</p>
-        <div class="schema-note">O mercado 1X2 usa <code>score_ft_home</code> e <code>score_ft_away</code> (tempo regulamentar), em linha com as colunas <code>odd_ft_1</code>, <code>odd_ft_x</code> e <code>odd_ft_2</code>. O resultado final da fonte é mostrado à parte, pois pode incluir prolongamento. Jogos sem FT completo são pendentes — nunca derrotas.</div>
+        <div class="section-head"><div><em>01</em><h2>Estado da base de dados</h2></div><small>CARREGAMENTO AUTOMÁTICO</small></div>
+        <p id="status" class="status" role="status" aria-live="polite">A ligar à base de dados histórica…</p>
+        <div class="schema-note">A base de dados é obtida automaticamente a partir do ficheiro de origem. O navegador não pede upload. A análise 1X2 só inclui jogos com resultado FT e as três odds válidas. Os resultados são de tempo regulamentar; prolongamentos não alteram o mercado FT.</div>
       </section>
       <section id="workspace" hidden>
         <section class="panel">
@@ -37,13 +36,13 @@
             <label>Equipa<input id="team" type="search" placeholder="Nome ou parte do nome"></label>
             <label>Desde<input id="from" type="date"></label>
             <label>Até<input id="to" type="date"></label>
-            <label>Estado<select id="statusFilter"><option value="all">Todos os jogos</option><option value="completed">Concluídos</option><option value="pending">Sem resultado final</option></select></label>
+            <label>Estado<select id="statusFilter"><option value="all">Todos os jogos</option><option value="completed">Concluídos</option><option value="pending">Sem resultado FT</option></select></label>
           </div>
         </section>
         <section class="kpis">
           <article class="kpi"><span>Jogos filtrados</span><strong id="kpiTotal">0</strong><small>Inclui pendentes</small></article>
-          <article class="kpi"><span>Concluídos</span><strong id="kpiCompleted">0</strong><small>Com resultado final</small></article>
-          <article class="kpi"><span>Pendentes</span><strong id="kpiPending">0</strong><small>Sem resultado final</small></article>
+          <article class="kpi"><span>Concluídos</span><strong id="kpiCompleted">0</strong><small>Com resultado FT</small></article>
+          <article class="kpi"><span>Pendentes</span><strong id="kpiPending">0</strong><small>Sem resultado FT</small></article>
           <article class="kpi"><span>Competições</span><strong id="kpiLeagues">0</strong><small>Na seleção atual</small></article>
         </section>
         <section class="panel">
@@ -56,26 +55,59 @@
           <p class="hint">As percentagens descrevem apenas a amostra filtrada. Não são probabilidades futuras nem garantias de repetição.</p>
         </section>
         <section class="panel">
-          <div class="section-head"><div><em>04</em><h2>Laboratório de intervalos de odds</h2></div><small>1X2 · HISTÓRICO</small></div>
-          <p class="section-copy">Escolhe um resultado e um intervalo de odds. O laboratório mede quantas vezes esse resultado aconteceu nos jogos em que a odd estava dentro do intervalo.</p>
-          <div class="odds-controls">
-            <label>Mercado<select id="market"><option value="1">Vitória da casa (1)</option><option value="X">Empate (X)</option><option value="2">Vitória visitante (2)</option></select></label>
-            <label>Odd mínima<input id="minOdd" type="number" min="1.01" max="1000" step="0.01" value="1.30"></label>
-            <label>Odd máxima<input id="maxOdd" type="number" min="1.01" max="1000" step="0.01" value="1.60"></label>
+          <div class="section-head"><div><em>04</em><h2>Análise conjunta das três odds</h2></div><small>1 + X + 2 · SIMULTÂNEAS</small></div>
+          <p class="section-copy">Define intervalos para as três odds ao mesmo tempo. Só entram na amostra jogos com resultado FT e as três odds válidas. Deixa um campo vazio para não limitar esse intervalo.</p>
+          <div class="triplet-filters">
+            <div><b>Odd 1</b><label>Mínima<input id="min1" type="number" min="1.01" max="1000" step="0.01" placeholder="Sem mínimo"></label><label>Máxima<input id="max1" type="number" min="1.01" max="1000" step="0.01" placeholder="Sem máximo"></label></div>
+            <div><b>Odd X</b><label>Mínima<input id="minX" type="number" min="1.01" max="1000" step="0.01" placeholder="Sem mínimo"></label><label>Máxima<input id="maxX" type="number" min="1.01" max="1000" step="0.01" placeholder="Sem máximo"></label></div>
+            <div><b>Odd 2</b><label>Mínima<input id="min2" type="number" min="1.01" max="1000" step="0.01" placeholder="Sem mínimo"></label><label>Máxima<input id="max2" type="number" min="1.01" max="1000" step="0.01" placeholder="Sem máximo"></label></div>
           </div>
-          <div class="analysis-grid">
-            <article><span>Amostra elegível</span><strong id="oddsN">—</strong></article>
-            <article><span>Acertos</span><strong id="oddsWins">—</strong></article>
-            <article><span>Frequência observada</span><strong id="oddsHit">—</strong></article>
-            <article><span>Probabilidade implícita média*</span><strong id="oddsImplied">—</strong></article>
-            <article><span>Odd média</span><strong id="oddsAverage">—</strong></article>
-            <article><span>Retorno histórico teórico</span><strong id="oddsRoi">—</strong></article>
+          <div class="analysis-grid triplet-kpis">
+            <article><span>Jogos na combinação 1/X/2</span><strong id="tripletN">—</strong></article>
+            <article><span>Margem média do mercado</span><strong id="tripletMargin">—</strong></article>
           </div>
-          <p class="hint">* Média de 1/odd, sem remoção da margem da casa. O retorno é uma simulação simples de unidade fixa por jogo, usando as odds registadas no CSV; não representa uma estratégia validada nem garante que as odds fossem executáveis.</p>
+          <div class="triplet-results">
+            <article><h3>Vitória da casa · 1</h3><span>Acertos</span><strong id="oneWins">—</strong><span>Frequência observada</span><strong id="oneFrequency">—</strong><span>ROI teórico</span><strong id="oneRoi">—</strong><span>Odd média</span><strong id="oneAverageOdd">—</strong><span>Probabilidade justa média*</span><strong id="oneFair">—</strong></article>
+            <article><h3>Empate · X</h3><span>Acertos</span><strong id="drawWins">—</strong><span>Frequência observada</span><strong id="drawFrequency">—</strong><span>ROI teórico</span><strong id="drawRoi">—</strong><span>Odd média</span><strong id="drawAverageOdd">—</strong><span>Probabilidade justa média*</span><strong id="drawFair">—</strong></article>
+            <article><h3>Vitória visitante · 2</h3><span>Acertos</span><strong id="twoWins">—</strong><span>Frequência observada</span><strong id="twoFrequency">—</strong><span>ROI teórico</span><strong id="twoRoi">—</strong><span>Odd média</span><strong id="twoAverageOdd">—</strong><span>Probabilidade justa média*</span><strong id="twoFair">—</strong></article>
+          </div>
+          <p id="tripletNote" class="hint">A preparar análise…</p>
+          <p class="hint">* Probabilidade justa calculada normalizando as probabilidades implícitas das três odds, retirando a margem proporcional. ROI simulado com uma unidade fixa em cada resultado, individualmente. Não é uma previsão nem uma recomendação de aposta.</p>
         </section>
         <section class="panel">
-          <div class="section-head"><div><em>05</em><h2>Jogos da seleção</h2></div><small id="tableInfo">0 REGISTOS</small></div>
-          <div class="table-wrap"><table><thead><tr><th>Data</th><th>Competição</th><th>Encontro</th><th>Intervalo</th><th>2.ª parte</th><th>FT</th><th>Final</th><th>Odds 1 / X / 2</th><th>Estado</th></tr></thead><tbody id="matchesBody"><tr><td colspan="9" class="empty">Importa um CSV para começar.</td></tr></tbody></table></div>
+          <div class="section-head"><div><em>05</em><h2>Análise pré-jogo por odds semelhantes</h2></div><small>INTRODUZ 1 / X / 2</small></div>
+          <p class="section-copy">Introduz as três odds atuais. O laboratório procura jogos históricos em que todas as odds ficaram próximas destes valores e mostra a frequência observada nessa amostra.</p>
+          <div class="current-odds-inputs">
+            <label>Odd 1<input id="current1" type="number" min="1.01" max="1000" step="0.01" placeholder="Ex.: 1.85"></label>
+            <label>Odd X<input id="currentX" type="number" min="1.01" max="1000" step="0.01" placeholder="Ex.: 3.40"></label>
+            <label>Odd 2<input id="current2" type="number" min="1.01" max="1000" step="0.01" placeholder="Ex.: 4.50"></label>
+            <label>Tolerância ±<input id="tolerance" type="number" min="0.01" max="5" step="0.01" value="0.15"></label>
+          </div>
+          <div class="analysis-grid">
+            <article><span>Jogos históricos semelhantes</span><strong id="currentSample">—</strong></article>
+            <article><span>Probabilidade justa mercado · 1</span><strong id="current1Prob">—</strong></article>
+            <article><span>Probabilidade justa mercado · X</span><strong id="currentXProb">—</strong></article>
+            <article><span>Probabilidade justa mercado · 2</span><strong id="current2Prob">—</strong></article>
+            <article><span>Margem do mercado atual</span><strong id="currentMargin">—</strong></article>
+            <article><span>Frequência histórica · 1 / X / 2</span><strong id="current1Freq">—</strong><small id="currentXFreq">—</small><small id="current2Freq">—</small></article>
+          </div>
+          <p id="currentNote" class="hint">Introduz as três odds do jogo: 1, X e 2.</p>
+        </section>
+        <section class="panel">
+          <div class="section-head"><div><em>06</em><h2>Backtesting cronológico</h2></div><small>TREINO VS. VALIDAÇÃO</small></div>
+          <p class="section-copy">Usa os intervalos 1/X/2 definidos acima. Escolhe uma data de corte: os jogos anteriores formam a amostra de treino e os jogos dessa data em diante formam a amostra de validação.</p>
+          <div class="backtest-controls"><label>Data de corte<input id="splitDate" type="date"></label><button id="runBacktest" class="quiet">Executar backtesting</button></div>
+          <div class="analysis-grid">
+            <article><span>Jogos de treino</span><strong id="trainN">—</strong></article>
+            <article><span>Jogos de validação</span><strong id="validN">—</strong></article>
+            <article><span>ROI treino · 1 / X / 2</span><strong id="train1">—</strong><small id="trainX">—</small><small id="train2">—</small></article>
+            <article><span>ROI validação · 1 / X / 2</span><strong id="valid1">—</strong><small id="validX">—</small><small id="valid2">—</small></article>
+          </div>
+          <p id="backtestStatus" class="hint">Escolhe uma data e executa o teste. A validação cronológica é essencial para evitar avaliar a estratégia com os mesmos jogos usados para a desenvolver.</p>
+        </section>
+        <section class="panel">
+          <div class="section-head"><div><em>07</em><h2>Jogos da seleção</h2></div><small id="tableInfo">0 REGISTOS</small></div>
+          <div class="table-wrap"><table><thead><tr><th>Data</th><th>Competição</th><th>Encontro</th><th>Intervalo</th><th>2.ª parte</th><th>FT</th><th>Final</th><th>Odds 1 / X / 2</th><th>Estado</th></tr></thead><tbody id="matchesBody"><tr><td colspan="9" class="empty">A carregar base de dados…</td></tr></tbody></table></div>
           <div class="pagination"><button id="prevPage" class="quiet">← Anterior</button><span id="pageLabel">Página 1</span><button id="nextPage" class="quiet">Seguinte →</button></div>
         </section>
       </section>
