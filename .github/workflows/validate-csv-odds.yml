@@ -8,6 +8,14 @@ on:
       - 'scripts/validate-csv-odds.cjs'
       - 'csv-odds-core.js'
       - 'ganhonasodds_com_20261101.csv'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/validate-csv-odds.yml'
+      - 'scripts/validate-csv-odds.cjs'
+      - 'csv-odds-core.js'
+      - 'ganhonasodds_com_20261101.csv'
   workflow_dispatch:
 permissions:
   contents: read
