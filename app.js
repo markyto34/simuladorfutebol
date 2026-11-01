@@ -351,7 +351,9 @@ async function loadHistoricalData(){
 function teamSample(team,venue,metric){
  const limit=$("sample").value,requested=limit==="all"?Infinity:Number(limit);
  const league=$("league").value,season=$("season").value;
- const allowWdw=season==="2627";
+ const now=new Date(),currentSeasonStart=now.getMonth()>=6?now.getFullYear():now.getFullYear()-1;
+ const currentSeasonId=String(currentSeasonStart%100).padStart(2,"0")+String((currentSeasonStart+1)%100).padStart(2,"0");
+ const allowWdw=season===currentSeasonId;
  const primary=dataState.matches.filter(m=>(m.home===team||m.away===team)&&(venue==="all"||(venue==="home"&&m.home===team)||(venue==="away"&&m.away===team)));
  const wdw=allowWdw?(dataState.wdwTeams[wdwCacheKey(league,team)]||[]):[];
  const sourceValue=(m,h)=>{
