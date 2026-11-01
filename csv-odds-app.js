@@ -98,7 +98,7 @@
         : "Sem resultados FT suficientes para estimar marcadores.";
       $("exactNote").textContent = exact.sample
         ? "Marcadores mais frequentes na amostra histórica semelhante às três odds. Frequências empíricas, não probabilidades de marcador exato calibradas."
-        : "Não há jogos históricos semelhantes concluídos para estimar o marcador.");
+        : "Não há jogos históricos semelhantes concluídos para estimar o marcador.";
       $("currentNote").textContent = result.sample
         ? "Comparação com jogos históricos em que cada uma das três odds ficou dentro da tolerância absoluta de ±" + fmt(tolerance,2) + ". É uma amostra de semelhança, não uma previsão."
         : "Não encontrámos jogos históricos dentro da tolerância escolhida. Aumentar a tolerância aumenta a amostra, mas também reduz a semelhança.";
