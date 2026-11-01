@@ -125,22 +125,23 @@ test("classifica continentes e calcula mercados por período sem tratar dados em
     {COUNTRY:"Portugal",TEAM_HOME:"A",TEAM_AWAY:"B",score_fh_home:"1",score_fh_away:"0",score_sh_home:"0",score_sh_away:"1",score_ft_home:"1",score_ft_away:"1",odd_ft_1:"2.1",odd_ft_x:"3.2",odd_ft_2:"3.5"},
     {COUNTRY:"Chile",TEAM_HOME:"C",TEAM_AWAY:"D",score_fh_home:"",score_fh_away:"",score_sh_home:"2",score_sh_away:"0",score_ft_home:"2",score_ft_away:"1",odd_ft_1:"1.8",odd_ft_x:"3.4",odd_ft_2:"4.8"},
     {COUNTRY:"Japan",TEAM_HOME:"E",TEAM_AWAY:"F",score_fh_home:"0",score_fh_away:"0",score_sh_home:"",score_sh_away:"",score_ft_home:"0",score_ft_away:"0",odd_ft_1:"2.5",odd_ft_x:"3.0",odd_ft_2:"2.9"},
-    {COUNTRY:"Portugal",TEAM_HOME:"G",TEAM_AWAY:"H",score_fh_home:"2",score_fh_away:"0",score_sh_home:"0",score_sh_away:"0",score_ft_home:"2",score_ft_away:"0",odd_ft_1:"1.5",odd_ft_x:"",odd_ft_2:"6.0"}
+    {COUNTRY:"Portugal",TEAM_HOME:"G",TEAM_AWAY:"H",score_fh_home:"2",score_fh_away:"0",score_sh_home:"0",score_sh_away:"0",score_ft_home:"2",score_ft_away:"0",odd_ft_1:"1.5",odd_ft_x:"",odd_ft_2:"6.0"},
+    {COUNTRY:"Portugal",TEAM_HOME:"I",TEAM_AWAY:"J",score_fh_home:"1",score_fh_away:"1",score_sh_home:"0",score_sh_away:"0",score_ft_home:"",score_ft_away:"",odd_ft_1:"2.0",odd_ft_x:"3.1",odd_ft_2:"3.8"}
   ]);
   assert.equal(rows[0].continent, "Europa");
   assert.equal(rows[1].continent, "América do Sul");
   assert.equal(rows[2].continent, "Ásia");
   const analysis = csv.analyzePeriodMarkets(rows);
-  assert.equal(analysis.firstHalf.result.count, 2);
-  assert.equal(analysis.firstHalf.over05.hits, 1);
-  assert.equal(analysis.firstHalf.over05.frequency, 50);
-  assert.equal(analysis.secondHalf.over05.count, 2);
+  assert.equal(analysis.firstHalf.result.count, 3);
+  assert.equal(analysis.firstHalf.over05.hits, 2);
+  assert.equal(Math.round(analysis.firstHalf.over05.frequency), 67);
+  assert.equal(analysis.secondHalf.over05.count, 3);
   assert.equal(analysis.secondHalf.over05.hits, 2);
   assert.equal(analysis.fullTime.over25.count, 3);
   assert.equal(analysis.fullTime.over25.hits, 1);
   assert.equal(analysis.halfFull.count, 2);
-  assert.equal(analysis.secondHalf.moreGoalsThanFirst.count, 1);
-  assert.equal(analysis.secondHalf.moreGoalsThanFirst.equal, 1);
+  assert.equal(analysis.secondHalf.moreGoalsThanFirst.count, 2);
+  assert.equal(analysis.secondHalf.moreGoalsThanFirst.equal, 1);\n  assert.equal(analysis.secondHalf.moreGoalsThanFirst.firstHalfMore, 1);\n  assert.equal(csv.filterOddsRanges(rows).length, 4);
 });
 
 test("a análise de mercados da amostra semelhante usa sempre as três odds", () => {
