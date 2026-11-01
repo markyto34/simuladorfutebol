@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: simuladorfutebol
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
