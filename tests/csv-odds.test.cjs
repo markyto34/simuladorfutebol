@@ -118,3 +118,38 @@ test("backtesting separa treino e validação por data", () => {
   assert.equal(result.training.count, 1);
   assert.equal(result.validation.count, 1);
 });
+
+
+test("classifica continentes e calcula mercados por período sem tratar dados em falta como zero", () => {
+  const rows = csv.normalizeRows([
+    {COUNTRY:"Portugal",TEAM_HOME:"A",TEAM_AWAY:"B",score_fh_home:"1",score_fh_away:"0",score_sh_home:"0",score_sh_away:"1",score_ft_home:"1",score_ft_away:"1",odd_ft_1:"2.1",odd_ft_x:"3.2",odd_ft_2:"3.5"},
+    {COUNTRY:"Chile",TEAM_HOME:"C",TEAM_AWAY:"D",score_fh_home:"",score_fh_away:"",score_sh_home:"2",score_sh_away:"0",score_ft_home:"2",score_ft_away:"1",odd_ft_1:"1.8",odd_ft_x:"3.4",odd_ft_2:"4.8"},
+    {COUNTRY:"Japan",TEAM_HOME:"E",TEAM_AWAY:"F",score_fh_home:"0",score_fh_away:"0",score_sh_home:"",score_sh_away:"",score_ft_home:"0",score_ft_away:"0",odd_ft_1:"2.5",odd_ft_x:"3.0",odd_ft_2:"2.9"},
+    {COUNTRY:"Portugal",TEAM_HOME:"G",TEAM_AWAY:"H",score_fh_home:"2",score_fh_away:"0",score_sh_home:"0",score_sh_away:"0",score_ft_home:"2",score_ft_away:"0",odd_ft_1:"1.5",odd_ft_x:"",odd_ft_2:"6.0"}
+  ]);
+  assert.equal(rows[0].continent, "Europa");
+  assert.equal(rows[1].continent, "América do Sul");
+  assert.equal(rows[2].continent, "Ásia");
+  const analysis = csv.analyzePeriodMarkets(rows);
+  assert.equal(analysis.firstHalf.result.count, 2);
+  assert.equal(analysis.firstHalf.over05.hits, 1);
+  assert.equal(analysis.firstHalf.over05.frequency, 50);
+  assert.equal(analysis.secondHalf.over05.count, 2);
+  assert.equal(analysis.secondHalf.over05.hits, 2);
+  assert.equal(analysis.fullTime.over25.count, 3);
+  assert.equal(analysis.fullTime.over25.hits, 1);
+  assert.equal(analysis.halfFull.count, 2);
+  assert.equal(analysis.secondHalf.moreGoalsThanFirst.count, 1);
+  assert.equal(analysis.secondHalf.moreGoalsThanFirst.equal, 1);
+});
+
+test("a análise de mercados da amostra semelhante usa sempre as três odds", () => {
+  const rows = csv.normalizeRows([
+    {TEAM_HOME:"A",TEAM_AWAY:"B",score_fh_home:"1",score_fh_away:"0",score_sh_home:"0",score_sh_away:"0",score_ft_home:"1",score_ft_away:"0",odd_ft_1:"1.50",odd_ft_x:"4.00",odd_ft_2:"6.00"},
+    {TEAM_HOME:"C",TEAM_AWAY:"D",score_fh_home:"0",score_fh_away:"0",score_sh_home:"1",score_sh_away:"0",score_ft_home:"1",score_ft_away:"0",odd_ft_1:"1.55",odd_ft_x:"",odd_ft_2:"6.10"}
+  ]);
+  const result = csv.evaluateCurrentOdds(rows, {"1":1.52,X:4,"2":6.05}, 0.1);
+  assert.equal(result.sample, 1);
+  assert.equal(result.marketAnalysis.firstHalf.over05.count, 1);
+  assert.equal(result.marketAnalysis.fullTime.result.count, 1);
+});
