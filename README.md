@@ -34,11 +34,11 @@ O modelo atual é experimental. Os indicadores adicionais usam binomial negativa
 1. Validar o parser com CSVs reais de várias ligas e épocas.
 2. Criar testes automatizados e backtesting walk-forward para golos e cantos.
 3. Adicionar tendências de forma recente, força de calendário e regularização por liga.
-4. Calibrar por competição as dispersões dos modelos de remates, faltas e cartões através de backtesting walk-forward.
+4. Calibrar as distribuições e os limiares por competição, usando apenas previsões fora da amostra e comparando-as com baselines simples.
 5. Construir histórico de análises e comparação entre equipas.
 
 ## Backtesting
-O motor `scripts/backtest.cjs` executa um teste cronológico (walk-forward): para cada jogo, usa apenas partidas anteriores e separa o histórico casa/fora. Mede MAE e RMSE para golos da casa, golos fora, golos totais e cantos totais quando há cobertura. O workflow GitHub Actions corre automaticamente em alterações, semanalmente e pode ser iniciado manualmente. O relatório é guardado como artefacto `backtest-report`.
+O motor `scripts/backtest.cjs` executa um teste cronológico (walk-forward): para cada jogo, usa apenas partidas anteriores e separa o histórico casa/fora. Mede MAE, RMSE e viés médio (erro com sinal) para golos, cantos, remates, remates à baliza, faltas e cartões, sempre que há cobertura. Cada métrica apresenta o número de jogos efetivamente avaliados; resultados com amostra pequena devem ser tratados como preliminares. O workflow GitHub Actions corre automaticamente em alterações, semanalmente e pode ser iniciado manualmente. O relatório é guardado como artefacto `backtest-report`.
 
 ## Publicação
 O ficheiro `render.yaml` prepara a publicação como site estático no Render. O repositório também pode ser alojado no Cloudflare Pages ou GitHub Pages; a ligação da conta de alojamento é necessária para concluir o primeiro deploy.
