@@ -331,12 +331,70 @@ async function loadHistoricalData(){
 function teamSample(team,venue,metric){
  const limit=$("sample").value,requested=limit==="all"?Infinity:Number(limit);
  const games=dataState.matches.filter(m=>(m.home===team||m.away===team)&&(venue==="all"||(venue==="home"&&m.home===team)||(venue==="away"&&m.away===team)));
- const selected=limit==="all"?games:games.slice(0,requested),wdw=dataState.wdwTeams[wdwCacheKey($( "league").value,team)]||[];
- const sourceValue=m=>{const h=m.home===team;if(metric==="goalsFor")return h?m.hg:m.ag;if(metric==="goalsAgainst")return h?m.ag:m.hg;if(metric==="cornersFor")return h?m.hc:m.ac;if(metric==="cornersAgainst")return h?m.ac:m.hc;if(metric==="shotsFor")return h?m.homeShots:m.awayShots;if(metric==="shotsAgainst")return h?m.awayShots:m.homeShots;if(metric==="targetFor")return h?m.homeTarget:m.awayTarget;if(metric==="targetAgainst")return h?m.awayTarget:m.homeTarget;if(metric==="foulsFor")return h?m.homeFouls:m.awayFouls;if(metric==="foulsAgainst")return h?m.awayFouls:m.homeFouls;if(metric==="yellowFor")return h?m.homeYellow:m.awayYellow;if(metric==="yellowAgainst")return h?m.awayYellow:m.homeYellow;if(metric==="redFor")return h?m.homeRed:m.awayRed;return h?m.awayRed:m.homeRed;};
- const wdwValue=m=>{const h=m.teamHome;if(metric==="goalsFor")return h?m.hg:m.ag;if(metric==="goalsAgainst")return h?m.ag:m.hg;if(metric==="cornersFor")return h?m.homeCorners:m.awayCorners;if(metric==="cornersAgainst")return h?m.awayCorners:m.homeCorners;if(metric==="shotsFor")return h?(m.homeTarget===null||m.homeShotsOff===null?null:m.homeTarget+m.homeShotsOff):(m.awayTarget===null||m.awayShotsOff===null?null:m.awayTarget+m.awayShotsOff);if(metric==="shotsAgainst")return h?(m.awayTarget===null||m.awayShotsOff===null?null:m.awayTarget+m.awayShotsOff):(m.homeTarget===null||m.homeShotsOff===null?null:m.homeTarget+m.homeShotsOff);if(metric==="targetFor")return h?m.homeTarget:m.awayTarget;if(metric==="targetAgainst")return h?m.awayTarget:m.homeTarget;if(metric==="foulsFor")return h?m.homeFouls:m.awayFouls;if(metric==="foulsAgainst")return h?m.awayFouls:m.homeFouls;return null;};
- const matching=m=>{const h=m.home===team,op=h?m.away:m.home,gf=h?m.hg:m.ag,ga=h?m.ag:m.hg;return wdw.find(w=>w.teamHome===h&&wdwTeamKey(w.teamHome?w.away:w.home)===wdwTeamKey(op)&&(w.teamHome?w.hg:w.ag)===gf&&(w.teamHome?w.ag:w.hg)===ga&&(!w.dateKey||!m.date||w.dateKey===m.date.slice(5)));};
- if(selected.length)return selected.map(m=>{const primary=sourceValue(m);if(primary!==null&&primary!==undefined)return primary;const match=matching(m);return match?wdwValue(match):null;}).filter(v=>v!==null&&v!==undefined);
- let fallback=wdw.filter(m=>venue==="all"||(venue==="home"&&m.teamHome)||(venue==="away"&&!m.teamHome));if(limit!=="all")fallback=fallback.slice(0,requested);return fallback.map(wdwValue).filter(v=>v!==null&&v!==undefined);
+ const wdw=dataState.wdwTeams[wdwCacheKey($("league").value,team)]||[];
+ const sourceValue=(m,h)=>{
+  if(metric==="goalsFor")return h?m.hg:m.ag;
+  if(metric==="goalsAgainst")return h?m.ag:m.hg;
+  if(metric==="cornersFor")return h?m.hc:m.ac;
+  if(metric==="cornersAgainst")return h?m.ac:m.hc;
+  if(metric==="shotsFor")return h?m.homeShots:m.awayShots;
+  if(metric==="shotsAgainst")return h?m.awayShots:m.homeShots;
+  if(metric==="targetFor")return h?m.homeTarget:m.awayTarget;
+  if(metric==="targetAgainst")return h?m.awayTarget:m.homeTarget;
+  if(metric==="foulsFor")return h?m.homeFouls:m.awayFouls;
+  if(metric==="foulsAgainst")return h?m.awayFouls:m.homeFouls;
+  if(metric==="yellowFor")return h?m.homeYellow:m.awayYellow;
+  if(metric==="yellowAgainst")return h?m.awayYellow:m.homeYellow;
+  if(metric==="redFor")return h?m.homeRed:m.awayRed;
+  return h?m.awayRed:m.homeRed;
+ };
+ const wdwValue=(m,h)=>{
+  if(metric==="goalsFor")return h?m.hg:m.ag;
+  if(metric==="goalsAgainst")return h?m.ag:m.hg;
+  if(metric==="cornersFor")return h?m.homeCorners:m.awayCorners;
+  if(metric==="cornersAgainst")return h?m.awayCorners:m.homeCorners;
+  if(metric==="shotsFor")return h?(m.homeTarget===null||m.homeShotsOff===null?null:m.homeTarget+m.homeShotsOff):(m.awayTarget===null||m.awayShotsOff===null?null:m.awayTarget+m.awayShotsOff);
+  if(metric==="shotsAgainst")return h?(m.awayTarget===null||m.awayShotsOff===null?null:m.awayTarget+m.awayShotsOff):(m.homeTarget===null||m.homeShotsOff===null?null:m.homeTarget+m.homeShotsOff);
+  if(metric==="targetFor")return h?m.homeTarget:m.awayTarget;
+  if(metric==="targetAgainst")return h?m.awayTarget:m.homeTarget;
+  if(metric==="foulsFor")return h?m.homeFouls:m.awayFouls;
+  if(metric==="foulsAgainst")return h?m.awayFouls:m.homeFouls;
+  return null;
+ };
+ const matching=m=>{
+  const h=m.home===team,op=h?m.away:m.home;
+  return wdw.find(w=>w.teamHome===h&&wdwTeamKey(w.teamHome?w.away:w.home)===wdwTeamKey(op)&&(w.teamHome?w.hg:w.ag)=== (h?m.hg:m.ag)&&(w.teamHome?w.ag:w.hg)===(h?m.ag:m.hg)&&(!w.dateKey||!m.date||w.dateKey===m.date.slice(5)));
+ };
+ const complete=(m,w,h)=>{
+  const get=(field,wField)=>m[field]!==null&&m[field]!==undefined?m[field]:(w?wField:null);
+  const homeCorners=get("hc",w?(h?w.homeCorners:w.awayCorners):null),awayCorners=get("ac",w?(h?w.awayCorners:w.homeCorners):null);
+  const homeTarget=get("homeTarget",w?(h?w.homeTarget:w.awayTarget):null),awayTarget=get("awayTarget",w?(h?w.awayTarget:w.homeTarget):null);
+  const homeOff=get("homeShots",w?(h?w.homeShotsOff:w.awayShotsOff):null),awayOff=get("awayShots",w?(h?w.awayShotsOff:w.homeShotsOff):null);
+  const homeFouls=get("homeFouls",w?(h?w.homeFouls:w.awayFouls):null),awayFouls=get("awayFouls",w?(h?w.awayFouls:w.homeFouls):null);
+  return [m.hg,m.ag,homeCorners,awayCorners,homeTarget,awayTarget,homeOff,awayOff,homeFouls,awayFouls].every(v=>v!==null&&v!==undefined&&Number.isFinite(Number(v)));
+ };
+ const valueFrom=(m,w,h)=>{
+  if(metric==="goalsFor"||metric==="goalsAgainst")return sourceValue(m,h);
+  if(metric==="cornersFor"||metric==="cornersAgainst"||metric==="targetFor"||metric==="targetAgainst"||metric==="foulsFor"||metric==="foulsAgainst"){
+   const primary=sourceValue(m,h);return primary!==null&&primary!==undefined?primary:(w?wdwValue(w,h):null);
+  }
+  if(metric==="shotsFor"||metric==="shotsAgainst"){
+   const primary=sourceValue(m,h);if(primary!==null&&primary!==undefined)return primary;
+   return w?wdwValue(w,h):null;
+  }
+  const primary=sourceValue(m,h);return primary;
+ };
+ const rows=games.map(m=>{
+  const h=m.home===team,w=matching(m);
+  return {m,w,h,complete:complete(m,w,h)};
+ }).filter(x=>x.complete);
+ let values=rows.map(x=>valueFrom(x.m,x.w,x.h)).filter(v=>v!==null&&v!==undefined);
+ if(!games.length){
+  const fallback=wdw.filter(m=>venue==="all"||(venue==="home"&&m.teamHome)||(venue==="away"&&!m.teamHome));
+  values=fallback.filter(w=>complete({hg:w.hg,ag:w.ag,hc:w.homeCorners,ac:w.awayCorners,homeTarget:w.homeTarget,awayTarget:w.awayTarget,homeShots:null,awayShots:null,homeFouls:w.homeFouls,awayFouls:w.awayFouls},w,true))
+   .map(w=>wdwValue(w,w.teamHome)).filter(v=>v!==null&&v!==undefined);
+ }
+ return limit==="all"?values:values.slice(0,requested);
 }
 function mean(values){return values.length?values.reduce((a,b)=>a+b,0)/values.length:null;}
 function fillInput(id,value){const display=$(id+"Display");if(value!==null&&Number.isFinite(value)){$(id).value=value.toFixed(2);if(display)display.textContent=value.toFixed(2);}else{$(id).value="";if(display)display.textContent="Sem dados";}}
