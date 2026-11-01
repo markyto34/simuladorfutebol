@@ -9,7 +9,7 @@ assert.ok(match, "A validação WinDrawWin deve existir antes do resumo.");
 const code = match[0].replace(/\nfunction renderWdwSummary$/, "");
 const context = { mean: values => values.length ? values.reduce((a,b)=>a+b,0)/values.length : null };
 vm.createContext(context);
-vm.runInContext(code + ";this.validate=wdwRequiredComplete;this.summarize=parseWdwSummary;", context);
+vm.runInContext(code + ";this.validate=wdwRequiredComplete;this.hasComplete=wdwHasCompleteMatches;this.summarize=parseWdwSummary;", context);
 const complete = {hg:1,ag:0,homeCorners:5,awayCorners:3,homeFouls:10,awayFouls:12,homeTarget:4,awayTarget:2,homeShotsOff:5,awayShotsOff:3,homePoss:55,awayPoss:45,htHome:1,htAway:0,teamHome:true};
 test("WinDrawWin aceita um jogo apenas quando todos os campos obrigatórios existem", () => {
  assert.equal(context.validate({...complete}), true);
@@ -29,4 +29,11 @@ test("Resumo WinDrawWin exclui jogos incompletos da amostra e das percentagens",
  assert.equal(result.excludedIncomplete,1);
  assert.equal(result.bttsPlayed,1);
  assert.equal(result.cornersTotal,8);
+});
+
+test("WinDrawWin só confirma o mapeamento quando existe pelo menos um jogo completo", () => {
+ assert.equal(context.hasComplete([]), false);
+ assert.equal(context.hasComplete([{...complete,homeFouls:null}]), false);
+ assert.equal(context.hasComplete([{...complete,homeFouls:null},{...complete,awayCorners:null}]), false);
+ assert.equal(context.hasComplete([{...complete,homeFouls:null},{...complete}]), true);
 });
