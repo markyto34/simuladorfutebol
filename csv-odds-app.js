@@ -42,6 +42,66 @@
     });
     return ranges;
   }
+  function renderMarketGroups(targetId, analysis) {
+    const target = $(targetId);
+    target.replaceChildren();
+    const groups = [
+      ["Primeira parte", analysis.firstHalf, [
+        ["Resultado 1/X/2","result"],["Mais de 0,5 golos","over05"],["Mais de 1,5 golos","over15"],
+        ["Mais de 2,5 golos","over25"],["Ambas marcam","btts"],["Resultados exatos mais frequentes","exactScores"]
+      ]],
+      ["Segunda parte", analysis.secondHalf, [
+        ["Resultado 1/X/2","result"],["Mais de 0,5 golos","over05"],["Mais de 1,5 golos","over15"],
+        ["Mais de 2,5 golos","over25"],["Ambas marcam","btts"],["Comparação com a 1.ª parte","moreGoalsThanFirst"],
+        ["Resultados exatos mais frequentes","exactScores"]
+      ]],
+      ["Resultado final", analysis.fullTime, [
+        ["Resultado 1/X/2","result"],["Mais de 1,5 golos","over15"],["Mais de 2,5 golos","over25"],
+        ["Mais de 3,5 golos","over35"],["Mais de 4,5 golos","over45"],["Ambas marcam","btts"],
+        ["Casa +0,5 / +1,5 golos","homeGoals"],["Visitante +0,5 / +1,5 golos","awayGoals"],
+        ["Casa sem sofrer","homeCleanSheet"],["Visitante sem sofrer","awayCleanSheet"],
+        ["Resultados exatos mais frequentes","exactScores"]
+      ]],
+      ["Intervalo / final", analysis.halfFull, [["Combinações 1/X/2","outcomes"]]]
+    ];
+    groups.forEach(([title, group, metrics]) => {
+      const card=document.createElement("article"); card.className="market-period-card";
+      const heading=document.createElement("h3"); heading.textContent=title; card.append(heading);
+      metrics.forEach(([label,key]) => {
+        const line=document.createElement("div"); line.className="market-line";
+        const name=document.createElement("span"); name.textContent=label; line.append(name);
+        const value=document.createElement("strong");
+        const small=document.createElement("small");
+        if (key==="homeGoals") {
+          value.textContent=">0,5: "+pct(group.homeOver05.frequency)+" · >1,5: "+pct(group.homeOver15.frequency);
+          small.textContent="Amostras: "+group.homeOver05.count+" / "+group.homeOver15.count;
+        } else if (key==="awayGoals") {
+          value.textContent=">0,5: "+pct(group.awayOver05.frequency)+" · >1,5: "+pct(group.awayOver15.frequency);
+          small.textContent="Amostras: "+group.awayOver05.count+" / "+group.awayOver15.count;
+        } else if (key==="result") {
+          value.textContent=["1","X","2"].map(k=>k+": "+pct(group.result.outcomes[k].frequency)).join(" · ");
+          small.textContent=group.result.count.toLocaleString("pt-PT")+" jogos válidos";
+        } else if (key==="outcomes") {
+          const entries=Object.entries(group.outcomes).sort((a,b)=>b[1].count-a[1].count);
+          value.textContent=entries.length?entries.map(([k,v])=>k+": "+pct(v.frequency)).join(" · "):"Sem amostra válida";
+          small.textContent=group.count.toLocaleString("pt-PT")+" jogos com intervalo e FT";
+        } else if (key==="moreGoalsThanFirst") {
+          const n=group.moreGoalsThanFirst.count, m=group.moreGoalsThanFirst;
+          value.textContent=n? "2.ª parte: "+pct(m.secondHalfMore/n*100)+" · 1.ª parte: "+pct(m.firstHalfMore/n*100)+" · Igual: "+pct(m.equal/n*100):"—";
+          small.textContent=n.toLocaleString("pt-PT")+" jogos com as duas partes completas";
+        } else if (key==="exactScores") {
+          value.textContent=group.exactScores.top.length?group.exactScores.top.map(x=>x.score+" ("+pct(x.frequency)+")").join(" · "):"Sem resultados completos";
+          small.textContent=group.exactScores.count.toLocaleString("pt-PT")+" jogos válidos";
+        } else {
+          value.textContent=pct(group[key].frequency);
+          small.textContent=group[key].count.toLocaleString("pt-PT")+" jogos válidos";
+        }
+        line.append(value,small); card.append(line);
+      });
+      target.append(card);
+    });
+  }
+
   function update() {
     filtered = getFiltered();
     page = 0;
@@ -55,7 +115,7 @@
     $("drawCount").textContent = s.counts.X.toLocaleString("pt-PT") + " jogos";
     $("awayCount").textContent = s.counts["2"].toLocaleString("pt-PT") + " jogos";
     $("homeBar").style.width = s.percentages["1"] + "%"; $("drawBar").style.width = s.percentages.X + "%"; $("awayBar").style.width = s.percentages["2"] + "%";
-    updateTriplet(); updateCurrentOdds(); renderTable();
+    updateTriplet(); renderMarketGroups("periodMarkets", CSVOdds.analyzePeriodMarkets(filtered)); updateCurrentOdds(); renderTable();
   }
   function updateTriplet() {
     const a = CSVOdds.analyzeTriplet(filtered, tripletRanges());
@@ -78,6 +138,7 @@
     if (!CSVOdds.hasCompleteOdds(odds)) {
       $("currentSample").textContent = "—";
       ["current1Prob","currentXProb","current2Prob","currentMargin","current1Freq","currentXFreq","current2Freq","marketPrediction","marketPredictionProb","exactSample","exactScores"].forEach(id=>$(id).textContent="—");
+      renderMarketGroups("similarMarkets", CSVOdds.analyzePeriodMarkets([]));
       $("currentNote").textContent = "Introduz as três odds do jogo: 1, X e 2.";
       return;
     }
@@ -85,6 +146,7 @@
       const tolerance = Number($("tolerance").value || 0.15);
       const result = CSVOdds.evaluateCurrentOdds(filtered, odds, tolerance);
       $("currentSample").textContent = result.sample.toLocaleString("pt-PT");
+      renderMarketGroups("similarMarkets", result.marketAnalysis);
       $("current1Prob").textContent = pct(result.market.fair["1"]);
       $("currentXProb").textContent = pct(result.market.fair.X);
       $("current2Prob").textContent = pct(result.market.fair["2"]);
@@ -108,6 +170,7 @@
         ? "Comparação com jogos históricos em que cada uma das três odds ficou dentro da tolerância absoluta de ±" + fmt(tolerance,2) + ". É uma amostra de semelhança, não uma previsão."
         : "Não encontrámos jogos históricos dentro da tolerância escolhida. Aumentar a tolerância aumenta a amostra, mas também reduz a semelhança.";
     } catch (err) {
+      renderMarketGroups("similarMarkets", CSVOdds.analyzePeriodMarkets([]));
       $("currentNote").textContent = err.message;
     }
   }
