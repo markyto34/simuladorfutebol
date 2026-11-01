@@ -124,11 +124,9 @@ async function loadWdwTeam(side){
  try{
   const result=await findWdwTeamPath(team,league);
   if(!result.path){
-   if(result.reason==="unsupported_league"){
-    status.textContent="WinDrawWin: esta competição ainda não tem um mapeamento confirmado. A fonte principal continua ativa.";
-   }else{
-    status.textContent="WinDrawWin: competição consultada, mas a equipa «"+team+"» não aparece na lista do WinDrawWin ("+result.availableTeams+" equipas encontradas). Confirmação manual necessária.";
-   }
+   status.textContent=result.reason==="unsupported_league"
+    ?"WinDrawWin: esta competição ainda não tem um mapeamento confirmado. A fonte principal continua ativa."
+    :"WinDrawWin: a competição foi consultada, mas a equipa «"+team+"» não aparece entre as "+result.availableTeams+" equipas encontradas. É necessário confirmar o nome.";
    return;
   }
   const doc=await fetchWdwPage(result.path),matches=parseWdwMatchRows(doc,team);
@@ -139,8 +137,6 @@ async function loadWdwTeam(side){
   status.textContent="WinDrawWin: "+matches.length+" jogos recentes lidos para "+team+" nesta competição. Estatísticas adicionais só serão usadas quando a fonte principal não tiver cobertura.";
  }catch(e){status.textContent="WinDrawWin: "+e.message;}
 }
-async function loadWdwTeam(side){const team=$(side==="home"?"homePick":"awayPick").value;if(!team)return;const status=$("wdw-status");if(dataState.wdwTeams[wdwCacheKey($( "league").value,team)]){const key=wdwCacheKey($( "league").value,team);applyTeamSelection(side);renderWdwSummary(side,key);status.textContent="WinDrawWin: dados em cache para "+team+" nesta competição ("+dataState.wdwTeams[key].length+" jogos).";return;}if(!WDW_PROXY_URL){status.textContent="WinDrawWin: proxy criado, mas ainda falta publicar/configurar o endereço do Worker.";return;}const league=$( "league").value;try{const path=await findWdwTeamPath(team,league);if(!path){status.textContent="WinDrawWin: ainda não existe mapeamento verificado para esta competição/equipa.";return;}const doc=await fetchWdwPage(path);const matches=parseWdwMatchRows(doc,team);if(!matches.length){status.textContent="WinDrawWin: página encontrada, mas sem estatísticas numéricas reconhecidas para "+team+".";return;}dataState.wdwTeams[team]=matches;dataState.wdwSummaries[team]=parseWdwSummary(doc,team,matches);applyTeamSelection(side);renderWdwSummary(side,team);status.textContent="WinDrawWin: "+matches.length+" jogos recentes lidos para "+team+". Estatísticas adicionais serão usadas quando a fonte principal não tiver cobertura.";}catch(e){status.textContent="WinDrawWin: "+e.message;}}
-
 function parseSourceCSV(text){
  const rows=[];let row=[],field="",quoted=false;
  for(let i=0;i<text.length;i++){const c=text[i];if(quoted){if(c==='"'&&text[i+1]==='"'){field+='"';i++;}else if(c==='"')quoted=false;else field+=c;}else if(c==='"')quoted=true;else if(c===","){row.push(field);field="";}else if(c==="\n"){row.push(field);rows.push(row);row=[];field="";}else if(c!=="\r")field+=c;}
@@ -207,7 +203,7 @@ async function loadHistoricalData(){
 function teamSample(team,venue,metric){
  const limit=$("sample").value,requested=limit==="all"?Infinity:Number(limit);
  const games=dataState.matches.filter(m=>(m.home===team||m.away===team)&&(venue==="all"||(venue==="home"&&m.home===team)||(venue==="away"&&m.away===team)));
- const selected=limit==="all"?games:games.slice(0,requested),wdw=dataState.wdwTeams[team]||[];
+ const selected=limit==="all"?games:games.slice(0,requested),wdw=dataState.wdwTeams[wdwCacheKey($( "league").value,team)]||[];
  const sourceValue=m=>{const h=m.home===team;if(metric==="goalsFor")return h?m.hg:m.ag;if(metric==="goalsAgainst")return h?m.ag:m.hg;if(metric==="cornersFor")return h?m.hc:m.ac;if(metric==="cornersAgainst")return h?m.ac:m.hc;if(metric==="shotsFor")return h?m.homeShots:m.awayShots;if(metric==="shotsAgainst")return h?m.awayShots:m.homeShots;if(metric==="targetFor")return h?m.homeTarget:m.awayTarget;if(metric==="targetAgainst")return h?m.awayTarget:m.homeTarget;if(metric==="foulsFor")return h?m.homeFouls:m.awayFouls;if(metric==="foulsAgainst")return h?m.awayFouls:m.homeFouls;if(metric==="yellowFor")return h?m.homeYellow:m.awayYellow;if(metric==="yellowAgainst")return h?m.awayYellow:m.homeYellow;if(metric==="redFor")return h?m.homeRed:m.awayRed;return h?m.awayRed:m.homeRed;};
  const wdwValue=m=>{const h=m.teamHome;if(metric==="goalsFor")return h?m.hg:m.ag;if(metric==="goalsAgainst")return h?m.ag:m.hg;if(metric==="cornersFor")return h?m.homeCorners:m.awayCorners;if(metric==="cornersAgainst")return h?m.awayCorners:m.homeCorners;if(metric==="shotsFor")return h?(m.homeTarget===null||m.homeShotsOff===null?null:m.homeTarget+m.homeShotsOff):(m.awayTarget===null||m.awayShotsOff===null?null:m.awayTarget+m.awayShotsOff);if(metric==="shotsAgainst")return h?(m.awayTarget===null||m.awayShotsOff===null?null:m.awayTarget+m.awayShotsOff):(m.homeTarget===null||m.homeShotsOff===null?null:m.homeTarget+m.homeShotsOff);if(metric==="targetFor")return h?m.homeTarget:m.awayTarget;if(metric==="targetAgainst")return h?m.awayTarget:m.homeTarget;if(metric==="foulsFor")return h?m.homeFouls:m.awayFouls;if(metric==="foulsAgainst")return h?m.awayFouls:m.homeFouls;return null;};
  const matching=m=>{const h=m.home===team,op=h?m.away:m.home,gf=h?m.hg:m.ag,ga=h?m.ag:m.hg;return wdw.find(w=>w.teamHome===h&&wdwTeamKey(w.teamHome?w.away:w.home)===wdwTeamKey(op)&&(w.teamHome?w.hg:w.ag)===gf&&(w.teamHome?w.ag:w.hg)===ga&&(!w.dateKey||!m.date||w.dateKey===m.date.slice(5)));};
