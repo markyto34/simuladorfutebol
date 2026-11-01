@@ -141,7 +141,9 @@ test("classifica continentes e calcula mercados por período sem tratar dados em
   assert.equal(analysis.fullTime.over25.hits, 1);
   assert.equal(analysis.halfFull.count, 2);
   assert.equal(analysis.secondHalf.moreGoalsThanFirst.count, 2);
-  assert.equal(analysis.secondHalf.moreGoalsThanFirst.equal, 1);\n  assert.equal(analysis.secondHalf.moreGoalsThanFirst.firstHalfMore, 1);\n  assert.equal(csv.filterOddsRanges(rows).length, 4);
+  assert.equal(analysis.secondHalf.moreGoalsThanFirst.equal, 1);
+  assert.equal(analysis.secondHalf.moreGoalsThanFirst.firstHalfMore, 1);
+  assert.equal(csv.filterOddsRanges(rows).length, 4);
 });
 
 test("a análise de mercados da amostra semelhante usa sempre as três odds", () => {
