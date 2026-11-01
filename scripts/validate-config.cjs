@@ -14,8 +14,8 @@ if (mapStart < 0 || mapEnd < 0) {
   fail("Não foi possível localizar o mapa WDW_LEAGUES.");
 } else {
   const mapText = app.slice(mapStart, mapEnd);
-  const mapped = new Set([...mapText.matchAll(/"([^"]+)"\\s*:/g)].map(m => m[1]));
-  const leagueSelect = html.match(/<select id="league">([\\s\\S]*?)<\\/select>/);
+  const mapped = new Set([...mapText.matchAll(/"([^"]+)"\s*:/g)].map(m => m[1]));
+  const leagueSelect = html.match(/<select id="league">([\s\S]*?)<\/select>/);
   if (!leagueSelect) fail("Seletor de competições não encontrado.");
   else {
     const options = [...leagueSelect[1].matchAll(/<option value="([^"]+)"/g)].map(m => m[1]);
@@ -27,7 +27,7 @@ if (mapStart < 0 || mapEnd < 0) {
     if (!missing.length && !extra.length) console.log("OK: " + options.length + " competições têm mapeamento WDW.");
   }
 }
-if (!/windrawwinProxyUrl:\\s*"https:\\/\\//.test(config)) fail("URL HTTPS do proxy não configurado em config.js.");
+if (!/windrawwinProxyUrl:\s*"https:\/\//.test(config)) fail("URL HTTPS do proxy não configurado em config.js.");
 if (!html.includes('<script src="config.js"></script>') || !html.includes('<script src="app.js"></script>')) fail("Scripts de configuração/aplicação não estão ligados no HTML.");
 if (!app.includes("async function loadWdwMatchPair") || !app.includes('Promise.all([loadWdwTeam("home"),loadWdwTeam("away")])')) fail("A validação conjunta das duas equipas WDW não está ativa.");
 if (!app.includes('loadWdwMatchPair();')) fail("Os seletores de equipas não acionam a validação conjunta WDW.");
