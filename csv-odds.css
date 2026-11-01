@@ -94,3 +94,16 @@ table{min-width:850px}
 .similar-market-wrap{margin-top:18px;padding-top:17px;border-top:1px solid #304238}
 @media(max-width:900px){.market-period-grid{grid-template-columns:1fr}}
 @media(max-width:600px){.market-period-grid{grid-template-columns:minmax(0,1fr);gap:10px}.market-period-card{padding:13px}.market-line{grid-template-columns:1fr;gap:5px}.market-line small{grid-column:1}.market-line strong{font-size:12px}}
+
+/* Compact historical closing-odds search */
+.search-action{min-width:150px;min-height:44px;padding:11px 22px;border:1px solid #83dba1;border-radius:9px;background:#83dba1;color:#102017;font-weight:800;font-size:13px}
+.search-action:hover{background:#a1eab7;border-color:#a1eab7}
+.historical-result{margin-top:18px;padding:17px;border:1px solid #3c5947;border-radius:11px;background:#111c16}
+.historical-result-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:13px}
+.historical-result-head strong{font-size:15px;color:#a5e8b8}
+.historical-result-head span{font-size:11px;color:#9eaea5;white-space:nowrap}
+.historical-result-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.historical-result-grid article{padding:12px;border:1px solid #304238;border-radius:8px;background:#17231d}
+.historical-result-grid article span{display:block;font-size:10px;color:#aab8af}
+.historical-result-grid article strong{display:block;margin-top:7px;font-size:20px;color:#e5f1e8}
+@media(max-width:600px){.historical-result{padding:12px}.historical-result-head{align-items:flex-start;flex-direction:column;gap:5px}.historical-result-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.search-action{width:100%}}
