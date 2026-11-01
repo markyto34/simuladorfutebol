@@ -56,7 +56,7 @@ if (!app.includes("if(hasHalfTime&&poisson(hht)+poisson(aht)>=1)ht05++")) fail("
 if (!app.includes("escapeHtml(value=>") && !app.includes("const escapeHtml=value=>")) fail("Nomes das equipas não são escapados na apresentação HTML.");
 
 const loadStart = app.indexOf("async function loadHistoricalData()");
-const loadEnd = app.indexOf("\\nfunction teamSample(", loadStart);
+const loadEnd = app.indexOf("\nfunction teamSample(", loadStart);
 if (loadStart < 0 || loadEnd < 0) {
   fail("Função loadHistoricalData não encontrada.");
 } else {
