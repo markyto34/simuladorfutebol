@@ -1006,6 +1006,34 @@
         "yellow": 0,
         "red": 0
       }
+    },
+    {
+      "country": "Brasil",
+      "name": "Serie A",
+      "source": "WinDrawWin",
+      "source_url": "https://www.windrawwin.com/statistics/over-under-25-goals/brazil-serie-a/",
+      "historical_results_available": null,
+      "corners_available": null,
+      "shots_available": null,
+      "fouls_available": null,
+      "cards_available": null,
+      "windrawwin_slug": "brazil-serie-a",
+      "windrawwin_data_fields": [
+        "team_results",
+        "goals",
+        "half_time_score",
+        "possession",
+        "corners",
+        "fouls",
+        "shots_on_goal",
+        "shots_off_goal",
+        "btts",
+        "over_2_5",
+        "clean_sheets",
+        "team_form"
+      ],
+      "windrawwin_season_scope": "current_season",
+      "integration_status": "parser_implemented_proxy_pending"
     }
   ],
   "updated_on": "2026-11-01"
