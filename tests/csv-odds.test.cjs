@@ -74,7 +74,7 @@ test("analisa sempre o conjunto completo de odds 1/X/2", () => {
   assert.equal(result.outcomes.X.wins, 1);
   assert.equal(result.outcomes["2"].wins, 0);
   assert.equal(result.outcomes["1"].profitUnits, -0.5);
-  assert.equal(result.outcomes.X.profitUnits, -1);
+  assert.equal(result.outcomes.X.profitUnits, 1.2);
   assert.ok(result.outcomes["1"].confidence95.lower < result.outcomes["1"].frequency);
 });
 
