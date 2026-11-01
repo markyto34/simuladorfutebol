@@ -11,7 +11,7 @@ on:
       season:
         description: Season code (e.g. 2526)
         required: true
-        default: "2526"
+        default: "2627"
   schedule:
     - cron: "30 5 * * 1"
 permissions:
@@ -27,7 +27,7 @@ jobs:
       - name: Download historical results
         run: |
           LEAGUE="${{ inputs.league || 'POR_1_primeira-liga' }}"
-          SEASON="${{ inputs.season || '2526' }}"
+          SEASON="${{ inputs.season || '2627' }}"
           mkdir -p data
           curl -fL "https://raw.githubusercontent.com/oladeeayo/open-matchday/master/data/${LEAGUE}/results_${SEASON}.csv" -o data/results.csv
       - name: Run unit tests
