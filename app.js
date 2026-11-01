@@ -7,38 +7,54 @@ const normal=()=>{let u=0,v=0;while(!u)u=Math.random();while(!v)v=Math.random();
 const negBin=(mean,disp)=>{if(mean<=0)return 0;const shape=Math.max(.25,1/disp);return poisson(gamma(shape,mean/shape))};
 const pct=x=>(100*x/N).toFixed(1)+"%";
 function line(label,p){return '<div class="line-item"><span>'+label+'</span><b>'+pct(p)+'</b></div>'}
-function simulate(){try{
-const h=$( "homeName").value.trim()||"Casa",a=$("awayName").value.trim()||"Fora",adv=num("adv")/100,disp=num("disp")/100;
-const hg=(num("hgFor")+num("agAgainst"))/2*(1+adv),ag=(num("agFor")+num("hgAgainst"))/2;
-const hc=(num("hcFor")+num("acAgainst"))/2,ac=(num("acFor")+num("hcAgainst"))/2;
-if([hg,ag,hc,ac].some(x=>x>30))throw Error("Os dados históricos apresentam uma média fora do intervalo esperado.");
-let home=0,draw=0,away=0,g15=0,g25=0,g35=0,c85=0,c95=0,c105=0,sumG=0,sumC=0,sumHG=0,sumAG=0,scoreMap={};
-for(let i=0;i<N;i++){const x=poisson(hg),y=poisson(ag),c=negBin(hc,disp),d=negBin(ac,disp),gt=x+y,ct=c+d;sumG+=gt;sumC+=ct;sumHG+=x;sumAG+=y;if(x>y)home++;else if(x===y)draw++;else away++;if(gt>=2)g15++;if(gt>=3)g25++;if(gt>=4)g35++;if(ct>=9)c85++;if(ct>=10)c95++;if(ct>=11)c105++;const key=x+"-"+y;scoreMap[key]=(scoreMap[key]||0)+1}
-const modal=Object.entries(scoreMap).sort((x,y)=>y[1]-x[1])[0][0],mean=(sumHG/N).toFixed(2)+" – "+(sumAG/N).toFixed(2);
-const extraSpecs=[
- {key:"Remates",ids:["hshotsFor","hshotsAgainst","ashotsFor","ashotsAgainst"],thresholds:[19.5,21.5,23.5],dispersion:.22},
- {key:"Remates à baliza",ids:["htargetFor","htargetAgainst","atargetFor","atargetAgainst"],thresholds:[5.5,7.5,9.5],dispersion:.28},
- {key:"Faltas",ids:["hfoulsFor","hfoulsAgainst","afoulsFor","afoulsAgainst"],thresholds:[19.5,21.5,23.5],dispersion:.22},
- {key:"Cartões amarelos",ids:["hyellowFor","hyellowAgainst","ayellowFor","ayellowAgainst"],thresholds:[2.5,3.5,4.5],dispersion:.45},
- {key:"Cartões vermelhos",ids:["hredFor","hredAgainst","aredFor","aredAgainst"],thresholds:[.5,1.5],dispersion:.7}
-];
-const extraHtml=[];
-for(const spec of extraSpecs){
- const values=spec.ids.map(id=>$(id).value.trim()===""?null:Number($(id).value));
- if(values.some(v=>v===null||!Number.isFinite(v)||v<0))continue;
- const homeMean=(values[0]+values[3])/2,awayMean=(values[2]+values[1])/2,totalMean=homeMean+awayMean;
- let hits=spec.thresholds.map(()=>0),sum=0;
- for(let j=0;j<N;j++){const total=negBin(homeMean,spec.dispersion)+negBin(awayMean,spec.dispersion);sum+=total;spec.thresholds.forEach((t,k)=>{if(total>t)hits[k]++;});}
- extraHtml.push('<article class="card extra-result"><small>'+spec.key.toUpperCase()+'</small><div class="big">'+(sum/N).toFixed(2)+'</div><p>média total esperada · casa '+homeMean.toFixed(2)+' / fora '+awayMean.toFixed(2)+'</p>'+spec.thresholds.map((t,k)=>line('Mais de '+t.toFixed(1),hits[k])).join('')+'</article>');
+function simulate(){
+ try{
+  const h=$("homeName").value.trim()||"Casa",a=$("awayName").value.trim()||"Fora",adv=Number($("adv").value)/100,disp=Number($("disp").value)/100;
+  const read=id=>{const raw=$(id).value.trim();if(raw==="")return null;const v=Number(raw);if(!Number.isFinite(v)||v<0)throw Error("Confirma os valores numéricos: não podem ser negativos.");return v;};
+  const goalValues=["hgFor","agAgainst","agFor","hgAgainst"].map(read);
+  const cornerValues=["hcFor","acAgainst","acFor","hcAgainst"].map(read);
+  const hasGoals=goalValues.every(v=>v!==null),hasCorners=cornerValues.every(v=>v!==null);
+  const hg=hasGoals?(goalValues[0]+goalValues[1])/2*(1+adv):null;
+  const ag=hasGoals?(goalValues[2]+goalValues[3])/2:null;
+  const hc=hasCorners?(cornerValues[0]+cornerValues[1])/2:null;
+  const ac=hasCorners?(cornerValues[2]+cornerValues[3])/2:null;
+  if([hg,ag,hc,ac].some(x=>x!==null&&x>30))throw Error("Os dados históricos apresentam uma média fora do intervalo esperado.");
+  const extraSpecs=[
+   {key:"Remates",ids:["hshotsFor","hshotsAgainst","ashotsFor","ashotsAgainst"],thresholds:[19.5,21.5,23.5],dispersion:.22},
+   {key:"Remates à baliza",ids:["htargetFor","htargetAgainst","atargetFor","atargetAgainst"],thresholds:[5.5,7.5,9.5],dispersion:.28},
+   {key:"Faltas",ids:["hfoulsFor","hfoulsAgainst","afoulsFor","afoulsAgainst"],thresholds:[19.5,21.5,23.5],dispersion:.22},
+   {key:"Cartões amarelos",ids:["hyellowFor","hyellowAgainst","ayellowFor","ayellowAgainst"],thresholds:[2.5,3.5,4.5],dispersion:.45},
+   {key:"Cartões vermelhos",ids:["hredFor","hredAgainst","aredFor","aredAgainst"],thresholds:[.5,1.5],dispersion:.7}
+  ];
+  const extraValues=extraSpecs.map(spec=>({spec,values:spec.ids.map(read)})).filter(x=>x.values.every(v=>v!==null));
+  if(!hasGoals&&!hasCorners&&!extraValues.length)throw Error("Não existem dados suficientes para simular. São necessárias médias completas de golos, cantos ou de outro indicador.");
+  let home=0,draw=0,away=0,g15=0,g25=0,g35=0,c85=0,c95=0,c105=0,sumG=0,sumC=0,sumHG=0,sumAG=0,scoreMap={};
+  for(let i=0;i<N;i++){
+   if(hasGoals){const x=poisson(hg),y=poisson(ag),gt=x+y;sumG+=gt;sumHG+=x;sumAG+=y;if(x>y)home++;else if(x===y)draw++;else away++;if(gt>=2)g15++;if(gt>=3)g25++;if(gt>=4)g35++;const key=x+"-"+y;scoreMap[key]=(scoreMap[key]||0)+1;}
+   if(hasCorners){const c=negBin(hc,disp),d=negBin(ac,disp),ct=c+d;sumC+=ct;if(ct>=9)c85++;if(ct>=10)c95++;if(ct>=11)c105++;}
+  }
+  const noData='<p class="model-note">Sem dados suficientes nesta competição/amostra. O indicador não será estimado.</p>';
+  const pct=x=>(100*x/N).toFixed(1)+"%";
+  const modal=hasGoals?Object.entries(scoreMap).sort((x,y)=>y[1]-x[1])[0][0]:"Sem dados";
+  $("outcomes").innerHTML=hasGoals?[[ "Vitória "+h,home],["Empate",draw],["Vitória "+a,away]].map(([l,p])=>'<div class="bar-row"><div class="bar-label"><span>'+l+'</span><b>'+pct(p)+'</b></div><div class="bar-track"><div class="bar-fill" style="width:'+100*p/N+'%"></div></div></div>').join(""):noData;
+  $("meanScore").textContent=hasGoals?(sumHG/N).toFixed(2)+" – "+(sumAG/N).toFixed(2):"Sem dados";
+  $("modalScore").textContent=modal;
+  $("meanGoals").textContent=hasGoals?(sumG/N).toFixed(2):"—";
+  $("meanCorners").textContent=hasCorners?(sumC/N).toFixed(2):"—";
+  $("goalMarkets").innerHTML=hasGoals?[line("Mais de 1.5 golos",g15),line("Mais de 2.5 golos",g25),line("Mais de 3.5 golos",g35)].join(""):noData;
+  $("cornerMarkets").innerHTML=hasCorners?[line("Mais de 8.5 cantos",c85),line("Mais de 9.5 cantos",c95),line("Mais de 10.5 cantos",c105)].join(""):noData;
+  const extraHtml=[];
+  for(const item of extraValues){
+   const spec=item.spec,values=item.values,homeMean=(values[0]+values[3])/2,awayMean=(values[2]+values[1])/2;
+   let hits=spec.thresholds.map(()=>0),sum=0;
+   for(let j=0;j<N;j++){const total=negBin(homeMean,spec.dispersion)+negBin(awayMean,spec.dispersion);sum+=total;spec.thresholds.forEach((t,k)=>{if(total>t)hits[k]++;});}
+   extraHtml.push('<article class="card extra-result"><small>'+spec.key.toUpperCase()+'</small><div class="big">'+(sum/N).toFixed(2)+'</div><p>média total esperada · casa '+homeMean.toFixed(2)+' / fora '+awayMean.toFixed(2)+'</p>'+spec.thresholds.map((t,k)=>line("Mais de "+t.toFixed(1),hits[k])).join("")+'</article>');
+  }
+  $("extraMarkets").innerHTML=extraHtml.length?extraHtml.join(""):'<p class="model-note">Sem cobertura suficiente para prever remates, faltas ou cartões. Os indicadores adicionais só são simulados quando a fonte contém as quatro médias necessárias.</p>';
+  $("summary").textContent=[hasGoals?"Expectativa de "+(sumG/N).toFixed(2)+" golos ("+h+": "+(sumHG/N).toFixed(2)+"; "+a+": "+(sumAG/N).toFixed(2)+")": "Golos: sem dados suficientes",hasCorners?"Expectativa de "+(sumC/N).toFixed(2)+" cantos":"Cantos: sem dados suficientes",extraHtml.length?"Indicadores adicionais calculados: "+extraValues.map(x=>x.spec.key.toLowerCase()).join(", "):""].filter(Boolean).join(". ")+".";
+  $("resultados").classList.remove("hidden");$("resultados").scrollIntoView({behavior:"smooth",block:"start"});
+ }catch(e){alert(e.message)}
 }
-$("extraMarkets").innerHTML=extraHtml.length?extraHtml.join(""):'<p class="model-note">Sem cobertura suficiente para prever remates, faltas ou cartões. Os indicadores adicionais só são simulados quando a fonte contém as quatro médias necessárias.</p>';
-$("outcomes").innerHTML=[["Vitória "+h,home],["Empate",draw],["Vitória "+a,away]].map(([l,p])=>'<div class="bar-row"><div class="bar-label"><span>'+l+'</span><b>'+pct(p)+'</b></div><div class="bar-track"><div class="bar-fill" style="width:'+100*p/N+'%"></div></div></div>').join("");
-$("meanScore").textContent=mean;$("modalScore").textContent=modal;$("meanGoals").textContent=(sumG/N).toFixed(2);$("meanCorners").textContent=(sumC/N).toFixed(2);
-$("goalMarkets").innerHTML=[line("Mais de 1.5 golos",g15),line("Mais de 2.5 golos",g25),line("Mais de 3.5 golos",g35)].join("");
-$("cornerMarkets").innerHTML=[line("Mais de 8.5 cantos",c85),line("Mais de 9.5 cantos",c95),line("Mais de 10.5 cantos",c105)].join("");
-$("summary").textContent="Com as médias introduzidas, a expectativa do modelo é de "+(sumG/N).toFixed(2)+" golos e "+(sumC/N).toFixed(2)+" cantos. "+h+": "+(sumHG/N).toFixed(2)+" golos esperados; "+a+": "+(sumAG/N).toFixed(2)+".";
-$("resultados").classList.remove("hidden");$("resultados").scrollIntoView({behavior:"smooth",block:"start"});
-}catch(e){alert(e.message)}}
 $("run").addEventListener("click",simulate);
 $("adv").addEventListener("input",e=>$("advOut").textContent=e.target.value+"%");
 $("disp").addEventListener("input",e=>$("dispOut").textContent=e.target.value+"%");
@@ -88,7 +104,39 @@ function sourceVal(row,names){for(const n of names){const key=Object.keys(row).f
 function sourceNum(row,names){const raw=String(sourceVal(row,names)).trim().replace(/\s/g,"").replace(",",".");if(!raw)return null;const n=Number(raw);return Number.isFinite(n)&&n>=0?n:null;}
 function sourceDate(raw){const s=String(raw||"").trim();let m=s.match(/^(\d{4})[-/.](\d{1,2})[-/.](\d{1,2})/);if(m)return m[1]+"-"+m[2].padStart(2,"0")+"-"+m[3].padStart(2,"0");m=s.match(/^(\d{1,2})[-/.](\d{1,2})[-/.](\d{4})/);if(m)return m[3]+"-"+m[2].padStart(2,"0")+"-"+m[1].padStart(2,"0");const d=new Date(s);return Number.isNaN(d.getTime())?"":d.toISOString().slice(0,10);}
 function normalizeSourceMatch(r){const home=sourceVal(r,["home","home_team","HomeTeam"]),away=sourceVal(r,["away","away_team","AwayTeam"]);const hg=sourceNum(r,["ft_home","home_score","home_goals","FTHG"]),ag=sourceNum(r,["ft_away","away_score","away_goals","FTAG"]);if(!home||!away||hg===null||ag===null)return null;return {date:sourceDate(sourceVal(r,["date","match_date","Date"])),home,away,hg,ag,htHome:sourceNum(r,["ht_home"]),htAway:sourceNum(r,["ht_away"]),hc:sourceNum(r,["home_corners","HomeCorners","HC","home_corner"]),ac:sourceNum(r,["away_corners","AwayCorners","AC","away_corner"]),homeShots:sourceNum(r,["home_shots"]),awayShots:sourceNum(r,["away_shots"]),homeTarget:sourceNum(r,["home_target"]),awayTarget:sourceNum(r,["away_target"]),homeFouls:sourceNum(r,["home_fouls"]),awayFouls:sourceNum(r,["away_fouls"]),homeYellow:sourceNum(r,["home_yellow"]),awayYellow:sourceNum(r,["away_yellow"]),homeRed:sourceNum(r,["home_red"]),awayRed:sourceNum(r,["away_red"])};}
-async function fetchSourceCSV(url){const key="simulador-futebol:"+url;try{const cached=sessionStorage.getItem(key);if(cached){const c=JSON.parse(cached);if(c&&Date.now()-c.at<900000&&typeof c.text==="string")return c.text;}}catch(e){}const response=await fetch(url);if(!response.ok)throw new Error("A fonte respondeu com HTTP "+response.status);const text=await response.text();try{sessionStorage.setItem(key,JSON.stringify({at:Date.now(),text}));}catch(e){}return text;}
+const DATA_CACHE_DB="simulador-futebol-cache";
+const DATA_CACHE_STORE="resources";
+const DATA_CACHE_TTL=24*60*60*1000;
+let dataCacheDbPromise=null;
+function openDataCache(){
+ if(!("indexedDB" in window))return Promise.reject(new Error("IndexedDB indisponível"));
+ if(dataCacheDbPromise)return dataCacheDbPromise;
+ dataCacheDbPromise=new Promise((resolve,reject)=>{
+  const request=indexedDB.open(DATA_CACHE_DB,1);
+  request.onupgradeneeded=()=>{const db=request.result;if(!db.objectStoreNames.contains(DATA_CACHE_STORE))db.createObjectStore(DATA_CACHE_STORE,{keyPath:"key"});};
+  request.onsuccess=()=>resolve(request.result);
+  request.onerror=()=>reject(request.error||new Error("Falha ao abrir cache local"));
+ });
+ return dataCacheDbPromise;
+}
+async function readDataCache(key){
+ try{const db=await openDataCache();return await new Promise(resolve=>{const request=db.transaction(DATA_CACHE_STORE,"readonly").objectStore(DATA_CACHE_STORE).get(key);request.onsuccess=()=>resolve(request.result||null);request.onerror=()=>resolve(null);});}catch(e){return null;}
+}
+async function writeDataCache(key,text){
+ try{const db=await openDataCache();await new Promise(resolve=>{const tx=db.transaction(DATA_CACHE_STORE,"readwrite");tx.objectStore(DATA_CACHE_STORE).put({key,text,at:Date.now()});tx.oncomplete=()=>resolve();tx.onerror=()=>resolve();tx.onabort=()=>resolve();});}catch(e){}
+}
+async function fetchSourceCSV(url){
+ const key="simulador-futebol:"+url;
+ const persistent=await readDataCache(key);
+ if(persistent&&Date.now()-persistent.at<DATA_CACHE_TTL&&typeof persistent.text==="string")return persistent.text;
+ try{const cached=sessionStorage.getItem(key);if(cached){const c=JSON.parse(cached);if(c&&Date.now()-c.at<900000&&typeof c.text==="string")return c.text;}}catch(e){}
+ const response=await fetch(url);
+ if(!response.ok)throw new Error("A fonte respondeu com HTTP "+response.status);
+ const text=await response.text();
+ await writeDataCache(key,text);
+ try{sessionStorage.setItem(key,JSON.stringify({at:Date.now(),text}));}catch(e){}
+ return text;
+}
 async function loadHistoricalData(){
  const status=$("data-status"),button=$("load-data");button.disabled=true;status.textContent="A obter o ficheiro histórico da competição…";
  try{const league=$("league").value,season=$("season").value,url="https://raw.githubusercontent.com/oladeeayo/open-matchday/master/data/"+league+"/results_"+season+".csv";const csv=await fetchSourceCSV(url);const matches=parseSourceCSV(csv).map(normalizeSourceMatch).filter(Boolean).sort((a,b)=>b.date.localeCompare(a.date));if(!matches.length)throw new Error("O ficheiro foi obtido, mas não contém resultados reconhecidos.");
