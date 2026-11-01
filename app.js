@@ -56,7 +56,7 @@ function applyTeamSelection(side){
  const venue=side==="home"?"home":"away",suffix=side==="home"?"h":"a";
  const fields=[["goalsFor",suffix+"gFor"],["goalsAgainst",suffix+"gAgainst"],["cornersFor",suffix+"cFor"],["cornersAgainst",suffix+"cAgainst"],["shotsFor",suffix+"shotsFor"],["shotsAgainst",suffix+"shotsAgainst"],["targetFor",suffix+"targetFor"],["targetAgainst",suffix+"targetAgainst"],["foulsFor",suffix+"foulsFor"],["foulsAgainst",suffix+"foulsAgainst"],["yellowFor",suffix+"yellowFor"],["yellowAgainst",suffix+"yellowAgainst"],["redFor",suffix+"redFor"],["redAgainst",suffix+"redAgainst"]];
  const coverage={};
- for(const [metric,id] of fields){const values=teamSample(team,venue,metric),avg=mean(values);if(avg!==null)fillInput(id,avg);coverage[metric]=values.length;}
+ for(const [metric,id] of fields){const values=teamSample(team,venue,metric),avg=mean(values);if(avg!==null)fillInput(id,avg);else $(id).value="";coverage[metric]=values.length;}
  $(side==="home"?"homeName":"awayName").value=team;
  const status=$("data-status"),sample=$("sample").value==="all"?"todos os jogos":"últimos "+$("sample").value+" jogos";
  const count=(a,b)=>Math.min(coverage[a]||0,coverage[b]||0);
