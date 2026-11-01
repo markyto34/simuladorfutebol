@@ -34,3 +34,9 @@ O modelo atual é experimental. Ainda não ajusta por força da competição, qu
 3. Adicionar tendências de forma recente, força de calendário e regularização por liga.
 4. Acrescentar remates, faltas, cartões e posse, apenas onde a fonte tiver cobertura verificável.
 5. Construir histórico de análises e comparação entre equipas.
+
+## Backtesting
+O motor `scripts/backtest.cjs` executa um teste cronológico (walk-forward): para cada jogo, usa apenas partidas anteriores e separa o histórico casa/fora. Mede MAE e RMSE para golos da casa, golos fora, golos totais e cantos totais quando há cobertura. O workflow GitHub Actions corre automaticamente em alterações, semanalmente e pode ser iniciado manualmente. O relatório é guardado como artefacto `backtest-report`.
+
+## Publicação
+O ficheiro `render.yaml` prepara a publicação como site estático no Render. O repositório também pode ser alojado no Cloudflare Pages ou GitHub Pages; a ligação da conta de alojamento é necessária para concluir o primeiro deploy.
