@@ -51,8 +51,15 @@ async function loadHistoricalData(){
 function teamSample(team,venue,metric){let games=dataState.matches.filter(m=>(m.home===team||m.away===team)&&(venue==="all"||(venue==="home"&&m.home===team)||(venue==="away"&&m.away===team)));const limit=$("sample").value;if(limit!=="all")games=games.slice(0,Number(limit));return games.map(m=>{const home=m.home===team;if(metric==="goalsFor")return home?m.hg:m.ag;if(metric==="goalsAgainst")return home?m.ag:m.hg;if(metric==="cornersFor")return home?m.hc:m.ac;if(metric==="cornersAgainst")return home?m.ac:m.hc;}).filter(v=>v!==null&&v!==undefined);}
 function mean(values){return values.length?values.reduce((a,b)=>a+b,0)/values.length:null;}
 function fillInput(id,value){if(value!==null&&Number.isFinite(value))$(id).value=value.toFixed(2);}
-function applyTeamSelection(side){const team=$(side==="home"?"homePick":"awayPick").value;if(!team)return;const venue=side==="home"?"home":"away";const suffix=side==="home"?"h":"a";const fields=[["goalsFor",suffix+"gFor"],["goalsAgainst",suffix+"gAgainst"],["cornersFor",suffix+"cFor"],["cornersAgainst",suffix+"cAgainst"]];let notes=[];for(const [metric,id] of fields){const values=teamSample(team,venue,metric),avg=mean(values);if(avg!==null){fillInput(id,avg);notes.push(metric==="goalsFor"?"golos marcados":metric==="goalsAgainst"?"golos sofridos":metric==="cornersFor"?"cantos a favor":"cantos concedidos");}}
- $(side==="home"?"homeName":"awayName").value=team;const status=$("data-status");status.textContent=team+": médias preenchidas com os jogos "+(venue==="home"?"em casa":"fora")+" disponíveis na amostra selecionada. Métricas sem cobertura continuam editáveis.";
+function applyTeamSelection(side){
+ const team=$(side==="home"?"homePick":"awayPick").value;if(!team)return;
+ const venue=side==="home"?"home":"away",suffix=side==="home"?"h":"a";
+ const fields=[["goalsFor",suffix+"gFor"],["goalsAgainst",suffix+"gAgainst"],["cornersFor",suffix+"cFor"],["cornersAgainst",suffix+"cAgainst"]];
+ let goalN=0,cornerN=0;
+ for(const [metric,id] of fields){const values=teamSample(team,venue,metric),avg=mean(values);if(avg!==null){fillInput(id,avg);if(metric.startsWith("goals"))goalN=Math.max(goalN,values.length);else cornerN=Math.max(cornerN,values.length);}}
+ $(side==="home"?"homeName":"awayName").value=team;
+ const status=$("data-status"),sample=$("sample").value==="all"?"todos os jogos": "últimos "+$("sample").value+" jogos";
+ status.textContent=team+": estatísticas "+(venue==="home"?"em casa":"fora")+" preenchidas. Amostra: golos "+goalN+" jogos; cantos "+cornerN+" jogos. Janela: "+sample+". Campos sem dados continuam editáveis.";
 }
 $("load-data").addEventListener("click",loadHistoricalData);
 $("homePick").addEventListener("change",()=>applyTeamSelection("home"));
