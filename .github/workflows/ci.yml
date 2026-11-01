@@ -13,6 +13,8 @@ jobs:
         with:
           node-version: 22
       - run: node --check app.js
+      - run: node --check csv-odds-core.js
+      - run: node --check csv-odds-app.js
       - run: node --check config.js
       - run: node --check windrawwin-proxy/src/index.js
       - run: node scripts/validate-config.cjs
