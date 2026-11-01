@@ -88,10 +88,10 @@ const WDW_LEAGUES={
  "FRA_2_ligue-2":"france-ligue-2",
  "NED_1_eredivisie":"netherlands-eredivisie",
  "NED_2_eerste-divisie":"netherlands-eerste-divisie",
- "POR_2_liga-portugal-2":"portugal-liga-portugal-2",
  "BRA_1_serie-a":"brazil-serie-a",
  "BRA_2_serie-b":"brazil-serie-b",
  "ARG_1_liga-profesional":"argentina-liga-profesional",
+ "ARG_2_primera-nacional":"argentina-primera-b-nacional",
  "MEX_1_liga-mx":"mexico-liga-mx",
  "MEX_2_liga-expansion":"mexico-liga-de-expansion-mx",
  "USA_1_mls":"usa-major-league-soccer",
@@ -127,7 +127,8 @@ const WDW_LEAGUES={
  "SVK_1_nike-liga":"slovakia-super-liga",
  "SVN_1_prva-liga":"slovenia-prvaliga",
  "FIN_1_veikkausliiga":"finland-veikkausliiga",
- "KAZ_1_premier-league":"kazakhstan-premier-league"
+ "KAZ_1_premier-league":"kazakhstan-premier-league",
+ "UKR_1_premier-league":"ukraine-upl"
 };
 const WDW_ALIASES={"sporting cp":"sporting lisbon","sporting clube de portugal":"sporting lisbon","academico":"academico viseu","academico viseu":"academico viseu","vitoria":"guimaraes","casa pia":"casa pia atletico","nacional":"nacional madeira","maritimo m":"maritimo","estoril praia":"estoril","gd estoril praia":"estoril"};
 const WDW_TEAM_PATHS={"porto":"/results/fc-porto/","estoril":"/results/estoril/"};
