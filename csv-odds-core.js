@@ -13,10 +13,8 @@
         else field += c;
       } else if (c === '"' && field.length === 0) quoted = true;
       else if (c === ",") { row.push(field); field = ""; }
-      else if (c === "
-" || c === "\r") {
-        if (c === "\r" && next === "
-") i++;
+      else if (c === "\n" || c === "\r") {
+        if (c === "\r" && next === "\n") i++;
         row.push(field); field = "";
         if (row.some(v => v.trim() !== "")) rows.push(row);
         row = [];
@@ -61,7 +59,6 @@
     return ["1", "X", "2"].every(key => validOdd(odds && odds[key]));
   }
 
-
   const CONTINENT_COUNTRIES = {
     "Europa": ["Albania","Andorra","Armenia","Austria","Azerbaijan","Belarus","Belgium","Bélgica","Bosnia","Bosnia and Herzegovina","Bulgaria","Croatia","Cyprus","Czech Republic","Czechia","Denmark","England","Estonia","Faroe Islands","Finland","France","Georgia","Germany","Gibraltar","Greece","Hungary","Iceland","Ireland","Italy","Kosovo","Latvia","Liechtenstein","Lithuania","Luxembourg","Malta","Moldova","Montenegro","Netherlands","North Macedonia","Northern Ireland","Norway","Poland","Portugal","Romania","Russia","San Marino","Scotland","Serbia","Slovakia","Slovenia","Spain","Sweden","Switzerland","Turkey","Türkiye","Ukraine","Wales"],
     "Ásia": ["Afghanistan","Bahrain","Bangladesh","Bhutan","Brunei","Cambodia","China","Hong Kong","India","Indonesia","Iran","Iraq","Israel","Japan","Jordan","Kazakhstan","Kuwait","Kyrgyzstan","Laos","Lebanon","Malaysia","Maldives","Mongolia","Myanmar","Nepal","North Korea","Oman","Pakistan","Palestine","Philippines","Qatar","Saudi Arabia","Singapore","South Korea","Sri Lanka","Syria","Taiwan","Tajikistan","Thailand","Turkmenistan","United Arab Emirates","Uzbekistan","Vietnam","Yemen"],
@@ -91,6 +88,7 @@
         dateRaw: r.date_time || "",
         date: parseDate(r.date_time),
         country: r.COUNTRY || "",
+        continent: continentForCountry(r.COUNTRY || ""),
         league: r.LEAGUE || "",
         home: r.TEAM_HOME || "",
         away: r.TEAM_AWAY || "",
@@ -211,7 +209,6 @@
       historical: analysis.outcomes, averageOverround: analysis.averageOverround, matches: cohort };
   }
 
-
   function forecastExactScores(matches, limit) {
     const eligible = matches.filter(m => m.completed && m.ft[0] !== null && m.ft[1] !== null);
     const counts = new Map();
@@ -219,7 +216,7 @@
       const key = m.ft[0] + "-" + m.ft[1];
       counts.set(key, (counts.get(key) || 0) + 1);
     });
-    const ranked = [...counts.entries()].sort((a,b) => b[1] - a[1] || a[0].localeCompare(b[0], "en", {numeric:true}));
+    const ranked = [...counts.entries()].sort((a,b) => b[1] - a[1]);
     return { sample: eligible.length, scores: ranked.slice(0, limit || 5).map(([score, count]) => ({
       score: score.replace("-", "–"), count, frequency: count / eligible.length * 100
     })) };
