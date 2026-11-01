@@ -56,7 +56,9 @@
       const finalHome = score(r.score_final_home), finalAway = score(r.score_final_away);
       const ftHome = score(r.score_ft_home), ftAway = score(r.score_ft_away);
       let outcome = null;
-      if (finalHome !== null && finalAway !== null) outcome = finalHome > finalAway ? "1" : finalHome < finalAway ? "2" : "X";
+      // As odds odd_ft_* são de tempo regulamentar, o desfecho 1X2 tem de usar score_ft_*.
+      // score_final_* pode incluir prolongamento/decisão posterior e não deve contaminar o mercado FT.
+      if (ftHome !== null && ftAway !== null) outcome = ftHome > ftAway ? "1" : ftHome < ftAway ? "2" : "X";
       return {
         id: index + 1,
         dateRaw: r.date_time || "",
@@ -109,7 +111,7 @@
     return matches.filter(m => {
       if (filters.country && m.country !== filters.country) return false;
       if (filters.league && m.league !== filters.league) return false;
-      if (filters.team && m.home !== filters.team && m.away !== filters.team) return false;
+      if (filters.team) { const team = filters.team.trim().toLocaleLowerCase(); if (!(m.home.toLocaleLowerCase().includes(team) || m.away.toLocaleLowerCase().includes(team))) return false; }
       if (filters.from && (!m.date || m.date < filters.from)) return false;
       if (filters.to && (!m.date || m.date > filters.to)) return false;
       if (filters.status === "completed" && !m.completed) return false;
