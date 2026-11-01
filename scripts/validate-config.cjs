@@ -43,6 +43,8 @@ if (sampleStart < 0 || sampleEnd < 0) {
   const sample = app.slice(sampleStart, sampleEnd);
   if (!sample.includes("const allowWdw=season===currentSeasonId")) fail("WinDrawWin deve ser usado apenas na época atual.");
   if (!sample.includes("const wdwMatchDate=w=>")) fail("Data WinDrawWin não é convertida para o ano correto da época.");
+  if (!app.includes("const WDW_CALENDAR_YEAR_LEAGUES=new Set(")) fail("Ligas com época de ano civil não têm tratamento de datas próprio.");
+  if (!sample.includes("WDW_CALENDAR_YEAR_LEAGUES.has(league)")) fail("Conversão de datas não considera o calendário da competição.");
   if (!sample.includes("m.date!==date")) fail("Correspondência entre fontes não valida a data completa.");
   if (!sample.includes("records.push({m:{date:wdwMatchDate(w)")) fail("Jogos exclusivos WinDrawWin não são adicionados à amostra.");
   if (!sample.includes("records.sort((a,b)=>(b.m.date||\"\").localeCompare(a.m.date||\"\")")) fail("A amostra combinada não é ordenada cronologicamente.");
@@ -50,4 +52,6 @@ if (sampleStart < 0 || sampleEnd < 0) {
   if (!sample.includes("return limit===\"all\"?values:values.slice(0,requested)")) fail("Limite da amostra não é aplicado após combinar as fontes.");
 }
 
-if (!process.exitCode) console.log("OK: configuração, proxy, scripts, integração de dados e validação das duas equipas.");
+if (!app.includes("if(hasHalfTime&&poisson(hht)+poisson(aht)>=1)ht05++")) fail("Mercado Over 0,5 HT não é calculado de forma independente dos golos FT.");
+if (!app.includes("escapeHtml(value=>") && !app.includes("const escapeHtml=value=>")) fail("Nomes das equipas não são escapados na apresentação HTML.");
+if (!process.exitCode) console.log("OK: configuração, proxy, scripts, integração de dados, modelo HT e validação das duas equipas.");
