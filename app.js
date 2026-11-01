@@ -63,7 +63,72 @@ $("reset").addEventListener("click",()=>location.reload());
 /* Importação automática baseada no formato CSV já usado no futebol-stats. */
 const dataState={matches:[],teams:[],wdwTeams:{},wdwSummaries:{},wdwLeagueLinks:{}};
 const WDW_PROXY_URL=String(window.SIMULADOR_CONFIG?.windrawwinProxyUrl||"").replace(/\/$/,"");
-const WDW_LEAGUES={"POR_1_primeira-liga":"portugal-primeira-liga","ENG_1_premier-league":"england-premier-league","ESP_1_la-liga":"spain-la-liga","ITA_1_serie-a":"italy-serie-a","GER_1_bundesliga":"germany-bundesliga","FRA_1_ligue-1":"france-ligue-1","NED_1_eredivisie":"netherlands-eredivisie","BRA_1_serie-a":"brazil-serie-a","DEN_1_superliga":"denmark-superliga","ENG_5_national-league":"england-national-league","UEFA_1_champions-league":"champions-league","ENG_2_championship":"england-championship","SCO_1_premiership":"scotland-premiership","TUR_1_super-lig":"turkey-super-lig","AUT_1_bundesliga":"austria-bundesliga","SUI_1_super-league":"switzerland-super-league","SWE_1_allsvenskan":"sweden-allsvenskan","ARG_1_liga-profesional":"argentina-liga-profissional","ROU_1_liga-1":"romania-liga-i","WAL_1_cymru-premier":"wales-cymru-premier"};
+const WDW_LEAGUES={
+ "POR_1_primeira-liga":"portugal-primeira-liga",
+ "ENG_1_premier-league":"england-premier-league",
+ "ENG_2_championship":"england-championship",
+ "ENG_3_league-one":"england-league-one",
+ "ENG_4_league-two":"england-league-two",
+ "ENG_5_national-league":"england-national-league",
+ "ENG_6_national-league-north":"england-national-league-north",
+ "ENG_6_national-league-south":"england-national-league-south",
+ "ENG_CUP_efl-cup":"england-efl-cup",
+ "ENG_CUP_fa-cup":"england-fa-cup",
+ "ESP_1_la-liga":"spain-la-liga",
+ "ESP_2_segunda-division":"spain-segunda-division",
+ "ESP_CUP_copa-del-rey":"spain-copa-del-rey",
+ "ITA_1_serie-a":"italy-serie-a",
+ "ITA_2_serie-b":"italy-serie-b",
+ "ITA_CUP_coppa-italia":"italy-coppa-italia",
+ "GER_1_bundesliga":"germany-bundesliga",
+ "GER_2_2-bundesliga":"germany-2-bundesliga",
+ "GER_3_3-liga":"germany-3-liga",
+ "GER_CUP_dfb-pokal":"germany-dfb-pokal",
+ "FRA_1_ligue-1":"france-ligue-1",
+ "FRA_2_ligue-2":"france-ligue-2",
+ "NED_1_eredivisie":"netherlands-eredivisie",
+ "NED_2_eerste-divisie":"netherlands-eerste-divisie",
+ "POR_2_liga-portugal-2":"portugal-liga-portugal-2",
+ "BRA_1_serie-a":"brazil-serie-a",
+ "BRA_2_serie-b":"brazil-serie-b",
+ "ARG_1_liga-profesional":"argentina-liga-profesional",
+ "MEX_1_liga-mx":"mexico-liga-mx",
+ "MEX_2_liga-expansion":"mexico-liga-de-expansion-mx",
+ "USA_1_mls":"usa-major-league-soccer",
+ "JPN_1_j1-league":"japan-j-league",
+ "AUS_1_a-league":"australia-a-league",
+ "CHN_1_super-league":"china-super-league",
+ "UEFA_1_champions-league":"champions-league",
+ "UEFA_1_europa-league":"europa-league",
+ "UEFA_1_conference-league":"europa-conference-league",
+ "SCO_1_premiership":"scotland-premiership",
+ "SCO_2_championship":"scotland-championship",
+ "SCO_3_league-one":"scotland-league-one",
+ "SCO_4_league-two":"scotland-league-two",
+ "SCO_CUP_scottish-cup":"scotland-cup",
+ "SCO_CUP_league-cup":"scotland-league-cup",
+ "BEL_1_pro-league":"belgium-first-division-a",
+ "TUR_1_super-lig":"turkey-super-lig",
+ "GRE_1_super-league":"greece-super-league",
+ "SUI_1_super-league":"switzerland-super-league",
+ "AUT_1_bundesliga":"austria-bundesliga",
+ "DEN_1_superliga":"denmark-superliga",
+ "SWE_1_allsvenskan":"sweden-allsvenskan",
+ "NOR_1_eliteserien":"norway-eliteserien",
+ "ROU_1_liga-1":"romania-liga-i",
+ "RUS_1_premier-liga":"russia-premier-league",
+ "IRE_2_first-division":"ireland-first-division",
+ "POL_1_ekstraklasa":"poland-ekstraklasa",
+ "POL_2_division-1":"poland-i-liga",
+ "WAL_1_cymru-premier":"wales-cymru-premier",
+ "CRO_1_hnl":"croatia-1-hnl",
+ "CZE_1_chance-liga":"czech-first-league",
+ "CYP_1_first-division":"cyprus-first-division",
+ "SVK_1_nike-liga":"slovakia-super-liga",
+ "SVN_1_prva-liga":"slovenia-prvaliga",
+ "FIN_1_veikkausliiga":"finland-veikkausliiga",
+ "KAZ_1_premier-league":"kazakhstan-premier-league"
+};
 const WDW_ALIASES={"sporting cp":"sporting lisbon","sporting clube de portugal":"sporting lisbon","academico":"academico viseu","academico viseu":"academico viseu","vitoria":"guimaraes","casa pia":"casa pia atletico","nacional":"nacional madeira","maritimo m":"maritimo","estoril praia":"estoril","gd estoril praia":"estoril"};
 const WDW_TEAM_PATHS={"porto":"/results/fc-porto/","estoril":"/results/estoril/"};
 function normalizeTeamName(value){return String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/\b(fc|cf|sc|afc|club|clube|de|the)\b/g," ").replace(/[^a-z0-9]+/g," ").trim().replace(/\s+/g," ");}
@@ -197,7 +262,7 @@ async function loadHistoricalData(){
  const status=$("data-status"),button=$("load-data");button.disabled=true;status.textContent="A obter o ficheiro histórico da competição…";if($("data-coverage"))$("data-coverage").textContent="A verificar cobertura das estatísticas…";
  try{const league=$("league").value,season=$("season").value,url="https://raw.githubusercontent.com/oladeeayo/open-matchday/master/data/"+league+"/results_"+season+".csv";const csv=await fetchSourceCSV(url);const matches=parseSourceCSV(csv).map(normalizeSourceMatch).filter(Boolean).sort((a,b)=>b.date.localeCompare(a.date));if(!matches.length)throw new Error("O ficheiro foi obtido, mas não contém resultados reconhecidos.");
  dataState.matches=matches;updateLeagueCoverage(matches);dataState.teams=[...new Set(matches.flatMap(m=>[m.home,m.away]))].sort((a,b)=>a.localeCompare(b));for(const id of ["homePick","awayPick"]){const select=$(id);select.innerHTML='<option value="">Escolhe uma equipa</option>'+dataState.teams.map(t=>'<option value="'+t.replace(/&/g,"&amp;").replace(/"/g,"&quot;")+'">'+t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")+'</option>').join("");select.disabled=false;}
- status.textContent=matches.length+" jogos históricos válidos carregados; "+dataState.teams.length+" equipas disponíveis. Escolhe as duas equipas para preencher as médias.";applyTeamSelection("home");applyTeamSelection("away");dataState.wdwLeagueLinks=null;dataState.wdwTeams={};dataState.wdwSummaries={};$("wdw-home-data").textContent="A aguardar seleção da equipa da casa."; $("wdw-away-data").textContent="A aguardar seleção da equipa visitante."; $("wdw-status").textContent=WDW_PROXY_URL?"WinDrawWin: à espera da seleção das equipas.":"WinDrawWin: proxy criado; falta publicar e configurar o endereço do Worker.";
+ status.textContent=matches.length+" jogos históricos válidos carregados; "+dataState.teams.length+" equipas disponíveis. Escolhe as duas equipas para preencher as médias.";applyTeamSelection("home");applyTeamSelection("away");dataState.wdwLeagueLinks={};dataState.wdwTeams={};dataState.wdwSummaries={};$("wdw-home-data").textContent="A aguardar seleção da equipa da casa."; $("wdw-away-data").textContent="A aguardar seleção da equipa visitante."; $("wdw-status").textContent=WDW_PROXY_URL?"WinDrawWin: à espera da seleção das equipas.":"WinDrawWin: proxy criado; falta publicar e configurar o endereço do Worker.";
  }catch(e){status.textContent="Não foi possível carregar os dados: "+e.message+". A simulação automática fica indisponível até os dados históricos serem carregados.";if($("data-coverage"))$("data-coverage").textContent="Cobertura estatística não disponível."; }finally{button.disabled=false;}
 }
 function teamSample(team,venue,metric){
