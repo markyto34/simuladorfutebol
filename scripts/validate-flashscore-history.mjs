@@ -4,7 +4,7 @@ import { readFile } from "node:fs/promises";
 function parseCsv(text) {
   const rows = [];
   let row = [], cell = "", quoted = false;
-  text = String(text || "").replace(/^\\uFEFF/, "");
+  text = String(text || "").replace(/^\uFEFF/, "");
   for (let i = 0; i < text.length; i++) {
     const c = text[i], next = text[i + 1];
     if (quoted) {
@@ -13,8 +13,8 @@ function parseCsv(text) {
       else cell += c;
     } else if (c === '"' && cell === "") quoted = true;
     else if (c === ",") { row.push(cell); cell = ""; }
-    else if (c === "\\n" || c === "\\r") {
-      if (c === "\\r" && next === "\\n") i++;
+    else if (c === "\n" || c === "\r") {
+      if (c === "\r" && next === "\n") i++;
       row.push(cell); cell = "";
       if (row.some(value => value !== "")) rows.push(row);
       row = [];
