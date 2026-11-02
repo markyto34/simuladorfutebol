@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b17">
+  <title>Monitor de Recolha · Simulador de Futebol</title>
+  <link rel="stylesheet" href="monitor.css">
+  <script src="monitor.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="index.html"><span class="brand-mark">SF</span><span>SIMULADOR<span class="brand-muted"> DE FUTEBOL</span></span></a>
+      <a class="back-link" href="index.html">Voltar ao simulador <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <section class="intro">
+      <div>
+        <p class="eyebrow"><span class="live-dot" id="live-dot"></span> CENTRO DE OPERAÇÕES</p>
+        <h1>Monitor de <em>recolha</em></h1>
+        <p class="subhead">Acompanha a execução automática das estatísticas Flashscore e das odds 1X2 da Bwin.</p>
+      </div>
+      <div class="refresh-box"><span class="refresh-indicator" id="refresh-indicator"></span><span id="refresh-label">A ligar ao GitHub…</span></div>
+    </section>
+
+    <section class="run-panel" aria-live="polite">
+      <div class="run-heading">
+        <div><span class="section-kicker">ÚLTIMA EXECUÇÃO</span><h2 id="run-title">A procurar execução…</h2></div>
+        <span class="status-pill status-loading" id="run-status">A carregar</span>
+      </div>
+      <div class="metrics">
+        <article class="metric"><span>Data dos jogos</span><strong id="target-date">—</strong><small>Data de Portugal</small></article>
+        <article class="metric"><span>Execução</span><strong id="run-number">—</strong><small id="run-event">—</small></article>
+        <article class="metric"><span>Etapa atual</span><strong class="metric-stage" id="current-stage">—</strong><small id="job-name">GitHub Actions</small></article>
+        <article class="metric"><span>Última atualização</span><strong class="metric-time" id="updated-at">—</strong><small id="elapsed">—</small></article>
+      </div>
+      <div class="collection-metrics" aria-live="polite">
+        <article class="live-metric"><span>Jogos processados</span><strong id="games-progress">—</strong></article>
+        <article class="live-metric"><span>Com estatísticas</span><strong id="stats-progress">—</strong></article>
+        <article class="live-metric"><span>Odds Bwin 1X2</span><strong id="bwin-progress">—</strong></article>
+        <article class="live-metric"><span>Falhas</span><strong id="errors-progress">—</strong></article>
+      </div>
+      <p class="progress-updated" id="progress-updated">A aguardar o primeiro estado detalhado da recolha.</p>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="progress-caption"><span id="progress-label">A aguardar dados da execução</span><span id="progress-percent">—</span></div>
+      <div class="run-actions"><div class="run-links"><a id="github-run-link" class="primary-link" href="https://github.com/markyto34/simuladorfutebol/actions/workflows/recolha-diaria-flashscore.yml" target="_blank" rel="noreferrer">Abrir execução no GitHub ↗</a><a id="job-logs-link" class="secondary-link" href="https://github.com/markyto34/simuladorfutebol/actions/workflows/recolha-diaria-flashscore.yml" target="_blank" rel="noreferrer">Ver logs jogo a jogo ↗</a></div><span id="run-id" class="run-id"></span></div>
+    </section>
+
+    <section class="lower-grid">
+      <article class="steps-panel">
+        <div class="panel-heading"><div><span class="section-kicker">ATIVIDADE</span><h2>Etapas da recolha</h2></div><span class="small-tag">Estado real do workflow</span></div>
+        <ol id="steps-list" class="steps-list"><li class="empty-state">A carregar as etapas…</li></ol>
+      </article>
+      <aside class="info-panel">
+        <span class="section-kicker">O QUE ESTÁ A SER RECOLHIDO</span>
+        <h2>Uma consulta por jogo</h2>
+        <p>O coletor consulta a página de estatísticas do Flashscore e extrai da mesma resposta os dados do jogo e, quando identificadas, as odds 1X2 da Bwin.</p>
+        <div class="info-line"><span class="info-icon">13</span><span><strong>13 categorias</strong><small>xG, posse, remates, cantos, faltas e restantes indicadores</small></span></div>
+        <div class="info-line"><span class="info-icon">1X2</span><span><strong>Odds Bwin</strong><small>Apenas Bwin, sem misturar outras casas</small></span></div>
+        <div class="info-line"><span class="info-icon">CSV</span><span><strong>Histórico preservado</strong><small>Validação antes de guardar novos registos</small></span></div>
+        <div class="notice"><strong>Transparência dos dados</strong><p>O estado e a percentagem mostram as etapas do workflow, não a percentagem de jogos. Para acompanhar cada pedido, abre os logs do job: o coletor regista início, resultado, estatísticas encontradas, presença de odds Bwin e erros por jogo.</p></div>
+      </aside>
+    </section>
+    <footer><span>Simulador de Futebol · Monitor técnico</span><span>Atualização automática a cada 3 minutos</span></footer>
+  </main>
+</body>
+</html>

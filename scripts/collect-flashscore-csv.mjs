@@ -6,13 +6,15 @@
  * Uso: node scripts/collect-flashscore-csv.mjs <match_id> [match_id...]
  * Opcional: FLASHSCORE_PROXY_URL e FLASHSCORE_REQUEST_DELAY_MS.
  */
-import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { readFile, writeFile, mkdir, appendFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 
 const PROXY = (process.env.FLASHSCORE_PROXY_URL || "https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev").replace(/\/$/, "");
 const DELAY_MS = Math.max(1500, Number(process.env.FLASHSCORE_REQUEST_DELAY_MS || 2500));
+const REQUEST_TIMEOUT_MS = 45_000;
+const DISCOVERY_TIMEOUT_MS = 60_000;
 const MAX_MANUAL_MATCHES = 5;
-const MAX_DAILY_MATCHES = 2000
+const MAX_DAILY_MATCHES = 2000;
 const STATS_FILE = resolve("data/flashscore-statistics.csv");
 const ODDS_FILE = resolve("data/bwin-odds-flashscore.csv");
 
@@ -121,13 +123,77 @@ function mergeRows(existing, incoming, keyFn) {
   return [...map.values()];
 }
 const sleep = ms => new Promise(resolveSleep => setTimeout(resolveSleep, ms));
+const PROGRESS_BRANCH = "collection-progress";
+const PROGRESS_PATH = "monitor/collection-progress.json";
+let progressSnapshot = null;
+let progressBranchReady = false;
+
+async function publishProgress() {
+  const token = process.env.GITHUB_TOKEN;
+  const repository = process.env.GITHUB_REPOSITORY;
+  if (!token || !repository || !progressSnapshot) return;
+  const headers = {
+    "Accept": "application/vnd.github+json",
+    "Authorization": "Bearer " + token,
+    "X-GitHub-Api-Version": "2022-11-28"
+  };
+  const api = "https://api.github.com/repos/" + repository;
+  const request = (url, options = {}) => fetch(url, { ...options, headers: { ...headers, ...(options.headers || {}) }, signal: AbortSignal.timeout(12_000) });
+  try {
+    if (!progressBranchReady) {
+      const refResponse = await request(api + "/git/ref/heads/" + PROGRESS_BRANCH);
+      if (refResponse.status === 404) {
+        const createResponse = await request(api + "/git/refs", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ ref: "refs/heads/" + PROGRESS_BRANCH, sha: process.env.GITHUB_SHA })
+        });
+        if (!createResponse.ok && createResponse.status !== 422) throw new Error("Não foi possível criar a branch de progresso (HTTP " + createResponse.status + ").");
+      } else if (!refResponse.ok) {
+        throw new Error("Não foi possível consultar a branch de progresso (HTTP " + refResponse.status + ").");
+      }
+      progressBranchReady = true;
+    }
+    const fileUrl = api + "/contents/" + PROGRESS_PATH + "?ref=" + PROGRESS_BRANCH;
+    const currentFile = await request(fileUrl);
+    let contentSha;
+    if (currentFile.ok) contentSha = (await currentFile.json()).sha;
+    else if (currentFile.status !== 404) throw new Error("Não foi possível ler o estado anterior (HTTP " + currentFile.status + ").");
+    const payload = { ...progressSnapshot, updated_at: new Date().toISOString() };
+    const updateResponse = await request(api + "/contents/" + PROGRESS_PATH, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        message: "Atualizar progresso da recolha " + (payload.run_id || "manual"),
+        content: Buffer.from(JSON.stringify(payload, null, 2) + "\n").toString("base64"),
+        branch: PROGRESS_BRANCH,
+        ...(contentSha ? { sha: contentSha } : {})
+      })
+    });
+    if (!updateResponse.ok) throw new Error("Não foi possível publicar o progresso (HTTP " + updateResponse.status + ").");
+    console.log("[MONITOR] Progresso publicado: " + payload.processed_games + "/" + payload.total_games + " jogos; fase=" + payload.phase + ".");
+  } catch (error) {
+    console.warn("[MONITOR] Não foi possível atualizar o painel de progresso: " + error.message);
+  }
+}
+
+async function setProgress(patch) {
+  progressSnapshot = { ...(progressSnapshot || {}), ...patch, updated_at: new Date().toISOString() };
+  await publishProgress();
+}
 
 async function collect(matchId) {
   if (!/^[A-Za-z0-9]{6,16}$/.test(matchId)) throw new Error("ID inválido: " + matchId);
   const url = new URL(PROXY + "/record");
   url.searchParams.set("id", matchId);
   url.searchParams.set("tab", "statistics");
-  const response = await fetch(url, { headers: { "Accept": "application/json" } });
+  let response;
+  try {
+    response = await fetch(url, { headers: { "Accept": "application/json" }, signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS) });
+  } catch (error) {
+    if (error.name === "TimeoutError" || error.name === "AbortError") throw new Error("Timeout: o pedido ao proxy excedeu " + (REQUEST_TIMEOUT_MS / 1000) + " segundos.");
+    throw new Error("Erro de rede ao consultar o proxy: " + error.message);
+  }
   let payload;
   try { payload = await response.json(); }
   catch { throw new Error("Resposta não JSON para " + matchId + " (HTTP " + response.status + ")."); }
@@ -153,7 +219,14 @@ async function discoverMatchIds(date) {
   const url = new URL(PROXY + "/discover-inspect");
   url.searchParams.set("date", date);
   url.searchParams.set("ids", "1");
-  const response = await fetch(url, { headers: { "Accept": "application/json" } });
+  console.log("[DISCOVERY] A pedir ao proxy a lista de jogos de " + date + "...");
+  let response;
+  try {
+    response = await fetch(url, { headers: { "Accept": "application/json" }, signal: AbortSignal.timeout(DISCOVERY_TIMEOUT_MS) });
+  } catch (error) {
+    if (error.name === "TimeoutError" || error.name === "AbortError") throw new Error("Timeout na descoberta: o proxy não respondeu em " + (DISCOVERY_TIMEOUT_MS / 1000) + " segundos.");
+    throw new Error("Erro de rede durante a descoberta: " + error.message);
+  }
   let payload;
   try { payload = await response.json(); }
   catch { throw new Error("Resposta não JSON na descoberta da data (HTTP " + response.status + ")."); }
@@ -172,6 +245,21 @@ async function discoverMatchIds(date) {
 
 async function main() {
   const args = process.argv.slice(2);
+  progressSnapshot = {
+    run_id: process.env.GITHUB_RUN_ID || "local",
+    run_number: process.env.GITHUB_RUN_NUMBER || "",
+    target_date: "",
+    status: "running",
+    phase: "discovery",
+    total_games: 0,
+    processed_games: 0,
+    stats_games: 0,
+    bwin_odds: 0,
+    failed_games: 0,
+    current_match: "A descobrir jogos",
+    last_result: ""
+  };
+  await publishProgress();
   const dateOption = args.find(arg => arg.startsWith("--date="));
   let matchIds = args.filter(arg => !arg.startsWith("--"));
   if (dateOption && matchIds.length) {
@@ -179,8 +267,11 @@ async function main() {
   }
   if (dateOption) {
     const date = dateOption.slice("--date=".length);
+    await setProgress({ target_date: date, phase: "discovery", current_match: "A descobrir jogos" });
+    console.log("[DISCOVERY] Início da descoberta no Flashscore para " + date + ".");
     matchIds = await discoverMatchIds(date);
-    console.log("Flashscore encontrou " + matchIds.length + " IDs únicos para " + date + ".");
+    console.log("[DISCOVERY] Concluída: " + matchIds.length + " IDs únicos válidos encontrados para " + date + ".");
+    await setProgress({ total_games: matchIds.length, phase: "collecting", current_match: "A preparar recolha" });
   }
   matchIds = [...new Set(matchIds)];
   const maxMatches = dateOption ? MAX_DAILY_MATCHES : MAX_MANUAL_MATCHES;
@@ -190,6 +281,7 @@ async function main() {
   if (!matchIds.length) {
     if (dateOption) {
       console.log("Não foram encontrados jogos Flashscore para a data indicada. Nada a acrescentar aos CSV.");
+      await setProgress({ status: "completed", phase: "completed", total_games: 0, current_match: "Sem jogos para recolher" });
       return;
     }
     console.error("Uso: node scripts/collect-flashscore-csv.mjs <match_id> [match_id...]");
@@ -201,21 +293,48 @@ async function main() {
   const existingStats = await readRows(STATS_FILE);
   const existingOdds = await readRows(ODDS_FILE);
   const statsNew = [], oddsNew = [];
-  let failures = 0;
+  let failures = 0, processed = 0, stoppedByUpstream = false;
+  const collectionStartedAt = Date.now();
+  await setProgress({ total_games: matchIds.length, phase: "collecting", current_match: "A iniciar recolha" });
+  console.log("[COLLECT] A iniciar " + matchIds.length + " jogos; intervalo entre pedidos: " + DELAY_MS + " ms; timeout por jogo: " + (REQUEST_TIMEOUT_MS / 1000) + " s.");
   for (let index = 0; index < matchIds.length; index++) {
     const matchId = matchIds[index];
+    const matchStartedAt = Date.now();
+    progressSnapshot.phase = "collecting";
+    progressSnapshot.current_match = "A consultar jogo " + (index + 1) + "/" + matchIds.length + " · " + matchId;
+    console.log("[PROGRESS] " + (index + 1) + "/" + matchIds.length + " | START | id=" + matchId);
     try {
       const record = await collect(matchId);
-      if (record.statistics && Object.keys(record.statistics).length) statsNew.push(statisticsRow(record));
+      if (record.statistics && Object.keys(record.statistics).length) {
+        statsNew.push(statisticsRow(record));
+        progressSnapshot.stats_games++;
+      }
       const oddsRow = bwinOddsRow(record);
-      if (oddsRow) oddsNew.push(oddsRow);
-      console.log(matchId + ": " + Object.keys(record.statistics || {}).length + " estatísticas; " + (oddsRow ? "odds Bwin 1X2 encontradas." : "sem triplo Bwin 1X2 confirmado."));
+      if (oddsRow) { oddsNew.push(oddsRow); progressSnapshot.bwin_odds++; }
+      const home = record.teams?.home?.name || "Casa";
+      const away = record.teams?.away?.name || "Fora";
+      progressSnapshot.last_result = home + " - " + away + ": " + Object.keys(record.statistics || {}).length + " estatísticas; Bwin 1X2 " + (oddsRow ? "encontradas" : "não confirmado");
+      progressSnapshot.current_match = "Último concluído: " + home + " - " + away;
+      console.log("[PROGRESS] " + (index + 1) + "/" + matchIds.length + " | OK | " + home + " - " + away + " | id=" + matchId + " | stats=" + Object.keys(record.statistics || {}).length + " | bwin_1x2=" + (oddsRow ? "sim" : "não confirmado") + " | " + (Date.now() - matchStartedAt) + " ms");
     } catch (error) {
       failures++;
-      console.error(matchId + ": " + error.message);
-      if (error.stop) break;
+      progressSnapshot.failed_games++;
+      progressSnapshot.last_result = "Falha em " + matchId + ": " + error.message;
+      progressSnapshot.current_match = "Último erro: " + matchId;
+      console.error("[PROGRESS] " + (index + 1) + "/" + matchIds.length + " | ERROR | id=" + matchId + " | " + error.message);
+      if (error.stop) { stoppedByUpstream = true; break; }
+    } finally {
+      processed++;
+      progressSnapshot.processed_games = processed;
     }
-    if (index < matchIds.length - 1) await sleep(DELAY_MS);
+    if (processed % 10 === 0 || index === matchIds.length - 1 || stoppedByUpstream) {
+      await setProgress({
+        phase: stoppedByUpstream ? "stopped" : "collecting",
+        status: stoppedByUpstream ? "blocked" : "running",
+        current_match: stoppedByUpstream ? "Recolha interrompida por resposta 403/429" : progressSnapshot.current_match
+      });
+    }
+    if (index < matchIds.length - 1 && !stoppedByUpstream) await sleep(DELAY_MS);
   }
   const mergedStats = mergeRows(existingStats, statsNew, row => row.match_id);
   const mergedOdds = mergeRows(existingOdds, oddsNew, row => row.match_id + "|" + row.retrieved_at);
@@ -223,8 +342,26 @@ async function main() {
   await writeFile(ODDS_FILE, toCsv(ODDS_HEADERS, mergedOdds), "utf8");
   console.log("CSV de estatísticas: " + STATS_FILE + " (" + mergedStats.length + " jogos).");
   console.log("CSV exclusivo Bwin: " + ODDS_FILE + " (" + mergedOdds.length + " observações).");
-  console.log("Resumo: " + statsNew.length + " jogos com estatísticas; " + oddsNew.length + " observações Bwin; " + failures + " falhas.");
+  const elapsedSeconds = Math.round((Date.now() - collectionStartedAt) / 1000);
+  await setProgress({ status: stoppedByUpstream ? "blocked" : failures ? "completed_with_errors" : "completed", phase: stoppedByUpstream ? "stopped" : "completed", current_match: stoppedByUpstream ? "Interrompida por bloqueio 403/429" : "Recolha terminada" });
+  const summary = [
+    "## Recolha Flashscore + Bwin",
+    "",
+    "- Jogos descobertos: **" + matchIds.length + "**",
+    "- Jogos processados: **" + processed + "**",
+    "- Registos com estatísticas: **" + statsNew.length + "**",
+    "- Observações Bwin 1X2: **" + oddsNew.length + "**",
+    "- Falhas: **" + failures + "**",
+    "- Interrompida por bloqueio 403/429: **" + (stoppedByUpstream ? "sim" : "não") + "**",
+    "- Duração: **" + elapsedSeconds + " s**"
+   ].join("\n");
+  if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, summary + "\n", "utf8");
+  console.log("[SUMMARY] " + processed + "/" + matchIds.length + " processados; " + statsNew.length + " jogos com estatísticas; " + oddsNew.length + " observações Bwin; " + failures + " falhas; " + elapsedSeconds + " s.");
   if (failures) process.exitCode = 1;
 }
 
-main().catch(error => { console.error(error); process.exitCode = 1; });
+main().catch(async error => {
+  console.error(error);
+  if (progressSnapshot) await setProgress({ status: "failed", phase: "failed", current_match: "Falha na recolha", last_result: error.message });
+  process.exitCode = 1;
+});
