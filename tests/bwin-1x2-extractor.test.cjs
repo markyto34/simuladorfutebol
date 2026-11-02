@@ -15,8 +15,9 @@ const assert = require("node:assert/strict");
   assert.equal(result[0].market, "1X2");
   assert.deepEqual(result[0].selection_order, ["1", "X", "2"]);
 
-  const escaped = '<div>Odds 1.43 | 3.80 | 5.50</div>' +
-    '<a data-event="odds_1" data-bookmaker-id="459">5.50 Odds fornecidas por bwin.pt</a>';
+  const escaped = "<div>Odds 1.43 | 3.80 | 5.50</div>" +
+    "\\u003Ca data-event=\\u0022odds_1\\u0022 data-bookmaker-id=\\u0022459\\u0022\\u003E" +
+    "5.50 Odds fornecidas por bwin.pt\\u003C/a\\u003E";
   assert.equal(extractBwin1x2(escaped).length, 1);
 
   assert.deepEqual(extractBwin1x2("<div>1.43 | 3.80 | 5.50</div>"), []);
