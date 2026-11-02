@@ -331,7 +331,7 @@ export default {
       if (targetMatchId && !validMatchId(targetMatchId)) {
         return json({ error: "invalid_match_id", message: "O match_id deve ser um identificador alfanumérico válido." }, 400, headers);
       }
-      return json({ ok: true, upstream_status: discoveryResponse.status, content_type: discoveryType, body_bytes: discoveryBody.byteLength, inspection: inspectMatchDiscovery(discoveryHtml, date, { summary: summaryOnly, matchId: targetMatchId }) }, 200, headers);
+      return json({ ok: true, upstream_status: discoveryResponse.status, content_type: discoveryType, body_bytes: discoveryBody.byteLength, inspection: inspectMatchDiscovery(discoveryHtml, date, { summary: summaryOnly, idsOnly: incoming.searchParams.get("ids") === "1", matchId: targetMatchId }) }, 200, headers);
     }
 
     const inspectOnly = incoming.pathname === "/inspect";
