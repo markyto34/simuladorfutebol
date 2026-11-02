@@ -10,7 +10,8 @@ import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 
 const PROXY = (process.env.FLASHSCORE_PROXY_URL || "https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev").replace(/\/$/, "");
-const DELAY_MS = Math.max(0, Number(process.env.FLASHSCORE_REQUEST_DELAY_MS || 1500));
+const DELAY_MS = Math.max(1500, Number(process.env.FLASHSCORE_REQUEST_DELAY_MS || 2500));
+const MAX_MATCHES = 5;
 const STATS_FILE = resolve("data/flashscore-statistics.csv");
 const ODDS_FILE = resolve("data/bwin-odds-flashscore.csv");
 
@@ -180,6 +181,8 @@ async function main() {
     matchIds = await discoverMatchIds(date);
     console.log("Flashscore encontrou " + matchIds.length + " IDs únicos para " + date + ".");
   }
+  matchIds = [...new Set(matchIds)];
+  if (matchIds.length > MAX_MATCHES) throw new Error("Limite de segurança: máximo de " + MAX_MATCHES + " jogos por execução.");
   if (!matchIds.length) {
     console.error("Uso: node scripts/collect-flashscore-csv.mjs <match_id> [match_id...]");
     console.error("  ou: node scripts/collect-flashscore-csv.mjs --date=YYYY-MM-DD");
@@ -190,6 +193,7 @@ async function main() {
   const existingStats = await readRows(STATS_FILE);
   const existingOdds = await readRows(ODDS_FILE);
   const statsNew = [], oddsNew = [];
+  let failures = 0;
   for (let index = 0; index < matchIds.length; index++) {
     const matchId = matchIds[index];
     try {
@@ -199,6 +203,7 @@ async function main() {
       if (oddsRow) oddsNew.push(oddsRow);
       console.log(matchId + ": " + Object.keys(record.statistics || {}).length + " estatísticas; " + (oddsRow ? "odds Bwin 1X2 encontradas." : "sem triplo Bwin 1X2 confirmado."));
     } catch (error) {
+      failures++;
       console.error(matchId + ": " + error.message);
       if (error.stop) break;
     }
@@ -210,6 +215,8 @@ async function main() {
   await writeFile(ODDS_FILE, toCsv(ODDS_HEADERS, mergedOdds), "utf8");
   console.log("CSV de estatísticas: " + STATS_FILE + " (" + mergedStats.length + " jogos).");
   console.log("CSV exclusivo Bwin: " + ODDS_FILE + " (" + mergedOdds.length + " observações).");
+  console.log("Resumo: " + statsNew.length + " jogos com estatísticas; " + oddsNew.length + " observações Bwin; " + failures + " falhas.");
+  if (failures) process.exitCode = 1;
 }
 
 main().catch(error => { console.error(error); process.exitCode = 1; });
