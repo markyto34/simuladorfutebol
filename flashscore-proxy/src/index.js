@@ -561,7 +561,7 @@ export class CollectionMonitor {
         entry.message = "CSV preparados: " + snapshot.stats_rows + " linhas de estatísticas · " + snapshot.odds_rows + " observações Bwin";
         break;
       case "repository_commit":
-        snapshot.repository_checked = true;
+        snapshot.repository_checked = event.checked === true;
         snapshot.repository_committed = event.committed === true;
         snapshot.commit_sha = safe(event.commit_sha, 40);
         entry.message = snapshot.repository_committed ? "CSV gravados no GitHub" : "Sem alterações novas para gravar no GitHub";
