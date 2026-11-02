@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 510,
-  "stats_games": 256,
-  "bwin_odds": 121,
+  "processed_games": 520,
+  "stats_games": 264,
+  "bwin_odds": 123,
   "failed_games": 0,
-  "current_match": "Último concluído: Flora - Narva",
-  "last_result": "Flora - Narva: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-02T22:19:16.331Z"
+  "current_match": "Último concluído: Vancouver Whitecaps - Seattle Sounders",
+  "last_result": "Vancouver Whitecaps - Seattle Sounders: 13 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-02T22:19:32.136Z"
 }
