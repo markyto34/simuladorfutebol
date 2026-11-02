@@ -530,7 +530,7 @@ export class CollectionMonitor {
     const entry = { at: now, type: event.type, message: safe(event.message || event.match_id || event.status || event.type) };
     switch (event.type) {
       case "started":
-        snapshot = { status: "running", date: safe(event.date, 10), run_id: safe(event.run_id, 40), total: 0, processed: 0, stats_complete: 0, bwin_found: 0, errors: 0, current_match: null, csv_written: false, repository_committed: false, stats_rows: null, odds_rows: null, events: [] };
+        snapshot = { status: "running", date: safe(event.date, 10), run_id: safe(event.run_id, 40), total: 0, processed: 0, stats_complete: 0, bwin_found: 0, errors: 0, current_match: null, csv_written: false, repository_committed: false, repository_checked: false, stats_rows: null, odds_rows: null, events: [] };
         entry.message = "Recolha iniciada";
         break;
       case "discovered":
@@ -546,7 +546,7 @@ export class CollectionMonitor {
         if (event.stats_complete === true) snapshot.stats_complete += 1;
         if (event.bwin_found === true) snapshot.bwin_found += 1;
         snapshot.current_match = null;
-        entry.message = safe(event.match_id, 24) + ": " + (event.stats_complete ? "estatísticas OK" : "estatísticas incompletas") + (event.bwin_found ? " · Bwin OK" : " · sem odds Bwin");
+        entry.message = safe(event.match_label || event.match_id, 160) + ": " + (event.stats_complete ? "estatísticas completas" : "estatísticas incompletas") + (event.bwin_found ? " · Bwin OK" : " · sem odds Bwin");
         break;
       case "match_error":
         snapshot.processed += 1;
@@ -561,6 +561,7 @@ export class CollectionMonitor {
         entry.message = "CSV preparados: " + snapshot.stats_rows + " linhas de estatísticas · " + snapshot.odds_rows + " observações Bwin";
         break;
       case "repository_commit":
+        snapshot.repository_checked = true;
         snapshot.repository_committed = event.committed === true;
         snapshot.commit_sha = safe(event.commit_sha, 40);
         entry.message = snapshot.repository_committed ? "CSV gravados no GitHub" : "Sem alterações novas para gravar no GitHub";
