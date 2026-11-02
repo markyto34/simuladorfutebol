@@ -1,7 +1,7 @@
 import { extractBwin1x2 } from "./extract-bwin.mjs";
 import { inspectScoreEvidence } from "./extract-scores.mjs";
 import { extractPeriodScores } from "./extract-period-scores.mjs";
-import { inspectMatchDiscovery } from "./discover-matches.mjs";
+import { inspectMatchDiscovery, extractExplicitCompetitionForMatch } from "./discover-matches.mjs";
 import { extractStructuredMatch } from "./extract-match-record.mjs";
 import { inspectPageStructure } from "./inspect-page-structure.mjs";
 import { buildMatchTabUrl, resolveMatchTab } from "./match-tabs.mjs";
@@ -159,6 +159,33 @@ function compactDiagnostic(inspection) {
   const competitionLinks = (structure.relevant_links || []).filter(item => String(item.href || '').includes('/futebol/') || /league|competition|tournament|breadcrumb|classif/i.test([item.href, item.text, item.class, item.id].filter(Boolean).join(' '))).slice(0, 8);
   const identityAttributes = (structure.data_attributes || []).filter(item => /country|league|competition|tournament|season|stage|round/i.test([item.name, item.value, item.class, item.id].join(' '))).slice(0, 10);
   return { mode: 'compact-diagnostic', match_id: summary.match_id, title: summary.title, teams: summary.teams, competition_identity: summary.competition_identity, statistics: summary.statistics, missing_fields: summary.missing_fields, evidence: { statistics_dom: statsSamples, competition_links: competitionLinks, identity_attributes: identityAttributes, text_terms: (structure.text_terms || []).filter(item => /bundesliga|liga|league|tournament|competição|classificações|época/i.test(item.term + ' ' + item.context)).slice(0, 6) }, limits: { statistics_dom_samples: 6, html_preview_chars: 420, competition_links: 8, identity_attributes: 10 } };
+}
+async function resolveCompetitionFromDiscovery(date, matchId) {
+  if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) return { status: "unavailable", reason: "match_date_unavailable" };
+  const parsed = new Date(date + "T00:00:00Z");
+  if (!Number.isFinite(parsed.getTime()) || parsed.toISOString().slice(0, 10) !== date) return { status: "unavailable", reason: "invalid_match_date" };
+  const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Lisbon", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+  const offset = Math.round((Date.parse(date + "T00:00:00Z") - Date.parse(today + "T00:00:00Z")) / 86400000);
+  if (!Number.isSafeInteger(offset) || Math.abs(offset) > 3650) return { status: "unavailable", reason: "date_out_of_supported_range" };
+  const target = new URL("/", UPSTREAM);
+  target.searchParams.set("d", String(offset));
+  const cacheKey = new Request("https://simuladorfutebol-flashscore-proxy.cache/discovery?date=" + date);
+  const cache = caches.default;
+  const cached = await cache.match(cacheKey);
+  let html;
+  if (cached) html = await cached.text();
+  else {
+    let response;
+    try { response = await fetch(target.toString(), { method: "GET", redirect: "manual", headers: { "Accept": "text/html,application/xhtml+xml", "Accept-Language": "pt-PT,pt;q=0.9,en;q=0.7", "User-Agent": "SimuladorFutebol/1.0" } }); }
+    catch (error) { return { status: "unavailable", reason: "discovery_upstream_unavailable", detail: String(error?.message || "").slice(0, 120) }; }
+    if (response.status === 403 || response.status === 429) return { status: "unavailable", reason: "discovery_upstream_rejected", upstream_status: response.status };
+    if (!response.ok || response.status >= 300 || !(response.headers.get("content-type") || "").toLowerCase().includes("text/html")) return { status: "unavailable", reason: "discovery_response_invalid", upstream_status: response.status };
+    const body = await response.arrayBuffer();
+    if (body.byteLength > MAX_BODY_BYTES) return { status: "unavailable", reason: "discovery_response_too_large" };
+    html = new TextDecoder("utf-8").decode(body);
+    await cache.put(cacheKey, new Response(html, { headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "public, max-age=600" } }));
+  }
+  return extractExplicitCompetitionForMatch(html, matchId) || { status: "unavailable", reason: "no_explicit_match_group" };
 }
 function summarizeInspection(inspection) {
   const structure = inspection.page_structure || {};
@@ -400,6 +427,18 @@ export default {
 
     if (inspectOnly) {
       const fullInspection = inspectHtml(html, matchId, { sourceUrl: target.toString() });
+      const record = fullInspection.match_record;
+      if (record && (!record.country || !record.competition)) {
+        const matchDate = record.date_time_iso_local ? record.date_time_iso_local.slice(0, 10) : null;
+        const identity = await resolveCompetitionFromDiscovery(matchDate, matchId);
+        record.competition_identity = identity;
+        if (identity.status === "identified") {
+          record.country = identity.country;
+          record.competition = identity.competition;
+          record.missing_fields = (record.missing_fields || []).filter(field => field !== "country" && field !== "competition");
+          record.source_capture.evidence.push({ field: "competition_identity", source: "explicit score-data group from date discovery", value: identity });
+        }
+      }
       const summaryOnly = incoming.searchParams.get("summary") === "1";
       const diagnosticOnly = incoming.searchParams.get("diagnostic") === "1";
       return json({
