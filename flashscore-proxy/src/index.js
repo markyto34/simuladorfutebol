@@ -147,6 +147,19 @@ function inspectHtml(html, matchId, options = {}) {
 }
 
 
+function compactDiagnostic(inspection) {
+  const summary = summarizeInspection(inspection);
+  const structure = summary.page_structure || {};
+  const samples = Array.isArray(structure.dom_samples) ? structure.dom_samples : [];
+  const statsSamples = samples.filter(item => /wcl-statistics|statistic/i.test(item.marker || '')).slice(0, 6).map(item => ({
+    marker: item.marker, attributes: item.attributes,
+    text_preview: String(item.text_preview || '').slice(0, 240),
+    html_preview: String(item.html_preview || '').slice(0, 420)
+  }));
+  const competitionLinks = (structure.relevant_links || []).filter(item => String(item.href || '').includes('/futebol/') || /league|competition|tournament|breadcrumb|classif/i.test([item.href, item.text, item.class, item.id].filter(Boolean).join(' '))).slice(0, 8);
+  const identityAttributes = (structure.data_attributes || []).filter(item => /country|league|competition|tournament|season|stage|round/i.test([item.name, item.value, item.class, item.id].join(' '))).slice(0, 10);
+  return { mode: 'compact-diagnostic', match_id: summary.match_id, title: summary.title, teams: summary.teams, competition_identity: summary.competition_identity, statistics: summary.statistics, missing_fields: summary.missing_fields, evidence: { statistics_dom: statsSamples, competition_links: competitionLinks, identity_attributes: identityAttributes, text_terms: (structure.text_terms || []).filter(item => /bundesliga|liga|league|tournament|competição|classificações|época/i.test(item.term + ' ' + item.context)).slice(0, 6) }, limits: { statistics_dom_samples: 6, html_preview_chars: 420, competition_links: 8, identity_attributes: 10 } };
+}
 function summarizeInspection(inspection) {
   const structure = inspection.page_structure || {};
   const record = inspection.match_record || {};
@@ -384,6 +397,7 @@ export default {
     if (inspectOnly) {
       const fullInspection = inspectHtml(html, matchId, { sourceUrl: target.toString() });
       const summaryOnly = incoming.searchParams.get("summary") === "1";
+      const diagnosticOnly = incoming.searchParams.get("diagnostic") === "1";
       return json({
         ok: true,
         match_id: matchId,
@@ -392,7 +406,7 @@ export default {
         body_bytes: body.byteLength,
         requested_tab: requestedTab,
         source_url: target.toString(),
-        inspection: summaryOnly ? summarizeInspection(fullInspection) : fullInspection
+        inspection: diagnosticOnly ? compactDiagnostic(fullInspection) : summaryOnly ? summarizeInspection(fullInspection) : fullInspection
       }, 200, headers);
     }
 
