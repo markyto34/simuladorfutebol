@@ -1,8 +1,6 @@
 "use strict";
+const test = require("node:test");
 const assert = require("node:assert/strict");
-
-(async () => {
-  const { extractStructuredMatch } = await import("../flashscore-proxy/src/extract-match-record.mjs");
 
 const html = String.raw`
 <!doctype html>
@@ -23,7 +21,8 @@ const html = String.raw`
 <a data-event="odds_1" data-event-category="external_bookmaker_link" data-bookmaker-id="459">2.55 | 3.40 | 2.50 Odds fornecidas por bwin.pt</a>
 </body></html>`;
 
-  {
+test("extracts match identity, date, period scores, events and Bwin 1X2", async () => {
+  const { extractStructuredMatch } = await import("../flashscore-proxy/src/extract-match-record.mjs");
   const record = extractStructuredMatch(html, "hW5lOaOP", {
     retrievedAt: "2026-11-02T12:00:00.000Z",
     httpStatus: 200
@@ -44,9 +43,10 @@ const html = String.raw`
   assert.equal(record.odds.odds_timestamp_type, "observed_at_collection");
   assert.equal(record.country, null);
   assert.equal(record.competition, null);
-}
+});
 
-  {
+test("does not invent unavailable fields or attach ambiguous Bwin odds", async () => {
+  const { extractStructuredMatch } = await import("../flashscore-proxy/src/extract-match-record.mjs");
   const record = extractStructuredMatch("<title>AAA - BBB</title>", "abcdef12", {
     retrievedAt: "2026-11-02T12:00:00.000Z"
   });
@@ -56,10 +56,4 @@ const html = String.raw`
   assert.equal(record.country, null);
   assert.equal(record.competition, null);
   assert.ok(record.missing_fields.includes("country"));
-  }
-
-  console.log("Flashscore structured match extraction: OK");
-})().catch(error => {
-  console.error(error);
-  process.exitCode = 1;
 });
