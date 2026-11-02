@@ -195,8 +195,10 @@ async function main() {
   }
   if (dateOption) {
     const date = dateOption.slice("--date=".length);
+    await reportMonitor("started", { date });
     matchIds = await discoverMatchIds(date);
     console.log("Flashscore encontrou " + matchIds.length + " IDs únicos para " + date + ".");
+    await reportMonitor("discovered", { date, total: matchIds.length });
   }
   matchIds = [...new Set(matchIds)];
   const maxMatches = dateOption ? MAX_DAILY_MATCHES : MAX_MANUAL_MATCHES;
@@ -206,6 +208,7 @@ async function main() {
   if (!matchIds.length) {
     if (dateOption) {
       console.log("Não foram encontrados jogos Flashscore para a data indicada. Nada a acrescentar aos CSV.");
+      await reportMonitor("finished", { status: "completed", message: "Não foram encontrados jogos para esta data" });
       return;
     }
     console.error("Uso: node scripts/collect-flashscore-csv.mjs <match_id> [match_id...]");
@@ -220,15 +223,19 @@ async function main() {
   let failures = 0;
   for (let index = 0; index < matchIds.length; index++) {
     const matchId = matchIds[index];
+    await reportMonitor("match_start", { match_id: matchId, index: index + 1, total: matchIds.length });
     try {
       const record = await collect(matchId);
       if (record.statistics && Object.keys(record.statistics).length) statsNew.push(statisticsRow(record));
       const oddsRow = bwinOddsRow(record);
       if (oddsRow) oddsNew.push(oddsRow);
-      const statCount = Object.keys(record.statistics || {}).length;\n      console.log(matchId + ": " + statCount + " estatísticas; " + (oddsRow ? "odds Bwin 1X2 encontradas." : "sem triplo Bwin 1X2 confirmado."));\n      await reportMonitor("match_done", { match_id: matchId, stats_complete: statCount >= STAT_KEYS.length, bwin_found: Boolean(oddsRow) });
+      const statCount = Object.keys(record.statistics || {}).length;
+      console.log(matchId + ": " + statCount + " estatísticas; " + (oddsRow ? "odds Bwin 1X2 encontradas." : "sem triplo Bwin 1X2 confirmado."));
+      await reportMonitor("match_done", { match_id: matchId, stats_complete: statCount >= STAT_KEYS.length, bwin_found: Boolean(oddsRow) });
     } catch (error) {
       failures++;
       console.error(matchId + ": " + error.message);
+      await reportMonitor("match_error", { match_id: matchId, message: error.message });
       if (error.stop) break;
     }
     if (index < matchIds.length - 1) await sleep(DELAY_MS);
@@ -240,6 +247,8 @@ async function main() {
   console.log("CSV de estatísticas: " + STATS_FILE + " (" + mergedStats.length + " jogos).");
   console.log("CSV exclusivo Bwin: " + ODDS_FILE + " (" + mergedOdds.length + " observações).");
   console.log("Resumo: " + statsNew.length + " jogos com estatísticas; " + oddsNew.length + " observações Bwin; " + failures + " falhas.");
+  await reportMonitor("csv_written", { stats_rows: mergedStats.length, odds_rows: mergedOdds.length });
+  await reportMonitor("finished", { status: failures ? "partial" : "completed", message: failures ? "Recolha terminada com " + failures + " falhas" : "Recolha concluída sem falhas" });
   if (failures) process.exitCode = 1;
 }
 
