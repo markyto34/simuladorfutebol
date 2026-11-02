@@ -200,7 +200,12 @@
     if (!hasCompleteOdds(currentOdds)) throw new Error("É necessário introduzir as três odds válidas: 1, X e 2.");
     const oddsCohort = matches.filter(m => hasCompleteOdds(m.odds) &&
       ["1", "X", "2"].every(key => m.odds[key] === currentOdds[key]));
-    return { currentOdds, sample: oddsCohort.length, matches: oddsCohort };
+    const completedCohort = oddsCohort.filter(m => m.completed);
+    const analysis = analyzeTriplet(completedCohort);
+    return { currentOdds, sample: analysis.count, matchedOddsSample: oddsCohort.length,
+      historical: analysis.outcomes, averageOverround: analysis.averageOverround,
+      market: impliedProbabilities(currentOdds), marketAnalysis: analyzePeriodMarkets(oddsCohort),
+      matches: completedCohort };
   }
 
   function marketRows(matches, scoreKey) {
