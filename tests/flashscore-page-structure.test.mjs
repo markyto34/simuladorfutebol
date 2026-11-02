@@ -37,3 +37,17 @@ test("applies documented limits to collected structure", () => {
   assert.equal(result.counts.scripts, 40);
   assert.equal(result.counts.data_attributes, 80);
 });
+
+
+test("captures bounded DOM samples for explicit statistics and competition markers", () => {
+  const html = `<div data-testid="wcl-statistics" class="wcl-statistics_vZTGP statisticsMobi">
+      <div class="row"><span>Golos esperados (xG)</span><span>0.68</span><span>1.17</span></div>
+    </div>
+    <nav data-testid="competition-breadcrumb" data-country="Germany" data-league="Bundesliga">Bundesliga</nav>`;
+  const result = inspectPageStructure(html);
+  assert.equal(result.dom_samples.length, 2);
+  assert.ok(result.dom_samples.some(item => item.marker.includes("wcl-statistics")));
+  assert.ok(result.dom_samples.some(item => item.attributes["data-country"] === "Germany"));
+  assert.ok(result.dom_samples[0].html_preview.length <= 900);
+  assert.ok(result.dom_samples[0].text_preview.includes("Golos esperados"));
+});
