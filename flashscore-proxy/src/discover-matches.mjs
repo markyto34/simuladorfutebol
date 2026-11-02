@@ -25,6 +25,7 @@ export function inspectMatchDiscovery(html, requestedDate, options = {}) {
   const targetMatchId = typeof options.matchId === "string" ? options.matchId : null;
   const matches = [];
   const sampleMatches = [];
+  let targetCompetitionIdentity = null;
   const seen = new Set();
   let candidateAnchorCount = 0;
   let duplicateLinkCount = 0;
@@ -44,6 +45,42 @@ export function inspectMatchDiscovery(html, requestedDate, options = {}) {
     totalUniqueMatchCount += 1;
     const anchorText = plainText(item[5]).slice(0, 180) || null;
     const compact = { match_id: id, href, anchor_text: anchorText };
+    if (targetMatchId && id === targetMatchId) {
+      // Flashscore mobile groups fixtures under explicit <h4> headings
+      // such as "ALEMANHA: Bundesliga". Use the nearest preceding heading,
+      // never team names or inferred competition data.
+      const headingStart = html.toLowerCase().lastIndexOf("<h4", item.index);
+      const headingOpenEnd = headingStart >= 0 ? html.indexOf(">", headingStart) : -1;
+      const headingEnd = headingOpenEnd >= 0 ? html.indexOf("</h4>", headingOpenEnd) : -1;
+      const headingIsBeforeMatch = headingStart >= 0 && headingEnd >= 0 && headingEnd < item.index;
+      const headingHtml = headingIsBeforeMatch ? html.slice(headingOpenEnd + 1, headingEnd) : "";
+      const headingText = plainText(headingHtml);
+      const identityMatch = headingText.match(/^([^:]{2,60}):\\s*(.{2,100})$/);
+      const standingsHref = headingHtml.match(/<a\\b[^>]*href\\s*=\\s*(?:"([^"]+)"|'([^']+)'|([^\\s>]+))/i);
+      targetCompetitionIdentity = identityMatch ? {
+        status: "identified",
+        country: identityMatch[1].trim(),
+        competition: identityMatch[2].trim(),
+        season: null,
+        stage: null,
+        round: null,
+        source: "flashscore_daily_results_group_heading",
+        evidence: {
+          heading: headingText,
+          match_id: id,
+          standings_href: decodeEntities(standingsHref?.[1] || standingsHref?.[2] || standingsHref?.[3] || "") || null
+        }
+      } : {
+        status: "unavailable",
+        country: null,
+        competition: null,
+        season: null,
+        stage: null,
+        round: null,
+        source: null,
+        evidence: { nearest_heading: headingText || null, match_id: id }
+      };
+    }
     if (sampleMatches.length < 15) sampleMatches.push(compact);
 
     if (!summaryOnly && matches.length < 500) {
@@ -85,6 +122,7 @@ export function inspectMatchDiscovery(html, requestedDate, options = {}) {
   return {
     ...common,
     matches,
+    ...(targetMatchId ? { competition_identity: targetCompetitionIdentity } : {}),
     note: targetMatchId ? "Contexto HTML isolado para o ID solicitado. O excerto é evidência de diagnóstico; país/competição só podem ser aceites se o HTML mostrar uma associação explícita e inequívoca." : "Diagnóstico passivo da página de resultados. Os contextos são excertos HTML e ainda não constituem metadados validados de país/competição nem confirmação de que todos os jogos da data foram listados."
   };
 }
