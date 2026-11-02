@@ -88,17 +88,10 @@ function parseDateTime(html) {
 function parseFullTimeFromSummary(html, home, away) {
   if (!home || !away) return null;
   const plain = cleanText(html);
-  const escapeRegex = value => String(value).replace(/[.*+?^${}()|[\\]\\\\]/g, "\\function parseDateTime(html) {
-  const decoded = decodeMarkup(html);
-  const match = decoded.match(/(\d{2})\.(\d{2})\.(\d{4})\s+(\d{2}:\d{2})/);
-  return match ? {
-    source_text: match[0],
-    iso_local: `${match[3]}-${match[2]}-${match[1]}T${match[4]}`
-  } : null;
-}");
+  const escapeRegex = value => String(value).split('').map(char => '.^$*+?()[]{}|\\\\'.includes(char) ? '\\\\' + char : char).join('');
   const pattern = new RegExp(
-    escapeRegex(home) + "\\s+-\\s+" + escapeRegex(away) + "\\s+(\\d{1,2})\\s*[-:]\\s*(\\d{1,2})(?=\\s*\\(|\\s+(?:Terminado|A\\.P\\.|Após|Adiado|Cancelado|Interrompido|Atrasado|Não iniciado))",
-    "i"
+    escapeRegex(home) + '\\s+-\\s+' + escapeRegex(away) + '\\s+(\\d{1,2})\\s*[-:]\\s*(\\d{1,2})(?=\\s*\\(|\\s+(?:Terminado|A\\.P\\.|Após|Adiado|Cancelado|Interrompido|Atrasado|Não iniciado))',
+    'i'
   );
   const match = plain.match(pattern);
   return match ? { home: Number(match[1]), away: Number(match[2]) } : null;
