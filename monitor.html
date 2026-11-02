@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101a16">
+  <meta name="description" content="Monitor em tempo real da recolha Flashscore e odds Bwin.">
+  <title>Monitor de Recolha · Simulador Futebol</title>
+  <link rel="stylesheet" href="monitor.css">
+</head>
+<body>
+  <main class="monitor-shell">
+    <header class="topbar">
+      <a class="brand" href="index.html">⚽ SIMULADOR<span>.FUTEBOL</span></a>
+      <span class="live-indicator"><i></i> MONITORIZAÇÃO</span>
+    </header>
+    <section class="intro">
+      <div>
+        <p class="eyebrow">CENTRO DE OPERAÇÕES</p>
+        <h1>Monitor de recolha</h1>
+        <p class="muted">Acompanha os jogos, as estatísticas, as odds Bwin e a gravação dos CSV.</p>
+      </div>
+      <button id="refresh" class="secondary">↻ Atualizar</button>
+    </section>
+    <section class="status-panel panel">
+      <div class="status-line">
+        <div><span class="eyebrow">ESTADO DA RECOLHA</span><h2 id="status">A ligar ao monitor…</h2></div>
+        <span id="status-pill" class="pill neutral">A aguardar</span>
+      </div>
+      <div class="progress-heading"><strong id="progress-count">0 / 0</strong><span id="progress-percent">0%</span></div>
+      <div class="progress-track"><div id="progress-bar"></div></div>
+      <div class="progress-foot"><span id="collection-date">Data: —</span><span id="last-updated">Atualizado: —</span></div>
+      <div class="current-match"><span class="pulse"></span><div><small>JOGO EM PROCESSAMENTO</small><strong id="current-match">Nenhum jogo neste momento</strong></div></div>
+    </section>
+    <section class="metric-grid">
+      <article class="metric panel"><span>Jogos processados</span><strong id="processed">0</strong><small>Consultas concluídas</small></article>
+      <article class="metric panel"><span>Estatísticas completas</span><strong id="stats-complete">0</strong><small>13 indicadores preenchidos</small></article>
+      <article class="metric panel"><span>Odds Bwin encontradas</span><strong id="bwin-found">0</strong><small>Mercado 1X2</small></article>
+      <article class="metric panel"><span>Falhas</span><strong id="errors">0</strong><small>Jogos com erro</small></article>
+    </section>
+    <section class="lower-grid">
+      <article class="panel csv-panel">
+        <div class="panel-heading"><div><p class="eyebrow">FICHEIROS</p><h3>Gravação dos CSV</h3></div></div>
+        <div class="file-row"><div><strong>Estatísticas Flashscore</strong><small>data/flashscore-statistics.csv</small></div><span id="stats-file" class="pill neutral">Pendente</span></div>
+        <div class="file-row"><div><strong>Odds Bwin</strong><small>data/bwin-odds-flashscore.csv</small></div><span id="odds-file" class="pill neutral">Pendente</span></div>
+        <div class="file-counts"><div><strong id="stats-rows">—</strong><small>Linhas no CSV de estatísticas</small></div><div><strong id="odds-rows">—</strong><small>Observações no CSV Bwin</small></div></div>
+        <div class="commit-state"><span id="commit-pill" class="pill neutral">A aguardar GitHub</span><a id="run-link" href="https://github.com/markyto34/simuladorfutebol/actions/workflows/recolha-diaria-flashscore.yml" target="_blank" rel="noopener">Abrir workflow ↗</a></div>
+      </article>
+      <article class="panel activity-panel">
+        <div class="panel-heading"><div><p class="eyebrow">REGISTO</p><h3>Atividade recente</h3></div><small id="event-count">0 eventos</small></div>
+        <ol id="events" class="events"><li class="empty">Ainda não existem eventos de recolha.</li></ol>
+      </article>
+    </section>
+    <footer>O monitor acompanha a recolha existente. Não executa pedidos adicionais ao Flashscore.</footer>
+  </main>
+  <script src="monitor.js"></script>
+</body>
+</html>
