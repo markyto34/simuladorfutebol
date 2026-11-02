@@ -174,27 +174,45 @@ function extractWclStatistics(html) {
   visit(root);
   const statistics = {}, evidence = [];
   for (const container of containers) {
-    const leaves = [];
-    collectTextLeaves(container, leaves);
-    const values = leaves.map(plain).filter(Boolean);
-    for (let i = 0; i < values.length; i++) {
-      const label = values[i].replace(/\s+/g, " ").trim();
-      const found = STAT_LABELS.find(([, re]) => re.test(label));
-      if (!found) continue;
-      const [key] = found;
-      const nums = [];
-      for (let j = i + 1; j < values.length && nums.length < 2; j++) {
-        if (STAT_LABELS.some(([, re]) => re.test(values[j]))) break;
-        const n = statNumber(values[j], key);
-        if (n !== null) nums.push(n);
+    const rows = [];
+    const findRows = node => {
+      for (const child of node.children || []) {
+        if (!child.tag) continue;
+        if (/(?:wcl-labelRow|stat-row|stat__row|comparison__row|wcl-row)/i.test(child.attrs?.class || "")) rows.push(child);
+        else findRows(child);
       }
-      if (nums.length < 2 || statistics[key]) continue;
-      statistics[key] = {
-        home: nums[0], away: nums[1],
-        unit: key === "possession" ? "%" : null,
-        source_label: label
-      };
-      evidence.push({ field: "statistics." + key, source: "wcl-statistics DOM", label, values: nums });
+    };
+    findRows(container);
+    const scopes = rows.length ? rows : [container];
+    for (const scope of scopes) {
+      const leaves = [];
+      collectTextLeaves(scope, leaves);
+      const values = leaves.map(plain).filter(Boolean);
+      for (let i = 0; i < values.length; i++) {
+        const label = values[i].replace(/\\s+/g, " ").trim();
+        const found = STAT_LABELS.find(([, re]) => re.test(label));
+        if (!found) continue;
+        const [key] = found;
+        const previous = i > 0 ? statNumber(values[i - 1], key) : null;
+        const next = i + 1 < values.length ? statNumber(values[i + 1], key) : null;
+        let nums = previous !== null && next !== null ? [previous, next] : [];
+        if (nums.length < 2) {
+          const following = [];
+          for (let j = i + 1; j < values.length && following.length < 2; j++) {
+            if (STAT_LABELS.some(([, re]) => re.test(values[j]))) break;
+            const n = statNumber(values[j], key);
+            if (n !== null) following.push(n);
+          }
+          if (following.length >= 2) nums = following;
+        }
+        if (nums.length < 2 || statistics[key]) continue;
+        statistics[key] = {
+          home: nums[0], away: nums[1],
+          unit: key === "possession" ? "%" : null,
+          source_label: label
+        };
+        evidence.push({ field: "statistics." + key, source: "wcl-statistics DOM", label, values: nums });
+      }
     }
   }
   return { statistics, evidence };
