@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 1200,
-  "stats_games": 557,
-  "bwin_odds": 316,
+  "processed_games": 1210,
+  "stats_games": 562,
+  "bwin_odds": 320,
   "failed_games": 1,
-  "current_match": "Último concluído: Enskede - Sleipner",
-  "last_result": "Enskede - Sleipner: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T22:37:08.514Z"
+  "current_match": "Último concluído: Munsingen - Grasshopper II",
+  "last_result": "Munsingen - Grasshopper II: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T22:37:24.129Z"
 }
