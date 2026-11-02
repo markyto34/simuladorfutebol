@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 870,
-  "stats_games": 392,
-  "bwin_odds": 213,
+  "processed_games": 880,
+  "stats_games": 396,
+  "bwin_odds": 217,
   "failed_games": 0,
-  "current_match": "Último concluído: COD Meknes - FAR Rabat",
-  "last_result": "COD Meknes - FAR Rabat: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-02T22:28:33.440Z"
+  "current_match": "Último concluído: Monterrey - Tijuana",
+  "last_result": "Monterrey - Tijuana: 13 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-02T22:28:48.974Z"
 }
