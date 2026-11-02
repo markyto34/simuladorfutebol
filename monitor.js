@@ -2,6 +2,7 @@ const OWNER = "markyto34";
 const REPO = "simuladorfutebol";
 const WORKFLOW = "recolha-diaria-flashscore.yml";
 const API = "https://api.github.com/repos/" + OWNER + "/" + REPO;
+const PROGRESS_URL = "https://raw.githubusercontent.com/" + OWNER + "/" + REPO + "/collection-progress/monitor/collection-progress.json";
 const $ = id => document.getElementById(id);
 const labels = {
   "queued":"Na fila","in_progress":"Em execução","completed":"Concluída",
@@ -18,6 +19,26 @@ function relative(value){if(!value)return"—";const mins=Math.max(0,Math.round(
 function statusClass(run){if(run.status!=="completed")return run.status==="queued"?"queued":"running";return run.conclusion==="success"?"success":"failure"}
 function percent(steps){if(!steps?.length)return 0;const done=steps.filter(s=>s.status==="completed").length;const active=steps.some(s=>s.status==="in_progress")?0.5:0;return Math.round((done+active)/steps.length*100)}
 function setStatus(text,kind){$("run-status").textContent=text;$("run-status").className="status-pill status-"+kind}
+function phaseLabel(value){return({discovery:"A descobrir jogos",collecting:"A recolher jogos",completed:"Recolha concluída",stopped:"Recolha interrompida",failed:"Falha na recolha"})[value]||value||"A aguardar"}
+async function refreshGameProgress(run){
+  try{
+    const response=await fetch(PROGRESS_URL+"?t="+Date.now(),{cache:"no-store"});
+    if(!response.ok)throw new Error("Ainda sem canal de progresso publicado.");
+    const progress=await response.json();
+    if(String(progress.run_id)!==String(run.id)){
+      $("progress-updated").textContent="A aguardar dados detalhados desta execução.";
+      return;
+    }
+    $("games-progress").textContent=(progress.processed_games||0)+" / "+(progress.total_games||0);
+    $("stats-progress").textContent=progress.stats_games??0;
+    $("bwin-progress").textContent=progress.bwin_odds??0;
+    $("errors-progress").textContent=progress.failed_games??0;
+    const current=progress.current_match?" · "+progress.current_match:"";
+    $("progress-updated").textContent=phaseLabel(progress.phase)+" · Atualizado "+dateLabel(progress.updated_at)+current;
+  }catch(error){
+    $("progress-updated").textContent="Contadores detalhados disponíveis quando o coletor publicar o primeiro estado.";
+  }
+}
 function renderSteps(steps){
   const list=$("steps-list");list.replaceChildren();
   if(!steps?.length){list.innerHTML='<li class="empty-state">O GitHub ainda não disponibilizou as etapas desta execução.</li>';return}
@@ -62,6 +83,7 @@ async function refresh(){
     $("progress-percent").textContent=pct+"%";
     $("live-dot").classList.toggle("paused",run.status==="completed");
     renderSteps(steps);
+    await refreshGameProgress(run);
     $("refresh-label").textContent="Atualizado "+new Intl.DateTimeFormat("pt-PT",{timeStyle:"short",timeZone:"Europe/Lisbon"}).format(new Date());
     $("refresh-indicator").classList.remove("loading");
   }catch(error){
