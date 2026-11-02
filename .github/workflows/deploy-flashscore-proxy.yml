@@ -1,0 +1,40 @@
+name: Deploy Flashscore proxy
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "flashscore-proxy/**"
+      - ".github/workflows/deploy-flashscore-proxy.yml"
+  pull_request:
+    paths:
+      - "flashscore-proxy/**"
+      - ".github/workflows/deploy-flashscore-proxy.yml"
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Validate Worker syntax
+        run: node --check flashscore-proxy/src/index.js
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: validate
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: flashscore-proxy
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Deploy Cloudflare Worker
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
+          workingDirectory: flashscore-proxy
