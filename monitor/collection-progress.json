@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 700,
-  "stats_games": 343,
-  "bwin_odds": 184,
+  "processed_games": 710,
+  "stats_games": 350,
+  "bwin_odds": 191,
   "failed_games": 0,
-  "current_match": "Último concluído: Ravenna - Pineto",
-  "last_result": "Ravenna - Pineto: 14 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-02T21:43:00.693Z"
+  "current_match": "Último concluído: Celle Varazze - Valenzana",
+  "last_result": "Celle Varazze - Valenzana: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T21:43:17.548Z"
 }
