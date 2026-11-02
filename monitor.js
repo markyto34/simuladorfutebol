@@ -4,6 +4,7 @@ const WORKFLOW = "recolha-diaria-flashscore.yml";
 const API = "https://api.github.com/repos/" + OWNER + "/" + REPO;
 const PROGRESS_URL = "https://raw.githubusercontent.com/" + OWNER + "/" + REPO + "/collection-progress/monitor/collection-progress.json";
 const $ = id => document.getElementById(id);
+let activeRun = null;
 const labels = {
   "queued":"Na fila","in_progress":"Em execução","completed":"Concluída",
   "success":"Sucesso","failure":"Falhou","cancelled":"Cancelada","skipped":"Ignorada",
@@ -64,6 +65,7 @@ async function refresh(){
     const jobsData=await jobResponse.json();const jobs=jobsData.jobs||[];
     const job=jobs[0];const steps=job?.steps||[];
     const current=steps.find(s=>s.status==="in_progress")||[...steps].reverse().find(s=>s.status==="completed");
+    activeRun=run;
     const kind=statusClass(run);
     $("run-title").textContent="Recolha diária · "+(run.display_title||"Execução "+run.run_number);
     setStatus(label(run.status==="completed"?run.conclusion:run.status),kind);
@@ -94,4 +96,4 @@ async function refresh(){
     $("current-stage").textContent="Indisponível";
   }
 }
-refresh();setInterval(refresh,180000);
+refresh();setInterval(refresh,180000);setInterval(()=>{if(activeRun)refreshGameProgress(activeRun)},30000);
