@@ -2,6 +2,8 @@ const MAX_LINKS = 60;
 const MAX_SCRIPTS = 40;
 const MAX_DATA_ATTRIBUTES = 80;
 const MAX_TOKENS = 100;
+const MAX_DOM_SAMPLES = 12;
+const MAX_DOM_SAMPLE_CHARS = 900;
 const TERMS = ["Estatísticas", "Classificações", "Bundesliga", "Competição", "Época", "Árbitro", "Estádio", "Statistics", "Standings", "League", "Tournament", "Match"];
 
 function decode(value) {
@@ -92,6 +94,29 @@ export function inspectPageStructure(html) {
 
   const tokenList = [...classTokens].slice(0, MAX_TOKENS);
   const idList = [...idTokens].slice(0, Math.max(0, MAX_TOKENS - tokenList.length));
+  // Amostras curtas da estrutura real: apenas elementos com marcadores explícitos
+  // de estatísticas/competição. Não devolve o HTML completo nem faz pedidos de rede.
+  const domSamples = [];
+  const samplePattern = /<([a-z][\\w:-]*)\\b([^>]*)>/gi;
+  for (const match of source.matchAll(samplePattern)) {
+    const rawAttrs = attrs(match[2]);
+    const marker = [rawAttrs["data-testid"], rawAttrs["data-type"], rawAttrs["data-qa"], rawAttrs.class, rawAttrs.id]
+      .filter(Boolean).join(" ");
+    if (!/(wcl-statistics|statistic|competition|tournament|league|breadcrumb|country)/i.test(marker)) continue;
+    const start = match.index;
+    const snippet = source.slice(start, Math.min(source.length, start + MAX_DOM_SAMPLE_CHARS));
+    domSamples.push({
+      tag: match[1].toLowerCase(),
+      marker: marker.slice(0, 220),
+      attributes: Object.fromEntries(Object.entries(rawAttrs)
+        .filter(([key]) => key.startsWith("data-") || key === "class" || key === "id" || key === "href")
+        .slice(0, 16).map(([key, value]) => [key, value.slice(0, 180)])),
+      text_preview: textOnly(snippet).slice(0, 360),
+      html_preview: snippet.replace(/\\s+/g, " ").slice(0, MAX_DOM_SAMPLE_CHARS)
+    });
+    if (domSamples.length >= MAX_DOM_SAMPLES) break;
+  }
+
   const plain = textOnly(source);
   const termEvidence = [];
   for (const term of TERMS) {
@@ -111,6 +136,7 @@ export function inspectPageStructure(html) {
     class_tokens: tokenList,
     id_tokens: idList,
     text_terms: termEvidence,
-    limits: { links: MAX_LINKS, scripts: MAX_SCRIPTS, data_attributes: MAX_DATA_ATTRIBUTES, tokens: MAX_TOKENS, text_terms: 40 }
+    dom_samples: domSamples,
+    limits: { links: MAX_LINKS, scripts: MAX_SCRIPTS, data_attributes: MAX_DATA_ATTRIBUTES, tokens: MAX_TOKENS, text_terms: 40, dom_samples: MAX_DOM_SAMPLES, dom_sample_chars: MAX_DOM_SAMPLE_CHARS }
   };
 }
