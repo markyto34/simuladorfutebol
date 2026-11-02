@@ -215,7 +215,8 @@ export default {
       const discoveryBody = await discoveryResponse.arrayBuffer();
       if (discoveryBody.byteLength > MAX_BODY_BYTES) return json({ error: "response_too_large" }, 502, headers);
       const discoveryHtml = new TextDecoder("utf-8").decode(discoveryBody);
-      return json({ ok: true, upstream_status: discoveryResponse.status, content_type: discoveryType, body_bytes: discoveryBody.byteLength, inspection: inspectMatchDiscovery(discoveryHtml, date) }, 200, headers);
+      const summaryOnly = incoming.searchParams.get("summary") === "1";
+      return json({ ok: true, upstream_status: discoveryResponse.status, content_type: discoveryType, body_bytes: discoveryBody.byteLength, inspection: inspectMatchDiscovery(discoveryHtml, date, { summary: summaryOnly }) }, 200, headers);
     }
 
     const inspectOnly = incoming.pathname === "/inspect";
