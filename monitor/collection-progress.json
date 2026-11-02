@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 490,
+  "processed_games": 500,
   "stats_games": 251,
   "bwin_odds": 116,
   "failed_games": 0,
-  "current_match": "Último concluído: Alfaro - Comillas",
-  "last_result": "Alfaro - Comillas: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T22:18:45.778Z"
+  "current_match": "Último concluído: Caspe - Belchite 97",
+  "last_result": "Caspe - Belchite 97: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T22:19:00.563Z"
 }
