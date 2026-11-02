@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 330,
-  "stats_games": 185,
-  "bwin_odds": 95,
+  "processed_games": 340,
+  "stats_games": 195,
+  "bwin_odds": 98,
   "failed_games": 0,
-  "current_match": "Último concluído: Fuerte San Francisco - Aguila",
-  "last_result": "Fuerte San Francisco - Aguila: 6 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T22:14:39.989Z"
+  "current_match": "Último concluído: Guayaquil City - Libertad",
+  "last_result": "Guayaquil City - Libertad: 13 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-02T22:14:56.085Z"
 }
