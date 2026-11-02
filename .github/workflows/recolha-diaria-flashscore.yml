@@ -74,7 +74,22 @@ jobs:
             echo "Sem novos dados para guardar."
           else
             git commit -m "Atualização diária Flashscore e odds Bwin (${{ steps.date.outputs.target_date }})"
-            git push origin main
+            # A main pode ter recebido um merge enquanto a recolha decorria.
+            # Rebaseia o commit dos CSV sobre a versão mais recente antes de publicar.
+            pushed=false
+            for attempt in 1 2 3; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then
+                pushed=true
+                break
+              fi
+              echo "Push recusado (tentativa ${attempt}/3); vou sincronizar novamente com main."
+            done
+            if [ "$pushed" != "true" ]; then
+              echo "Não foi possível publicar os CSV após 3 tentativas."
+              exit 1
+            fi
           fi
       - name: Assinalar falha de recolha
         if: steps.collect.outcome == 'failure'
