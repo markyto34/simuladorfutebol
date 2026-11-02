@@ -10,18 +10,18 @@ function decode(value) {
     .replace(/\\u0022/gi, '"').replace(/\\u0026/gi, "&")
     .replace(/&amp;/gi, "&").replace(/&quot;/gi, '"')
     .replace(/&#39;|&apos;/gi, "'").replace(/&nbsp;/gi, " ")
-    .replace(/&lt;/gi, "<").replace(/&gt;/gi, " ")
-    .replace(/&#(\\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
-    .replace(/&#x([\\da-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)));
+    .replace(/&lt;/gi, "<").replace(/&gt;/gi, ">")
+    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
+    .replace(/&#x([\da-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)));
 }
 function textOnly(value) {
-  return decode(String(value ?? "").replace(/<script\\b[^>]*>[\\s\\S]*?<\\/script>/gi, " ")
-    .replace(/<style\\b[^>]*>[\\s\\S]*?<\\/style>/gi, " ").replace(/<[^>]*>/g, " "))
-    .replace(/\\s+/g, " ").trim();
+  return decode(String(value ?? "").replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, " ").replace(/<[^>]*>/g, " "))
+    .replace(/\s+/g, " ").trim();
 }
 function attrs(raw) {
   const out = {};
-  for (const m of raw.matchAll(/([\\w:-]+)\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))/g)) {
+  for (const m of raw.matchAll(/([\w:-]+)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/g)) {
     out[m[1].toLowerCase()] = decode(m[2] ?? m[3] ?? m[4] ?? "");
   }
   return out;
@@ -41,7 +41,7 @@ function relevant(value) {
 export function inspectPageStructure(html) {
   const source = String(html ?? "");
   const links = [];
-  for (const m of source.matchAll(/<a\\b([^>]*)>([\\s\\S]*?)<\\/a\\s*>/gi)) {
+  for (const m of source.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a\s*>/gi)) {
     const a = attrs(m[1]);
     if (!internalHref(a.href)) continue;
     links.push({
@@ -57,14 +57,14 @@ export function inspectPageStructure(html) {
   }
 
   const scripts = [];
-  for (const m of source.matchAll(/<script\\b([^>]*)>([\\s\\S]*?)<\\/script\\s*>/gi)) {
+  for (const m of source.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script\s*>/gi)) {
     const a = attrs(m[1]);
     scripts.push({
       src: a.src || null,
       type: a.type || null,
       id: a.id || null,
       content_bytes: new TextEncoder().encode(m[2]).length,
-      has_json_content: /json/i.test(a.type || "") || /^\\s*[\\[{]/.test(m[2])
+      has_json_content: /json/i.test(a.type || "") || /^\s*[\[{]/.test(m[2])
     });
     if (scripts.length >= MAX_SCRIPTS) break;
   }
@@ -72,13 +72,13 @@ export function inspectPageStructure(html) {
   const dataAttributes = [];
   const classTokens = new Set();
   const idTokens = new Set();
-  for (const m of source.matchAll(/<([a-z][\\w:-]*)\\b([^>]*)>/gi)) {
+  for (const m of source.matchAll(/<([a-z][\w:-]*)\b([^>]*)>/gi)) {
     const a = attrs(m[2]);
     const classValue = a.class || "";
     const idValue = a.id || "";
     if (relevant(classValue) || relevant(idValue)) {
-      for (const token of classValue.split(/\\s+/).filter(relevant)) classTokens.add(token.slice(0, 100));
-      for (const token of idValue.split(/\\s+/).filter(relevant)) idTokens.add(token.slice(0, 100));
+      for (const token of classValue.split(/\s+/).filter(relevant)) classTokens.add(token.slice(0, 100));
+      for (const token of idValue.split(/\s+/).filter(relevant)) idTokens.add(token.slice(0, 100));
     }
     if (!relevant(classValue + " " + idValue) && !Object.keys(a).some(k => k.startsWith("data-") && relevant(k + " " + a[k]))) continue;
     for (const [name, value] of Object.entries(a)) {
@@ -95,11 +95,10 @@ export function inspectPageStructure(html) {
   const plain = textOnly(source);
   const termEvidence = [];
   for (const term of TERMS) {
-    const escaped = term.replace(/[.*+?^${}()|[\\]\\\\]/g, "\\\\$&");
-    const re = new RegExp(escaped, "ig");
-    for (const match of plain.matchAll(re)) {
-      termEvidence.push({ term, offset: match.index, context: plain.slice(Math.max(0, match.index - 90), Math.min(plain.length, match.index + term.length + 120)) });
-      if (termEvidence.length >= 40) break;
+    let offset = plain.toLocaleLowerCase().indexOf(term.toLocaleLowerCase());
+    while (offset !== -1 && termEvidence.length < 40) {
+      termEvidence.push({ term, offset, context: plain.slice(Math.max(0, offset - 90), Math.min(plain.length, offset + term.length + 120)) });
+      offset = plain.toLocaleLowerCase().indexOf(term.toLocaleLowerCase(), offset + term.length);
     }
     if (termEvidence.length >= 40) break;
   }
