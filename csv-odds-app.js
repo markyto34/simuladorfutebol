@@ -17,7 +17,9 @@
     if (values.includes(previous)) el.value = previous;
   }
   function fillFilters() {
+    const continents = unique(allMatches.map(m=>m.continent).filter(c=>c!=="Por identificar"));
     setOptions("continent", unique(allMatches.map(m=>m.continent)), "Todos os continentes");
+    setOptions("matchContinent", continents, "Seleciona o continente do jogo");
     updateCountryOptions();
   }
   function updateCountryOptions() {
@@ -26,13 +28,13 @@
     setOptions("country", unique(countries), "Todos os países");
     setOptions("league", unique(allMatches.map(m=>m.league)), "Todas as competições");
   }
-  function getFiltered() {
+  function getFiltered(ignoreContinent=false) {
     const fromValue = $("from").value, toValue = $("to").value;
     const from = fromValue ? new Date(fromValue + "T00:00:00") : null;
     const to = toValue ? new Date(toValue + "T23:59:59.999") : null;
     return CSVOdds.filterMatches(allMatches, {
-      continent:$("continent").value, search:$("search").value, country:$("country").value, league:$("league").value,
-      team:$("team").value, from, to, status:$("statusFilter").value
+      continent:ignoreContinent ? "" : $("continent").value, search:$("search").value, country:$("country").value, league:$("league").value,
+      team:$("team").value, from, to, status:ignoreContinent ? "all" : $("statusFilter").value
     });
   }
   function tripletRanges() {
@@ -137,58 +139,74 @@
     $("historicalSearchResult").hidden = true;
     $("currentNote").textContent = message || "Preenche as odds 1, X e 2 e carrega em Pesquisar.";
   }
+  function renderHistoricalResult(prefix, result, regionLabel) {
+    const labels = {"1":"Vitória da casa (1)","X":"Empate (X)","2":"Vitória visitante (2)"};
+    const favourite = ["1","X","2"].reduce((best,key) =>
+      result.historical[key].frequency > result.historical[best].frequency ? key : best, "1");
+    $(prefix+"Prediction").textContent = "Mais frequente: " + labels[favourite];
+    $(prefix+"Sample").textContent = result.sample.toLocaleString("pt-PT") + " jogos";
+    $(prefix+"1Freq").textContent = pct(result.historical["1"].frequency);
+    $(prefix+"XFreq").textContent = pct(result.historical.X.frequency);
+    $(prefix+"2Freq").textContent = pct(result.historical["2"].frequency);
+    $(prefix+"Over15").textContent = pct(result.marketAnalysis.fullTime.over15.frequency);
+    $(prefix+"Over25").textContent = pct(result.marketAnalysis.fullTime.over25.frequency);
+    $(prefix+"Btts").textContent = pct(result.marketAnalysis.fullTime.btts.frequency);
+    const exact = CSVOdds.forecastExactScores(result.matches, 3);
+    $(prefix+"Exact").textContent = exact.scores.length
+      ? exact.scores.map(s => s.score + " (" + pct(s.frequency) + ")").join(" · ") : "Sem marcadores completos.";
+    $(prefix+"Warning").textContent = result.sample < 30
+      ? "Amostra reduzida: interpretar com muita cautela (" + regionLabel + ")."
+      : "Amostra histórica; não representa garantia de repetição.";
+  }
   function searchHistoricalOdds() {
     const odds = {"1":Number($("current1").value),X:Number($("currentX").value),"2":Number($("current2").value)};
     if (!CSVOdds.hasCompleteOdds(odds)) {
-      clearHistoricalSearch("Introduz três odds válidas: 1, X e 2.");
-      return;
+      clearHistoricalSearch("Introduz três odds válidas: 1, X e 2."); return;
     }
     const tolerance = Number($("tolerance").value || 0.15);
+    const continent = $("matchContinent").value;
+    if (!continent) { clearHistoricalSearch("Seleciona o continente do jogo para comparar a amostra global com a continental."); return; }
     if (!Number.isFinite(tolerance) || tolerance < 0 || tolerance > 5) {
-      clearHistoricalSearch("A tolerância deve estar entre 0 e 5.");
-      return;
+      clearHistoricalSearch("A tolerância deve estar entre 0 e 5."); return;
     }
     try {
-      const result = CSVOdds.evaluateCurrentOdds(filtered, odds, tolerance);
-      if (!result.sample) {
-        clearHistoricalSearch("Não encontrámos jogos históricos concluídos com as três odds dentro da tolerância de ±" + fmt(tolerance,2) + ". Podes aumentar ligeiramente a tolerância.");
-        return;
+      const base = getFiltered(true);
+      const global = CSVOdds.evaluateCurrentOdds(base, odds, tolerance);
+      const regionalMatches = base.filter(m => m.continent === continent);
+      const regional = CSVOdds.evaluateCurrentOdds(regionalMatches, odds, tolerance);
+      if (!global.sample) {
+        clearHistoricalSearch("Não encontrámos jogos globais concluídos com as três odds dentro da tolerância de ±" + fmt(tolerance,2) + ". Aumenta ligeiramente a tolerância."); return;
       }
-      const labels = {"1":"Vitória da casa (1)","X":"Empate (X)","2":"Vitória visitante (2)"};
-      const favourite = ["1","X","2"].reduce((best,key) =>
-        result.historical[key].frequency > result.historical[best].frequency ? key : best, "1");
-      $("historicalPrediction").textContent = "Resultado histórico mais frequente: " + labels[favourite];
-      $("currentSample").textContent = result.sample.toLocaleString("pt-PT") + " jogos";
-      $("current1Freq").textContent = pct(result.historical["1"].frequency);
-      $("currentXFreq").textContent = pct(result.historical.X.frequency);
-      $("current2Freq").textContent = pct(result.historical["2"].frequency);
-      $("historicalOver15").textContent = pct(result.marketAnalysis.fullTime.over15.frequency);
-      $("historicalOver25").textContent = pct(result.marketAnalysis.fullTime.over25.frequency);
-      $("historicalBtts").textContent = pct(result.marketAnalysis.fullTime.btts.frequency);
-      const exact = CSVOdds.forecastExactScores(result.matches, 3);
-      $("exactScores").textContent = exact.scores.length
-        ? exact.scores.map(s => s.score + " (" + pct(s.frequency) + ")").join(" · ")
-        : "Sem marcadores completos.";
+      renderHistoricalResult("global", global, "global");
+      if (regional.sample) renderHistoricalResult("regional", regional, continent);
+      else $("regionalWarning").textContent = "Sem jogos concluídos deste continente com as três odds dentro da tolerância.";
       $("historicalSearchResult").hidden = false;
-      $("currentNote").textContent = "Pesquisa concluída. Foram comparadas simultaneamente as três odds com tolerância absoluta de ±" + fmt(tolerance,2) + ".";
-    } catch (err) {
-      clearHistoricalSearch(err.message);
-    }
+      $("globalHeading").textContent = "Todos os continentes";
+      $("regionalHeading").textContent = continent;
+      $("globalResult").hidden = false;
+      $("regionalResult").hidden = false;
+      renderMarketGroups("globalPeriodMarkets", global.marketAnalysis);
+      if (regional.sample) renderMarketGroups("regionalPeriodMarkets", regional.marketAnalysis);
+      else $("regionalPeriodMarkets").replaceChildren();
+      $("currentNote").textContent = "Comparação concluída. Odds 1/X/2 correspondidas em simultâneo, com tolerância absoluta de ±" + fmt(tolerance,2) + ". A análise global ignora o filtro continental geral; respeita os restantes filtros.";
+    } catch (err) { clearHistoricalSearch(err.message); }
   }
   function runBacktest() {
-    const splitDate = $("splitDate").value;
-    if (!splitDate) {
-      $("backtestStatus").textContent = "Escolhe uma data de corte para separar treino e validação.";
-      return;
-    }
-    const result = CSVOdds.backtestTriplet(filtered, tripletRanges(), splitDate);
-    $("trainN").textContent = result.training.count.toLocaleString("pt-PT");
-    $("validN").textContent = result.validation.count.toLocaleString("pt-PT");
-    [["1","train1","valid1"],["X","trainX","validX"],["2","train2","valid2"]].forEach(([key,trainId,validId]) => {
-      $(trainId).textContent = pct(result.training.outcomes[key].roi);
-      $(validId).textContent = pct(result.validation.outcomes[key].roi);
+    const splitDate = $("splitDate").value, continent = $("matchContinent").value;
+    if (!splitDate) { $("backtestStatus").textContent = "Escolhe uma data de corte para separar treino e validação."; return; }
+    if (!continent) { $("backtestStatus").textContent = "Seleciona o continente do jogo para comparar backtesting global e continental."; return; }
+    const base = getFiltered(true), regional = base.filter(m => m.continent === continent);
+    const globalResult = CSVOdds.backtestTriplet(base, tripletRanges(), splitDate);
+    const regionalResult = CSVOdds.backtestTriplet(regional, tripletRanges(), splitDate);
+    $("trainN").textContent = globalResult.training.count.toLocaleString("pt-PT");
+    $("validN").textContent = globalResult.validation.count.toLocaleString("pt-PT");
+    $("regionalTrainN").textContent = regionalResult.training.count.toLocaleString("pt-PT");
+    $("regionalValidN").textContent = regionalResult.validation.count.toLocaleString("pt-PT");
+    [["1","valid1","regionalValid1"],["X","validX","regionalValidX"],["2","valid2","regionalValid2"]].forEach(([key,validId,rValidId]) => {
+      $(validId).textContent = pct(globalResult.validation.outcomes[key].roi);
+      $(rValidId).textContent = pct(regionalResult.validation.outcomes[key].roi);
     });
-    $("backtestStatus").textContent = "Separação cronológica concluída. O período anterior à data é treino; a partir da data é validação. Não foram misturados jogos futuros no treino.";
+    $("backtestStatus").textContent = "Backtesting cronológico concluído: global vs. " + continent + ". Compara sobretudo a validação, que usa jogos posteriores à data de corte e não usados no treino.";
   }
   function renderTable() {
     const start = page * PAGE_SIZE, rows = filtered.slice(start,start+PAGE_SIZE);
@@ -241,7 +259,7 @@
 
   ["search","team"].forEach(id=>$(id).addEventListener("input",update));
   $("continent").addEventListener("change",()=>{updateCountryOptions();update();});
-  ["country","league","from","to","statusFilter"].forEach(id=>$(id).addEventListener("change",update));
+  ["country","league","from","to","statusFilter","matchContinent"].forEach(id=>$(id).addEventListener("change",()=>{update();}));
   ["min1","max1","minX","maxX","min2","max2"].forEach(id=>$(id).addEventListener("input",()=>{updateTriplet();renderMarketGroups("periodMarkets", CSVOdds.analyzePeriodMarkets(CSVOdds.filterOddsRanges(filtered, tripletRanges())));$("backtestStatus").textContent="Os intervalos foram alterados. Executa novamente o backtesting para atualizar a validação.";}));
   $("searchHistoricalOdds").addEventListener("click",searchHistoricalOdds);
   $("runBacktest").addEventListener("click",runBacktest);

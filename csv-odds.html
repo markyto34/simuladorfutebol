@@ -83,22 +83,33 @@
             <label>Odd X<input id="currentX" type="number" min="1.01" max="1000" step="0.01" placeholder="Ex.: 3.40"></label>
             <label>Odd 2<input id="current2" type="number" min="1.01" max="1000" step="0.01" placeholder="Ex.: 4.50"></label>
             <label>Tolerância ±<input id="tolerance" type="number" min="0.01" max="5" step="0.01" value="0.15"></label>
+            <label>Continente do jogo<select id="matchContinent"><option value="">A carregar continentes…</option></select></label>
           </div>
           <button id="searchHistoricalOdds" class="search-action">Pesquisar</button>
           <p id="currentNote" class="hint" role="status" aria-live="polite">Preenche as odds 1, X e 2 e carrega em Pesquisar.</p>
           <div id="historicalSearchResult" class="historical-result" hidden>
-            <div class="historical-result-head"><strong id="historicalPrediction">—</strong><span id="currentSample">— jogos históricos</span></div>
-            <div class="historical-result-grid">
-              <article><span>Vitória da casa · 1</span><strong id="current1Freq">—</strong></article>
-              <article><span>Empate · X</span><strong id="currentXFreq">—</strong></article>
-              <article><span>Vitória visitante · 2</span><strong id="current2Freq">—</strong></article>
-              <article><span>Mais de 1,5 golos</span><strong id="historicalOver15">—</strong></article>
-              <article><span>Mais de 2,5 golos</span><strong id="historicalOver25">—</strong></article>
-              <article><span>Ambas marcam</span><strong id="historicalBtts">—</strong></article>
+            <div class="comparison-results">
+              <article id="globalResult" class="comparison-card">
+                <h3 id="globalHeading">Todos os continentes</h3>
+                <div class="historical-result-head"><strong id="globalPrediction">—</strong><span id="globalSample">— jogos</span></div>
+                <div class="historical-result-grid">
+                  <article><span>1</span><strong id="global1Freq">—</strong></article><article><span>X</span><strong id="globalXFreq">—</strong></article><article><span>2</span><strong id="global2Freq">—</strong></article>
+                  <article><span>Over 1,5</span><strong id="globalOver15">—</strong></article><article><span>Over 2,5</span><strong id="globalOver25">—</strong></article><article><span>Ambas marcam</span><strong id="globalBtts">—</strong></article>
+                </div><p class="hint">Marcadores: <strong id="globalExact">—</strong></p><p id="globalWarning" class="hint"></p>
+              </article>
+              <article id="regionalResult" class="comparison-card">
+                <h3 id="regionalHeading">Continente</h3>
+                <div class="historical-result-head"><strong id="regionalPrediction">—</strong><span id="regionalSample">— jogos</span></div>
+                <div class="historical-result-grid">
+                  <article><span>1</span><strong id="regional1Freq">—</strong></article><article><span>X</span><strong id="regionalXFreq">—</strong></article><article><span>2</span><strong id="regional2Freq">—</strong></article>
+                  <article><span>Over 1,5</span><strong id="regionalOver15">—</strong></article><article><span>Over 2,5</span><strong id="regionalOver25">—</strong></article><article><span>Ambas marcam</span><strong id="regionalBtts">—</strong></article>
+                </div><p class="hint">Marcadores: <strong id="regionalExact">—</strong></p><p id="regionalWarning" class="hint"></p>
+              </article>
             </div>
-            <p class="hint">Marcadores FT mais frequentes: <strong id="exactScores">—</strong></p>
+            <h3 class="comparison-subtitle">Todos os mercados · global</h3><div id="globalPeriodMarkets" class="market-period-grid"></div>
+            <h3 class="comparison-subtitle">Todos os mercados · continental</h3><div id="regionalPeriodMarkets" class="market-period-grid"></div>
           </div>
-          <p class="hint">A pesquisa usa as três odds em conjunto e resultados FT regulamentares. A frequência histórica é uma referência estatística, não uma garantia nem uma previsão certa.</p>
+          <p class="hint">As três odds são comparadas em conjunto. O resultado global ignora a seleção continental dos filtros; a comparação continental usa o continente escolhido. Amostras inferiores a 30 jogos são assinaladas como reduzidas. Frequências históricas não são garantias.</p>
         </section>
         <section class="panel">
           <div class="section-head"><div><em>06</em><h2>Mercados por período</h2></div><small>FREQUÊNCIAS HISTÓRICAS</small></div>
@@ -110,11 +121,15 @@
           <div class="section-head"><div><em>07</em><h2>Backtesting cronológico</h2></div><small>TREINO VS. VALIDAÇÃO</small></div>
           <p class="section-copy">Usa os intervalos 1/X/2 definidos acima. Escolhe uma data de corte: os jogos anteriores formam a amostra de treino e os jogos dessa data em diante formam a amostra de validação.</p>
           <div class="backtest-controls"><label>Data de corte<input id="splitDate" type="date"></label><button id="runBacktest" class="quiet">Executar backtesting</button></div>
+          <h3 class="comparison-subtitle">Global · todos os continentes</h3>
           <div class="analysis-grid">
-            <article><span>Jogos de treino</span><strong id="trainN">—</strong></article>
-            <article><span>Jogos de validação</span><strong id="validN">—</strong></article>
-            <article><span>ROI treino · 1 / X / 2</span><strong id="train1">—</strong><small id="trainX">—</small><small id="train2">—</small></article>
+            <article><span>Jogos de treino</span><strong id="trainN">—</strong></article><article><span>Jogos de validação</span><strong id="validN">—</strong></article>
             <article><span>ROI validação · 1 / X / 2</span><strong id="valid1">—</strong><small id="validX">—</small><small id="valid2">—</small></article>
+          </div>
+          <h3 class="comparison-subtitle">Continental · continente selecionado</h3>
+          <div class="analysis-grid">
+            <article><span>Jogos de treino</span><strong id="regionalTrainN">—</strong></article><article><span>Jogos de validação</span><strong id="regionalValidN">—</strong></article>
+            <article><span>ROI validação · 1 / X / 2</span><strong id="regionalValid1">—</strong><small id="regionalValidX">—</small><small id="regionalValid2">—</small></article>
           </div>
           <p id="backtestStatus" class="hint">Escolhe uma data e executa o teste. A validação cronológica é essencial para evitar avaliar a estratégia com os mesmos jogos usados para a desenvolver.</p>
         </section>
