@@ -71,7 +71,7 @@ export function inspectMatchDiscovery(html, requestedDate, options = {}) {
     }
     if (sampleMatches.length < 15) sampleMatches.push(compact);
 
-    if (!summaryOnly && matches.length < 500) {
+    if (!summaryOnly && !idsOnly && matches.length < 500) {
       const before = targetMatchId ? 3200 : 900;
       const after = targetMatchId ? 1600 : 500;
       const start = Math.max(0, item.index - before);
