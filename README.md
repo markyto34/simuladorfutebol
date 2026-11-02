@@ -80,3 +80,17 @@ A validação geral do histórico pode ser executada com:
 ```bash
 node scripts/validate-flashscore-history.mjs
 ```
+
+
+## Monitor em tempo real da recolha
+
+A página `monitor.html` apresenta o progresso da recolha diária: jogos descobertos e processados, estatísticas completas (13/13), odds 1X2 da Bwin, falhas, estado dos CSV e gravação no GitHub. O painel consulta apenas o estado do monitor; não cria pedidos adicionais ao Flashscore.
+
+A monitorização usa um Durable Object no Worker Cloudflare e recebe eventos do workflow. Para a ativar:
+
+1. Criar um segredo forte para a monitorização (não o colocar no código).
+2. No GitHub, abrir **Settings → Secrets and variables → Actions → New repository secret** e guardar o valor com o nome `MONITOR_TOKEN`.
+3. Executar o workflow **Deploy Flashscore proxy** na branch `main` (ou fazer merge da alteração do Worker). O deploy configura automaticamente o mesmo segredo no Worker.
+4. Abrir `https://simuladorfutebol.onrender.com/monitor.html`.
+
+Se `MONITOR_TOKEN` não estiver configurado, a recolha continua a funcionar normalmente, mas o painel não recebe atualizações. A falha do monitor nunca interrompe nem altera a recolha Flashscore.
