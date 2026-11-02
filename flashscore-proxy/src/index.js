@@ -146,6 +146,69 @@ function inspectHtml(html, matchId, options = {}) {
   };
 }
 
+
+function summarizeInspection(inspection) {
+  const structure = inspection.page_structure || {};
+  const record = inspection.match_record || {};
+  const links = Array.isArray(structure.links) ? structure.links : [];
+  const scripts = Array.isArray(structure.scripts) ? structure.scripts : [];
+  const dataAttributes = Array.isArray(structure.data_attributes) ? structure.data_attributes : [];
+  const textTerms = Array.isArray(structure.text_terms) ? structure.text_terms : [];
+  const relevantLinks = links.filter(item =>
+    /stat|league|tournament|competition|breadcrumb|standings|classif|match|event|tab/i
+      .test([item.href, item.text, item.class, item.id, item.title, item["aria-label"], item["data-testid"]].filter(Boolean).join(" "))
+  );
+  const relevantScripts = scripts.filter(item => item.src || item.has_json_content).slice(0, 10);
+  const relevantAttributes = dataAttributes.slice(0, 15);
+  const statistics = record.statistics && typeof record.statistics === "object" ? record.statistics : {};
+  const bwin = inspection.bwin || {};
+
+  return {
+    mode: "summary",
+    title: inspection.title || null,
+    match_id: record.match_id || null,
+    teams: record.teams || null,
+    date_time: record.date_time || null,
+    status: record.status || null,
+    competition_identity: {
+      country: record.country || null,
+      competition: record.competition || null,
+      season: record.season || null,
+      stage: record.stage || null,
+      round: record.round || null
+    },
+    score: record.score || null,
+    statistics,
+    missing_fields: record.missing_fields || [],
+    bwin: {
+      found: Boolean(bwin.found),
+      one_x_two_candidates: Array.isArray(bwin.one_x_two_candidates) ? bwin.one_x_two_candidates.length : 0
+    },
+    page_structure: {
+      counts: structure.counts || {
+        links: links.length,
+        scripts: scripts.length,
+        data_attributes: dataAttributes.length,
+        class_tokens: (structure.class_tokens || []).length,
+        id_tokens: (structure.id_tokens || []).length
+      },
+      relevant_links: relevantLinks.slice(0, 20),
+      scripts: relevantScripts,
+      data_attributes: relevantAttributes,
+      class_tokens: (structure.class_tokens || []).slice(0, 20),
+      id_tokens: (structure.id_tokens || []).slice(0, 20),
+      text_terms: textTerms.slice(0, 15),
+      truncated: {
+        relevant_links: relevantLinks.length > 20,
+        scripts: scripts.filter(item => item.src || item.has_json_content).length > 10,
+        data_attributes: dataAttributes.length > 15,
+        text_terms: textTerms.length > 15
+      }
+    },
+    note: "Resumo do HTML já recebido. Não foram feitos pedidos adicionais ao Flashscore; listas longas foram limitadas."
+  };
+}
+
 export default {
   async fetch(request, env, ctx) {
     const origin = request.headers.get("Origin") || "";
@@ -316,6 +379,8 @@ export default {
     html = new TextDecoder("utf-8").decode(body);
 
     if (inspectOnly) {
+      const fullInspection = inspectHtml(html, matchId, { sourceUrl: target.toString() });
+      const summaryOnly = incoming.searchParams.get("summary") === "1";
       return json({
         ok: true,
         match_id: matchId,
@@ -324,7 +389,7 @@ export default {
         body_bytes: body.byteLength,
         requested_tab: requestedTab,
         source_url: target.toString(),
-        inspection: inspectHtml(html, matchId, { sourceUrl: target.toString() })
+        inspection: summaryOnly ? summarizeInspection(fullInspection) : fullInspection
       }, 200, headers);
     }
 
