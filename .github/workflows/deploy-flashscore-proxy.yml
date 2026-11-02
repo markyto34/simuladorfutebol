@@ -19,7 +19,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Validate Worker syntax
-        run: node --check flashscore-proxy/src/index.js
+        run: |
+          node --check flashscore-proxy/src/index.js
+          node --check flashscore-proxy/src/discover-matches.mjs
+      - name: Test Flashscore extractors
+        run: node --test tests/*.test.cjs
 
   deploy:
     if: github.event_name != 'pull_request'

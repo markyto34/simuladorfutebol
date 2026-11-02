@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://simuladorfutebol.onrender.com/schemas/match-record.schema.json",
+  "title": "SimuladorFutebol complete match record",
+  "description": "Extensible record for every available field on a Flashscore match page. Missing data stays null or is listed in missing_fields; it is never inferred.",
+  "type": "object",
+  "required": ["schema_version", "match_id", "source", "date_time", "teams", "source_capture"],
+  "properties": {
+    "schema_version": { "const": "1.0.0" },
+    "match_id": { "type": "string", "pattern": "^[A-Za-z0-9]{6,16}$" },
+    "source": { "const": "Flashscore" },
+    "date_time": { "type": ["string", "null"] },
+    "timezone": { "type": ["string", "null"] },
+    "country": { "type": ["string", "null"] },
+    "competition": { "type": ["string", "null"] },
+    "season": { "type": ["string", "null"] },
+    "stage": { "type": ["string", "null"] },
+    "round": { "type": ["string", "null"] },
+    "venue": { "type": ["string", "null"] },
+    "attendance": { "type": ["integer", "null"], "minimum": 0 },
+    "referee": { "type": ["string", "null"] },
+    "status": { "type": ["string", "null"] },
+    "teams": {
+      "type": "object",
+      "required": ["home", "away"],
+      "properties": {
+        "home": { "$ref": "#/$defs/team" },
+        "away": { "$ref": "#/$defs/team" }
+      },
+      "additionalProperties": true
+    },
+    "score": {
+      "type": ["object", "null"],
+      "properties": {
+        "half_time": { "$ref": "#/$defs/scorePair" },
+        "second_half": { "$ref": "#/$defs/scorePair" },
+        "full_time": { "$ref": "#/$defs/scorePair" },
+        "extra_time": { "$ref": "#/$defs/scorePair" },
+        "penalties": { "$ref": "#/$defs/scorePair" }
+      },
+      "additionalProperties": true
+    },
+    "events": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+    "statistics": {
+      "type": "object",
+      "description": "All available match statistics, keyed by stable metric key; values retain home/away and original labels.",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "home": { "type": ["number", "string", "null"] },
+          "away": { "type": ["number", "string", "null"] },
+          "unit": { "type": ["string", "null"] },
+          "source_label": { "type": ["string", "null"] }
+        },
+        "additionalProperties": true
+      }
+    },
+    "lineups": {
+      "type": ["object", "null"],
+      "properties": {
+        "home": { "type": "array", "items": { "$ref": "#/$defs/player" } },
+        "away": { "type": "array", "items": { "$ref": "#/$defs/player" } }
+      },
+      "additionalProperties": true
+    },
+    "formations": {
+      "type": ["object", "null"],
+      "additionalProperties": { "type": ["string", "null"] }
+    },
+    "substitutions": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+    "odds": {
+      "type": ["object", "null"],
+      "properties": {
+        "bookmaker": { "const": "Bwin" },
+        "retrieved_at": { "type": ["string", "null"] },
+        "markets": {
+          "type": "object",
+          "properties": {
+            "1x2": {
+              "type": "object",
+              "properties": {
+                "home": { "type": ["number", "null"], "exclusiveMinimum": 1 },
+                "draw": { "type": ["number", "null"], "exclusiveMinimum": 1 },
+                "away": { "type": ["number", "null"], "exclusiveMinimum": 1 }
+              },
+              "additionalProperties": true
+            }
+          },
+          "additionalProperties": true
+        },
+        "odds_timestamp_type": { "enum": ["observed_at_collection", "unknown", null] }
+      },
+      "additionalProperties": true
+    },
+    "context": {
+      "type": ["object", "null"],
+      "description": "Pre-match/contextual page data such as recent form and head-to-head; kept separate from match events.",
+      "additionalProperties": true
+    },
+    "missing_fields": { "type": "array", "items": { "type": "string" } },
+    "source_capture": {
+      "type": "object",
+      "required": ["url", "retrieved_at"],
+      "properties": {
+        "url": { "type": "string", "format": "uri" },
+        "retrieved_at": { "type": "string", "format": "date-time" },
+        "http_status": { "type": ["integer", "null"] },
+        "evidence": { "type": "array", "items": { "type": "object", "additionalProperties": true } }
+      },
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "scorePair": {
+      "type": ["object", "null"],
+      "properties": {
+        "home": { "type": ["integer", "null"], "minimum": 0 },
+        "away": { "type": ["integer", "null"], "minimum": 0 }
+      },
+      "required": ["home", "away"],
+      "additionalProperties": true
+    },
+    "player": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "number": { "type": ["integer", "null"] },
+        "position": { "type": ["string", "null"] },
+        "captain": { "type": ["boolean", "null"] }
+      },
+      "additionalProperties": true
+    },
+    "team": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "id": { "type": ["string", "null"] },
+        "coach": { "type": ["string", "null"] }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
