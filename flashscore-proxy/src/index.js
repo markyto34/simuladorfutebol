@@ -97,7 +97,7 @@ function inspectHtml(html) {
       .replace(/\\u0022/gi, '"').replace(/\\u0026/gi, "&")
       .replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ")
       .replace(/\s+/g, " ").trim();
-    const nearbyValues = [...context.matchAll(/\b\\d{1,2}[.,]\\d{2,3}\b/g)]
+    const nearbyValues = [...context.matchAll(/\b\d{1,2}[.,]\d{2,3}\b/g)]
       .map(item => item[0].replace(",", "."));
     bwinOddsMarkers.push({
       marker: marker[0].slice(0, 500),
