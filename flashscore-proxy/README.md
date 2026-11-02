@@ -7,7 +7,7 @@ individual de jogo do domínio móvel público `m.flashscore.pt`.
 
 - `GET /health` — estado do Worker.
 - `GET /match?id=<match-id>` — obtém a página HTML de uma partida.\n- `GET /inspect?id=<match-id>` — inspeciona o sumário do jogo.
-- `GET /inspect?id=<match-id>&tab=statistics|lineups|standings|commentary|h2h` — inspeciona um separador autorizado do mesmo jogo. `summary` é o separador predefinido.
+- `GET /inspect?id=<match-id>&tab=statistics|lineups|standings|commentary|h2h` — inspeciona um separador autorizado do mesmo jogo. `summary` é o separador predefinido.\n- `GET /record?id=<match-id>` — recolhe uma única página do separador de estatísticas e devolve um registo JSON com estatísticas e, quando identificadas sem ambiguidade, odds 1X2 da Bwin.
 
 O identificador e o separador são validados. O destino é sempre construído internamente no domínio `https://m.flashscore.pt`, sem aceitar URLs arbitrários. Os separadores autorizados são mapeados para os caminhos observados nos links internos do HTML.
 
@@ -17,10 +17,10 @@ O identificador e o separador são validados. O destino é sempre construído in
 - Não segue redirecionamentos.
 - Não contorna CAPTCHA, bloqueios, limites de pedidos ou controlos de acesso.
 - Não usa rotação de IPs nem falsificação de impressões digitais.
-- Só devolve HTML; não afirma que as odds Bwin estejam incluídas no HTML.
+- `/match` devolve HTML; `/record` devolve os campos estruturados extraídos desse mesmo HTML. As odds só são incluídas quando o identificador de bookmaker Bwin (459), a indicação `bwin.pt` e o triplo 1X2 são confirmados.
 - Respostas bem-sucedidas são colocadas em cache durante 10 minutos.
 - Respostas de erro não são guardadas em cache.
-- Pedidos recusados (incluindo HTTP 403/429) são interrompidos e reportados.
+- Pedidos recusados (incluindo HTTP 403/429) são interrompidos e reportados. `/record` faz apenas um pedido ao Flashscore por jogo e não executa descoberta secundária.
 
 ## Deploy
 

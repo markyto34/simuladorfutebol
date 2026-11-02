@@ -331,18 +331,21 @@ export default {
       if (targetMatchId && !validMatchId(targetMatchId)) {
         return json({ error: "invalid_match_id", message: "O match_id deve ser um identificador alfanumérico válido." }, 400, headers);
       }
-      return json({ ok: true, upstream_status: discoveryResponse.status, content_type: discoveryType, body_bytes: discoveryBody.byteLength, inspection: inspectMatchDiscovery(discoveryHtml, date, { summary: summaryOnly, matchId: targetMatchId }) }, 200, headers);
+      return json({ ok: true, upstream_status: discoveryResponse.status, content_type: discoveryType, body_bytes: discoveryBody.byteLength, inspection: inspectMatchDiscovery(discoveryHtml, date, { summary: summaryOnly, idsOnly: incoming.searchParams.get("ids") === "1", matchId: targetMatchId }) }, 200, headers);
     }
 
     const inspectOnly = incoming.pathname === "/inspect";
-    if (!inspectOnly && incoming.pathname !== "/match") {
+    const recordOnly = incoming.pathname === "/record";
+    if (!inspectOnly && !recordOnly && incoming.pathname !== "/match") {
       return json({
         error: "not_found",
-        usage: "/match?id=FLASHscore_MATCH_ID or /inspect?id=FLASHscore_MATCH_ID"
+        usage: "/match?id=FLASHscore_MATCH_ID, /record?id=FLASHscore_MATCH_ID or /inspect?id=FLASHscore_MATCH_ID"
       }, 404, headers);
     }
 
-    const requestedTab = incoming.searchParams.get("tab") || "summary";
+    // /record recolhe uma única página de estatísticas e extrai dela estatísticas
+    // e odds Bwin. Não faz descoberta secundária nem pedidos adicionais.
+    const requestedTab = incoming.searchParams.get("tab") || (recordOnly ? "statistics" : "summary");
     if (!inspectOnly && incoming.searchParams.has("tab")) {
       return json({ error: "tab_only_supported_on_inspect" }, 400, headers);
     }
@@ -425,9 +428,19 @@ export default {
 
     html = new TextDecoder("utf-8").decode(body);
 
-    if (inspectOnly) {
+    if (inspectOnly || recordOnly) {
       const fullInspection = inspectHtml(html, matchId, { sourceUrl: target.toString() });
       const record = fullInspection.match_record;
+      if (recordOnly) {
+        return json({
+          ok: true,
+          match_id: matchId,
+          upstream_status: upstream.status,
+          requested_tab: requestedTab,
+          source_url: target.toString(),
+          record
+        }, 200, headers);
+      }
       if (record && (!record.country || !record.competition)) {
         const matchDate = record.date_time_iso_local ? record.date_time_iso_local.slice(0, 10) : null;
         const identity = await resolveCompetitionFromDiscovery(matchDate, matchId);

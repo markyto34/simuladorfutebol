@@ -78,3 +78,15 @@ test("does not assign a competition if the target match has no explicit group he
   assert.equal(result.matches.length, 1);
   assert.equal(result.matches[0].competition_identity, undefined);
 });
+
+test("returns all unique IDs without building HTML excerpts in compact collection mode", async () => {
+  const { inspectMatchDiscovery } = await import("../flashscore-proxy/src/discover-matches.mjs");
+  const html = `<a href="/jogo/827gE8Kl/">A - B</a>
+    <a href="/jogo/827gE8Kl/?s=3">duplicate</a>
+    <a href="/jogo/AB12cd34/">C - D</a>`;
+  const result = inspectMatchDiscovery(html, "2026-11-01", { idsOnly: true });
+  assert.deepEqual(result.match_ids, ["827gE8Kl", "AB12cd34"]);
+  assert.equal(result.match_count, 2);
+  assert.equal(Object.hasOwn(result, "matches"), false);
+  assert.equal(Object.hasOwn(result, "sample_matches"), false);
+});

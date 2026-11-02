@@ -21,6 +21,7 @@ jobs:
       - name: Validate Worker syntax
         run: |
           node --check flashscore-proxy/src/index.js
+          node --check scripts/collect-flashscore-csv.mjs
           node --check flashscore-proxy/src/discover-matches.mjs
           node --check flashscore-proxy/src/match-tabs.mjs
       - name: Test Flashscore extractors

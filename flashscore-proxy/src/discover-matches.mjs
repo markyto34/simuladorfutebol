@@ -42,6 +42,7 @@ export function extractExplicitCompetitionForMatch(html, matchId) {
 
 export function inspectMatchDiscovery(html, requestedDate, options = {}) {
   const summaryOnly = options.summary === true;
+  const idsOnly = options.idsOnly === true;
   const targetMatchId = typeof options.matchId === "string" ? options.matchId : null;
   const matches = [];
   const sampleMatches = [];
@@ -70,7 +71,7 @@ export function inspectMatchDiscovery(html, requestedDate, options = {}) {
     }
     if (sampleMatches.length < 15) sampleMatches.push(compact);
 
-    if (!summaryOnly && matches.length < 500) {
+    if (!summaryOnly && !idsOnly && matches.length < 500) {
       const before = targetMatchId ? 3200 : 900;
       const after = targetMatchId ? 1600 : 500;
       const start = Math.max(0, item.index - before);
@@ -97,6 +98,14 @@ export function inspectMatchDiscovery(html, requestedDate, options = {}) {
     truncated: totalUniqueMatchCount > 500,
     date_tokens: dateTokens
   };
+
+  if (idsOnly) {
+    return {
+      ...common,
+      match_ids: [...seen],
+      note: "Lista compacta de IDs únicos encontrados no HTML da data. Não valida resultados, odds ou estatísticas."
+    };
+  }
 
   if (summaryOnly) {
     return {
