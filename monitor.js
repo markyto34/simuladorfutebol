@@ -3,6 +3,7 @@ const REPO = "simuladorfutebol";
 const WORKFLOW = "recolha-diaria-flashscore.yml";
 const API = "https://api.github.com/repos/" + OWNER + "/" + REPO;
 const PROGRESS_URL = "https://raw.githubusercontent.com/" + OWNER + "/" + REPO + "/collection-progress/monitor/collection-progress.json";
+const CONTROL_URL = "https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev/trigger-collection";
 const $ = id => document.getElementById(id);
 let activeRun = null;
 const labels = {
@@ -66,6 +67,7 @@ async function refresh(){
     const job=jobs[0];const steps=job?.steps||[];
     const current=steps.find(s=>s.status==="in_progress")||[...steps].reverse().find(s=>s.status==="completed");
     activeRun=run;
+    updateManualControl(run);
     const kind=statusClass(run);
     $("run-title").textContent="Recolha diária · "+(run.display_title||"Execução "+run.run_number);
     setStatus(label(run.status==="completed"?run.conclusion:run.status),kind);
@@ -97,3 +99,48 @@ async function refresh(){
   }
 }
 refresh();setInterval(refresh,180000);setInterval(()=>{if(activeRun)refreshGameProgress(activeRun)},30000);
+
+
+function portugalToday(){
+  const parts=new Intl.DateTimeFormat("en-CA",{timeZone:"Europe/Lisbon",year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(new Date());
+  const values=Object.fromEntries(parts.map(part=>[part.type,part.value]));
+  return values.year+"-"+values.month+"-"+values.day;
+}
+function updateManualControl(run){
+  const busy=Boolean(run&&(run.status==="queued"||run.status==="in_progress"));
+  const button=$("start-collection");
+  const date=$("manual-date");
+  if(!button||!date)return;
+  button.disabled=busy;
+  date.disabled=busy;
+  button.textContent=busy?"Recolha em curso…":"Iniciar recolha →";
+  if(busy)$("manual-feedback").textContent="Já existe uma execução na fila ou em curso. Aguarda que termine antes de iniciar outra.";
+  else if(!$("manual-feedback").dataset.state)$("manual-feedback").textContent="Escolhe uma data e confirma o início da recolha.";
+}
+async function startManualCollection(){
+  const button=$("start-collection"), date=$("manual-date"), feedback=$("manual-feedback");
+  const selectedDate=date.value;
+  if(!selectedDate){feedback.textContent="Seleciona primeiro a data dos jogos.";return;}
+  if(selectedDate>portugalToday()){feedback.textContent="Não é possível recolher jogos de uma data futura.";return;}
+  if(!window.confirm("Iniciar a recolha Flashscore + odds Bwin para "+selectedDate+"? A execução pode demorar bastante tempo."))return;
+  button.disabled=true;date.disabled=true;button.textContent="A iniciar…";feedback.dataset.state="pending";
+  feedback.textContent="A validar o pedido e a verificar se já existe outra recolha…";
+  try{
+    const response=await fetch(CONTROL_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({target_date:selectedDate})});
+    const payload=await response.json().catch(()=>({}));
+    if(response.status===409)throw new Error(payload.message||"Já existe uma recolha na fila ou em execução.");
+    if(!response.ok)throw new Error(payload.message||payload.error||"Não foi possível iniciar a recolha (HTTP "+response.status+").");
+    feedback.textContent="Pedido aceite pelo GitHub. A execução deverá aparecer no monitor dentro de alguns segundos.";
+    feedback.dataset.state="accepted";
+    setTimeout(refresh,5000);
+  }catch(error){
+    feedback.textContent=error.message+" Se o controlo ainda não estiver configurado, será necessário concluir a configuração segura no Cloudflare.";
+    feedback.dataset.state="error";
+    button.disabled=false;date.disabled=false;button.textContent="Tentar novamente →";
+  }
+}
+document.addEventListener("DOMContentLoaded",()=>{
+  const date=$("manual-date");
+  if(date){date.value=portugalToday();date.max=portugalToday();}
+  $("start-collection")?.addEventListener("click",startManualCollection);
+});
