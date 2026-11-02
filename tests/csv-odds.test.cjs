@@ -156,3 +156,33 @@ test("a análise de mercados da amostra semelhante usa sempre as três odds", ()
   assert.equal(result.marketAnalysis.firstHalf.over05.count, 1);
   assert.equal(result.marketAnalysis.fullTime.result.count, 1);
 });
+
+
+test("compara a mesma pesquisa de odds na amostra global e no continente escolhido", () => {
+  const rows = csv.normalizeRows([
+    {COUNTRY:"Portugal",date_time:"2025-01-01 12:00:00",TEAM_HOME:"A",TEAM_AWAY:"B",score_fh_home:"1",score_fh_away:"0",score_sh_home:"0",score_sh_away:"0",score_ft_home:"1",score_ft_away:"0",odd_ft_1:"1.50",odd_ft_x:"4.00",odd_ft_2:"6.00"},
+    {COUNTRY:"Chile",date_time:"2025-01-02 12:00:00",TEAM_HOME:"C",TEAM_AWAY:"D",score_fh_home:"0",score_fh_away:"0",score_sh_home:"0",score_sh_away:"1",score_ft_home:"0",score_ft_away:"1",odd_ft_1:"1.55",odd_ft_x:"3.95",odd_ft_2:"6.10"},
+    {COUNTRY:"Japan",date_time:"2025-01-03 12:00:00",TEAM_HOME:"E",TEAM_AWAY:"F",score_fh_home:"0",score_fh_away:"0",score_sh_home:"1",score_sh_away:"0",score_ft_home:"1",score_ft_away:"0",odd_ft_1:"1.52",odd_ft_x:"4.02",odd_ft_2:"6.05"}
+  ]);
+  const odds={"1":1.52,X:4,"2":6.05};
+  const global=csv.evaluateCurrentOdds(rows,odds,0.1);
+  const europe=csv.evaluateCurrentOdds(rows.filter(m=>m.continent==="Europa"),odds,0.1);
+  assert.equal(global.sample,3);
+  assert.equal(europe.sample,1);
+  assert.equal(global.marketAnalysis.fullTime.result.count,3);
+  assert.equal(europe.marketAnalysis.fullTime.result.count,1);
+});
+
+test("backtesting continental mantém separação cronológica independente", () => {
+  const rows = csv.normalizeRows([
+    {COUNTRY:"Portugal",date_time:"2025-01-01 12:00:00",TEAM_HOME:"A",TEAM_AWAY:"B",score_ft_home:"1",score_ft_away:"0",odd_ft_1:"1.50",odd_ft_x:"4.00",odd_ft_2:"6.00"},
+    {COUNTRY:"Portugal",date_time:"2026-01-01 12:00:00",TEAM_HOME:"C",TEAM_AWAY:"D",score_ft_home:"0",score_ft_away:"1",odd_ft_1:"1.50",odd_ft_x:"4.00",odd_ft_2:"6.00"},
+    {COUNTRY:"Chile",date_time:"2026-02-01 12:00:00",TEAM_HOME:"E",TEAM_AWAY:"F",score_ft_home:"1",score_ft_away:"1",odd_ft_1:"1.50",odd_ft_x:"4.00",odd_ft_2:"6.00"}
+  ]);
+  const global=csv.backtestTriplet(rows,undefined,"2026-01-01");
+  const europe=csv.backtestTriplet(rows.filter(m=>m.continent==="Europa"),undefined,"2026-01-01");
+  assert.equal(global.training.count,1);
+  assert.equal(global.validation.count,2);
+  assert.equal(europe.training.count,1);
+  assert.equal(europe.validation.count,1);
+});
