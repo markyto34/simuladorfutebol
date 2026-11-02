@@ -1,0 +1,53 @@
+name: Teste único CSV Flashscore + Bwin
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  collect-one-match:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Recolher apenas o jogo de validação
+        run: node scripts/collect-flashscore-csv.mjs hW5lOaOP
+      - name: Validar os dois CSV e os valores esperados
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFile } from 'node:fs/promises';
+          const stats = (await readFile('data/flashscore-statistics.csv', 'utf8')).trim().split(/\\r?\\n/).map(line => line.split(','));
+          const odds = (await readFile('data/bwin-odds-flashscore.csv', 'utf8')).trim().split(/\\r?\\n/).map(line => line.split(','));
+          const statHeader = stats[0], oddsHeader = odds[0];
+          const stat = stats.slice(1).find(row => row[statHeader.indexOf('match_id')] === 'hW5lOaOP');
+          const odd = odds.slice(1).find(row => row[oddsHeader.indexOf('match_id')] === 'hW5lOaOP' && row[oddsHeader.indexOf('bookmaker')] === 'Bwin');
+          if (!stat) throw new Error('Jogo ausente do CSV de estatísticas');
+          if (!odd) throw new Error('Odds Bwin ausentes do CSV de odds');
+          const get = (row, header, key) => row[header.indexOf(key)];
+          for (const [key, expected] of Object.entries({ score_home: '1', score_away: '1', xg_home: '0.68', xg_away: '1.17', corners_home: '2', corners_away: '6' })) {
+            if (get(stat, statHeader, key) !== expected) throw new Error('Valor incorreto em estatísticas: ' + key);
+          }
+          for (const [key, expected] of Object.entries({ odd_1: '2.55', odd_x: '3.4', odd_2: '2.5' })) {
+            if (get(odd, oddsHeader, key) !== expected) throw new Error('Valor incorreto em odds Bwin: ' + key);
+          }
+          console.log('Validação CSV aprovada: resultado, xG, cantos e odds Bwin.');
+          NODE
+      - name: Guardar CSV no repositório sem substituir histórico
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/flashscore-statistics.csv data/bwin-odds-flashscore.csv
+          if git diff --cached --quiet; then
+            echo "Sem alterações nos CSV; nada a guardar."
+          else
+            git commit -m "Adicionar primeiro registo Flashscore e odds Bwin"
+            git push origin main
+          fi
