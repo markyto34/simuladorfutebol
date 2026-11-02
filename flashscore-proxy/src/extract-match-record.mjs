@@ -85,6 +85,25 @@ function parseDateTime(html) {
   } : null;
 }
 
+function parseFullTimeFromSummary(html, home, away) {
+  if (!home || !away) return null;
+  const plain = cleanText(html);
+  const escapeRegex = value => String(value).replace(/[.*+?^${}()|[\\]\\\\]/g, "\\function parseDateTime(html) {
+  const decoded = decodeMarkup(html);
+  const match = decoded.match(/(\d{2})\.(\d{2})\.(\d{4})\s+(\d{2}:\d{2})/);
+  return match ? {
+    source_text: match[0],
+    iso_local: `${match[3]}-${match[2]}-${match[1]}T${match[4]}`
+  } : null;
+}");
+  const pattern = new RegExp(
+    escapeRegex(home) + "\\s+-\\s+" + escapeRegex(away) + "\\s+(\\d{1,2})\\s*[-:]\\s*(\\d{1,2})(?=\\s*\\(|\\s+(?:Terminado|A\\.P\\.|Após|Adiado|Cancelado|Interrompido|Atrasado|Não iniciado))",
+    "i"
+  );
+  const match = plain.match(pattern);
+  return match ? { home: Number(match[1]), away: Number(match[2]) } : null;
+}
+
 export function extractStructuredMatch(html, matchId, options = {}) {
   const decoded = decodeMarkup(html);
   const pageContext = extractPageContext(decoded);
@@ -95,10 +114,13 @@ export function extractStructuredMatch(html, matchId, options = {}) {
   const statusMatch = decoded.match(/>\s*(Terminado|A\.P\.|Após prolongamento|Adiado|Cancelado|Interrompido|Atrasado|Não iniciado)\s*</i);
   const status = statusMatch ? cleanText(statusMatch[1]) : null;
   const periods = extractPeriodScores(decoded);
-  const score = periods ? {
-    half_time: parsePair(periods.ht),
-    second_half: parsePair(periods.second_half),
-    full_time: parsePair(periods.ft)
+  const summaryFullTime = parseFullTimeFromSummary(decoded, teams.home, teams.away);
+  const periodFullTime = periods ? parsePair(periods.ft) : null;
+  const fullTime = periodFullTime || summaryFullTime;
+  const score = fullTime ? {
+    half_time: periods ? parsePair(periods.ht) : null,
+    second_half: periods ? parsePair(periods.second_half) : null,
+    full_time: fullTime
   } : null;
   const events = parseEvents(decoded);
   const substitutions = parseSubstitutions(events);
@@ -179,7 +201,7 @@ export function extractStructuredMatch(html, matchId, options = {}) {
       evidence: [
         { field: "teams", source: "HTML title", value: title || null },
         { field: "date_time", source: "visible match summary", value: dateTime?.source_text || null },
-        { field: "score", source: periods?.evidence || null },
+        { field: "score", source: periods?.evidence || (summaryFullTime ? "visible match summary, matched to both team names" : null), value: fullTime },
         { field: "events", source: "visible incident blocks", count: events.length },
         { field: "substitutions", source: "substitution incident blocks with explicit incoming/outgoing player format", count: substitutions.length },
         { field: "page_context", source: "meta, breadcrumbs, visible labels and embedded JSON", evidence: pageContext.evidence, diagnostics: pageContext.diagnostics },
