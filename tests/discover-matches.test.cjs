@@ -85,3 +85,5 @@ test("does not invent competition when no explicit group heading exists", async 
   assert.equal(result.competition_identity.country, null);
   assert.equal(result.competition_identity.competition, null);
 });
+
+// Explicit competition identity is only trusted when the daily results page supplies a group heading.
