@@ -1,4 +1,5 @@
 name: Recolha diária Flashscore + Bwin
+run-name: Recolha Flashscore + Bwin · ${{ inputs.target_date || 'ontem (Portugal)' }}
 
 on:
   schedule:
