@@ -88,24 +88,81 @@
     ]);
   }
   function render() {
-    const body = $("matchesBody");
-    body.replaceChildren();
+    const list = $("matchesList");
+    list.replaceChildren();
     const start = page * PAGE_SIZE;
     const rows = matches.slice(start,start+PAGE_SIZE);
     if (!rows.length) {
-      const tr=document.createElement("tr"),td=document.createElement("td");
-      td.colSpan=10;td.className="empty";td.textContent="Não foram encontrados jogos com as três odds exatamente iguais.";
-      tr.append(td);body.append(tr);
+      const empty=document.createElement("p");
+      empty.className="empty";
+      empty.textContent="Não foram encontrados jogos com as três odds exatamente iguais.";
+      list.append(empty);
     } else rows.forEach(match => {
-      const tr=document.createElement("tr");
-      const values=[
-        dateText(match.date),match.continent||"Por identificar",match.country||"—",match.league||"—",
-        (match.home||"—")+" – "+(match.away||"—"),
-        fmtOdd(match.odds["1"]),fmtOdd(match.odds.X),fmtOdd(match.odds["2"]),
-        scoreText(match.ft),match.outcome==="1"?"1 · Casa":match.outcome==="X"?"X · Empate":match.outcome==="2"?"2 · Visitante":"Pendente"
-      ];
-      values.forEach(value=>{const td=document.createElement("td");td.textContent=value;tr.append(td);});
-      body.append(tr);
+      const card=document.createElement("article");
+      card.className="match-card";
+
+      const header=document.createElement("div");
+      header.className="match-card-header";
+      const date=document.createElement("span");
+      date.className="match-date";
+      date.textContent=dateText(match.date);
+      const competition=document.createElement("span");
+      competition.className="match-competition";
+      competition.textContent=[match.country,match.league].filter(Boolean).join(" · ")||"Competição não identificada";
+      header.append(date,competition);
+      card.append(header);
+
+      const teams=document.createElement("div");
+      teams.className="match-teams";
+      const home=document.createElement("strong");
+      home.textContent=match.home||"Equipa da casa";
+      const versus=document.createElement("span");
+      versus.className="match-versus";
+      versus.textContent="VS";
+      const away=document.createElement("strong");
+      away.textContent=match.away||"Equipa visitante";
+      teams.append(home,versus,away);
+      card.append(teams);
+
+      const data=document.createElement("div");
+      data.className="match-data";
+      const odds=document.createElement("div");
+      odds.className="match-data-group odds-group";
+      const oddsTitle=document.createElement("span");
+      oddsTitle.className="group-label";
+      oddsTitle.textContent="ODDS 1X2";
+      odds.append(oddsTitle);
+      [["1",match.odds["1"]],["X",match.odds.X],["2",match.odds["2"]]].forEach(([label,value])=>{
+        const item=document.createElement("div");
+        item.className="data-chip";
+        const name=document.createElement("span");name.textContent=label;
+        const val=document.createElement("strong");val.textContent=fmtOdd(value);
+        item.append(name,val);odds.append(item);
+      });
+
+      const periods=document.createElement("div");
+      periods.className="match-data-group periods-group";
+      const periodsTitle=document.createElement("span");
+      periodsTitle.className="group-label";
+      periodsTitle.textContent="RESULTADOS";
+      periods.append(periodsTitle);
+      [["HT",match.ht],["ST",match.secondHalf],["FT",match.ft]].forEach(([label,value])=>{
+        const item=document.createElement("div");
+        item.className="data-chip period-chip";
+        const name=document.createElement("span");name.textContent=label;
+        const val=document.createElement("strong");val.textContent=scoreText(value);
+        item.append(name,val);periods.append(item);
+      });
+      data.append(odds,periods);
+      card.append(data);
+
+      const footer=document.createElement("div");
+      footer.className="match-card-footer";
+      footer.textContent=match.outcome==="1"?"Resultado: vitória da equipa da casa":
+        match.outcome==="X"?"Resultado: empate":
+        match.outcome==="2"?"Resultado: vitória da equipa visitante":"Resultado final indisponível";
+      card.append(footer);
+      list.append(card);
     });
     const pages=Math.max(1,Math.ceil(matches.length/PAGE_SIZE));
     $("resultCount").textContent=matches.length.toLocaleString("pt-PT")+" jogos";
