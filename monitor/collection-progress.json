@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 1310,
-  "stats_games": 585,
-  "bwin_odds": 339,
+  "processed_games": 1320,
+  "stats_games": 591,
+  "bwin_odds": 345,
   "failed_games": 1,
-  "current_match": "Último concluído: Buwambo - Iganga United",
-  "last_result": "Buwambo - Iganga United: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T22:39:55.228Z"
+  "current_match": "Último concluído: River Plate - Tacuarembo",
+  "last_result": "River Plate - Tacuarembo: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-02T22:40:11.189Z"
 }
