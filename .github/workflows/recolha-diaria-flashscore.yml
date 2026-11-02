@@ -57,6 +57,8 @@ jobs:
         env:
           TARGET_DATE: ${{ steps.date.outputs.target_date }}
           FLASHSCORE_REQUEST_DELAY_MS: "2500"
+          MONITOR_URL: "https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev"
+          MONITOR_TOKEN: ${{ secrets.MONITOR_TOKEN }}
         run: node scripts/collect-flashscore-csv.mjs --date="$TARGET_DATE"
       - name: Validar histórico CSV
         id: validate
@@ -70,12 +72,41 @@ jobs:
           git add data/flashscore-statistics.csv data/bwin-odds-flashscore.csv
           if git diff --cached --quiet; then
             echo "Sem novos dados para guardar."
+            echo "committed=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "Atualização diária Flashscore e odds Bwin (${{ steps.date.outputs.target_date }})"
             git push origin main
+            echo "committed=true" >> "$GITHUB_OUTPUT"
           fi
       - name: Assinalar falha de recolha
         if: steps.collect.outcome == 'failure'
         run: |
           echo "A recolha diária teve falhas. Os dados válidos já recolhidos foram preservados se passaram a validação."
           exit 1
+
+      - name: Atualizar estado final do monitor
+        if: always()
+        env:
+          MONITOR_URL: "https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev"
+          MONITOR_TOKEN: ${{ secrets.MONITOR_TOKEN }}
+          COLLECT_OUTCOME: ${{ steps.collect.outcome }}
+          VALIDATE_OUTCOME: ${{ steps.validate.outcome }}
+          COMMITTED: ${{ steps.commit.outputs.committed }}
+        run: |
+          if [ -z "${MONITOR_TOKEN:-}" ]; then
+            echo "Monitor não configurado; a recolha prossegue normalmente."
+            exit 0
+          fi
+          node --input-type=module <<'NODE'
+          const base = process.env.MONITOR_URL;
+          const headers = { "content-type": "application/json", "authorization": "Bearer " + process.env.MONITOR_TOKEN };
+          const send = async (payload) => {
+            try {
+              const response = await fetch(base + "/monitor/update", { method: "POST", headers, body: JSON.stringify(payload) });
+              if (!response.ok) console.error("Monitor respondeu HTTP " + response.status);
+            } catch (error) { console.error("Monitor indisponível: " + error.message); }
+          };
+          await send({ type: "repository_commit", committed: process.env.COMMITTED === "true", commit_sha: process.env.GITHUB_SHA });
+          const ok = process.env.COLLECT_OUTCOME === "success" && process.env.VALIDATE_OUTCOME === "success";
+          await send({ type: "finished", status: ok ? "completed" : "partial", message: ok ? "Workflow concluído; validação terminada" : "Workflow terminou com falhas; consultar os logs", run_id: process.env.GITHUB_RUN_ID });
+          NODE
