@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 1330,
-  "stats_games": 598,
-  "bwin_odds": 348,
+  "processed_games": 1340,
+  "stats_games": 604,
+  "bwin_odds": 349,
   "failed_games": 1,
-  "current_match": "Último concluído: La Guaira - Portuguesa",
-  "last_result": "La Guaira - Portuguesa: 14 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T21:59:00.724Z"
+  "current_match": "Último concluído: Thai Nguyen - Van Hien",
+  "last_result": "Thai Nguyen - Van Hien: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T21:59:15.968Z"
 }
