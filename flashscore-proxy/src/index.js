@@ -96,8 +96,8 @@ function inspectHtml(html) {
       .replace(/\\u003c/gi, "<").replace(/\\u003e/gi, ">")
       .replace(/\\u0022/gi, '"').replace(/\\u0026/gi, "&")
       .replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ")
-      .replace(/\\s+/g, " ").trim();
-    const nearbyValues = [...context.matchAll(/\\b\\d{1,2}[.,]\\d{2,3}\\b/g)]
+      .replace(/\s+/g, " ").trim();
+    const nearbyValues = [...context.matchAll(/\b\\d{1,2}[.,]\\d{2,3}\b/g)]
       .map(item => item[0].replace(",", "."));
     bwinOddsMarkers.push({
       marker: marker[0].slice(0, 500),
@@ -111,7 +111,7 @@ function inspectHtml(html) {
   const scoreMarkerPattern = /(?:score|period|half|event__part|detailScore|participant__score)/ig;
   for (const item of html.matchAll(scoreMarkerPattern)) {
     const context = html.slice(Math.max(0, item.index - 180), Math.min(html.length, item.index + 300))
-      .replace(/<[^>]+>/g, " ").replace(/\\s+/g, " ").trim();
+      .replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
     if (context && !scoreContexts.includes(context)) scoreContexts.push(context.slice(0, 420));
     if (scoreContexts.length >= 12) break;
   }
