@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 840,
-  "stats_games": 378,
-  "bwin_odds": 207,
+  "processed_games": 850,
+  "stats_games": 383,
+  "bwin_odds": 209,
   "failed_games": 1,
-  "current_match": "Último concluído: Suduva - Banga",
-  "last_result": "Suduva - Banga: 6 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T21:46:32.671Z"
+  "current_match": "Último concluído: ZFK Vardar F - ASS United F",
+  "last_result": "ZFK Vardar F - ASS United F: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T21:46:47.998Z"
 }
