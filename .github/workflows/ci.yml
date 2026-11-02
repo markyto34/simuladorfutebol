@@ -17,5 +17,6 @@ jobs:
       - run: node --check csv-odds-app.js
       - run: node --check config.js
       - run: node --check windrawwin-proxy/src/index.js
+      - run: node --check flashscore-proxy/src/index.js
       - run: node scripts/validate-config.cjs
       - run: node --test tests/*.test.cjs
