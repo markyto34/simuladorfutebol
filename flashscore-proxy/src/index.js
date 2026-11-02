@@ -346,7 +346,7 @@ export default {
     // /record recolhe uma única página de estatísticas e extrai dela estatísticas
     // e odds Bwin. Não faz descoberta secundária nem pedidos adicionais.
     const requestedTab = incoming.searchParams.get("tab") || (recordOnly ? "statistics" : "summary");
-    if (!inspectOnly && incoming.searchParams.has("tab")) {
+    if (!inspectOnly && !recordOnly && incoming.searchParams.has("tab")) {
       return json({ error: "tab_only_supported_on_inspect" }, 400, headers);
     }
     const tab = resolveMatchTab(requestedTab);
