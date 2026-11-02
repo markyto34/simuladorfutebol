@@ -282,14 +282,16 @@ export default {
     if (incoming.pathname === "/monitor/status" && request.method === "GET") {
       if (!env.COLLECTION_MONITOR) return json({ ok: false, error: "monitor_not_configured" }, 503, headers);
       const id = env.COLLECTION_MONITOR.idFromName("daily-collection");
-      return env.COLLECTION_MONITOR.get(id).fetch("https://monitor/status", { method: "GET" });
+      const response = await env.COLLECTION_MONITOR.get(id).fetch("https://monitor/status", { method: "GET" });
+      return json(await response.json(), 200, headers);
     }
 
     if (incoming.pathname === "/monitor/update" && request.method === "POST") {
       if (!env.MONITOR_TOKEN || !env.COLLECTION_MONITOR) return json({ ok: false, error: "monitor_not_configured" }, 503, headers);
       if (request.headers.get("Authorization") !== `Bearer ${env.MONITOR_TOKEN}`) return json({ ok: false, error: "unauthorized" }, 401, headers);
       const id = env.COLLECTION_MONITOR.idFromName("daily-collection");
-      return env.COLLECTION_MONITOR.get(id).fetch("https://monitor/update", request);
+      const response = await env.COLLECTION_MONITOR.get(id).fetch("https://monitor/update", request);
+      return json(await response.json(), response.status, headers);
     }
 
     if (incoming.pathname === "/health") {
