@@ -51,3 +51,19 @@ A aplicação carrega automaticamente o CSV selecionado ao abrir a página e man
 ## Expansão de fontes gratuitas
 
 A integração de novas fontes é feita apenas depois de verificar cobertura real, formato e condições de utilização. O [openfootball](https://github.com/withqwerty/open-football) e os seus repositórios de resultados históricos podem complementar resultados/golos, mas não substituem estatísticas de cantos, remates ou faltas. Fontes com condições que proíbem recolha automatizada, uso por bots/IA ou redistribuição não são integradas sem autorização explícita. Não existe dependência obrigatória de uma API paga. Os dados em falta continuam identificados como indisponíveis.
+
+## Recolha Flashscore: estatísticas e odds Bwin
+
+O Worker Flashscore disponibiliza `/record?id=<match_id>`. Este endpoint consulta uma única página de estatísticas do jogo e devolve um registo estruturado com as estatísticas identificadas e, quando a identificação é inequívoca, o mercado 1X2 da Bwin apresentado nessa página. A identificação da Bwin exige o marcador de bookmaker `459` e a indicação `bwin.pt`; odds de outras casas não são exportadas.
+
+Para recolher uma lista pequena de jogos e atualizar os CSVs separados:
+
+```bash
+node scripts/collect-flashscore-csv.mjs ID_DO_JOGO_1 ID_DO_JOGO_2
+```
+
+O script cria/atualiza:
+- `data/flashscore-statistics.csv` — estatísticas casa/fora e identificação do jogo.
+- `data/bwin-odds-flashscore.csv` — apenas odds 1X2 da Bwin observadas no momento da recolha.
+
+As estatísticas são deduplicadas por `match_id`; as odds mantêm observações distintas por jogo e instante de recolha. O intervalo predefinido entre pedidos é 1,5 segundos e pode ser alterado por `FLASHSCORE_REQUEST_DELAY_MS`. O endereço do Worker pode ser configurado por `FLASHSCORE_PROXY_URL`. Se o Flashscore responder 403 ou 429, o script interrompe a sequência sem tentar contornar o bloqueio. A base CSV histórica existente não é substituída.
