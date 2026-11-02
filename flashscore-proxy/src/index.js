@@ -1,3 +1,4 @@
+import { extractBwin1x2 } from "./extract-bwin.mjs";
 const UPSTREAM = "https://m.flashscore.pt";
 const ALLOWED_ORIGINS = new Set([
   "https://simuladorfutebol.onrender.com"
@@ -122,12 +123,13 @@ function inspectHtml(html) {
       found: /bwin/i.test(html),
       mentions: (html.match(/bwin/gi) || []).length,
       snippets: bwinSnippets,
-      odds_markers: bwinOddsMarkers
+      odds_markers: bwinOddsMarkers,
+      one_x_two_candidates: extractBwin1x2(html)
     },
     score_candidates: scoreCandidates,
     score_contexts: scoreContexts,
     decimal_number_candidates: oddsCandidates,
-    note: "Valores próximos de marcadores Bwin são pistas contextuais, não confirmação de mercado, seleção 1/X/2 nem odds de fecho. Os resultados só podem ser atribuídos a períodos quando a estrutura HTML o identificar inequivocamente."
+    note: "one_x_two_candidates exige um triplo explícito junto do marcador Bwin. Estes valores são os apresentados na página consultada, não odds históricas/de fecho. Os resultados só podem ser atribuídos a períodos quando a estrutura HTML o identificar inequivocamente."
   };
 }
 
