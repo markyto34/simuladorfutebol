@@ -154,6 +154,7 @@ function summarizeInspection(inspection) {
   const scripts = Array.isArray(structure.scripts) ? structure.scripts : [];
   const dataAttributes = Array.isArray(structure.data_attributes) ? structure.data_attributes : [];
   const textTerms = Array.isArray(structure.text_terms) ? structure.text_terms : [];
+  const domSamples = Array.isArray(structure.dom_samples) ? structure.dom_samples : [];
   const relevantLinks = links.filter(item =>
     /stat|league|tournament|competition|breadcrumb|standings|classif|match|event|tab/i
       .test([item.href, item.text, item.class, item.id, item.title, item["aria-label"], item["data-testid"]].filter(Boolean).join(" "))
@@ -198,11 +199,13 @@ function summarizeInspection(inspection) {
       class_tokens: (structure.class_tokens || []).slice(0, 20),
       id_tokens: (structure.id_tokens || []).slice(0, 20),
       text_terms: textTerms.slice(0, 15),
+      dom_samples: domSamples,
       truncated: {
         relevant_links: relevantLinks.length > 20,
         scripts: scripts.filter(item => item.src || item.has_json_content).length > 10,
         data_attributes: dataAttributes.length > 15,
-        text_terms: textTerms.length > 15
+        text_terms: textTerms.length > 15,
+        dom_samples: domSamples.length >= 12
       }
     },
     note: "Resumo do HTML já recebido. Não foram feitos pedidos adicionais ao Flashscore; listas longas foram limitadas."
