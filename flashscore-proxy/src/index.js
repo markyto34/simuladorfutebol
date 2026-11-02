@@ -181,9 +181,20 @@ export default {
       if (!Number.isFinite(parsedDate.getTime()) || parsedDate.toISOString().slice(0, 10) !== date) {
         return json({ error: "invalid_date" }, 400, headers);
       }
-      // URL fixo do Flashscore; nunca encaminhar URL arbitrário.
+      // O Flashscore mobile usa offsets relativos: ?d=0 (hoje), ?d=-1 (ontem).
+      // Converter a data pedida para o offset do calendário de Portugal.
+      const portugalToday = new Intl.DateTimeFormat("en-CA", {
+        timeZone: "Europe/Lisbon", year: "numeric", month: "2-digit", day: "2-digit"
+      }).format(new Date());
+      const requestedDay = Date.parse(date + "T00:00:00Z");
+      const todayDay = Date.parse(portugalToday + "T00:00:00Z");
+      const dayOffset = Math.round((requestedDay - todayDay) / 86_400_000);
+      if (!Number.isSafeInteger(dayOffset) || Math.abs(dayOffset) > 3650) {
+        return json({ error: "date_out_of_supported_range" }, 400, headers);
+      }
+      // URL fixa do Flashscore; nunca encaminhar URL arbitrário.
       const discoveryTarget = new URL("/", UPSTREAM);
-      discoveryTarget.searchParams.set("d", date);
+      discoveryTarget.searchParams.set("d", String(dayOffset));
       let discoveryResponse;
       try {
         discoveryResponse = await fetch(discoveryTarget.toString(), {
