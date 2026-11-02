@@ -6,10 +6,10 @@ individual de jogo do domínio móvel público `m.flashscore.pt`.
 ## Endpoints
 
 - `GET /health` — estado do Worker.
-- `GET /match?id=<match-id>` — obtém a página HTML de uma partida.\n- `GET /inspect?id=<match-id>` — devolve um diagnóstico JSON compacto (título, menções Bwin, excertos e candidatos numéricos/de resultado), sem devolver o HTML.
+- `GET /match?id=<match-id>` — obtém a página HTML de uma partida.\n- `GET /inspect?id=<match-id>` — inspeciona o sumário do jogo.
+- `GET /inspect?id=<match-id>&tab=statistics|lineups|standings|commentary|h2h` — inspeciona um separador autorizado do mesmo jogo. `summary` é o separador predefinido.
 
-O identificador é validado e o destino é sempre construído internamente como
-`https://m.flashscore.pt/jogo/<id>/`. Não aceita URLs arbitrários.
+O identificador e o separador são validados. O destino é sempre construído internamente no domínio `https://m.flashscore.pt`, sem aceitar URLs arbitrários. Os separadores autorizados são mapeados para os caminhos observados nos links internos do HTML.
 
 ## Limites de segurança
 
