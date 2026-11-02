@@ -20,3 +20,18 @@ test("ignores invalid links and reports empty results honestly", async () => {
   assert.equal(result.match_count, 0);
   assert.equal(result.truncated, false);
 });
+
+
+test("returns a compact summary with unique IDs and duplicate counts", async () => {
+  const { inspectMatchDiscovery } = await import("../flashscore-proxy/src/discover-matches.mjs");
+  const html = `<title>Futebol Ontem</title>
+    <a href="/jogo/827gE8Kl/"><span>Lanus - Gimnasia Mendoza</span></a>
+    <a href="/jogo/827gE8Kl/?s=3">duplicate</a>
+    <a href="/jogo/AB12cd34/">Home - Away</a>`;
+  const result = inspectMatchDiscovery(html, "2026-11-01", { summary: true });
+  assert.equal(result.match_count, 2);
+  assert.equal(result.duplicate_link_count, 1);
+  assert.equal(result.sample_matches.length, 2);
+  assert.equal(result.sample_matches[0].match_id, "827gE8Kl");
+  assert.equal(Object.hasOwn(result, "matches"), false);
+});
