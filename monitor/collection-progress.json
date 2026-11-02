@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 1120,
-  "stats_games": 514,
-  "bwin_odds": 296,
+  "processed_games": 1130,
+  "stats_games": 521,
+  "bwin_odds": 301,
   "failed_games": 1,
-  "current_match": "Último concluído: Salcedo - Jarabacoa",
-  "last_result": "Salcedo - Jarabacoa: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T22:35:02.103Z"
+  "current_match": "Último concluído: Gicumbi - Sunrise",
+  "last_result": "Gicumbi - Sunrise: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T22:35:18.164Z"
 }
