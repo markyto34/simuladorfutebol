@@ -60,7 +60,7 @@
   function teamKey(raw) {
     return String(raw || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "")
       .toLowerCase().replace(/\b(fc|cf|sc|afc|club|clube|de|the)\b/g, " ")
-      .replace(/[^a-z0-9]+/g, " ").trim().replace(/\s+/g, " ");
+      .replace(/[^a-z0-9]+/g, " ").trim().replace(/\s+/g, " ").replace(/^1\s+/, "");
   }
 
   function fixtureKey(date, home, away) {
