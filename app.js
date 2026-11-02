@@ -478,10 +478,11 @@ function teamSample(team,venue,metric){
  // cantos, remates e faltas completos para poder contribuir para golos/HT.
  const values=records
   .map(x=>valueFrom(x.m,x.w,x.h))
-  .filter(v=>v!==null&&v!==undefined&&Number.isFinite(Number(v))&&Number(v)>=0);
+  .filter(validMetricSampleValue);
  return limit==="all"?values:values.slice(0,requested);
 }
 function mean(values){return values.length?values.reduce((a,b)=>a+b,0)/values.length:null;}
+function validMetricSampleValue(value){return value!==null&&value!==undefined&&Number.isFinite(Number(value))&&Number(value)>=0;}
 function fillInput(id,value){const display=$(id+"Display");if(value!==null&&Number.isFinite(value)){$(id).value=value.toFixed(2);if(display)display.textContent=value.toFixed(2);}else{$(id).value="";if(display)display.textContent="Sem dados";}}
 function applyTeamSelection(side){
  const team=$(side==="home"?"homePick":"awayPick").value;
