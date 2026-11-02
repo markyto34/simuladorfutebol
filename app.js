@@ -540,7 +540,6 @@ function enforcePairedTeamCoverage(){
  const allIds=TEAM_METRIC_PAIRS.flatMap(([,homeId,awayId])=>[homeId,awayId]);
  const clearAll=()=>allIds.forEach(id=>fillInput(id,null));
  if(!home||!away){clearAll();return "Seleciona as duas equipas; os dados só são apresentados quando existe um par casa/fora.";}
- const limit=$("sample").value;
  const homeBase=teamSample(home,"home","goalsFor").length>0&&teamSample(home,"home","goalsAgainst").length>0;
  const awayBase=teamSample(away,"away","goalsFor").length>0&&teamSample(away,"away","goalsAgainst").length>0;
  if(!homeBase||!awayBase){
@@ -558,7 +557,8 @@ function enforcePairedTeamCoverage(){
  }
  return missing.length?"Cobertura conjunta aplicada: indicadores sem amostra válida nas duas equipas foram ocultados dos dois lados ("+missing.join(", ")+").":"Cobertura conjunta confirmada: casa e fora têm dados válidos.";
 }
-function applyTeamSelection(side,skipPairCheck=false){
+function applyTeamSelection(side){
+ const skipPairCheck=arguments[1]===true;
  const team=$(side==="home"?"homePick":"awayPick").value;
  const suffix=side==="home"?"h":"a";
  const fields=[["goalsFor",suffix+"gFor"],["goalsAgainst",suffix+"gAgainst"],["htGoalsFor",suffix+"htFor"],["htGoalsAgainst",suffix+"htAgainst"],["secondHalfGoalsFor",suffix+"shFor"],["secondHalfGoalsAgainst",suffix+"shAgainst"],["xgFor",suffix+"xgFor"],["xgAgainst",suffix+"xgAgainst"],["cornersFor",suffix+"cFor"],["cornersAgainst",suffix+"cAgainst"],["shotsFor",suffix+"shotsFor"],["shotsAgainst",suffix+"shotsAgainst"],["targetFor",suffix+"targetFor"],["targetAgainst",suffix+"targetAgainst"],["foulsFor",suffix+"foulsFor"],["foulsAgainst",suffix+"foulsAgainst"],["yellowFor",suffix+"yellowFor"],["yellowAgainst",suffix+"yellowAgainst"],["redFor",suffix+"redFor"],["redAgainst",suffix+"redAgainst"]];
