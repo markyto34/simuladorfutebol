@@ -27,7 +27,7 @@ function extractExplicitCompetitionForMatch(html, matchId) {
   const tokens = scoreData.match(/<h4\b[^>]*>[\s\S]*?<\/h4>|<a\b[^>]*href\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)[^>]*>[\s\S]*?<\/a>/gi) || [];
   for (const token of tokens) {
     if (/^<h4\b/i.test(token)) {
-      currentHeading = plainText(token.replace(/^<h4\b[^>]*>/i, "").replace(/<\/h4>$/i, ""));
+      currentHeading = plainText(token.replace(/^<h4\b[^>]*>/i, "").replace(/<\/h4>$/i, "").replace(/<a\b[^>]*>[\s\S]*?<\/a>/gi, " "));
       continue;
     }
     const href = decodeEntities(token.match(/\bhref\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i)?.slice(1).find(Boolean) || "");
