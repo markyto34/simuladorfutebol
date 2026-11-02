@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 1040,
-  "stats_games": 493,
-  "bwin_odds": 289,
+  "processed_games": 1050,
+  "stats_games": 502,
+  "bwin_odds": 295,
   "failed_games": 1,
-  "current_match": "Último concluído: Nairobi United - Bandari",
-  "last_result": "Nairobi United - Bandari: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T21:51:40.346Z"
+  "current_match": "Último concluído: Bohemians 1905 B - Povltavska FA",
+  "last_result": "Bohemians 1905 B - Povltavska FA: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T21:51:56.489Z"
 }
