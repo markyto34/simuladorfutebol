@@ -93,8 +93,8 @@ function inspectHtml(html) {
     const endAt = Math.min(html.length, marker.index + marker[0].length + 420);
     const rawContext = html.slice(startAt, endAt);
     const context = rawContext
-      .replace(/\\\\u003c/gi, "<").replace(/\\\\u003e/gi, ">")
-      .replace(/\\\\u0022/gi, '"').replace(/\\\\u0026/gi, "&")
+      .replace(/\\u003c/gi, "<").replace(/\\u003e/gi, ">")
+      .replace(/\\u0022/gi, '"').replace(/\\u0026/gi, "&")
       .replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ")
       .replace(/\\s+/g, " ").trim();
     const nearbyValues = [...context.matchAll(/\\b\\d{1,2}[.,]\\d{2,3}\\b/g)]
