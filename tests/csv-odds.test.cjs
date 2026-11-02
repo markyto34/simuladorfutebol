@@ -103,8 +103,9 @@ test("compara odds atuais com jogos históricos de perfil semelhante", () => {
     {TEAM_HOME:"C",TEAM_AWAY:"D",score_ft_home:"0",score_ft_away:"0",odd_ft_1:"1.55",odd_ft_x:"3.95",odd_ft_2:"6.10"},
     {TEAM_HOME:"E",TEAM_AWAY:"F",score_ft_home:"0",score_ft_away:"1",odd_ft_1:"3.00",odd_ft_x:"3.00",odd_ft_2:"2.50"}
   ]);
-  const result = csv.evaluateCurrentOdds(rows, {"1":1.52,X:4,"2":6.05}, 0.1);
-  assert.equal(result.sample, 2);
+  const result = csv.evaluateCurrentOdds(rows, {"1":1.50,X:4,"2":6});
+  assert.equal(result.sample, 1);
+  assert.equal(result.matchedOddsSample, 1);
   assert.equal(result.historical["1"].wins, 1);
   assert.ok(result.market.fair["1"] > 0);
 });
@@ -131,6 +132,9 @@ test("classifica continentes e calcula mercados por período sem tratar dados em
   assert.equal(rows[0].continent, "Europa");
   assert.equal(rows[1].continent, "América do Sul");
   assert.equal(rows[2].continent, "Ásia");
+  assert.equal(csv.continentForCountry("Guatemala"), "América do Norte e Central");
+  assert.equal(csv.continentForCountry("Costa Rica"), "América do Norte e Central");
+  assert.equal(csv.continentForCountry("Canada"), "América do Norte e Central");
   const analysis = csv.analyzePeriodMarkets(rows);
   assert.equal(analysis.firstHalf.result.count, 3);
   assert.equal(analysis.firstHalf.over05.hits, 2);
@@ -151,7 +155,7 @@ test("a análise de mercados da amostra semelhante usa sempre as três odds", ()
     {TEAM_HOME:"A",TEAM_AWAY:"B",score_fh_home:"1",score_fh_away:"0",score_sh_home:"0",score_sh_away:"0",score_ft_home:"1",score_ft_away:"0",odd_ft_1:"1.50",odd_ft_x:"4.00",odd_ft_2:"6.00"},
     {TEAM_HOME:"C",TEAM_AWAY:"D",score_fh_home:"0",score_fh_away:"0",score_sh_home:"1",score_sh_away:"0",score_ft_home:"1",score_ft_away:"0",odd_ft_1:"1.55",odd_ft_x:"",odd_ft_2:"6.10"}
   ]);
-  const result = csv.evaluateCurrentOdds(rows, {"1":1.52,X:4,"2":6.05}, 0.1);
+  const result = csv.evaluateCurrentOdds(rows, {"1":1.50,X:4,"2":6});
   assert.equal(result.sample, 1);
   assert.equal(result.marketAnalysis.firstHalf.over05.count, 1);
   assert.equal(result.marketAnalysis.fullTime.result.count, 1);
@@ -164,13 +168,13 @@ test("compara a mesma pesquisa de odds na amostra global e no continente escolhi
     {COUNTRY:"Chile",date_time:"2025-01-02 12:00:00",TEAM_HOME:"C",TEAM_AWAY:"D",score_fh_home:"0",score_fh_away:"0",score_sh_home:"0",score_sh_away:"1",score_ft_home:"0",score_ft_away:"1",odd_ft_1:"1.55",odd_ft_x:"3.95",odd_ft_2:"6.10"},
     {COUNTRY:"Japan",date_time:"2025-01-03 12:00:00",TEAM_HOME:"E",TEAM_AWAY:"F",score_fh_home:"0",score_fh_away:"0",score_sh_home:"1",score_sh_away:"0",score_ft_home:"1",score_ft_away:"0",odd_ft_1:"1.52",odd_ft_x:"4.02",odd_ft_2:"6.05"}
   ]);
-  const odds={"1":1.52,X:4,"2":6.05};
-  const global=csv.evaluateCurrentOdds(rows,odds,0.1);
-  const europe=csv.evaluateCurrentOdds(rows.filter(m=>m.continent==="Europa"),odds,0.1);
-  assert.equal(global.sample,3);
-  assert.equal(europe.sample,1);
-  assert.equal(global.marketAnalysis.fullTime.result.count,3);
-  assert.equal(europe.marketAnalysis.fullTime.result.count,1);
+  const odds={"1":1.52,X:4.02,"2":6.05};
+  const global=csv.evaluateCurrentOdds(rows,odds);
+  const europe=csv.evaluateCurrentOdds(rows.filter(m=>m.continent==="Europa"),odds);
+  assert.equal(global.sample,1);
+  assert.equal(europe.sample,0);
+  assert.equal(global.marketAnalysis.fullTime.result.count,1);
+  assert.equal(europe.marketAnalysis.fullTime.result.count,0);
 });
 
 test("backtesting continental mantém separação cronológica independente", () => {
@@ -185,4 +189,15 @@ test("backtesting continental mantém separação cronológica independente", ()
   assert.equal(global.validation.count,2);
   assert.equal(europe.training.count,1);
   assert.equal(europe.validation.count,1);
+});
+
+test("pesquisa histórica exige igualdade exata nas três odds", () => {
+  const rows = csv.normalizeRows([
+    {TEAM_HOME:"A",TEAM_AWAY:"B",score_ft_home:"2",score_ft_away:"0",odd_ft_1:"1.50",odd_ft_x:"4.00",odd_ft_2:"6.00"},
+    {TEAM_HOME:"C",TEAM_AWAY:"D",score_ft_home:"1",score_ft_away:"1",odd_ft_1:"1.51",odd_ft_x:"4.00",odd_ft_2:"6.00"},
+    {TEAM_HOME:"E",TEAM_AWAY:"F",score_ft_home:"0",score_ft_away:"1",odd_ft_1:"1.50",odd_ft_x:"4.00",odd_ft_2:"6.01"}
+  ]);
+  const result = csv.evaluateCurrentOdds(rows, {"1":1.50,X:4.00,"2":6.00});
+  assert.equal(result.sample,1);
+  assert.deepEqual(result.matches.map(match=>match.home),["A"]);
 });
