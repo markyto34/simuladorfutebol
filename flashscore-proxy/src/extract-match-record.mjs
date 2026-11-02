@@ -1,5 +1,6 @@
 import { extractPeriodScores } from "./extract-period-scores.mjs";
 import { extractBwin1x2 } from "./extract-bwin.mjs";
+import { extractPageContext } from "./extract-page-context.mjs";
 
 function decodeMarkup(value) {
   return String(value)
@@ -86,6 +87,8 @@ function parseDateTime(html) {
 
 export function extractStructuredMatch(html, matchId, options = {}) {
   const decoded = decodeMarkup(html);
+  const pageContext = extractPageContext(decoded);
+  const context = pageContext.fields;
   const title = cleanText(decoded.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] || "");
   const teams = parseTitle(title);
   const dateTime = parseDateTime(decoded);
@@ -118,20 +121,20 @@ export function extractStructuredMatch(html, matchId, options = {}) {
 
   const missingFields = [];
   for (const [key, value] of Object.entries({
-    country: null,
-    competition: null,
-    season: null,
-    stage: null,
-    round: null,
-    referee: null,
-    venue: null,
-    attendance: null,
+    country: context.country,
+    competition: context.competition,
+    season: context.season,
+    stage: context.stage,
+    round: context.round,
+    referee: context.referee,
+    venue: context.venue,
+    attendance: context.attendance,
     date_time: dateTime?.source_text || null,
     teams_home: teams.home,
     teams_away: teams.away,
     status,
     events: events.length ? events : null,
-    statistics: null,
+    statistics: Object.keys(pageContext.statistics).length ? pageContext.statistics : null,
     lineups: null,
     formations: null,
     score_full_time: score?.full_time || null,
@@ -147,14 +150,14 @@ export function extractStructuredMatch(html, matchId, options = {}) {
     date_time: dateTime?.source_text || null,
     date_time_iso_local: dateTime?.iso_local || null,
     timezone: null,
-    country: null,
-    competition: null,
-    season: null,
-    stage: null,
-    round: null,
-    venue: null,
-    attendance: null,
-    referee: null,
+    country: context.country,
+    competition: context.competition,
+    season: context.season,
+    stage: context.stage,
+    round: context.round,
+    venue: context.venue,
+    attendance: context.attendance,
+    referee: context.referee,
     status,
     teams: {
       home: { name: teams.home },
@@ -162,7 +165,7 @@ export function extractStructuredMatch(html, matchId, options = {}) {
     },
     score,
     events,
-    statistics: {},
+    statistics: pageContext.statistics,
     lineups: null,
     formations: null,
     substitutions,
@@ -179,6 +182,7 @@ export function extractStructuredMatch(html, matchId, options = {}) {
         { field: "score", source: periods?.evidence || null },
         { field: "events", source: "visible incident blocks", count: events.length },
         { field: "substitutions", source: "substitution incident blocks with explicit incoming/outgoing player format", count: substitutions.length },
+        { field: "page_context", source: "meta, breadcrumbs, visible labels and embedded JSON", evidence: pageContext.evidence, diagnostics: pageContext.diagnostics },
         { field: "odds", source: singleBwin1x2?.evidence || null }
       ]
     }

@@ -20,3 +20,6 @@ jobs:
       - run: node --check flashscore-proxy/src/index.js
       - run: node scripts/validate-config.cjs
       - run: node --test tests/*.test.cjs
+      - run: node --test tests/*.test.mjs
+      - run: node --check flashscore-proxy/src/extract-page-context.mjs
+      - run: node --check flashscore-proxy/src/extract-match-record.mjs
