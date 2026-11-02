@@ -482,7 +482,7 @@ function teamSample(team,venue,metric){
  return limit==="all"?values:values.slice(0,requested);
 }
 function mean(values){return values.length?values.reduce((a,b)=>a+b,0)/values.length:null;}
-function validMetricSampleValue(value){return value!==null&&value!==undefined&&Number.isFinite(Number(value))&&Number(value)>=0;}
+function validMetricSampleValue(value){return value!==null&&value!==undefined&&!(typeof value==="string"&&value.trim()==="")&&Number.isFinite(Number(value))&&Number(value)>=0;}
 function fillInput(id,value){const display=$(id+"Display");if(value!==null&&Number.isFinite(value)){$(id).value=value.toFixed(2);if(display)display.textContent=value.toFixed(2);}else{$(id).value="";if(display)display.textContent="Sem dados";}}
 function applyTeamSelection(side){
  const team=$(side==="home"?"homePick":"awayPick").value;
