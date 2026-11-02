@@ -63,7 +63,7 @@
     "Europa": ["Albania","Andorra","Armenia","Austria","Azerbaijan","Belarus","Belgium","Bélgica","Bosnia","Bosnia and Herzegovina","Bulgaria","Croatia","Cyprus","Czech Republic","Czechia","Denmark","England","Estonia","Faroe Islands","Finland","France","Georgia","Germany","Gibraltar","Greece","Hungary","Iceland","Ireland","Italy","Kosovo","Latvia","Liechtenstein","Lithuania","Luxembourg","Malta","Moldova","Montenegro","Netherlands","North Macedonia","Northern Ireland","Norway","Poland","Portugal","Romania","Russia","San Marino","Scotland","Serbia","Slovakia","Slovenia","Spain","Sweden","Switzerland","Turkey","Türkiye","Ukraine","Wales"],
     "Ásia": ["Afghanistan","Bahrain","Bangladesh","Bhutan","Brunei","Cambodia","China","Hong Kong","India","Indonesia","Iran","Iraq","Israel","Japan","Jordan","Kazakhstan","Kuwait","Kyrgyzstan","Laos","Lebanon","Malaysia","Maldives","Mongolia","Myanmar","Nepal","North Korea","Oman","Pakistan","Palestine","Philippines","Qatar","Saudi Arabia","Singapore","South Korea","Sri Lanka","Syria","Taiwan","Tajikistan","Thailand","Turkmenistan","United Arab Emirates","Uzbekistan","Vietnam","Yemen"],
     "África": ["Algeria","Angola","Benin","Botswana","Burkina Faso","Burundi","Cameroon","Cape Verde","Central African Republic","Chad","Comoros","Congo","DR Congo","Democratic Republic of the Congo","Djibouti","Egypt","Equatorial Guinea","Eritrea","Eswatini","Ethiopia","Gabon","Gambia","Ghana","Guinea","Guinea-Bissau","Ivory Coast","Kenya","Lesotho","Liberia","Libya","Madagascar","Malawi","Mali","Mauritania","Mauritius","Morocco","Mozambique","Namibia","Niger","Nigeria","Rwanda","Sao Tome and Principe","Senegal","Seychelles","Sierra Leone","Somalia","South Africa","South Sudan","Sudan","Tanzania","Togo","Tunisia","Uganda","Zambia","Zimbabwe"],
-    "América do Norte": ["Antigua and Barbuda","Bahamas","Barbados","Belize","Bermuda","Canada","Costa Rica","Cuba","Dominica","Dominican Republic","El Salvador","Grenada","Guatemala","Haiti","Honduras","Jamaica","Mexico","Nicaragua","Panama","Puerto Rico","Saint Kitts and Nevis","Saint Lucia","Saint Vincent and the Grenadines","Trinidad and Tobago","United States","USA","US"],
+    "América do Norte e Central": ["Anguilla","Antigua and Barbuda","Aruba","Bahamas","Barbados","Belize","Bermuda","Bonaire","British Virgin Islands","Canada","Cayman Islands","Costa Rica","Cuba","Curaçao","Curacao","Dominica","Dominican Republic","El Salvador","Greenland","Grenada","Guadeloupe","Guatemala","Haiti","Honduras","Jamaica","Martinique","Mexico","Montserrat","Nicaragua","Panama","Puerto Rico","Saint Kitts and Nevis","Saint Lucia","Saint Martin","Saint Vincent and the Grenadines","Sint Maarten","Trinidad and Tobago","Turks and Caicos Islands","United States","USA","US","US Virgin Islands","Virgin Islands"],
     "América do Sul": ["Argentina","Bolivia","Brazil","Brasil","Chile","Colombia","Ecuador","Guyana","Paraguay","Peru","Suriname","Uruguay","Venezuela"],
     "Oceânia": ["Australia","Fiji","New Zealand","Papua New Guinea","Solomon Islands","Tahiti","Vanuatu"]
   };
@@ -196,16 +196,11 @@
     return result;
   }
 
-  function evaluateCurrentOdds(matches, currentOdds, tolerance) {
+  function evaluateCurrentOdds(matches, currentOdds) {
     if (!hasCompleteOdds(currentOdds)) throw new Error("É necessário introduzir as três odds válidas: 1, X e 2.");
-    tolerance = Number.isFinite(Number(tolerance)) ? Math.max(0, Number(tolerance)) : 0.15;
     const oddsCohort = matches.filter(m => hasCompleteOdds(m.odds) &&
-      ["1", "X", "2"].every(key => Math.abs(m.odds[key] - currentOdds[key]) <= tolerance));
-    const completedCohort = oddsCohort.filter(m => m.completed);
-    const analysis = analyzeTriplet(completedCohort);
-    return { currentOdds, tolerance, market: impliedProbabilities(currentOdds), sample: analysis.count,
-      matchedOddsSample: oddsCohort.length, historical: analysis.outcomes, averageOverround: analysis.averageOverround,
-      marketAnalysis: analyzePeriodMarkets(oddsCohort), matches: completedCohort };
+      ["1", "X", "2"].every(key => m.odds[key] === currentOdds[key]));
+    return { currentOdds, sample: oddsCohort.length, matches: oddsCohort };
   }
 
   function marketRows(matches, scoreKey) {
