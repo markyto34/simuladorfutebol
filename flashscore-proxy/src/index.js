@@ -84,17 +84,50 @@ function inspectHtml(html) {
     if (!oddsCandidates.includes(value)) oddsCandidates.push(value);
     if (oddsCandidates.length >= 30) break;
   }
+  // Contexto dos marcadores Bwin. Os valores próximos são apenas candidatos:
+  // este diagnóstico não lhes atribui mercado, seleção 1/X/2 ou fecho.
+  const bwinOddsMarkers = [];
+  const markerPattern = /<[^>]*(?:data-bookmaker-id=["']459["'][^>]*|data-event=["']odds_[^"']+["'][^>]*)>/gi;
+  for (const marker of html.matchAll(markerPattern)) {
+    const startAt = Math.max(0, marker.index - 220);
+    const endAt = Math.min(html.length, marker.index + marker[0].length + 420);
+    const rawContext = html.slice(startAt, endAt);
+    const context = rawContext
+      .replace(/\\\\u003c/gi, "<").replace(/\\\\u003e/gi, ">")
+      .replace(/\\\\u0022/gi, '"').replace(/\\\\u0026/gi, "&")
+      .replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ")
+      .replace(/\\s+/g, " ").trim();
+    const nearbyValues = [...context.matchAll(/\\b\\d{1,2}[.,]\\d{2,3}\\b/g)]
+      .map(item => item[0].replace(",", "."));
+    bwinOddsMarkers.push({
+      marker: marker[0].slice(0, 500),
+      nearby_decimal_values: [...new Set(nearbyValues)],
+      context: context.slice(0, 700)
+    });
+    if (bwinOddsMarkers.length >= 20) break;
+  }
+
+  const scoreContexts = [];
+  const scoreMarkerPattern = /(?:score|period|half|event__part|detailScore|participant__score)/ig;
+  for (const item of html.matchAll(scoreMarkerPattern)) {
+    const context = html.slice(Math.max(0, item.index - 180), Math.min(html.length, item.index + 300))
+      .replace(/<[^>]+>/g, " ").replace(/\\s+/g, " ").trim();
+    if (context && !scoreContexts.includes(context)) scoreContexts.push(context.slice(0, 420));
+    if (scoreContexts.length >= 12) break;
+  }
 
   return {
     title: title || null,
     bwin: {
       found: /bwin/i.test(html),
       mentions: (html.match(/bwin/gi) || []).length,
-      snippets: bwinSnippets
+      snippets: bwinSnippets,
+      odds_markers: bwinOddsMarkers
     },
     score_candidates: scoreCandidates,
+    score_contexts: scoreContexts,
     decimal_number_candidates: oddsCandidates,
-    note: "Candidatos encontrados no HTML; não são confirmação de mercado, período do jogo nem odds de fecho."
+    note: "Valores próximos de marcadores Bwin são pistas contextuais, não confirmação de mercado, seleção 1/X/2 nem odds de fecho. Os resultados só podem ser atribuídos a períodos quando a estrutura HTML o identificar inequivocamente."
   };
 }
 
