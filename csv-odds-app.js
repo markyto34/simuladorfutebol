@@ -2,298 +2,93 @@
   "use strict";
   const $ = id => document.getElementById(id);
   const CSV_URL = "https://raw.githubusercontent.com/markyto34/simuladorfutebol/main/ganhonasodds_com_20261101.csv";
-  let allMatches = [], filtered = [], page = 0;
   const PAGE_SIZE = 50;
-  const fmt = (n, digits=1) => Number.isFinite(n) ? n.toFixed(digits).replace(".", ",") : "—";
-  const pct = n => Number.isFinite(n) ? fmt(n, 1) + "%" : "—";
-  const unique = values => [...new Set(values.filter(Boolean))].sort((a,b)=>a.localeCompare(b,"pt"));
+  let allMatches = [], matches = [], page = 0;
+  const fmtOdd = n => Number.isFinite(n) ? n.toFixed(2).replace(".", ",") : "—";
   const dateText = d => d ? new Intl.DateTimeFormat("pt-PT").format(d) : "—";
-  const scoreText = s => s[0] === null || s[1] === null ? "—" : s[0] + "–" + s[1];
+  const scoreText = s => s && Number.isInteger(s[0]) && Number.isInteger(s[1]) ? s[0] + "–" + s[1] : "—";
+  const unique = values => [...new Set(values.filter(Boolean))].sort((a,b)=>a.localeCompare(b,"pt"));
 
-  function setOptions(id, values, first) {
-    const el = $(id), previous = el.value;
-    el.replaceChildren(new Option(first, ""));
-    values.forEach(v => el.add(new Option(v, v)));
-    if (values.includes(previous)) el.value = previous;
+  function setCountries() {
+    const select = $("country");
+    unique(allMatches.map(m=>m.country)).forEach(country => select.add(new Option(country,country)));
   }
-  function fillFilters() {
-    const continents = unique(allMatches.map(m=>m.continent).filter(c=>c!=="Por identificar"));
-    setOptions("continent", unique(allMatches.map(m=>m.continent)), "Todos os continentes");
-    setOptions("matchContinent", continents, "Seleciona o continente do jogo");
-    updateCountryOptions();
+  function currentOdds() {
+    return {"1":Number($("current1").value),X:Number($("currentX").value),"2":Number($("current2").value)};
   }
-  function updateCountryOptions() {
-    const selectedContinent = $("continent").value;
-    const countries = allMatches.filter(m => !selectedContinent || m.continent === selectedContinent).map(m => m.country);
-    setOptions("country", unique(countries), "Todos os países");
-    setOptions("league", unique(allMatches.map(m=>m.league)), "Todas as competições");
-  }
-  function getFiltered(ignoreContinent=false) {
-    const fromValue = $("from").value, toValue = $("to").value;
-    const from = fromValue ? new Date(fromValue + "T00:00:00") : null;
-    const to = toValue ? new Date(toValue + "T23:59:59.999") : null;
-    return CSVOdds.filterMatches(allMatches, {
-      continent:ignoreContinent ? "" : $("continent").value, search:$("search").value, country:$("country").value, league:$("league").value,
-      team:$("team").value, from, to, status:ignoreContinent ? "all" : $("statusFilter").value
-    });
-  }
-  function tripletRanges() {
-    const ranges = {};
-    [["1","min1","max1"],["X","minX","maxX"],["2","min2","max2"]].forEach(([key,minId,maxId]) => {
-      ranges[key] = { min:$(minId).value, max:$(maxId).value };
-    });
-    return ranges;
-  }
-  function renderMarketGroups(targetId, analysis) {
-    const target = $(targetId);
-    target.replaceChildren();
-    const groups = [
-      ["Primeira parte", analysis.firstHalf, [
-        ["Resultado 1/X/2","result"],["Mais de 0,5 golos","over05"],["Mais de 1,5 golos","over15"],
-        ["Mais de 2,5 golos","over25"],["Ambas marcam","btts"],["Resultados exatos mais frequentes","exactScores"]
-      ]],
-      ["Segunda parte", analysis.secondHalf, [
-        ["Resultado 1/X/2","result"],["Mais de 0,5 golos","over05"],["Mais de 1,5 golos","over15"],
-        ["Mais de 2,5 golos","over25"],["Ambas marcam","btts"],["Comparação com a 1.ª parte","moreGoalsThanFirst"],
-        ["Resultados exatos mais frequentes","exactScores"]
-      ]],
-      ["Resultado final", analysis.fullTime, [
-        ["Resultado 1/X/2","result"],["Mais de 1,5 golos","over15"],["Mais de 2,5 golos","over25"],
-        ["Mais de 3,5 golos","over35"],["Mais de 4,5 golos","over45"],["Ambas marcam","btts"],
-        ["Casa +0,5 / +1,5 golos","homeGoals"],["Visitante +0,5 / +1,5 golos","awayGoals"],
-        ["Casa sem sofrer","homeCleanSheet"],["Visitante sem sofrer","awayCleanSheet"],
-        ["Resultados exatos mais frequentes","exactScores"]
-      ]],
-      ["Intervalo / final", analysis.halfFull, [["Combinações 1/X/2","outcomes"]]]
-    ];
-    groups.forEach(([title, group, metrics]) => {
-      const card=document.createElement("article"); card.className="market-period-card";
-      const heading=document.createElement("h3"); heading.textContent=title; card.append(heading);
-      metrics.forEach(([label,key]) => {
-        const line=document.createElement("div"); line.className="market-line";
-        const name=document.createElement("span"); name.textContent=label; line.append(name);
-        const value=document.createElement("strong");
-        const small=document.createElement("small");
-        if (key==="homeGoals") {
-          value.textContent=">0,5: "+pct(group.homeOver05.frequency)+" · >1,5: "+pct(group.homeOver15.frequency);
-          small.textContent="Amostras: "+group.homeOver05.count+" / "+group.homeOver15.count;
-        } else if (key==="awayGoals") {
-          value.textContent=">0,5: "+pct(group.awayOver05.frequency)+" · >1,5: "+pct(group.awayOver15.frequency);
-          small.textContent="Amostras: "+group.awayOver05.count+" / "+group.awayOver15.count;
-        } else if (key==="result") {
-          value.textContent=["1","X","2"].map(k=>k+": "+pct(group.result.outcomes[k].frequency)).join(" · ");
-          small.textContent=group.result.count.toLocaleString("pt-PT")+" jogos válidos";
-        } else if (key==="outcomes") {
-          const entries=Object.entries(group.outcomes).sort((a,b)=>b[1].count-a[1].count);
-          value.textContent=entries.length?entries.map(([k,v])=>k+": "+pct(v.frequency)).join(" · "):"Sem amostra válida";
-          small.textContent=group.count.toLocaleString("pt-PT")+" jogos com intervalo e FT";
-        } else if (key==="moreGoalsThanFirst") {
-          const n=group.moreGoalsThanFirst.count, m=group.moreGoalsThanFirst;
-          value.textContent=n? "2.ª parte: "+pct(m.secondHalfMore/n*100)+" · 1.ª parte: "+pct(m.firstHalfMore/n*100)+" · Igual: "+pct(m.equal/n*100):"—";
-          small.textContent=n.toLocaleString("pt-PT")+" jogos com as duas partes completas";
-        } else if (key==="exactScores") {
-          value.textContent=group.exactScores.top.length?group.exactScores.top.map(x=>x.score+" ("+pct(x.frequency)+")").join(" · "):"Sem resultados completos";
-          small.textContent=group.exactScores.count.toLocaleString("pt-PT")+" jogos válidos";
-        } else {
-          value.textContent=pct(group[key].frequency);
-          small.textContent=group[key].count.toLocaleString("pt-PT")+" jogos válidos";
-        }
-        line.append(value,small); card.append(line);
-      });
-      target.append(card);
-    });
-  }
-
-  function update() {
-    filtered = getFiltered();
-    page = 0;
-    const s = CSVOdds.summarize(filtered);
-    $("kpiTotal").textContent = s.total.toLocaleString("pt-PT");
-    $("kpiCompleted").textContent = s.completed.toLocaleString("pt-PT");
-    $("kpiPending").textContent = s.pending.toLocaleString("pt-PT");
-    $("kpiLeagues").textContent = unique(filtered.map(m=>m.league)).length.toLocaleString("pt-PT");
-    $("homePct").textContent = pct(s.percentages["1"]); $("drawPct").textContent = pct(s.percentages.X); $("awayPct").textContent = pct(s.percentages["2"]);
-    $("homeCount").textContent = s.counts["1"].toLocaleString("pt-PT") + " jogos";
-    $("drawCount").textContent = s.counts.X.toLocaleString("pt-PT") + " jogos";
-    $("awayCount").textContent = s.counts["2"].toLocaleString("pt-PT") + " jogos";
-    $("homeBar").style.width = s.percentages["1"] + "%"; $("drawBar").style.width = s.percentages.X + "%"; $("awayBar").style.width = s.percentages["2"] + "%";
-    updateTriplet(); renderMarketGroups("periodMarkets", CSVOdds.analyzePeriodMarkets(CSVOdds.filterOddsRanges(filtered, tripletRanges()))); clearHistoricalSearch("Os filtros do histórico foram alterados. Volta a pesquisar para atualizar os resultados."); renderTable();
-  }
-  function updateTriplet() {
-    const a = CSVOdds.analyzeTriplet(filtered, tripletRanges());
-    $("tripletN").textContent = a.count.toLocaleString("pt-PT");
-    $("tripletMargin").textContent = pct(a.averageOverround);
-    [["1","one"],["X","draw"],["2","two"]].forEach(([key,id]) => {
-      const o = a.outcomes[key];
-      $(id+"Wins").textContent = o.wins.toLocaleString("pt-PT");
-      $(id+"Frequency").textContent = pct(o.frequency);
-      $(id+"Roi").textContent = pct(o.roi);
-      $(id+"AverageOdd").textContent = fmt(a.averageOdds[key],2);
-      $(id+"Fair").textContent = pct(a.averageFairImplied[key]);
-    });
-    $("tripletNote").textContent = a.count
-      ? "Amostra com resultado FT e as três odds válidas. Cada resultado é simulado separadamente com 1 unidade por jogo."
-      : "Não existem jogos concluídos com as três odds dentro destes intervalos.";
-  }
-  function clearHistoricalSearch(message) {
-    $("historicalSearchResult").hidden = true;
-    $("currentNote").textContent = message || "Preenche as odds 1, X e 2 e carrega em Pesquisar.";
-  }
-  function renderHistoricalResult(prefix, result, regionLabel) {
-    const labels = {"1":"Vitória da casa (1)","X":"Empate (X)","2":"Vitória visitante (2)"};
-    const favourite = ["1","X","2"].reduce((best,key) =>
-      result.historical[key].frequency > result.historical[best].frequency ? key : best, "1");
-    $(prefix+"Prediction").textContent = "Mais frequente: " + labels[favourite];
-    $(prefix+"Sample").textContent = result.sample.toLocaleString("pt-PT") + " jogos";
-    $(prefix+"1Freq").textContent = pct(result.historical["1"].frequency);
-    $(prefix+"XFreq").textContent = pct(result.historical.X.frequency);
-    $(prefix+"2Freq").textContent = pct(result.historical["2"].frequency);
-    $(prefix+"Over15").textContent = pct(result.marketAnalysis.fullTime.over15.frequency);
-    $(prefix+"Over25").textContent = pct(result.marketAnalysis.fullTime.over25.frequency);
-    $(prefix+"Btts").textContent = pct(result.marketAnalysis.fullTime.btts.frequency);
-    const exact = CSVOdds.forecastExactScores(result.matches, 3);
-    $(prefix+"Exact").textContent = exact.scores.length
-      ? exact.scores.map(s => s.score + " (" + pct(s.frequency) + ")").join(" · ") : "Sem marcadores completos.";
-    $(prefix+"Warning").textContent = result.sample < 30
-      ? "Amostra reduzida: interpretar com muita cautela (" + regionLabel + ")."
-      : "Amostra histórica; não representa garantia de repetição.";
-  }
-  function renderMatchedGames(prefix, result) {
-    const target = $(prefix + "Matches");
-    target.replaceChildren();
-    const heading = document.createElement("h4");
-    heading.textContent = "Jogos encontrados (" + result.matches.length.toLocaleString("pt-PT") + ")";
-    target.append(heading);
-    if (!result.matches.length) {
-      const empty = document.createElement("p"); empty.className = "hint";
-      empty.textContent = "Não foram encontrados jogos para esta amostra."; target.append(empty); return;
-    }
-    const wrap = document.createElement("div"); wrap.className = "table-wrap matched-games-table";
-    const table = document.createElement("table"), thead = document.createElement("thead"), header = document.createElement("tr");
-    ["Data","País","Competição","Encontro","Odds fecho 1 / X / 2","FT","Resultado"].forEach(label => { const th=document.createElement("th"); th.textContent=label; header.append(th); });
-    thead.append(header); const tbody = document.createElement("tbody");
-    result.matches.forEach(match => {
-      const tr = document.createElement("tr");
-      const cells = [dateText(match.date),match.country||"—",match.league||"—",(match.home||"—")+" – "+(match.away||"—"),["1","X","2"].map(key=>match.odds[key]===null?"—":fmt(match.odds[key],2)).join(" / "),scoreText(match.ft),match.outcome==="1"?"Vitória casa":match.outcome==="X"?"Empate":match.outcome==="2"?"Vitória visitante":"—"];
-      cells.forEach(value=>{const td=document.createElement("td");td.textContent=value;tr.append(td);}); tbody.append(tr);
-    });
-    table.append(thead,tbody); wrap.append(table); target.append(wrap);
-  }
-
-  function searchHistoricalOdds() {
-    const odds = {"1":Number($("current1").value),X:Number($("currentX").value),"2":Number($("current2").value)};
-    if (!CSVOdds.hasCompleteOdds(odds)) {
-      clearHistoricalSearch("Introduz três odds válidas: 1, X e 2."); return;
-    }
-    const tolerance = Number($("tolerance").value || 0.15);
-    const continent = $("matchContinent").value;
-    if (!continent) { clearHistoricalSearch("Seleciona o continente do jogo para comparar a amostra global com a continental."); return; }
-    if (!Number.isFinite(tolerance) || tolerance < 0 || tolerance > 5) {
-      clearHistoricalSearch("A tolerância deve estar entre 0 e 5."); return;
-    }
-    try {
-      const base = getFiltered(true);
-      const global = CSVOdds.evaluateCurrentOdds(base, odds, tolerance);
-      const regionalMatches = base.filter(m => m.continent === continent);
-      const regional = CSVOdds.evaluateCurrentOdds(regionalMatches, odds, tolerance);
-      if (!global.sample) {
-        clearHistoricalSearch("Não encontrámos jogos globais concluídos com as três odds dentro da tolerância de ±" + fmt(tolerance,2) + ". Aumenta ligeiramente a tolerância."); return;
-      }
-      renderHistoricalResult("global", global, "global");
-      renderMatchedGames("global", global);
-      if (regional.sample) { renderHistoricalResult("regional", regional, continent); renderMatchedGames("regional", regional); }
-      else { $("regionalWarning").textContent = "Sem jogos concluídos deste continente com as três odds dentro da tolerância."; $("regionalMatches").replaceChildren(); }
-      $("historicalSearchResult").hidden = false;
-      $("globalHeading").textContent = "Todos os continentes";
-      $("regionalHeading").textContent = continent;
-      $("globalResult").hidden = false;
-      $("regionalResult").hidden = false;
-      renderMarketGroups("globalPeriodMarkets", global.marketAnalysis);
-      if (regional.sample) renderMarketGroups("regionalPeriodMarkets", regional.marketAnalysis);
-      else $("regionalPeriodMarkets").replaceChildren();
-      $("currentNote").textContent = "Comparação concluída. Odds 1/X/2 correspondidas em simultâneo, com tolerância absoluta de ±" + fmt(tolerance,2) + ". A análise global ignora o filtro continental geral; respeita os restantes filtros.";
-    } catch (err) { clearHistoricalSearch(err.message); }
-  }
-  function runBacktest() {
-    const splitDate = $("splitDate").value, continent = $("matchContinent").value;
-    if (!splitDate) { $("backtestStatus").textContent = "Escolhe uma data de corte para separar treino e validação."; return; }
-    if (!continent) { $("backtestStatus").textContent = "Seleciona o continente do jogo para comparar backtesting global e continental."; return; }
-    const base = getFiltered(true), regional = base.filter(m => m.continent === continent);
-    const globalResult = CSVOdds.backtestTriplet(base, tripletRanges(), splitDate);
-    const regionalResult = CSVOdds.backtestTriplet(regional, tripletRanges(), splitDate);
-    $("trainN").textContent = globalResult.training.count.toLocaleString("pt-PT");
-    $("validN").textContent = globalResult.validation.count.toLocaleString("pt-PT");
-    $("regionalTrainN").textContent = regionalResult.training.count.toLocaleString("pt-PT");
-    $("regionalValidN").textContent = regionalResult.validation.count.toLocaleString("pt-PT");
-    [["1","valid1","regionalValid1"],["X","validX","regionalValidX"],["2","valid2","regionalValid2"]].forEach(([key,validId,rValidId]) => {
-      $(validId).textContent = pct(globalResult.validation.outcomes[key].roi);
-      $(rValidId).textContent = pct(regionalResult.validation.outcomes[key].roi);
-    });
-    $("backtestStatus").textContent = "Backtesting cronológico concluído: global vs. " + continent + ". Compara sobretudo a validação, que usa jogos posteriores à data de corte e não usados no treino.";
-  }
-  function renderTable() {
-    const start = page * PAGE_SIZE, rows = filtered.slice(start,start+PAGE_SIZE);
-    $("matchesBody").replaceChildren();
+  function render() {
+    const body = $("matchesBody");
+    body.replaceChildren();
+    const start = page * PAGE_SIZE;
+    const rows = matches.slice(start,start+PAGE_SIZE);
     if (!rows.length) {
-      const tr=document.createElement("tr"),td=document.createElement("td");td.colSpan=9;td.className="empty";td.textContent="Não existem jogos para os filtros selecionados.";tr.append(td);$("matchesBody").append(tr);
-    } else rows.forEach(m=>{
+      const tr=document.createElement("tr"),td=document.createElement("td");
+      td.colSpan=10;td.className="empty";td.textContent="Não foram encontrados jogos com as três odds exatamente iguais.";
+      tr.append(td);body.append(tr);
+    } else rows.forEach(match => {
       const tr=document.createElement("tr");
-      const cells=[dateText(m.date),m.league,m.home+" – "+m.away,scoreText(m.ht),scoreText(m.secondHalf),scoreText(m.ft),scoreText(m.final),
-        ["1","X","2"].map(k=>m.odds[k]===null?"—":fmt(m.odds[k],2)).join(" / ")];
-      cells.forEach(value=>{const td=document.createElement("td");td.textContent=value;tr.append(td);});
-      const state=document.createElement("td");state.textContent=m.completed?"Concluído":"Pendente";if(!m.completed)state.className="pending";tr.append(state);$("matchesBody").append(tr);
+      const values=[
+        dateText(match.date),match.continent||"Por identificar",match.country||"—",match.league||"—",
+        (match.home||"—")+" – "+(match.away||"—"),
+        fmtOdd(match.odds["1"]),fmtOdd(match.odds.X),fmtOdd(match.odds["2"]),
+        scoreText(match.ft),match.outcome==="1"?"1 · Casa":match.outcome==="X"?"X · Empate":match.outcome==="2"?"2 · Visitante":"Pendente"
+      ];
+      values.forEach(value=>{const td=document.createElement("td");td.textContent=value;tr.append(td);});
+      body.append(tr);
     });
-    const pages=Math.max(1,Math.ceil(filtered.length/PAGE_SIZE));
-    $("tableInfo").textContent=filtered.length.toLocaleString("pt-PT")+" REGISTOS";
+    const pages=Math.max(1,Math.ceil(matches.length/PAGE_SIZE));
+    $("resultCount").textContent=matches.length.toLocaleString("pt-PT")+" jogos";
     $("pageLabel").textContent="Página "+(page+1)+" / "+pages;
-    $("prevPage").disabled=page===0;$("nextPage").disabled=page>=pages-1;
+    $("prevPage").disabled=page===0;
+    $("nextPage").disabled=page>=pages-1;
+  }
+  function search() {
+    const odds=currentOdds();
+    if (!CSVOdds.hasCompleteOdds(odds)) {
+      $("resultsPanel").hidden=true;
+      $("currentNote").textContent="Introduz três odds válidas, todas superiores a 1,00.";
+      return;
+    }
+    const country=$("country").value;
+    matches=CSVOdds.evaluateCurrentOdds(allMatches,odds).matches;
+    if(country) matches=matches.filter(match=>match.country===country);
+    matches.sort((a,b)=>(b.date?.getTime()||0)-(a.date?.getTime()||0));
+    page=0;
+    $("resultsPanel").hidden=false;
+    $("resultsTitle").textContent="Jogos com odds exatamente iguais";
+    $("currentNote").textContent=matches.length
+      ? "Pesquisa concluída. As três odds 1/X/2 coincidem exatamente"+(country?" e o país é "+country+".":".")
+      : "Não existem jogos com estas três odds exatamente iguais"+(country?" em "+country+".":".");
+    render();
   }
   async function loadDatabase() {
-    $("status").textContent = "A ligar à base de dados histórica…";
-    $("recordCount").textContent = "A carregar";
     try {
-      const response = await fetch(CSV_URL, { method:"GET", mode:"cors", cache:"default" });
-      if (!response.ok) throw new Error("A fonte respondeu com HTTP " + response.status + ".");
-      $("status").textContent = "Base de dados recebida. A validar e a preparar os registos…";
-      const csvText = await response.text();
-      const raw = CSVOdds.parseCSV(csvText);
-      const required = ["date_time","COUNTRY","LEAGUE","TEAM_HOME","TEAM_AWAY","odd_ft_1","odd_ft_x","odd_ft_2","score_ft_home","score_ft_away"];
-      if (!raw.length || required.some(k => !(k in raw[0]))) throw new Error("A base de dados não contém todas as colunas necessárias, incluindo as três odds e o resultado FT.");
-      allMatches = CSVOdds.normalizeRows(raw);
-      fillFilters();
-      $("workspace").hidden = false;
-      $("recordCount").textContent = allMatches.length.toLocaleString("pt-PT");
-      const completed = allMatches.filter(m=>m.completed).length;
-      const completeOdds = allMatches.filter(m=>m.oddsComplete).length;
-      const completeTriplets = allMatches.filter(m=>m.completed && m.oddsComplete).length;
-      const mismatches = allMatches.filter(m=>m.completed && m.final[0]!==null && m.final[1]!==null && (m.ft[0]!==m.final[0] || m.ft[1]!==m.final[1])).length;
-      $("status").textContent = "Base de dados carregada automaticamente: " + allMatches.length.toLocaleString("pt-PT") +
-        " registos; " + completed.toLocaleString("pt-PT") + " com resultado FT; " +
-        completeOdds.toLocaleString("pt-PT") + " com as três odds válidas; " +
-        completeTriplets.toLocaleString("pt-PT") + " elegíveis para análise 1X2. Em " +
-        mismatches.toLocaleString("pt-PT") + " jogos o resultado final da fonte difere do FT; o mercado 1X2 usa sempre o FT.";
-      update();
-    } catch (err) {
-      allMatches=[]; $("workspace").hidden=true; $("recordCount").textContent="—";
-      $("status").textContent = "Não foi possível carregar automaticamente a base de dados: " + err.message +
-        " Confirma a ligação à internet ou se o ficheiro de origem continua disponível.";
+      const response=await fetch(CSV_URL,{method:"GET",mode:"cors",cache:"default"});
+      if(!response.ok) throw new Error("HTTP "+response.status);
+      const raw=CSVOdds.parseCSV(await response.text());
+      const required=["date_time","COUNTRY","LEAGUE","TEAM_HOME","TEAM_AWAY","odd_ft_1","odd_ft_x","odd_ft_2","score_ft_home","score_ft_away"];
+      if(!raw.length||required.some(key=>!(key in raw[0]))) throw new Error("Faltam colunas obrigatórias no CSV.");
+      allMatches=CSVOdds.normalizeRows(raw).filter(m=>m.oddsComplete);
+      setCountries();
+      $("recordCount").textContent=allMatches.length.toLocaleString("pt-PT")+" jogos com odds 1X2 válidas";
+      $("status").textContent="Base histórica carregada.";
+      $("searchHistoricalOdds").disabled=false;
+      $("currentNote").textContent="Introduz as três odds e, se quiseres, seleciona um país.";
+    } catch(error) {
+      $("status").textContent="Não foi possível carregar a base histórica: "+error.message;
+      $("currentNote").textContent="Verifica a ligação à internet e tenta novamente.";
     }
   }
-
-  ["search","team"].forEach(id=>$(id).addEventListener("input",update));
-  $("continent").addEventListener("change",()=>{updateCountryOptions();update();});
-  ["country","league","from","to","statusFilter","matchContinent"].forEach(id=>$(id).addEventListener("change",()=>{update();}));
-  ["min1","max1","minX","maxX","min2","max2"].forEach(id=>$(id).addEventListener("input",()=>{updateTriplet();renderMarketGroups("periodMarkets", CSVOdds.analyzePeriodMarkets(CSVOdds.filterOddsRanges(filtered, tripletRanges())));$("backtestStatus").textContent="Os intervalos foram alterados. Executa novamente o backtesting para atualizar a validação.";}));
-  $("searchHistoricalOdds").addEventListener("click",searchHistoricalOdds);
-  $("runBacktest").addEventListener("click",runBacktest);
-  $("clearFilters").addEventListener("click",()=>{
-    ["search","continent","country","league","team","from","to"].forEach(id=>$(id).value="");
-    $("statusFilter").value="all";
-    updateCountryOptions();
-    ["min1","max1","minX","maxX","min2","max2"].forEach(id=>$(id).value="");
-    update();
+  $("searchHistoricalOdds").addEventListener("click",search);
+  $("clearSearch").addEventListener("click",()=>{
+    ["current1","currentX","current2"].forEach(id=>$(id).value="");
+    $("country").value="";
+    $("resultsPanel").hidden=true;
+    $("currentNote").textContent="Pesquisa limpa. Introduz as três odds para começar.";
   });
-  $("prevPage").addEventListener("click",()=>{if(page>0){page--;renderTable();}});
-  $("nextPage").addEventListener("click",()=>{if((page+1)*PAGE_SIZE<filtered.length){page++;renderTable();}});
+  $("prevPage").addEventListener("click",()=>{if(page>0){page--;render();}});
+  $("nextPage").addEventListener("click",()=>{if((page+1)*PAGE_SIZE<matches.length){page++;render();}});
+  ["current1","currentX","current2"].forEach(id=>$(id).addEventListener("keydown",event=>{if(event.key==="Enter")search();}));
+  $("country").addEventListener("change",()=>{if(!$("resultsPanel").hidden)search();});
   loadDatabase();
 })();
