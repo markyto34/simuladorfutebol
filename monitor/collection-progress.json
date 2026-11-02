@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 960,
+  "processed_games": 970,
   "stats_games": 435,
   "bwin_odds": 242,
   "failed_games": 1,
-  "current_match": "Último concluído: Madla IL - Stabaek 2",
-  "last_result": "Madla IL - Stabaek 2: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T21:49:36.870Z"
+  "current_match": "Último concluído: Lillehammer - Brumunddal",
+  "last_result": "Lillehammer - Brumunddal: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T21:49:51.453Z"
 }
