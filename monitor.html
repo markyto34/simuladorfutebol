@@ -24,6 +24,20 @@
       <div class="refresh-box"><span class="refresh-indicator" id="refresh-indicator"></span><span id="refresh-label">A ligar ao GitHub…</span></div>
     </section>
 
+    <section class="control-panel" aria-labelledby="manual-title">
+      <div class="control-copy">
+        <span class="section-kicker">RECOLHA MANUAL</span>
+        <h2 id="manual-title">Iniciar uma recolha</h2>
+        <p>Escolhe a data dos jogos concluídos. A recolha usa o mesmo processo automático, preserva o histórico e respeita o intervalo entre pedidos.</p>
+      </div>
+      <div class="control-form">
+        <label for="manual-date">Data dos jogos</label>
+        <input id="manual-date" type="date" required>
+        <button id="start-collection" type="button">Iniciar recolha <span aria-hidden="true">→</span></button>
+      </div>
+      <p id="manual-feedback" class="manual-feedback" role="status" aria-live="polite">A verificar se é possível iniciar uma nova execução…</p>
+    </section>
+
     <section class="run-panel" aria-live="polite">
       <div class="run-heading">
         <div><span class="section-kicker">ÚLTIMA EXECUÇÃO</span><h2 id="run-title">A procurar execução…</h2></div>
