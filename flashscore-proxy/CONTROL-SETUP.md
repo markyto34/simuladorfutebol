@@ -27,7 +27,7 @@ No painel Cloudflare:
    - `GITHUB_ACTIONS_TOKEN`: o Fine-grained token do passo 2.
 5. Guarda as alterações.
 
-O Worker é publicado pelo workflow existente de deploy quando as alterações desta branch forem integradas em `main). Se os secrets forem adicionados depois do deploy, basta guardar/redeployar o Worker para garantir que ficam disponíveis.
+O Worker é publicado pelo workflow existente de deploy quando as alterações desta branch forem integradas em `main`. Se os secrets forem adicionados depois do deploy, basta guardar/redeployar o Worker para garantir que ficam disponíveis.
 
 ## 4. Utilizar
 
