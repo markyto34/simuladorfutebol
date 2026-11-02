@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 1220,
-  "stats_games": 566,
-  "bwin_odds": 322,
+  "processed_games": 1230,
+  "stats_games": 573,
+  "bwin_odds": 328,
   "failed_games": 1,
-  "current_match": "Último concluído: Satun FC - Nakhon Pathom",
-  "last_result": "Satun FC - Nakhon Pathom: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T21:56:14.547Z"
+  "current_match": "Último concluído: Young Africans - Kagera Sugar",
+  "last_result": "Young Africans - Kagera Sugar: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-02T21:56:29.961Z"
 }
