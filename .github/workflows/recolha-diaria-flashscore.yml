@@ -93,6 +93,7 @@ jobs:
           COLLECT_OUTCOME: ${{ steps.collect.outcome }}
           VALIDATE_OUTCOME: ${{ steps.validate.outcome }}
           COMMITTED: ${{ steps.commit.outputs.committed }}
+          COMMIT_OUTCOME: ${{ steps.commit.outcome }}
         run: |
           if [ -z "${MONITOR_TOKEN:-}" ]; then
             echo "Monitor não configurado; a recolha prossegue normalmente."
@@ -107,7 +108,7 @@ jobs:
               if (!response.ok) console.error("Monitor respondeu HTTP " + response.status);
             } catch (error) { console.error("Monitor indisponível: " + error.message); }
           };
-          await send({ type: "repository_commit", committed: process.env.COMMITTED === "true", commit_sha: process.env.GITHUB_SHA });
-          const ok = process.env.COLLECT_OUTCOME === "success" && process.env.VALIDATE_OUTCOME === "success";
+          await send({ type: "repository_commit", checked: process.env.COMMIT_OUTCOME === "success", committed: process.env.COMMITTED === "true", commit_sha: process.env.GITHUB_SHA });
+          const ok = process.env.COLLECT_OUTCOME === "success" && process.env.VALIDATE_OUTCOME === "success" && process.env.COMMIT_OUTCOME === "success";
           await send({ type: "finished", status: ok ? "completed" : "partial", message: ok ? "Workflow concluído; validação terminada" : "Workflow terminou com falhas; consultar os logs", run_id: process.env.GITHUB_RUN_ID });
           NODE
