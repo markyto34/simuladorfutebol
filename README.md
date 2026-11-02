@@ -65,7 +65,7 @@ A recolha diária:
 - Preserva o histórico existente, deduplica estatísticas por `match_id` e observações de odds por jogo e instante de recolha.
 - Valida os dois CSV antes de os guardar no repositório.
 - Interrompe a sequência se o Flashscore responder 403 ou 429; não tenta contornar bloqueios.
-- Tem um limite de segurança de 200 jogos descobertos por execução diária. Se o limite for excedido, a recolha não começa.
+- Tem um limite de segurança de 2.000 jogos descobertos por execução diária. Se o limite for excedido, a recolha não começa.
 
 **Nota sobre as odds:** como são recolhidas juntamente com as estatísticas dos jogos concluídos, representam as odds Bwin que o Flashscore apresenta no instante da recolha. Não devem ser interpretadas como odds pré-jogo, de abertura ou de fecho.
 
