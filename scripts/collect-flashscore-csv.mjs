@@ -239,7 +239,6 @@ async function main() {
     } finally {
       processed++;
     }
-    }
     if (index < matchIds.length - 1) await sleep(DELAY_MS);
   }
   const mergedStats = mergeRows(existingStats, statsNew, row => row.match_id);
@@ -259,8 +258,8 @@ async function main() {
     "- Falhas: **" + failures + "**",
     "- Interrompida por bloqueio 403/429: **" + (stoppedByUpstream ? "sim" : "não") + "**",
     "- Duração: **" + elapsedSeconds + " s**"
-  ].join("\\n");
-  if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, summary + "\\n", "utf8");
+   ].join("\n");
+  if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, summary + "\n", "utf8");
   console.log("[SUMMARY] " + processed + "/" + matchIds.length + " processados; " + statsNew.length + " jogos com estatísticas; " + oddsNew.length + " observações Bwin; " + failures + " falhas; " + elapsedSeconds + " s.");
   if (failures) process.exitCode = 1;
 }
