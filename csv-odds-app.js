@@ -87,25 +87,52 @@
       ["Margem teórica do mercado",fmtPct(p.overround),"Calculada a partir das odds introduzidas"]
     ]);
   }
+  function makeText(tag,className,value){
+    const node=document.createElement(tag);
+    if(className)node.className=className;
+    node.textContent=value;
+    return node;
+  }
   function render() {
-    const body = $("matchesBody");
-    body.replaceChildren();
-    const start = page * PAGE_SIZE;
-    const rows = matches.slice(start,start+PAGE_SIZE);
-    if (!rows.length) {
-      const tr=document.createElement("tr"),td=document.createElement("td");
-      td.colSpan=10;td.className="empty";td.textContent="Não foram encontrados jogos com as três odds exatamente iguais.";
-      tr.append(td);body.append(tr);
-    } else rows.forEach(match => {
-      const tr=document.createElement("tr");
-      const values=[
-        dateText(match.date),match.continent||"Por identificar",match.country||"—",match.league||"—",
-        (match.home||"—")+" – "+(match.away||"—"),
-        fmtOdd(match.odds["1"]),fmtOdd(match.odds.X),fmtOdd(match.odds["2"]),
-        scoreText(match.ft),match.outcome==="1"?"1 · Casa":match.outcome==="X"?"X · Empate":match.outcome==="2"?"2 · Visitante":"Pendente"
-      ];
-      values.forEach(value=>{const td=document.createElement("td");td.textContent=value;tr.append(td);});
-      body.append(tr);
+    const list=$("matchesList");
+    list.replaceChildren();
+    const start=page*PAGE_SIZE;
+    const rows=matches.slice(start,start+PAGE_SIZE);
+    if(!rows.length){
+      list.append(makeText("p","empty-card","Não foram encontrados jogos com as três odds exatamente iguais."));
+    }else rows.forEach(match=>{
+      const card=makeText("article","match-card","");
+      const head=makeText("div","match-card-head","");
+      const meta=makeText("div","match-meta","");
+      meta.append(makeText("span","match-date",dateText(match.date)));
+      meta.append(makeText("span","match-competition",[match.country,match.league].filter(Boolean).join(" · ")||"Competição por identificar"));
+      head.append(meta);
+      const resultLabel=match.outcome==="1"?"Vitória casa":match.outcome==="X"?"Empate":match.outcome==="2"?"Vitória visitante":"Resultado pendente";
+      head.append(makeText("span","outcome "+(match.outcome||"pending"),resultLabel));
+      card.append(head);
+      const teams=makeText("div","match-teams","");
+      teams.append(makeText("strong","team-home",match.home||"Casa"));
+      teams.append(makeText("span","versus","—"));
+      teams.append(makeText("strong","team-away",match.away||"Visitante"));
+      card.append(teams);
+      const periods=makeText("div","score-periods","");
+      [["HT · Intervalo",match.ht],["ST · 2.ª parte",match.secondHalf],["FT · Final",match.ft]].forEach(([label,score])=>{
+        const period=makeText("div","score-period","");
+        period.append(makeText("span","period-label",label));
+        period.append(makeText("strong","period-score",scoreText(score)));
+        periods.append(period);
+      });
+      card.append(periods);
+      const odds=makeText("div","match-odds","");
+      odds.append(makeText("span","odds-heading","ODDS 1X2"));
+      [["1",match.odds["1"]],["X",match.odds.X],["2",match.odds["2"]]].forEach(([label,value])=>{
+        const item=makeText("div","odd-item","");
+        item.append(makeText("span","odd-label",label));
+        item.append(makeText("strong","odd-value",fmtOdd(value)));
+        odds.append(item);
+      });
+      card.append(odds);
+      list.append(card);
     });
     const pages=Math.max(1,Math.ceil(matches.length/PAGE_SIZE));
     $("resultCount").textContent=matches.length.toLocaleString("pt-PT")+" jogos";
