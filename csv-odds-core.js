@@ -310,6 +310,14 @@
       .map(([score,count]) => ({ score: score.replace("-", "–"), count, frequency: total ? count/total*100 : null })) };
   }
 
+  function sortMatchesChronologically(matches) {
+    return matches.slice().sort((a,b)=>{
+      const aTime=a.date instanceof Date&&!Number.isNaN(a.date.getTime())?a.date.getTime():Infinity;
+      const bTime=b.date instanceof Date&&!Number.isNaN(b.date.getTime())?b.date.getTime():Infinity;
+      return aTime-bTime;
+    });
+  }
+
   function forecastExactScores(matches, limit) {
     const eligible = matches.filter(m => m.completed && m.ft[0] !== null && m.ft[1] !== null);
     const counts = new Map();
@@ -353,7 +361,7 @@
   }
 
   const api = { parseCSV, normalizeRows, summarize, analyzeOdds, analyzeTriplet, impliedProbabilities,
-    hasCompleteOdds, filterOddsRanges, rangeMatches, evaluateCurrentOdds, analyzePeriodMarkets, forecastExactScores, continentForCountry, backtestTriplet, wilsonInterval, filterMatches };
+    hasCompleteOdds, filterOddsRanges, rangeMatches, evaluateCurrentOdds, analyzePeriodMarkets, forecastExactScores, continentForCountry, backtestTriplet, wilsonInterval, filterMatches, sortMatchesChronologically };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   root.CSVOdds = api;
 })(typeof globalThis !== "undefined" ? globalThis : this);
