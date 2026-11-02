@@ -230,8 +230,17 @@ async function main() {
       const oddsRow = bwinOddsRow(record);
       if (oddsRow) oddsNew.push(oddsRow);
       const statCount = Object.keys(record.statistics || {}).length;
-      console.log(matchId + ": " + statCount + " estatísticas; " + (oddsRow ? "odds Bwin 1X2 encontradas." : "sem triplo Bwin 1X2 confirmado."));
-      await reportMonitor("match_done", { match_id: matchId, stats_complete: statCount >= STAT_KEYS.length, bwin_found: Boolean(oddsRow) });
+      const statsComplete = STAT_KEYS.every(key => {
+        const sourceKey = key === "xg" ? "expected_goals" : key;
+        const pair = record.statistics?.[sourceKey];
+        return pair && pair.home !== null && pair.home !== undefined && pair.home !== "" &&
+          pair.away !== null && pair.away !== undefined && pair.away !== "";
+      });
+      console.log(matchId + ": " + statCount + " indicadores; " + (oddsRow ? "odds Bwin 1X2 encontradas." : "sem triplo Bwin 1X2 confirmado."));
+      await reportMonitor("match_done", {
+        match_id: matchId, stats_complete: statsComplete, bwin_found: Boolean(oddsRow),
+        match_label: [record.teams?.home?.name, record.teams?.away?.name].filter(Boolean).join(" - ")
+      });
     } catch (error) {
       failures++;
       console.error(matchId + ": " + error.message);
