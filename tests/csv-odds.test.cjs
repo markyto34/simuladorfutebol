@@ -201,3 +201,16 @@ test("pesquisa histórica exige igualdade exata nas três odds", () => {
   assert.equal(result.sample,1);
   assert.deepEqual(result.matches.map(match=>match.home),["A"]);
 });
+
+
+test("filtra a amostra por divisão e ordena os jogos do mais antigo para o mais recente", () => {
+  const rows = csv.normalizeRows([
+    {COUNTRY:"Portugal",LEAGUE:"Liga A",date_time:"2026-03-01 12:00:00",TEAM_HOME:"A",TEAM_AWAY:"B",score_ft_home:"1",score_ft_away:"0",odd_ft_1:"1.50",odd_ft_x:"4.00",odd_ft_2:"6.00"},
+    {COUNTRY:"Portugal",LEAGUE:"Liga B",date_time:"2026-01-01 12:00:00",TEAM_HOME:"C",TEAM_AWAY:"D",score_ft_home:"0",score_ft_away:"1",odd_ft_1:"1.50",odd_ft_x:"4.00",odd_ft_2:"6.00"},
+    {COUNTRY:"Portugal",LEAGUE:"Liga A",date_time:"2026-02-01 12:00:00",TEAM_HOME:"E",TEAM_AWAY:"F",score_ft_home:"2",score_ft_away:"0",odd_ft_1:"1.50",odd_ft_x:"4.00",odd_ft_2:"6.00"}
+  ]);
+  const scoped=csv.filterMatches(rows,{country:"Portugal",league:"Liga A"});
+  const result=csv.evaluateCurrentOdds(scoped,{"1":1.50,X:4.00,"2":6.00});
+  assert.equal(result.matches.length,2);
+  assert.deepEqual(csv.sortMatchesChronologically(result.matches).map(m=>m.home),["E","A"]);
+});

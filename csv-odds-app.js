@@ -13,6 +13,16 @@
   function setCountries() {
     const select = $("country");
     unique(allMatches.map(m=>m.country)).forEach(country => select.add(new Option(country,country)));
+    setLeagues();
+  }
+  function setLeagues() {
+    const select=$("league");
+    const previous=select.value;
+    const country=$("country").value;
+    const leagues=unique(allMatches.filter(m=>!country||m.country===country).map(m=>m.league));
+    select.replaceChildren(new Option("Todas as divisões",""));
+    leagues.forEach(league=>select.add(new Option(league,league)));
+    select.value=leagues.includes(previous)?previous:"";
   }
   function currentOdds() {
     return {"1":Number($("current1").value),X:Number($("currentX").value),"2":Number($("current2").value)};
@@ -111,15 +121,19 @@
       return;
     }
     const country=$("country").value;
-    const scopedMatches=country?allMatches.filter(match=>match.country===country):allMatches;
+    const league=$("league").value;
+    const scopedMatches=allMatches.filter(match=>
+      (!country||match.country===country)&&(!league||match.league===league));
     const result=CSVOdds.evaluateCurrentOdds(scopedMatches,odds);
-    matches=result.matches.slice().sort((a,b)=>(b.date?.getTime()||0)-(a.date?.getTime()||0));
+    matches=CSVOdds.sortMatchesChronologically(result.matches);
     page=0;
     $("resultsPanel").hidden=false;
     $("resultsTitle").textContent="Jogos com odds exatamente iguais";
+    const scopeText=(country?" no país "+country:"")+(league?" · divisão "+league:"");
     $("currentNote").textContent=matches.length
-      ? "Pesquisa concluída. As três odds 1/X/2 coincidem exatamente"+(country?" e o país é "+country+".":".")
-      : "Não existem jogos com estas três odds exatamente iguais"+(country?" em "+country+".":".");
+      ? "Pesquisa concluída. As três odds 1/X/2 coincidem exatamente"+scopeText+"."
+      : "Não existem jogos com estas três odds exatamente iguais"+scopeText+".";
+    $("resultsTitle").textContent=league?"Jogos — "+league:"Jogos com odds exatamente iguais";
     renderStatistics(result);
     render();
   }
@@ -145,12 +159,18 @@
   $("clearSearch").addEventListener("click",()=>{
     ["current1","currentX","current2"].forEach(id=>$(id).value="");
     $("country").value="";
+    setLeagues();
+    $("league").value="";
     $("resultsPanel").hidden=true;
     $("currentNote").textContent="Pesquisa limpa. Introduz as três odds para começar.";
   });
   $("prevPage").addEventListener("click",()=>{if(page>0){page--;render();}});
   $("nextPage").addEventListener("click",()=>{if((page+1)*PAGE_SIZE<matches.length){page++;render();}});
   ["current1","currentX","current2"].forEach(id=>$(id).addEventListener("keydown",event=>{if(event.key==="Enter")search();}));
-  $("country").addEventListener("change",()=>{if(!$("resultsPanel").hidden)search();});
+  $("country").addEventListener("change",()=>{
+    setLeagues();
+    if(!$("resultsPanel").hidden)search();
+  });
+  $("league").addEventListener("change",()=>{if(!$("resultsPanel").hidden)search();});
   loadDatabase();
 })();
