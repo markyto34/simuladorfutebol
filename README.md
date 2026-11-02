@@ -62,6 +62,12 @@ Para recolher uma lista pequena de jogos e atualizar os CSVs separados:
 node scripts/collect-flashscore-csv.mjs ID_DO_JOGO_1 ID_DO_JOGO_2
 ```
 
+Ou descobrir os IDs dos jogos de uma data e recolhê-los sequencialmente:
+
+```bash
+node scripts/collect-flashscore-csv.mjs --date=2026-11-01
+```
+
 O script cria/atualiza:
 - `data/flashscore-statistics.csv` — estatísticas casa/fora e identificação do jogo.
 - `data/bwin-odds-flashscore.csv` — apenas odds 1X2 da Bwin observadas no momento da recolha.
