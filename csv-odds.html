@@ -42,6 +42,20 @@
         <div><p class="eyebrow">RESULTADOS ENCONTRADOS</p><h2 id="resultsTitle">Jogos com odds exatamente iguais</h2></div>
         <strong id="resultCount">0 jogos</strong>
       </div>
+      <section id="statisticsPanel" class="statistics-panel" aria-label="Estatísticas históricas da amostra">
+        <div class="stats-title"><div><p class="eyebrow">ANÁLISE DA AMOSTRA</p><h3>O que aconteceu nestes jogos?</h3></div><span id="statsSample" class="stats-sample"></span></div>
+        <div id="summaryStats" class="stats-grid"></div>
+        <div class="period-grid">
+          <article class="period-card"><h3>1.ª parte</h3><div id="firstHalfStats" class="metric-list"></div></article>
+          <article class="period-card"><h3>2.ª parte</h3><div id="secondHalfStats" class="metric-list"></div></article>
+          <article class="period-card"><h3>Jogo completo</h3><div id="fullTimeStats" class="metric-list"></div></article>
+        </div>
+        <div class="score-grid">
+          <article class="period-card"><h3>Resultados mais frequentes — FT</h3><div id="topScores" class="score-list"></div></article>
+          <article class="period-card"><h3>Odds introduzidas</h3><div id="impliedStats" class="metric-list"></div></article>
+        </div>
+        <p class="stats-footnote">Cada indicador usa apenas os jogos da amostra com os dados necessários disponíveis. Dados em falta não são tratados como zero.</p>
+      </section>
       <div class="table-wrap">
         <table>
           <thead><tr><th>Data</th><th>Continente</th><th>País</th><th>Competição</th><th>Jogo</th><th>Odd 1</th><th>Odd X</th><th>Odd 2</th><th>Resultado FT</th><th>1X2</th></tr></thead>

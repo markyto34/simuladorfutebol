@@ -5,6 +5,7 @@
   const PAGE_SIZE = 50;
   let allMatches = [], matches = [], page = 0;
   const fmtOdd = n => Number.isFinite(n) ? n.toFixed(2).replace(".", ",") : "—";
+  const fmtPct = n => Number.isFinite(n) ? n.toFixed(1).replace(".", ",")+"%" : "—";
   const dateText = d => d ? new Intl.DateTimeFormat("pt-PT").format(d) : "—";
   const scoreText = s => s && Number.isInteger(s[0]) && Number.isInteger(s[1]) ? s[0] + "–" + s[1] : "—";
   const unique = values => [...new Set(values.filter(Boolean))].sort((a,b)=>a.localeCompare(b,"pt"));
@@ -15,6 +16,66 @@
   }
   function currentOdds() {
     return {"1":Number($("current1").value),X:Number($("currentX").value),"2":Number($("current2").value)};
+  }
+  function metric(label,value,detail) {
+    const div=document.createElement("div");div.className="metric";
+    const name=document.createElement("span");name.textContent=label;
+    const val=document.createElement("strong");val.textContent=value;
+    div.append(name,val);
+    if(detail){const small=document.createElement("small");small.textContent=detail;div.append(small);}
+    return div;
+  }
+  function fillMetrics(id,items) {
+    const target=$(id);target.replaceChildren();
+    items.forEach(item=>target.append(metric(item[0],item[1],item[2])));
+  }
+  function marketMetric(market,label) {
+    return market ? [label,fmtPct(market.frequency),market.count+" jogos válidos"] : [label,"—","Sem dados"];
+  }
+  function renderStatistics(result) {
+    const summary=CSVOdds.summarize(result.matches);
+    $("statsSample").textContent=summary.completed.toLocaleString("pt-PT")+" resultados FT completos";
+    fillMetrics("summaryStats",[
+      ["Vitória casa (1)",fmtPct(summary.percentages["1"]),summary.counts["1"]+" jogos"],
+      ["Empate (X)",fmtPct(summary.percentages.X),summary.counts.X+" jogos"],
+      ["Vitória fora (2)",fmtPct(summary.percentages["2"]),summary.counts["2"]+" jogos"]
+    ]);
+    const m=result.marketAnalysis;
+    fillMetrics("firstHalfStats",[
+      marketMetric(m.firstHalf.result.outcomes["1"],"Casa vence 1.ª parte"),
+      marketMetric(m.firstHalf.result.outcomes.X,"Empate ao intervalo"),
+      marketMetric(m.firstHalf.result.outcomes["2"],"Visitante vence 1.ª parte"),
+      marketMetric(m.firstHalf.over05,"Mais de 0,5 golos"),
+      marketMetric(m.firstHalf.over15,"Mais de 1,5 golos"),
+      marketMetric(m.firstHalf.btts,"Ambas marcam")
+    ]);
+    fillMetrics("secondHalfStats",[
+      marketMetric(m.secondHalf.result.outcomes["1"],"Casa vence 2.ª parte"),
+      marketMetric(m.secondHalf.result.outcomes.X,"Empate na 2.ª parte"),
+      marketMetric(m.secondHalf.result.outcomes["2"],"Visitante vence 2.ª parte"),
+      marketMetric(m.secondHalf.over05,"Mais de 0,5 golos"),
+      marketMetric(m.secondHalf.over15,"Mais de 1,5 golos"),
+      marketMetric(m.secondHalf.btts,"Ambas marcam")
+    ]);
+    fillMetrics("fullTimeStats",[
+      marketMetric(m.fullTime.over15,"Mais de 1,5 golos"),
+      marketMetric(m.fullTime.over25,"Mais de 2,5 golos"),
+      marketMetric(m.fullTime.over35,"Mais de 3,5 golos"),
+      marketMetric(m.fullTime.btts,"Ambas marcam"),
+      marketMetric(m.fullTime.homeOver05,"Casa marca"),
+      marketMetric(m.fullTime.awayOver05,"Visitante marca")
+    ]);
+    const scores=$("topScores");scores.replaceChildren();
+    const top=m.fullTime.exactScores.top;
+    if(!top.length){scores.textContent="Sem resultados completos para calcular.";}
+    else top.forEach((item,index)=>scores.append(metric((index+1)+". "+item.score,fmtPct(item.frequency),item.count+" ocorrências")));
+    const p=result.market;
+    fillMetrics("impliedStats",[
+      ["Probabilidade implícita 1",fmtPct(p.raw["1"]),""],
+      ["Probabilidade implícita X",fmtPct(p.raw.X),""],
+      ["Probabilidade implícita 2",fmtPct(p.raw["2"]),""],
+      ["Margem teórica do mercado",fmtPct(p.overround),"Calculada a partir das odds introduzidas"]
+    ]);
   }
   function render() {
     const body = $("matchesBody");
@@ -50,15 +111,16 @@
       return;
     }
     const country=$("country").value;
-    matches=CSVOdds.evaluateCurrentOdds(allMatches,odds).matches;
-    if(country) matches=matches.filter(match=>match.country===country);
-    matches.sort((a,b)=>(b.date?.getTime()||0)-(a.date?.getTime()||0));
+    const scopedMatches=country?allMatches.filter(match=>match.country===country):allMatches;
+    const result=CSVOdds.evaluateCurrentOdds(scopedMatches,odds);
+    matches=result.matches.slice().sort((a,b)=>(b.date?.getTime()||0)-(a.date?.getTime()||0));
     page=0;
     $("resultsPanel").hidden=false;
     $("resultsTitle").textContent="Jogos com odds exatamente iguais";
     $("currentNote").textContent=matches.length
       ? "Pesquisa concluída. As três odds 1/X/2 coincidem exatamente"+(country?" e o país é "+country+".":".")
       : "Não existem jogos com estas três odds exatamente iguais"+(country?" em "+country+".":".");
+    renderStatistics(result);
     render();
   }
   async function loadDatabase() {
