@@ -51,3 +51,37 @@ test("isolates one requested match and preserves surrounding HTML evidence", asy
   assert.match(result.matches[0].context, /GERMANY: Bundesliga/);
   assert.match(result.matches[0].context_html, /GERMANY: Bundesliga/);
 });
+
+
+test("identifies competition only from explicit preceding Flashscore group heading", async () => {
+  const { inspectMatchDiscovery } = await import("../flashscore-proxy/src/discover-matches.mjs");
+  const html = `<div id="score-data">
+    <h4>ALEMANHA: Bundesliga <a href="/classificacoes/KY7LrA6d/jg0MwVuC/" class="web-link-internal">Classificações</a></h4>
+    <span>14:30</span>Union Berlin - FC Koln <a href="/jogo/hW5lOaOP/?d=-1" class="fin">1-1</a><br />
+    <h4>ESPANHA: LaLiga <a href="/classificacoes/QeI1Oeyi/dWdJXP6U/">Classificações</a></h4>
+    <span>13:00</span>Getafe - Sevilla <a href="/jogo/EoME4ck5/?d=-1">3-1</a>
+  </div>`;
+  const result = inspectMatchDiscovery(html, "2026-11-01", { matchId: "hW5lOaOP" });
+  assert.deepEqual(result.competition_identity, {
+    status: "identified",
+    country: "ALEMANHA",
+    competition: "Bundesliga",
+    season: null,
+    stage: null,
+    round: null,
+    source: "flashscore_daily_results_group_heading",
+    evidence: {
+      heading: "ALEMANHA: Bundesliga Classificações",
+      match_id: "hW5lOaOP",
+      standings_href: "/classificacoes/KY7LrA6d/jg0MwVuC/"
+    }
+  });
+});
+
+test("does not invent competition when no explicit group heading exists", async () => {
+  const { inspectMatchDiscovery } = await import("../flashscore-proxy/src/discover-matches.mjs");
+  const result = inspectMatchDiscovery('<div>Union Berlin - FC Koln <a href="/jogo/hW5lOaOP/">1-1</a></div>', "2026-11-01", { matchId: "hW5lOaOP" });
+  assert.equal(result.competition_identity.status, "unavailable");
+  assert.equal(result.competition_identity.country, null);
+  assert.equal(result.competition_identity.competition, null);
+});
