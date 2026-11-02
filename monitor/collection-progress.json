@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 360,
-  "stats_games": 203,
-  "bwin_odds": 102,
+  "processed_games": 370,
+  "stats_games": 207,
+  "bwin_odds": 104,
   "failed_games": 0,
-  "current_match": "Último concluído: Sokol Lubotice - Dvorniky",
-  "last_result": "Sokol Lubotice - Dvorniky: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T21:34:07.562Z"
+  "current_match": "Último concluído: Malecnik F - Cerklje F",
+  "last_result": "Malecnik F - Cerklje F: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T21:34:22.680Z"
 }
