@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 180,
-  "stats_games": 92,
-  "bwin_odds": 51,
+  "processed_games": 190,
+  "stats_games": 96,
+  "bwin_odds": 55,
   "failed_games": 0,
-  "current_match": "Último concluído: Dandy Town Hornets - Paget",
-  "last_result": "Dandy Town Hornets - Paget: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T21:29:24.637Z"
+  "current_match": "Último concluído: Ostrovets - Slutsk",
+  "last_result": "Ostrovets - Slutsk: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T21:29:40.431Z"
 }
