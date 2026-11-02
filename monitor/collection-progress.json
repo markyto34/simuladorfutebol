@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 150,
-  "stats_games": 82,
-  "bwin_odds": 45,
+  "processed_games": 160,
+  "stats_games": 91,
+  "bwin_odds": 51,
   "failed_games": 0,
-  "current_match": "Último concluído: Al Muharraq - Sitra",
-  "last_result": "Al Muharraq - Sitra: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-02T21:28:38.940Z"
+  "current_match": "Último concluído: St. Liege U23 - RWDM Brussels",
+  "last_result": "St. Liege U23 - RWDM Brussels: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T21:28:55.177Z"
 }
