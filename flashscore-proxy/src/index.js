@@ -223,7 +223,12 @@ function summarizeInspection(inspection) {
     missing_fields: record.missing_fields || [],
     bwin: {
       found: Boolean(bwin.found),
-      one_x_two_candidates: Array.isArray(bwin.one_x_two_candidates) ? bwin.one_x_two_candidates.length : 0
+      one_x_two_candidates: Array.isArray(bwin.one_x_two_candidates) ? bwin.one_x_two_candidates.length : 0,
+      odds_markers: (Array.isArray(bwin.odds_markers) ? bwin.odds_markers : []).slice(0, 4).map(item => ({
+        marker: String(item.marker || "").slice(0, 220),
+        nearby_decimal_values: (item.nearby_decimal_values || []).slice(0, 8),
+        context: String(item.context || "").slice(0, 260)
+      }))
     },
     page_structure: {
       counts: structure.counts || {
