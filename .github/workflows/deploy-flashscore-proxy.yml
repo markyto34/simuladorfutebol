@@ -22,8 +22,9 @@ jobs:
         run: |
           node --check flashscore-proxy/src/index.js
           node --check flashscore-proxy/src/discover-matches.mjs
+          node --check flashscore-proxy/src/match-tabs.mjs
       - name: Test Flashscore extractors
-        run: node --test tests/*.test.cjs
+        run: node --test tests/*.test.cjs tests/*.test.mjs
 
   deploy:
     if: github.event_name != 'pull_request'
