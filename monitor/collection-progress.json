@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 860,
-  "stats_games": 385,
-  "bwin_odds": 211,
+  "processed_games": 870,
+  "stats_games": 392,
+  "bwin_odds": 213,
   "failed_games": 0,
-  "current_match": "Último concluído: Moyale Barracks - Karonga United",
-  "last_result": "Moyale Barracks - Karonga United: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T22:28:17.887Z"
+  "current_match": "Último concluído: COD Meknes - FAR Rabat",
+  "last_result": "COD Meknes - FAR Rabat: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-02T22:28:33.440Z"
 }
