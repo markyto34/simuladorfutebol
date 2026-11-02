@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 570,
-  "stats_games": 289,
-  "bwin_odds": 139,
+  "processed_games": 580,
+  "stats_games": 291,
+  "bwin_odds": 141,
   "failed_games": 0,
-  "current_match": "Último concluído: Inter Allies - Golden Kick",
-  "last_result": "Inter Allies - Golden Kick: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T22:20:52.090Z"
+  "current_match": "Último concluído: Hound Dogs - Lincoln",
+  "last_result": "Hound Dogs - Lincoln: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T22:21:07.115Z"
 }
