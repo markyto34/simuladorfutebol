@@ -19,8 +19,8 @@ function corsHeaders(origin) {
 
   return {
     "Access-Control-Allow-Origin": allowedOrigin,
-    "Access-Control-Allow-Methods": "GET, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type, Authorization",
     "Vary": "Origin"
   };
 }
@@ -269,7 +269,7 @@ export default {
       return new Response(null, { status: 204, headers });
     }
 
-    if (request.method !== "GET") {
+    if (request.method !== "GET" && request.method !== "POST") {
       return json({ error: "method_not_allowed" }, 405, headers);
     }
 
@@ -278,6 +278,19 @@ export default {
     }
 
     const incoming = new URL(request.url);
+
+    if (incoming.pathname === "/monitor/status" && request.method === "GET") {
+      if (!env.COLLECTION_MONITOR) return json({ ok: false, error: "monitor_not_configured" }, 503, headers);
+      const id = env.COLLECTION_MONITOR.idFromName("daily-collection");
+      return env.COLLECTION_MONITOR.get(id).fetch("https://monitor/status", { method: "GET" });
+    }
+
+    if (incoming.pathname === "/monitor/update" && request.method === "POST") {
+      if (!env.MONITOR_TOKEN || !env.COLLECTION_MONITOR) return json({ ok: false, error: "monitor_not_configured" }, 503, headers);
+      if (request.headers.get("Authorization") !== `Bearer ${env.MONITOR_TOKEN}`) return json({ ok: false, error: "unauthorized" }, 401, headers);
+      const id = env.COLLECTION_MONITOR.idFromName("daily-collection");
+      return env.COLLECTION_MONITOR.get(id).fetch("https://monitor/update", request);
+    }
 
     if (incoming.pathname === "/health") {
       return json({
@@ -486,3 +499,81 @@ export default {
     return response;
   }
 };
+
+
+// Durable state for the live collection dashboard. It receives telemetry only;
+// it never makes additional requests to Flashscore.
+export class CollectionMonitor {
+  constructor(state) { this.state = state; }
+  async fetch(request) {
+    if (request.method === "GET") {
+      const value = await this.state.storage.get("snapshot") || {
+        status: "idle", date: null, run_id: null, total: 0, processed: 0,
+        stats_complete: 0, bwin_found: 0, errors: 0, current_match: null,
+        csv_written: false, repository_committed: false, events: [], updated_at: null
+      };
+      return Response.json({ ok: true, snapshot: value }, { headers: { "Cache-Control": "no-store" } });
+    }
+    if (request.method !== "POST") return Response.json({ ok: false, error: "method_not_allowed" }, { status: 405 });
+    let event;
+    try { event = await request.json(); } catch { return Response.json({ ok: false, error: "invalid_json" }, { status: 400 }); }
+    if (!event || typeof event.type !== "string" || event.type.length > 40) return Response.json({ ok: false, error: "invalid_event" }, { status: 400 });
+    const now = new Date().toISOString();
+    let snapshot = await this.state.storage.get("snapshot") || {
+      status: "idle", date: null, run_id: null, total: 0, processed: 0,
+      stats_complete: 0, bwin_found: 0, errors: 0, current_match: null,
+      csv_written: false, repository_committed: false, events: [], updated_at: null
+    };
+    const safe = (value, max = 180) => String(value ?? "").slice(0, max);
+    const entry = { at: now, type: event.type, message: safe(event.message || event.match_id || event.status || event.type) };
+    switch (event.type) {
+      case "started":
+        snapshot = { status: "running", date: safe(event.date, 10), run_id: safe(event.run_id, 40), total: 0, processed: 0, stats_complete: 0, bwin_found: 0, errors: 0, current_match: null, csv_written: false, repository_committed: false, stats_rows: null, odds_rows: null, events: [] };
+        entry.message = "Recolha iniciada";
+        break;
+      case "discovered":
+        snapshot.total = Math.max(0, Math.min(2000, Number(event.total) || 0));
+        entry.message = snapshot.total + " jogos encontrados";
+        break;
+      case "match_start":
+        snapshot.current_match = { match_id: safe(event.match_id, 24), index: Number(event.index) || 0, total: Number(event.total) || snapshot.total };
+        entry.message = "A consultar " + snapshot.current_match.match_id;
+        break;
+      case "match_done":
+        snapshot.processed += 1;
+        if (event.stats_complete === true) snapshot.stats_complete += 1;
+        if (event.bwin_found === true) snapshot.bwin_found += 1;
+        snapshot.current_match = null;
+        entry.message = safe(event.match_id, 24) + ": " + (event.stats_complete ? "estatísticas OK" : "estatísticas incompletas") + (event.bwin_found ? " · Bwin OK" : " · sem odds Bwin");
+        break;
+      case "match_error":
+        snapshot.processed += 1;
+        snapshot.errors += 1;
+        snapshot.current_match = null;
+        entry.message = safe(event.match_id, 24) + ": " + safe(event.message || "falha na consulta");
+        break;
+      case "csv_written":
+        snapshot.csv_written = true;
+        snapshot.stats_rows = Math.max(0, Number(event.stats_rows) || 0);
+        snapshot.odds_rows = Math.max(0, Number(event.odds_rows) || 0);
+        entry.message = "CSV preparados: " + snapshot.stats_rows + " linhas de estatísticas · " + snapshot.odds_rows + " observações Bwin";
+        break;
+      case "repository_commit":
+        snapshot.repository_committed = event.committed === true;
+        snapshot.commit_sha = safe(event.commit_sha, 40);
+        entry.message = snapshot.repository_committed ? "CSV gravados no GitHub" : "Sem alterações novas para gravar no GitHub";
+        break;
+      case "finished":
+        snapshot.status = safe(event.status || "completed", 24);
+        snapshot.current_match = null;
+        entry.message = safe(event.message || "Recolha terminada");
+        break;
+      default:
+        entry.message = safe(event.message || "Evento " + event.type);
+    }
+    snapshot.updated_at = now;
+    snapshot.events = [...(snapshot.events || []), entry].slice(-80);
+    await this.state.storage.put("snapshot", snapshot);
+    return Response.json({ ok: true, updated_at: now });
+  }
+}
