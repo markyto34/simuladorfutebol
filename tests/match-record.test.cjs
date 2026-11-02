@@ -1,6 +1,5 @@
-import test from "node:test";
-import assert from "node:assert/strict";
-import { validateMatchRecord } from "../flashscore-proxy/src/match-record.mjs";
+const test = require("node:test");
+const assert = require("node:assert/strict");
 
 const validBase = {
   schema_version: "1.0.0",
@@ -15,7 +14,8 @@ const validBase = {
   }
 };
 
-test("accepts a match with core identity and provenance even when secondary data is absent", () => {
+test("accepts a match with core identity and provenance even when secondary data is absent", async () => {
+  const { validateMatchRecord } = await import("../flashscore-proxy/src/match-record.mjs");
   const result = validateMatchRecord(validBase);
   assert.equal(result.valid, true);
   assert.equal(result.completeness, 0);
@@ -23,7 +23,8 @@ test("accepts a match with core identity and provenance even when secondary data
   assert.ok(result.missing_fields.includes("odds.markets.1x2.home"));
 });
 
-test("does not treat numeric zero statistics as missing", () => {
+test("does not treat numeric zero statistics as missing", async () => {
+  const { validateMatchRecord } = await import("../flashscore-proxy/src/match-record.mjs");
   const result = validateMatchRecord({
     ...validBase,
     statistics: { corners: { home: 0, away: 0 } }
@@ -31,13 +32,15 @@ test("does not treat numeric zero statistics as missing", () => {
   assert.equal(result.valid, true);
 });
 
-test("rejects a record without reliable team identity", () => {
+test("rejects a record without reliable team identity", async () => {
+  const { validateMatchRecord } = await import("../flashscore-proxy/src/match-record.mjs");
   const result = validateMatchRecord({ ...validBase, teams: { home: {}, away: {} } });
   assert.equal(result.valid, false);
   assert.ok(result.errors.includes("missing_team_identity"));
 });
 
-test("rejects an invalid match id or missing source provenance", () => {
+test("rejects an invalid match id or missing source provenance", async () => {
+  const { validateMatchRecord } = await import("../flashscore-proxy/src/match-record.mjs");
   const result = validateMatchRecord({ ...validBase, match_id: "bad id", source_capture: {} });
   assert.equal(result.valid, false);
   assert.ok(result.errors.includes("invalid_match_id"));
