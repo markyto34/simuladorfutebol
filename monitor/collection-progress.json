@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 980,
-  "stats_games": 439,
-  "bwin_odds": 244,
+  "processed_games": 990,
+  "stats_games": 444,
+  "bwin_odds": 249,
   "failed_games": 1,
-  "current_match": "Último concluído: Wellington Phoenix 2 F - Auckland United F",
-  "last_result": "Wellington Phoenix 2 F - Auckland United F: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T21:50:06.464Z"
+  "current_match": "Último concluído: FC Emmen - Den Bosch",
+  "last_result": "FC Emmen - Den Bosch: 12 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-02T21:50:21.849Z"
 }
