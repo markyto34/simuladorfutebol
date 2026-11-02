@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 780,
-  "stats_games": 350,
-  "bwin_odds": 191,
+  "processed_games": 790,
+  "stats_games": 351,
+  "bwin_odds": 192,
   "failed_games": 0,
-  "current_match": "Último concluído: Vibonese - Milazzo",
-  "last_result": "Vibonese - Milazzo: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T22:26:14.937Z"
+  "current_match": "Último concluído: Inter F - Lazio F",
+  "last_result": "Inter F - Lazio F: 12 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-02T22:26:29.827Z"
 }
