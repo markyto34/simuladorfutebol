@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 20,
-  "stats_games": 20,
-  "bwin_odds": 16,
+  "processed_games": 30,
+  "stats_games": 29,
+  "bwin_odds": 23,
   "failed_games": 0,
-  "current_match": "Último concluído: Nigéria U17 F - Venezuela U17 F",
-  "last_result": "Nigéria U17 F - Venezuela U17 F: 13 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T21:25:13.859Z"
+  "current_match": "Último concluído: Highbury - Leicesterford City",
+  "last_result": "Highbury - Leicesterford City: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T21:25:30.409Z"
 }
