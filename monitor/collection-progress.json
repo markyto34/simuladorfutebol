@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 210,
-  "stats_games": 110,
-  "bwin_odds": 57,
+  "processed_games": 220,
+  "stats_games": 114,
+  "bwin_odds": 59,
   "failed_games": 0,
-  "current_match": "Último concluído: Paraty - Barra Mansa",
-  "last_result": "Paraty - Barra Mansa: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T21:30:11.794Z"
+  "current_match": "Último concluído: Pesqueira - CA Porto",
+  "last_result": "Pesqueira - CA Porto: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T21:30:27.054Z"
 }
