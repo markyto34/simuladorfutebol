@@ -78,3 +78,32 @@ test("does not assign a competition if the target match has no explicit group he
   assert.equal(result.matches.length, 1);
   assert.equal(result.matches[0].competition_identity, undefined);
 });
+
+
+test("identifies country and competition from the explicit Flashscore results group", async () => {
+  const { inspectMatchDiscovery } = await import("../flashscore-proxy/src/discover-matches.mjs");
+  const html = `<div id="score-data">
+    <h4>ALEMANHA: Bundesliga <a href="/classificacoes/abc/def/">Classificações</a></h4>
+    <span>14:30</span>Union Berlin - FC Koln
+    <a href="/jogo/hW5lOaOP/?d=-1" class="fin">1-1</a><br>
+    <h4>ESPANHA: LaLiga <a href="/classificacoes/ghi/jkl/">Classificações</a></h4>
+    <span>13:00</span>Getafe - Sevilla <a href="/jogo/AB12cd34/">3-1</a>
+  </div>`;
+  const result = inspectMatchDiscovery(html, "2026-11-01", { matchId: "hW5lOaOP" });
+  const identity = result.matches[0].competition_identity;
+  assert.equal(identity.status, "identified");
+  assert.equal(identity.country, "Alemanha");
+  assert.equal(identity.competition, "Bundesliga");
+  assert.equal(identity.season, null);
+  assert.equal(identity.source.match_id, "hW5lOaOP");
+  assert.match(identity.source.evidence, /ALEMANHA: Bundesliga/);
+});
+
+test("does not identify competition from a heading outside score-data", async () => {
+  const { inspectMatchDiscovery } = await import("../flashscore-proxy/src/discover-matches.mjs");
+  const html = `<h4>ALEMANHA: Bundesliga</h4>
+    <div id="score-data"><a href="/jogo/hW5lOaOP/">1-1</a></div>`;
+  const result = inspectMatchDiscovery(html, "2026-11-01", { matchId: "hW5lOaOP" });
+  assert.equal(result.matches[0].competition_identity.status, "unavailable");
+  assert.equal(result.matches[0].competition_identity.country, null);
+});
