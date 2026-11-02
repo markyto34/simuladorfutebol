@@ -1,148 +1,58 @@
 <!doctype html>
 <html lang="pt-PT">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#101a16">
-  <meta name="description" content="Laboratório histórico de mercados de futebol por primeira parte, segunda parte e resultado final, com análise conjunta das odds 1X2.">
-  <title>CSV de Odds | Simulador Futebol</title>
+  <meta name="description" content="Pesquisa exata de jogos históricos pelas odds de fecho 1X2.">
+  <title>Pesquisa de Odds | Simulador Futebol</title>
   <link rel="stylesheet" href="csv-odds.css">
 </head>
 <body>
-  <div class="shell">
-    <aside class="sidebar">
+  <main class="shell">
+    <header class="topbar">
       <a class="brand" href="index.html">⚽ SIMULADOR<span>.FUTEBOL</span></a>
-      <p class="eyebrow">ÁREA DE TRABALHO</p>
-      <nav><a href="index.html">◉ Simulador Futebol</a><a class="active" href="csv-odds.html">▦ CSV de Odds</a></nav>
-      <div class="side-foot">● Laboratório independente<small>Base histórica carregada automaticamente</small></div>
-    </aside>
-    <main>
-      <header><div><p class="eyebrow">INVESTIGAÇÃO HISTÓRICA E PRÉ-JOGO</p><h1>CSV de Odds</h1></div><a class="back" href="index.html">← Voltar ao simulador</a></header>
-      <section class="intro">
-        <div><h2>Compara odds de fecho com milhares de jogos históricos.</h2><p>Pesquisa as odds 1 / X / 2 em conjunto e descobre que resultados ocorreram em jogos históricos com cotações semelhantes.</p></div>
-        <div class="count"><b id="recordCount">A carregar</b><small>REGISTOS NA BASE HISTÓRICA</small></div>
-      </section>
-      <section class="panel import-panel">
-        <div class="section-head"><div><em>01</em><h2>Estado da base de dados</h2></div><small>CARREGAMENTO AUTOMÁTICO</small></div>
-        <p id="status" class="status" role="status" aria-live="polite">A ligar à base de dados histórica…</p>
-        <div class="schema-note">A base de dados é obtida automaticamente a partir do ficheiro de origem. O navegador não pede upload. Todos os mercados exigem as três odds 1, X e 2 válidas. Cada mercado usa apenas jogos com o respetivo resultado completo: a falta do intervalo ou da segunda parte não é convertida em zero. O mercado 1X2 final usa sempre o FT regulamentar, sem prolongamento.</div>
-      </section>
-      <section id="workspace" hidden>
-        <section class="panel">
-          <div class="section-head"><div><em>02</em><h2>Filtros do histórico</h2></div><button id="clearFilters" class="quiet">Limpar filtros</button></div>
-          <div class="filters">
-            <label>Pesquisa livre<input id="search" type="search" placeholder="Equipa, competição ou país"></label>
-            <label>Continente<select id="continent"><option value="">Todos os continentes</option></select></label>
-            <label>País<select id="country"><option value="">Todos os países</option></select></label>
-            <label>Competição<select id="league"><option value="">Todas as competições</option></select></label>
-            <label>Equipa<input id="team" type="search" placeholder="Nome ou parte do nome"></label>
-            <label>Desde<input id="from" type="date"></label>
-            <label>Até<input id="to" type="date"></label>
-            <label>Estado<select id="statusFilter"><option value="all">Todos os jogos</option><option value="completed">Concluídos</option><option value="pending">Sem resultado FT</option></select></label>
-          </div>
-        </section>
-        <section class="kpis">
-          <article class="kpi"><span>Jogos filtrados</span><strong id="kpiTotal">0</strong><small>Inclui pendentes</small></article>
-          <article class="kpi"><span>Concluídos</span><strong id="kpiCompleted">0</strong><small>Com resultado FT</small></article>
-          <article class="kpi"><span>Pendentes</span><strong id="kpiPending">0</strong><small>Sem resultado FT</small></article>
-          <article class="kpi"><span>Competições</span><strong id="kpiLeagues">0</strong><small>Na seleção atual</small></article>
-        </section>
-        <section class="panel">
-          <div class="section-head"><div><em>03</em><h2>Frequência dos resultados</h2></div><small>APENAS JOGOS CONCLUÍDOS</small></div>
-          <div class="outcome-grid">
-            <article><span>Vitória da casa</span><strong id="homePct">—</strong><small id="homeCount">0 jogos</small><div class="track"><i id="homeBar"></i></div></article>
-            <article><span>Empate</span><strong id="drawPct">—</strong><small id="drawCount">0 jogos</small><div class="track"><i id="drawBar"></i></div></article>
-            <article><span>Vitória visitante</span><strong id="awayPct">—</strong><small id="awayCount">0 jogos</small><div class="track"><i id="awayBar"></i></div></article>
-          </div>
-          <p class="hint">As percentagens descrevem apenas a amostra filtrada. Não são probabilidades futuras nem garantias de repetição.</p>
-        </section>
-        <section class="panel">
-          <div class="section-head"><div><em>04</em><h2>Análise conjunta das três odds</h2></div><small>1 + X + 2 · SIMULTÂNEAS</small></div>
-          <p class="section-copy">Define intervalos para as três odds ao mesmo tempo. Só entram na amostra jogos com resultado FT e as três odds válidas. Deixa um campo vazio para não limitar esse intervalo.</p>
-          <div class="triplet-filters">
-            <div><b>Odd 1</b><label>Mínima<input id="min1" type="number" min="1.01" max="1000" step="0.01" placeholder="Sem mínimo"></label><label>Máxima<input id="max1" type="number" min="1.01" max="1000" step="0.01" placeholder="Sem máximo"></label></div>
-            <div><b>Odd X</b><label>Mínima<input id="minX" type="number" min="1.01" max="1000" step="0.01" placeholder="Sem mínimo"></label><label>Máxima<input id="maxX" type="number" min="1.01" max="1000" step="0.01" placeholder="Sem máximo"></label></div>
-            <div><b>Odd 2</b><label>Mínima<input id="min2" type="number" min="1.01" max="1000" step="0.01" placeholder="Sem mínimo"></label><label>Máxima<input id="max2" type="number" min="1.01" max="1000" step="0.01" placeholder="Sem máximo"></label></div>
-          </div>
-          <div class="analysis-grid triplet-kpis">
-            <article><span>Jogos na combinação 1/X/2</span><strong id="tripletN">—</strong></article>
-            <article><span>Margem média do mercado</span><strong id="tripletMargin">—</strong></article>
-          </div>
-          <div class="triplet-results">
-            <article><h3>Vitória da casa · 1</h3><span>Acertos</span><strong id="oneWins">—</strong><span>Frequência observada</span><strong id="oneFrequency">—</strong><span>ROI teórico</span><strong id="oneRoi">—</strong><span>Odd média</span><strong id="oneAverageOdd">—</strong><span>Probabilidade justa média*</span><strong id="oneFair">—</strong></article>
-            <article><h3>Empate · X</h3><span>Acertos</span><strong id="drawWins">—</strong><span>Frequência observada</span><strong id="drawFrequency">—</strong><span>ROI teórico</span><strong id="drawRoi">—</strong><span>Odd média</span><strong id="drawAverageOdd">—</strong><span>Probabilidade justa média*</span><strong id="drawFair">—</strong></article>
-            <article><h3>Vitória visitante · 2</h3><span>Acertos</span><strong id="twoWins">—</strong><span>Frequência observada</span><strong id="twoFrequency">—</strong><span>ROI teórico</span><strong id="twoRoi">—</strong><span>Odd média</span><strong id="twoAverageOdd">—</strong><span>Probabilidade justa média*</span><strong id="twoFair">—</strong></article>
-          </div>
-          <p id="tripletNote" class="hint">A preparar análise…</p>
-          <p class="hint">* Probabilidade justa calculada normalizando as probabilidades implícitas das três odds, retirando a margem proporcional. ROI simulado com uma unidade fixa em cada resultado, individualmente. Não é uma previsão nem uma recomendação de aposta.</p>
-        </section>
-        <section class="panel historical-search-panel">
-          <div class="section-head"><div><em>05</em><h2>Pesquisar odds de fecho</h2></div><small>COMPARAÇÃO HISTÓRICA 1 / X / 2</small></div>
-          <p class="section-copy">Introduz as três odds de fecho. Procuramos jogos históricos com as três cotações simultaneamente semelhantes e mostramos o resultado que mais vezes aconteceu.</p>
-          <div class="current-odds-inputs">
-            <label>Odd 1<input id="current1" type="number" min="1.01" max="1000" step="0.01" placeholder="Ex.: 1.85"></label>
-            <label>Odd X<input id="currentX" type="number" min="1.01" max="1000" step="0.01" placeholder="Ex.: 3.40"></label>
-            <label>Odd 2<input id="current2" type="number" min="1.01" max="1000" step="0.01" placeholder="Ex.: 4.50"></label>
-            <label>Tolerância ±<input id="tolerance" type="number" min="0.01" max="5" step="0.01" value="0.15"></label>
-            <label>Continente do jogo<select id="matchContinent"><option value="">A carregar continentes…</option></select></label>
-          </div>
-          <button id="searchHistoricalOdds" class="search-action">Pesquisar</button>
-          <p id="currentNote" class="hint" role="status" aria-live="polite">Preenche as odds 1, X e 2 e carrega em Pesquisar.</p>
-          <div id="historicalSearchResult" class="historical-result" hidden>
-            <div class="comparison-results">
-              <article id="globalResult" class="comparison-card">
-                <h3 id="globalHeading">Todos os continentes</h3>
-                <div class="historical-result-head"><strong id="globalPrediction">—</strong><span id="globalSample">— jogos</span></div>
-                <div class="historical-result-grid">
-                  <article><span>1</span><strong id="global1Freq">—</strong></article><article><span>X</span><strong id="globalXFreq">—</strong></article><article><span>2</span><strong id="global2Freq">—</strong></article>
-                  <article><span>Over 1,5</span><strong id="globalOver15">—</strong></article><article><span>Over 2,5</span><strong id="globalOver25">—</strong></article><article><span>Ambas marcam</span><strong id="globalBtts">—</strong></article>
-                </div><p class="hint">Marcadores: <strong id="globalExact">—</strong></p><p id="globalWarning" class="hint"></p>
-              </article>
-              <article id="regionalResult" class="comparison-card">
-                <h3 id="regionalHeading">Continente</h3>
-                <div class="historical-result-head"><strong id="regionalPrediction">—</strong><span id="regionalSample">— jogos</span></div>
-                <div class="historical-result-grid">
-                  <article><span>1</span><strong id="regional1Freq">—</strong></article><article><span>X</span><strong id="regionalXFreq">—</strong></article><article><span>2</span><strong id="regional2Freq">—</strong></article>
-                  <article><span>Over 1,5</span><strong id="regionalOver15">—</strong></article><article><span>Over 2,5</span><strong id="regionalOver25">—</strong></article><article><span>Ambas marcam</span><strong id="regionalBtts">—</strong></article>
-                </div><p class="hint">Marcadores: <strong id="regionalExact">—</strong></p><p id="regionalWarning" class="hint"></p>
-              </article>
-            </div>
-            <div id="globalMatches" class="matched-games"></div>
-            <div id="regionalMatches" class="matched-games"></div>
-            <h3 class="comparison-subtitle">Todos os mercados · global</h3><div id="globalPeriodMarkets" class="market-period-grid"></div>
-            <h3 class="comparison-subtitle">Todos os mercados · continental</h3><div id="regionalPeriodMarkets" class="market-period-grid"></div>
-          </div>
-          <p class="hint">As três odds são comparadas em conjunto. O resultado global ignora a seleção continental dos filtros; a comparação continental usa o continente escolhido. Amostras inferiores a 30 jogos são assinaladas como reduzidas. Frequências históricas não são garantias.</p>
-        </section>
-        <section class="panel">
-          <div class="section-head"><div><em>06</em><h2>Mercados por período</h2></div><small>FREQUÊNCIAS HISTÓRICAS</small></div>
-          <p class="section-copy">Compara os mercados da primeira parte, segunda parte, resultado final e intervalo/final. Cada estatística mostra a sua própria amostra válida. A seleção respeita simultaneamente os intervalos das três odds 1/X/2.</p>
-          <div id="periodMarkets" class="market-period-grid"></div>
-          <p class="hint">Não confundimos ausência de dados com zero golos. Se um resultado parcial estiver em falta, esse jogo não entra na amostra desse mercado.</p>
-        </section>
-        <section class="panel">
-          <div class="section-head"><div><em>07</em><h2>Backtesting cronológico</h2></div><small>TREINO VS. VALIDAÇÃO</small></div>
-          <p class="section-copy">Usa os intervalos 1/X/2 definidos acima. Escolhe uma data de corte: os jogos anteriores formam a amostra de treino e os jogos dessa data em diante formam a amostra de validação.</p>
-          <div class="backtest-controls"><label>Data de corte<input id="splitDate" type="date"></label><button id="runBacktest" class="quiet">Executar backtesting</button></div>
-          <h3 class="comparison-subtitle">Global · todos os continentes</h3>
-          <div class="analysis-grid">
-            <article><span>Jogos de treino</span><strong id="trainN">—</strong></article><article><span>Jogos de validação</span><strong id="validN">—</strong></article>
-            <article><span>ROI validação · 1 / X / 2</span><strong id="valid1">—</strong><small id="validX">—</small><small id="valid2">—</small></article>
-          </div>
-          <h3 class="comparison-subtitle">Continental · continente selecionado</h3>
-          <div class="analysis-grid">
-            <article><span>Jogos de treino</span><strong id="regionalTrainN">—</strong></article><article><span>Jogos de validação</span><strong id="regionalValidN">—</strong></article>
-            <article><span>ROI validação · 1 / X / 2</span><strong id="regionalValid1">—</strong><small id="regionalValidX">—</small><small id="regionalValid2">—</small></article>
-          </div>
-          <p id="backtestStatus" class="hint">Escolhe uma data e executa o teste. A validação cronológica é essencial para evitar avaliar a estratégia com os mesmos jogos usados para a desenvolver.</p>
-        </section>
-        <section class="panel">
-          <div class="section-head"><div><em>08</em><h2>Jogos da seleção</h2></div><small id="tableInfo">0 REGISTOS</small></div>
-          <div class="table-wrap"><table><thead><tr><th>Data</th><th>Competição</th><th>Encontro</th><th>Intervalo</th><th>2.ª parte</th><th>FT</th><th>Final</th><th>Odds 1 / X / 2</th><th>Estado</th></tr></thead><tbody id="matchesBody"><tr><td colspan="9" class="empty">A carregar base de dados…</td></tr></tbody></table></div>
-          <div class="pagination"><button id="prevPage" class="quiet">← Anterior</button><span id="pageLabel">Página 1</span><button id="nextPage" class="quiet">Seguinte →</button></div>
-        </section>
-      </section>
-      <footer>CSV DE ODDS <span>Ferramenta de investigação histórica · Sem ligação ao simulador principal</span></footer>
-    </main>
-  </div>
-  <script src="csv-odds-core.js"></script><script src="csv-odds-app.js"></script>
-</body></html>
+      <a class="back" href="index.html">← Voltar ao simulador</a>
+    </header>
+    <section class="intro">
+      <p class="eyebrow">BASE HISTÓRICA · PESQUISA EXATA</p>
+      <h1>Pesquisa de odds de fecho</h1>
+      <p>Introduz as três odds 1 / X / 2. Só serão apresentados jogos em que as três cotações coincidem exatamente.</p>
+      <div class="database-status" role="status" aria-live="polite">
+        <span id="status">A carregar a base histórica…</span>
+        <strong id="recordCount">—</strong>
+      </div>
+    </section>
+    <section class="search-panel" aria-labelledby="searchTitle">
+      <h2 id="searchTitle">Critérios de pesquisa</h2>
+      <div class="inputs">
+        <label>Odd 1<input id="current1" type="number" min="1.01" max="1000" step="0.01" inputmode="decimal" placeholder="Ex.: 1,85"></label>
+        <label>Odd X<input id="currentX" type="number" min="1.01" max="1000" step="0.01" inputmode="decimal" placeholder="Ex.: 3,40"></label>
+        <label>Odd 2<input id="current2" type="number" min="1.01" max="1000" step="0.01" inputmode="decimal" placeholder="Ex.: 4,50"></label>
+        <label>País do jogo<select id="country"><option value="">Todos os países</option></select></label>
+      </div>
+      <div class="actions">
+        <button id="searchHistoricalOdds" class="search-action" disabled>Pesquisar jogos</button>
+        <button id="clearSearch" class="quiet" type="button">Limpar</button>
+      </div>
+      <p id="currentNote" class="note" role="status" aria-live="polite">Aguarda o carregamento da base de dados.</p>
+    </section>
+    <section id="resultsPanel" class="results-panel" hidden aria-live="polite">
+      <div class="results-heading">
+        <div><p class="eyebrow">RESULTADOS ENCONTRADOS</p><h2 id="resultsTitle">Jogos com odds exatamente iguais</h2></div>
+        <strong id="resultCount">0 jogos</strong>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Data</th><th>Continente</th><th>País</th><th>Competição</th><th>Jogo</th><th>Odd 1</th><th>Odd X</th><th>Odd 2</th><th>Resultado FT</th><th>1X2</th></tr></thead>
+          <tbody id="matchesBody"><tr><td colspan="10" class="empty">Introduz as três odds para pesquisar.</td></tr></tbody>
+        </table>
+      </div>
+      <div class="pagination"><button id="prevPage" class="quiet" disabled>← Anterior</button><span id="pageLabel">Página 1 / 1</span><button id="nextPage" class="quiet" disabled>Seguinte →</button></div>
+    </section>
+    <footer>Ferramenta independente de pesquisa histórica · As odds são comparadas sem qualquer margem de tolerância.</footer>
+  </main>
+  <script src="csv-odds-core.js"></script>
+  <script src="csv-odds-app.js"></script>
+</body>
+</html>
