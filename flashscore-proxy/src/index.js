@@ -293,7 +293,7 @@ export default {
       const targetDate = String(body?.target_date || "");
       const parsedDate = new Date(targetDate + "T00:00:00Z");
       const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Lisbon", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
-      if (!/^\\d{4}-\\d{2}-\\d{2}$/.test(targetDate) || !Number.isFinite(parsedDate.getTime()) || parsedDate.toISOString().slice(0, 10) !== targetDate || targetDate > today) {
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(targetDate) || !Number.isFinite(parsedDate.getTime()) || parsedDate.toISOString().slice(0, 10) !== targetDate || targetDate > today) {
         return json({ error: "invalid_date", message: "Indica uma data válida, não futura, no formato YYYY-MM-DD." }, 400, headers);
       }
       const githubHeaders = { "Accept": "application/vnd.github+json", "Authorization": "Bearer " + env.GITHUB_ACTIONS_TOKEN, "X-GitHub-Api-Version": "2022-11-28" };
