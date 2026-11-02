@@ -57,11 +57,8 @@
         </div>
         <p class="stats-footnote">Cada indicador usa apenas os jogos da amostra com os dados necessários disponíveis. Dados em falta não são tratados como zero.</p>
       </section>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Data</th><th>Continente</th><th>País</th><th>Competição</th><th>Jogo</th><th>Odd 1</th><th>Odd X</th><th>Odd 2</th><th>Resultado FT</th><th>1X2</th></tr></thead>
-          <tbody id="matchesBody"><tr><td colspan="10" class="empty">Introduz as três odds para pesquisar.</td></tr></tbody>
-        </table>
+      <div id="matchesList" class="matches-list" aria-label="Lista de jogos encontrados">
+        <p class="empty">Introduz as três odds para pesquisar.</p>
       </div>
       <div class="pagination"><button id="prevPage" class="quiet" disabled>← Anterior</button><span id="pageLabel">Página 1 / 1</span><button id="nextPage" class="quiet" disabled>Seguinte →</button></div>
     </section>
