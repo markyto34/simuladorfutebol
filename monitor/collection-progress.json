@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 910,
-  "stats_games": 418,
-  "bwin_odds": 229,
+  "processed_games": 920,
+  "stats_games": 420,
+  "bwin_odds": 230,
   "failed_games": 1,
-  "current_match": "Último concluído: Esteli - Sport Sebaco",
-  "last_result": "Esteli - Sport Sebaco: 0 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-02T21:48:21.016Z"
+  "current_match": "Último concluído: Kwara - Bendel",
+  "last_result": "Kwara - Bendel: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T21:48:35.607Z"
 }
