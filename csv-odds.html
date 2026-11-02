@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#101a16">
-  <meta name="description" content="Pesquisa exata de jogos históricos pelas odds 1X2 registadas 1X2.">
+  <meta name="description" content="Pesquisa de jogos históricos pelas odds 1X2 com resultados ao intervalo, na segunda parte e no final.">
   <title>Pesquisa de Odds | Simulador Futebol</title>
   <link rel="stylesheet" href="csv-odds.css">
 </head>
@@ -17,7 +17,7 @@
     <section class="intro">
       <p class="eyebrow">BASE HISTÓRICA · COTAÇÕES REGISTADAS</p>
       <h1>Pesquisa de odds 1X2 registadas</h1>
-      <p>Introduz as três odds 1 / X / 2. Só serão apresentados jogos em que as três cotações registadas coincidem exatamente. As cotações refletem o momento da recolha e não são necessariamente odds de fecho.</p>
+      <p>Introduz as três odds 1 / X / 2. Só são apresentados jogos em que as três cotações 1 / X / 2 coincidem exatamente. Cada cartão mostra o resultado ao intervalo (HT), os golos marcados apenas na 2.ª parte (ST) e o resultado final do tempo regulamentar (FT). As cotações refletem o momento da recolha, não necessariamente o fecho.</p>
       <div class="database-status" role="status" aria-live="polite">
         <span id="status">A carregar a base histórica…</span>
         <strong id="recordCount">—</strong>
@@ -57,12 +57,7 @@
         </div>
         <p class="stats-footnote">Cada indicador usa apenas os jogos da amostra com os dados necessários disponíveis. Dados em falta não são tratados como zero.</p>
       </section>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Data</th><th>Continente</th><th>País</th><th>Competição</th><th>Jogo</th><th>Odd 1</th><th>Odd X</th><th>Odd 2</th><th>Resultado FT</th><th>1X2</th></tr></thead>
-          <tbody id="matchesBody"><tr><td colspan="10" class="empty">Introduz as três odds para pesquisar.</td></tr></tbody>
-        </table>
-      </div>
+      <div id="matchesList" class="matches-list" aria-label="Lista de jogos encontrados"></div>
       <div class="pagination"><button id="prevPage" class="quiet" disabled>← Anterior</button><span id="pageLabel">Página 1 / 1</span><button id="nextPage" class="quiet" disabled>Seguinte →</button></div>
     </section>
     <footer>Ferramenta independente de pesquisa histórica · As odds são comparadas sem qualquer margem de tolerância.</footer>
