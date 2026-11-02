@@ -1,0 +1,68 @@
+name: Teste controlado Flashscore + Bwin (máximo 5 jogos)
+
+on:
+  workflow_dispatch:
+    inputs:
+      match_ids:
+        description: "3 a 5 IDs Flashscore, separados por vírgulas ou espaços"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  collect-controlled-sample:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validar IDs e recolher amostra sequencial
+        id: collect
+        env:
+          MATCH_IDS: ${{ inputs.match_ids }}
+          FLASHSCORE_REQUEST_DELAY_MS: "2500"
+        run: |
+          set -euo pipefail
+          mapfile -t IDS < <(printf '%s' "$MATCH_IDS" | tr ', ' '\\n' | sed '/^[[:space:]]*$/d')
+          if [ "${#IDS[@]}" -lt 3 ] || [ "${#IDS[@]}" -gt 5 ]; then
+            echo "Indica entre 3 e 5 IDs Flashscore."
+            exit 2
+          fi
+          for id in "${IDS[@]}"; do
+            if [[ ! "$id" =~ ^[A-Za-z0-9]{6,16}$ ]]; then
+              echo "ID inválido: $id"
+              exit 2
+            fi
+          done
+          if [ "$(printf '%s\\n' "${IDS[@]}" | sort -u | wc -l)" -ne "${#IDS[@]}" ]; then
+            echo "Há IDs repetidos na entrada; remove os duplicados antes de iniciar."
+            exit 2
+          fi
+          node scripts/collect-flashscore-csv.mjs "${IDS[@]}"
+      - name: Validar CSV, duplicados e qualidade dos dados
+        if: success()
+        env:
+          MATCH_IDS: ${{ inputs.match_ids }}
+        run: |
+          mapfile -t IDS < <(printf '%s' "$MATCH_IDS" | tr ', ' '\\n' | sed '/^[[:space:]]*$/d')
+          node scripts/validate-flashscore-csv.mjs "${IDS[@]}"
+      - name: Guardar os CSV sem substituir histórico
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/flashscore-statistics.csv data/bwin-odds-flashscore.csv
+          if git diff --cached --quiet; then
+            echo "Sem alterações nos CSV; histórico mantido."
+          else
+            git commit -m "Adicionar amostra controlada Flashscore e Bwin"
+            git push origin main
+          fi
