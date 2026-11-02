@@ -55,6 +55,26 @@ function parseEvents(html) {
   return events;
 }
 
+function parseSubstitutions(events) {
+  return events
+    .filter(event => event.type === "substitution")
+    .map(event => {
+      const detail = String(event.description || "")
+        .replace(/^\s*\d{1,3}(?:\+\d{1,2})?['’]?\s*/, "")
+        .replace(/\s*\[[^\]]+\]\s*$/, "")
+        .trim();
+      const match = detail.match(/^(.+?)\s*\((.+?)\)\s*$/);
+      if (!match) return null;
+      return {
+        minute: event.minute,
+        player_in: match[1].trim(),
+        player_out: match[2].trim(),
+        team_abbreviation: event.team_abbreviation || null
+      };
+    })
+    .filter(Boolean);
+}
+
 function parseDateTime(html) {
   const decoded = decodeMarkup(html);
   const match = decoded.match(/(\d{2})\.(\d{2})\.(\d{4})\s+(\d{2}:\d{2})/);
@@ -77,6 +97,8 @@ export function extractStructuredMatch(html, matchId, options = {}) {
     second_half: parsePair(periods.second_half),
     full_time: parsePair(periods.ft)
   } : null;
+  const events = parseEvents(decoded);
+  const substitutions = parseSubstitutions(events);
   const bwinCandidates = extractBwin1x2(decoded);
   const singleBwin1x2 = bwinCandidates.length === 1 ? bwinCandidates[0] : null;
   const retrievedAt = options.retrievedAt || new Date().toISOString();
@@ -108,6 +130,10 @@ export function extractStructuredMatch(html, matchId, options = {}) {
     teams_home: teams.home,
     teams_away: teams.away,
     status,
+    events: events.length ? events : null,
+    statistics: null,
+    lineups: null,
+    formations: null,
     score_full_time: score?.full_time || null,
     bwin_1x2: odds?.markets["1x2"] || null
   })) {
@@ -135,11 +161,11 @@ export function extractStructuredMatch(html, matchId, options = {}) {
       away: { name: teams.away }
     },
     score,
-    events: parseEvents(decoded),
+    events,
     statistics: {},
     lineups: null,
     formations: null,
-    substitutions: [],
+    substitutions,
     odds,
     context: null,
     missing_fields: missingFields,
@@ -151,7 +177,8 @@ export function extractStructuredMatch(html, matchId, options = {}) {
         { field: "teams", source: "HTML title", value: title || null },
         { field: "date_time", source: "visible match summary", value: dateTime?.source_text || null },
         { field: "score", source: periods?.evidence || null },
-        { field: "events", source: "visible incident blocks", count: parseEvents(decoded).length },
+        { field: "events", source: "visible incident blocks", count: events.length },
+        { field: "substitutions", source: "substitution incident blocks with explicit incoming/outgoing player format", count: substitutions.length },
         { field: "odds", source: singleBwin1x2?.evidence || null }
       ]
     }

@@ -17,6 +17,7 @@ const html = String.raw`
 <div class="incident soccer"><p class="i-field time">37'</p><p class="i-field icon y-card">&nbsp;</p>Player A [KOL]</div>
 <h4>2ª Parte: <b>0-1</b></h4>
 <div class="incident soccer"><p class="i-field time-wide">45+1'</p><p class="i-field icon y-card">&nbsp;</p>Player B [UNI]</div>
+<div class="incident soccer"><p class="i-field time">61'</p><p class="i-field icon substitution">&nbsp;</p>Player In (Player Out) [KOL]</div>
 </div>
 <a data-event="odds_1" data-event-category="external_bookmaker_link" data-bookmaker-id="459">2.55 | 3.40 | 2.50 Odds fornecidas por bwin.pt</a>
 </body></html>`;
@@ -35,9 +36,18 @@ test("extracts match identity, date, period scores, events and Bwin 1X2", async 
   assert.deepEqual(record.score.half_time, { home: 1, away: 0 });
   assert.deepEqual(record.score.second_half, { home: 0, away: 1 });
   assert.deepEqual(record.score.full_time, { home: 1, away: 1 });
-  assert.equal(record.events.length, 3);
+  assert.equal(record.events.length, 4);
   assert.equal(record.events[0].type, "goal");
   assert.equal(record.events[0].minute, "10");
+  assert.deepEqual(record.substitutions, [{
+    minute: "61",
+    player_in: "Player In",
+    player_out: "Player Out",
+    team_abbreviation: "KOL"
+  }]);
+  assert.ok(record.missing_fields.includes("statistics"));
+  assert.ok(record.missing_fields.includes("lineups"));
+  assert.ok(record.missing_fields.includes("formations"));
   assert.equal(record.odds.bookmaker, "Bwin");
   assert.deepEqual(record.odds.markets["1x2"], { home: 2.55, draw: 3.4, away: 2.5 });
   assert.equal(record.odds.odds_timestamp_type, "observed_at_collection");
