@@ -300,7 +300,11 @@ export default {
       if (discoveryBody.byteLength > MAX_BODY_BYTES) return json({ error: "response_too_large" }, 502, headers);
       const discoveryHtml = new TextDecoder("utf-8").decode(discoveryBody);
       const summaryOnly = incoming.searchParams.get("summary") === "1";
-      return json({ ok: true, upstream_status: discoveryResponse.status, content_type: discoveryType, body_bytes: discoveryBody.byteLength, inspection: inspectMatchDiscovery(discoveryHtml, date, { summary: summaryOnly }) }, 200, headers);
+      const targetMatchId = incoming.searchParams.get("match_id") || null;
+      if (targetMatchId && !validMatchId(targetMatchId)) {
+        return json({ error: "invalid_match_id", message: "O match_id deve ser um identificador alfanumérico válido." }, 400, headers);
+      }
+      return json({ ok: true, upstream_status: discoveryResponse.status, content_type: discoveryType, body_bytes: discoveryBody.byteLength, inspection: inspectMatchDiscovery(discoveryHtml, date, { summary: summaryOnly, matchId: targetMatchId }) }, 200, headers);
     }
 
     const inspectOnly = incoming.pathname === "/inspect";
