@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
+  "processed_games": 10,
+  "stats_games": 10,
+  "bwin_odds": 10,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-02T22:05:58.442Z"
+  "current_match": "Último concluído: Marseille - Toulouse",
+  "last_result": "Marseille - Toulouse: 13 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-02T22:06:13.946Z"
 }
