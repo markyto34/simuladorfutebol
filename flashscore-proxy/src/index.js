@@ -161,7 +161,7 @@ function compactDiagnostic(inspection) {
   return { mode: 'compact-diagnostic', match_id: summary.match_id, title: summary.title, teams: summary.teams, competition_identity: summary.competition_identity, statistics: summary.statistics, missing_fields: summary.missing_fields, evidence: { statistics_dom: statsSamples, competition_links: competitionLinks, identity_attributes: identityAttributes, text_terms: (structure.text_terms || []).filter(item => /bundesliga|liga|league|tournament|competição|classificações|época/i.test(item.term + ' ' + item.context)).slice(0, 6) }, limits: { statistics_dom_samples: 6, html_preview_chars: 420, competition_links: 8, identity_attributes: 10 } };
 }
 async function resolveCompetitionFromDiscovery(date, matchId) {
-  if (!date || !/^\\d{4}-\\d{2}-\\d{2}$/.test(date)) return { status: "unavailable", reason: "match_date_unavailable" };
+  if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) return { status: "unavailable", reason: "match_date_unavailable" };
   const parsed = new Date(date + "T00:00:00Z");
   if (!Number.isFinite(parsed.getTime()) || parsed.toISOString().slice(0, 10) !== date) return { status: "unavailable", reason: "invalid_match_date" };
   const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Lisbon", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
