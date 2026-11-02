@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 850,
-  "stats_games": 383,
-  "bwin_odds": 209,
+  "processed_games": 860,
+  "stats_games": 385,
+  "bwin_odds": 211,
   "failed_games": 0,
-  "current_match": "Último concluído: ZFK Vardar F - ASS United F",
-  "last_result": "ZFK Vardar F - ASS United F: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T22:28:02.968Z"
+  "current_match": "Último concluído: Moyale Barracks - Karonga United",
+  "last_result": "Moyale Barracks - Karonga United: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T22:28:17.887Z"
 }
