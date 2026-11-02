@@ -70,4 +70,4 @@ async function refresh(){
     $("current-stage").textContent="Indisponível";
   }
 }
-refresh();setInterval(refresh,30000);
+refresh();setInterval(refresh,180000);
