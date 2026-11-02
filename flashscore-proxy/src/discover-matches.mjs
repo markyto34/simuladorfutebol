@@ -20,7 +20,7 @@ function plainText(value) {
     .trim();
 }
 
-function extractExplicitCompetitionForMatch(html, matchId) {
+export function extractExplicitCompetitionForMatch(html, matchId) {
   const scoreData = html.match(/<div\b[^>]*id=["']score-data["'][^>]*>([\s\S]*?)<\/div>/i)?.[1];
   if (!scoreData) return null;
   let currentHeading = null;
