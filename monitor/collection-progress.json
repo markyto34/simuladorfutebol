@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 290,
-  "stats_games": 150,
-  "bwin_odds": 76,
+  "processed_games": 300,
+  "stats_games": 160,
+  "bwin_odds": 83,
   "failed_games": 0,
-  "current_match": "Último concluído: Ulsan HD - Gangwon",
-  "last_result": "Ulsan HD - Gangwon: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-02T21:32:16.944Z"
+  "current_match": "Último concluído: Ulsan Citizen - Changwon",
+  "last_result": "Ulsan Citizen - Changwon: 6 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T21:32:33.286Z"
 }
