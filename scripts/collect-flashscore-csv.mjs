@@ -12,9 +12,25 @@ import { dirname, resolve } from "node:path";
 const PROXY = (process.env.FLASHSCORE_PROXY_URL || "https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev").replace(/\/$/, "");
 const DELAY_MS = Math.max(1500, Number(process.env.FLASHSCORE_REQUEST_DELAY_MS || 2500));
 const MAX_MANUAL_MATCHES = 5;
-const MAX_DAILY_MATCHES = 2000
+const MAX_DAILY_MATCHES = 2000;
 const STATS_FILE = resolve("data/flashscore-statistics.csv");
 const ODDS_FILE = resolve("data/bwin-odds-flashscore.csv");
+const MONITOR_URL = (process.env.MONITOR_URL || "").replace(/\\/$/, "");
+const MONITOR_TOKEN = process.env.MONITOR_TOKEN || "";
+const MONITOR_RUN_ID = process.env.GITHUB_RUN_ID || "manual";
+async function reportMonitor(type, fields = {}) {
+  if (!MONITOR_URL || !MONITOR_TOKEN) return;
+  try {
+    await fetch(MONITOR_URL + "/monitor/update", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Authorization": "Bearer " + MONITOR_TOKEN },
+      body: JSON.stringify({ type, run_id: MONITOR_RUN_ID, ...fields }),
+      signal: AbortSignal.timeout(5000)
+    });
+  } catch (error) {
+    console.warn("Monitor indisponível (a recolha prossegue): " + String(error?.message || error).slice(0, 120));
+  }
+}
 
 const STAT_KEYS = [
   "xg", "possession", "shots", "shots_on_target", "big_chances", "corners",
@@ -209,7 +225,7 @@ async function main() {
       if (record.statistics && Object.keys(record.statistics).length) statsNew.push(statisticsRow(record));
       const oddsRow = bwinOddsRow(record);
       if (oddsRow) oddsNew.push(oddsRow);
-      console.log(matchId + ": " + Object.keys(record.statistics || {}).length + " estatísticas; " + (oddsRow ? "odds Bwin 1X2 encontradas." : "sem triplo Bwin 1X2 confirmado."));
+      const statCount = Object.keys(record.statistics || {}).length;\n      console.log(matchId + ": " + statCount + " estatísticas; " + (oddsRow ? "odds Bwin 1X2 encontradas." : "sem triplo Bwin 1X2 confirmado."));\n      await reportMonitor("match_done", { match_id: matchId, stats_complete: statCount >= STAT_KEYS.length, bwin_found: Boolean(oddsRow) });
     } catch (error) {
       failures++;
       console.error(matchId + ": " + error.message);
