@@ -182,11 +182,19 @@ function extractWclStatistics(html) {
       const found = STAT_LABELS.find(([, re]) => re.test(label));
       if (!found) continue;
       const [key] = found;
-      const nums = [];
-      for (let j = i + 1; j < values.length && nums.length < 2; j++) {
-        if (STAT_LABELS.some(([, re]) => re.test(values[j]))) break;
-        const n = statNumber(values[j], key);
-        if (n !== null) nums.push(n);
+      // Current WCL rows order values as home -> label -> away.
+      // Keep the previous "label -> home -> away" layout as a fallback.
+      const previous = i > 0 ? statNumber(values[i - 1], key) : null;
+      const next = i + 1 < values.length ? statNumber(values[i + 1], key) : null;
+      let nums = previous !== null && next !== null ? [previous, next] : [];
+      if (nums.length < 2) {
+        const following = [];
+        for (let j = i + 1; j < values.length && following.length < 2; j++) {
+          if (STAT_LABELS.some(([, re]) => re.test(values[j]))) break;
+          const n = statNumber(values[j], key);
+          if (n !== null) following.push(n);
+        }
+        if (following.length >= 2) nums = following;
       }
       if (nums.length < 2 || statistics[key]) continue;
       statistics[key] = {
