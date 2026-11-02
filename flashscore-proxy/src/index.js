@@ -1,4 +1,5 @@
 import { extractBwin1x2 } from "./extract-bwin.mjs";
+import { inspectScoreEvidence } from "./extract-scores.mjs";
 const UPSTREAM = "https://m.flashscore.pt";
 const ALLOWED_ORIGINS = new Set([
   "https://simuladorfutebol.onrender.com"
@@ -108,33 +109,7 @@ function inspectHtml(html) {
     if (bwinOddsMarkers.length >= 20) break;
   }
 
-  // Recolhe provas locais em redor de cada marcador de resultado,
-  // preservando tags/classes para distinguir marcador, intervalo e períodos.
-  const decodedForScores = html
-    .replace(/\\u003c/gi, "<").replace(/\\u003e/gi, ">")
-    .replace(/\\u0022/gi, '"').replace(/\\u0026/gi, "&")
-    .replace(/\\u003d/gi, "=").replace(/\\u002f/gi, "/");
-  const scoreEvidence = [];
-  const scorePairPattern = /\b\d{1,2}\s*[-:]\s*\d{1,2}\b/g;
-  for (const item of decodedForScores.matchAll(scorePairPattern)) {
-    const start = Math.max(0, item.index - 220);
-    const end = Math.min(decodedForScores.length, item.index + item[0].length + 260);
-    const raw = decodedForScores.slice(start, end).replace(/\s+/g, " ").trim();
-    if (!scoreEvidence.some(entry => entry.value === item[0] && entry.context === raw)) {
-      scoreEvidence.push({ value: item[0], offset: item.index, context: raw.slice(0, 520) });
-    }
-    if (scoreEvidence.length >= 30) break;
-  }
-
-  const scoreRelatedAttributes = [];
-  const scoreAttributePattern = /(?:class|data-[\w-]+)=["'][^"']*(?:score|period|half|part|result)[^"']*["']/gi;
-  for (const item of decodedForScores.matchAll(scoreAttributePattern)) {
-    const start = Math.max(0, item.index - 140);
-    const end = Math.min(decodedForScores.length, item.index + item[0].length + 220);
-    const context = decodedForScores.slice(start, end).replace(/\s+/g, " ").trim();
-    if (!scoreRelatedAttributes.includes(context)) scoreRelatedAttributes.push(context.slice(0, 480));
-    if (scoreRelatedAttributes.length >= 30) break;
-  }
+  const { scoreEvidence, scoreRelatedAttributes } = inspectScoreEvidence(html);
 
   const scoreContexts = [];
   const scoreMarkerPattern = /(?:score|period|half|event__part|detailScore|participant__score)/ig;
