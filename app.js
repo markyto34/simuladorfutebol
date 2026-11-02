@@ -343,8 +343,9 @@ async function writeDataCache(key,text){
 }
 async function fetchSourceCSV(url){
  const key="simulador-futebol:"+url;
+ const ttl=url===ODDS_PERIODS_CSV_URL?7*24*60*60*1000:DATA_CACHE_TTL;
  const persistent=await readDataCache(key);
- if(persistent&&Date.now()-persistent.at<DATA_CACHE_TTL&&typeof persistent.text==="string")return persistent.text;
+ if(persistent&&Date.now()-persistent.at<ttl&&typeof persistent.text==="string")return persistent.text;
  try{const cached=sessionStorage.getItem(key);if(cached){const c=JSON.parse(cached);if(c&&Date.now()-c.at<900000&&typeof c.text==="string")return c.text;}}catch(e){}
  const response=await fetch(url);
  if(!response.ok)throw new Error("A fonte respondeu com HTTP "+response.status);
