@@ -15,6 +15,19 @@ test("extracts only a confirmed Bwin 1X2 triplet from Flashscore HTML", () => {
   assert.deepEqual([result[0].home, result[0].draw, result[0].away], [1.91, 3.45, 4.10]);
 });
 
+test("extracts a triplet split across adjacent text and the Bwin odds_1 anchor", () => {
+  const html = `
+    <p>Odds 2.55 | 3.40 |
+      <a href="https://mediaserver.entainpartners.com/renderBanner.do?zoneId=2034911"
+         data-event="odds_1" data-bookmaker-id="459">2.50</a>
+      Odds fornecidas por bwin.pt - Aposte agora
+    </p>
+  `;
+  const result = extractBwin1x2(html);
+  assert.equal(result.length, 1);
+  assert.deepEqual([result[0].home, result[0].draw, result[0].away], [2.55, 3.40, 2.50]);
+});
+
 test("does not treat other bookmakers or unlabelled odds as Bwin", () => {
   const html = `
     <a data-bookmaker-id="999" data-event="odds_1">1.91 | 3.45 | 4.10</a>
