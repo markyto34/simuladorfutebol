@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 40,
-  "stats_games": 32,
-  "bwin_odds": 23,
+  "processed_games": 50,
+  "stats_games": 40,
+  "bwin_odds": 26,
   "failed_games": 0,
-  "current_match": "Último concluído: Skenderbeu - Vllaznia",
-  "last_result": "Skenderbeu - Vllaznia: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T21:25:45.948Z"
+  "current_match": "Último concluído: Aachen - Munster",
+  "last_result": "Aachen - Munster: 10 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T21:26:02.067Z"
 }
