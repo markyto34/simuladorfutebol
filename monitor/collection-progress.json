@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 260,
-  "stats_games": 126,
-  "bwin_odds": 62,
+  "processed_games": 270,
+  "stats_games": 135,
+  "bwin_odds": 67,
   "failed_games": 0,
-  "current_match": "Último concluído: Mintack - Fauve Azur Elite",
-  "last_result": "Mintack - Fauve Azur Elite: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T22:12:45.341Z"
+  "current_match": "Último concluído: S. Wanderers - Copiapo",
+  "last_result": "S. Wanderers - Copiapo: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T22:13:01.988Z"
 }
