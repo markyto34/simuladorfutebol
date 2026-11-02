@@ -300,7 +300,8 @@ async function main() {
   for (let index = 0; index < matchIds.length; index++) {
     const matchId = matchIds[index];
     const matchStartedAt = Date.now();
-    await setProgress({ phase: "collecting", current_match: "A consultar jogo " + (index + 1) + "/" + matchIds.length + " · " + matchId });
+    progressSnapshot.phase = "collecting";
+    progressSnapshot.current_match = "A consultar jogo " + (index + 1) + "/" + matchIds.length + " · " + matchId;
     console.log("[PROGRESS] " + (index + 1) + "/" + matchIds.length + " | START | id=" + matchId);
     try {
       const record = await collect(matchId);
