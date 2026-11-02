@@ -56,7 +56,7 @@ const html = String.raw`
   assert.equal(record.country, null);
   assert.equal(record.competition, null);
   assert.ok(record.missing_fields.includes("country"));
-});
+  }
 
   console.log("Flashscore structured match extraction: OK");
 })().catch(error => {
