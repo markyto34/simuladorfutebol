@@ -122,7 +122,9 @@
     eachCSVRow(csvText, row => {
       const key = fixtureKey(value(row, ["date_time"]), value(row, ["home_team"]), value(row, ["away_team"]));
       if (!key) return;
-      const match = findMatching(index, key, score(row, ["score_home"]), score(row, ["score_away"]));
+      const homeScore = score(row, ["score_home"]), awayScore = score(row, ["score_away"]);
+      if (homeScore === null || awayScore === null) return;
+      const match = findMatching(index, key, homeScore, awayScore);
       if (!match) return;
       const id = value(row, ["match_id"]) || key;
       matched.add(id);
