@@ -523,11 +523,46 @@ function teamSample(team,venue,metric){
 function mean(values){return values.length?values.reduce((a,b)=>a+b,0)/values.length:null;}
 function validMetricSampleValue(value){return value!==null&&value!==undefined&&!(typeof value==="string"&&value.trim()==="")&&Number.isFinite(Number(value))&&Number(value)>=0;}
 function fillInput(id,value){const display=$(id+"Display");if(value!==null&&Number.isFinite(value)){$(id).value=value.toFixed(2);if(display)display.textContent=value.toFixed(2);}else{$(id).value="";if(display)display.textContent="Sem dados";}}
+const TEAM_METRIC_PAIRS=[
+ ["goalsFor","hgFor","agFor"],["goalsAgainst","hgAgainst","agAgainst"],
+ ["htGoalsFor","hhtFor","ahtFor"],["htGoalsAgainst","hhtAgainst","ahtAgainst"],
+ ["secondHalfGoalsFor","hshFor","ashFor"],["secondHalfGoalsAgainst","hshAgainst","ashAgainst"],
+ ["xgFor","hxgFor","axgFor"],["xgAgainst","hxgAgainst","axgAgainst"],
+ ["cornersFor","hcFor","acFor"],["cornersAgainst","hcAgainst","acAgainst"],
+ ["shotsFor","hshotsFor","ashotsFor"],["shotsAgainst","hshotsAgainst","ashotsAgainst"],
+ ["targetFor","htargetFor","atargetFor"],["targetAgainst","htargetAgainst","atargetAgainst"],
+ ["foulsFor","hfoulsFor","afoulsFor"],["foulsAgainst","hfoulsAgainst","afoulsAgainst"],
+ ["yellowFor","hyellowFor","ayellowFor"],["yellowAgainst","hyellowAgainst","ayellowAgainst"],
+ ["redFor","hredFor","aredFor"],["redAgainst","hredAgainst","aredAgainst"]
+];
+function enforcePairedTeamCoverage(){
+ const home=$("homePick").value,away=$("awayPick").value;
+ const allIds=TEAM_METRIC_PAIRS.flatMap(([,homeId,awayId])=>[homeId,awayId]);
+ const clearAll=()=>allIds.forEach(id=>fillInput(id,null));
+ if(!home||!away){clearAll();return "Seleciona as duas equipas; os dados só são apresentados quando existe um par casa/fora.";}
+ const homeBase=teamSample(home,"home","goalsFor").length>0&&teamSample(home,"home","goalsAgainst").length>0;
+ const awayBase=teamSample(away,"away","goalsFor").length>0&&teamSample(away,"away","goalsAgainst").length>0;
+ if(!homeBase||!awayBase){
+  clearAll();
+  return "Sem cobertura recente conjunta: "+(!homeBase?"a equipa da casa não tem amostra válida":"")+( !homeBase&&!awayBase?" e ":"")+( !awayBase?"a equipa visitante não tem amostra válida":"")+". Dados das duas equipas ocultados.";
+ }
+ const missing=[];
+ for(const [metric,homeId,awayId] of TEAM_METRIC_PAIRS){
+  const homeValues=teamSample(home,"home",metric),awayValues=teamSample(away,"away",metric);
+  const min=metric==="xgFor"||metric==="xgAgainst"?5:1;
+  const homeAvg=mean(homeValues),awayAvg=mean(awayValues);
+  if(homeValues.length<min||awayValues.length<min||homeAvg===null||awayAvg===null){
+   fillInput(homeId,null);fillInput(awayId,null);missing.push(metric);
+  }
+ }
+ return missing.length?"Cobertura conjunta aplicada: indicadores sem amostra válida nas duas equipas foram ocultados dos dois lados ("+missing.join(", ")+").":"Cobertura conjunta confirmada: casa e fora têm dados válidos.";
+}
 function applyTeamSelection(side){
+ const skipPairCheck=arguments[1]===true;
  const team=$(side==="home"?"homePick":"awayPick").value;
  const suffix=side==="home"?"h":"a";
  const fields=[["goalsFor",suffix+"gFor"],["goalsAgainst",suffix+"gAgainst"],["htGoalsFor",suffix+"htFor"],["htGoalsAgainst",suffix+"htAgainst"],["secondHalfGoalsFor",suffix+"shFor"],["secondHalfGoalsAgainst",suffix+"shAgainst"],["xgFor",suffix+"xgFor"],["xgAgainst",suffix+"xgAgainst"],["cornersFor",suffix+"cFor"],["cornersAgainst",suffix+"cAgainst"],["shotsFor",suffix+"shotsFor"],["shotsAgainst",suffix+"shotsAgainst"],["targetFor",suffix+"targetFor"],["targetAgainst",suffix+"targetAgainst"],["foulsFor",suffix+"foulsFor"],["foulsAgainst",suffix+"foulsAgainst"],["yellowFor",suffix+"yellowFor"],["yellowAgainst",suffix+"yellowAgainst"],["redFor",suffix+"redFor"],["redAgainst",suffix+"redAgainst"]];
- if(!team){for(const [,id] of fields)fillInput(id,null);$(side==="home"?"homeName":"awayName").value="";$(side==="home"?"homeNameDisplay":"awayNameDisplay").textContent="—";return;}
+ if(!team){for(const [,id] of fields)fillInput(id,null);$(side==="home"?"homeName":"awayName").value="";$(side==="home"?"homeNameDisplay":"awayNameDisplay").textContent="—";if(!skipPairCheck)$("data-status").textContent=enforcePairedTeamCoverage();return;}
  const venue=side==="home"?"home":"away";
  const coverage={};
  for(const [metric,id] of fields){const values=teamSample(team,venue,metric),avg=mean(values);const usable=metric==="xgFor"||metric==="xgAgainst"?(values.length>=5?avg:null):avg;fillInput(id,usable);coverage[metric]=values.length;}
@@ -535,6 +570,7 @@ function applyTeamSelection(side){
  const status=$("data-status"),sample=$("sample").value==="all"?"todos os jogos":"últimos "+$("sample").value+" jogos";
  const count=(a,b)=>Math.min(coverage[a]||0,coverage[b]||0);
  status.textContent=team+": médias "+(venue==="home"?"em casa":"fora")+" preenchidas. Amostras — golos: "+count("goalsFor","goalsAgainst")+"; HT: "+count("htGoalsFor","htGoalsAgainst")+"; ST: "+count("secondHalfGoalsFor","secondHalfGoalsAgainst")+"; xG: "+count("xgFor","xgAgainst")+"; cantos: "+count("cornersFor","cornersAgainst")+"; remates: "+count("shotsFor","shotsAgainst")+"; remates à baliza: "+count("targetFor","targetAgainst")+"; faltas: "+count("foulsFor","foulsAgainst")+"; amarelos: "+count("yellowFor","yellowAgainst")+"; vermelhos: "+count("redFor","redAgainst")+". Janela: "+sample+". Campos sem cobertura ficam indisponíveis; não são substituídos por zeros.";
+ if(!skipPairCheck){const other=side==="home"?"away":"home";if($(other==="home"?"homePick":"awayPick").value)applyTeamSelection(other,true);status.textContent+=" "+enforcePairedTeamCoverage();}
 }
 $("load-data").addEventListener("click",loadHistoricalData);
 $("homePick").addEventListener("change",()=>{applyTeamSelection("home");loadWdwMatchPair();});
