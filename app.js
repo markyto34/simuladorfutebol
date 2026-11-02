@@ -474,11 +474,15 @@ function teamSample(team,venue,metric){
   }
  }
  records.sort((a,b)=>(b.m.date||"").localeCompare(a.m.date||""));
- const rows=records.filter(x=>complete(x.m,x.w));
- const values=rows.map(x=>valueFrom(x.m,x.w,x.h)).filter(v=>v!==null&&v!==undefined&&Number.isFinite(Number(v)));
+ // Cada indicador usa a sua própria amostra. Não exigir que um jogo tenha
+ // cantos, remates e faltas completos para poder contribuir para golos/HT.
+ const values=records
+  .map(x=>valueFrom(x.m,x.w,x.h))
+  .filter(validMetricSampleValue);
  return limit==="all"?values:values.slice(0,requested);
 }
 function mean(values){return values.length?values.reduce((a,b)=>a+b,0)/values.length:null;}
+function validMetricSampleValue(value){return value!==null&&value!==undefined&&!(typeof value==="string"&&value.trim()==="")&&Number.isFinite(Number(value))&&Number(value)>=0;}
 function fillInput(id,value){const display=$(id+"Display");if(value!==null&&Number.isFinite(value)){$(id).value=value.toFixed(2);if(display)display.textContent=value.toFixed(2);}else{$(id).value="";if(display)display.textContent="Sem dados";}}
 function applyTeamSelection(side){
  const team=$(side==="home"?"homePick":"awayPick").value;
