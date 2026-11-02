@@ -20,6 +20,35 @@ function plainText(value) {
     .trim();
 }
 
+function extractCompetitionIdentity(html, anchorIndex, matchId, requestedDate) {
+  const scoreDataStart = html.search(/<div\\b[^>]*id\\s*=\\s*(?:"score-data"|'score-data')[^>]*>/i);
+  if (scoreDataStart < 0 || anchorIndex < scoreDataStart) return { status: "unavailable", country: null, competition: null, season: null, stage: null, round: null, source: null };
+  const headingStart = html.lastIndexOf("<h4", anchorIndex);
+  if (headingStart < scoreDataStart) return { status: "unavailable", country: null, competition: null, season: null, stage: null, round: null, source: null };
+  const headingOpenEnd = html.indexOf(">", headingStart);
+  const headingEnd = headingOpenEnd >= 0 ? html.indexOf("</h4>", headingOpenEnd) : -1;
+  if (headingEnd < 0 || headingEnd >= anchorIndex) return { status: "unavailable", country: null, competition: null, season: null, stage: null, round: null, source: null };
+  const headingHtml = html.slice(headingOpenEnd + 1, headingEnd).replace(/<a\\b[^>]*>[\\s\\S]*?<\\/a>/gi, " ");
+  const heading = plainText(headingHtml);
+  const split = heading.match(/^(.+?)\\s*:\\s*(.+)$/);
+  if (!split) return { status: "unavailable", country: null, competition: null, season: null, stage: null, round: null, source: null };
+  const countryLabel = split[1].trim();
+  const competition = split[2].trim();
+  const countryNames = {
+    ALEMANHA: "Alemanha", GERMANY: "Alemanha", ESPANHA: "Espanha", SPAIN: "Espanha",
+    FRANÇA: "França", FRANCE: "França", INGLATERRA: "Inglaterra", ENGLAND: "Inglaterra",
+    ITÁLIA: "Itália", ITALY: "Itália", PORTUGAL: "Portugal",
+    "PAÍSES BAIXOS": "Países Baixos", NETHERLANDS: "Países Baixos",
+    BÉLGICA: "Bélgica", BELGIUM: "Bélgica", TURQUIA: "Turquia", TURKEY: "Turquia",
+    BRASIL: "Brasil", BRAZIL: "Brasil"
+  };
+  const country = countryNames[countryLabel.toLocaleUpperCase("pt-PT")] || countryLabel;
+  return {
+    status: "identified", country, competition, season: null, stage: null, round: null,
+    source: { type: "flashscore-results-group-heading", match_id: matchId, requested_date: requestedDate, heading, evidence: heading + " → " + matchId }
+  };
+}
+
 export function inspectMatchDiscovery(html, requestedDate, options = {}) {
   const summaryOnly = options.summary === true;
   const targetMatchId = typeof options.matchId === "string" ? options.matchId : null;
@@ -56,7 +85,10 @@ export function inspectMatchDiscovery(html, requestedDate, options = {}) {
       matches.push({
         ...compact,
         context: context || null,
-        ...(targetMatchId ? { context_html: rawContext.slice(0, 5200) } : {})
+        ...(targetMatchId ? {
+          context_html: rawContext.slice(0, 5200),
+          competition_identity: extractCompetitionIdentity(html, item.index, id, requestedDate)
+        } : {})
       });
     }
   }
