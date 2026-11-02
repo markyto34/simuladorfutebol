@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 140,
-  "stats_games": 76,
-  "bwin_odds": 41,
+  "processed_games": 150,
+  "stats_games": 82,
+  "bwin_odds": 45,
   "failed_games": 0,
-  "current_match": "Último concluído: Melbourne Victory F - Newcastle F",
-  "last_result": "Melbourne Victory F - Newcastle F: 13 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-02T21:28:22.780Z"
+  "current_match": "Último concluído: Al Muharraq - Sitra",
+  "last_result": "Al Muharraq - Sitra: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-02T21:28:38.940Z"
 }
