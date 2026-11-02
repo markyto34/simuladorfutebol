@@ -35,7 +35,7 @@ jobs:
           FLASHSCORE_REQUEST_DELAY_MS: "2500"
         run: |
           set -euo pipefail
-          mapfile -t IDS < <(printf '%s' "$MATCH_IDS" | tr ', ' '\\n' | sed '/^[[:space:]]*$/d')
+          mapfile -t IDS < <(printf '%s' "$MATCH_IDS" | tr ', ' '\n' | sed '/^[[:space:]]*$/d')
           if [ "${#IDS[@]}" -lt 3 ] || [ "${#IDS[@]}" -gt 5 ]; then
             echo "Indica entre 3 e 5 IDs Flashscore."
             exit 2
@@ -46,7 +46,7 @@ jobs:
               exit 2
             fi
           done
-          if [ "$(printf '%s\\n' "${IDS[@]}" | sort -u | wc -l)" -ne "${#IDS[@]}" ]; then
+          if [ "$(printf '%s\n' "${IDS[@]}" | sort -u | wc -l)" -ne "${#IDS[@]}" ]; then
             echo "Há IDs repetidos na entrada; remove os duplicados antes de iniciar."
             exit 2
           fi
@@ -56,7 +56,7 @@ jobs:
         env:
           MATCH_IDS: ${{ inputs.match_ids }}
         run: |
-          mapfile -t IDS < <(printf '%s' "$MATCH_IDS" | tr ', ' '\\n' | sed '/^[[:space:]]*$/d')
+          mapfile -t IDS < <(printf '%s' "$MATCH_IDS" | tr ', ' '\n' | sed '/^[[:space:]]*$/d')
           node scripts/validate-flashscore-csv.mjs "${IDS[@]}"
       - name: Guardar os CSV sem substituir histórico
         if: always()
