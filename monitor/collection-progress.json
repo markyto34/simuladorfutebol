@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 660,
-  "stats_games": 312,
-  "bwin_odds": 160,
+  "processed_games": 670,
+  "stats_games": 322,
+  "bwin_odds": 169,
   "failed_games": 0,
-  "current_match": "Último concluído: R.T Boys - GOG FCC",
-  "last_result": "R.T Boys - GOG FCC: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T21:41:53.157Z"
+  "current_match": "Último concluído: West Ham F - Liverpool F",
+  "last_result": "West Ham F - Liverpool F: 13 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-02T21:42:10.780Z"
 }
