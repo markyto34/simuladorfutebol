@@ -4,6 +4,7 @@ import { extractPeriodScores } from "./extract-period-scores.mjs";
 import { inspectMatchDiscovery } from "./discover-matches.mjs";
 import { extractStructuredMatch } from "./extract-match-record.mjs";
 import { inspectPageStructure } from "./inspect-page-structure.mjs";
+import { buildMatchTabUrl, resolveMatchTab } from "./match-tabs.mjs";
 const UPSTREAM = "https://m.flashscore.pt";
 const ALLOWED_ORIGINS = new Set([
   "https://simuladorfutebol.onrender.com"
@@ -39,7 +40,7 @@ function validMatchId(value) {
   return typeof value === "string" && /^[A-Za-z0-9]{6,16}$/.test(value);
 }
 
-function inspectHtml(html, matchId) {
+function inspectHtml(html, matchId, options = {}) {
   const plain = html
     .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ")
     .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, " ")
@@ -127,7 +128,7 @@ function inspectHtml(html, matchId) {
   return {
     title: title || null,
     page_structure: inspectPageStructure(html),
-    match_record: extractStructuredMatch(html, matchId, { httpStatus: 200 }),
+    match_record: extractStructuredMatch(html, matchId, { httpStatus: 200, sourceUrl: options.sourceUrl }),
     bwin: {
       found: /bwin/i.test(html),
       mentions: (html.match(/bwin/gi) || []).length,
@@ -231,6 +232,15 @@ export default {
       }, 404, headers);
     }
 
+    const requestedTab = incoming.searchParams.get("tab") || "summary";
+    if (!inspectOnly && incoming.searchParams.has("tab")) {
+      return json({ error: "tab_only_supported_on_inspect" }, 400, headers);
+    }
+    const tab = resolveMatchTab(requestedTab);
+    if (!tab) {
+      return json({ error: "invalid_tab", allowed_tabs: ["summary", "statistics", "lineups", "standings", "commentary", "h2h"] }, 400, headers);
+    }
+
     const matchId = incoming.searchParams.get("id");
     if (!validMatchId(matchId)) {
       return json({
@@ -239,7 +249,7 @@ export default {
       }, 400, headers);
     }
 
-    const target = new URL(`/jogo/${matchId}/`, UPSTREAM);
+    const target = new URL(buildMatchTabUrl(matchId, requestedTab), UPSTREAM);
     const cacheKey = new Request(target.toString(), { method: "GET" });
     const cache = caches.default;
     let html = null;
@@ -312,7 +322,9 @@ export default {
         upstream_status: upstream.status,
         content_type: contentType,
         body_bytes: body.byteLength,
-        inspection: inspectHtml(html, matchId)
+        requested_tab: requestedTab,
+        source_url: target.toString(),
+        inspection: inspectHtml(html, matchId, { sourceUrl: target.toString() })
       }, 200, headers);
     }
 
