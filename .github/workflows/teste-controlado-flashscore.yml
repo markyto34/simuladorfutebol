@@ -24,6 +24,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Verificar sintaxe dos scripts
+        run: |
+          node --check scripts/collect-flashscore-csv.mjs
+          node --check scripts/validate-flashscore-csv.mjs
       - name: Validar IDs e recolher amostra sequencial
         id: collect
         env:
