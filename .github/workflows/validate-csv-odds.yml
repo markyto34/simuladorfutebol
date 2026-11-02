@@ -2,11 +2,13 @@ name: Validar CSV de Odds
 on:
   push:
     branches:
-      - feature/csv-odds-lab
+      - main
     paths:
       - '.github/workflows/validate-csv-odds.yml'
       - 'scripts/validate-csv-odds.cjs'
       - 'csv-odds-core.js'
+      - 'csv-odds.html'
+      - 'csv-odds-app.js'
       - 'ganhonasodds_com_20261101.csv'
   pull_request:
     branches:
@@ -15,8 +17,12 @@ on:
       - '.github/workflows/validate-csv-odds.yml'
       - 'scripts/validate-csv-odds.cjs'
       - 'csv-odds-core.js'
+      - 'csv-odds.html'
+      - 'csv-odds-app.js'
       - 'ganhonasodds_com_20261101.csv'
   workflow_dispatch:
+  schedule:
+    - cron: "15 6 * * *"
 permissions:
   contents: read
 jobs:

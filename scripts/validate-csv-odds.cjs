@@ -29,7 +29,8 @@ for (const m of matches) {
 }
 const duplicateRows = [...duplicateKeys.values()].filter(n=>n>1).reduce((n,v)=>n+v-1,0);
 const dateValues = matches.filter(m=>m.date).map(m=>m.date.toISOString()).sort();
-const futureAfterSnapshot = matches.filter(m=>m.date && m.date > new Date("2026-11-01T23:59:59Z")).length;
+const validationTime = new Date();
+const futureAfterValidationTime = matches.filter(m => m.date && m.date > validationTime).length;
 const leagueCounts = new Map(), countryCounts = new Map();
 for (const m of matches) {
   if (m.league) leagueCounts.set(m.league,(leagueCounts.get(m.league)||0)+1);
@@ -38,7 +39,7 @@ for (const m of matches) {
 const out = {
  file, bytes: Buffer.byteLength(text), rows: matches.length, columns: headers.length, headers, missingHeaders,
  completed: completed.length, pending,
- dateMin: dateValues[0] || null, dateMax: dateValues.at(-1) || null, futureAfterSnapshot,
+ dateMin: dateValues[0] || null, dateMax: dateValues.at(-1) || null, validatedAt: validationTime.toISOString(), futureAfterValidationTime,
  invalidDate, noTeams, distinctLeagues: leagueCounts.size, distinctCountries: countryCounts.size,
  distinctTeams: teams.size, distinctCountryLeaguePairs: leaguePairs.size, duplicateRows,
  missingValues: Object.fromEntries(required.map(k=>[k,countMissing(k)])),
