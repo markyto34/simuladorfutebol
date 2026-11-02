@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 10,
-  "stats_games": 10,
-  "bwin_odds": 10,
+  "processed_games": 20,
+  "stats_games": 20,
+  "bwin_odds": 16,
   "failed_games": 0,
-  "current_match": "Último concluído: Marseille - Toulouse",
-  "last_result": "Marseille - Toulouse: 13 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-02T21:24:56.904Z"
+  "current_match": "Último concluído: Nigéria U17 F - Venezuela U17 F",
+  "last_result": "Nigéria U17 F - Venezuela U17 F: 13 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T21:25:13.859Z"
 }
