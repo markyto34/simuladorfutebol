@@ -20,6 +20,26 @@ function plainText(value) {
     .trim();
 }
 
+function extractExplicitCompetitionForMatch(html, matchId) {
+  const scoreData = html.match(/<div\b[^>]*id=["']score-data["'][^>]*>([\s\S]*?)<\/div>/i)?.[1];
+  if (!scoreData) return null;
+  let currentHeading = null;
+  const tokens = scoreData.match(/<h4\b[^>]*>[\s\S]*?<\/h4>|<a\b[^>]*href\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)[^>]*>[\s\S]*?<\/a>/gi) || [];
+  for (const token of tokens) {
+    if (/^<h4\b/i.test(token)) {
+      currentHeading = plainText(token.replace(/^<h4\b[^>]*>/i, "").replace(/<\/h4>$/i, ""));
+      continue;
+    }
+    const href = decodeEntities(token.match(/\bhref\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i)?.slice(1).find(Boolean) || "");
+    const id = href.match(/\/jogo\/([A-Za-z0-9]{6,16})(?:\/|[?#]|$)/i)?.[1];
+    if (id !== matchId || !currentHeading) continue;
+    const match = currentHeading.match(/^\s*([^:]+?)\s*:\s*(.+?)\s*$/);
+    if (!match) return { status: "ambiguous", heading: currentHeading, country: null, competition: null };
+    return { status: "identified", heading: currentHeading, country: match[1].trim(), competition: match[2].trim() };
+  }
+  return null;
+}
+
 export function inspectMatchDiscovery(html, requestedDate, options = {}) {
   const summaryOnly = options.summary === true;
   const targetMatchId = typeof options.matchId === "string" ? options.matchId : null;
@@ -44,6 +64,10 @@ export function inspectMatchDiscovery(html, requestedDate, options = {}) {
     totalUniqueMatchCount += 1;
     const anchorText = plainText(item[5]).slice(0, 180) || null;
     const compact = { match_id: id, href, anchor_text: anchorText };
+    if (targetMatchId) {
+      const identity = extractExplicitCompetitionForMatch(html, id);
+      if (identity) compact.competition_identity = identity;
+    }
     if (sampleMatches.length < 15) sampleMatches.push(compact);
 
     if (!summaryOnly && matches.length < 500) {
