@@ -1,3 +1,11 @@
 name = "simuladorfutebol-flashscore-proxy"
 main = "src/index.js"
 compatibility_date = "2026-11-01"
+
+[[durable_objects.bindings]]
+name = "COLLECTION_MONITOR"
+class_name = "CollectionMonitor"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["CollectionMonitor"]
