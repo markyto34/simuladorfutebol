@@ -107,3 +107,15 @@ table{min-width:850px}
 .historical-result-grid article span{display:block;font-size:10px;color:#aab8af}
 .historical-result-grid article strong{display:block;margin-top:7px;font-size:20px;color:#e5f1e8}
 @media(max-width:600px){.historical-result{padding:12px}.historical-result-head{align-items:flex-start;flex-direction:column;gap:5px}.historical-result-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.search-action{width:100%}}
+
+/* Global versus continental comparison */
+.current-odds-inputs{grid-template-columns:repeat(5,minmax(0,1fr))}
+.current-odds-inputs select{width:100%;min-width:0;min-height:44px;background:#0e1712;color:#edf5ef;border:1px solid #34483c;border-radius:8px;padding:11px}
+.comparison-results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.comparison-card{min-width:0;padding:14px;border:1px solid #304238;border-radius:10px;background:#111c16}
+.comparison-card h3,.comparison-subtitle{font-size:13px;color:#a5e8b8;margin:0 0 12px}
+.comparison-card .historical-result-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.comparison-card .historical-result-grid article{padding:9px}
+.comparison-card .historical-result-grid article strong{font-size:17px}
+.comparison-subtitle{margin-top:18px}
+@media(max-width:700px){.comparison-results{grid-template-columns:1fr}.current-odds-inputs{grid-template-columns:repeat(2,minmax(0,1fr))}.comparison-card .historical-result-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
