@@ -38,7 +38,7 @@ for (const m of matches) {
 const out = {
  file, bytes: Buffer.byteLength(text), rows: matches.length, columns: headers.length, headers, missingHeaders,
  completed: completed.length, pending,
- dateMin: dateValues[0] || null, dateMax: dateValues.at(-1) || null, futureAfterSnapshot,
+ dateMin: dateValues[0] || null, dateMax: dateValues.at(-1) || null, validatedAt: validationTime.toISOString(), futureAfterValidationTime,
  invalidDate, noTeams, distinctLeagues: leagueCounts.size, distinctCountries: countryCounts.size,
  distinctTeams: teams.size, distinctCountryLeaguePairs: leaguePairs.size, duplicateRows,
  missingValues: Object.fromEntries(required.map(k=>[k,countMissing(k)])),
