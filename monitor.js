@@ -55,6 +55,8 @@ async function refresh(){
     $("elapsed").textContent=relative(run.updated_at);
     $("run-id").textContent="RUN ID · "+run.id;
     $("github-run-link").href=run.html_url;
+    $("job-logs-link").href=job?.html_url||run.html_url;
+    $("job-logs-link").textContent=job?"Ver logs jogo a jogo ↗":"Ver execução no GitHub ↗";
     const pct=percent(steps);$("progress-fill").style.width=pct+"%";
     $("progress-label").textContent=run.status==="completed"?(run.conclusion==="success"?"Execução concluída":"Execução terminada com falhas"):"Etapas concluídas no workflow";
     $("progress-percent").textContent=pct+"%";
