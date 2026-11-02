@@ -12,7 +12,7 @@ import { dirname, resolve } from "node:path";
 const PROXY = (process.env.FLASHSCORE_PROXY_URL || "https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev").replace(/\/$/, "");
 const DELAY_MS = Math.max(1500, Number(process.env.FLASHSCORE_REQUEST_DELAY_MS || 2500));
 const MAX_MANUAL_MATCHES = 5;
-const MAX_DAILY_MATCHES = 200;
+const MAX_DAILY_MATCHES = 2000
 const STATS_FILE = resolve("data/flashscore-statistics.csv");
 const ODDS_FILE = resolve("data/bwin-odds-flashscore.csv");
 
@@ -165,7 +165,7 @@ async function discoverMatchIds(date) {
     throw new Error("Falha na descoberta de jogos: " + (payload.error || "HTTP " + response.status));
   }
   if (payload.inspection.truncated) {
-    throw new Error("A lista da data excede o limite seguro de 500 jogos; não foi iniciada a recolha.");
+    throw new Error("A lista da data excede o limite seguro de 2000 jogos; não foi iniciada a recolha.");
   }
   return [...new Set((payload.inspection.match_ids || []).filter(id => /^[A-Za-z0-9]{6,16}$/.test(id)))];
 }

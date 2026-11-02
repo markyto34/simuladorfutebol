@@ -71,7 +71,7 @@ export function inspectMatchDiscovery(html, requestedDate, options = {}) {
     }
     if (sampleMatches.length < 15) sampleMatches.push(compact);
 
-    if (!summaryOnly && !idsOnly && matches.length < 500) {
+    if (!summaryOnly && !idsOnly && matches.length < 2000) {
       const before = targetMatchId ? 3200 : 900;
       const after = targetMatchId ? 1600 : 500;
       const start = Math.max(0, item.index - before);
@@ -95,7 +95,7 @@ export function inspectMatchDiscovery(html, requestedDate, options = {}) {
     candidate_anchor_count: candidateAnchorCount,
     match_count: totalUniqueMatchCount,
     duplicate_link_count: duplicateLinkCount,
-    truncated: totalUniqueMatchCount > 500,
+    truncated: totalUniqueMatchCount > 2000,
     date_tokens: dateTokens
   };
 
