@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "app.js"
+      - "data-enrichment.js"
       - "config.js"
       - "windrawwin-proxy/**"
       - ".github/workflows/validate-simulator.yml"
@@ -21,5 +22,6 @@ jobs:
       - name: Check JavaScript syntax
         run: |
           node --check app.js
+          node --check data-enrichment.js
           node --check config.js
           node --check windrawwin-proxy/src/index.js
