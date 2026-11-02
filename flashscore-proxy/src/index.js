@@ -3,6 +3,7 @@ import { inspectScoreEvidence } from "./extract-scores.mjs";
 import { extractPeriodScores } from "./extract-period-scores.mjs";
 import { inspectMatchDiscovery } from "./discover-matches.mjs";
 import { extractStructuredMatch } from "./extract-match-record.mjs";
+import { inspectPageStructure } from "./inspect-page-structure.mjs";
 const UPSTREAM = "https://m.flashscore.pt";
 const ALLOWED_ORIGINS = new Set([
   "https://simuladorfutebol.onrender.com"
@@ -125,6 +126,7 @@ function inspectHtml(html, matchId) {
 
   return {
     title: title || null,
+    page_structure: inspectPageStructure(html),
     match_record: extractStructuredMatch(html, matchId, { httpStatus: 200 }),
     bwin: {
       found: /bwin/i.test(html),
