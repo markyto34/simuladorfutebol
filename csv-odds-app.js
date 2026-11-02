@@ -202,10 +202,8 @@
     $("validN").textContent = globalResult.validation.count.toLocaleString("pt-PT");
     $("regionalTrainN").textContent = regionalResult.training.count.toLocaleString("pt-PT");
     $("regionalValidN").textContent = regionalResult.validation.count.toLocaleString("pt-PT");
-    [["1","train1","valid1","regionalTrain1","regionalValid1"],["X","trainX","validX","regionalTrainX","regionalValidX"],["2","train2","valid2","regionalTrain2","regionalValid2"]].forEach(([key,trainId,validId,rTrainId,rValidId]) => {
-      $(trainId).textContent = pct(globalResult.training.outcomes[key].roi);
+    [["1","valid1","regionalValid1"],["X","validX","regionalValidX"],["2","valid2","regionalValid2"]].forEach(([key,validId,rValidId]) => {
       $(validId).textContent = pct(globalResult.validation.outcomes[key].roi);
-      $(rTrainId).textContent = pct(regionalResult.training.outcomes[key].roi);
       $(rValidId).textContent = pct(regionalResult.validation.outcomes[key].roi);
     });
     $("backtestStatus").textContent = "Backtesting cronológico concluído: global vs. " + continent + ". Compara sobretudo a validação, que usa jogos posteriores à data de corte e não usados no treino.";
