@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 1170,
-  "stats_games": 540,
-  "bwin_odds": 308,
+  "processed_games": 1180,
+  "stats_games": 541,
+  "bwin_odds": 309,
   "failed_games": 1,
-  "current_match": "Último concluído: Kabel Novi Sad - Sloven Ruma",
-  "last_result": "Kabel Novi Sad - Sloven Ruma: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T21:54:56.854Z"
+  "current_match": "Último concluído: Balestier Khalsa - Lion City",
+  "last_result": "Balestier Khalsa - Lion City: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-02T21:55:11.624Z"
 }
