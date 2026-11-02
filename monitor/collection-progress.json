@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 990,
-  "stats_games": 444,
-  "bwin_odds": 249,
+  "processed_games": 1000,
+  "stats_games": 454,
+  "bwin_odds": 259,
   "failed_games": 0,
-  "current_match": "Último concluído: FC Emmen - Den Bosch",
-  "last_result": "FC Emmen - Den Bosch: 12 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-02T22:31:38.687Z"
+  "current_match": "Último concluído: Cerro Porteno - Olimpia Asuncion",
+  "last_result": "Cerro Porteno - Olimpia Asuncion: 13 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-02T22:31:56.664Z"
 }
