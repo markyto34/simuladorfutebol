@@ -33,6 +33,71 @@ function validMatchId(value) {
   return typeof value === "string" && /^[A-Za-z0-9]{6,16}$/.test(value);
 }
 
+function inspectHtml(html) {
+  const plain = html
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;|&apos;/g, "'")
+    .replace(/&amp;/g, "&")
+    .replace(/\s+/g, " ");
+
+  const title = (html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] || "")
+    .replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim().slice(0, 180);
+
+  const bwinRegex = /bwin/ig;
+  const bwinSnippets = [];
+  let match;
+  while ((match = bwinRegex.exec(html)) && bwinSnippets.length < 8) {
+    const start = Math.max(0, match.index - 180);
+    const end = Math.min(html.length, match.index + 260);
+    const snippet = html.slice(start, end)
+      .replace(/<[^>]+>/g, " ")
+      .replace(/\\u003c/gi, "<")
+      .replace(/\\u003e/gi, ">")
+      .replace(/\\u0026/gi, "&")
+      .replace(/\\u0022/gi, '"')
+      .replace(/\\n|\\t/g, " ")
+      .replace(/\s+/g, " ").trim();
+    bwinSnippets.push(snippet.slice(0, 360));
+  }
+
+  const scorePatterns = [
+    /"?(?:homeScore|awayScore|scoreHome|scoreAway|score)"?\s*[:=]\s*"?\d{1,2}(?:\s*[-:]\s*\d{1,2})?/gi,
+    /\b\d{1,2}\s*[-:]\s*\d{1,2}\b/g
+  ];
+  const scoreCandidates = [];
+  for (const pattern of scorePatterns) {
+    for (const item of html.matchAll(pattern)) {
+      const value = item[0].slice(0, 80);
+      if (!scoreCandidates.includes(value)) scoreCandidates.push(value);
+      if (scoreCandidates.length >= 20) break;
+    }
+    if (scoreCandidates.length >= 20) break;
+  }
+
+  const oddsPattern = /\b\d{1,2}[.,]\d{2,3}\b/g;
+  const oddsCandidates = [];
+  for (const item of html.matchAll(oddsPattern)) {
+    const value = item[0].replace(",", ".");
+    if (!oddsCandidates.includes(value)) oddsCandidates.push(value);
+    if (oddsCandidates.length >= 30) break;
+  }
+
+  return {
+    title: title || null,
+    bwin: {
+      found: /bwin/i.test(html),
+      mentions: (html.match(/bwin/gi) || []).length,
+      snippets: bwinSnippets
+    },
+    score_candidates: scoreCandidates,
+    decimal_number_candidates: oddsCandidates,
+    note: "Candidatos encontrados no HTML; não são confirmação de mercado, período do jogo nem odds de fecho."
+  };
+}
+
 export default {
   async fetch(request, env, ctx) {
     const origin = request.headers.get("Origin") || "";
@@ -64,10 +129,11 @@ export default {
       }, 200, headers);
     }
 
-    if (incoming.pathname !== "/match") {
+    const inspectOnly = incoming.pathname === "/inspect";
+    if (!inspectOnly && incoming.pathname !== "/match") {
       return json({
         error: "not_found",
-        usage: "/match?id=FLASHscore_MATCH_ID"
+        usage: "/match?id=FLASHscore_MATCH_ID or /inspect?id=FLASHscore_MATCH_ID"
       }, 404, headers);
     }
 
@@ -82,13 +148,16 @@ export default {
     const target = new URL(`/jogo/${matchId}/`, UPSTREAM);
     const cacheKey = new Request(target.toString(), { method: "GET" });
     const cache = caches.default;
-    let cached = await cache.match(cacheKey);
+    let html = null;
 
-    if (cached) {
-      const outputHeaders = new Headers(cached.headers);
-      for (const [key, value] of Object.entries(headers)) outputHeaders.set(key, value);
-      outputHeaders.set("X-Proxy-Cache", "HIT");
-      return new Response(cached.body, { status: cached.status, headers: outputHeaders });
+    if (!inspectOnly) {
+      const cached = await cache.match(cacheKey);
+      if (cached) {
+        const outputHeaders = new Headers(cached.headers);
+        for (const [key, value] of Object.entries(headers)) outputHeaders.set(key, value);
+        outputHeaders.set("X-Proxy-Cache", "HIT");
+        return new Response(cached.body, { status: cached.status, headers: outputHeaders });
+      }
     }
 
     let upstream;
@@ -138,6 +207,19 @@ export default {
     const body = await upstream.arrayBuffer();
     if (body.byteLength > MAX_BODY_BYTES) {
       return json({ error: "response_too_large" }, 502, headers);
+    }
+
+    html = new TextDecoder("utf-8").decode(body);
+
+    if (inspectOnly) {
+      return json({
+        ok: true,
+        match_id: matchId,
+        upstream_status: upstream.status,
+        content_type: contentType,
+        body_bytes: body.byteLength,
+        inspection: inspectHtml(html)
+      }, 200, headers);
     }
 
     const responseHeaders = new Headers({
