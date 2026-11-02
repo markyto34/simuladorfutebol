@@ -55,8 +55,8 @@ export function inspectMatchDiscovery(html, requestedDate, options = {}) {
       const headingIsBeforeMatch = headingStart >= 0 && headingEnd >= 0 && headingEnd < item.index;
       const headingHtml = headingIsBeforeMatch ? html.slice(headingOpenEnd + 1, headingEnd) : "";
       const headingText = plainText(headingHtml);
-      const identityMatch = headingText.match(/^([^:]{2,60}):\\s*(.{2,100})$/);
-      const standingsHref = headingHtml.match(/<a\\b[^>]*href\\s*=\\s*(?:"([^"]+)"|'([^']+)'|([^\\s>]+))/i);
+      const identityMatch = headingText.match(/^([^:]{2,60}):\s*(.{2,100})$/);
+      const standingsHref = headingHtml.match(/<a\b[^>]*href\s*=\s*(?:"([^"]+)"|'([^']+)'|([^\s>]+))/i);
       targetCompetitionIdentity = identityMatch ? {
         status: "identified",
         country: identityMatch[1].trim(),
