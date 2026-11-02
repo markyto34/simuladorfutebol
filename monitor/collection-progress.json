@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 740,
+  "processed_games": 750,
   "stats_games": 350,
   "bwin_odds": 191,
   "failed_games": 1,
-  "current_match": "Último concluído: Varesina - Varese FC",
-  "last_result": "Varesina - Varese FC: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T21:44:02.660Z"
+  "current_match": "Último concluído: Ancona - Atletico Ascoli",
+  "last_result": "Ancona - Atletico Ascoli: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T21:44:17.523Z"
 }
