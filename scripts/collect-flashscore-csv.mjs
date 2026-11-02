@@ -314,11 +314,13 @@ async function main() {
       const home = record.teams?.home?.name || "Casa";
       const away = record.teams?.away?.name || "Fora";
       progressSnapshot.last_result = home + " - " + away + ": " + Object.keys(record.statistics || {}).length + " estatísticas; Bwin 1X2 " + (oddsRow ? "encontradas" : "não confirmado");
+      progressSnapshot.current_match = "Último concluído: " + home + " - " + away;
       console.log("[PROGRESS] " + (index + 1) + "/" + matchIds.length + " | OK | " + home + " - " + away + " | id=" + matchId + " | stats=" + Object.keys(record.statistics || {}).length + " | bwin_1x2=" + (oddsRow ? "sim" : "não confirmado") + " | " + (Date.now() - matchStartedAt) + " ms");
     } catch (error) {
       failures++;
       progressSnapshot.failed_games++;
       progressSnapshot.last_result = "Falha em " + matchId + ": " + error.message;
+      progressSnapshot.current_match = "Último erro: " + matchId;
       console.error("[PROGRESS] " + (index + 1) + "/" + matchIds.length + " | ERROR | id=" + matchId + " | " + error.message);
       if (error.stop) { stoppedByUpstream = true; break; }
     } finally {
