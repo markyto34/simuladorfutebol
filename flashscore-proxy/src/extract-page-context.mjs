@@ -110,7 +110,7 @@ const STAT_LABELS = [
   ["expected_goals", /^(golos esperados(?: \(xg\))?|expected goals(?: \(xg\))?|xg)$/i],
   ["big_chances", /^(grandes oportunidades|big chances)$/i],
   ["corners", /^(cantos|pontapés de canto|escanteios|corners)$/i],
-  ["shots", /^(remates|finalizações|chutes|shots|total de remates|total shots)$/i],
+  ["shots", /^(remates|finalizações|chutes|shots|total remates|total de remates|total shots)$/i],
   ["shots_on_target", /^(remates à baliza|remates enquadrados|finalizações no alvo|chutes no gol|shots on target)$/i],
   ["shots_off_target", /^(remates ao lado|remates para fora|finalizações para fora|shots off target)$/i],
   ["blocked_shots", /^(remates bloqueados|blocked shots)$/i],
