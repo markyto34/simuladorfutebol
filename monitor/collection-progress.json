@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 220,
-  "stats_games": 114,
-  "bwin_odds": 59,
+  "processed_games": 230,
+  "stats_games": 118,
+  "bwin_odds": 62,
   "failed_games": 0,
-  "current_match": "Último concluído: Pesqueira - CA Porto",
-  "last_result": "Pesqueira - CA Porto: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T22:11:44.167Z"
+  "current_match": "Último concluído: Foz do Iguacu - Parana",
+  "last_result": "Foz do Iguacu - Parana: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T22:11:59.631Z"
 }
