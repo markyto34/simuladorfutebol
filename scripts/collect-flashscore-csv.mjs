@@ -11,7 +11,8 @@ import { dirname, resolve } from "node:path";
 
 const PROXY = (process.env.FLASHSCORE_PROXY_URL || "https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev").replace(/\/$/, "");
 const DELAY_MS = Math.max(1500, Number(process.env.FLASHSCORE_REQUEST_DELAY_MS || 2500));
-const MAX_MATCHES = 5;
+const MAX_MANUAL_MATCHES = 5;
+const MAX_DAILY_MATCHES = 200;
 const STATS_FILE = resolve("data/flashscore-statistics.csv");
 const ODDS_FILE = resolve("data/bwin-odds-flashscore.csv");
 
@@ -182,8 +183,15 @@ async function main() {
     console.log("Flashscore encontrou " + matchIds.length + " IDs únicos para " + date + ".");
   }
   matchIds = [...new Set(matchIds)];
-  if (matchIds.length > MAX_MATCHES) throw new Error("Limite de segurança: máximo de " + MAX_MATCHES + " jogos por execução.");
+  const maxMatches = dateOption ? MAX_DAILY_MATCHES : MAX_MANUAL_MATCHES;
+  if (matchIds.length > maxMatches) {
+    throw new Error("Limite de segurança: máximo de " + maxMatches + " jogos por execução" + (dateOption ? " diária." : " manual."));
+  }
   if (!matchIds.length) {
+    if (dateOption) {
+      console.log("Não foram encontrados jogos Flashscore para a data indicada. Nada a acrescentar aos CSV.");
+      return;
+    }
     console.error("Uso: node scripts/collect-flashscore-csv.mjs <match_id> [match_id...]");
     console.error("  ou: node scripts/collect-flashscore-csv.mjs --date=YYYY-MM-DD");
     process.exitCode = 2;
