@@ -165,5 +165,7 @@
     return { matched: matched.size, ht: ht.size, secondHalf: secondHalf.size };
   }
 
-  root.FootballDataEnrichment = { enrichFlashscoreStats, enrichOddsPeriods, fixtureKey };
+  const api = { enrichFlashscoreStats, enrichOddsPeriods, fixtureKey };
+  root.FootballDataEnrichment = api;
+  if (typeof module !== "undefined" && module.exports) module.exports = api;
 })(typeof globalThis !== "undefined" ? globalThis : this);
