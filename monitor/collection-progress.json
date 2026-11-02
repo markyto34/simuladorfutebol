@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 820,
-  "stats_games": 370,
+  "processed_games": 830,
+  "stats_games": 377,
   "bwin_odds": 207,
   "failed_games": 0,
-  "current_match": "Último concluído: Lijabatho - LCS",
-  "last_result": "Lijabatho - LCS: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T22:27:16.453Z"
+  "current_match": "Último concluído: Jwayya - Nejmeh SC",
+  "last_result": "Jwayya - Nejmeh SC: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T22:27:32.505Z"
 }
