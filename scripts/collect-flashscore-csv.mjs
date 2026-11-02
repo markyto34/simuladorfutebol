@@ -83,8 +83,9 @@ function statisticsRow(record) {
     retrieved_at: record.source_capture?.retrieved_at || ""
   };
   for (const key of STAT_KEYS) {
-    row[key + "_home"] = record.statistics?.[key]?.home ?? "";
-    row[key + "_away"] = record.statistics?.[key]?.away ?? "";
+    const sourceKey = key === "xg" ? "expected_goals" : key;
+    row[key + "_home"] = record.statistics?.[sourceKey]?.home ?? "";
+    row[key + "_away"] = record.statistics?.[sourceKey]?.away ?? "";
   }
   return row;
 }
