@@ -1,0 +1,179 @@
+#!/usr/bin/env node
+/**
+ * Recolhe estatísticas e odds Bwin a partir da mesma página de estatísticas
+ * de cada jogo Flashscore. Não recolhe odds de outras casas.
+ *
+ * Uso: node scripts/collect-flashscore-csv.mjs <match_id> [match_id...]
+ * Opcional: FLASHSCORE_PROXY_URL e FLASHSCORE_REQUEST_DELAY_MS.
+ */
+import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { dirname, resolve } from "node:path";
+
+const PROXY = (process.env.FLASHSCORE_PROXY_URL || "https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev").replace(/\/$/, "");
+const DELAY_MS = Math.max(0, Number(process.env.FLASHSCORE_REQUEST_DELAY_MS || 1500));
+const STATS_FILE = resolve("data/flashscore-statistics.csv");
+const ODDS_FILE = resolve("data/bwin-odds-flashscore.csv");
+
+const STAT_KEYS = [
+  "xg", "possession", "shots", "shots_on_target", "big_chances", "corners",
+  "yellow_cards", "shots_off_target", "blocked_shots", "shots_inside_box",
+  "shots_outside_box", "offsides", "fouls"
+];
+const STAT_HEADERS = [
+  "match_id", "date_time", "country", "competition", "home_team", "away_team",
+  "status", "score_home", "score_away",
+  ...STAT_KEYS.flatMap(key => [key + "_home", key + "_away"]),
+  "source", "source_url", "retrieved_at"
+];
+const ODDS_HEADERS = [
+  "match_id", "date_time", "country", "competition", "home_team", "away_team",
+  "bookmaker", "market", "odd_1", "odd_x", "odd_2",
+  "odds_timestamp_type", "retrieved_at", "source", "source_url"
+];
+
+function csvCell(value) {
+  if (value === null || value === undefined) return "";
+  const text = String(value);
+  return /[",\r\n]/.test(text) ? '"' + text.replace(/"/g, '""') + '"' : text;
+}
+function toCsv(headers, rows) {
+  return [headers.join(","), ...rows.map(row => headers.map(key => csvCell(row[key])).join(","))].join("\n") + "\n";
+}
+function parseCsv(text) {
+  const rows = [];
+  let row = [], cell = "", quoted = false;
+  text = String(text || "").replace(/^\uFEFF/, "");
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i], next = text[i + 1];
+    if (quoted) {
+      if (c === '"' && next === '"') { cell += '"'; i++; }
+      else if (c === '"') quoted = false;
+      else cell += c;
+    } else if (c === '"' && cell === "") quoted = true;
+    else if (c === ",") { row.push(cell); cell = ""; }
+    else if (c === "\n" || c === "\r") {
+      if (c === "\r" && next === "\n") i++;
+      row.push(cell); cell = "";
+      if (row.some(value => value !== "")) rows.push(row);
+      row = [];
+    } else cell += c;
+  }
+  if (cell !== "" || row.length) { row.push(cell); if (row.some(value => value !== "")) rows.push(row); }
+  if (!rows.length) return [];
+  const headers = rows.shift();
+  return rows.map(values => Object.fromEntries(headers.map((header, index) => [header, values[index] || ""])));
+}
+async function readRows(path) {
+  try { return parseCsv(await readFile(path, "utf8")); }
+  catch (error) { if (error.code === "ENOENT") return []; throw error; }
+}
+function statisticsRow(record) {
+  const row = {
+    match_id: record.match_id,
+    date_time: record.date_time_iso_local || record.date_time || "",
+    country: record.country || "",
+    competition: record.competition || "",
+    home_team: record.teams?.home?.name || "",
+    away_team: record.teams?.away?.name || "",
+    status: record.status || "",
+    score_home: record.score?.full_time?.home ?? "",
+    score_away: record.score?.full_time?.away ?? "",
+    source: "Flashscore",
+    source_url: record.source_capture?.url || "",
+    retrieved_at: record.source_capture?.retrieved_at || ""
+  };
+  for (const key of STAT_KEYS) {
+    row[key + "_home"] = record.statistics?.[key]?.home ?? "";
+    row[key + "_away"] = record.statistics?.[key]?.away ?? "";
+  }
+  return row;
+}
+function bwinOddsRow(record) {
+  const odds = record.odds;
+  const market = odds?.markets?.["1x2"];
+  if (odds?.bookmaker !== "Bwin" || !market) return null;
+  const values = [market.home, market.draw, market.away].map(Number);
+  if (!values.every(value => Number.isFinite(value) && value > 1 && value <= 1000)) return null;
+  return {
+    match_id: record.match_id,
+    date_time: record.date_time_iso_local || record.date_time || "",
+    country: record.country || "",
+    competition: record.competition || "",
+    home_team: record.teams?.home?.name || "",
+    away_team: record.teams?.away?.name || "",
+    bookmaker: "Bwin",
+    market: "1X2",
+    odd_1: values[0],
+    odd_x: values[1],
+    odd_2: values[2],
+    odds_timestamp_type: odds.odds_timestamp_type || "observed_at_collection",
+    retrieved_at: odds.retrieved_at || record.source_capture?.retrieved_at || "",
+    source: "Flashscore",
+    source_url: record.source_capture?.url || ""
+  };
+}
+function mergeRows(existing, incoming, keyFn) {
+  const map = new Map(existing.map(row => [keyFn(row), row]));
+  for (const row of incoming) map.set(keyFn(row), row);
+  return [...map.values()];
+}
+const sleep = ms => new Promise(resolveSleep => setTimeout(resolveSleep, ms));
+
+async function collect(matchId) {
+  if (!/^[A-Za-z0-9]{6,16}$/.test(matchId)) throw new Error("ID inválido: " + matchId);
+  const url = new URL(PROXY + "/record");
+  url.searchParams.set("id", matchId);
+  url.searchParams.set("tab", "statistics");
+  const response = await fetch(url, { headers: { "Accept": "application/json" } });
+  let payload;
+  try { payload = await response.json(); }
+  catch { throw new Error("Resposta não JSON para " + matchId + " (HTTP " + response.status + ")."); }
+  if (!response.ok || payload.ok !== true || !payload.record) {
+    const upstream = Number(payload.upstream_status || 0);
+    if (upstream === 403 || upstream === 429) {
+      const error = new Error("Flashscore respondeu HTTP " + upstream + "; recolha interrompida sem novas tentativas.");
+      error.stop = true;
+      throw error;
+    }
+    throw new Error("Falha ao recolher " + matchId + ": " + (payload.error || "HTTP " + response.status));
+  }
+  if (payload.record.source !== "Flashscore" || payload.record.match_id !== matchId) {
+    throw new Error("A resposta não corresponde ao jogo Flashscore solicitado: " + matchId);
+  }
+  return payload.record;
+}
+
+async function main() {
+  const matchIds = process.argv.slice(2).filter(arg => !arg.startsWith("--"));
+  if (!matchIds.length) {
+    console.error("Uso: node scripts/collect-flashscore-csv.mjs <match_id> [match_id...]");
+    process.exitCode = 2;
+    return;
+  }
+  await mkdir(dirname(STATS_FILE), { recursive: true });
+  const existingStats = await readRows(STATS_FILE);
+  const existingOdds = await readRows(ODDS_FILE);
+  const statsNew = [], oddsNew = [];
+  for (let index = 0; index < matchIds.length; index++) {
+    const matchId = matchIds[index];
+    try {
+      const record = await collect(matchId);
+      if (record.statistics && Object.keys(record.statistics).length) statsNew.push(statisticsRow(record));
+      const oddsRow = bwinOddsRow(record);
+      if (oddsRow) oddsNew.push(oddsRow);
+      console.log(matchId + ": " + Object.keys(record.statistics || {}).length + " estatísticas; " + (oddsRow ? "odds Bwin 1X2 encontradas." : "sem triplo Bwin 1X2 confirmado."));
+    } catch (error) {
+      console.error(matchId + ": " + error.message);
+      if (error.stop) break;
+    }
+    if (index < matchIds.length - 1) await sleep(DELAY_MS);
+  }
+  const mergedStats = mergeRows(existingStats, statsNew, row => row.match_id);
+  const mergedOdds = mergeRows(existingOdds, oddsNew, row => row.match_id + "|" + row.retrieved_at);
+  await writeFile(STATS_FILE, toCsv(STAT_HEADERS, mergedStats), "utf8");
+  await writeFile(ODDS_FILE, toCsv(ODDS_HEADERS, mergedOdds), "utf8");
+  console.log("CSV de estatísticas: " + STATS_FILE + " (" + mergedStats.length + " jogos).");
+  console.log("CSV exclusivo Bwin: " + ODDS_FILE + " (" + mergedOdds.length + " observações).");
+}
+
+main().catch(error => { console.error(error); process.exitCode = 1; });
