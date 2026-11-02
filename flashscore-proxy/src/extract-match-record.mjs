@@ -173,7 +173,7 @@ export function extractStructuredMatch(html, matchId, options = {}) {
     context: null,
     missing_fields: missingFields,
     source_capture: {
-      url: `https://m.flashscore.pt/jogo/${matchId}/`,
+      url: options.sourceUrl || `https://m.flashscore.pt/jogo/${matchId}/`,
       retrieved_at: retrievedAt,
       http_status: options.httpStatus ?? 200,
       evidence: [
