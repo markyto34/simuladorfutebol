@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 1010,
-  "stats_games": 463,
-  "bwin_odds": 268,
+  "processed_games": 1020,
+  "stats_games": 473,
+  "bwin_odds": 278,
   "failed_games": 1,
-  "current_match": "Último concluído: Brito SC - Limianos",
-  "last_result": "Brito SC - Limianos: 7 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-02T21:50:54.127Z"
+  "current_match": "Último concluído: Ovarense - FC Alpendorada",
+  "last_result": "Ovarense - FC Alpendorada: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-02T21:51:09.485Z"
 }
