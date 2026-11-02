@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 1180,
-  "stats_games": 541,
-  "bwin_odds": 309,
+  "processed_games": 1190,
+  "stats_games": 549,
+  "bwin_odds": 316,
   "failed_games": 1,
-  "current_match": "Último concluído: Balestier Khalsa - Lion City",
-  "last_result": "Balestier Khalsa - Lion City: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-02T22:36:35.867Z"
+  "current_match": "Último concluído: Karlbergs - Assyriska FF",
+  "last_result": "Karlbergs - Assyriska FF: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T22:36:52.226Z"
 }
