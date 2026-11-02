@@ -19,8 +19,8 @@ function corsHeaders(origin) {
 
   return {
     "Access-Control-Allow-Origin": allowedOrigin,
-    "Access-Control-Allow-Methods": "GET, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type, Authorization",
     "Vary": "Origin"
   };
 }
@@ -269,7 +269,7 @@ export default {
       return new Response(null, { status: 204, headers });
     }
 
-    if (request.method !== "GET") {
+    if (request.method !== "GET" && request.method !== "POST") {
       return json({ error: "method_not_allowed" }, 405, headers);
     }
 
@@ -278,6 +278,45 @@ export default {
     }
 
     const incoming = new URL(request.url);
+
+    if (incoming.pathname === "/trigger-collection") {
+      if (request.method !== "POST") return json({ error: "method_not_allowed" }, 405, headers);
+      const auth = request.headers.get("Authorization") || "";
+      if (!env.CONTROL_TOKEN || auth !== "Bearer " + env.CONTROL_TOKEN) {
+        return json({ error: "unauthorized", message: "Acesso não autorizado ao controlo de recolha." }, 401, headers);
+      }
+      if (!env.GITHUB_ACTIONS_TOKEN) {
+        return json({ error: "control_not_configured", message: "Falta configurar o token de Actions no Worker." }, 503, headers);
+      }
+      let body;
+      try { body = await request.json(); } catch { return json({ error: "invalid_json" }, 400, headers); }
+      const targetDate = String(body?.target_date || "");
+      const parsedDate = new Date(targetDate + "T00:00:00Z");
+      const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Lisbon", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(targetDate) || !Number.isFinite(parsedDate.getTime()) || parsedDate.toISOString().slice(0, 10) !== targetDate || targetDate > today) {
+        return json({ error: "invalid_date", message: "Indica uma data válida, não futura, no formato YYYY-MM-DD." }, 400, headers);
+      }
+      const githubHeaders = { "Accept": "application/vnd.github+json", "Authorization": "Bearer " + env.GITHUB_ACTIONS_TOKEN, "X-GitHub-Api-Version": "2022-11-28" };
+      const workflow = "recolha-diaria-flashscore.yml";
+      const runsUrl = "https://api.github.com/repos/markyto34/simuladorfutebol/actions/workflows/" + workflow + "/runs?per_page=20";
+      let runsResponse;
+      try { runsResponse = await fetch(runsUrl, { headers: githubHeaders, signal: AbortSignal.timeout(12000), cache: "no-store" }); }
+      catch { return json({ error: "github_unavailable", message: "Não foi possível verificar o estado atual no GitHub." }, 502, headers); }
+      if (!runsResponse.ok) return json({ error: "github_check_failed", message: "O GitHub não permitiu verificar as execuções existentes.", github_status: runsResponse.status }, 502, headers);
+      const runsData = await runsResponse.json();
+      const busyRun = (runsData.workflow_runs || []).find(run => run.status === "queued" || run.status === "in_progress");
+      if (busyRun) return json({ error: "collection_in_progress", message: "Já existe uma recolha na fila ou em execução. Aguarda que termine.", run_id: busyRun.id, run_url: busyRun.html_url }, 409, headers);
+      let dispatchResponse;
+      try {
+        dispatchResponse = await fetch("https://api.github.com/repos/markyto34/simuladorfutebol/actions/workflows/" + workflow + "/dispatches", {
+          method: "POST", headers: { ...githubHeaders, "Content-Type": "application/json" },
+          body: JSON.stringify({ ref: "main", inputs: { target_date: targetDate } }),
+          signal: AbortSignal.timeout(12000)
+        });
+      } catch { return json({ error: "dispatch_unavailable", message: "Não foi possível enviar o pedido ao GitHub." }, 502, headers); }
+      if (dispatchResponse.status !== 204) return json({ error: "dispatch_failed", message: "O GitHub recusou o início da recolha.", github_status: dispatchResponse.status }, 502, headers);
+      return json({ ok: true, target_date: targetDate, message: "Pedido de recolha aceite pelo GitHub Actions." }, 202, headers);
+    }
 
     if (incoming.pathname === "/health") {
       return json({
