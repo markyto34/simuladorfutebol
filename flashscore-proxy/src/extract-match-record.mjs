@@ -60,10 +60,10 @@ function parseSubstitutions(events) {
     .filter(event => event.type === "substitution")
     .map(event => {
       const detail = String(event.description || "")
-        .replace(/^\\s*\\d{1,3}(?:\\+\\d{1,2})?['’]?\\s*/, "")
-        .replace(/\\s*\\[[^\\]]+\\]\\s*$/, "")
+        .replace(/^\s*\d{1,3}(?:\+\d{1,2})?['’]?\s*/, "")
+        .replace(/\s*\[[^\]]+\]\s*$/, "")
         .trim();
-      const match = detail.match(/^(.+?)\\s*\\((.+?)\\)\\s*$/);
+      const match = detail.match(/^(.+?)\s*\\((.+?)\\)\s*$/);
       if (!match) return null;
       return {
         minute: event.minute,
