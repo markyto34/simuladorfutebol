@@ -65,6 +65,7 @@ jobs:
         if: always()
         run: node scripts/validate-flashscore-history.mjs
       - name: Guardar novos registos sem substituir histórico
+        id: commit
         if: always() && steps.validate.outcome == 'success'
         run: |
           git config user.name "github-actions[bot]"
