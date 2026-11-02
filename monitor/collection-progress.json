@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 120,
-  "stats_games": 58,
-  "bwin_odds": 36,
+  "processed_games": 130,
+  "stats_games": 66,
+  "bwin_odds": 37,
   "failed_games": 0,
-  "current_match": "Último concluído: San Martin Tucuman - Colegiales",
-  "last_result": "San Martin Tucuman - Colegiales: 6 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-02T21:27:48.925Z"
+  "current_match": "Último concluído: Inac Kobe Leonesa F (Jpn) - Bam Khatoon F (Irn)",
+  "last_result": "Inac Kobe Leonesa F (Jpn) - Bam Khatoon F (Irn): 13 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T21:28:05.430Z"
 }
