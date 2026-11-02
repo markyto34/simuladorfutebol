@@ -174,7 +174,7 @@ export default {
 
     if (incoming.pathname === "/discover-inspect") {
       const date = incoming.searchParams.get("date") || "";
-      if (!/^\\d{4}-\\d{2}-\\d{2}$/.test(date)) {
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
         return json({ error: "invalid_date", message: "Indica a data no formato YYYY-MM-DD." }, 400, headers);
       }
       const parsedDate = new Date(date + "T00:00:00Z");
