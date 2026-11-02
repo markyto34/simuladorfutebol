@@ -97,7 +97,7 @@ export function inspectPageStructure(html) {
   // Amostras curtas da estrutura real: apenas elementos com marcadores explícitos
   // de estatísticas/competição. Não devolve o HTML completo nem faz pedidos de rede.
   const domSamples = [];
-  const samplePattern = /<([a-z][\\w:-]*)\\b([^>]*)>/gi;
+  const samplePattern = /<([a-z][\w:-]*)\b([^>]*)>/gi;
   for (const match of source.matchAll(samplePattern)) {
     const rawAttrs = attrs(match[2]);
     const marker = [rawAttrs["data-testid"], rawAttrs["data-type"], rawAttrs["data-qa"], rawAttrs.class, rawAttrs.id]
