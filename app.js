@@ -474,8 +474,11 @@ function teamSample(team,venue,metric){
   }
  }
  records.sort((a,b)=>(b.m.date||"").localeCompare(a.m.date||""));
- const rows=records.filter(x=>complete(x.m,x.w));
- const values=rows.map(x=>valueFrom(x.m,x.w,x.h)).filter(v=>v!==null&&v!==undefined&&Number.isFinite(Number(v)));
+ // Cada indicador usa a sua própria amostra. Não exigir que um jogo tenha
+ // cantos, remates e faltas completos para poder contribuir para golos/HT.
+ const values=records
+  .map(x=>valueFrom(x.m,x.w,x.h))
+  .filter(v=>v!==null&&v!==undefined&&Number.isFinite(Number(v))&&Number(v)>=0);
  return limit==="all"?values:values.slice(0,requested);
 }
 function mean(values){return values.length?values.reduce((a,b)=>a+b,0)/values.length:null;}
