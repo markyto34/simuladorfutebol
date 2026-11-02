@@ -24,8 +24,8 @@ jobs:
         run: |
           node --input-type=module <<'NODE'
           import { readFile } from 'node:fs/promises';
-          const stats = (await readFile('data/flashscore-statistics.csv', 'utf8')).trim().split(/\\r?\\n/).map(line => line.split(','));
-          const odds = (await readFile('data/bwin-odds-flashscore.csv', 'utf8')).trim().split(/\\r?\\n/).map(line => line.split(','));
+          const stats = (await readFile('data/flashscore-statistics.csv', 'utf8')).trim().split(/\r?\n/).map(line => line.split(','));
+          const odds = (await readFile('data/bwin-odds-flashscore.csv', 'utf8')).trim().split(/\r?\n/).map(line => line.split(','));
           const statHeader = stats[0], oddsHeader = odds[0];
           const stat = stats.slice(1).find(row => row[statHeader.indexOf('match_id')] === 'hW5lOaOP');
           const odd = odds.slice(1).find(row => row[oddsHeader.indexOf('match_id')] === 'hW5lOaOP' && row[oddsHeader.indexOf('bookmaker')] === 'Bwin');
