@@ -8,20 +8,20 @@ function decodeEscapedHtml(value) {
     .replace(/&quot;/gi, '"').replace(/&#39;|&apos;/gi, "'");
 }
 
-const TRIPLET = /\\b(\\d{1,2}\\.\\d{2,3})\\s*\\|\\s*(\\d{1,2}\\.\\d{2,3})\\s*\\|\\s*(\\d{1,2}\\.\\d{2,3})\\b/g;
+const TRIPLET = /\b(\d{1,2}\.\d{2,3})\s*\|\s*(\d{1,2}\.\d{2,3})\s*\|\s*(\d{1,2}\.\d{2,3})\b/g;
 
 function visibleText(value) {
   return decodeEscapedHtml(value)
-    .replace(/<script\\b[^>]*>[\\s\\S]*?<\\/script>/gi, " ")
-    .replace(/<style\\b[^>]*>[\\s\\S]*?<\\/style>/gi, " ")
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, " ")
     .replace(/<[^>]*>/g, " ")
-    .replace(/\\s+/g, " ")
+    .replace(/\s+/g, " ")
     .trim();
 }
 
 export function extractBwin1x2(html) {
   const decoded = decodeEscapedHtml(html);
-  const marker = /<a\\b(?=[^>]*data-bookmaker-id=["']459["'])(?=[^>]*data-event=["']odds_1["'])[^>]*>/gi;
+  const marker = /<a\b(?=[^>]*data-bookmaker-id=["']459["'])(?=[^>]*data-event=["']odds_1["'])[^>]*>/gi;
   const candidates = [];
 
   for (const match of decoded.matchAll(marker)) {
@@ -30,7 +30,7 @@ export function extractBwin1x2(html) {
     const rawEnd = Math.min(decoded.length, markerStart + 1400);
     const rawWindow = decoded.slice(rawStart, rawEnd);
     const text = visibleText(rawWindow);
-    if (!/bwin\\.pt/i.test(text)) continue;
+    if (!/bwin\.pt/i.test(text)) continue;
 
     const markerTextOffset = visibleText(decoded.slice(rawStart, markerStart)).length;
     const matches = [...text.matchAll(TRIPLET)];
