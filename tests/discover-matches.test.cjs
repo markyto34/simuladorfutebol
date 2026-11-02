@@ -35,3 +35,19 @@ test("returns a compact summary with unique IDs and duplicate counts", async () 
   assert.equal(result.sample_matches[0].match_id, "827gE8Kl");
   assert.equal(Object.hasOwn(result, "matches"), false);
 });
+
+
+test("isolates one requested match and preserves surrounding HTML evidence", async () => {
+  const { inspectMatchDiscovery } = await import("../flashscore-proxy/src/discover-matches.mjs");
+  const html = `<h2>GERMANY: Bundesliga</h2>
+    <div class="event"><a href="/jogo/hW5lOaOP/"><span>Union Berlin - FC Koln</span></a></div>
+    <h2>PORTUGAL: Liga</h2>
+    <div class="event"><a href="/jogo/AB12cd34/"><span>Home - Away</span></a></div>`;
+  const result = inspectMatchDiscovery(html, "2026-11-01", { matchId: "hW5lOaOP" });
+  assert.equal(result.target_match_id, "hW5lOaOP");
+  assert.equal(result.match_count, 1);
+  assert.equal(result.matches.length, 1);
+  assert.equal(result.matches[0].match_id, "hW5lOaOP");
+  assert.match(result.matches[0].context, /GERMANY: Bundesliga/);
+  assert.match(result.matches[0].context_html, /GERMANY: Bundesliga/);
+});

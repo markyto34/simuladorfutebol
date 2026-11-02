@@ -22,6 +22,7 @@ function plainText(value) {
 
 export function inspectMatchDiscovery(html, requestedDate, options = {}) {
   const summaryOnly = options.summary === true;
+  const targetMatchId = typeof options.matchId === "string" ? options.matchId : null;
   const matches = [];
   const sampleMatches = [];
   const seen = new Set();
@@ -34,7 +35,7 @@ export function inspectMatchDiscovery(html, requestedDate, options = {}) {
     candidateAnchorCount += 1;
     const href = decodeEntities(item[2] || item[3] || item[4] || "");
     const id = href.match(/\/jogo\/([A-Za-z0-9]{6,16})(?:\/|[?#]|$)/i)?.[1];
-    if (!id) continue;
+    if (!id || (targetMatchId && id !== targetMatchId)) continue;
     if (seen.has(id)) {
       duplicateLinkCount += 1;
       continue;
@@ -46,10 +47,17 @@ export function inspectMatchDiscovery(html, requestedDate, options = {}) {
     if (sampleMatches.length < 15) sampleMatches.push(compact);
 
     if (!summaryOnly && matches.length < 500) {
-      const start = Math.max(0, item.index - 900);
-      const end = Math.min(html.length, item.index + item[0].length + 500);
-      const context = plainText(html.slice(start, end)).slice(-900);
-      matches.push({ ...compact, context: context || null });
+      const before = targetMatchId ? 3200 : 900;
+      const after = targetMatchId ? 1600 : 500;
+      const start = Math.max(0, item.index - before);
+      const end = Math.min(html.length, item.index + item[0].length + after);
+      const rawContext = html.slice(start, end);
+      const context = plainText(rawContext).slice(targetMatchId ? -3200 : -900);
+      matches.push({
+        ...compact,
+        context: context || null,
+        ...(targetMatchId ? { context_html: rawContext.slice(0, 5200) } : {})
+      });
     }
   }
 
@@ -57,6 +65,7 @@ export function inspectMatchDiscovery(html, requestedDate, options = {}) {
   const dateTokens = [...new Set((html.match(/\b\d{2}\.\d{2}\.\d{4}\b/g) || []))].slice(0, 30);
   const common = {
     requested_date: requestedDate,
+    ...(targetMatchId ? { target_match_id: targetMatchId } : {}),
     page_title: pageTitle ? plainText(pageTitle).slice(0, 180) : null,
     candidate_anchor_count: candidateAnchorCount,
     match_count: totalUniqueMatchCount,
@@ -76,6 +85,6 @@ export function inspectMatchDiscovery(html, requestedDate, options = {}) {
   return {
     ...common,
     matches,
-    note: "Diagnóstico passivo da página de resultados. Os contextos são excertos HTML e ainda não constituem metadados validados de país/competição nem confirmação de que todos os jogos da data foram listados."
+    note: targetMatchId ? "Contexto HTML isolado para o ID solicitado. O excerto é evidência de diagnóstico; país/competição só podem ser aceites se o HTML mostrar uma associação explícita e inequívoca." : "Diagnóstico passivo da página de resultados. Os contextos são excertos HTML e ainda não constituem metadados validados de país/competição nem confirmação de que todos os jogos da data foram listados."
   };
 }
