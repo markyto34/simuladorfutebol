@@ -51,3 +51,30 @@ test("isolates one requested match and preserves surrounding HTML evidence", asy
   assert.match(result.matches[0].context, /GERMANY: Bundesliga/);
   assert.match(result.matches[0].context_html, /GERMANY: Bundesliga/);
 });
+
+
+test("identifies country and competition only from the explicit score-data group containing the match", async () => {
+  const { inspectMatchDiscovery } = await import("../flashscore-proxy/src/discover-matches.mjs");
+  const html = `<div id="score-data">
+    <h4>ALEMANHA: Bundesliga <a href="/classificacoes/KY7LrA6d/jg0MwVuC/">Classificações</a></h4>
+    <span>14:30</span>Union Berlin - FC Koln <a href="/jogo/hW5lOaOP/?d=-1" class="fin">1-1</a><br />
+    <span>16:30</span>Frankfurt - Hamburger SV <a href="/jogo/fuGf2I16/?d=-1" class="fin">3-1</a><br />
+    <h4>ESPANHA: LaLiga <a href="/classificacoes/QeI1Oeyi/dWdJXP6U/">Classificações</a></h4>
+    <span>13:00</span>Getafe - Sevilla <a href="/jogo/EoME4ck5/?d=-1">3-1</a>
+  </div>`;
+  const result = inspectMatchDiscovery(html, "2026-11-01", { matchId: "hW5lOaOP" });
+  assert.equal(result.matches.length, 1);
+  assert.deepEqual(result.matches[0].competition_identity, {
+    status: "identified", heading: "ALEMANHA: Bundesliga",
+    country: "ALEMANHA", competition: "Bundesliga"
+  });
+});
+
+test("does not assign a competition if the target match has no explicit group heading", async () => {
+  const { inspectMatchDiscovery } = await import("../flashscore-proxy/src/discover-matches.mjs");
+  const html = `<div id="score-data"><span>14:30</span>Union Berlin - FC Koln
+    <a href="/jogo/hW5lOaOP/">1-1</a></div>`;
+  const result = inspectMatchDiscovery(html, "2026-11-01", { matchId: "hW5lOaOP" });
+  assert.equal(result.matches.length, 1);
+  assert.equal(result.matches[0].competition_identity, undefined);
+});
