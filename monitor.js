@@ -120,16 +120,19 @@ function updateManualControl(run){
 async function startManualCollection(){
   const button=$("start-collection"), date=$("manual-date"), feedback=$("manual-feedback");
   const selectedDate=date.value;
+  const controlToken=$("control-token").value.trim();
   if(!selectedDate){feedback.textContent="Seleciona primeiro a data dos jogos.";return;}
+  if(!controlToken){feedback.textContent="Introduz a chave privada de controlo.";return;}
   if(selectedDate>portugalToday()){feedback.textContent="Não é possível recolher jogos de uma data futura.";return;}
   if(!window.confirm("Iniciar a recolha Flashscore + odds Bwin para "+selectedDate+"? A execução pode demorar bastante tempo."))return;
   button.disabled=true;date.disabled=true;button.textContent="A iniciar…";feedback.dataset.state="pending";
   feedback.textContent="A validar o pedido e a verificar se já existe outra recolha…";
   try{
-    const response=await fetch(CONTROL_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({target_date:selectedDate})});
+    const response=await fetch(CONTROL_URL,{method:"POST",headers:{"Content-Type":"application/json","Authorization":"Bearer "+controlToken},body:JSON.stringify({target_date:selectedDate})});
     const payload=await response.json().catch(()=>({}));
     if(response.status===409)throw new Error(payload.message||"Já existe uma recolha na fila ou em execução.");
     if(!response.ok)throw new Error(payload.message||payload.error||"Não foi possível iniciar a recolha (HTTP "+response.status+").");
+    $("control-token").value="";
     feedback.textContent="Pedido aceite pelo GitHub. A execução deverá aparecer no monitor dentro de alguns segundos.";
     feedback.dataset.state="accepted";
     setTimeout(refresh,5000);
