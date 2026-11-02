@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 790,
-  "stats_games": 351,
-  "bwin_odds": 192,
+  "processed_games": 800,
+  "stats_games": 356,
+  "bwin_odds": 195,
   "failed_games": 1,
-  "current_match": "Último concluído: Inter F - Lazio F",
-  "last_result": "Inter F - Lazio F: 12 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-02T21:45:16.010Z"
+  "current_match": "Último concluído: Racing United - Treasure Beach",
+  "last_result": "Racing United - Treasure Beach: 6 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T21:45:31.201Z"
 }
