@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 690,
-  "stats_games": 333,
-  "bwin_odds": 174,
+  "processed_games": 700,
+  "stats_games": 343,
+  "bwin_odds": 184,
   "failed_games": 0,
-  "current_match": "Último concluído: Avellino - Pisa",
-  "last_result": "Avellino - Pisa: 13 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-02T21:42:43.556Z"
+  "current_match": "Último concluído: Ravenna - Pineto",
+  "last_result": "Ravenna - Pineto: 14 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-02T21:43:00.693Z"
 }
