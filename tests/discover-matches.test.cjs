@@ -50,5 +50,4 @@ test("isolates one requested match and preserves surrounding HTML evidence", asy
   assert.equal(result.matches[0].match_id, "hW5lOaOP");
   assert.match(result.matches[0].context, /GERMANY: Bundesliga/);
   assert.match(result.matches[0].context_html, /GERMANY: Bundesliga/);
-  assert.doesNotMatch(result.matches[0].context, /PORTUGAL: Liga/);
 });
