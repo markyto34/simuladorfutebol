@@ -17,9 +17,17 @@ function getAttr(tag, name) {
   const m = tag.match(new RegExp("\\b" + name + "\\s*=\\s*(['\"])([\\s\\S]*?)\\1", "i"));
   return m?.[2] ?? null;
 }
+function parseAttrs(raw) {
+  const out = {};
+  for (const m of raw.matchAll(/([\w:-]+)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/g)) {
+    out[m[1].toLowerCase()] = decode(m[2] ?? m[3] ?? m[4] ?? "");
+  }
+  return out;
+}
 function add(out, field, value, source) {
   const v = plain(value);
   if (!v || v.length > 180 || /^(?:-+|n\/?a|unknown|null)$/i.test(v)) return;
+  if (/^(?:[a-z]{2,3}|\d+)$/i.test(v)) return;
   if (!out[field].some(x => x.value.toLowerCase() === v.toLowerCase())) out[field].push({ value: v, source });
 }
 function walk(value, path, out, depth = 0) {
@@ -29,7 +37,7 @@ function walk(value, path, out, depth = 0) {
     const k = key.toLowerCase().replace(/[_-]/g, "");
     const src = path + "." + key;
     if (typeof v === "string" || typeof v === "number") {
-      if (/^(competition|tournament|league|eventseries|competitionname|tournamentname)$/.test(k)) add(out, "competition", v, src);
+      if (/^(competition|tournament|league|eventseries|competitionname|tournamentname|leaguename)$/.test(k)) add(out, "competition", v, src);
       if (/^(country|countryname|countrylabel)$/.test(k)) add(out, "country", v, src);
       if (/^(season|seasonname|seasonyear)$/.test(k)) add(out, "season", v, src);
       if (/^(round|roundname|gameday|matchday)$/.test(k)) add(out, "round", v, src);
@@ -63,6 +71,21 @@ function extractMeta(html, out) {
     if (/stadium|venue/.test(key)) add(out, "venue", val, "meta:" + key);
   }
 }
+function extractDataIdentity(html, out) {
+  const countryKeys = new Set(["data-country", "data-country-name", "data-country-label"]);
+  const competitionKeys = new Set([
+    "data-competition", "data-competition-name", "data-tournament",
+    "data-tournament-name", "data-league", "data-league-name"
+  ]);
+  for (const m of html.matchAll(/<([a-z][\w:-]*)\b([^>]*)>/gi)) {
+    const attrs = parseAttrs(m[2]);
+    for (const [key, value] of Object.entries(attrs)) {
+      if (countryKeys.has(key)) add(out, "country", value, "attribute:" + key);
+      if (competitionKeys.has(key)) add(out, "competition", value, "attribute:" + key);
+      if (key === "data-season" || key === "data-season-name") add(out, "season", value, "attribute:" + key);
+    }
+  }
+}
 function extractBreadcrumbs(html, out) {
   for (const m of html.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/gi)) {
     const href = decode(getAttr(m[1], "href") || "");
@@ -84,22 +107,97 @@ function extractVisible(html, out) {
   }
 }
 const STAT_LABELS = [
+  ["expected_goals", /^(golos esperados(?: \(xg\))?|expected goals(?: \(xg\))?|xg)$/i],
+  ["big_chances", /^(grandes oportunidades|big chances)$/i],
   ["corners", /^(cantos|pontapés de canto|escanteios|corners)$/i],
-  ["shots", /^(remates|finalizações|chutes|shots)$/i],
+  ["shots", /^(remates|finalizações|chutes|shots|total de remates|total shots)$/i],
   ["shots_on_target", /^(remates à baliza|remates enquadrados|finalizações no alvo|chutes no gol|shots on target)$/i],
   ["shots_off_target", /^(remates ao lado|remates para fora|finalizações para fora|shots off target)$/i],
+  ["blocked_shots", /^(remates bloqueados|blocked shots)$/i],
+  ["shots_inside_box", /^(remates dentro da área|shots inside box)$/i],
+  ["shots_outside_box", /^(remates fora da área|shots outside box)$/i],
   ["fouls", /^(faltas|fouls)$/i],
   ["yellow_cards", /^(cartões amarelos|amarelos|yellow cards)$/i],
   ["red_cards", /^(cartões vermelhos|vermelhos|red cards)$/i],
   ["possession", /^(posse de bola|possession)$/i],
   ["offsides", /^(foras de jogo|fora de jogo|offsides)$/i],
-  ["saves", /^(defesas|saves)$/i]
+  ["saves", /^(defesas|saves|defesas do guarda-redes|goalkeeper saves)$/i],
+  ["passes", /^(passes|total de passes|total passes)$/i],
+  ["tackles", /^(desarmes|tackles)$/i]
 ];
-function statNumber(v, key) {
-  const s = plain(v).replace(/%/g, "").replace(/,/g, ".");
+function statNumber(value, key) {
+  const s = plain(value).replace(/%/g, "").replace(/,/g, ".");
   if (!/^\d+(?:\.\d+)?$/.test(s)) return null;
   const n = Number(s);
   return Number.isFinite(n) && n >= 0 && (key !== "possession" || n <= 100) ? n : null;
+}
+function htmlTree(html) {
+  const root = { tag: "root", attrs: {}, children: [] };
+  const stack = [root];
+  const voidTags = new Set(["area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"]);
+  const token = /<!--[\s\S]*?-->|<\/?([a-z][\w:-]*)\b([^>]*)>|([^<]+)/gi;
+  for (const m of html.matchAll(token)) {
+    if (m[0].startsWith("<!--")) continue;
+    if (m[1]) {
+      const tag = m[1].toLowerCase();
+      if (m[0][1] === "/") {
+        for (let i = stack.length - 1; i > 0; i--) {
+          if (stack[i].tag === tag) { stack.length = i; break; }
+        }
+      } else {
+        const node = { tag, attrs: parseAttrs(m[2] || ""), children: [] };
+        stack[stack.length - 1].children.push(node);
+        if (!voidTags.has(tag) && !/\/\s*>$/.test(m[0])) stack.push(node);
+      }
+    } else if (m[3] && m[3].trim()) {
+      stack[stack.length - 1].children.push({ text: decode(m[3]).trim() });
+    }
+  }
+  return root;
+}
+function nodeText(node) {
+  if (node.text !== undefined) return node.text;
+  return node.children.map(nodeText).filter(Boolean).join(" ").replace(/\s+/g, " ").trim();
+}
+function collectTextLeaves(node, out) {
+  if (node.text !== undefined) { if (node.text) out.push(node.text); return; }
+  for (const child of node.children) collectTextLeaves(child, out);
+}
+function extractWclStatistics(html) {
+  const root = htmlTree(html);
+  const containers = [];
+  const visit = node => {
+    const marker = [node.attrs?.["data-testid"], node.attrs?.class, node.attrs?.id].filter(Boolean).join(" ");
+    if (/wcl-statistics/i.test(marker)) containers.push(node);
+    for (const child of node.children || []) if (child.tag) visit(child);
+  };
+  visit(root);
+  const statistics = {}, evidence = [];
+  for (const container of containers) {
+    const leaves = [];
+    collectTextLeaves(container, leaves);
+    const values = leaves.map(plain).filter(Boolean);
+    for (let i = 0; i < values.length; i++) {
+      const label = values[i].replace(/\s+/g, " ").trim();
+      const found = STAT_LABELS.find(([, re]) => re.test(label));
+      if (!found) continue;
+      const [key] = found;
+      const nums = [];
+      for (let j = i + 1; j < values.length && nums.length < 2; j++) {
+        if (STAT_LABELS.some(([, re]) => re.test(values[j]))) break;
+        const n = statNumber(values[j], key);
+        if (n !== null) nums.push(n);
+      }
+      if (nums.length < 2 || statistics[key]) continue;
+      statistics[key] = {
+        home: nums[0], away: nums[1],
+        unit: key === "possession" ? "%" : null,
+        source_label: label
+      };
+      evidence.push({ field: "statistics." + key, source: "wcl-statistics DOM", label, values: nums });
+    }
+  }
+  return { statistics, evidence };
 }
 function extractStats(html) {
   const statistics = {}, evidence = [];
@@ -110,15 +208,21 @@ function extractStats(html) {
     if (!label) continue;
     const [key] = STAT_LABELS.find(([, re]) => re.test(label));
     const nums = parts.map(v => statNumber(v, key)).filter(v => v !== null);
-    if (nums.length < 2) continue;
+    if (nums.length < 2 || statistics[key]) continue;
     statistics[key] = { home: nums[0], away: nums[1], unit: key === "possession" ? "%" : null, source_label: label };
     evidence.push({ field: "statistics." + key, source: "statistics-row HTML", label, values: nums.slice(0, 2) });
   }
+  const modern = extractWclStatistics(html);
+  for (const [key, value] of Object.entries(modern.statistics)) {
+    if (!statistics[key]) statistics[key] = value;
+  }
+  evidence.push(...modern.evidence.filter(item => !evidence.some(existing => existing.field === item.field)));
   return { statistics, evidence };
 }
 export function extractPageContext(html) {
   const candidates = Object.fromEntries(["country", "competition", "season", "stage", "round", "referee", "venue", "attendance"].map(k => [k, []]));
   extractMeta(html, candidates);
+  extractDataIdentity(html, candidates);
   extractBreadcrumbs(html, candidates);
   extractVisible(html, candidates);
   const scripts = jsonScripts(html);
