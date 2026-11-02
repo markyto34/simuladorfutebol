@@ -178,7 +178,7 @@ function extractWclStatistics(html) {
     const findRows = node => {
       for (const child of node.children || []) {
         if (!child.tag) continue;
-        if (/wcl-labelRow/i.test(child.attrs?.class || "")) rows.push(child);
+        if (/(?:wcl-labelRow|stat-row|stat__row|comparison__row|wcl-row)/i.test(child.attrs?.class || "")) rows.push(child);
         else findRows(child);
       }
     };
