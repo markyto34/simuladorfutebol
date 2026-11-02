@@ -2,6 +2,7 @@ import { extractBwin1x2 } from "./extract-bwin.mjs";
 import { inspectScoreEvidence } from "./extract-scores.mjs";
 import { extractPeriodScores } from "./extract-period-scores.mjs";
 import { inspectMatchDiscovery } from "./discover-matches.mjs";
+import { extractStructuredMatch } from "./extract-match-record.mjs";
 const UPSTREAM = "https://m.flashscore.pt";
 const ALLOWED_ORIGINS = new Set([
   "https://simuladorfutebol.onrender.com"
@@ -37,7 +38,7 @@ function validMatchId(value) {
   return typeof value === "string" && /^[A-Za-z0-9]{6,16}$/.test(value);
 }
 
-function inspectHtml(html) {
+function inspectHtml(html, matchId) {
   const plain = html
     .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ")
     .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, " ")
@@ -124,6 +125,7 @@ function inspectHtml(html) {
 
   return {
     title: title || null,
+    match_record: extractStructuredMatch(html, matchId, { httpStatus: 200 }),
     bwin: {
       found: /bwin/i.test(html),
       mentions: (html.match(/bwin/gi) || []).length,
@@ -308,7 +310,7 @@ export default {
         upstream_status: upstream.status,
         content_type: contentType,
         body_bytes: body.byteLength,
-        inspection: inspectHtml(html)
+        inspection: inspectHtml(html, matchId)
       }, 200, headers);
     }
 
