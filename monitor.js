@@ -110,9 +110,11 @@ function updateManualControl(run){
   const busy=Boolean(run&&(run.status==="queued"||run.status==="in_progress"));
   const button=$("start-collection");
   const date=$("manual-date");
+  const token=$("control-token");
   if(!button||!date)return;
   button.disabled=busy;
   date.disabled=busy;
+  if(token)token.disabled=busy;
   button.textContent=busy?"Recolha em curso…":"Iniciar recolha →";
   if(busy)$("manual-feedback").textContent="Já existe uma execução na fila ou em curso. Aguarda que termine antes de iniciar outra.";
   else if(!$("manual-feedback").dataset.state)$("manual-feedback").textContent="Escolhe uma data e confirma o início da recolha.";
@@ -139,7 +141,7 @@ async function startManualCollection(){
   }catch(error){
     feedback.textContent=error.message+" Se o controlo ainda não estiver configurado, será necessário concluir a configuração segura no Cloudflare.";
     feedback.dataset.state="error";
-    button.disabled=false;date.disabled=false;button.textContent="Tentar novamente →";
+    button.disabled=false;date.disabled=false;$("control-token").disabled=false;button.textContent="Tentar novamente →";
   }
 }
 document.addEventListener("DOMContentLoaded",()=>{
