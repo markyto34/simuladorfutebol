@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 1210,
-  "stats_games": 562,
-  "bwin_odds": 320,
+  "processed_games": 1220,
+  "stats_games": 566,
+  "bwin_odds": 322,
   "failed_games": 1,
-  "current_match": "Último concluído: Munsingen - Grasshopper II",
-  "last_result": "Munsingen - Grasshopper II: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T21:55:59.532Z"
+  "current_match": "Último concluído: Satun FC - Nakhon Pathom",
+  "last_result": "Satun FC - Nakhon Pathom: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T21:56:14.547Z"
 }
