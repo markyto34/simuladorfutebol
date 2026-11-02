@@ -6,13 +6,15 @@
  * Uso: node scripts/collect-flashscore-csv.mjs <match_id> [match_id...]
  * Opcional: FLASHSCORE_PROXY_URL e FLASHSCORE_REQUEST_DELAY_MS.
  */
-import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { readFile, writeFile, mkdir, appendFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 
 const PROXY = (process.env.FLASHSCORE_PROXY_URL || "https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev").replace(/\/$/, "");
 const DELAY_MS = Math.max(1500, Number(process.env.FLASHSCORE_REQUEST_DELAY_MS || 2500));
+const REQUEST_TIMEOUT_MS = 45_000;
+const DISCOVERY_TIMEOUT_MS = 60_000;
 const MAX_MANUAL_MATCHES = 5;
-const MAX_DAILY_MATCHES = 2000
+const MAX_DAILY_MATCHES = 2000;
 const STATS_FILE = resolve("data/flashscore-statistics.csv");
 const ODDS_FILE = resolve("data/bwin-odds-flashscore.csv");
 
@@ -127,7 +129,13 @@ async function collect(matchId) {
   const url = new URL(PROXY + "/record");
   url.searchParams.set("id", matchId);
   url.searchParams.set("tab", "statistics");
-  const response = await fetch(url, { headers: { "Accept": "application/json" } });
+  let response;
+  try {
+    response = await fetch(url, { headers: { "Accept": "application/json" }, signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS) });
+  } catch (error) {
+    if (error.name === "TimeoutError" || error.name === "AbortError") throw new Error("Timeout: o pedido ao proxy excedeu " + (REQUEST_TIMEOUT_MS / 1000) + " segundos.");
+    throw new Error("Erro de rede ao consultar o proxy: " + error.message);
+  }
   let payload;
   try { payload = await response.json(); }
   catch { throw new Error("Resposta não JSON para " + matchId + " (HTTP " + response.status + ")."); }
@@ -153,7 +161,14 @@ async function discoverMatchIds(date) {
   const url = new URL(PROXY + "/discover-inspect");
   url.searchParams.set("date", date);
   url.searchParams.set("ids", "1");
-  const response = await fetch(url, { headers: { "Accept": "application/json" } });
+  console.log("[DISCOVERY] A pedir ao proxy a lista de jogos de " + date + "...");
+  let response;
+  try {
+    response = await fetch(url, { headers: { "Accept": "application/json" }, signal: AbortSignal.timeout(DISCOVERY_TIMEOUT_MS) });
+  } catch (error) {
+    if (error.name === "TimeoutError" || error.name === "AbortError") throw new Error("Timeout na descoberta: o proxy não respondeu em " + (DISCOVERY_TIMEOUT_MS / 1000) + " segundos.");
+    throw new Error("Erro de rede durante a descoberta: " + error.message);
+  }
   let payload;
   try { payload = await response.json(); }
   catch { throw new Error("Resposta não JSON na descoberta da data (HTTP " + response.status + ")."); }
@@ -179,8 +194,9 @@ async function main() {
   }
   if (dateOption) {
     const date = dateOption.slice("--date=".length);
+    console.log("[DISCOVERY] Início da descoberta no Flashscore para " + date + ".");
     matchIds = await discoverMatchIds(date);
-    console.log("Flashscore encontrou " + matchIds.length + " IDs únicos para " + date + ".");
+    console.log("[DISCOVERY] Concluída: " + matchIds.length + " IDs únicos válidos encontrados para " + date + ".");
   }
   matchIds = [...new Set(matchIds)];
   const maxMatches = dateOption ? MAX_DAILY_MATCHES : MAX_MANUAL_MATCHES;
@@ -201,19 +217,28 @@ async function main() {
   const existingStats = await readRows(STATS_FILE);
   const existingOdds = await readRows(ODDS_FILE);
   const statsNew = [], oddsNew = [];
-  let failures = 0;
+  let failures = 0, processed = 0, stoppedByUpstream = false;
+  const collectionStartedAt = Date.now();
+  console.log("[COLLECT] A iniciar " + matchIds.length + " jogos; intervalo entre pedidos: " + DELAY_MS + " ms; timeout por jogo: " + (REQUEST_TIMEOUT_MS / 1000) + " s.");
   for (let index = 0; index < matchIds.length; index++) {
     const matchId = matchIds[index];
+    const matchStartedAt = Date.now();
+    console.log("[PROGRESS] " + (index + 1) + "/" + matchIds.length + " | START | id=" + matchId);
     try {
       const record = await collect(matchId);
       if (record.statistics && Object.keys(record.statistics).length) statsNew.push(statisticsRow(record));
       const oddsRow = bwinOddsRow(record);
       if (oddsRow) oddsNew.push(oddsRow);
-      console.log(matchId + ": " + Object.keys(record.statistics || {}).length + " estatísticas; " + (oddsRow ? "odds Bwin 1X2 encontradas." : "sem triplo Bwin 1X2 confirmado."));
+      const home = record.teams?.home?.name || "Casa";
+      const away = record.teams?.away?.name || "Fora";
+      console.log("[PROGRESS] " + (index + 1) + "/" + matchIds.length + " | OK | " + home + " - " + away + " | id=" + matchId + " | stats=" + Object.keys(record.statistics || {}).length + " | bwin_1x2=" + (oddsRow ? "sim" : "não confirmado") + " | " + (Date.now() - matchStartedAt) + " ms");
     } catch (error) {
       failures++;
-      console.error(matchId + ": " + error.message);
-      if (error.stop) break;
+      console.error("[PROGRESS] " + (index + 1) + "/" + matchIds.length + " | ERROR | id=" + matchId + " | " + error.message);
+      if (error.stop) { stoppedByUpstream = true; break; }
+    } finally {
+      processed++;
+    }
     }
     if (index < matchIds.length - 1) await sleep(DELAY_MS);
   }
@@ -223,7 +248,20 @@ async function main() {
   await writeFile(ODDS_FILE, toCsv(ODDS_HEADERS, mergedOdds), "utf8");
   console.log("CSV de estatísticas: " + STATS_FILE + " (" + mergedStats.length + " jogos).");
   console.log("CSV exclusivo Bwin: " + ODDS_FILE + " (" + mergedOdds.length + " observações).");
-  console.log("Resumo: " + statsNew.length + " jogos com estatísticas; " + oddsNew.length + " observações Bwin; " + failures + " falhas.");
+  const elapsedSeconds = Math.round((Date.now() - collectionStartedAt) / 1000);
+  const summary = [
+    "## Recolha Flashscore + Bwin",
+    "",
+    "- Jogos descobertos: **" + matchIds.length + "**",
+    "- Jogos processados: **" + processed + "**",
+    "- Registos com estatísticas: **" + statsNew.length + "**",
+    "- Observações Bwin 1X2: **" + oddsNew.length + "**",
+    "- Falhas: **" + failures + "**",
+    "- Interrompida por bloqueio 403/429: **" + (stoppedByUpstream ? "sim" : "não") + "**",
+    "- Duração: **" + elapsedSeconds + " s**"
+  ].join("\\n");
+  if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, summary + "\\n", "utf8");
+  console.log("[SUMMARY] " + processed + "/" + matchIds.length + " processados; " + statsNew.length + " jogos com estatísticas; " + oddsNew.length + " observações Bwin; " + failures + " falhas; " + elapsedSeconds + " s.");
   if (failures) process.exitCode = 1;
 }
 
