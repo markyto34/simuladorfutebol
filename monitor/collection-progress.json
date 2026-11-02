@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 940,
+  "processed_games": 950,
   "stats_games": 435,
   "bwin_odds": 242,
   "failed_games": 0,
-  "current_match": "Último concluído: Lokomotiv Oslo - Asker",
-  "last_result": "Lokomotiv Oslo - Asker: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T22:30:23.587Z"
+  "current_match": "Último concluído: Åsane 2 - Fyllingsdalen",
+  "last_result": "Åsane 2 - Fyllingsdalen: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T22:30:38.321Z"
 }
