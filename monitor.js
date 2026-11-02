@@ -24,7 +24,7 @@ function render(snapshot){
   pill("odds-file",csv?"CSV preparado":"Pendente",csv?"good":"neutral");
   byId("stats-rows").textContent=snapshot.stats_rows==null?"—":fmt(snapshot.stats_rows);
   byId("odds-rows").textContent=snapshot.odds_rows==null?"—":fmt(snapshot.odds_rows);
-  pill("commit-pill",snapshot.repository_committed?"Gravado no GitHub":csv?"A aguardar gravação":"A aguardar",snapshot.repository_committed?"good":"neutral");
+  pill("commit-pill",snapshot.repository_committed?"Gravado no GitHub":snapshot.repository_checked?"Sem alterações novas":csv?"A aguardar gravação":"A aguardar",snapshot.repository_committed?"good":snapshot.repository_checked?"neutral":"neutral");
   if(snapshot.run_id&&/^\d+$/.test(String(snapshot.run_id)))byId("run-link").href="https://github.com/markyto34/simuladorfutebol/actions/runs/"+snapshot.run_id;
   const events=(snapshot.events||[]).slice().reverse();
   byId("event-count").textContent=events.length+" eventos";
