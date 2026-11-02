@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 390,
-  "stats_games": 226,
+  "processed_games": 400,
+  "stats_games": 235,
   "bwin_odds": 116,
   "failed_games": 0,
-  "current_match": "Último concluído: Barbastro - Pena",
-  "last_result": "Barbastro - Pena: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T22:16:14.533Z"
+  "current_match": "Último concluído: Cieza - Deportiva Minera",
+  "last_result": "Cieza - Deportiva Minera: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T22:16:30.606Z"
 }
