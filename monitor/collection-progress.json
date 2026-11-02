@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 280,
-  "stats_games": 142,
-  "bwin_odds": 68,
+  "processed_games": 290,
+  "stats_games": 150,
+  "bwin_odds": 76,
   "failed_games": 0,
-  "current_match": "Último concluído: Tianjin Shengde F - Shanxi Xihua F",
-  "last_result": "Tianjin Shengde F - Shanxi Xihua F: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-02T22:13:18.477Z"
+  "current_match": "Último concluído: Ulsan HD - Gangwon",
+  "last_result": "Ulsan HD - Gangwon: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-02T22:13:35.774Z"
 }
