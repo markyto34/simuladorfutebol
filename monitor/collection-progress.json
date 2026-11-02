@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 1030,
-  "stats_games": 483,
-  "bwin_odds": 286,
+  "processed_games": 1040,
+  "stats_games": 493,
+  "bwin_odds": 289,
   "failed_games": 1,
-  "current_match": "Último concluído: Amora - GD Alcochetense",
-  "last_result": "Amora - GD Alcochetense: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-02T21:51:24.837Z"
+  "current_match": "Último concluído: Nairobi United - Bandari",
+  "last_result": "Nairobi United - Bandari: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-02T21:51:40.346Z"
 }
