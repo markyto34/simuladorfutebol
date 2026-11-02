@@ -15,7 +15,7 @@ const assert = require("node:assert/strict");
   assert.ok(result.scoreRelatedAttributes.some(item => /detailScore__period/.test(item)));
   assert.ok(result.scoreRelatedAttributes.some(item => /score-period/.test(item)));
 
-  const escaped = String.raw\`\\u003Cdiv class="detailScore__wrapper">0-1\\u003C/div>\`;
+  const escaped = "\\u003Cdiv class=\"detailScore__wrapper\">0-1\\u003C/div>";
   const escapedResult = inspectScoreEvidence(escaped);
   assert.ok(escapedResult.scoreEvidence.some(item => item.value === "0-1"));
   assert.ok(escapedResult.scoreRelatedAttributes.some(item => /detailScore__wrapper/.test(item)));
