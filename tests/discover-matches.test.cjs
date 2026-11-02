@@ -71,7 +71,7 @@ test("identifies competition only from explicit preceding Flashscore group headi
     round: null,
     source: "flashscore_daily_results_group_heading",
     evidence: {
-      heading: "ALEMANHA: Bundesliga Classificações",
+      heading: "ALEMANHA: Bundesliga",
       match_id: "hW5lOaOP",
       standings_href: "/classificacoes/KY7LrA6d/jg0MwVuC/"
     }
