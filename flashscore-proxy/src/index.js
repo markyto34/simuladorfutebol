@@ -1,6 +1,7 @@
 import { extractBwin1x2 } from "./extract-bwin.mjs";
 import { inspectScoreEvidence } from "./extract-scores.mjs";
 import { extractPeriodScores } from "./extract-period-scores.mjs";
+import { inspectMatchDiscovery } from "./discover-matches.mjs";
 const UPSTREAM = "https://m.flashscore.pt";
 const ALLOWED_ORIGINS = new Set([
   "https://simuladorfutebol.onrender.com"
@@ -169,6 +170,41 @@ export default {
         upstream: UPSTREAM,
         mode: "single-match-html-relay"
       }, 200, headers);
+    }
+
+    if (incoming.pathname === "/discover-inspect") {
+      const date = incoming.searchParams.get("date") || "";
+      if (!/^\\d{4}-\\d{2}-\\d{2}$/.test(date)) {
+        return json({ error: "invalid_date", message: "Indica a data no formato YYYY-MM-DD." }, 400, headers);
+      }
+      const parsedDate = new Date(date + "T00:00:00Z");
+      if (!Number.isFinite(parsedDate.getTime()) || parsedDate.toISOString().slice(0, 10) !== date) {
+        return json({ error: "invalid_date" }, 400, headers);
+      }
+      // URL fixo do Flashscore; nunca encaminhar URL arbitrário.
+      const discoveryTarget = new URL("/", UPSTREAM);
+      discoveryTarget.searchParams.set("d", date);
+      let discoveryResponse;
+      try {
+        discoveryResponse = await fetch(discoveryTarget.toString(), {
+          method: "GET", redirect: "manual",
+          headers: { "Accept": "text/html,application/xhtml+xml", "Accept-Language": "pt-PT,pt;q=0.9,en;q=0.7", "User-Agent": "SimuladorFutebol/1.0" }
+        });
+      } catch (error) {
+        return json({ error: "upstream_unavailable", detail: String(error?.message || "Falha de ligação").slice(0, 200) }, 502, headers);
+      }
+      if (discoveryResponse.status >= 300 && discoveryResponse.status < 400) {
+        return json({ error: "upstream_redirect", upstream_status: discoveryResponse.status, message: "O Flashscore redirecionou a página de resultados; não foi seguido." }, 502, headers);
+      }
+      if (!discoveryResponse.ok) {
+        return json({ error: "upstream_rejected", upstream_status: discoveryResponse.status, message: discoveryResponse.status === 403 || discoveryResponse.status === 429 ? "O Flashscore recusou ou limitou o pedido. A recolha foi interrompida." : "A página de resultados não pôde ser obtida." }, 502, headers);
+      }
+      const discoveryType = discoveryResponse.headers.get("content-type") || "";
+      if (!discoveryType.toLowerCase().includes("text/html")) return json({ error: "unexpected_content_type", content_type: discoveryType || "unknown" }, 502, headers);
+      const discoveryBody = await discoveryResponse.arrayBuffer();
+      if (discoveryBody.byteLength > MAX_BODY_BYTES) return json({ error: "response_too_large" }, 502, headers);
+      const discoveryHtml = new TextDecoder("utf-8").decode(discoveryBody);
+      return json({ ok: true, upstream_status: discoveryResponse.status, content_type: discoveryType, body_bytes: discoveryBody.byteLength, inspection: inspectMatchDiscovery(discoveryHtml, date) }, 200, headers);
     }
 
     const inspectOnly = incoming.pathname === "/inspect";
