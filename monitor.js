@@ -46,7 +46,7 @@ async function refresh(){
     const kind=statusClass(run);
     $("run-title").textContent="Recolha diária · "+(run.display_title||"Execução "+run.run_number);
     setStatus(label(run.status==="completed"?run.conclusion:run.status),kind);
-    $("target-date").textContent=run.display_title?.match(/\d{4}-\d{2}-\d{2}/)?.[0]||"Ver workflow";
+    $("target-date").textContent=run.display_title?.match(/\d{4}-\d{2}-\d{2}/)?.[0]||(run.display_title?.includes("ontem")?"Ontem (Portugal)":"A confirmar");
     $("run-number").textContent="#"+run.run_number;
     $("run-event").textContent=run.event==="schedule"?"Agendada automaticamente":"Iniciada manualmente";
     $("current-stage").textContent=current?label(current.name):label(run.status);
