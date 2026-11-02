@@ -38,12 +38,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Configure collection monitor secret
-        if: ${{ secrets.MONITOR_TOKEN != '' }}
         env:
           MONITOR_TOKEN: ${{ secrets.MONITOR_TOKEN }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        run: printf '%s' "$MONITOR_TOKEN" | npx wrangler secret put MONITOR_TOKEN
+        run: |
+          if [ -n "${MONITOR_TOKEN:-}" ]; then
+            printf '%s' "$MONITOR_TOKEN" | npx wrangler secret put MONITOR_TOKEN
+          else
+            echo "MONITOR_TOKEN não configurado; monitorização ficará inativa."
+          fi
 
       - name: Deploy Cloudflare Worker
         uses: cloudflare/wrangler-action@v3
