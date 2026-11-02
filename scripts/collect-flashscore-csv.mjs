@@ -143,10 +143,45 @@ async function collect(matchId) {
   return payload.record;
 }
 
+async function discoverMatchIds(date) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || new Date(date + "T00:00:00Z").toISOString().slice(0, 10) !== date) {
+    throw new Error("Data inválida. Usa --date=YYYY-MM-DD.");
+  }
+  const url = new URL(PROXY + "/discover-inspect");
+  url.searchParams.set("date", date);
+  url.searchParams.set("ids", "1");
+  const response = await fetch(url, { headers: { "Accept": "application/json" } });
+  let payload;
+  try { payload = await response.json(); }
+  catch { throw new Error("Resposta não JSON na descoberta da data (HTTP " + response.status + ")."); }
+  if (!response.ok || payload.ok !== true || !payload.inspection) {
+    const upstream = Number(payload.upstream_status || 0);
+    if (upstream === 403 || upstream === 429) {
+      throw new Error("Flashscore respondeu HTTP " + upstream + " na descoberta; recolha interrompida.");
+    }
+    throw new Error("Falha na descoberta de jogos: " + (payload.error || "HTTP " + response.status));
+  }
+  if (payload.inspection.truncated) {
+    throw new Error("A lista da data excede o limite seguro de 500 jogos; não foi iniciada a recolha.");
+  }
+  return [...new Set((payload.inspection.match_ids || []).filter(id => /^[A-Za-z0-9]{6,16}$/.test(id)))];
+}
+
 async function main() {
-  const matchIds = process.argv.slice(2).filter(arg => !arg.startsWith("--"));
+  const args = process.argv.slice(2);
+  const dateOption = args.find(arg => arg.startsWith("--date="));
+  let matchIds = args.filter(arg => !arg.startsWith("--"));
+  if (dateOption && matchIds.length) {
+    throw new Error("Usa IDs de jogos ou --date=YYYY-MM-DD, não ambos.");
+  }
+  if (dateOption) {
+    const date = dateOption.slice("--date=".length);
+    matchIds = await discoverMatchIds(date);
+    console.log("Flashscore encontrou " + matchIds.length + " IDs únicos para " + date + ".");
+  }
   if (!matchIds.length) {
     console.error("Uso: node scripts/collect-flashscore-csv.mjs <match_id> [match_id...]");
+    console.error("  ou: node scripts/collect-flashscore-csv.mjs --date=YYYY-MM-DD");
     process.exitCode = 2;
     return;
   }
