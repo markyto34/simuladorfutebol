@@ -1,4 +1,5 @@
 import { extractBwin1x2 } from "./extract-bwin.mjs";
+import { inspectScoreEvidence } from "./extract-scores.mjs";
 const UPSTREAM = "https://m.flashscore.pt";
 const ALLOWED_ORIGINS = new Set([
   "https://simuladorfutebol.onrender.com"
@@ -108,6 +109,8 @@ function inspectHtml(html) {
     if (bwinOddsMarkers.length >= 20) break;
   }
 
+  const { scoreEvidence, scoreRelatedAttributes } = inspectScoreEvidence(html);
+
   const scoreContexts = [];
   const scoreMarkerPattern = /(?:score|period|half|event__part|detailScore|participant__score)/ig;
   for (const item of html.matchAll(scoreMarkerPattern)) {
@@ -127,9 +130,11 @@ function inspectHtml(html) {
       one_x_two_candidates: extractBwin1x2(html)
     },
     score_candidates: scoreCandidates,
+    score_evidence: scoreEvidence,
+    score_related_attributes: scoreRelatedAttributes,
     score_contexts: scoreContexts,
     decimal_number_candidates: oddsCandidates,
-    note: "one_x_two_candidates exige um triplo explícito junto do marcador Bwin. Estes valores são os apresentados na página consultada, não odds históricas/de fecho. Os resultados só podem ser atribuídos a períodos quando a estrutura HTML o identificar inequivocamente."
+    note: "one_x_two_candidates exige um triplo explícito junto do marcador Bwin. Estes valores são os apresentados na página consultada, não odds históricas/de fecho. score_evidence e score_related_attributes são provas de diagnóstico; não atribuem automaticamente períodos sem marcadores inequívocos."
   };
 }
 
