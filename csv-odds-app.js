@@ -158,6 +158,28 @@
       ? "Amostra reduzida: interpretar com muita cautela (" + regionLabel + ")."
       : "Amostra histórica; não representa garantia de repetição.";
   }
+  function renderMatchedGames(prefix, result) {
+    const target = $(prefix + "Matches");
+    target.replaceChildren();
+    const heading = document.createElement("h4");
+    heading.textContent = "Jogos encontrados (" + result.matches.length.toLocaleString("pt-PT") + ")";
+    target.append(heading);
+    if (!result.matches.length) {
+      const empty = document.createElement("p"); empty.className = "hint";
+      empty.textContent = "Não foram encontrados jogos para esta amostra."; target.append(empty); return;
+    }
+    const wrap = document.createElement("div"); wrap.className = "table-wrap matched-games-table";
+    const table = document.createElement("table"), thead = document.createElement("thead"), header = document.createElement("tr");
+    ["Data","País","Competição","Encontro","Odds fecho 1 / X / 2","FT","Resultado"].forEach(label => { const th=document.createElement("th"); th.textContent=label; header.append(th); });
+    thead.append(header); const tbody = document.createElement("tbody");
+    result.matches.forEach(match => {
+      const tr = document.createElement("tr");
+      const cells = [dateText(match.date),match.country||"—",match.league||"—",(match.home||"—")+" – "+(match.away||"—"),["1","X","2"].map(key=>match.odds[key]===null?"—":fmt(match.odds[key],2)).join(" / "),scoreText(match.ft),match.outcome==="1"?"Vitória casa":match.outcome==="X"?"Empate":match.outcome==="2"?"Vitória visitante":"—"];
+      cells.forEach(value=>{const td=document.createElement("td");td.textContent=value;tr.append(td);}); tbody.append(tr);
+    });
+    table.append(thead,tbody); wrap.append(table); target.append(wrap);
+  }
+
   function searchHistoricalOdds() {
     const odds = {"1":Number($("current1").value),X:Number($("currentX").value),"2":Number($("current2").value)};
     if (!CSVOdds.hasCompleteOdds(odds)) {
@@ -178,8 +200,9 @@
         clearHistoricalSearch("Não encontrámos jogos globais concluídos com as três odds dentro da tolerância de ±" + fmt(tolerance,2) + ". Aumenta ligeiramente a tolerância."); return;
       }
       renderHistoricalResult("global", global, "global");
-      if (regional.sample) renderHistoricalResult("regional", regional, continent);
-      else $("regionalWarning").textContent = "Sem jogos concluídos deste continente com as três odds dentro da tolerância.";
+      renderMatchedGames("global", global);
+      if (regional.sample) { renderHistoricalResult("regional", regional, continent); renderMatchedGames("regional", regional); }
+      else { $("regionalWarning").textContent = "Sem jogos concluídos deste continente com as três odds dentro da tolerância."; $("regionalMatches").replaceChildren(); }
       $("historicalSearchResult").hidden = false;
       $("globalHeading").textContent = "Todos os continentes";
       $("regionalHeading").textContent = continent;
