@@ -54,7 +54,7 @@ export function inspectMatchDiscovery(html, requestedDate, options = {}) {
       const headingEnd = headingOpenEnd >= 0 ? html.indexOf("</h4>", headingOpenEnd) : -1;
       const headingIsBeforeMatch = headingStart >= 0 && headingEnd >= 0 && headingEnd < item.index;
       const headingHtml = headingIsBeforeMatch ? html.slice(headingOpenEnd + 1, headingEnd) : "";
-      const headingText = plainText(headingHtml.replace(/<a\\b[^>]*>[\\s\\S]*?<\\/a>/gi, " "));
+      const headingText = plainText(headingHtml.replace(/<a\b[^>]*>[\s\S]*?<\/a>/gi, " "));
       const identityMatch = headingText.match(/^([^:]{2,60}):\s*(.{2,100})$/);
       const standingsHref = headingHtml.match(/<a\b[^>]*href\s*=\s*(?:"([^"]+)"|'([^']+)'|([^\s>]+))/i);
       targetCompetitionIdentity = identityMatch ? {
