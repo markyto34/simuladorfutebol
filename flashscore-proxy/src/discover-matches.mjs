@@ -21,16 +21,16 @@ function plainText(value) {
 }
 
 function extractCompetitionIdentity(html, anchorIndex, matchId, requestedDate) {
-  const scoreDataStart = html.search(/<div\\b[^>]*id\\s*=\\s*(?:"score-data"|'score-data')[^>]*>/i);
+  const scoreDataStart = html.search(/<div\b[^>]*id\s*=\s*(?:"score-data"|'score-data')[^>]*>/i);
   if (scoreDataStart < 0 || anchorIndex < scoreDataStart) return { status: "unavailable", country: null, competition: null, season: null, stage: null, round: null, source: null };
   const headingStart = html.lastIndexOf("<h4", anchorIndex);
   if (headingStart < scoreDataStart) return { status: "unavailable", country: null, competition: null, season: null, stage: null, round: null, source: null };
   const headingOpenEnd = html.indexOf(">", headingStart);
   const headingEnd = headingOpenEnd >= 0 ? html.indexOf("</h4>", headingOpenEnd) : -1;
   if (headingEnd < 0 || headingEnd >= anchorIndex) return { status: "unavailable", country: null, competition: null, season: null, stage: null, round: null, source: null };
-  const headingHtml = html.slice(headingOpenEnd + 1, headingEnd).replace(/<a\\b[^>]*>[\\s\\S]*?<\\/a>/gi, " ");
+  const headingHtml = html.slice(headingOpenEnd + 1, headingEnd).replace(/<a\b[^>]*>[\s\S]*?<\/a>/gi, " ");
   const heading = plainText(headingHtml);
-  const split = heading.match(/^(.+?)\\s*:\\s*(.+)$/);
+  const split = heading.match(/^(.+?)\s*:\s*(.+)$/);
   if (!split) return { status: "unavailable", country: null, competition: null, season: null, stage: null, round: null, source: null };
   const countryLabel = split[1].trim();
   const competition = split[2].trim();
