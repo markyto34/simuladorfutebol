@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 925,
+  "processed_games": 950,
   "stats_games": 348,
   "bwin_odds": 183,
-  "failed_games": 77,
-  "current_match": "Último erro: KpoH7CE4",
-  "last_result": "Falha em KpoH7CE4: Falha ao recolher KpoH7CE4: HTTP 503",
-  "updated_at": "2026-11-03T14:59:14.852Z"
+  "failed_games": 88,
+  "current_match": "Último concluído: Åsane 2 - Fyllingsdalen",
+  "last_result": "Åsane 2 - Fyllingsdalen: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-03T14:59:40.360Z"
 }
