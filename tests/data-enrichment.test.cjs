@@ -63,3 +63,26 @@ test("CSV Odds rejects a fixture whose FT score differs", () => {
   assert.deepEqual(enrichOddsPeriods(matches, csv), { matched: 0, ht: 0, secondHalf: 0 });
   assert.equal(matches[0].htHome, null);
 });
+
+
+test("Flashscore keeps unavailable metrics missing instead of converting them to zero", () => {
+  const matches = [{
+    date: "2026-11-01", home: "Union Berlin", away: "FC Koln", hg: 1, ag: 1,
+    hc: null, ac: null, homeShots: null, awayShots: null,
+    homeTarget: null, awayTarget: null, homeFouls: null, awayFouls: null,
+    homeXg: null, awayXg: null
+  }];
+  const csv = [
+    "match_id,date_time,home_team,away_team,score_home,score_away,xg_home,xg_away,corners_home,corners_away,shots_home,shots_away",
+    "abc123,2026-11-01T14:30,Union Berlin,FC Koln,1,1,,1.17,2,6,5,14"
+  ].join("\n");
+
+  const result = enrichFlashscoreStats(matches, csv);
+  assert.equal(result.matched, 1);
+  assert.equal(matches[0].homeXg, null, "blank source value must remain unavailable");
+  assert.equal(matches[0].awayXg, 1.17);
+  assert.equal(matches[0].hc, 2);
+  assert.equal(matches[0].ac, 6);
+  assert.equal(matches[0].homeShots, 5);
+  assert.equal(matches[0].awayShots, 14);
+});
