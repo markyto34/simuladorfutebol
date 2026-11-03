@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 975,
-  "stats_games": 349,
-  "bwin_odds": 184,
-  "failed_games": 88,
-  "current_match": "Último concluído: LSK Kvinner F - Brann F",
-  "last_result": "LSK Kvinner F - Brann F: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-03T15:00:04.088Z"
+  "processed_games": 1000,
+  "stats_games": 353,
+  "bwin_odds": 186,
+  "failed_games": 102,
+  "current_match": "Último concluído: Cerro Porteno - Olimpia Asuncion",
+  "last_result": "Cerro Porteno - Olimpia Asuncion: 13 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-03T15:00:32.658Z"
 }
