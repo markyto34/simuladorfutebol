@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 900,
-  "stats_games": 347,
-  "bwin_odds": 182,
-  "failed_games": 67,
-  "current_match": "Último erro: trPyme2l",
-  "last_result": "Falha em trPyme2l: Falha ao recolher trPyme2l: HTTP 503",
-  "updated_at": "2026-11-03T14:58:49.675Z"
+  "processed_games": 925,
+  "stats_games": 348,
+  "bwin_odds": 183,
+  "failed_games": 77,
+  "current_match": "Último erro: KpoH7CE4",
+  "last_result": "Falha em KpoH7CE4: Falha ao recolher KpoH7CE4: HTTP 503",
+  "updated_at": "2026-11-03T14:59:14.852Z"
 }
