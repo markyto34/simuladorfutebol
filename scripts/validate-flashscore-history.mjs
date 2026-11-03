@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { readFile } from "node:fs/promises";
+import { oddsDeduplicationKey } from "./odds-deduplication.mjs";
 
 function parseCsv(text) {
   const rows = [];
@@ -51,8 +52,8 @@ for (const row of odds) {
     const value = Number(row[field]);
     if (!Number.isFinite(value) || value <= 1 || value > 1000) throw new Error("Odd inválida (" + field + ") no jogo " + row.match_id);
   }
-  const key = row.match_id + "|" + row.retrieved_at;
-  if (seenOdds.has(key)) throw new Error("Observação de odds duplicada: " + key);
+  const key = oddsDeduplicationKey(row);
+  if (seenOdds.has(key)) throw new Error("Jogo/mercado Bwin duplicado: " + key);
   seenOdds.add(key);
 }
 console.log("Histórico CSV validado: " + stats.length + " jogos com estatísticas; " + odds.length + " observações Bwin 1X2.");
