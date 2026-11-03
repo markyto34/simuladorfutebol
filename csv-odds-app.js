@@ -2,8 +2,6 @@
   "use strict";
   const $ = id => document.getElementById(id);
   const CSV_URL = "https://raw.githubusercontent.com/markyto34/simuladorfutebol/main/ganhonasodds_com_20261101.csv";
-  const FLASH_ODDS_URL = "https://raw.githubusercontent.com/markyto34/simuladorfutebol/main/data/bwin-odds-flashscore.csv";
-  const FLASH_STATS_URL = "https://raw.githubusercontent.com/markyto34/simuladorfutebol/main/data/flashscore-statistics.csv";
   const PAGE_SIZE = 50;
   let allMatches = [], matches = [], page = 0, databaseLoaded = false, databasePromise = null;
   const fmtOdd = n => Number.isFinite(n) ? n.toFixed(2).replace(".", ",") : "—";
@@ -182,19 +180,11 @@
       if(!response.ok) throw new Error("HTTP "+response.status);
       const raw=CSVOdds.parseCSV(await response.text());
       const required=["date_time","COUNTRY","LEAGUE","TEAM_HOME","TEAM_AWAY","odd_ft_1","odd_ft_x","odd_ft_2","score_ft_home","score_ft_away"];
-      if(!raw.length||required.some(key=>!(key in raw[0]))) throw new Error("Faltam colunas obrigatórias no CSV principal.");
-      const [oddsResponse,statsResponse]=await Promise.all([
-        fetch(FLASH_ODDS_URL,{method:"GET",mode:"cors",cache:"no-cache"}),
-        fetch(FLASH_STATS_URL,{method:"GET",mode:"cors",cache:"no-cache"})
-      ]);
-      if(!oddsResponse.ok||!statsResponse.ok) throw new Error("Não foi possível atualizar a base com as recolhas Flashscore (HTTP "+oddsResponse.status+"/"+statsResponse.status+").");
-      const oddsRows=CSVOdds.parseCSV(await oddsResponse.text());
-      const statsRows=CSVOdds.parseCSV(await statsResponse.text());
-      const integrated=CSVOdds.mergeFlashscoreCollections(raw,oddsRows,statsRows);
-      allMatches=CSVOdds.normalizeRows(integrated.rows).filter(m=>m.oddsComplete);
+      if(!raw.length||required.some(key=>!(key in raw[0]))) throw new Error("Faltam colunas obrigatórias no CSV.");
+      allMatches=CSVOdds.normalizeRows(raw).filter(m=>m.oddsComplete);
       setCountries();
       $("recordCount").textContent=allMatches.length.toLocaleString("pt-PT")+" jogos com odds 1X2 válidas";
-      $("status").textContent="Base histórica carregada · "+integrated.added.toLocaleString("pt-PT")+" jogos novos integrados das recolhas Flashscore.";
+      $("status").textContent="Base histórica carregada.";
       $("searchHistoricalOdds").disabled=false;
       $("currentNote").textContent="Base pronta. Confirma as três odds para pesquisar.";
       databaseLoaded = true;
