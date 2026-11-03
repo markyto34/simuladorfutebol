@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 272,
-  "processed_games": 60,
-  "stats_games": 42,
-  "bwin_odds": 26,
+  "processed_games": 70,
+  "stats_games": 50,
+  "bwin_odds": 27,
   "failed_games": 1,
-  "current_match": "Último concluído: Molodechno - Osipovichi",
-  "last_result": "Molodechno - Osipovichi: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T14:29:19.282Z"
+  "current_match": "Último concluído: Fluxo - Podpah Funkbol Clube",
+  "last_result": "Fluxo - Podpah Funkbol Clube: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-03T14:29:35.874Z"
 }
