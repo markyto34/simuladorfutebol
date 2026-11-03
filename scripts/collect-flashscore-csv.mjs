@@ -10,8 +10,8 @@ import { readFile, writeFile, mkdir, appendFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 
 const PROXY = (process.env.FLASHSCORE_PROXY_URL || "https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev").replace(/\/$/, "");
-const DELAY_MS = Math.max(250, Number(process.env.FLASHSCORE_REQUEST_DELAY_MS || 350));
-const CONCURRENCY = Math.max(1, Math.min(8, Number.parseInt(process.env.FLASHSCORE_CONCURRENCY || "8", 10) || 8));
+const DELAY_MS = Math.max(250, Number(process.env.FLASHSCORE_REQUEST_DELAY_MS || 300));
+const CONCURRENCY = Math.max(1, Math.min(10, Number.parseInt(process.env.FLASHSCORE_CONCURRENCY || "10", 10) || 10));
 const REQUEST_TIMEOUT_MS = 45_000;
 const DISCOVERY_TIMEOUT_MS = 60_000;
 const MAX_MANUAL_MATCHES = 5;
