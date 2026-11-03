@@ -8,6 +8,7 @@
  */
 import { readFile, writeFile, mkdir, appendFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
+import { keepLatestOddsRows } from "./odds-deduplication.mjs";
 
 const PROXY = (process.env.FLASHSCORE_PROXY_URL || "https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev").replace(/\/$/, "");
 const DELAY_MS = Math.max(1000, Number(process.env.FLASHSCORE_REQUEST_DELAY_MS || 1000));
@@ -337,7 +338,7 @@ async function main() {
     if (index < matchIds.length - 1 && !stoppedByUpstream) await sleep(DELAY_MS);
   }
   const mergedStats = mergeRows(existingStats, statsNew, row => row.match_id);
-  const mergedOdds = mergeRows(existingOdds, oddsNew, row => row.match_id + "|" + row.retrieved_at);
+  const mergedOdds = keepLatestOddsRows([...existingOdds, ...oddsNew]);
   await writeFile(STATS_FILE, toCsv(STAT_HEADERS, mergedStats), "utf8");
   await writeFile(ODDS_FILE, toCsv(ODDS_HEADERS, mergedOdds), "utf8");
   console.log("CSV de estatísticas: " + STATS_FILE + " (" + mergedStats.length + " jogos).");
