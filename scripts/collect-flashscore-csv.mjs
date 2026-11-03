@@ -348,9 +348,15 @@ async function main() {
       console.log("[PROGRESS] " + (index + 1) + "/" + matchIds.length + " | START | id=" + matchId);
       try {
         const record = await collectWithRetry(matchId);
-        if (record.statistics && Object.keys(record.statistics).length) statsNew.push(statisticsRow(record));
+        if (record.statistics && Object.keys(record.statistics).length) {
+          statsNew.push(statisticsRow(record));
+          progressSnapshot.stats_games++;
+        }
         const oddsRow = bwinOddsRow(record);
-        if (oddsRow) oddsNew.push(oddsRow);
+        if (oddsRow) {
+          oddsNew.push(oddsRow);
+          progressSnapshot.bwin_odds++;
+        }
         const home = record.teams?.home?.name || "Casa";
         const away = record.teams?.away?.name || "Fora";
         progressSnapshot.last_result = home + " - " + away + ": " + Object.keys(record.statistics || {}).length + " estatísticas; Bwin 1X2 " + (oddsRow ? "encontradas" : "não confirmado");
