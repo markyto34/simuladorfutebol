@@ -285,10 +285,14 @@ async function loadWdwMatchPair(){
  const home=$( "homePick").value,away=$( "awayPick").value,league=$( "league").value;
  const status=$("wdw-status");
  if(!home||!away){
+  $("wdw-home-data").textContent=home?"A aguardar seleção da equipa visitante.":"A aguardar seleção da equipa da casa.";
+  $("wdw-away-data").textContent=away?"A aguardar seleção da equipa da casa.":"A aguardar seleção da equipa visitante.";
   status.textContent="WinDrawWin: seleciona as duas equipas para validar o mapeamento do encontro.";
   return;
  }
  if(wdwTeamKey(home)===wdwTeamKey(away)){
+  $("wdw-home-data").textContent="Seleções inválidas: escolhe duas equipas diferentes.";
+  $("wdw-away-data").textContent="Seleções inválidas: escolhe duas equipas diferentes.";
   status.textContent="WinDrawWin: as duas seleções apontam para a mesma equipa. Confirma os nomes.";
   return;
  }
