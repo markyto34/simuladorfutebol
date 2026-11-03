@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 1150,
-  "stats_games": 430,
-  "bwin_odds": 228,
+  "processed_games": 1175,
+  "stats_games": 439,
+  "bwin_odds": 235,
   "failed_games": 102,
-  "current_match": "Último concluído: Kazan 2 - Ural 2",
-  "last_result": "Kazan 2 - Ural 2: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T15:03:07.741Z"
+  "current_match": "Último concluído: Jedinstvo - Real Podunavci",
+  "last_result": "Jedinstvo - Real Podunavci: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-03T15:03:33.135Z"
 }
