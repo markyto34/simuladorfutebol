@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 272,
-  "processed_games": 100,
-  "stats_games": 73,
-  "bwin_odds": 41,
+  "processed_games": 110,
+  "stats_games": 82,
+  "bwin_odds": 48,
   "failed_games": 0,
-  "current_match": "Último concluído: Tenerife - Andorra",
-  "last_result": "Tenerife - Andorra: 14 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-03T06:28:33.787Z"
+  "current_match": "Último concluído: New England Revolution - Inter Miami",
+  "last_result": "New England Revolution - Inter Miami: 13 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-03T06:28:50.069Z"
 }
