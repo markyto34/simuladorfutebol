@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 350,
-  "stats_games": 203,
-  "bwin_odds": 102,
+  "processed_games": 375,
+  "stats_games": 212,
+  "bwin_odds": 109,
   "failed_games": 0,
-  "current_match": "Último concluído: Dun. Streda B - Velke Ludince",
-  "last_result": "Dun. Streda B - Velke Ludince: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T14:49:33.880Z"
+  "current_match": "Último concluído: CD Coria - Arenas Getxo",
+  "last_result": "CD Coria - Arenas Getxo: 14 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-03T14:49:59.246Z"
 }
