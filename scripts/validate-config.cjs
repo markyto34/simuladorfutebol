@@ -74,7 +74,6 @@ if (!app.includes("function teamOptionsForSeason(matches,completeMatches,allowWd
 const statsSection = html.match(/<div class="all-stats-columns">([\\s\\S]*?)<p class="source-note">/);
 if (!statsSection) fail("Secção de estatísticas das equipas não encontrada.");
 else {
-  const columns = [...statsSection[1].matchAll(/<div class="team-stats">([\\s\\S]*?)<\\/div><div class="team-stats">/g)];
   if ((html.match(/id="axgFor"/g) || []).length !== 1 || (html.match(/id="axgAgainst"/g) || []).length !== 1) fail("Os campos xG da equipa visitante devem existir uma única vez.");
   const homeStart = statsSection[1].indexOf("<h4>CASA</h4>");
   const awayStart = statsSection[1].indexOf("<h4>FORA</h4>");
@@ -82,7 +81,7 @@ else {
   if (homeStart < 0 || awayStart < 0 || xgAt < awayStart) fail("Os campos xG da equipa visitante estão na coluna errada.");
 }
 const pairedStart = app.indexOf("function enforcePairedTeamCoverage()");
-const pairedEnd = app.indexOf("\\nfunction applyTeamSelection", pairedStart);
+const pairedEnd = app.indexOf("\nfunction applyTeamSelection", pairedStart);
 if (pairedStart < 0 || pairedEnd < 0) fail("Validador de cobertura conjunta não encontrado.");
 else if (/fillInput\\s*\\(/.test(app.slice(pairedStart, pairedEnd))) fail("A validação conjunta não pode apagar dados válidos de uma equipa quando a outra não tem cobertura.");
 if (!app.includes('["Golos 1.ª parte"') || !app.includes('["Golos 2.ª parte"')) fail("A cobertura HT e 2.ª parte não está incluída no diagnóstico da competição.");
