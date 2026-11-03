@@ -415,7 +415,7 @@ async function loadHistoricalData(){
    const reason=primaryError?"Fonte principal: "+primaryError+". ":"";
    throw new Error(reason+(wdwIndexError?"WinDrawWin: "+wdwIndexError:allowWdw?"Não foram encontradas equipas nas fontes disponíveis.":"A fonte secundária só está ativa na época atual."));
   }
-  dataState.matches=matches;dataState.wdwTeams={};dataState.wdwSummaries={};updateLeagueCoverage(matches);dataState.teams=teams;
+  dataState.matches=matches;dataState.wdwTeams={};dataState.wdwSummaries={};updateLeagueCoverage(matches);dataState.teams=teams;document.body.classList.add("data-loaded");document.body.classList.remove("match-selected");
   for(const id of ["homePick","awayPick"]){
    const select=$(id);select.innerHTML='<option value="">Escolhe uma equipa</option>'+teams.map(t=>'<option value="'+t.replace(/&/g,"&amp;").replace(/"/g,"&quot;")+'">'+t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")+'</option>').join("");select.disabled=teams.length===0;
   }
@@ -425,7 +425,7 @@ async function loadHistoricalData(){
   applyTeamSelection("home");applyTeamSelection("away");
   $("wdw-home-data").textContent="A aguardar seleção da equipa da casa."; $("wdw-away-data").textContent="A aguardar seleção da equipa visitante.";
   $("wdw-status").textContent=WDW_PROXY_URL?(allowWdw?"WinDrawWin: equipas descobertas no índice da competição; seleciona as duas para validar os jogos completos.":"WinDrawWin: disponível apenas para a época atual."):"WinDrawWin: proxy não configurado.";
- }catch(e){status.textContent="Não foi possível carregar os dados: "+e.message+". A simulação automática fica indisponível até existirem amostras completas.";if($("data-coverage"))$("data-coverage").textContent="Cobertura estatística não disponível."; }finally{button.disabled=false;}
+ }catch(e){document.body.classList.remove("data-loaded","match-selected");status.textContent="Não foi possível pesquisar os jogos: "+e.message+". Tenta outra competição ou época.";if($("data-coverage"))$("data-coverage").textContent="Cobertura estatística não disponível."; }finally{button.disabled=false;}
 }
 function teamSample(team,venue,metric){
  const limit=$("sample").value,requested=limit==="all"?Infinity:Number(limit);
@@ -570,13 +570,13 @@ function applyTeamSelection(side){
  const count=(a,b)=>Math.min(coverage[a]||0,coverage[b]||0);
  status.textContent=team+": médias "+(venue==="home"?"em casa":"fora")+" preenchidas. Amostras — golos: "+count("goalsFor","goalsAgainst")+"; HT: "+count("htGoalsFor","htGoalsAgainst")+"; ST: "+count("secondHalfGoalsFor","secondHalfGoalsAgainst")+"; xG: "+count("xgFor","xgAgainst")+"; cantos: "+count("cornersFor","cornersAgainst")+"; remates: "+count("shotsFor","shotsAgainst")+"; remates à baliza: "+count("targetFor","targetAgainst")+"; faltas: "+count("foulsFor","foulsAgainst")+"; amarelos: "+count("yellowFor","yellowAgainst")+"; vermelhos: "+count("redFor","redAgainst")+". Janela: "+sample+". Campos sem cobertura ficam indisponíveis; não são substituídos por zeros.";
  if(!skipPairCheck){const other=side==="home"?"away":"home";if($(other==="home"?"homePick":"awayPick").value)applyTeamSelection(other,true);status.textContent+=" "+enforcePairedTeamCoverage();}
+ document.body.classList.toggle("match-selected",Boolean($("homePick").value&&$("awayPick").value));
 }
 $("load-data").addEventListener("click",loadHistoricalData);
 $("homePick").addEventListener("change",()=>{applyTeamSelection("home");loadWdwMatchPair();});
 $("awayPick").addEventListener("change",()=>{applyTeamSelection("away");loadWdwMatchPair();});
 $("sample").addEventListener("change",()=>{if($("homePick").value)applyTeamSelection("home");if($("awayPick").value)applyTeamSelection("away");});
 
-/* Atualiza a base automaticamente ao abrir a aplicação. */
-loadHistoricalData();
+/* A pesquisa só começa quando o utilizador escolhe a competição e carrega em Pesquisar jogos. */
 
 })();
