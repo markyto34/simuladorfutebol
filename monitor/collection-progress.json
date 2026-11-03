@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 800,
-  "stats_games": 337,
-  "bwin_odds": 176,
-  "failed_games": 19,
-  "current_match": "Último concluído: Racing United - Treasure Beach",
-  "last_result": "Racing United - Treasure Beach: 6 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T14:57:07.471Z"
+  "processed_games": 825,
+  "stats_games": 341,
+  "bwin_odds": 180,
+  "failed_games": 31,
+  "current_match": "Último erro: zkUbZsS6",
+  "last_result": "Falha em zkUbZsS6: Falha ao recolher zkUbZsS6: HTTP 503",
+  "updated_at": "2026-11-03T14:57:32.921Z"
 }
