@@ -41,7 +41,7 @@ test("integra jogos Bwin 1X2, preserva histórico, preenche FT e não duplica", 
   const first = run();
   assert.equal(first.status, 0, first.stderr);
   assert.match(first.stdout, /Novos jogos acrescentados: 1/);
-  assert.match(first.stdout, /resultados FT preenchidos: 0/);
+  assert.match(first.stdout, /jogos com resultados FT completados: 1/);
   const contents = await readFile(path.join(dir, "ganhonasodds_com_20261101.csv"), "utf8");
   const lines = contents.trim().split("\n");
   assert.equal(lines.length, 3); // cabeçalho + histórico antigo + jogo novo
@@ -66,7 +66,24 @@ test("preenche apenas resultados FT em falta num jogo já existente", async t =>
   await writeFile(file, withExistingMatch);
   const run = spawnSync(process.execPath, [script], { cwd: dir, encoding: "utf8" });
   assert.equal(run.status, 0, run.stderr);
-  assert.match(run.stdout, /resultados FT preenchidos: 1/);
+  assert.match(run.stdout, /jogos com resultados FT completados: 1/);
   const result = await readFile(file, "utf8");
   assert.match(result, /Old FC,Old Town,2.1,3.2,3.4,,,,,2,1,2,1/);
+});
+
+
+test("completa apenas odds em falta e preserva odds históricas existentes", async t => {
+  const dir = await fixture(t);
+  const file = path.join(dir, "ganhonasodds_com_20261101.csv");
+  const original = await readFile(file, "utf8");
+  const [headerLine, dataLine] = original.trim().split("\n");
+  const headers = headerLine.split(",");
+  const cells = dataLine.split(",");
+  cells[headers.indexOf("odd_ft_x")] = "";
+  await writeFile(file, headerLine + "\n" + cells.join(",") + "\n");
+  const run = spawnSync(process.execPath, [script], { cwd: dir, encoding: "utf8" });
+  assert.equal(run.status, 0, run.stderr);
+  assert.match(run.stdout, /campos de odds preenchidos: 1/);
+  const result = await readFile(file, "utf8");
+  assert.match(result, /Old FC,Old Town,2.1,3.3,3.4/);
 });
