@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 272,
-  "processed_games": 150,
-  "stats_games": 105,
-  "bwin_odds": 63,
+  "processed_games": 160,
+  "stats_games": 113,
+  "bwin_odds": 69,
   "failed_games": 1,
-  "current_match": "Último concluído: Naft Gachsaran - Mes Kerman",
-  "last_result": "Naft Gachsaran - Mes Kerman: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T14:31:43.354Z"
+  "current_match": "Último concluído: Nof Hagalil - Nahariya",
+  "last_result": "Nof Hagalil - Nahariya: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-03T14:31:58.810Z"
 }
