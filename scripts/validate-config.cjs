@@ -28,7 +28,7 @@ if (mapStart < 0 || mapEnd < 0) {
   }
 }
 if (!/windrawwinProxyUrl:\s*"https:\/\//.test(config)) fail("URL HTTPS do proxy não configurado em config.js.");
-if (!html.includes('<script src="config.js"></script>') || !html.includes('<script src="app.js"></script>')) fail("Scripts de configuração/aplicação não estão ligados no HTML.");
+if (!/<script src="config\\.js"(?: defer)?><\\/script>/.test(html) || !/<script src="app\\.js"(?: defer)?><\\/script>/.test(html)) fail("Scripts de configuração/aplicação não estão ligados no HTML ou não respeitam o carregamento diferido.");
 if (!app.includes("async function loadWdwMatchPair") || !app.includes('Promise.all([loadWdwTeam("home"),loadWdwTeam("away")])')) fail("A validação conjunta das duas equipas WDW não está ativa.");
 if (!app.includes('loadWdwMatchPair();')) fail("Os seletores de equipas não acionam a validação conjunta WDW.");
 if (!proxy.includes('https://simuladorfutebol.onrender.com')) fail("Origem do site não autorizada no proxy.");
