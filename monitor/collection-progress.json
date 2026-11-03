@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 1300,
-  "stats_games": 483,
-  "bwin_odds": 266,
+  "processed_games": 1325,
+  "stats_games": 494,
+  "bwin_odds": 275,
   "failed_games": 102,
-  "current_match": "Último concluído: Probiy Horodenka - Nyva Ternopil",
-  "last_result": "Probiy Horodenka - Nyva Ternopil: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T15:05:40.869Z"
+  "current_match": "Último concluído: Lochin - Metallurg Bekabad",
+  "last_result": "Lochin - Metallurg Bekabad: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-03T15:06:06.316Z"
 }
