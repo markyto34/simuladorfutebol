@@ -10,7 +10,7 @@ const escapeHtml=value=>String(value??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","
 function line(label,p){return '<div class="line-item"><span>'+label+'</span><b>'+pct(p)+'</b></div>'}
 function simulate(){
  try{
-  const h=$("homeName").value.trim()||"Casa",a=$("awayName").value.trim()||"Fora",disp=Number($("disp").value)/100;
+  const h=$("homeName").value.trim()||"Casa",a=$("awayName").value.trim()||"Fora",disp=.45;
   const read=id=>{const raw=$(id).value.trim();if(raw==="")return null;const v=Number(raw);if(!Number.isFinite(v)||v<0)throw Error("Confirma os valores numéricos: não podem ser negativos.");return v;};
   const goalValues=["hgFor","agAgainst","agFor","hgAgainst"].map(read);
   const hasGoalHistory=goalValues.every(v=>v!==null);
@@ -75,7 +75,6 @@ function simulate(){
 }
 $("run").addEventListener("click",simulate);
 
-$("disp").addEventListener("input",e=>$("dispOut").textContent=e.target.value+"%");
 $("reset").addEventListener("click",()=>location.reload());
 
 /* Importação automática baseada no formato CSV já usado no futebol-stats. */
