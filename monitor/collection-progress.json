@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 850,
-  "stats_games": 342,
-  "bwin_odds": 180,
-  "failed_games": 42,
-  "current_match": "Último concluído: ZFK Vardar F - ASS United F",
-  "last_result": "ZFK Vardar F - ASS United F: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T14:57:58.109Z"
+  "processed_games": 875,
+  "stats_games": 344,
+  "bwin_odds": 181,
+  "failed_games": 51,
+  "current_match": "Último concluído: Mouloudia Oujda - Chabab Atlas Khenifra",
+  "last_result": "Mouloudia Oujda - Chabab Atlas Khenifra: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-03T14:58:23.176Z"
 }
