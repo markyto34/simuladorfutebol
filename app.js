@@ -483,8 +483,8 @@ function teamSample(team,venue,metric){
   if(metric==="goalsAgainst")return h?w.ag:w.hg;
   if(metric==="htGoalsFor")return w.htHome===null||w.htAway===null?null:(h?w.htHome:w.htAway);
   if(metric==="htGoalsAgainst")return w.htHome===null||w.htAway===null?null:(h?w.htAway:w.htHome);
-  if(metric==="secondHalfGoalsFor")return w.htHome===null||w.htAway===null?null:(h?w.hg-w.htHome:w.ag-w.htAway);
-  if(metric==="secondHalfGoalsAgainst")return w.htHome===null||w.htAway===null?null:(h?w.ag-w.htAway:w.hg-w.htHome);
+  if(metric==="secondHalfGoalsFor")return window.FootballDataEnrichment.deriveSecondHalfGoals(h?w.hg:w.ag,h?w.htHome:w.htAway);
+  if(metric==="secondHalfGoalsAgainst")return window.FootballDataEnrichment.deriveSecondHalfGoals(h?w.ag:w.hg,h?w.htAway:w.htHome);
   if(metric==="xgFor"||metric==="xgAgainst")return null;
   if(metric==="cornersFor")return h?w.homeCorners:w.awayCorners;
   if(metric==="cornersAgainst")return h?w.awayCorners:w.homeCorners;
