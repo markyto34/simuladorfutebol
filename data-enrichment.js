@@ -92,6 +92,12 @@
     ) || null;
   }
 
+  function deriveSecondHalfGoals(fullTime, halfTime) {
+    const valid = value => value !== null && value !== undefined && String(value).trim() !== "" && Number.isInteger(Number(value)) && Number(value) >= 0;
+    if (!valid(fullTime) || !valid(halfTime) || Number(fullTime) < Number(halfTime)) return null;
+    return Number(fullTime) - Number(halfTime);
+  }
+
   function fillMissing(match, field, nextValue) {
     if (match[field] === null || match[field] === undefined || match[field] === "") {
       if (nextValue !== null && nextValue !== undefined) {
@@ -165,7 +171,7 @@
     return { matched: matched.size, ht: ht.size, secondHalf: secondHalf.size };
   }
 
-  const api = { enrichFlashscoreStats, enrichOddsPeriods, fixtureKey };
+  const api = { enrichFlashscoreStats, enrichOddsPeriods, deriveSecondHalfGoals, fixtureKey };
   root.FootballDataEnrichment = api;
   if (typeof module !== "undefined" && module.exports) module.exports = api;
 })(typeof globalThis !== "undefined" ? globalThis : this);
