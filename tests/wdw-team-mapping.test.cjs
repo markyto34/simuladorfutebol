@@ -9,7 +9,7 @@ const start=source.indexOf("function wdwTeamNameMatchScore(");
 const end=source.indexOf("\nasync function findWdwTeamPathFromLeagueIndex(",start);
 assert.ok(start>=0&&end>start,"As funções de comparação WinDrawWin devem existir.");
 const aliases={"shakhtar":"shakhtar donetsk","fc shakhtar donetsk":"shakhtar donetsk","sporting cp":"sporting lisbon","sporting":"sporting lisbon"};
-const normalizeTeamName=value=>String(value||"").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toLowerCase().replace(/\\b(fc|cf|sc|afc|club|clube|de|the)\\b/g," ").replace(/[^a-z0-9]+/g," ").trim().replace(/\\s+/g," ");
+const normalizeTeamName=value=>String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/\b(fc|cf|sc|afc|club|clube|de|the)\b/g," ").replace(/[^a-z0-9]+/g," ").trim().replace(/\s+/g," ");
 const wdwTeamKey=value=>{const n=normalizeTeamName(value);return normalizeTeamName(aliases[n]||n);};
 const context={wdwTeamKey};
 vm.createContext(context);
