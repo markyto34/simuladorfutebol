@@ -1,0 +1,127 @@
+#!/usr/bin/env node
+/**
+ * Integra a recolha diária Flashscore/Bwin diretamente no CSV histórico
+ * consumido pelo módulo de pesquisa de odds. Preserva o histórico e é idempotente.
+ */
+import { readFile, writeFile } from "node:fs/promises";
+
+const BASE_FILE = "ganhonasodds_com_20261101.csv";
+const ODDS_FILE = "data/bwin-odds-flashscore.csv";
+const STATS_FILE = "data/flashscore-statistics.csv";
+
+function parseCsv(text) {
+  const rows = [];
+  let row = [], cell = "", quoted = false;
+  text = String(text || "").replace(/^\uFEFF/, "");
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i], next = text[i + 1];
+    if (quoted) {
+      if (c === '"' && next === '"') { cell += '"'; i++; }
+      else if (c === '"') quoted = false;
+      else cell += c;
+    } else if (c === '"' && cell === "") quoted = true;
+    else if (c === ",") { row.push(cell); cell = ""; }
+    else if (c === "\n" || c === "\r") {
+      if (c === "\r" && next === "\n") i++;
+      row.push(cell); cell = "";
+      if (row.some(value => value !== "")) rows.push(row);
+      row = [];
+    } else cell += c;
+  }
+  if (cell !== "" || row.length) { row.push(cell); if (row.some(value => value !== "")) rows.push(row); }
+  if (!rows.length) return { headers: [], records: [] };
+  const headers = rows.shift().map(value => value.trim());
+  return { headers, records: rows.map(values => Object.fromEntries(headers.map((header, index) => [header, values[index] ?? ""]))) };
+}
+function csvCell(value) {
+  const text = String(value ?? "");
+  return /[",\r\n]/.test(text) ? '"' + text.replace(/"/g, '""') + '"' : text;
+}
+function toCsv(headers, records) {
+  return [headers.join(","), ...records.map(record => headers.map(key => csvCell(record[key])).join(","))].join("\n") + "\n";
+}
+function norm(value) {
+  return String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim().toLocaleLowerCase();
+}
+function dateKey(value) {
+  const match = String(value || "").match(/^\s*(\d{4}-\d{2}-\d{2})/);
+  return match ? match[1] : "";
+}
+function identity(row) {
+  return [dateKey(row.date_time), norm(row.TEAM_HOME), norm(row.TEAM_AWAY)].join("|");
+}
+function validOdd(value) {
+  const number = Number(String(value || "").replace(",", "."));
+  return Number.isFinite(number) && number > 1 && number <= 1000;
+}
+
+const baseText = await readFile(BASE_FILE, "utf8");
+const oddsText = await readFile(ODDS_FILE, "utf8");
+const statsText = await readFile(STATS_FILE, "utf8");
+const base = parseCsv(baseText);
+const odds = parseCsv(oddsText).records;
+const stats = parseCsv(statsText).records;
+const required = ["date_time","COUNTRY","LEAGUE","TEAM_HOME","TEAM_AWAY","odd_ft_1","odd_ft_x","odd_ft_2","score_fh_home","score_fh_away","score_sh_home","score_sh_away","score_ft_home","score_ft_away","score_final_home","score_final_away"];
+for (const field of required) {
+  if (!base.headers.includes(field)) throw new Error("CSV histórico sem a coluna obrigatória: " + field);
+}
+if (!base.records.length) throw new Error("CSV histórico vazio; integração cancelada para proteger os dados.");
+
+const statsById = new Map(stats.filter(row => row.match_id).map(row => [row.match_id, row]));
+const byIdentity = new Map();
+for (const row of base.records) {
+  const key = identity(row);
+  if (!key.startsWith("||")) byIdentity.set(key, row);
+}
+let added = 0, resultsUpdated = 0, skipped = 0;
+for (const quote of odds) {
+  if (quote.bookmaker !== "Bwin" || quote.market !== "1X2") continue;
+  if (![quote.odd_1, quote.odd_x, quote.odd_2].every(validOdd)) { skipped++; continue; }
+  const matchId = String(quote.match_id || "");
+  const stat = statsById.get(matchId);
+  const row = Object.fromEntries(base.headers.map(header => [header, ""]));
+  row.date_time = quote.date_time || stat?.date_time || "";
+  row.COUNTRY = quote.country || stat?.country || "";
+  row.LEAGUE = quote.competition || stat?.competition || "";
+  row.TEAM_HOME = quote.home_team || stat?.home_team || "";
+  row.TEAM_AWAY = quote.away_team || stat?.away_team || "";
+  row.odd_ft_1 = quote.odd_1;
+  row.odd_ft_x = quote.odd_x;
+  row.odd_ft_2 = quote.odd_2;
+  if (!row.date_time || !row.TEAM_HOME || !row.TEAM_AWAY) { skipped++; continue; }
+  if (stat) {
+    row.score_ft_home = stat.score_home || "";
+    row.score_ft_away = stat.score_away || "";
+    row.score_final_home = stat.score_home || "";
+    row.score_final_away = stat.score_away || "";
+  }
+  const key = identity(row);
+  const existing = byIdentity.get(key);
+  if (existing) {
+    // Só preencher resultados em falta; nunca apagar nem substituir dados históricos.
+    if (stat && existing.score_ft_home === "" && existing.score_ft_away === "" &&
+        stat.score_home !== "" && stat.score_away !== "") {
+      existing.score_ft_home = stat.score_home;
+      existing.score_ft_away = stat.score_away;
+      if (existing.score_final_home === "") existing.score_final_home = stat.score_home;
+      if (existing.score_final_away === "") existing.score_final_away = stat.score_away;
+      resultsUpdated++;
+    }
+    continue;
+  }
+  base.records.push(row);
+  byIdentity.set(key, row);
+  added++;
+}
+if (added || resultsUpdated) {
+  await writeFile(BASE_FILE, toCsv(base.headers, base.records), "utf8");
+}
+console.log("CSV histórico integrado: " + base.records.length.toLocaleString("pt-PT") + " registos totais.");
+console.log("Novos jogos acrescentados: " + added + "; resultados FT preenchidos: " + resultsUpdated + "; linhas ignoradas: " + skipped + ".");
+console.log("Ficheiro atualizado: " + BASE_FILE);
+if (process.env.GITHUB_STEP_SUMMARY) {
+  const { appendFile } = await import("node:fs/promises");
+  await appendFile(process.env.GITHUB_STEP_SUMMARY,
+    "\n## Integração no CSV histórico de odds\n\n- Total de jogos no CSV: **" + base.records.length +
+    "**\n- Novos jogos: **" + added + "**\n- Resultados FT atualizados: **" + resultsUpdated + "**\n- Linhas ignoradas: **" + skipped + "**\n", "utf8");
+}
