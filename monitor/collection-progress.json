@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 272,
-  "processed_games": 240,
-  "stats_games": 165,
-  "bwin_odds": 107,
+  "processed_games": 250,
+  "stats_games": 172,
+  "bwin_odds": 114,
   "failed_games": 1,
-  "current_match": "Último concluído: Al Ittihad Aleppo - Qamishli",
-  "last_result": "Al Ittihad Aleppo - Qamishli: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T14:34:04.989Z"
+  "current_match": "Último concluído: CSKA Pomir Dushanbe - Istiqlol Dushanbe",
+  "last_result": "CSKA Pomir Dushanbe - Istiqlol Dushanbe: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-03T14:34:20.859Z"
 }
