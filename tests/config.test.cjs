@@ -25,7 +25,7 @@ test("xG aparece uma vez por equipa e a cobertura é apresentada independentemen
   assert.ok(away.includes(xgBlock));
 
   const start = app.indexOf("function enforcePairedTeamCoverage()");
-  const end = app.indexOf("\\nfunction applyTeamSelection", start);
+  const end = app.indexOf("function applyTeamSelection", start);
   assert.ok(start >= 0 && end > start, "função de cobertura encontrada");
   const coverage = app.slice(start, end);
   assert.equal(coverage.includes("clearAll"), false);
