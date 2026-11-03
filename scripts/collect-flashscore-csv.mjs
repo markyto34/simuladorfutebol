@@ -363,7 +363,8 @@ async function main() {
     "- Jogos descobertos: **" + matchIds.length + "**",
     "- Jogos processados: **" + processed + "**",
     "- Registos com estatísticas: **" + statsNew.length + "**",
-    "- Observações Bwin 1X2: **" + oddsNew.length + "**",
+    "- Novas observações Bwin 1X2: **" + oddsNew.length + "**",
+    "- Total atualizado de registos no CSV Bwin: **" + mergedOdds.length + "**",
     "- Falhas: **" + failures + "**",
     "- Interrompida por bloqueio 403/429: **" + (stoppedByUpstream ? "sim" : "não") + "**",
     "- Duração: **" + elapsedSeconds + " s**"
