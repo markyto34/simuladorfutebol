@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 350,
-  "stats_games": 203,
-  "bwin_odds": 102,
+  "processed_games": 376,
+  "stats_games": 213,
+  "bwin_odds": 110,
   "failed_games": 0,
-  "current_match": "A consultar jogo 352/1344 · lvilVkAE",
-  "last_result": "Dun. Streda B - Velke Ludince: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T22:15:40.427Z"
+  "current_match": "Último concluído: UD Ourense - Cultural Leonesa",
+  "last_result": "UD Ourense - Cultural Leonesa: 13 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-03T22:15:48.203Z"
 }
