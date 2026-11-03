@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 100,
-  "stats_games": 42,
-  "bwin_odds": 28,
+  "processed_games": 125,
+  "stats_games": 63,
+  "bwin_odds": 37,
   "failed_games": 0,
-  "current_match": "A consultar jogo 102/1344 · hvhZSDbC",
-  "last_result": "Freiburg F - Jena F: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-03T22:14:25.643Z"
+  "current_match": "A consultar jogo 127/1344 · xluRKd66",
+  "last_result": "Syunik - Noah: 6 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-03T22:14:33.140Z"
 }
