@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 272,
-  "processed_games": 200,
-  "stats_games": 131,
-  "bwin_odds": 80,
+  "processed_games": 210,
+  "stats_games": 141,
+  "bwin_odds": 89,
   "failed_games": 1,
-  "current_match": "Último concluído: Rancho Santana - Matagalpa",
-  "last_result": "Rancho Santana - Matagalpa: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T14:32:59.813Z"
+  "current_match": "Último concluído: Cajamarca - Deportivo Garcilaso",
+  "last_result": "Cajamarca - Deportivo Garcilaso: 13 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-03T14:33:16.521Z"
 }
