@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 272,
-  "processed_games": 80,
-  "stats_games": 55,
-  "bwin_odds": 29,
+  "processed_games": 90,
+  "stats_games": 65,
+  "bwin_odds": 38,
   "failed_games": 1,
-  "current_match": "Último concluído: Vancouver Rise F - Montreal Roses F",
-  "last_result": "Vancouver Rise F - Montreal Roses F: 13 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T14:29:51.605Z"
+  "current_match": "Último concluído: Wadi Degla - Zamalek",
+  "last_result": "Wadi Degla - Zamalek: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-03T14:30:08.294Z"
 }
