@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 775,
-  "stats_games": 331,
-  "bwin_odds": 172,
+  "processed_games": 800,
+  "stats_games": 337,
+  "bwin_odds": 176,
   "failed_games": 19,
-  "current_match": "Último concluído: Martina Calcio - Bisceglie",
-  "last_result": "Martina Calcio - Bisceglie: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T14:56:43.063Z"
+  "current_match": "Último concluído: Racing United - Treasure Beach",
+  "last_result": "Racing United - Treasure Beach: 6 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-03T14:57:07.471Z"
 }
