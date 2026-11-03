@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 1250,
+  "processed_games": 1276,
   "stats_games": 581,
   "bwin_odds": 336,
   "failed_games": 0,
-  "current_match": "A consultar jogo 1252/1344 · QTcDK1l1",
-  "last_result": "Kastamonuspor - Elazigspor: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T22:20:10.438Z"
+  "current_match": "Último concluído: Agri 1970 - Osmaniyespor",
+  "last_result": "Agri 1970 - Osmaniyespor: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-03T22:20:18.003Z"
 }
