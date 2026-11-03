@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 1050,
-  "stats_games": 401,
+  "processed_games": 1075,
+  "stats_games": 411,
   "bwin_odds": 222,
   "failed_games": 102,
-  "current_match": "Último concluído: Bohemians 1905 B - Povltavska FA",
-  "last_result": "Bohemians 1905 B - Povltavska FA: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T15:01:27.805Z"
+  "current_match": "Último concluído: Opava B - Zabreh",
+  "last_result": "Opava B - Zabreh: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-03T15:01:53.777Z"
 }
