@@ -83,3 +83,22 @@ footer{color:#8999ae}
 @media(max-width:600px){body{background:#101827}.sidebar{background:#141f30}}
 @media(max-width:700px){button{min-height:44px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+
+/* Fluxo inicial: pesquisar primeiro, analisar depois. */
+body.search-start .intro{display:none}
+body.search-start main>#simulador,
+body.search-start main>#estatisticas,
+body.search-start main>#windrawwin,
+body.search-start main>.run-row{display:none}
+body.search-start .team-picks{display:none}
+body.data-loaded .team-picks{display:grid}
+body.match-selected main>#simulador,
+body.match-selected main>#estatisticas,
+body.match-selected main>#windrawwin{display:block}
+body.match-selected main>.run-row{display:flex}
+body.match-selected .team-picks{display:grid}
+body.search-start main>#resultados{display:none}
+@media(max-width:700px){
+  body.match-selected main>.run-row{align-items:stretch;flex-direction:column}
+}
