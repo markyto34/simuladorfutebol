@@ -149,7 +149,7 @@ const WDW_LEAGUES={
  "UKR_1_premier-league":"ukraine-upl"
 };
 const WDW_CALENDAR_YEAR_LEAGUES=new Set(["BRA_1_serie-a","BRA_2_serie-b","ARG_1_liga-profesional","ARG_2_primera-nacional","USA_1_mls","JPN_1_j1-league","AUS_1_a-league","CHN_1_super-league","SWE_1_allsvenskan","NOR_1_eliteserien","FIN_1_veikkausliiga","KAZ_1_premier-league","IRE_2_first-division","WAL_1_cymru-premier"]);
-const WDW_ALIASES={"shakhtar":"shakhtar donetsk","fc shakhtar donetsk":"shakhtar donetsk","sporting cp":"sporting lisbon","sporting clube de portugal":"sporting lisbon","academico":"academico viseu","academico viseu":"academico viseu","vitoria":"guimaraes","casa pia":"casa pia atletico","nacional":"nacional madeira","maritimo m":"maritimo","estoril praia":"estoril","gd estoril praia":"estoril"};
+const WDW_ALIASES={"shakhtar":"shakhtar donetsk","fc shakhtar donetsk":"shakhtar donetsk","shakhtar donetsk fc":"shakhtar donetsk","fc shakhtar":"shakhtar donetsk","sporting":"sporting lisbon","sporting cp":"sporting lisbon","sporting lisboa":"sporting lisbon","sporting portugal":"sporting lisbon","sporting clube portugal":"sporting lisbon","sporting clube de portugal":"sporting lisbon","academico":"academico viseu","academico viseu":"academico viseu","vitoria":"guimaraes","casa pia":"casa pia atletico","nacional":"nacional madeira","maritimo m":"maritimo","estoril praia":"estoril","gd estoril praia":"estoril"};
 const WDW_TEAM_PATHS={"POR_1_primeira-liga":{"porto":"/results/fc-porto/","estoril":"/results/estoril/","famalicao":"/results/famalicao/"}};
 function normalizeTeamName(value){return String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/\b(fc|cf|sc|afc|club|clube|de|the)\b/g," ").replace(/[^a-z0-9]+/g," ").trim().replace(/\s+/g," ");}
 function wdwTeamKey(value){const n=normalizeTeamName(value);return normalizeTeamName(WDW_ALIASES[n]||n);}
@@ -174,7 +174,28 @@ async function fetchWdwPage(path){
 }
 function wdwRequiredComplete(m){const required=[m.hg,m.ag,m.homeCorners,m.awayCorners,m.homeFouls,m.awayFouls,m.homeTarget,m.awayTarget,m.homeShotsOff,m.awayShotsOff];return required.every(v=>v!==null&&v!==undefined&&!(typeof v==="string"&&v.trim()==="")&&Number.isFinite(Number(v))&&Number(v)>=0);}
 function wdwHasCompleteMatches(matches){return Array.isArray(matches)&&matches.some(wdwRequiredComplete);}
-function parseWdwSummary(doc,team,matches){const complete=matches.filter(wdwRequiredComplete);const poss=complete.map(m=>m.teamHome?m.homePoss:m.awayPoss).filter(v=>v!==null&&Number.isFinite(v));const sot=complete.map(m=>m.teamHome?m.homeTarget:m.awayTarget);const shots=complete.map(m=>m.teamHome?m.homeTarget+m.homeShotsOff:m.awayTarget+m.awayShotsOff);const gf=complete.map(m=>m.teamHome?m.hg:m.ag),ga=complete.map(m=>m.teamHome?m.ag:m.hg);const ht=complete.filter(m=>m.htHome!==null&&m.htAway!==null).map(m=>m.htHome+m.htAway);const ht05=ht.length?100*ht.filter(v=>v>=1).length/ht.length:null,ht15=ht.length?100*ht.filter(v=>v>=2).length/ht.length:null;const wins=complete.filter(m=>(m.teamHome?m.hg>m.ag:m.ag>m.hg)).length,draws=complete.filter(m=>m.hg===m.ag).length,losses=complete.length-wins-draws;const clean=complete.filter(m=>(m.teamHome?m.ag:m.hg)===0).length;const both=complete.filter(m=>m.hg>0&&m.ag>0).length;const over25Rows=complete.filter(m=>m.hg+m.ag>2).length;const form=complete.slice(0,5).map(m=>{const f=m.teamHome?m.hg:m.ag,a=m.teamHome?m.ag:m.hg;return f>a?"V":f===a?"E":"D";}).join(" ");const homeGames=complete.filter(m=>m.teamHome),awayGames=complete.filter(m=>!m.teamHome);return {btts:complete.length?100*both/complete.length:null,bttsCount:both,bttsPlayed:complete.length,over25:complete.length?100*over25Rows/complete.length:null,over25Count:over25Rows,over25Played:complete.length,cornersTotal:mean(complete.map(m=>m.homeCorners+m.awayCorners)),cornersHome:mean(homeGames.map(m=>m.homeCorners)),cornersAway:mean(awayGames.map(m=>m.awayCorners)),possession:mean(poss),shots:mean(shots),shotsOnTarget:mean(sot),goalsFor:mean(gf),goalsAgainst:mean(ga),htGoals:mean(ht),ht05,ht15,cleanSheets:complete.length?100*clean/complete.length:null,form,wins,draws,losses,sample:complete.length,excludedIncomplete:matches.length-complete.length};}
+function parseWdwSummary(doc,team,matches){
+ const scored=matches.filter(m=>Number.isFinite(m.hg)&&Number.isFinite(m.ag));
+ const complete=matches.filter(wdwRequiredComplete);
+ const teamValue=(m,homeValue,awayValue)=>m.teamHome?homeValue:awayValue;
+ const poss=matches.map(m=>teamValue(m,m.homePoss,m.awayPoss)).filter(v=>v!==null&&Number.isFinite(v));
+ const shots=matches.map(m=>{const t=teamValue(m,m.homeTarget,m.awayTarget),o=teamValue(m,m.homeShotsOff,m.awayShotsOff);return t===null||o===null?null:t+o;}).filter(v=>v!==null);
+ const sot=matches.map(m=>teamValue(m,m.homeTarget,m.awayTarget)).filter(v=>v!==null);
+ const gf=scored.map(m=>teamValue(m,m.hg,m.ag)),ga=scored.map(m=>teamValue(m,m.ag,m.hg));
+ const htRows=matches.filter(m=>m.htHome!==null&&m.htAway!==null);
+ const ht=htRows.map(m=>m.htHome+m.htAway);
+ const ht05=ht.length?100*ht.filter(v=>v>=1).length/ht.length:null,ht15=ht.length?100*ht.filter(v=>v>=2).length/ht.length:null;
+ const wins=scored.filter(m=>teamValue(m,m.hg>m.ag,m.ag>m.hg)).length;
+ const draws=scored.filter(m=>m.hg===m.ag).length,losses=scored.length-wins-draws;
+ const clean=scored.filter(m=>teamValue(m,m.ag,m.hg)===0).length;
+ const both=scored.filter(m=>m.hg>0&&m.ag>0).length;
+ const over25Rows=scored.filter(m=>m.hg+m.ag>2).length;
+ const form=scored.slice(0,5).map(m=>{const f=teamValue(m,m.hg,m.ag),a=teamValue(m,m.ag,m.hg);return f>a?"V":f===a?"E":"D";}).join(" ");
+ const homeGames=matches.filter(m=>m.teamHome&&m.homeCorners!==null);
+ const awayGames=matches.filter(m=>!m.teamHome&&m.awayCorners!==null);
+ const cornerRows=matches.filter(m=>m.homeCorners!==null&&m.awayCorners!==null);
+ return {btts:scored.length?100*both/scored.length:null,bttsCount:both,bttsPlayed:scored.length,over25:scored.length?100*over25Rows/scored.length:null,over25Count:over25Rows,over25Played:scored.length,cornersTotal:mean(cornerRows.map(m=>m.homeCorners+m.awayCorners)),cornersHome:mean(homeGames.map(m=>m.homeCorners)),cornersAway:mean(awayGames.map(m=>m.awayCorners)),possession:mean(poss),shots:mean(shots),shotsOnTarget:mean(sot),goalsFor:mean(gf),goalsAgainst:mean(ga),htGoals:mean(ht),ht05,ht15,cleanSheets:scored.length?100*clean/scored.length:null,form,wins,draws,losses,sample:scored.length,completeSample:complete.length,excludedIncomplete:matches.length-complete.length};
+}
 function renderWdwSummary(side,team){
  const heading=$(side==="home"?"wdw-home-data":"wdw-away-data")?.parentElement?.querySelector("h4");
  if(heading)heading.textContent=(side==="home"?"CASA — ":"FORA — ")+($(side==="home"?"homePick":"awayPick")?.value||"");
@@ -195,7 +216,31 @@ function renderWdwSummary(side,team){
  ];
  box.innerHTML='<div class="wdw-stat-groups">'+blocks.join("")+'</div>';
 }
-function wdwDateKey(raw){const m=String(raw||"").match(/\b(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]{3,9})\b/i);if(!m)return "";const months={jan:"01",feb:"02",mar:"03",apr:"04",may:"05",jun:"06",jul:"07",aug:"08",sep:"09",oct:"10",nov:"11",dec:"12"};const month=months[m[2].slice(0,3).toLowerCase()];return month?month+"-"+m[1].padStart(2,"0"):"";}function parseWdwMatchRows(doc,team){const out=[];const heading=doc.querySelector("h1")?.textContent?.replace(/ Results.*$/i,"").trim()||team;const rows=[...doc.querySelectorAll("tr")];for(const tr of rows){const cells=[...tr.cells].map(c=>c.textContent.replace(/\s+/g," ").trim());if(cells.length<14)continue;const dateKey=wdwDateKey(cells[0]);const fixture=cells[1]||"";if(!/\s+v\s+/i.test(fixture))continue;const parts=fixture.split(/\s+v\s+/i);if(parts.length!==2)continue;const home=parts[0].trim(),away=parts[1].trim(),score=(cells[2]||"").match(/^(\d+)\s*[-:]\s*(\d+)$/),htScore=(cells[3]||"").match(/^(\d+)\s*[-:]\s*(\d+)$/);if(!score)continue;const h=(v)=>{const s=String(v||"").trim().replace("%","").replace(",",".");if(!s||/no additional|^[-—]$/i.test(s))return null;const n=Number(s);return Number.isFinite(n)&&n>=0?n:null;};const vals=cells.slice(4,14).map(h);if(vals.length<10)continue;const teamIsHome=wdwTeamKey(home)===wdwTeamKey(heading)||wdwTeamKey(home)===wdwTeamKey(team);const teamIsAway=wdwTeamKey(away)===wdwTeamKey(heading)||wdwTeamKey(away)===wdwTeamKey(team);if(!teamIsHome&&!teamIsAway)continue;out.push({dateKey,home,away,hg:Number(score[1]),ag:Number(score[2]),htHome:htScore?Number(htScore[1]):null,htAway:htScore?Number(htScore[2]):null,homePoss:vals[0],homeCorners:vals[1],homeFouls:vals[2],homeTarget:vals[3],homeShotsOff:vals[4],awayPoss:vals[5],awayCorners:vals[6],awayFouls:vals[7],awayTarget:vals[8],awayShotsOff:vals[9],teamHome:teamIsHome,source:"WinDrawWin"});}return out;}
+function wdwDateKey(raw){const m=String(raw||"").match(/\b(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]{3,9})\b/i);if(!m)return "";const months={jan:"01",feb:"02",mar:"03",apr:"04",may:"05",jun:"06",jul:"07",aug:"08",sep:"09",oct:"10",nov:"11",dec:"12"};const month=months[m[2].slice(0,3).toLowerCase()];return month?month+"-"+m[1].padStart(2,"0"):"";}function parseWdwMatchRows(doc,team){
+ const out=[];
+ const heading=doc.querySelector("h1")?.textContent?.replace(/ Results.*$/i,"").trim()||team;
+ const rows=[...doc.querySelectorAll("tr")];
+ for(const tr of rows){
+  const cells=[...tr.cells].map(c=>c.textContent.replace(/\\s+/g," ").trim());
+  if(cells.length<3)continue;
+  const fixtureIndex=cells.findIndex(v=>/\\s+v\\s+/i.test(v));
+  if(fixtureIndex<0)continue;
+  const parts=cells[fixtureIndex].split(/\\s+v\\s+/i);
+  if(parts.length!==2)continue;
+  const home=parts[0].trim(),away=parts[1].trim();
+  const score=(cells[fixtureIndex+1]||"").match(/^(\\d+)\\s*[-:]\\s*(\\d+)$/);
+  if(!score)continue;
+  const htScore=(cells[fixtureIndex+2]||"").match(/^(\\d+)\\s*[-:]\\s*(\\d+)$/);
+  const teamIsHome=wdwTeamKey(home)===wdwTeamKey(heading)||wdwTeamKey(home)===wdwTeamKey(team);
+  const teamIsAway=wdwTeamKey(away)===wdwTeamKey(heading)||wdwTeamKey(away)===wdwTeamKey(team);
+  if(!teamIsHome&&!teamIsAway)continue;
+  const h=v=>{const s=String(v||"").trim().replace("%","").replace(",",".");if(!s||/no additional|^[-—]$/i.test(s))return null;const n=Number(s);return Number.isFinite(n)&&n>=0?n:null;};
+  const vals=cells.slice(fixtureIndex+3,fixtureIndex+13).map(h);
+  while(vals.length<10)vals.push(null);
+  out.push({dateKey:wdwDateKey(cells[0]),home,away,hg:Number(score[1]),ag:Number(score[2]),htHome:htScore?Number(htScore[1]):null,htAway:htScore?Number(htScore[2]):null,homePoss:vals[0],homeCorners:vals[1],homeFouls:vals[2],homeTarget:vals[3],homeShotsOff:vals[4],awayPoss:vals[5],awayCorners:vals[6],awayFouls:vals[7],awayTarget:vals[8],awayShotsOff:vals[9],teamHome:teamIsHome,source:"WinDrawWin"});
+ }
+ return out;
+}
 function wdwCacheKey(leagueId,team){return leagueId+"::"+wdwTeamKey(team);}
 function wdwTeamPathCandidates(team,leagueId){
  const known=WDW_TEAM_PATHS[leagueId]?.[wdwTeamKey(team)];
@@ -215,20 +260,24 @@ async function loadWdwLeagueTeams(leagueId){
  return dataState.wdwLeagueLinks[leagueId];
 }
 async function findWdwTeamPathFromLeagueIndex(team,leagueId){
- const links=await loadWdwLeagueTeams(leagueId);
  if(!WDW_LEAGUES[leagueId])return {path:null,reason:"unsupported_league"};
+ const links=await loadWdwLeagueTeams(leagueId);
  const wanted=wdwTeamKey(team);
- let hit=links.find(x=>wdwTeamKey(x.name)===wanted);
- if(!hit){
-  const aliases=Object.entries(WDW_ALIASES).filter(([k,v])=>wdwTeamKey(k)===wanted||wdwTeamKey(v)===wanted).map(([,v])=>wdwTeamKey(v));
-  hit=links.find(x=>aliases.includes(wdwTeamKey(x.name)));
+ let hits=links.filter(x=>wdwTeamKey(x.name)===wanted);
+ if(!hits.length){
+  const tokens=wanted.split(" ").filter(Boolean);
+  if(tokens.length){
+   hits=links.filter(x=>{const candidate=wdwTeamKey(x.name).split(" ");return tokens.every(t=>candidate.includes(t));});
+  }
  }
- return hit?{path:hit.href,reason:null}:{path:null,reason:"team_not_listed",availableTeams:links.length};
+ if(hits.length===1)return {path:hits[0].href,canonicalName:hits[0].name,reason:null};
+ return {path:null,reason:hits.length>1?"ambiguous_team":"team_not_listed",availableTeams:links.length,matches:hits.map(x=>x.name)};
 }
 async function findWdwTeamPath(team,leagueId){
  if(!WDW_LEAGUES[leagueId])return {paths:[],reason:"unsupported_league"};
- // Estratégia universal: tentar primeiro o URL individual da equipa, sem depender do índice da competição.
- return {paths:wdwTeamPathCandidates(team,leagueId),reason:null};
+ let indexed={path:null};
+ try{indexed=await findWdwTeamPathFromLeagueIndex(team,leagueId);}catch(e){}
+ return {paths:[indexed.path,...wdwTeamPathCandidates(team,leagueId)].filter((v,i,a)=>v&&a.indexOf(v)===i),canonicalName:indexed.canonicalName,reason:null};
 }
 async function loadWdwTeam(side,team,league,pairRequestId){
  if(!team)return;
@@ -276,7 +325,7 @@ async function loadWdwTeam(side,team,league,pairRequestId){
   dataState.wdwTeams[key]=matches;
   dataState.wdwSummaries[key]=parseWdwSummary(doc,team,matches);
   if(isCurrent()){applyTeamSelection(side);renderWdwSummary(side,key);
-   const completeCount=matches.filter(wdwRequiredComplete).length;status.textContent="WinDrawWin: "+completeCount+" jogos completos lidos para "+team+"; "+(matches.length-completeCount)+" incompletos excluídos ("+usedPath+"). A fonte principal mantém prioridade quando tem dados.";}
+   const completeCount=matches.filter(wdwRequiredComplete).length;status.textContent="WinDrawWin: página identificada para "+team+"; "+matches.length+" resultados encontrados, dos quais "+completeCount+" têm estatísticas completas. ("+usedPath+"). A fonte principal mantém prioridade quando tem dados.";}
  }catch(e){if(isCurrent())status.textContent="WinDrawWin: "+e.message;}
 }
 
@@ -302,13 +351,16 @@ async function loadWdwMatchPair(){
  await Promise.all([loadWdwTeam("home",home,league,requestId),loadWdwTeam("away",away,league,requestId)]);
  if(requestId!==wdwPairSequence||league!==$("league").value||home!==$("homePick").value||away!==$("awayPick").value)return;
  const hk=wdwCacheKey(league,home),ak=wdwCacheKey(league,away);
- const homeOk=wdwHasCompleteMatches(dataState.wdwTeams[hk]);
- const awayOk=wdwHasCompleteMatches(dataState.wdwTeams[ak]);
- if(homeOk&&awayOk){
-  status.textContent="WinDrawWin: ambas as equipas têm pelo menos um jogo com estatísticas obrigatórias completas — "+home+" ("+dataState.wdwTeams[hk].filter(wdwRequiredComplete).length+") e "+away+" ("+dataState.wdwTeams[ak].filter(wdwRequiredComplete).length+"), na mesma competição.";
+ const homeRows=dataState.wdwTeams[hk]||[],awayRows=dataState.wdwTeams[ak]||[];
+ const homeMapped=homeRows.length>0,awayMapped=awayRows.length>0;
+ const homeComplete=homeRows.filter(wdwRequiredComplete).length,awayComplete=awayRows.filter(wdwRequiredComplete).length;
+ if(homeMapped&&awayMapped&&homeComplete>0&&awayComplete>0){
+  status.textContent="WinDrawWin: páginas identificadas para ambas as equipas; jogos com estatísticas completas — "+home+" ("+homeComplete+") e "+away+" ("+awayComplete+").";
+ }else if(homeMapped&&awayMapped){
+  status.textContent="WinDrawWin: nomes e páginas das duas equipas identificados. Contudo, a fonte não disponibiliza estatísticas completas suficientes: "+home+" ("+homeComplete+"/"+homeRows.length+") e "+away+" ("+awayComplete+"/"+awayRows.length+"). Os resultados e a forma podem continuar disponíveis; os indicadores ausentes não serão inventados.";
  }else{
-  const missing=[!homeOk?home:null,!awayOk?away:null].filter(Boolean);
-  status.textContent="WinDrawWin: mapeamento incompleto. Não foi possível confirmar: "+missing.join(" e ")+". Os dados complementares só ficam disponíveis para a equipa cuja página foi encontrada; a fonte principal mantém-se ativa.";
+  const missing=[!homeMapped?home:null,!awayMapped?away:null].filter(Boolean);
+  status.textContent="WinDrawWin: não foi possível identificar a página de resultados de "+missing.join(" e ")+". A correspondência de nomes será verificada na lista da competição; a fonte principal mantém-se ativa.";
  }
 }
 
