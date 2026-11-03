@@ -3,6 +3,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const root = path.resolve(__dirname, "..");
 const app = fs.readFileSync(path.join(root, "app.js"), "utf8");
+const enrichment = fs.readFileSync(path.join(root, "data-enrichment.js"), "utf8");
 const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const config = fs.readFileSync(path.join(root, "config.js"), "utf8");
 const proxy = fs.readFileSync(path.join(root, "windrawwin-proxy/src/index.js"), "utf8");
@@ -86,4 +87,5 @@ if (pairedStart < 0 || pairedEnd < 0) fail("Validador de cobertura conjunta não
 else if (/fillInput\s*\(/.test(app.slice(pairedStart, pairedEnd))) fail("A validação conjunta não pode apagar dados válidos de uma equipa quando a outra não tem cobertura.");
 if (!app.includes('["Golos 1.ª parte"') || !app.includes('["Golos 2.ª parte"')) fail("A cobertura HT e 2.ª parte não está incluída no diagnóstico da competição.");
 if (!app.includes("const DATA_CACHE_TTL=30*60*1000;")) fail("A cache estatística não foi reduzida para permitir atualização de fontes.");
+if (!app.includes("deriveSecondHalfGoals") || !enrichment.includes("function deriveSecondHalfGoals")) fail("A derivação dos golos da 2.ª parte a partir de FT-HT não está ligada.");
 if (!process.exitCode) console.log("OK: configuração, proxy, scripts, integração, completude dos jogos, modelo HT e validação das equipas.");
