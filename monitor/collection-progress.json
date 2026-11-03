@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 300,
-  "stats_games": 160,
-  "bwin_odds": 83,
+  "processed_games": 325,
+  "stats_games": 180,
+  "bwin_odds": 95,
   "failed_games": 0,
-  "current_match": "Último concluído: Ulsan Citizen - Changwon",
-  "last_result": "Ulsan Citizen - Changwon: 6 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T14:48:39.473Z"
+  "current_match": "Último concluído: Thisted - B.93",
+  "last_result": "Thisted - B.93: 6 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-03T14:49:06.648Z"
 }
