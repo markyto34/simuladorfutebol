@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 272,
-  "processed_games": 110,
-  "stats_games": 81,
-  "bwin_odds": 47,
+  "processed_games": 120,
+  "stats_games": 89,
+  "bwin_odds": 53,
   "failed_games": 1,
-  "current_match": "Último concluído: New England Revolution - Inter Miami",
-  "last_result": "New England Revolution - Inter Miami: 13 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-03T14:30:40.410Z"
+  "current_match": "Último concluído: VPS - HJK",
+  "last_result": "VPS - HJK: 13 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-03T14:30:56.905Z"
 }
