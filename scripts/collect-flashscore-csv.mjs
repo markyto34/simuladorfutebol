@@ -122,6 +122,17 @@ function mergeRows(existing, incoming, keyFn) {
   for (const row of incoming) map.set(keyFn(row), row);
   return [...map.values()];
 }
+function mergeLatestRows(existing, incoming, keyFn, timestampKey = "retrieved_at") {
+  const map = new Map();
+  for (const row of [...existing, ...incoming]) {
+    const key = keyFn(row);
+    const current = map.get(key);
+    const nextTime = Date.parse(row[timestampKey] || "") || 0;
+    const currentTime = current ? (Date.parse(current[timestampKey] || "") || 0) : -1;
+    if (!current || nextTime >= currentTime) map.set(key, row);
+  }
+  return [...map.values()];
+}
 const sleep = ms => new Promise(resolveSleep => setTimeout(resolveSleep, ms));
 const PROGRESS_BRANCH = "collection-progress";
 const PROGRESS_PATH = "monitor/collection-progress.json";
@@ -337,11 +348,13 @@ async function main() {
     if (index < matchIds.length - 1 && !stoppedByUpstream) await sleep(DELAY_MS);
   }
   const mergedStats = mergeRows(existingStats, statsNew, row => row.match_id);
-  const mergedOdds = mergeRows(existingOdds, oddsNew, row => row.match_id + "|" + row.retrieved_at);
+  const mergedOdds = mergeLatestRows(existingOdds, oddsNew, row => [row.match_id, row.bookmaker, row.market].join("|"));
   await writeFile(STATS_FILE, toCsv(STAT_HEADERS, mergedStats), "utf8");
   await writeFile(ODDS_FILE, toCsv(ODDS_HEADERS, mergedOdds), "utf8");
   console.log("CSV de estatísticas: " + STATS_FILE + " (" + mergedStats.length + " jogos).");
-  console.log("CSV exclusivo Bwin: " + ODDS_FILE + " (" + mergedOdds.length + " observações).");
+  const uniqueOddsKeys = new Set(mergedOdds.map(row => [row.match_id, row.bookmaker, row.market].join("|")));
+  if (uniqueOddsKeys.size !== mergedOdds.length) throw new Error("Validação falhou: existem chaves duplicadas no CSV de odds.");
+  console.log("CSV exclusivo Bwin: " + ODDS_FILE + " (" + mergedOdds.length + " registos totais; " + uniqueOddsKeys.size + " chaves únicas).");
   const elapsedSeconds = Math.round((Date.now() - collectionStartedAt) / 1000);
   await setProgress({ status: stoppedByUpstream ? "blocked" : failures ? "completed_with_errors" : "completed", phase: stoppedByUpstream ? "stopped" : "completed", current_match: stoppedByUpstream ? "Interrompida por bloqueio 403/429" : "Recolha terminada" });
   const summary = [
@@ -356,7 +369,7 @@ async function main() {
     "- Duração: **" + elapsedSeconds + " s**"
    ].join("\n");
   if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, summary + "\n", "utf8");
-  console.log("[SUMMARY] " + processed + "/" + matchIds.length + " processados; " + statsNew.length + " jogos com estatísticas; " + oddsNew.length + " observações Bwin; " + failures + " falhas; " + elapsedSeconds + " s.");
+  console.log("[SUMMARY] " + processed + "/" + matchIds.length + " processados; " + statsNew.length + " jogos com estatísticas; " + oddsNew.length + " novas odds Bwin; total CSV Bwin=" + mergedOdds.length + "; " + failures + " falhas; " + elapsedSeconds + " s.");
   if (failures) process.exitCode = 1;
 }
 
