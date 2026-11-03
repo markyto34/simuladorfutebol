@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 275,
-  "stats_games": 139,
-  "bwin_odds": 67,
+  "processed_games": 300,
+  "stats_games": 160,
+  "bwin_odds": 83,
   "failed_games": 0,
-  "current_match": "A consultar jogo 277/1344 · zZTuu9Kq",
-  "last_result": "Shandong Taishan B - Shenzhen: 13 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T22:00:39.442Z"
+  "current_match": "Último concluído: Ulsan Citizen - Changwon",
+  "last_result": "Ulsan Citizen - Changwon: 6 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-03T22:00:47.988Z"
 }
