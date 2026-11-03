@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 1200,
-  "stats_games": 456,
-  "bwin_odds": 243,
+  "processed_games": 1225,
+  "stats_games": 470,
+  "bwin_odds": 252,
   "failed_games": 102,
-  "current_match": "Último concluído: Enskede - Sleipner",
-  "last_result": "Enskede - Sleipner: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T15:04:00.218Z"
+  "current_match": "Último concluído: Taiwan Steel - Taichung",
+  "last_result": "Taiwan Steel - Taichung: 6 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-03T15:04:26.556Z"
 }
