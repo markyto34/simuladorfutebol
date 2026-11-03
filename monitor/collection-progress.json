@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 650,
-  "stats_games": 309,
-  "bwin_odds": 158,
+  "processed_games": 676,
+  "stats_games": 323,
+  "bwin_odds": 170,
   "failed_games": 0,
-  "current_match": "A consultar jogo 652/1344 · E3y4Vupm",
-  "last_result": "Zalaegerszegi II - Balatonalmadi SE: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T22:17:10.450Z"
+  "current_match": "Último concluído: Swindon F - Bridgwater F",
+  "last_result": "Swindon F - Bridgwater F: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-03T22:17:18.034Z"
 }
