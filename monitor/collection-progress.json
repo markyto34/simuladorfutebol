@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 272,
-  "processed_games": 120,
-  "stats_games": 90,
-  "bwin_odds": 54,
+  "processed_games": 130,
+  "stats_games": 97,
+  "bwin_odds": 62,
   "failed_games": 0,
-  "current_match": "Último concluído: VPS - HJK",
-  "last_result": "VPS - HJK: 13 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-03T06:29:06.557Z"
+  "current_match": "Último concluído: Motagua - Marathon",
+  "last_result": "Motagua - Marathon: 6 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-03T06:29:22.947Z"
 }
