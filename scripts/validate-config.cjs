@@ -71,7 +71,7 @@ const applyEnd = app.indexOf("\\n", app.indexOf("}", applyStart) + 1);
 if (applyStart < 0 || !app.slice(applyStart, applyStart + 1800).includes('if(!team){for(const [,id] of fields)fillInput(id,null)')) fail("A seleção vazia não limpa médias antigas.");
 
 if (!app.includes("function teamOptionsForSeason(matches,completeMatches,allowWdw)")) fail("Função de seleção de equipas por época não existe.");
-const statsSection = html.match(/<div class="all-stats-columns">([\\s\\S]*?)<p class="source-note">/);
+const statsSection = html.match(/<div class="all-stats-columns">([\s\S]*?)<p class="source-note">/);
 if (!statsSection) fail("Secção de estatísticas das equipas não encontrada.");
 else {
   if ((html.match(/id="axgFor"/g) || []).length !== 1 || (html.match(/id="axgAgainst"/g) || []).length !== 1) fail("Os campos xG da equipa visitante devem existir uma única vez.");
@@ -83,7 +83,7 @@ else {
 const pairedStart = app.indexOf("function enforcePairedTeamCoverage()");
 const pairedEnd = app.indexOf("\nfunction applyTeamSelection", pairedStart);
 if (pairedStart < 0 || pairedEnd < 0) fail("Validador de cobertura conjunta não encontrado.");
-else if (/fillInput\\s*\\(/.test(app.slice(pairedStart, pairedEnd))) fail("A validação conjunta não pode apagar dados válidos de uma equipa quando a outra não tem cobertura.");
+else if (/fillInput\s*\(/.test(app.slice(pairedStart, pairedEnd))) fail("A validação conjunta não pode apagar dados válidos de uma equipa quando a outra não tem cobertura.");
 if (!app.includes('["Golos 1.ª parte"') || !app.includes('["Golos 2.ª parte"')) fail("A cobertura HT e 2.ª parte não está incluída no diagnóstico da competição.");
 if (!app.includes("const DATA_CACHE_TTL=30*60*1000;")) fail("A cache estatística não foi reduzida para permitir atualização de fontes.");
 if (!process.exitCode) console.log("OK: configuração, proxy, scripts, integração, completude dos jogos, modelo HT e validação das equipas.");
