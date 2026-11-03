@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 500,
-  "stats_games": 251,
-  "bwin_odds": 116,
+  "processed_games": 525,
+  "stats_games": 269,
+  "bwin_odds": 128,
   "failed_games": 0,
-  "current_match": "Último concluído: Caspe - Belchite 97",
-  "last_result": "Caspe - Belchite 97: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T22:01:57.965Z"
+  "current_match": "Último concluído: New Mexico - Phoenix Rising",
+  "last_result": "New Mexico - Phoenix Rising: 14 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-03T22:02:06.836Z"
 }
