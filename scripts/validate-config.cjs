@@ -3,6 +3,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const root = path.resolve(__dirname, "..");
 const app = fs.readFileSync(path.join(root, "app.js"), "utf8");
+const enrichment = fs.readFileSync(path.join(root, "data-enrichment.js"), "utf8");
 const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const config = fs.readFileSync(path.join(root, "config.js"), "utf8");
 const proxy = fs.readFileSync(path.join(root, "windrawwin-proxy/src/index.js"), "utf8");
@@ -71,4 +72,20 @@ const applyEnd = app.indexOf("\\n", app.indexOf("}", applyStart) + 1);
 if (applyStart < 0 || !app.slice(applyStart, applyStart + 1800).includes('if(!team){for(const [,id] of fields)fillInput(id,null)')) fail("A seleção vazia não limpa médias antigas.");
 
 if (!app.includes("function teamOptionsForSeason(matches,completeMatches,allowWdw)")) fail("Função de seleção de equipas por época não existe.");
+const statsSection = html.match(/<div class="all-stats-columns">([\s\S]*?)<p class="source-note">/);
+if (!statsSection) fail("Secção de estatísticas das equipas não encontrada.");
+else {
+  if ((html.match(/id="axgFor"/g) || []).length !== 1 || (html.match(/id="axgAgainst"/g) || []).length !== 1) fail("Os campos xG da equipa visitante devem existir uma única vez.");
+  const homeStart = statsSection[1].indexOf("<h4>CASA</h4>");
+  const awayStart = statsSection[1].indexOf("<h4>FORA</h4>");
+  const xgAt = statsSection[1].indexOf('id="axgFor"');
+  if (homeStart < 0 || awayStart < 0 || xgAt < awayStart) fail("Os campos xG da equipa visitante estão na coluna errada.");
+}
+const pairedStart = app.indexOf("function enforcePairedTeamCoverage()");
+const pairedEnd = app.indexOf("\nfunction applyTeamSelection", pairedStart);
+if (pairedStart < 0 || pairedEnd < 0) fail("Validador de cobertura conjunta não encontrado.");
+else if (/fillInput\s*\(/.test(app.slice(pairedStart, pairedEnd))) fail("A validação conjunta não pode apagar dados válidos de uma equipa quando a outra não tem cobertura.");
+if (!app.includes('["Golos 1.ª parte"') || !app.includes('["Golos 2.ª parte"')) fail("A cobertura HT e 2.ª parte não está incluída no diagnóstico da competição.");
+if (!app.includes("const DATA_CACHE_TTL=30*60*1000;")) fail("A cache estatística não foi reduzida para permitir atualização de fontes.");
+if (!app.includes("deriveSecondHalfGoals") || !enrichment.includes("function deriveSecondHalfGoals")) fail("A derivação dos golos da 2.ª parte a partir de FT-HT não está ligada.");
 if (!process.exitCode) console.log("OK: configuração, proxy, scripts, integração, completude dos jogos, modelo HT e validação das equipas.");
