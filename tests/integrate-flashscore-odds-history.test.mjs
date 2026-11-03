@@ -29,7 +29,8 @@ async function fixture(t) {
   await writeFile(path.join(dir, "data/bwin-odds-flashscore.csv"), csv(oddsHeaders, odds));
   const statsHeaders = ["match_id","date_time","country","competition","home_team","away_team","score_home","score_away"];
   await writeFile(path.join(dir, "data/flashscore-statistics.csv"), csv(statsHeaders, [
-    { match_id:"new-1", date_time:"2026-11-01T14:30", home_team:"Union Berlin", away_team:"FC Köln", score_home:"1", score_away:"1" }
+    { match_id:"new-1", date_time:"2026-11-01T14:30", home_team:"Union Berlin", away_team:"FC Köln", score_home:"1", score_away:"1" },
+    { match_id:"old-1", date_time:"2026-10-30T18:00", home_team:"Old FC", away_team:"Old Town", score_home:"2", score_away:"1" }
   ]));
   return dir;
 }
@@ -57,10 +58,11 @@ test("preenche apenas resultados FT em falta num jogo já existente", async t =>
   const dir = await fixture(t);
   const file = path.join(dir, "ganhonasodds_com_20261101.csv");
   const original = await readFile(file, "utf8");
-  const withExistingMatch = original.replace(
-    "2026-10-30T18:00,,,,Old FC,Old Town,2.1,3.2,3.4,,,,,1,0,",
-    "2026-10-30T18:00,,,,Old FC,Old Town,2.1,3.2,3.4,,,,,,,"
-  );
+  const [headerLine, dataLine] = original.trim().split("\n");
+  const headers = headerLine.split(",");
+  const cells = dataLine.split(",");
+  for (const field of ["score_ft_home","score_ft_away","score_final_home","score_final_away"]) cells[headers.indexOf(field)] = "";
+  const withExistingMatch = headerLine + "\n" + cells.join(",") + "\n";
   await writeFile(file, withExistingMatch);
   const run = spawnSync(process.execPath, [script], { cwd: dir, encoding: "utf8" });
   assert.equal(run.status, 0, run.stderr);
