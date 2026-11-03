@@ -552,25 +552,15 @@ const TEAM_METRIC_PAIRS=[
 ];
 function enforcePairedTeamCoverage(){
  const home=$("homePick").value,away=$("awayPick").value;
- const allIds=TEAM_METRIC_PAIRS.flatMap(([,homeId,awayId])=>[homeId,awayId]);
- const clearAll=()=>allIds.forEach(id=>fillInput(id,null));
- if(!home||!away){clearAll();return "Seleciona as duas equipas; os dados só são apresentados quando existe um par casa/fora.";}
- const homeBase=teamSample(home,"home","goalsFor").length>0&&teamSample(home,"home","goalsAgainst").length>0;
- const awayBase=teamSample(away,"away","goalsFor").length>0&&teamSample(away,"away","goalsAgainst").length>0;
- if(!homeBase||!awayBase){
-  clearAll();
-  return "Sem cobertura recente conjunta: "+(!homeBase?"a equipa da casa não tem amostra válida":"")+( !homeBase&&!awayBase?" e ":"")+( !awayBase?"a equipa visitante não tem amostra válida":"")+". Dados das duas equipas ocultados.";
- }
+ if(!home||!away)return "Seleciona as duas equipas. As médias disponíveis de cada lado são apresentadas individualmente.";
  const missing=[];
- for(const [metric,homeId,awayId] of TEAM_METRIC_PAIRS){
+ for(const [metric] of TEAM_METRIC_PAIRS){
   const homeValues=teamSample(home,"home",metric),awayValues=teamSample(away,"away",metric);
   const min=metric==="xgFor"||metric==="xgAgainst"?5:1;
-  const homeAvg=mean(homeValues),awayAvg=mean(awayValues);
-  if(homeValues.length<min||awayValues.length<min||homeAvg===null||awayAvg===null){
-   fillInput(homeId,null);fillInput(awayId,null);missing.push(metric);
-  }
+  if(homeValues.length<min||awayValues.length<min)missing.push(metric);
  }
- return missing.length?"Cobertura conjunta aplicada: indicadores sem amostra válida nas duas equipas foram ocultados dos dois lados ("+missing.join(", ")+").":"Cobertura conjunta confirmada: casa e fora têm dados válidos.";
+ return missing.length
+  ?"Dados apresentados por equipa. Estes indicadores não têm amostra suficiente nos dois lados e ficam fora da simulação: "+missing.join(", ")+".":"Cobertura confirmada: as duas equipas têm amostras válidas para os indicadores disponíveis.";
 }
 function applyTeamSelection(side){
  const skipPairCheck=arguments[1]===true;
