@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 1150,
-  "stats_games": 531,
-  "bwin_odds": 301,
+  "processed_games": 1176,
+  "stats_games": 540,
+  "bwin_odds": 308,
   "failed_games": 0,
-  "current_match": "A consultar jogo 1152/1344 · lno8h5zH",
-  "last_result": "Kazan 2 - Ural 2: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T22:19:40.437Z"
+  "current_match": "Último concluído: Radevac - Omladinac Zablace",
+  "last_result": "Radevac - Omladinac Zablace: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-03T22:19:47.978Z"
 }
