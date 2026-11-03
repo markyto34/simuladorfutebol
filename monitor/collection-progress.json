@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 650,
-  "stats_games": 309,
-  "bwin_odds": 158,
+  "processed_games": 675,
+  "stats_games": 323,
+  "bwin_odds": 170,
   "failed_games": 0,
-  "current_match": "Último concluído: Zalaegerszegi II - Balatonalmadi SE",
-  "last_result": "Zalaegerszegi II - Balatonalmadi SE: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T14:54:35.798Z"
+  "current_match": "Último concluído: South Shields F - SJR Worksop F",
+  "last_result": "South Shields F - SJR Worksop F: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-03T14:55:02.882Z"
 }
