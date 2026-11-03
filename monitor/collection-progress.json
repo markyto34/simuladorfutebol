@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
+  "processed_games": 27,
+  "stats_games": 27,
+  "bwin_odds": 23,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-03T22:13:54.040Z"
+  "current_match": "A consultar jogo 29/1344 · ng99JNlC",
+  "last_result": "Lusitânia - Farense: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-03T22:14:03.511Z"
 }
