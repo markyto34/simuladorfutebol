@@ -214,3 +214,27 @@ test("filtra a amostra por divisão e ordena os jogos do mais antigo para o mais
   assert.equal(result.matches.length,2);
   assert.deepEqual(csv.sortMatchesChronologically(result.matches).map(m=>m.home),["E","A"]);
 });
+
+
+test("integra odds Bwin e resultados Flashscore sem duplicar jogos da base", () => {
+  const base = [{
+    date_time:"2026-11-01 12:00:00", COUNTRY:"Portugal", LEAGUE:"Liga",
+    TEAM_HOME:"Porto", TEAM_AWAY:"Braga", odd_ft_1:"1.50", odd_ft_x:"4.00", odd_ft_2:"6.00",
+    score_ft_home:"2", score_ft_away:"0", score_final_home:"2", score_final_away:"0"
+  }];
+  const odds = [
+    {match_id:"new123",date_time:"2026-11-02T18:00:00",country:"Portugal",competition:"Liga",home_team:"Benfica",away_team:"Sporting",bookmaker:"Bwin",market:"1X2",odd_1:"2.10",odd_x:"3.20",odd_2:"3.40"},
+    {match_id:"old123",date_time:"2026-11-01 12:00:00",country:"Portugal",competition:"Liga",home_team:"Porto",away_team:"Braga",bookmaker:"Bwin",market:"1X2",odd_1:"1.50",odd_x:"4.00",odd_2:"6.00"},
+    {match_id:"bad123",date_time:"2026-11-03T18:00:00",home_team:"A",away_team:"B",bookmaker:"Bwin",market:"1X2",odd_1:"2.00",odd_x:"",odd_2:"3.00"}
+  ];
+  const stats = [{match_id:"new123",score_home:"1",score_away:"1",country:"Portugal",competition:"Liga",home_team:"Benfica",away_team:"Sporting"}];
+  const result = csv.mergeFlashscoreCollections(base,odds,stats);
+  assert.equal(result.added,1);
+  assert.equal(result.rows.length,2);
+  const [added] = csv.normalizeRows(result.rows.slice(1));
+  assert.deepEqual(added.ft,[1,1]);
+  assert.equal(added.oddsComplete,true);
+  const again = csv.mergeFlashscoreCollections(result.rows,odds,stats);
+  assert.equal(again.added,0);
+  assert.equal(again.rows.length,2);
+});
