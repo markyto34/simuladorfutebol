@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 825,
-  "stats_games": 372,
-  "bwin_odds": 207,
+  "processed_games": 851,
+  "stats_games": 383,
+  "bwin_odds": 209,
   "failed_games": 0,
-  "current_match": "A consultar jogo 827/1344 · 6iBOk3Cm",
-  "last_result": "BFC Daugavpils - Tukums 2000: 13 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T22:18:03.129Z"
+  "current_match": "Último concluído: Tiverija F - Kamenica Sasa F",
+  "last_result": "Tiverija F - Kamenica Sasa F: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-03T22:18:10.490Z"
 }
