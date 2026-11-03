@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 926,
-  "stats_games": 425,
-  "bwin_odds": 232,
+  "processed_games": 951,
+  "stats_games": 435,
+  "bwin_odds": 242,
   "failed_games": 0,
-  "current_match": "Último concluído: KFUM Oslo - HamKam",
-  "last_result": "KFUM Oslo - HamKam: 13 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-03T22:18:33.179Z"
+  "current_match": "Último concluído: Brann 2 - Gneist",
+  "last_result": "Brann 2 - Gneist: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-03T22:18:40.478Z"
 }
