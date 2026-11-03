@@ -98,7 +98,7 @@ body.match-selected main>#estatisticas,
 body.match-selected main>#windrawwin{display:block}
 body.match-selected main>.run-row{display:flex}
 body.match-selected .team-picks{display:grid}
-body.search-start main>#resultados{display:none}
+body.search-start:not(.match-selected) main>#resultados{display:none}
 @media(max-width:700px){
   body.match-selected main>.run-row{align-items:stretch;flex-direction:column}
 }
