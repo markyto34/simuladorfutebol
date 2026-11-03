@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 272,
-  "processed_games": 40,
-  "stats_games": 31,
-  "bwin_odds": 19,
+  "processed_games": 50,
+  "stats_games": 35,
+  "bwin_odds": 20,
   "failed_games": 0,
-  "current_match": "Último concluído: Defensores Unidos - Laferrere",
-  "last_result": "Defensores Unidos - Laferrere: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T06:26:57.530Z"
+  "current_match": "Último concluído: Pakhtakor (Uzb) - Al Nassr (Sau)",
+  "last_result": "Pakhtakor (Uzb) - Al Nassr (Sau): 13 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-03T06:27:13.031Z"
 }
