@@ -360,40 +360,8 @@
     });
   }
 
-
-  function mergeFlashscoreCollections(baseRows, oddsRows, statisticsRows) {
-    const statsById = new Map((statisticsRows || []).map(row => [String(row.match_id || ""), row]));
-    const identity = row => [String(row.date_time || "").slice(0, 10), String(row.TEAM_HOME || "").trim().toLocaleLowerCase(), String(row.TEAM_AWAY || "").trim().toLocaleLowerCase()].join("|");
-    const merged = [...(baseRows || [])];
-    const known = new Set(merged.map(identity));
-    let added = 0;
-    for (const odds of oddsRows || []) {
-      if (String(odds.bookmaker || "").toLowerCase() !== "bwin" || String(odds.market || "").toUpperCase() !== "1X2") continue;
-      const mapped = {date_time:odds.date_time||"", COUNTRY:odds.country||"", LEAGUE:odds.competition||"", TEAM_HOME:odds.home_team||"", TEAM_AWAY:odds.away_team||"", odd_ft_1:odds.odd_1||"", odd_ft_x:odds.odd_x||"", odd_ft_2:odds.odd_2||"", score_fh_home:"", score_fh_away:"", score_sh_home:"", score_sh_away:"", score_ft_home:"", score_ft_away:"", score_final_home:"", score_final_away:""};
-      if (!hasCompleteOdds({"1":number(mapped.odd_ft_1),X:number(mapped.odd_ft_x),"2":number(mapped.odd_ft_2)})) continue;
-      const stats = statsById.get(String(odds.match_id || ""));
-      if (stats) {
-        mapped.COUNTRY = mapped.COUNTRY || stats.country || "";
-        mapped.LEAGUE = mapped.LEAGUE || stats.competition || "";
-        mapped.TEAM_HOME = mapped.TEAM_HOME || stats.home_team || "";
-        mapped.TEAM_AWAY = mapped.TEAM_AWAY || stats.away_team || "";
-        mapped.score_ft_home = stats.score_home || "";
-        mapped.score_ft_away = stats.score_away || "";
-        mapped.score_final_home = stats.score_home || "";
-        mapped.score_final_away = stats.score_away || "";
-      }
-      if (!mapped.TEAM_HOME || !mapped.TEAM_AWAY || !mapped.date_time) continue;
-      const key = identity(mapped);
-      if (known.has(key)) continue;
-      known.add(key);
-      merged.push(mapped);
-      added++;
-    }
-    return {rows:merged, added};
-  }
-
   const api = { parseCSV, normalizeRows, summarize, analyzeOdds, analyzeTriplet, impliedProbabilities,
-    hasCompleteOdds, filterOddsRanges, rangeMatches, evaluateCurrentOdds, analyzePeriodMarkets, forecastExactScores, continentForCountry, backtestTriplet, wilsonInterval, filterMatches, sortMatchesChronologically, mergeFlashscoreCollections };
+    hasCompleteOdds, filterOddsRanges, rangeMatches, evaluateCurrentOdds, analyzePeriodMarkets, forecastExactScores, continentForCountry, backtestTriplet, wilsonInterval, filterMatches, sortMatchesChronologically };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   root.CSVOdds = api;
 })(typeof globalThis !== "undefined" ? globalThis : this);
