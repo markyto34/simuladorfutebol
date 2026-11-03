@@ -325,7 +325,7 @@ function sourceDate(raw){const s=String(raw||"").trim();let m=s.match(/^(\d{4})[
 function normalizeSourceMatch(r){const home=sourceVal(r,["home","home_team","HomeTeam"]),away=sourceVal(r,["away","away_team","AwayTeam"]);const hg=sourceNum(r,["ft_home","home_score","home_goals","FTHG"]),ag=sourceNum(r,["ft_away","away_score","away_goals","FTAG"]);if(!home||!away||hg===null||ag===null)return null;return {date:sourceDate(sourceVal(r,["date","match_date","Date"])),home,away,hg,ag,htHome:sourceNum(r,["ht_home"]),htAway:sourceNum(r,["ht_away"]),hc:sourceNum(r,["home_corners","HomeCorners","HC","home_corner"]),ac:sourceNum(r,["away_corners","AwayCorners","AC","away_corner"]),homeShots:sourceNum(r,["home_shots"]),awayShots:sourceNum(r,["away_shots"]),homeTarget:sourceNum(r,["home_target"]),awayTarget:sourceNum(r,["away_target"]),homeFouls:sourceNum(r,["home_fouls"]),awayFouls:sourceNum(r,["away_fouls"]),homeYellow:sourceNum(r,["home_yellow"]),awayYellow:sourceNum(r,["away_yellow"]),homeRed:sourceNum(r,["home_red"]),awayRed:sourceNum(r,["away_red"])};}
 const DATA_CACHE_DB="simulador-futebol-cache";
 const DATA_CACHE_STORE="resources";
-const DATA_CACHE_TTL=24*60*60*1000;
+const DATA_CACHE_TTL=30*60*1000;
 const FLASHSCORE_STATS_CSV_URL="https://raw.githubusercontent.com/markyto34/simuladorfutebol/main/data/flashscore-statistics.csv";
 const ODDS_PERIODS_CSV_URL="https://raw.githubusercontent.com/markyto34/simuladorfutebol/main/ganhonasodds_com_20261101.csv";
 let dataCacheDbPromise=null;
@@ -351,7 +351,7 @@ async function fetchSourceCSV(url){
  const ttl=url===ODDS_PERIODS_CSV_URL?7*24*60*60*1000:DATA_CACHE_TTL;
  const persistent=await readDataCache(key);
  if(persistent&&Date.now()-persistent.at<ttl&&typeof persistent.text==="string")return persistent.text;
- try{const cached=sessionStorage.getItem(key);if(cached){const c=JSON.parse(cached);if(c&&Date.now()-c.at<900000&&typeof c.text==="string")return c.text;}}catch(e){}
+ try{const cached=sessionStorage.getItem(key);if(cached){const c=JSON.parse(cached);if(c&&Date.now()-c.at<300000&&typeof c.text==="string")return c.text;}}catch(e){}
  const response=await fetch(url);
  if(!response.ok)throw new Error("A fonte respondeu com HTTP "+response.status);
  const text=await response.text();
@@ -360,23 +360,28 @@ async function fetchSourceCSV(url){
  return text;
 }
 function updateLeagueCoverage(matches){
- if(!matches.length){const box=$("data-coverage");if(box)box.textContent="Sem resultados reconhecidos na fonte principal. A procurar cobertura na fonte secundária.";return;}
+ const box=$("data-coverage");
+ if(!matches.length){if(box)box.textContent="Sem resultados reconhecidos na fonte principal. A procurar cobertura na fonte secundária.";return;}
+ const has=(...values)=>values.every(v=>v!==null&&v!==undefined&&v!==""&&Number.isFinite(Number(v))&&Number(v)>=0);
  const stats=[
-  ["Cantos",m=>m.hc!==null&&m.ac!==null],
-  ["Remates",m=>m.homeShots!==null&&m.awayShots!==null],
-  ["Remates à baliza",m=>m.homeTarget!==null&&m.awayTarget!==null],
-  ["Faltas",m=>m.homeFouls!==null&&m.awayFouls!==null],
-  ["Amarelos",m=>m.homeYellow!==null&&m.awayYellow!==null],
-  ["Vermelhos",m=>m.homeRed!==null&&m.awayRed!==null],
-  ["xG",m=>m.homeXg!==null&&m.homeXg!==undefined&&m.awayXg!==null&&m.awayXg!==undefined],
-  ["Posse",m=>m.homePossession!==null&&m.homePossession!==undefined&&m.awayPossession!==null&&m.awayPossession!==undefined],
-  ["Grandes oportunidades",m=>m.homeBigChances!==null&&m.homeBigChances!==undefined&&m.awayBigChances!==null&&m.awayBigChances!==undefined],
-  ["Remates bloqueados",m=>m.homeBlocked!==null&&m.homeBlocked!==undefined&&m.awayBlocked!==null&&m.awayBlocked!==undefined],
-  ["Remates fora da área",m=>m.homeOutsideBox!==null&&m.homeOutsideBox!==undefined&&m.awayOutsideBox!==null&&m.awayOutsideBox!==undefined],
-  ["Impedimentos",m=>m.homeOffsides!==null&&m.homeOffsides!==undefined&&m.awayOffsides!==null&&m.awayOffsides!==undefined]
+  ["Golos FT",m=>has(m.hg,m.ag)],
+  ["Golos 1.ª parte",m=>has(m.htHome,m.htAway)],
+  ["Golos 2.ª parte",m=>has(m.shHome,m.shAway)],
+  ["Cantos",m=>has(m.hc,m.ac)],
+  ["Remates",m=>has(m.homeShots,m.awayShots)],
+  ["Remates à baliza",m=>has(m.homeTarget,m.awayTarget)],
+  ["Faltas",m=>has(m.homeFouls,m.awayFouls)],
+  ["Amarelos",m=>has(m.homeYellow,m.awayYellow)],
+  ["Vermelhos",m=>has(m.homeRed,m.awayRed)],
+  ["xG",m=>has(m.homeXg,m.awayXg)],
+  ["Posse",m=>has(m.homePossession,m.awayPossession)],
+  ["Grandes oportunidades",m=>has(m.homeBigChances,m.awayBigChances)],
+  ["Remates bloqueados",m=>has(m.homeBlocked,m.awayBlocked)],
+  ["Remates fora da área",m=>has(m.homeOutsideBox,m.awayOutsideBox)],
+  ["Impedimentos",m=>has(m.homeOffsides,m.awayOffsides)]
  ];
  const parts=stats.map(([label,test])=>{const n=matches.filter(test).length;return label+": "+n+"/"+matches.length+" ("+(100*n/matches.length).toFixed(0)+"%)";});
- const box=$("data-coverage");if(box)box.textContent="Cobertura real deste ficheiro: "+parts.join(" · ")+".";
+ if(box)box.textContent="Cobertura combinada das fontes para esta competição: "+parts.join(" · ")+". Os valores representam jogos com os dois lados disponíveis, não médias das equipas.";
 }
 function teamOptionsForSeason(matches,completeMatches,allowWdw){
  const source=allowWdw?matches:completeMatches;
@@ -552,25 +557,17 @@ const TEAM_METRIC_PAIRS=[
 ];
 function enforcePairedTeamCoverage(){
  const home=$("homePick").value,away=$("awayPick").value;
- const allIds=TEAM_METRIC_PAIRS.flatMap(([,homeId,awayId])=>[homeId,awayId]);
- const clearAll=()=>allIds.forEach(id=>fillInput(id,null));
- if(!home||!away){clearAll();return "Seleciona as duas equipas; os dados só são apresentados quando existe um par casa/fora.";}
- const homeBase=teamSample(home,"home","goalsFor").length>0&&teamSample(home,"home","goalsAgainst").length>0;
- const awayBase=teamSample(away,"away","goalsFor").length>0&&teamSample(away,"away","goalsAgainst").length>0;
- if(!homeBase||!awayBase){
-  clearAll();
-  return "Sem cobertura recente conjunta: "+(!homeBase?"a equipa da casa não tem amostra válida":"")+( !homeBase&&!awayBase?" e ":"")+( !awayBase?"a equipa visitante não tem amostra válida":"")+". Dados das duas equipas ocultados.";
- }
+ if(!home||!away)return "Seleciona as duas equipas para comparar a cobertura.";
+ const homeGoals=teamSample(home,"home","goalsFor").length;
+ const awayGoals=teamSample(away,"away","goalsFor").length;
  const missing=[];
- for(const [metric,homeId,awayId] of TEAM_METRIC_PAIRS){
-  const homeValues=teamSample(home,"home",metric),awayValues=teamSample(away,"away",metric);
+ for(const [metric] of TEAM_METRIC_PAIRS){
+  const h=teamSample(home,"home",metric),a=teamSample(away,"away",metric);
   const min=metric==="xgFor"||metric==="xgAgainst"?5:1;
-  const homeAvg=mean(homeValues),awayAvg=mean(awayValues);
-  if(homeValues.length<min||awayValues.length<min||homeAvg===null||awayAvg===null){
-   fillInput(homeId,null);fillInput(awayId,null);missing.push(metric);
-  }
+  if(h.length<min||a.length<min)missing.push(metric+" (casa "+h.length+", fora "+a.length+")");
  }
- return missing.length?"Cobertura conjunta aplicada: indicadores sem amostra válida nas duas equipas foram ocultados dos dois lados ("+missing.join(", ")+").":"Cobertura conjunta confirmada: casa e fora têm dados válidos.";
+ const baseNote=homeGoals&&awayGoals?"Amostra de golos disponível para ambas as equipas.":"Amostra de golos incompleta (casa "+homeGoals+", fora "+awayGoals+").";
+ return missing.length?baseNote+" Cobertura parcial por indicador: "+missing.join("; ")+". Os valores válidos de cada equipa mantêm-se visíveis; os mercados que não tenham os dados completos dos dois lados não serão calculados.":baseNote+" Cobertura confirmada para todos os indicadores.";
 }
 function applyTeamSelection(side){
  const skipPairCheck=arguments[1]===true;
