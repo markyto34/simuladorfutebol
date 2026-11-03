@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 901,
-  "stats_games": 414,
-  "bwin_odds": 227,
+  "processed_games": 926,
+  "stats_games": 425,
+  "bwin_odds": 232,
   "failed_games": 0,
-  "current_match": "A consultar jogo 903/1344 · fwmyLJLb",
-  "last_result": "Club America F - Atlante F: 13 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T22:18:25.745Z"
+  "current_match": "Último concluído: KFUM Oslo - HamKam",
+  "last_result": "KFUM Oslo - HamKam: 13 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-03T22:18:33.179Z"
 }
