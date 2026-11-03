@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 600,
+  "processed_games": 626,
   "stats_games": 299,
   "bwin_odds": 145,
   "failed_games": 0,
-  "current_match": "A consultar jogo 602/1344 · xE6sRzG6",
-  "last_result": "Karitsa - AO Trikala: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T22:16:55.448Z"
+  "current_match": "Último concluído: Ilioupoli - Magoulas",
+  "last_result": "Ilioupoli - Magoulas: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-03T22:17:03.008Z"
 }
