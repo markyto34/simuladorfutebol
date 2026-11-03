@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 272,
-  "processed_games": 10,
-  "stats_games": 10,
-  "bwin_odds": 8,
+  "processed_games": 20,
+  "stats_games": 19,
+  "bwin_odds": 9,
   "failed_games": 0,
-  "current_match": "Último concluído: USFAS Bamako F (Mli) - Ampem Darkoa F (Gha)",
-  "last_result": "USFAS Bamako F (Mli) - Ampem Darkoa F (Gha): 13 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T06:26:09.138Z"
+  "current_match": "Último concluído: Al-Zulfi - Al-Jandal",
+  "last_result": "Al-Zulfi - Al-Jandal: 13 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-03T06:26:25.642Z"
 }
