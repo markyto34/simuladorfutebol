@@ -218,24 +218,36 @@ function renderWdwSummary(side,team){
 }
 function wdwDateKey(raw){const m=String(raw||"").match(/\b(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]{3,9})\b/i);if(!m)return "";const months={jan:"01",feb:"02",mar:"03",apr:"04",may:"05",jun:"06",jul:"07",aug:"08",sep:"09",oct:"10",nov:"11",dec:"12"};const month=months[m[2].slice(0,3).toLowerCase()];return month?month+"-"+m[1].padStart(2,"0"):"";}function parseWdwMatchRows(doc,team){
  const out=[];
- const heading=doc.querySelector("h1")?.textContent?.replace(/ Results.*$/i,"").trim()||team;
+ const heading=doc.querySelector("h1")?.textContent?.replace(/ Results.*$/i,"").replace(/ Game Stats.*$/i,"").replace(/ Match Statistics.*$/i,"").trim()||team;
  const rows=[...doc.querySelectorAll("tr")];
+ const scorePattern=/^(\d+)\s*[-:]\s*(\d+)$/;
  for(const tr of rows){
-  const cells=[...tr.cells].map(c=>c.textContent.replace(/\\s+/g," ").trim());
+  const cells=[...tr.cells].map(c=>c.textContent.replace(/\s+/g," ").trim());
   if(cells.length<3)continue;
-  const fixtureIndex=cells.findIndex(v=>/\\s+v\\s+/i.test(v));
-  if(fixtureIndex<0)continue;
-  const parts=cells[fixtureIndex].split(/\\s+v\\s+/i);
-  if(parts.length!==2)continue;
-  const home=parts[0].trim(),away=parts[1].trim();
-  const score=(cells[fixtureIndex+1]||"").match(/^(\\d+)\\s*[-:]\\s*(\\d+)$/);
-  if(!score)continue;
-  const htScore=(cells[fixtureIndex+2]||"").match(/^(\\d+)\\s*[-:]\\s*(\\d+)$/);
+  let home="",away="",fixtureIndex=-1,scoreIndex=-1;
+  const combinedIndex=cells.findIndex(v=>/\s+v\s+/i.test(v));
+  if(combinedIndex>=0){
+   const parts=cells[combinedIndex].split(/\s+v\s+/i);
+   if(parts.length===2){home=parts[0].trim();away=parts[1].trim();fixtureIndex=combinedIndex;}
+  }else{
+   const versusIndex=cells.findIndex(v=>/^v(?:s)?\.?$/i.test(v));
+   if(versusIndex>0&&versusIndex<cells.length-1){
+    home=cells[versusIndex-1];away=cells[versusIndex+1];fixtureIndex=versusIndex-1;
+   }else{
+    const awayVsIndex=cells.findIndex(v=>/^v\s+.+$/i.test(v));
+    if(awayVsIndex>0){home=cells[awayVsIndex-1];away=cells[awayVsIndex].replace(/^v\s+/i,"").trim();fixtureIndex=awayVsIndex-1;}
+   }
+  }
+  if(!home||!away)continue;
+  scoreIndex=cells.findIndex((v,i)=>i>fixtureIndex&&scorePattern.test(v));
+  if(scoreIndex<0)continue;
+  const score=cells[scoreIndex].match(scorePattern);
+  const htScore=(cells[scoreIndex+1]||"").match(scorePattern);
   const teamIsHome=wdwTeamKey(home)===wdwTeamKey(heading)||wdwTeamKey(home)===wdwTeamKey(team);
   const teamIsAway=wdwTeamKey(away)===wdwTeamKey(heading)||wdwTeamKey(away)===wdwTeamKey(team);
   if(!teamIsHome&&!teamIsAway)continue;
   const h=v=>{const s=String(v||"").trim().replace("%","").replace(",",".");if(!s||/no additional|^[-—]$/i.test(s))return null;const n=Number(s);return Number.isFinite(n)&&n>=0?n:null;};
-  const vals=cells.slice(fixtureIndex+3,fixtureIndex+13).map(h);
+  const vals=cells.slice(scoreIndex+2,scoreIndex+12).map(h);
   while(vals.length<10)vals.push(null);
   out.push({dateKey:wdwDateKey(cells[0]),home,away,hg:Number(score[1]),ag:Number(score[2]),htHome:htScore?Number(htScore[1]):null,htAway:htScore?Number(htScore[2]):null,homePoss:vals[0],homeCorners:vals[1],homeFouls:vals[2],homeTarget:vals[3],homeShotsOff:vals[4],awayPoss:vals[5],awayCorners:vals[6],awayFouls:vals[7],awayTarget:vals[8],awayShotsOff:vals[9],teamHome:teamIsHome,source:"WinDrawWin"});
  }
