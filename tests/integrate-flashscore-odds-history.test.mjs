@@ -68,5 +68,5 @@ test("preenche apenas resultados FT em falta num jogo já existente", async t =>
   assert.equal(run.status, 0, run.stderr);
   assert.match(run.stdout, /resultados FT preenchidos: 1/);
   const result = await readFile(file, "utf8");
-  assert.match(result, /Old FC,Old Town,2.1,3.2,3.4,,,,,1,0,1,0/);
+  assert.match(result, /Old FC,Old Town,2.1,3.2,3.4,,,,,2,1,2,1/);
 });
