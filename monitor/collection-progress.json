@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 875,
-  "stats_games": 344,
-  "bwin_odds": 181,
-  "failed_games": 51,
-  "current_match": "Último concluído: Mouloudia Oujda - Chabab Atlas Khenifra",
-  "last_result": "Mouloudia Oujda - Chabab Atlas Khenifra: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T14:58:23.176Z"
+  "processed_games": 900,
+  "stats_games": 347,
+  "bwin_odds": 182,
+  "failed_games": 67,
+  "current_match": "Último erro: trPyme2l",
+  "last_result": "Falha em trPyme2l: Falha ao recolher trPyme2l: HTTP 503",
+  "updated_at": "2026-11-03T14:58:49.675Z"
 }
