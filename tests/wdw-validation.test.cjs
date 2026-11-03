@@ -43,7 +43,7 @@ test("WinDrawWin só confirma o mapeamento quando existe pelo menos um jogo comp
 test("Resumo mantém resultados e golos quando a página não fornece estatísticas de jogo", () => {
  const rows = [
   {...complete,homeCorners:null,awayCorners:null,homeFouls:null,awayFouls:null,homeTarget:null,awayTarget:null,homeShotsOff:null,awayShotsOff:null},
-  {...complete,teamHome:false,hg:0,ag:2,homeCorners:null,awayCorners:null,homeFouls:null,awayFouls:null,homeTarget:null,awayTarget:null,homeShotsOff:null,awayShotsOff:null}
+  {...complete,teamHome:false,hg:1,ag:2,homeCorners:null,awayCorners:null,homeFouls:null,awayFouls:null,homeTarget:null,awayTarget:null,homeShotsOff:null,awayShotsOff:null}
  ];
  const result=context.summarize({body:{innerText:""}}, "Equipa", rows);
  assert.equal(result.sample,2);
