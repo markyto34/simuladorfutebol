@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 676,
-  "stats_games": 323,
-  "bwin_odds": 170,
+  "processed_games": 704,
+  "stats_games": 347,
+  "bwin_odds": 188,
   "failed_games": 0,
-  "current_match": "Último concluído: Swindon F - Bridgwater F",
-  "last_result": "Swindon F - Bridgwater F: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T22:17:18.034Z"
+  "current_match": "Último concluído: Livorno - Ostiamare",
+  "last_result": "Livorno - Ostiamare: 13 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-03T22:17:26.815Z"
 }
