@@ -1,5 +1,4 @@
 match_id,date_time,country,competition,home_team,away_team,bookmaker,market,odd_1,odd_x,odd_2,odds_timestamp_type,retrieved_at,source,source_url
-hW5lOaOP,2026-11-01T14:30,,,Union Berlin,FC Koln,Bwin,1X2,2.55,3.4,2.5,observed_at_collection,2026-11-02T18:01:28.546Z,Flashscore,https://m.flashscore.pt/jogo/hW5lOaOP/?t=estatisticas
 hW5lOaOP,2026-11-01T14:30,,,Union Berlin,FC Koln,Bwin,1X2,2.55,3.4,2.5,observed_at_collection,2026-11-02T22:05:59.981Z,Flashscore,https://m.flashscore.pt/jogo/hW5lOaOP/?t=estatisticas
 fuGf2I16,2026-11-01T16:30,,,Frankfurt,Hamburger SV,Bwin,1X2,1.46,4.6,5.25,observed_at_collection,2026-11-02T22:06:01.544Z,Flashscore,https://m.flashscore.pt/jogo/fuGf2I16/?t=estatisticas
 EoME4ck5,2026-11-01T13:00,,,Getafe,Sevilla,Bwin,1X2,3.3,2.85,2.3,observed_at_collection,2026-11-02T22:06:03.019Z,Flashscore,https://m.flashscore.pt/jogo/EoME4ck5/?t=estatisticas
@@ -34,7 +33,7 @@ fasKa95e,2026-11-01T00:30,,,Estudiantes,Instituto,Bwin,1X2,1.87,2.85,3.7,observe
 Gp4X8Dr9,2026-11-01T18:00,,,Boca Juniors,River Plate,Bwin,1X2,2.05,2.85,3.1,observed_at_collection,2026-11-02T22:09:00.339Z,Flashscore,https://m.flashscore.pt/jogo/Gp4X8Dr9/?t=estatisticas
 xraAAQJD,2026-11-01T21:30,,,Belgrano,Barracas Central,Bwin,1X2,1.77,3,3.9,observed_at_collection,2026-11-02T22:09:01.851Z,Flashscore,https://m.flashscore.pt/jogo/xraAAQJD/?t=estatisticas
 jRzTcmz8,2026-11-01T21:30,,,Newells Old Boys,Union Santa Fe,Bwin,1X2,1.98,2.9,3.2,observed_at_collection,2026-11-02T22:09:03.379Z,Flashscore,https://m.flashscore.pt/jogo/jRzTcmz8/?t=estatisticas
-827gE8Kl,2026-11-01T23:45,,,Lanus,Gimnasia Mendoza,Bwin,1X2,1.43,3.8,5.5,observed_at_collection,2026-11-02T22:09:04.890Z,Flashscore,https://m.flashscore.pt/jogo/827gE8Kl/?t=estatisticas
+827gE8Kl,2026-11-01T23:45,,,Lanus,Gimnasia Mendoza,Bwin,1X2,1.43,3.8,5.5,observed_at_collection,2026-11-03T06:26:40.734Z,Flashscore,https://m.flashscore.pt/jogo/827gE8Kl/?t=estatisticas
 Ek3EQFKH,2026-11-01T21:30,,,San Martin Tucuman,Colegiales,Bwin,1X2,2.95,2.37,2.25,observed_at_collection,2026-11-02T22:09:06.367Z,Flashscore,https://m.flashscore.pt/jogo/Ek3EQFKH/?t=estatisticas
 z5iNOgkU,2026-11-01T22:00,,,Gimnasia y Tiro,Quilmes,Bwin,1X2,1.65,2.9,4,observed_at_collection,2026-11-02T22:09:09.362Z,Flashscore,https://m.flashscore.pt/jogo/z5iNOgkU/?t=estatisticas
 zNPDINyK,2026-11-01T04:00,,,Melbourne Victory,Central Coast Mariners,Bwin,1X2,1.37,4.1,5.75,observed_at_collection,2026-11-02T22:09:32.027Z,Flashscore,https://m.flashscore.pt/jogo/zNPDINyK/?t=estatisticas
@@ -73,7 +72,7 @@ OS5WI9Ms,2026-11-01T16:00,,,Aris,Anorthosis,Bwin,1X2,1.55,3.5,4.4,observed_at_co
 YulCVn6m,2026-11-01T17:00,,,Omonia Aradippou,APOEL,Bwin,1X2,5.5,3.9,1.41,observed_at_collection,2026-11-02T22:13:25.868Z,Flashscore,https://m.flashscore.pt/jogo/YulCVn6m/?t=estatisticas
 QVzP4PJq,2026-10-31T23:00,,,Llaneros,Junior,Bwin,1X2,2.5,3.1,2.25,observed_at_collection,2026-11-02T22:13:29.148Z,Flashscore,https://m.flashscore.pt/jogo/QVzP4PJq/?t=estatisticas
 CnZW23ld,2026-11-01T21:05,,,Dep. Cali,Chico,Bwin,1X2,1.23,5,8.25,observed_at_collection,2026-11-02T22:13:30.823Z,Flashscore,https://m.flashscore.pt/jogo/CnZW23ld/?t=estatisticas
-MZooC7R9,2026-11-01T23:10,,,Ind. Medellin,Alianza,Bwin,1X2,1.5,3.6,4.8,observed_at_collection,2026-11-02T22:13:32.393Z,Flashscore,https://m.flashscore.pt/jogo/MZooC7R9/?t=estatisticas
+MZooC7R9,2026-11-01T23:10,,,Ind. Medellin,Alianza,Bwin,1X2,1.5,3.6,4.8,observed_at_collection,2026-11-03T06:28:08.377Z,Flashscore,https://m.flashscore.pt/jogo/MZooC7R9/?t=estatisticas
 U9WhnEBL,2026-11-01T19:00,,,Real Cundinamarca,Tigres,Bwin,1X2,1.98,2.87,3.3,observed_at_collection,2026-11-02T22:13:33.932Z,Flashscore,https://m.flashscore.pt/jogo/U9WhnEBL/?t=estatisticas
 WUGKyQDi,2026-11-01T05:00,,,Ulsan HD,Gangwon,Bwin,1X2,2.25,3,2.65,observed_at_collection,2026-11-02T22:13:35.506Z,Flashscore,https://m.flashscore.pt/jogo/WUGKyQDi/?t=estatisticas
 4Iosuv3n,2026-11-01T07:30,,,Seoul,Incheon,Bwin,1X2,2.15,2.95,2.85,observed_at_collection,2026-11-02T22:13:38.492Z,Flashscore,https://m.flashscore.pt/jogo/4Iosuv3n/?t=estatisticas
@@ -125,9 +124,9 @@ rXF2hvCG,2026-11-01T01:30,,,Colorado Rapids,Chicago Fire,Bwin,1X2,2.15,3.25,2.6,
 0thEbUjt,2026-11-01T20:30,,,Vancouver Whitecaps,Seattle Sounders,Bwin,1X2,1.78,3.5,3.2,observed_at_collection,2026-11-02T22:19:31.842Z,Flashscore,https://m.flashscore.pt/jogo/0thEbUjt/?t=estatisticas
 ncjMd8Lh,2026-11-01T21:30,,,Atlanta Utd,Toronto FC,Bwin,1X2,1.93,3.5,2.8,observed_at_collection,2026-11-02T22:19:34.729Z,Flashscore,https://m.flashscore.pt/jogo/ncjMd8Lh/?t=estatisticas
 6oFMeh1B,2026-11-01T21:30,,,Nashville SC,New York Red Bulls,Bwin,1X2,1.36,4.6,5.25,observed_at_collection,2026-11-02T22:19:36.217Z,Flashscore,https://m.flashscore.pt/jogo/6oFMeh1B/?t=estatisticas
-8lIT6wR9,2026-11-02T00:00,,,New England Revolution,Inter Miami,Bwin,1X2,2.5,3.6,2.05,observed_at_collection,2026-11-02T22:19:37.761Z,Flashscore,https://m.flashscore.pt/jogo/8lIT6wR9/?t=estatisticas
+8lIT6wR9,2026-11-02T00:00,,,New England Revolution,Inter Miami,Bwin,1X2,2.5,3.6,2.05,observed_at_collection,2026-11-03T06:28:49.727Z,Flashscore,https://m.flashscore.pt/jogo/8lIT6wR9/?t=estatisticas
 Aq8dOyfJ,2026-11-01T19:00,,,Lexington,Colorado Springs,Bwin,1X2,1.82,3.2,3.4,observed_at_collection,2026-11-02T22:19:39.301Z,Flashscore,https://m.flashscore.pt/jogo/Aq8dOyfJ/?t=estatisticas
-O83YTuQs,2026-11-01T23:00,,,New Mexico,Phoenix Rising,Bwin,1X2,2.1,3.3,2.65,observed_at_collection,2026-11-02T22:19:40.868Z,Flashscore,https://m.flashscore.pt/jogo/O83YTuQs/?t=estatisticas
+O83YTuQs,2026-11-01T23:00,,,New Mexico,Phoenix Rising,Bwin,1X2,2.1,3.3,2.65,observed_at_collection,2026-11-03T06:28:55.727Z,Flashscore,https://m.flashscore.pt/jogo/O83YTuQs/?t=estatisticas
 EHEGy5df,2026-11-01T22:00,,,Chattanooga,Columbus Crew 2,Bwin,1X2,1.57,3.8,4.6,observed_at_collection,2026-11-02T22:19:42.413Z,Flashscore,https://m.flashscore.pt/jogo/EHEGy5df/?t=estatisticas
 K8mjhxhf,2026-11-01T22:00,,,Angel City F,Boston Legacy F,Bwin,1X2,1.7,3.7,3.8,observed_at_collection,2026-11-02T22:19:45.554Z,Flashscore,https://m.flashscore.pt/jogo/K8mjhxhf/?t=estatisticas
 CrprfbNs,2026-11-01T22:00,,,Bay FC F,San Diego Wave F,Bwin,1X2,4.2,3.7,1.65,observed_at_collection,2026-11-02T22:19:47.084Z,Flashscore,https://m.flashscore.pt/jogo/CrprfbNs/?t=estatisticas
@@ -147,10 +146,10 @@ f9Q0Njw2,2026-11-01T15:00,,,Dinamo Batumi,Meshakhte Tkibuli,Bwin,1X2,1.18,5.5,9.
 8IrB3NR7,2026-11-01T17:30,,,Panathinaikos,AEK,Bwin,1X2,1.95,3.1,3.1,observed_at_collection,2026-11-02T22:21:14.218Z,Flashscore,https://m.flashscore.pt/jogo/8IrB3NR7/?t=estatisticas
 lE5LqbKU,2026-11-01T17:00,,,Aurora F.C.,Antigua,Bwin,1X2,2,3.25,2.85,observed_at_collection,2026-11-02T22:22:27.556Z,Flashscore,https://m.flashscore.pt/jogo/lE5LqbKU/?t=estatisticas
 MJ5ck2jg,2026-11-01T21:00,,,Deportivo San Pedro,Municipal,Bwin,1X2,2.7,3,2.2,observed_at_collection,2026-11-02T22:22:29.023Z,Flashscore,https://m.flashscore.pt/jogo/MJ5ck2jg/?t=estatisticas
-Uq95mtL5,2026-11-02T00:00,,,Guastatoya,Coban Imperial,Bwin,1X2,1.55,3.3,4.8,observed_at_collection,2026-11-02T22:22:30.489Z,Flashscore,https://m.flashscore.pt/jogo/Uq95mtL5/?t=estatisticas
+Uq95mtL5,2026-11-02T00:00,,,Guastatoya,Coban Imperial,Bwin,1X2,1.55,3.3,4.8,observed_at_collection,2026-11-03T06:29:19.729Z,Flashscore,https://m.flashscore.pt/jogo/Uq95mtL5/?t=estatisticas
 UyoTxZaD,2026-10-31T23:15,,,Real Espana,Juticalpa,Bwin,1X2,1.24,5.25,7.25,observed_at_collection,2026-11-02T22:22:32.026Z,Flashscore,https://m.flashscore.pt/jogo/UyoTxZaD/?t=estatisticas
 MVXE0xhK,2026-11-01T01:30,,,Choloma,Olimpia,Bwin,1X2,4.33,3.75,1.53,observed_at_collection,2026-11-02T22:22:33.594Z,Flashscore,https://m.flashscore.pt/jogo/MVXE0xhK/?t=estatisticas
-vVMhgfpf,2026-11-01T23:15,,,Motagua,Marathon,Bwin,1X2,2,2.95,3.1,observed_at_collection,2026-11-02T22:22:35.080Z,Flashscore,https://m.flashscore.pt/jogo/vVMhgfpf/?t=estatisticas
+vVMhgfpf,2026-11-01T23:15,,,Motagua,Marathon,Bwin,1X2,2,2.95,3.1,observed_at_collection,2026-11-03T06:29:22.607Z,Flashscore,https://m.flashscore.pt/jogo/vVMhgfpf/?t=estatisticas
 27rCAgXF,2026-11-01T12:30,,,Puskas Academy,Debrecen,Bwin,1X2,2.1,3.25,2.7,observed_at_collection,2026-11-02T22:22:36.673Z,Flashscore,https://m.flashscore.pt/jogo/27rCAgXF/?t=estatisticas
 djkAjYup,2026-11-01T15:00,,,Ferencvaros,Paks,Bwin,1X2,1.42,4.33,4.75,observed_at_collection,2026-11-02T22:22:38.230Z,Flashscore,https://m.flashscore.pt/jogo/djkAjYup/?t=estatisticas
 AXoK8X1S,2026-11-01T17:15,,,Ujpest,Nyiregyhaza,Bwin,1X2,1.85,3.3,3.2,observed_at_collection,2026-11-02T22:22:41.169Z,Flashscore,https://m.flashscore.pt/jogo/AXoK8X1S/?t=estatisticas
@@ -219,7 +218,7 @@ CzcjgrwA,2026-10-31T23:00,,,Pachuca,Tigres,Bwin,1X2,1.8,3.3,3.3,observed_at_coll
 GWoUo0Vq,2026-11-01T01:05,,,Monterrey,Tijuana,Bwin,1X2,1.53,3.7,4.33,observed_at_collection,2026-11-02T22:28:48.704Z,Flashscore,https://m.flashscore.pt/jogo/GWoUo0Vq/?t=estatisticas
 plebiM7M,2026-11-01T01:07,,,Guadalajara Chivas,Atlante,Bwin,1X2,1.36,4.2,5.75,observed_at_collection,2026-11-02T22:28:51.684Z,Flashscore,https://m.flashscore.pt/jogo/plebiM7M/?t=estatisticas
 MTlxpv0d,2026-11-01T03:10,,,Club America,Toluca,Bwin,1X2,2.05,3.3,2.7,observed_at_collection,2026-11-02T22:28:53.258Z,Flashscore,https://m.flashscore.pt/jogo/MTlxpv0d/?t=estatisticas
-ENyO7sh3,2026-11-01T23:00,,,Santos Laguna,Necaxa,Bwin,1X2,1.72,3.5,3.5,observed_at_collection,2026-11-02T22:28:54.816Z,Flashscore,https://m.flashscore.pt/jogo/ENyO7sh3/?t=estatisticas
+ENyO7sh3,2026-11-01T23:00,,,Santos Laguna,Necaxa,Bwin,1X2,1.72,3.5,3.5,observed_at_collection,2026-11-03T06:31:00.816Z,Flashscore,https://m.flashscore.pt/jogo/ENyO7sh3/?t=estatisticas
 0G7l3pHF,2026-11-01T01:00,,,Alacranes,Atl. Morelia,Bwin,1X2,2.05,3,2.9,observed_at_collection,2026-11-02T22:28:56.285Z,Flashscore,https://m.flashscore.pt/jogo/0G7l3pHF/?t=estatisticas
 8tBd1OoS,2026-11-01T01:00,,,Cancun,Jaiba Brava,Bwin,1X2,1.7,3.3,3.75,observed_at_collection,2026-11-02T22:28:57.806Z,Flashscore,https://m.flashscore.pt/jogo/8tBd1OoS/?t=estatisticas
 S29t56n3,2026-11-01T01:00,,,Piratas,Tapatio,Bwin,1X2,1.21,5.75,7.5,observed_at_collection,2026-11-02T22:28:59.350Z,Flashscore,https://m.flashscore.pt/jogo/S29t56n3/?t=estatisticas
@@ -257,7 +256,7 @@ AXHjZySp,2026-11-01T15:45,,,Utrecht F,Graafschap F,Bwin,1X2,2.6,3.25,2.15,observ
 6DGkH32S,2026-10-31T23:15,,,Plaza Amador,Alianza,Bwin,1X2,1.5,3.75,4.6,observed_at_collection,2026-11-02T22:31:49.034Z,Flashscore,https://m.flashscore.pt/jogo/6DGkH32S/?t=estatisticas
 CWEZKo33,2026-11-01T01:30,,,Veraguas,Herrera,Bwin,1X2,1.46,3.9,4.75,observed_at_collection,2026-11-02T22:31:50.590Z,Flashscore,https://m.flashscore.pt/jogo/CWEZKo33/?t=estatisticas
 A95T9Lf2,2026-11-01T21:00,,,Miguelito,UMECIT,Bwin,1X2,2.4,2.8,2.6,observed_at_collection,2026-11-02T22:31:52.105Z,Flashscore,https://m.flashscore.pt/jogo/A95T9Lf2/?t=estatisticas
-bmDsJPXF,2026-11-01T23:15,,,Independiente,San Francisco,Bwin,1X2,2.6,2.95,2.3,observed_at_collection,2026-11-02T22:31:53.625Z,Flashscore,https://m.flashscore.pt/jogo/bmDsJPXF/?t=estatisticas
+bmDsJPXF,2026-11-01T23:15,,,Independiente,San Francisco,Bwin,1X2,2.6,2.95,2.3,observed_at_collection,2026-11-03T06:31:25.750Z,Flashscore,https://m.flashscore.pt/jogo/bmDsJPXF/?t=estatisticas
 UBVy6oHd,2026-11-01T20:00,,,Cerro Porteno,Olimpia Asuncion,Bwin,1X2,2.65,2.95,2.25,observed_at_collection,2026-11-02T22:31:56.395Z,Flashscore,https://m.flashscore.pt/jogo/UBVy6oHd/?t=estatisticas
 2L1WqY2F,2026-11-01T16:00,,,Moquegua,Los Chankas,Bwin,1X2,1.9,2.95,3,observed_at_collection,2026-11-02T22:31:59.398Z,Flashscore,https://m.flashscore.pt/jogo/2L1WqY2F/?t=estatisticas
 h8LWu4pp,2026-11-01T18:15,,,Cusco,Sport Boys,Bwin,1X2,1.33,4,5.75,observed_at_collection,2026-11-02T22:32:00.937Z,Flashscore,https://m.flashscore.pt/jogo/h8LWu4pp/?t=estatisticas
@@ -342,7 +341,7 @@ dzwZN8bt,2026-11-01T11:00,,,LNZ Cherkasy,FC Kharkiv,Bwin,1X2,3,2.8,2.15,observed
 SStYVel3,2026-11-01T13:00,,,Progreso,Defensor Sp.,Bwin,1X2,2.2,2.87,2.5,observed_at_collection,2026-11-02T22:40:03.352Z,Flashscore,https://m.flashscore.pt/jogo/SStYVel3/?t=estatisticas
 0tutUZIF,2026-11-01T16:00,,,Boston River,Montevideo City,Bwin,1X2,3.4,3.1,1.75,observed_at_collection,2026-11-02T22:40:04.923Z,Flashscore,https://m.flashscore.pt/jogo/0tutUZIF/?t=estatisticas
 CxAL95X0,2026-11-01T19:30,,,Danubio,Nacional,Bwin,1X2,4.1,3.2,1.58,observed_at_collection,2026-11-02T22:40:06.482Z,Flashscore,https://m.flashscore.pt/jogo/CxAL95X0/?t=estatisticas
-pj8T7q2D,2026-11-01T23:00,,,Liverpool M.,Juventud,Bwin,1X2,1.93,2.95,3,observed_at_collection,2026-11-02T22:40:08.050Z,Flashscore,https://m.flashscore.pt/jogo/pj8T7q2D/?t=estatisticas
+pj8T7q2D,2026-11-01T23:00,,,Liverpool M.,Juventud,Bwin,1X2,1.93,2.95,3,observed_at_collection,2026-11-03T06:33:02.655Z,Flashscore,https://m.flashscore.pt/jogo/pj8T7q2D/?t=estatisticas
 GC1U4HzK,2026-11-01T13:00,,,Oriental,Paysandu FC,Bwin,1X2,1.77,3.25,3.5,observed_at_collection,2026-11-02T22:40:09.498Z,Flashscore,https://m.flashscore.pt/jogo/GC1U4HzK/?t=estatisticas
 Qom0aebs,2026-11-01T16:00,,,River Plate,Tacuarembo,Bwin,1X2,1.58,3.5,4.33,observed_at_collection,2026-11-02T22:40:10.909Z,Flashscore,https://m.flashscore.pt/jogo/Qom0aebs/?t=estatisticas
 YBj8cZSg,2026-11-01T19:00,,,Colon,Atenas,Bwin,1X2,2.6,2.9,2.35,observed_at_collection,2026-11-02T22:40:13.597Z,Flashscore,https://m.flashscore.pt/jogo/YBj8cZSg/?t=estatisticas
@@ -360,7 +359,6 @@ IHNCli6l,2026-11-02T18:00,,,Penafiel,Feirense,Bwin,1X2,1.8,3.1,3.6,observed_at_c
 25kEuirI,2026-11-02T17:00,,,Wolfsburg F,Hoffenheim F,Bwin,1X2,1.16,6.5,9.25,observed_at_collection,2026-11-03T06:26:19.017Z,Flashscore,https://m.flashscore.pt/jogo/25kEuirI/?t=estatisticas
 KvLBwZ8r,2026-11-02T16:45,,,Temouchent,Biskra,Bwin,1X2,1.75,2.85,4.33,observed_at_collection,2026-11-03T06:26:37.654Z,Flashscore,https://m.flashscore.pt/jogo/KvLBwZ8r/?t=estatisticas
 pSmBpm5S,2026-11-02T19:00,,,Belouizdad,Saoura,Bwin,1X2,1.27,4.2,9,observed_at_collection,2026-11-03T06:26:39.174Z,Flashscore,https://m.flashscore.pt/jogo/pSmBpm5S/?t=estatisticas
-827gE8Kl,2026-11-01T23:45,,,Lanus,Gimnasia Mendoza,Bwin,1X2,1.43,3.8,5.5,observed_at_collection,2026-11-03T06:26:40.734Z,Flashscore,https://m.flashscore.pt/jogo/827gE8Kl/?t=estatisticas
 OA7u7iDL,2026-11-02T22:00,,,Defensa y Justicia,Independiente,Bwin,1X2,2.1,2.9,2.9,observed_at_collection,2026-11-03T06:26:43.668Z,Flashscore,https://m.flashscore.pt/jogo/OA7u7iDL/?t=estatisticas
 vmHNJUdR,2026-11-02T22:00,,,Platense,Central Cordoba,Bwin,1X2,1.37,3.9,6.25,observed_at_collection,2026-11-03T06:26:45.223Z,Flashscore,https://m.flashscore.pt/jogo/vmHNJUdR/?t=estatisticas
 d2pRAfVg,2026-11-03T00:15,,,Atl. Tucuman,Argentinos Jrs,Bwin,1X2,2.6,2.75,2.45,observed_at_collection,2026-11-03T06:26:46.773Z,Flashscore,https://m.flashscore.pt/jogo/d2pRAfVg/?t=estatisticas
@@ -382,7 +380,6 @@ bH8x3E74,2026-11-02T17:30,,,Arda,Septemvri Sofia,Bwin,1X2,1.53,3.4,4.8,observed_
 O65Dd6rp,2026-11-02T21:00,,,Limache,A. Italiano,Bwin,1X2,1.93,3.2,3.1,observed_at_collection,2026-11-03T06:28:03.831Z,Flashscore,https://m.flashscore.pt/jogo/O65Dd6rp/?t=estatisticas
 8fuHGRZF,2026-11-02T23:30,,,Dep. Concepcion,Palestino,Bwin,1X2,2.4,3,2.4,observed_at_collection,2026-11-03T06:28:05.353Z,Flashscore,https://m.flashscore.pt/jogo/8fuHGRZF/?t=estatisticas
 IVCPZhJt,2026-11-02T22:00,,,Colo Colo,D. Puerto Montt,Bwin,1X2,1.44,3.8,5,observed_at_collection,2026-11-03T06:28:06.854Z,Flashscore,https://m.flashscore.pt/jogo/IVCPZhJt/?t=estatisticas
-MZooC7R9,2026-11-01T23:10,,,Ind. Medellin,Alianza,Bwin,1X2,1.5,3.6,4.8,observed_at_collection,2026-11-03T06:28:08.377Z,Flashscore,https://m.flashscore.pt/jogo/MZooC7R9/?t=estatisticas
 QBl6aUs4,2026-11-02T21:05,,,Aguilas,Fortaleza,Bwin,1X2,1.77,3,3.8,observed_at_collection,2026-11-03T06:28:09.900Z,Flashscore,https://m.flashscore.pt/jogo/QBl6aUs4/?t=estatisticas
 UszPttld,2026-11-02T19:00,,,Ind. Valle del Cauca,Boca Juniors,Bwin,1X2,1.58,3.5,4.33,observed_at_collection,2026-11-03T06:28:11.375Z,Flashscore,https://m.flashscore.pt/jogo/UszPttld/?t=estatisticas
 MyNA4qt3,2026-11-02T23:10,,,U. Magdalena,Envigado,Bwin,1X2,1.85,2.95,3.6,observed_at_collection,2026-11-03T06:28:12.934Z,Flashscore,https://m.flashscore.pt/jogo/MyNA4qt3/?t=estatisticas
@@ -396,10 +393,8 @@ llhwcDEM,2026-11-02T17:30,,,Valladolid,Leganes,Bwin,1X2,1.75,3.1,3.8,observed_at
 hEvnQx4D,2026-11-02T17:15,,,Jaen,Algeciras,Bwin,1X2,2.1,3,2.87,observed_at_collection,2026-11-03T06:28:40.907Z,Flashscore,https://m.flashscore.pt/jogo/hEvnQx4D/?t=estatisticas
 nZSWTK4l,2026-11-02T19:30,,,Huesca,Gimnastic,Bwin,1X2,1.68,3.25,4,observed_at_collection,2026-11-03T06:28:42.453Z,Flashscore,https://m.flashscore.pt/jogo/nZSWTK4l/?t=estatisticas
 APZiAV2U,2026-11-02T20:00,,,Costa Adeje Tenerife F,Athletic Bilbao F,Bwin,1X2,2.37,2.95,2.5,observed_at_collection,2026-11-03T06:28:45.409Z,Flashscore,https://m.flashscore.pt/jogo/APZiAV2U/?t=estatisticas
-8lIT6wR9,2026-11-02T00:00,,,New England Revolution,Inter Miami,Bwin,1X2,2.5,3.6,2.05,observed_at_collection,2026-11-03T06:28:49.727Z,Flashscore,https://m.flashscore.pt/jogo/8lIT6wR9/?t=estatisticas
 2ymT8adc,2026-11-02T01:30,,,Los Angeles FC,Minnesota,Bwin,1X2,1.65,3.7,3.6,observed_at_collection,2026-11-03T06:28:52.616Z,Flashscore,https://m.flashscore.pt/jogo/2ymT8adc/?t=estatisticas
 Emp1lVAr,2026-11-02T02:45,,,Portland Timbers,Houston Dynamo,Bwin,1X2,1.65,3.5,3.75,observed_at_collection,2026-11-03T06:28:54.182Z,Flashscore,https://m.flashscore.pt/jogo/Emp1lVAr/?t=estatisticas
-O83YTuQs,2026-11-01T23:00,,,New Mexico,Phoenix Rising,Bwin,1X2,2.1,3.3,2.65,observed_at_collection,2026-11-03T06:28:55.727Z,Flashscore,https://m.flashscore.pt/jogo/O83YTuQs/?t=estatisticas
 h6M8DKu1,2026-11-02T02:00,,,Sacramento Republic,FC Tulsa,Bwin,1X2,1.62,3.1,4.6,observed_at_collection,2026-11-03T06:28:57.266Z,Flashscore,https://m.flashscore.pt/jogo/h6M8DKu1/?t=estatisticas
 pQMJHgIk,2026-11-02T16:00,,,Inter Turku,Gnistan,Bwin,1X2,1.38,4.2,5.5,observed_at_collection,2026-11-03T06:29:04.698Z,Flashscore,https://m.flashscore.pt/jogo/pQMJHgIk/?t=estatisticas
 IwLRFXn2,2026-11-02T16:00,,,VPS,HJK,Bwin,1X2,5,4.2,1.41,observed_at_collection,2026-11-03T06:29:06.197Z,Flashscore,https://m.flashscore.pt/jogo/IwLRFXn2/?t=estatisticas
@@ -408,9 +403,7 @@ U5O4IfFb,2026-11-02T19:45,,,Reims,Sochaux,Bwin,1X2,1.66,3.4,3.9,observed_at_coll
 ID4UUYpS,2026-11-02T15:00,,,Torpedo Kutaisi,Dila Gori,Bwin,1X2,2,3.2,2.9,observed_at_collection,2026-11-03T06:29:13.768Z,Flashscore,https://m.flashscore.pt/jogo/ID4UUYpS/?t=estatisticas
 AuhHEmz9,2026-11-02T16:00,,,Atromitos,Volos,Bwin,1X2,1.68,3.3,3.9,observed_at_collection,2026-11-03T06:29:15.320Z,Flashscore,https://m.flashscore.pt/jogo/AuhHEmz9/?t=estatisticas
 I5ePCR4L,2026-11-02T17:30,,,Kalamata,Iraklis 1908,Bwin,1X2,1.93,2.9,3.4,observed_at_collection,2026-11-03T06:29:16.852Z,Flashscore,https://m.flashscore.pt/jogo/I5ePCR4L/?t=estatisticas
-Uq95mtL5,2026-11-02T00:00,,,Guastatoya,Coban Imperial,Bwin,1X2,1.55,3.3,4.8,observed_at_collection,2026-11-03T06:29:19.729Z,Flashscore,https://m.flashscore.pt/jogo/Uq95mtL5/?t=estatisticas
 Eg2kiOLt,2026-11-02T02:00,,,Comunicaciones,Deportivo Mixco,Bwin,1X2,1.55,3.6,4.5,observed_at_collection,2026-11-03T06:29:21.137Z,Flashscore,https://m.flashscore.pt/jogo/Eg2kiOLt/?t=estatisticas
-vVMhgfpf,2026-11-01T23:15,,,Motagua,Marathon,Bwin,1X2,2,2.95,3.1,observed_at_collection,2026-11-03T06:29:22.607Z,Flashscore,https://m.flashscore.pt/jogo/vVMhgfpf/?t=estatisticas
 W4JpeGFs,2026-11-02T01:30,,,Olancho,Platense,Bwin,1X2,1.31,4.5,6.5,observed_at_collection,2026-11-03T06:29:25.508Z,Flashscore,https://m.flashscore.pt/jogo/W4JpeGFs/?t=estatisticas
 pznZj5lA,2026-11-02T18:30,,,DVTK,Kecskemeti,Bwin,1X2,2.3,3.1,2.45,observed_at_collection,2026-11-03T06:29:26.980Z,Flashscore,https://m.flashscore.pt/jogo/pznZj5lA/?t=estatisticas
 rTKFxlnf,2026-11-02T18:00,,,Hap. Ramat Gan,M. Tel Aviv,Bwin,1X2,7.75,5.75,1.2,observed_at_collection,2026-11-03T06:29:59.345Z,Flashscore,https://m.flashscore.pt/jogo/rTKFxlnf/?t=estatisticas
@@ -427,7 +420,6 @@ t8pF1FbL,2026-11-02T15:45,,,Al Naser,Al-Shabab,Bwin,1X2,1.82,3.2,3.4,observed_at
 jByjW1Rq,2026-11-02T11:00,,,FK Skopje,Sileks,Bwin,1X2,6.25,3.8,1.38,observed_at_collection,2026-11-03T06:30:46.749Z,Flashscore,https://m.flashscore.pt/jogo/jByjW1Rq/?t=estatisticas
 jVRqhql3,2026-11-02T13:00,,,Bashkimi,Arsimi,Bwin,1X2,2.65,3.3,2.1,observed_at_collection,2026-11-03T06:30:48.170Z,Flashscore,https://m.flashscore.pt/jogo/jVRqhql3/?t=estatisticas
 KSpKyO3M,2026-11-02T13:00,,,Vardar,Struga,Bwin,1X2,1.77,3.1,3.7,observed_at_collection,2026-11-03T06:30:49.679Z,Flashscore,https://m.flashscore.pt/jogo/KSpKyO3M/?t=estatisticas
-ENyO7sh3,2026-11-01T23:00,,,Santos Laguna,Necaxa,Bwin,1X2,1.72,3.5,3.5,observed_at_collection,2026-11-03T06:31:00.816Z,Flashscore,https://m.flashscore.pt/jogo/ENyO7sh3/?t=estatisticas
 MmuW5LMF,2026-11-02T01:10,,,Cruz Azul,Leon,Bwin,1X2,1.6,3.5,4.2,observed_at_collection,2026-11-03T06:31:02.390Z,Flashscore,https://m.flashscore.pt/jogo/MmuW5LMF/?t=estatisticas
 fajKQi7F,2026-11-02T13:00,,,Bokelj,Buducnost,Bwin,1X2,2.75,2.75,2.3,observed_at_collection,2026-11-03T06:31:09.526Z,Flashscore,https://m.flashscore.pt/jogo/fajKQi7F/?t=estatisticas
 v1GvtM4t,2026-11-02T18:00,,,Kongsvinger,Stabaek,Bwin,1X2,2,3.6,2.55,observed_at_collection,2026-11-03T06:31:16.561Z,Flashscore,https://m.flashscore.pt/jogo/v1GvtM4t/?t=estatisticas
@@ -436,7 +428,6 @@ IuwAXbB7,2026-11-02T17:00,,,Vålerenga F,Lyn F,Bwin,1X2,1.32,4.8,5.5,observed_at
 drLAeseT,2026-11-02T19:00,,,Jong Ajax,Vitesse,Bwin,1X2,2.5,3.5,2.1,observed_at_collection,2026-11-03T06:31:21.223Z,Flashscore,https://m.flashscore.pt/jogo/drLAeseT/?t=estatisticas
 KKbSDOAc,2026-11-02T19:00,,,Jong PSV,Breda,Bwin,1X2,4.5,3.9,1.49,observed_at_collection,2026-11-03T06:31:22.737Z,Flashscore,https://m.flashscore.pt/jogo/KKbSDOAc/?t=estatisticas
 SQBtjLIj,2026-11-02T19:00,,,Jong Utrecht,Dordrecht,Bwin,1X2,2,3.4,2.75,observed_at_collection,2026-11-03T06:31:24.262Z,Flashscore,https://m.flashscore.pt/jogo/SQBtjLIj/?t=estatisticas
-bmDsJPXF,2026-11-01T23:15,,,Independiente,San Francisco,Bwin,1X2,2.6,2.95,2.3,observed_at_collection,2026-11-03T06:31:25.750Z,Flashscore,https://m.flashscore.pt/jogo/bmDsJPXF/?t=estatisticas
 rFTpk8Nc,2026-11-02T16:00,,,Huancayo,Melgar,Bwin,1X2,1.8,3.2,3.1,observed_at_collection,2026-11-03T06:31:27.297Z,Flashscore,https://m.flashscore.pt/jogo/rFTpk8Nc/?t=estatisticas
 febOofY2,2026-11-02T18:15,,,Cajamarca,Deportivo Garcilaso,Bwin,1X2,2.55,3.1,2.1,observed_at_collection,2026-11-03T06:31:28.815Z,Flashscore,https://m.flashscore.pt/jogo/febOofY2/?t=estatisticas
 KOzUWQ7T,2026-11-02T20:30,,,Sporting Cristal,FC Cajamarca,Bwin,1X2,1.2,5.25,7.25,observed_at_collection,2026-11-03T06:31:31.731Z,Flashscore,https://m.flashscore.pt/jogo/KOzUWQ7T/?t=estatisticas
@@ -471,5 +462,4 @@ YRfKv8z3,2026-11-02T16:00,,,Simba,Namungo,Bwin,1X2,1.09,7.25,18,observed_at_coll
 tGSEAW8r,2026-11-02T17:00,,,Kayserispor,Muglaspor,Bwin,1X2,1.41,4,5.25,observed_at_collection,2026-11-03T06:32:44.029Z,Flashscore,https://m.flashscore.pt/jogo/tGSEAW8r/?t=estatisticas
 AuhdI4SH,2026-11-02T11:00,,,Zorya,Epitsentr,Bwin,1X2,1.77,3.25,3.6,observed_at_collection,2026-11-03T06:32:52.549Z,Flashscore,https://m.flashscore.pt/jogo/AuhdI4SH/?t=estatisticas
 2FllKQc5,2026-11-02T16:00,,,Karpaty Lviv,Kudrivka,Bwin,1X2,1.31,4.5,6.5,observed_at_collection,2026-11-03T06:32:54.085Z,Flashscore,https://m.flashscore.pt/jogo/2FllKQc5/?t=estatisticas
-pj8T7q2D,2026-11-01T23:00,,,Liverpool M.,Juventud,Bwin,1X2,1.93,2.95,3,observed_at_collection,2026-11-03T06:33:02.655Z,Flashscore,https://m.flashscore.pt/jogo/pj8T7q2D/?t=estatisticas
 6u7DBR2l,2026-11-02T23:00,,,Albion,Maldonado,Bwin,1X2,2.75,3,1.98,observed_at_collection,2026-11-03T06:33:04.164Z,Flashscore,https://m.flashscore.pt/jogo/6u7DBR2l/?t=estatisticas
