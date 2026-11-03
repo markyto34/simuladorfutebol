@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 201,
-  "stats_games": 101,
-  "bwin_odds": 57,
+  "processed_games": 225,
+  "stats_games": 116,
+  "bwin_odds": 60,
   "failed_games": 0,
-  "current_match": "Último concluído: Tonota - Enesia",
-  "last_result": "Tonota - Enesia: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T22:00:13.162Z"
+  "current_match": "Último concluído: Frei Paulistano - Barra SE",
+  "last_result": "Frei Paulistano - Barra SE: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-03T22:00:21.789Z"
 }
