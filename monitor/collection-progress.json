@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 125,
-  "stats_games": 63,
-  "bwin_odds": 37,
+  "processed_games": 150,
+  "stats_games": 82,
+  "bwin_odds": 45,
   "failed_games": 0,
-  "current_match": "A consultar jogo 127/1344 · xluRKd66",
-  "last_result": "Syunik - Noah: 6 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T21:59:46.855Z"
+  "current_match": "A consultar jogo 152/1344 · AkcfN1e5",
+  "last_result": "Al Muharraq - Sitra: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-03T21:59:55.614Z"
 }
