@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
+  "processed_games": 25,
+  "stats_games": 25,
+  "bwin_odds": 21,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-03T21:59:01.743Z"
+  "current_match": "Último concluído: Vizela - Académica",
+  "last_result": "Vizela - Académica: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-03T21:59:11.800Z"
 }
