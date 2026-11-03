@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 1200,
-  "stats_games": 557,
-  "bwin_odds": 316,
+  "processed_games": 1226,
+  "stats_games": 571,
+  "bwin_odds": 326,
   "failed_games": 0,
-  "current_match": "A consultar jogo 1202/1344 · ridguJMh",
-  "last_result": "Enskede - Sleipner: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T22:19:55.503Z"
+  "current_match": "Último concluído: Hang Yuen - Taichung Rock",
+  "last_result": "Hang Yuen - Taichung Rock: 0 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-03T22:20:03.085Z"
 }
