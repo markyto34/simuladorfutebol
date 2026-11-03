@@ -10,7 +10,8 @@ import { readFile, writeFile, mkdir, appendFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 
 const PROXY = (process.env.FLASHSCORE_PROXY_URL || "https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev").replace(/\/$/, "");
-const DELAY_MS = Math.max(250, Number(process.env.FLASHSCORE_REQUEST_DELAY_MS || 500));
+const DELAY_MS = Math.max(250, Number(process.env.FLASHSCORE_REQUEST_DELAY_MS || 350));
+const CONCURRENCY = Math.max(1, Math.min(8, Number.parseInt(process.env.FLASHSCORE_CONCURRENCY || "8", 10) || 8));
 const REQUEST_TIMEOUT_MS = 45_000;
 const DISCOVERY_TIMEOUT_MS = 60_000;
 const MAX_MANUAL_MATCHES = 5;
@@ -320,48 +321,63 @@ async function main() {
   const existingOdds = await readRows(ODDS_FILE);
   const statsNew = [], oddsNew = [];
   let failures = 0, processed = 0, stoppedByUpstream = false;
+  let nextIndex = 0, nextStartAt = 0;
   const collectionStartedAt = Date.now();
   await setProgress({ total_games: matchIds.length, phase: "collecting", current_match: "A iniciar recolha" });
-  console.log("[COLLECT] A iniciar " + matchIds.length + " jogos; intervalo entre pedidos: " + DELAY_MS + " ms; timeout por jogo: " + (REQUEST_TIMEOUT_MS / 1000) + " s.");
-  for (let index = 0; index < matchIds.length; index++) {
-    const matchId = matchIds[index];
-    const matchStartedAt = Date.now();
-    progressSnapshot.phase = "collecting";
-    progressSnapshot.current_match = "A consultar jogo " + (index + 1) + "/" + matchIds.length + " · " + matchId;
-    console.log("[PROGRESS] " + (index + 1) + "/" + matchIds.length + " | START | id=" + matchId);
-    try {
-      const record = await collectWithRetry(matchId);
-      if (record.statistics && Object.keys(record.statistics).length) {
-        statsNew.push(statisticsRow(record));
-        progressSnapshot.stats_games++;
-      }
-      const oddsRow = bwinOddsRow(record);
-      if (oddsRow) { oddsNew.push(oddsRow); progressSnapshot.bwin_odds++; }
-      const home = record.teams?.home?.name || "Casa";
-      const away = record.teams?.away?.name || "Fora";
-      progressSnapshot.last_result = home + " - " + away + ": " + Object.keys(record.statistics || {}).length + " estatísticas; Bwin 1X2 " + (oddsRow ? "encontradas" : "não confirmado");
-      progressSnapshot.current_match = "Último concluído: " + home + " - " + away;
-      console.log("[PROGRESS] " + (index + 1) + "/" + matchIds.length + " | OK | " + home + " - " + away + " | id=" + matchId + " | stats=" + Object.keys(record.statistics || {}).length + " | bwin_1x2=" + (oddsRow ? "sim" : "não confirmado") + " | " + (Date.now() - matchStartedAt) + " ms");
-    } catch (error) {
-      failures++;
-      progressSnapshot.failed_games++;
-      progressSnapshot.last_result = "Falha em " + matchId + ": " + error.message;
-      progressSnapshot.current_match = "Último erro: " + matchId;
-      console.error("[PROGRESS] " + (index + 1) + "/" + matchIds.length + " | ERROR | id=" + matchId + " | " + error.message);
-      if (error.stop) { stoppedByUpstream = true; break; }
-    } finally {
-      processed++;
-      progressSnapshot.processed_games = processed;
-    }
-    if (processed % 25 === 0 || index === matchIds.length - 1 || stoppedByUpstream) {
-      await setProgress({
-        phase: stoppedByUpstream ? "stopped" : "collecting",
-        status: stoppedByUpstream ? "blocked" : "running",
-        current_match: stoppedByUpstream ? "Recolha interrompida por resposta 403/429" : progressSnapshot.current_match
-      });
-    }
-    if (index < matchIds.length - 1 && !stoppedByUpstream) await sleep(DELAY_MS);
+  console.log("[COLLECT] A iniciar " + matchIds.length + " jogos; concorrência máxima: " + CONCURRENCY + "; intervalo global entre inícios: " + DELAY_MS + " ms; timeout por jogo: " + (REQUEST_TIMEOUT_MS / 1000) + " s.");
+
+  async function takeNextJob() {
+    if (stoppedByUpstream || nextIndex >= matchIds.length) return null;
+    const index = nextIndex++;
+    const now = Date.now();
+    const wait = Math.max(0, nextStartAt - now);
+    nextStartAt = Math.max(now, nextStartAt) + DELAY_MS;
+    if (wait) await sleep(wait);
+    if (stoppedByUpstream) return null;
+    return { index, matchId: matchIds[index] };
   }
+
+  async function worker() {
+    while (!stoppedByUpstream) {
+      const job = await takeNextJob();
+      if (!job) return;
+      const { index, matchId } = job;
+      const matchStartedAt = Date.now();
+      progressSnapshot.phase = "collecting";
+      progressSnapshot.current_match = "A consultar jogo " + (index + 1) + "/" + matchIds.length + " · " + matchId;
+      console.log("[PROGRESS] " + (index + 1) + "/" + matchIds.length + " | START | id=" + matchId);
+      try {
+        const record = await collectWithRetry(matchId);
+        if (record.statistics && Object.keys(record.statistics).length) statsNew.push(statisticsRow(record));
+        const oddsRow = bwinOddsRow(record);
+        if (oddsRow) oddsNew.push(oddsRow);
+        const home = record.teams?.home?.name || "Casa";
+        const away = record.teams?.away?.name || "Fora";
+        progressSnapshot.last_result = home + " - " + away + ": " + Object.keys(record.statistics || {}).length + " estatísticas; Bwin 1X2 " + (oddsRow ? "encontradas" : "não confirmado");
+        progressSnapshot.current_match = "Último concluído: " + home + " - " + away;
+        console.log("[PROGRESS] " + (index + 1) + "/" + matchIds.length + " | OK | " + home + " - " + away + " | id=" + matchId + " | stats=" + Object.keys(record.statistics || {}).length + " | bwin_1x2=" + (oddsRow ? "sim" : "não confirmado") + " | " + (Date.now() - matchStartedAt) + " ms");
+      } catch (error) {
+        failures++;
+        progressSnapshot.failed_games++;
+        progressSnapshot.last_result = "Falha em " + matchId + ": " + error.message;
+        progressSnapshot.current_match = "Último erro: " + matchId;
+        console.error("[PROGRESS] " + (index + 1) + "/" + matchIds.length + " | ERROR | id=" + matchId + " | " + error.message);
+        if (error.stop) stoppedByUpstream = true;
+      } finally {
+        processed++;
+        progressSnapshot.processed_games = processed;
+      }
+      if (processed % 25 === 0 || processed === matchIds.length || stoppedByUpstream) {
+        await setProgress({
+          phase: stoppedByUpstream ? "stopped" : "collecting",
+          status: stoppedByUpstream ? "blocked" : "running",
+          current_match: stoppedByUpstream ? "Recolha interrompida por resposta 403/429" : progressSnapshot.current_match
+        });
+      }
+    }
+  }
+
+  await Promise.all(Array.from({ length: Math.min(CONCURRENCY, matchIds.length) }, () => worker()));
   const mergedStats = mergeRows(existingStats, statsNew, row => row.match_id);
   const mergedOdds = mergeLatestRows(existingOdds, oddsNew, row => [row.match_id, row.bookmaker, row.market].join("|"));
   await writeFile(STATS_FILE, toCsv(STAT_HEADERS, mergedStats), "utf8");
