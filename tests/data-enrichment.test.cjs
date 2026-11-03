@@ -2,7 +2,7 @@
 
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { enrichFlashscoreStats, enrichOddsPeriods } = require("../data-enrichment.js");
+const { enrichFlashscoreStats, enrichOddsPeriods, deriveSecondHalfGoals } = require("../data-enrichment.js");
 
 test("Flashscore enriches a matching fixture and does not overwrite existing values", () => {
   const matches = [{
@@ -85,4 +85,14 @@ test("Flashscore keeps unavailable metrics missing instead of converting them to
   assert.equal(matches[0].ac, 6);
   assert.equal(matches[0].homeShots, 5);
   assert.equal(matches[0].awayShots, 14);
+});
+
+
+test("second-half goals are derived only from valid FT and HT scores", () => {
+  assert.equal(deriveSecondHalfGoals(3, 1), 2);
+  assert.equal(deriveSecondHalfGoals(0, 0), 0);
+  assert.equal(deriveSecondHalfGoals(1, 2), null, "HT cannot exceed FT");
+  assert.equal(deriveSecondHalfGoals("", 0), null, "blank values are not zero");
+  assert.equal(deriveSecondHalfGoals(null, 0), null);
+  assert.equal(deriveSecondHalfGoals(2.5, 1), null, "goal counts must be integers");
 });
