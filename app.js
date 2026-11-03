@@ -220,22 +220,22 @@ function wdwDateKey(raw){const m=String(raw||"").match(/\b(\d{1,2})(?:st|nd|rd|t
  const out=[];
  const heading=doc.querySelector("h1")?.textContent?.replace(/ Results.*$/i,"").replace(/ Game Stats.*$/i,"").replace(/ Match Statistics.*$/i,"").trim()||team;
  const rows=[...doc.querySelectorAll("tr")];
- const scorePattern=/^(\\d+)\\s*[-:]\\s*(\\d+)$/;
+ const scorePattern=/^(\d+)\s*[-:]\s*(\d+)$/;
  for(const tr of rows){
-  const cells=[...tr.cells].map(c=>c.textContent.replace(/\\s+/g," ").trim());
+  const cells=[...tr.cells].map(c=>c.textContent.replace(/\s+/g," ").trim());
   if(cells.length<3)continue;
   let home="",away="",fixtureIndex=-1,scoreIndex=-1;
-  const combinedIndex=cells.findIndex(v=>/\\s+v\\s+/i.test(v));
+  const combinedIndex=cells.findIndex(v=>/\s+v\s+/i.test(v));
   if(combinedIndex>=0){
-   const parts=cells[combinedIndex].split(/\\s+v\\s+/i);
+   const parts=cells[combinedIndex].split(/\s+v\s+/i);
    if(parts.length===2){home=parts[0].trim();away=parts[1].trim();fixtureIndex=combinedIndex;}
   }else{
-   const versusIndex=cells.findIndex(v=>/^v(?:s)?\\.?$/i.test(v));
+   const versusIndex=cells.findIndex(v=>/^v(?:s)?\.?$/i.test(v));
    if(versusIndex>0&&versusIndex<cells.length-1){
     home=cells[versusIndex-1];away=cells[versusIndex+1];fixtureIndex=versusIndex-1;
    }else{
-    const awayVsIndex=cells.findIndex(v=>/^v\\s+.+$/i.test(v));
-    if(awayVsIndex>0){home=cells[awayVsIndex-1];away=cells[awayVsIndex].replace(/^v\\s+/i,"").trim();fixtureIndex=awayVsIndex-1;}
+    const awayVsIndex=cells.findIndex(v=>/^v\s+.+$/i.test(v));
+    if(awayVsIndex>0){home=cells[awayVsIndex-1];away=cells[awayVsIndex].replace(/^v\s+/i,"").trim();fixtureIndex=awayVsIndex-1;}
    }
   }
   if(!home||!away)continue;
