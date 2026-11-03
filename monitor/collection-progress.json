@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 1025,
-  "stats_games": 377,
-  "bwin_odds": 209,
+  "processed_games": 1050,
+  "stats_games": 401,
+  "bwin_odds": 222,
   "failed_games": 102,
-  "current_match": "Último concluído: Nazarenos - Sertanense",
-  "last_result": "Nazarenos - Sertanense: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-03T15:01:00.589Z"
+  "current_match": "Último concluído: Bohemians 1905 B - Povltavska FA",
+  "last_result": "Bohemians 1905 B - Povltavska FA: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-03T15:01:27.805Z"
 }
