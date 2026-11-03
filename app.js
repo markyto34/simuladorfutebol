@@ -296,7 +296,7 @@ async function findWdwTeamPathFromLeagueIndex(team,leagueId){
  if(!WDW_LEAGUES[leagueId])return {path:null,reason:"unsupported_league"};
  const cacheKey=wdwCacheKey(leagueId,team);
  if(Object.prototype.hasOwnProperty.call(dataState.wdwTeamMappings,cacheKey))return dataState.wdwTeamMappings[cacheKey];
- const links=(await loadWdwLeagueTeams(leagueId)).filter(x=>x.name&&typeof x.href==="string"&&/^\\/results\\/[a-z0-9-]+\\/?$/i.test(x.href));
+ const links=(await loadWdwLeagueTeams(leagueId)).filter(x=>x.name&&typeof x.href==="string"&&/^\/results\/[a-z0-9-]+\/?$/i.test(x.href));
  const result=wdwResolveTeamLink(team,links);
  dataState.wdwTeamMappings[cacheKey]=result;
  return result;
