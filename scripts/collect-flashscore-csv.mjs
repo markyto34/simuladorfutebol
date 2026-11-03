@@ -10,7 +10,7 @@ import { readFile, writeFile, mkdir, appendFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 
 const PROXY = (process.env.FLASHSCORE_PROXY_URL || "https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev").replace(/\/$/, "");
-const DELAY_MS = Math.max(1000, Number(process.env.FLASHSCORE_REQUEST_DELAY_MS || 1000));
+const DELAY_MS = Math.max(250, Number(process.env.FLASHSCORE_REQUEST_DELAY_MS || 500));
 const REQUEST_TIMEOUT_MS = 45_000;
 const DISCOVERY_TIMEOUT_MS = 60_000;
 const MAX_MANUAL_MATCHES = 5;
@@ -223,6 +223,21 @@ async function collect(matchId) {
   return payload.record;
 }
 
+async function collectWithRetry(matchId) {
+  const maxAttempts = 3;
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      return await collect(matchId);
+    } catch (error) {
+      const retryable = !error.stop && /Erro de rede|Timeout:|HTTP 408|HTTP 5\\d\\d/i.test(error.message || "");
+      if (!retryable || attempt === maxAttempts) throw error;
+      const waitMs = 1500 * attempt;
+      console.warn("[RETRY] " + matchId + " | tentativa " + (attempt + 1) + "/" + maxAttempts + " em " + waitMs + " ms | " + error.message);
+      await sleep(waitMs);
+    }
+  }
+}
+
 async function discoverMatchIds(date) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || new Date(date + "T00:00:00Z").toISOString().slice(0, 10) !== date) {
     throw new Error("Data inválida. Usa --date=YYYY-MM-DD.");
@@ -315,7 +330,7 @@ async function main() {
     progressSnapshot.current_match = "A consultar jogo " + (index + 1) + "/" + matchIds.length + " · " + matchId;
     console.log("[PROGRESS] " + (index + 1) + "/" + matchIds.length + " | START | id=" + matchId);
     try {
-      const record = await collect(matchId);
+      const record = await collectWithRetry(matchId);
       if (record.statistics && Object.keys(record.statistics).length) {
         statsNew.push(statisticsRow(record));
         progressSnapshot.stats_games++;
@@ -338,7 +353,7 @@ async function main() {
       processed++;
       progressSnapshot.processed_games = processed;
     }
-    if (processed % 10 === 0 || index === matchIds.length - 1 || stoppedByUpstream) {
+    if (processed % 25 === 0 || index === matchIds.length - 1 || stoppedByUpstream) {
       await setProgress({
         phase: stoppedByUpstream ? "stopped" : "collecting",
         status: stoppedByUpstream ? "blocked" : "running",
