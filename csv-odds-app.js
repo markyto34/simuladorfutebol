@@ -3,7 +3,7 @@
   const $ = id => document.getElementById(id);
   const CSV_URL = "https://raw.githubusercontent.com/markyto34/simuladorfutebol/main/ganhonasodds_com_20261101.csv";
   const PAGE_SIZE = 50;
-  let allMatches = [], matches = [], page = 0;
+  let allMatches = [], matches = [], page = 0, databaseLoaded = false, databasePromise = null;
   const fmtOdd = n => Number.isFinite(n) ? n.toFixed(2).replace(".", ",") : "—";
   const fmtPct = n => Number.isFinite(n) ? n.toFixed(1).replace(".", ",")+"%" : "—";
   const dateText = d => d ? new Intl.DateTimeFormat("pt-PT").format(d) : "—";
@@ -140,12 +140,19 @@
     $("prevPage").disabled=page===0;
     $("nextPage").disabled=page>=pages-1;
   }
-  function search() {
+  async function search() {
     const odds=currentOdds();
     if (!CSVOdds.hasCompleteOdds(odds)) {
       $("resultsPanel").hidden=true;
       $("currentNote").textContent="Introduz três odds válidas, todas superiores a 1,00.";
       return;
+    }
+    if (!databaseLoaded) {
+      $("searchHistoricalOdds").disabled = true;
+      $("currentNote").textContent = "A carregar a base histórica pela primeira vez…";
+      const loaded = await loadDatabase();
+      $("searchHistoricalOdds").disabled = false;
+      if (!loaded) return;
     }
     const country=$("country").value;
     const league=$("league").value;
@@ -165,6 +172,9 @@
     render();
   }
   async function loadDatabase() {
+    if (databaseLoaded) return true;
+    if (databasePromise) return databasePromise;
+    databasePromise = (async () => {
     try {
       const response=await fetch(CSV_URL,{method:"GET",mode:"cors",cache:"default"});
       if(!response.ok) throw new Error("HTTP "+response.status);
@@ -176,11 +186,18 @@
       $("recordCount").textContent=allMatches.length.toLocaleString("pt-PT")+" jogos com odds 1X2 válidas";
       $("status").textContent="Base histórica carregada.";
       $("searchHistoricalOdds").disabled=false;
-      $("currentNote").textContent="Introduz as três odds e, se quiseres, seleciona um país.";
+      $("currentNote").textContent="Base pronta. Confirma as três odds para pesquisar.";
+      databaseLoaded = true;
+      return true;
     } catch(error) {
       $("status").textContent="Não foi possível carregar a base histórica: "+error.message;
       $("currentNote").textContent="Verifica a ligação à internet e tenta novamente.";
+      return false;
+    } finally {
+      if (!databaseLoaded) databasePromise = null;
     }
+    })();
+    return databasePromise;
   }
   $("searchHistoricalOdds").addEventListener("click",search);
   $("clearSearch").addEventListener("click",()=>{
@@ -199,5 +216,4 @@
     if(!$("resultsPanel").hidden)search();
   });
   $("league").addEventListener("change",()=>{if(!$("resultsPanel").hidden)search();});
-  loadDatabase();
 })();
