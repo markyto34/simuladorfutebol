@@ -7,6 +7,7 @@
   <meta name="description" content="Pesquisa de jogos históricos pelas odds 1X2 com resultados ao intervalo, na segunda parte e no final.">
   <title>Pesquisa de Odds | Simulador Futebol</title>
   <link rel="stylesheet" href="csv-odds.css">
+  <link rel="stylesheet" href="theme.css">
 </head>
 <body>
   <main class="shell">
@@ -19,8 +20,8 @@
       <h1>Pesquisa de odds 1X2 registadas</h1>
       <p>Introduz as três odds 1 / X / 2. Só são apresentados jogos em que as três cotações 1 / X / 2 coincidem exatamente. Cada cartão mostra o resultado ao intervalo (HT), os golos marcados apenas na 2.ª parte (ST) e o resultado final do tempo regulamentar (FT). As cotações refletem o momento da recolha, não necessariamente o fecho.</p>
       <div class="database-status" role="status" aria-live="polite">
-        <span id="status">A carregar a base histórica…</span>
-        <strong id="recordCount">—</strong>
+        <span id="status">A base histórica será carregada quando iniciares a primeira pesquisa.</span>
+        <strong id="recordCount">Carregamento a pedido</strong>
       </div>
     </section>
     <section class="search-panel" aria-labelledby="searchTitle">
@@ -33,10 +34,10 @@
         <label>Divisão / competição<select id="league"><option value="">Todas as divisões</option></select></label>
       </div>
       <div class="actions">
-        <button id="searchHistoricalOdds" class="search-action" disabled>Pesquisar jogos</button>
+        <button id="searchHistoricalOdds" class="search-action">Pesquisar jogos</button>
         <button id="clearSearch" class="quiet" type="button">Limpar</button>
       </div>
-      <p id="currentNote" class="note" role="status" aria-live="polite">Aguarda o carregamento da base de dados.</p>
+      <p id="currentNote" class="note" role="status" aria-live="polite">Introduz as três odds. A base só será transferida quando fizeres a primeira pesquisa.</p>
     </section>
     <section id="resultsPanel" class="results-panel" hidden aria-live="polite">
       <div class="results-heading">
@@ -62,7 +63,7 @@
     </section>
     <footer>Ferramenta independente de pesquisa histórica · As odds são comparadas sem qualquer margem de tolerância.</footer>
   </main>
-  <script src="csv-odds-core.js"></script>
-  <script src="csv-odds-app.js"></script>
+  <script src="csv-odds-core.js" defer></script>
+  <script src="csv-odds-app.js" defer></script>
 </body>
 </html>
