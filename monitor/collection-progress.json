@@ -1,15 +1,15 @@
 {
-  "run_id": "41653860582",
-  "run_number": "6",
-  "target_date": "2026-11-02",
-  "status": "completed_with_errors",
-  "phase": "completed",
-  "total_games": 272,
-  "processed_games": 272,
-  "stats_games": 185,
-  "bwin_odds": 123,
-  "failed_games": 1,
-  "current_match": "Recolha terminada",
-  "last_result": "La Guaira - Portuguesa: 14 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T14:34:57.661Z"
+  "run_id": "41656440739",
+  "run_number": "7",
+  "target_date": "",
+  "status": "running",
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
+  "bwin_odds": 0,
+  "failed_games": 0,
+  "current_match": "A descobrir jogos",
+  "last_result": "",
+  "updated_at": "2026-11-03T14:43:17.062Z"
 }
