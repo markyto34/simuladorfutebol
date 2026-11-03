@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 575,
-  "stats_games": 289,
-  "bwin_odds": 139,
+  "processed_games": 600,
+  "stats_games": 299,
+  "bwin_odds": 145,
   "failed_games": 0,
-  "current_match": "Último concluído: WAFA - Kotoku Royals",
-  "last_result": "WAFA - Kotoku Royals: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T14:53:20.697Z"
+  "current_match": "Último concluído: Karitsa - AO Trikala",
+  "last_result": "Karitsa - AO Trikala: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-03T14:53:45.818Z"
 }
