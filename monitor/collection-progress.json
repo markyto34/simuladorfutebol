@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 1000,
-  "stats_games": 353,
-  "bwin_odds": 186,
+  "processed_games": 1025,
+  "stats_games": 377,
+  "bwin_odds": 209,
   "failed_games": 102,
-  "current_match": "Último concluído: Cerro Porteno - Olimpia Asuncion",
-  "last_result": "Cerro Porteno - Olimpia Asuncion: 13 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-03T15:00:32.658Z"
+  "current_match": "Último concluído: Nazarenos - Sertanense",
+  "last_result": "Nazarenos - Sertanense: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-03T15:01:00.589Z"
 }
