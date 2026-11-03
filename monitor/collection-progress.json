@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 725,
+  "processed_games": 751,
   "stats_games": 350,
   "bwin_odds": 191,
   "failed_games": 0,
-  "current_match": "A consultar jogo 727/1344 · E3eEaTEL",
-  "last_result": "Brian Lignano - Campodarsego: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T22:17:32.977Z"
+  "current_match": "Último concluído: Foligno - Vigor Senigallia",
+  "last_result": "Foligno - Vigor Senigallia: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-03T22:17:40.489Z"
 }
