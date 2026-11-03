@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 27,
-  "stats_games": 27,
-  "bwin_odds": 23,
+  "processed_games": 51,
+  "stats_games": 40,
+  "bwin_odds": 26,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/1344 · ng99JNlC",
-  "last_result": "Lusitânia - Farense: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-03T22:14:03.511Z"
+  "current_match": "A consultar jogo 53/1344 · Kt4ejxoA",
+  "last_result": "Hamburger SV II - Hannover II: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-03T22:14:10.685Z"
 }
