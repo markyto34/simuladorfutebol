@@ -73,7 +73,7 @@ for (const row of base.records) {
   const key = identity(row);
   if (!key.startsWith("||")) byIdentity.set(key, row);
 }
-let added = 0, resultsUpdated = 0, skipped = 0;
+let added = 0, oddsRowsUpdated = 0, oddsFieldsUpdated = 0, resultsUpdated = 0, skipped = 0;
 for (const quote of odds) {
   if (quote.bookmaker !== "Bwin" || quote.market !== "1X2") continue;
   if (![quote.odd_1, quote.odd_x, quote.odd_2].every(validOdd)) { skipped++; continue; }
@@ -98,26 +98,39 @@ for (const quote of odds) {
   const key = identity(row);
   const existing = byIdentity.get(key);
   if (existing) {
-    // Só preencher resultados em falta; nunca apagar nem substituir dados históricos.
-    if (stat && existing.score_ft_home === "" && existing.score_ft_away === "" &&
-        stat.score_home !== "" && stat.score_away !== "") {
-      existing.score_ft_home = stat.score_home;
-      existing.score_ft_away = stat.score_away;
-      if (existing.score_final_home === "") existing.score_final_home = stat.score_home;
-      if (existing.score_final_away === "") existing.score_final_away = stat.score_away;
-      resultsUpdated++;
+    // Completar apenas odds em falta; nunca substituir valores históricos existentes.
+    let oddsChanged = false;
+    for (const [field, value] of [["odd_ft_1", quote.odd_1], ["odd_ft_x", quote.odd_x], ["odd_ft_2", quote.odd_2]]) {
+      if (String(existing[field] ?? "").trim() === "" && validOdd(value)) {
+        existing[field] = value;
+        oddsFieldsUpdated++;
+        oddsChanged = true;
+      }
     }
+    if (oddsChanged) oddsRowsUpdated++;
+
+    // Completar resultados FT campo a campo, sem substituir valores existentes.
+    let resultChanged = false;
+    if (stat) {
+      for (const [field, value] of [["score_ft_home", stat.score_home], ["score_ft_away", stat.score_away], ["score_final_home", stat.score_home], ["score_final_away", stat.score_away]]) {
+        if (String(existing[field] ?? "").trim() === "" && String(value ?? "").trim() !== "") {
+          existing[field] = value;
+          resultChanged = true;
+        }
+      }
+    }
+    if (resultChanged) resultsUpdated++;
     continue;
   }
   base.records.push(row);
   byIdentity.set(key, row);
   added++;
 }
-if (added || resultsUpdated) {
+if (added || oddsRowsUpdated || resultsUpdated) {
   await writeFile(BASE_FILE, toCsv(base.headers, base.records), "utf8");
 }
 console.log("CSV histórico integrado: " + base.records.length.toLocaleString("pt-PT") + " registos totais.");
-console.log("Novos jogos acrescentados: " + added + "; resultados FT preenchidos: " + resultsUpdated + "; linhas ignoradas: " + skipped + ".");
+console.log("Novos jogos acrescentados: " + added + "; jogos existentes com odds completadas: " + oddsRowsUpdated + "; campos de odds preenchidos: " + oddsFieldsUpdated + "; jogos com resultados FT completados: " + resultsUpdated + "; linhas ignoradas: " + skipped + ".");
 console.log("Ficheiro atualizado: " + BASE_FILE);
 if (process.env.GITHUB_STEP_SUMMARY) {
   const { appendFile } = await import("node:fs/promises");
