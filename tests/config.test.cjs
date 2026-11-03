@@ -17,17 +17,19 @@ test("xG aparece uma vez por equipa e a cobertura é apresentada independentemen
   const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
   const app = fs.readFileSync(path.join(root, "app.js"), "utf8");
 
-  assert.equal((html.match(/<div class="stat-group"><h5>xG<\\/h5>/g) || []).length, 2);
+  const xgBlock = '<div class="stat-group"><h5>xG</h5>';
+  assert.equal(html.split(xgBlock).length - 1, 2);
   const home = html.split('<div class="team-stats"><h4>CASA</h4>')[1].split('<div class="team-stats"><h4>FORA</h4>')[0];
   const away = html.split('<div class="team-stats"><h4>FORA</h4>')[1].split('</div></div><p class="source-note">')[0];
-  assert.match(home, /<h5>xG<\\/h5>/);
-  assert.match(away, /<h5>xG<\\/h5>/);
+  assert.ok(home.includes(xgBlock));
+  assert.ok(away.includes(xgBlock));
 
   const start = app.indexOf("function enforcePairedTeamCoverage()");
   const end = app.indexOf("\\nfunction applyTeamSelection", start);
   assert.ok(start >= 0 && end > start, "função de cobertura encontrada");
   const coverage = app.slice(start, end);
-  assert.doesNotMatch(coverage, /clearAll|fillInput\\(/);
-  assert.match(app, /const hasGoalHistory=goalValues\\.every\\(v=>v!==null\\)/);
-  assert.match(app, /const hasCorners=cornerValues\\.every\\(v=>v!==null\\)/);
+  assert.equal(coverage.includes("clearAll"), false);
+  assert.equal(coverage.includes("fillInput("), false);
+  assert.ok(app.includes("const hasGoalHistory=goalValues.every(v=>v!==null)"));
+  assert.ok(app.includes("const hasCorners=cornerValues.every(v=>v!==null)"));
 });
