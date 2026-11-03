@@ -10,26 +10,26 @@ const escapeHtml=value=>String(value??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","
 function line(label,p){return '<div class="line-item"><span>'+label+'</span><b>'+pct(p)+'</b></div>'}
 function simulate(){
  try{
-  const h=$("homeName").value.trim()||"Casa",a=$("awayName").value.trim()||"Fora",adv=Number($("adv").value)/100,disp=Number($("disp").value)/100;
+  const h=$("homeName").value.trim()||"Casa",a=$("awayName").value.trim()||"Fora",disp=Number($("disp").value)/100;
   const read=id=>{const raw=$(id).value.trim();if(raw==="")return null;const v=Number(raw);if(!Number.isFinite(v)||v<0)throw Error("Confirma os valores numéricos: não podem ser negativos.");return v;};
   const goalValues=["hgFor","agAgainst","agFor","hgAgainst"].map(read);
   const hasGoalHistory=goalValues.every(v=>v!==null);
   const xgValues=["hxgFor","axgAgainst","axgFor","hxgAgainst"].map(read);
   const hasXg=xgValues.every(v=>v!==null);
-  const xgHome=hasXg?(xgValues[0]+xgValues[1])/2*(1+adv):null;
+  const xgHome=hasXg?(xgValues[0]+xgValues[1])/2:null;
   const xgAway=hasXg?(xgValues[2]+xgValues[3])/2:null;
   const hasGoals=hasGoalHistory||hasXg;
   const htValues=["hhtFor","ahtAgainst","ahtFor","hhtAgainst"].map(read);
   const hasHalfTime=htValues.every(v=>v!==null);
-  const hht=hasHalfTime?(htValues[0]+htValues[1])/2*(1+adv):null;
+  const hht=hasHalfTime?(htValues[0]+htValues[1])/2:null;
   const aht=hasHalfTime?(htValues[2]+htValues[3])/2:null;
   const secondHalfValues=["hshFor","ashAgainst","ashFor","hshAgainst"].map(read);
   const hasSecondHalf=secondHalfValues.every(v=>v!==null);
-  const hsh=hasSecondHalf?(secondHalfValues[0]+secondHalfValues[1])/2*(1+adv):null;
+  const hsh=hasSecondHalf?(secondHalfValues[0]+secondHalfValues[1])/2:null;
   const ash=hasSecondHalf?(secondHalfValues[2]+secondHalfValues[3])/2:null;
   const cornerValues=["hcFor","acAgainst","acFor","hcAgainst"].map(read);
   const hasCorners=cornerValues.every(v=>v!==null);
-  let hg=hasGoalHistory?(goalValues[0]+goalValues[1])/2*(1+adv):xgHome;
+  let hg=hasGoalHistory?(goalValues[0]+goalValues[1])/2:xgHome;
   let ag=hasGoalHistory?(goalValues[2]+goalValues[3])/2:xgAway;
   if(hasGoalHistory&&hasXg){hg=hg*.65+xgHome*.35;ag=ag*.65+xgAway*.35;}
   const hc=hasCorners?(cornerValues[0]+cornerValues[1])/2:null;
@@ -74,7 +74,7 @@ function simulate(){
  }catch(e){alert(e.message)}
 }
 $("run").addEventListener("click",simulate);
-$("adv").addEventListener("input",e=>$("advOut").textContent=e.target.value+"%");
+
 $("disp").addEventListener("input",e=>$("dispOut").textContent=e.target.value+"%");
 $("reset").addEventListener("click",()=>location.reload());
 
