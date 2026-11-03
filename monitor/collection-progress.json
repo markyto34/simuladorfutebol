@@ -2,14 +2,14 @@
   "run_id": "41656440739",
   "run_number": "7",
   "target_date": "2026-11-01",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed_with_errors",
+  "phase": "completed",
   "total_games": 1344,
   "processed_games": 1344,
   "stats_games": 503,
   "bwin_odds": 276,
   "failed_games": 102,
-  "current_match": "Último concluído: CAPS Utd - Highlanders",
+  "current_match": "Recolha terminada",
   "last_result": "CAPS Utd - Highlanders: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T15:06:26.279Z"
+  "updated_at": "2026-11-03T15:06:27.603Z"
 }
