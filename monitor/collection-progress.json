@@ -2,14 +2,14 @@
   "run_id": "41653860582",
   "run_number": "6",
   "target_date": "2026-11-02",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed_with_errors",
+  "phase": "completed",
   "total_games": 272,
   "processed_games": 272,
   "stats_games": 185,
   "bwin_odds": 123,
   "failed_games": 1,
-  "current_match": "Último concluído: La Guaira - Portuguesa",
+  "current_match": "Recolha terminada",
   "last_result": "La Guaira - Portuguesa: 14 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T14:34:56.488Z"
+  "updated_at": "2026-11-03T14:34:57.661Z"
 }
