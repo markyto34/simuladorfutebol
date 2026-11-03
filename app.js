@@ -78,7 +78,7 @@ $("run").addEventListener("click",simulate);
 $("reset").addEventListener("click",()=>location.reload());
 
 /* Importação automática baseada no formato CSV já usado no futebol-stats. */
-const dataState={matches:[],teams:[],wdwTeams:{},wdwSummaries:{},wdwLeagueLinks:{}};
+const dataState={matches:[],teams:[],wdwTeams:{},wdwSummaries:{},wdwLeagueLinks:{},wdwTeamMappings:{}};
 let historicalLoadSequence=0,wdwPairSequence=0;
 const WDW_PROXY_URL=String(window.SIMULADOR_CONFIG?.windrawwinProxyUrl||"").replace(/\/$/,"");
 const WDW_LEAGUES={
@@ -271,19 +271,35 @@ async function loadWdwLeagueTeams(leagueId){
  }
  return dataState.wdwLeagueLinks[leagueId];
 }
+function wdwTeamNameMatchScore(left,right){
+ const a=wdwTeamKey(left).split(" ").filter(Boolean),b=wdwTeamKey(right).split(" ").filter(Boolean);
+ if(!a.length||!b.length)return {score:0,shared:0};
+ const shared=new Set(a.filter(token=>b.includes(token))).size;
+ return {score:shared/Math.min(a.length,b.length),shared};
+}
+function wdwResolveTeamLink(team,links){
+ const exact=links.filter(x=>wdwTeamKey(x.name)===wdwTeamKey(team));
+ if(exact.length===1)return {path:exact[0].href,canonicalName:exact[0].name,reason:null,matchType:"exact"};
+ if(exact.length>1)return {path:null,reason:"ambiguous_team",availableTeams:links.length,matches:exact.map(x=>x.name)};
+ // Correspondência aproximada global: compara os tokens normalizados em ambas
+ // as direções. Exige pelo menos dois tokens comuns e uma correspondência
+ // praticamente completa do nome mais curto para evitar falsos positivos.
+ const ranked=links.map(x=>({...x,...wdwTeamNameMatchScore(team,x.name)}))
+  .filter(x=>x.shared>=2&&x.score>=0.8)
+  .sort((a,b)=>b.score-a.score||b.shared-a.shared);
+ const best=ranked[0],next=ranked[1];
+ if(best&&(!next||best.score-next.score>=0.15))
+  return {path:best.href,canonicalName:best.name,reason:null,matchType:"fuzzy",matchScore:best.score};
+ return {path:null,reason:ranked.length?"ambiguous_team":"team_not_listed",availableTeams:links.length,matches:ranked.slice(0,5).map(x=>x.name)};
+}
 async function findWdwTeamPathFromLeagueIndex(team,leagueId){
  if(!WDW_LEAGUES[leagueId])return {path:null,reason:"unsupported_league"};
- const links=await loadWdwLeagueTeams(leagueId);
- const wanted=wdwTeamKey(team);
- let hits=links.filter(x=>wdwTeamKey(x.name)===wanted);
- if(!hits.length){
-  const tokens=wanted.split(" ").filter(Boolean);
-  if(tokens.length){
-   hits=links.filter(x=>{const candidate=wdwTeamKey(x.name).split(" ");return tokens.every(t=>candidate.includes(t));});
-  }
- }
- if(hits.length===1)return {path:hits[0].href,canonicalName:hits[0].name,reason:null};
- return {path:null,reason:hits.length>1?"ambiguous_team":"team_not_listed",availableTeams:links.length,matches:hits.map(x=>x.name)};
+ const cacheKey=wdwCacheKey(leagueId,team);
+ if(Object.prototype.hasOwnProperty.call(dataState.wdwTeamMappings,cacheKey))return dataState.wdwTeamMappings[cacheKey];
+ const links=(await loadWdwLeagueTeams(leagueId)).filter(x=>x.name&&typeof x.href==="string"&&/^\/results\/[a-z0-9-]+\/?$/i.test(x.href));
+ const result=wdwResolveTeamLink(team,links);
+ dataState.wdwTeamMappings[cacheKey]=result;
+ return result;
 }
 async function findWdwTeamPath(team,leagueId){
  if(!WDW_LEAGUES[leagueId])return {paths:[],reason:"unsupported_league"};
