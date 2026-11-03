@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1344,
-  "processed_games": 950,
-  "stats_games": 348,
-  "bwin_odds": 183,
+  "processed_games": 975,
+  "stats_games": 349,
+  "bwin_odds": 184,
   "failed_games": 88,
-  "current_match": "Último concluído: Åsane 2 - Fyllingsdalen",
-  "last_result": "Åsane 2 - Fyllingsdalen: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-03T14:59:40.360Z"
+  "current_match": "Último concluído: LSK Kvinner F - Brann F",
+  "last_result": "LSK Kvinner F - Brann F: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-03T15:00:04.088Z"
 }
