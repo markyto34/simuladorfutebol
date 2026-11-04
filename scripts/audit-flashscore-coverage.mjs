@@ -57,7 +57,8 @@ export function buildFlashscoreCoverage(records) {
     const country = String(row.country || "").trim();
     const competition = String(row.competition || "").trim();
     if (!country || !competition) { rowsWithoutIdentity++; continue; }
-    rawLabels.add(normalize(country) + "|" + normalize(competition));\n    const canonicalCountryKey = canonicalCountry(country);\n    const canonicalCompetitionKey = canonicalCompetition(country, competition);\n    const key = canonicalCountryKey + "|" + canonicalCompetitionKey;
+    rawLabels.add(normalize(country) + "|" + normalize(competition));
+    const canonicalCountryKey = canonicalCountry(country);\n    const canonicalCompetitionKey = canonicalCompetition(country, competition);\n    const key = canonicalCountryKey + "|" + canonicalCompetitionKey;
     let item = byCompetition.get(key);
     if (!item) {
       item = { country, competition, match_ids: new Set(), rows: 0, dates: [], metrics: Object.fromEntries(Object.keys(METRICS).map(k => [k, 0])) };
