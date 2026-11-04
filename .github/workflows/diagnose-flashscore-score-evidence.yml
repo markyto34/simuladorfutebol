@@ -1,0 +1,41 @@
+name: Diagnóstico de evidências do marcador Flashscore
+on:
+  workflow_dispatch:
+    inputs:
+      match_id:
+        description: "ID do jogo Flashscore"
+        required: true
+        default: "ncabLF3j"
+        type: string
+permissions:
+  contents: read
+jobs:
+  inspect-score:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Inspecionar HTML original e extrair evidências do marcador
+        env:
+          MATCH_ID: ${{ inputs.match_id }}
+        run: |
+          node --input-type=module <<'NODE'
+          const id=process.env.MATCH_ID;
+          const url="https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev/inspect?id="+encodeURIComponent(id);
+          const response=await fetch(url,{headers:{Accept:"application/json"},signal:AbortSignal.timeout(60000)});
+          const payload=await response.json();
+          if(!response.ok||payload.ok!==true) throw new Error("Inspeção falhou: HTTP "+response.status+" "+JSON.stringify(payload).slice(0,500));
+          const x=payload.inspection||{};
+          console.log("[SCORE DIAGNOSTIC] "+JSON.stringify({
+            match_id:payload.match_id,upstream_status:payload.upstream_status,source_url:payload.source_url,
+            title:x.title,status:x.match_record?.status,parsed_score:x.match_record?.score,
+            period_scores:x.period_scores,score_candidates:x.score_candidates,
+            score_evidence:x.score_evidence,score_related_attributes:x.score_related_attributes,
+            score_contexts:x.score_contexts,
+            score_field_evidence:x.match_record?.source_capture?.evidence?.filter(e=>e.field==="score")
+          },null,2));
+          NODE
