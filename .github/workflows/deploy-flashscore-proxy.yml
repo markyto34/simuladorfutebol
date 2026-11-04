@@ -47,3 +47,11 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy
           workingDirectory: flashscore-proxy
+      - name: Smoke test team results endpoint
+        env:
+          PROXY_URL: https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev
+        run: |
+          set -euo pipefail
+          curl --fail --show-error --silent --retry 5 --retry-all-errors --retry-delay 2 "$PROXY_URL/health" -o /tmp/proxy-health.json
+          curl --fail --show-error --silent --retry 5 --retry-all-errors --retry-delay 2 "$PROXY_URL/team-inspect?id=tljXuHBC&slug=sporting-cp" -o /tmp/team-results.json
+          node -e 'const fs=require("node:fs"); const d=JSON.parse(fs.readFileSync("/tmp/team-results.json","utf8")); if(!d.ok || d.team_id!=="tljXuHBC" || !Array.isArray(d.matches) || d.matches.length===0) { console.error(JSON.stringify(d)); process.exit(1); } console.log(JSON.stringify({team_id:d.team_id,title:d.title,match_link_count:d.match_link_count,first_matches:d.matches.slice(0,5)}));'
