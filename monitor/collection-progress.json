@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 108,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
+  "processed_games": 25,
+  "stats_games": 25,
+  "bwin_odds": 25,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-04T23:14:00.934Z"
+  "current_match": "Último concluído: Zeljeznicar - Zrinjski",
+  "last_result": "Zeljeznicar - Zrinjski: 6 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-04T23:14:31.437Z"
 }
