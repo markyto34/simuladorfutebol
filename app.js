@@ -709,9 +709,10 @@ function renderRecentTeamMatches(side){
     ["xG",pair(match.homeXg,match.awayXg,2)]
    ];
    const available=stats.filter(([,value])=>!value.startsWith("—")&&!value.endsWith("–—")&&!value.startsWith("—–"));
+   const hasPair=(home,away)=>home!==null&&home!==undefined&&home!==""&&away!==null&&away!==undefined&&away!=="";
    const periods=[
-    match.htHome!==null&&match.htAway!==null?"HT "+pair(match.htHome,match.htAway):"",
-    match.shHome!==null&&match.shAway!==null?"ST "+pair(match.shHome,match.shAway):""
+    hasPair(match.htHome,match.htAway)?"HT "+pair(match.htHome,match.htAway):"",
+    hasPair(match.shHome,match.shAway)?"ST "+pair(match.shHome,match.shAway):""
    ].filter(Boolean).join(" · ");
    return '<article class="recent-match">'+
     '<div class="recent-match-top"><span>'+date(match.date)+' · '+venue+'</span><strong>'+fmt(match.hg)+'–'+fmt(match.ag)+'</strong></div>'+
