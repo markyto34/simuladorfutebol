@@ -30,3 +30,4 @@ jobs:
               node --check "$file"
             fi
           done
+          node scripts/metric-coverage.test.cjs
