@@ -50,3 +50,42 @@ export function extractTeamResultCandidates(html, limit = 30) {
   }
   return [...results.values()];
 }
+
+function decodeFeedValue(value) {
+  return String(value ?? "").replace(/&amp;/gi, "&").replace(/&quot;/gi, '"').replace(/&#39;/gi, "'");
+}
+export function parseTeamResultsFeed(feed) {
+  const events = [];
+  let competition = null;
+  for (const block of String(feed ?? "").split("~")) {
+    const fields = {};
+    for (const token of block.split("¬")) {
+      const separator = token.indexOf("÷");
+      if (separator <= 0) continue;
+      fields[token.slice(0, separator)] = decodeFeedValue(token.slice(separator + 1));
+    }
+    if (fields.ZA) competition = fields.ZA;
+    if (!/^[A-Za-z0-9]{8}$/.test(fields.AA || "")) continue;
+    const timestamp = Number(fields.AD);
+    const stageCode = Number(fields.AB);
+    events.push({
+      match_id: fields.AA,
+      start_time: Number.isFinite(timestamp) && timestamp > 0 ? timestamp : null,
+      start_time_iso: Number.isFinite(timestamp) && timestamp > 0 ? new Date(timestamp * 1000).toISOString() : null,
+      stage_code: Number.isFinite(stageCode) ? stageCode : null,
+      stage: stageCode === 3 ? "finished" : stageCode === 2 ? "live" : stageCode === 1 ? "scheduled" : "unknown",
+      home: { id: fields.AU || null, name: fields.AE || null, slug: fields.WU || null, score: fields.AG === undefined ? null : Number(fields.AG) },
+      away: { id: fields.AV || null, name: fields.AF || null, slug: fields.WV || null, score: fields.AH === undefined ? null : Number(fields.AH) },
+      competition,
+      raw: fields
+    });
+  }
+  return events.sort((a, b) => (b.start_time || 0) - (a.start_time || 0));
+}
+export function selectLatestFinishedTeamMatches(events, limit = 5) {
+  const safeLimit = Number.isInteger(limit) ? Math.max(1, Math.min(limit, 20)) : 5;
+  return (Array.isArray(events) ? events : [])
+    .filter(event => event?.stage === "finished" && event.match_id && event.start_time && event.home?.name && event.away?.name)
+    .sort((a, b) => b.start_time - a.start_time)
+    .slice(0, safeLimit);
+}
