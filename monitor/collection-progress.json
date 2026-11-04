@@ -2,14 +2,14 @@
   "run_id": "41855931774",
   "run_number": "3",
   "target_date": "2026-10-29",
-  "status": "running",
-  "phase": "collecting",
-  "total_games": 241,
+  "status": "completed",
+  "phase": "completed",
+  "total_games": 0,
   "processed_games": 0,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A preparar recolha",
+  "current_match": "Sem jogos para recolher",
   "last_result": "",
-  "updated_at": "2026-11-04T15:16:21.328Z"
+  "updated_at": "2026-11-04T15:16:23.771Z"
 }
