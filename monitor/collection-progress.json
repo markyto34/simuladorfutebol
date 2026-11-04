@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 248,
-  "processed_games": 225,
-  "stats_games": 155,
-  "bwin_odds": 69,
+  "processed_games": 248,
+  "stats_games": 174,
+  "bwin_odds": 77,
   "failed_games": 0,
-  "current_match": "A consultar jogo 227/248 · GA6ysOde",
-  "last_result": "Leczna F - Czarni Sosnowiec F: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-04T06:29:58.541Z"
+  "current_match": "Último concluído: Dep. Tachira - Puerto Cabello",
+  "last_result": "Dep. Tachira - Puerto Cabello: 14 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-04T06:30:05.658Z"
 }
