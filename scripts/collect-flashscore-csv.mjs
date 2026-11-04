@@ -22,12 +22,12 @@ const ODDS_FILE = resolve("data/bwin-odds-flashscore.csv");
 
 const STAT_KEYS = [
   "xg", "possession", "shots", "shots_on_target", "big_chances", "corners",
-  "yellow_cards", "shots_off_target", "blocked_shots", "shots_inside_box",
+  "yellow_cards", "red_cards", "shots_off_target", "blocked_shots", "shots_inside_box",
   "shots_outside_box", "offsides", "fouls"
 ];
 const STAT_HEADERS = [
   "match_id", "date_time", "country", "competition", "home_team", "away_team",
-  "status", "score_home", "score_away",
+  "status", "score_home", "score_away", "ht_home", "ht_away", "sh_home", "sh_away",
   ...STAT_KEYS.flatMap(key => [key + "_home", key + "_away"]),
   "source", "source_url", "retrieved_at"
 ];
@@ -84,6 +84,10 @@ function statisticsRow(record) {
     status: record.status || "",
     score_home: record.score?.full_time?.home ?? "",
     score_away: record.score?.full_time?.away ?? "",
+    ht_home: record.score?.half_time?.home ?? "",
+    ht_away: record.score?.half_time?.away ?? "",
+    sh_home: record.score?.second_half?.home ?? "",
+    sh_away: record.score?.second_half?.away ?? "",
     source: "Flashscore",
     source_url: record.source_capture?.url || "",
     retrieved_at: record.source_capture?.retrieved_at || ""
