@@ -46,7 +46,12 @@ if (sampleStart < 0 || sampleEnd < 0) {
   if (!sample.includes("const wdwMatchDate=w=>")) fail("Data WinDrawWin não é convertida para o ano correto da época.");
   if (!app.includes("const WDW_CALENDAR_YEAR_LEAGUES=new Set(")) fail("Ligas com época de ano civil não têm tratamento de datas próprio.");
   if (!sample.includes("WDW_CALENDAR_YEAR_LEAGUES.has(league)")) fail("Conversão de datas não considera o calendário da competição.");
-  const identityStart = app.indexOf("function sameFixtureIdentity(");\n  const identityEnd = app.indexOf("\\nfunction teamSample(", identityStart);\n  const identity = identityStart >= 0 && identityEnd > identityStart ? app.slice(identityStart, identityEnd) : "";\n  if (!identity.includes("primary.date!==date")) fail("Correspondência entre fontes não valida a data completa.");\n  if (!sample.includes("sameFixtureIdentity(m,w,date)&&m.hg===w.hg&&m.ag===w.ag")) fail("A importação de estatísticas WDW não valida o resultado FT.");\n  if (!sample.includes("primary.some(m=>sameFixtureIdentity(m,w,wdwMatchDate(w)))")) fail("Jogos existentes não são protegidos contra duplicação WDW com resultado divergente.");
+  const identityStart = app.indexOf("function sameFixtureIdentity(");
+  const identityEnd = app.indexOf("\nfunction teamSample(", identityStart);
+  const identity = identityStart >= 0 && identityEnd > identityStart ? app.slice(identityStart, identityEnd) : "";
+  if (!identity.includes("primary.date!==date")) fail("Correspondência entre fontes não valida a data completa.");
+  if (!sample.includes("sameFixtureIdentity(m,w,date)&&m.hg===w.hg&&m.ag===w.ag")) fail("A importação de estatísticas WDW não valida o resultado FT.");
+  if (!sample.includes("primary.some(m=>sameFixtureIdentity(m,w,wdwMatchDate(w)))")) fail("Jogos existentes não são protegidos contra duplicação WDW com resultado divergente.");
   if (!sample.includes("records.push({m:{date:wdwMatchDate(w)")) fail("Jogos exclusivos WinDrawWin não são adicionados à amostra.");
   if (!sample.includes("records.sort((a,b)=>(b.m.date||\"\").localeCompare(a.m.date||\"\")")) fail("A amostra combinada não é ordenada cronologicamente.");
   if (!sample.includes("[m.hg,m.ag,hc,ac,hs,as,ht,at,hf,af].every")) fail("Filtro de completude não valida os cinco grupos obrigatórios.");
