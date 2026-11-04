@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 54,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
-  "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-04T23:02:36.539Z"
+  "processed_games": 25,
+  "stats_games": 19,
+  "bwin_odds": 22,
+  "failed_games": 3,
+  "current_match": "Último erro: xArRhRJc",
+  "last_result": "Falha em xArRhRJc: Falha ao recolher xArRhRJc: HTTP 503",
+  "updated_at": "2026-11-04T23:02:49.672Z"
 }
