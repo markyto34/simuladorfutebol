@@ -145704,14 +145704,14 @@ date_time,COUNTRY,LEAGUE,TEAM_HOME,TEAM_AWAY,odd_ft_1,odd_ft_x,odd_ft_2,score_fh
 2026-11-01 19:30:00.000,URUGUAI,Liga AUF Uruguaia - Encerramento,Danubio,Nacional,3.60,3.10,1.68,,,,,1,2,1,2
 2026-11-01 19:45:00.000,FRANÇA,Liga 1,Marseille,Toulouse,1.82,3.80,3.60,,,,,2,0,2,0
 2026-11-01 19:45:00.000,ITÁLIA,Série A,Juventus,Napoli,2.15,3.25,3.20,,,,,2,0,2,0
-2026-11-01 20:00:00.000,ESPANHA,LaLiga,Ath. Bilbao,Real Sociedad,2.05,3.50,3.20,,,,,,,,
+2026-11-01 20:00:00.000,ESPANHA,LaLiga,Ath. Bilbao,Real Sociedad,2.05,3.50,3.20,,,,,2,1,2,1
 2026-11-01 20:00:00.000,PARAGUAI,Taça da Primeira - Encerramento,Cerro Porteno,Olimpia Asuncion,2.65,2.95,2.30,,,,,0,2,0,2
 2026-11-01 20:00:00.000,ESPANHA,LaLiga2,Tenerife,Andorra,2.05,3.00,2.90,,,,,,,,
 2026-11-01 20:00:00.000,ESPANHA,Primeira RFEF - Grupo 1,CD Extremadura,Unionistas,1.68,3.30,3.90,,,,,3,0,3,0
 2026-11-01 20:00:00.000,MARROCOS,Botola Pro,Berkane,Raja Casablanca,1.93,2.80,3.50,,,,,2,0,2,0
-2026-11-01 20:15:00.000,CHILE,Liga de Primera,U. Catolica,U. De Chile,2.25,3.10,2.50,,,,,,,,
+2026-11-01 20:15:00.000,CHILE,Liga de Primera,U. Catolica,U. De Chile,2.25,3.10,2.50,,,,,1,0,1,0
 2026-11-01 20:30:00.000,PORTUGAL,Liga Portugal Betclic,Braga,Famalicão,1.66,3.60,4.75,,,,,3,0,3,0
-2026-11-01 20:30:00.000,PERU,Liga 1 - Encerramento,Grau,U. de Deportes,3.40,2.95,1.78,,,,,,,,
+2026-11-01 20:30:00.000,PERU,Liga 1 - Encerramento,Grau,U. de Deportes,3.40,2.95,1.78,,,,,1,3,1,3
 2026-11-01 20:30:00.000,EUA,MLS,Vancouver Whitecaps,Seattle Sounders,1.51,3.80,4.33,,,,,5,1,5,1
 2026-11-01 21:00:00.000,EQUADOR,Liga Pro - Grupo de Colocação,Guayaquil City,Libertad,1.83,3.20,3.40,,,,,0,0,0,0
 2026-11-01 21:00:00.000,GUATEMALA,Liga Nacional - Abertura,Deportivo San Pedro,Municipal,2.95,3.00,2.05,,,,,,,,
@@ -145726,10 +145726,10 @@ date_time,COUNTRY,LEAGUE,TEAM_HOME,TEAM_AWAY,odd_ft_1,odd_ft_x,odd_ft_2,score_fh
 2026-11-01 23:00:00.000,ARGENTINA,Primeira Liga Nacional,Gimnasia y Tiro,Quilmes,2.50,2.40,2.55,,,,,0,1,0,1
 2026-11-01 23:00:00.000,URUGUAI,Liga AUF Uruguaia - Encerramento,Albion,Maldonado,2.65,3.00,2.05,,,,,,,,
 2026-11-01 23:00:00.000,MÉXICO,Liga MX - Abertura,Santos Laguna,Necaxa,1.73,3.60,3.30,,,,,1,0,1,0
-2026-11-01 23:00:00.000,URUGUAI,Liga AUF Uruguaia - Encerramento,Liverpool M.,Juventud,1.82,3.10,3.10,,,,,,,,
+2026-11-01 23:00:00.000,URUGUAI,Liga AUF Uruguaia - Encerramento,Liverpool M.,Juventud,1.82,3.10,3.10,,,,,2,0,2,0
 2026-11-01 23:00:00.000,EUA,Campeonato USL - Playoffs,New Mexico,Phoenix Rising,2.10,3.30,2.65,,,,,2,0,2,0
 2026-11-01 23:00:00.000,GUATEMALA,Liga Nacional - Abertura,Guastatoya,Coban Imperial,1.61,3.25,4.50,,,,,,,,
-2026-11-01 23:10:00.000,COLÔMBIA,Primeira A - Encerramento,Ind. Medellin,Alianza,1.44,3.80,5.25,,,,,,,,
+2026-11-01 23:10:00.000,COLÔMBIA,Primeira A - Encerramento,Ind. Medellin,Alianza,1.44,3.80,5.25,,,,,2,1,2,1
 2026-11-01 23:15:00.000,HONDURAS,Liga Nacional - Abertura,Motagua,Marathon,1.98,3.10,3.00,,,,,2,0,2,0
 2026-11-01 23:45:00.000,ARGENTINA,Liga Profesional - Encerramento,Lanus,Gimnasia Mendoza,1.62,3.25,4.33,,,,,1,1,1,1
 2026-11-02 00:00:00.000,EUA,MLS,New England Revolution,Inter Miami,2.45,3.60,2.10,,,,,1,2,1,2
@@ -145753,14 +145753,14 @@ date_time,COUNTRY,LEAGUE,TEAM_HOME,TEAM_AWAY,odd_ft_1,odd_ft_x,odd_ft_2,score_fh
 2026-11-02 17:30:00.000,GRÉCIA,Superliga,Kalamata,Iraklis 1908,2.10,2.90,2.90,,,,,1,1,1,1
 2026-11-02 17:30:00.000,ITÁLIA,Série A,Sassuolo,Fiorentina,2.75,3.50,2.25,,,,,2,4,2,4
 2026-11-02 17:30:00.000,BULGÁRIA,Liga Parva,Arda,Septemvri Sofia,1.55,3.50,4.60,,,,,2,1,2,1
-2026-11-02 18:00:00.000,ARGENTINA,Primeira Liga Nacional,Atl. Rafaela,Patronato,2.10,2.50,3.10,,,,,,,,
+2026-11-02 18:00:00.000,ARGENTINA,Primeira Liga Nacional,Atl. Rafaela,Patronato,2.10,2.50,3.10,,,,,0,0,0,0
 2026-11-02 18:00:00.000,ARGENTINA,Primeira Liga Nacional,Chacarita Juniors,Nueva Chicago,2.10,2.85,2.70,,,,,2,0,2,0
 2026-11-02 18:00:00.000,DINAMARCA,Superliga,Sonderjyske,FC Copenhagen,5.50,4.20,1.38,,,,,0,2,0,2
 2026-11-02 18:00:00.000,SUÉCIA,Allsvenskan,GAIS,AIK Stockholm,1.75,3.50,3.75,,,,,2,1,2,1
 2026-11-02 18:00:00.000,SUÉCIA,Allsvenskan,Mjallby,Kalmar,2.30,3.10,2.70,,,,,0,0,0,0
-2026-11-02 18:00:00.000,ISRAEL,Liga ha'Al,Hap. Ramat Gan,M. Tel Aviv,7.25,5.25,1.23,,,,,,,,
+2026-11-02 18:00:00.000,ISRAEL,Liga ha'Al,Hap. Ramat Gan,M. Tel Aviv,7.25,5.25,1.23,,,,,0,5,0,5
 2026-11-02 18:15:00.000,PERU,Liga 1 - Encerramento,Cajamarca,Deportivo Garcilaso,2.45,2.95,2.20,,,,,2,3,2,3
-2026-11-02 18:30:00.000,ROMÉNIA,Superliga,U. Cluj,FCSB,2.35,3.25,2.35,,,,,,,,
+2026-11-02 18:30:00.000,ROMÉNIA,Superliga,U. Cluj,FCSB,2.35,3.25,2.35,,,,,1,0,1,0
 2026-11-02 19:00:00.000,PAÍSES BAIXOS,Primeira Divisão,Heracles,Oss,1.17,6.25,8.50,,,,,2,0,2,0
 2026-11-02 19:00:00.000,PAÍSES BAIXOS,Primeira Divisão,Jong Ajax,Vitesse,2.75,3.50,1.95,,,,,1,1,1,1
 2026-11-02 19:00:00.000,PAÍSES BAIXOS,Primeira Divisão,Jong PSV,Breda,4.10,4.00,1.51,,,,,0,2,0,2
@@ -145778,15 +145778,15 @@ date_time,COUNTRY,LEAGUE,TEAM_HOME,TEAM_AWAY,odd_ft_1,odd_ft_x,odd_ft_2,score_fh
 2026-11-02 20:15:00.000,PORTUGAL,Liga Portugal Betclic,Benfica,Alverca,1.19,6.75,11.50,,,,,1,0,1,0
 2026-11-02 20:15:00.000,PORTUGAL,Liga Portugal Betclic,Gil Vicente,Vitória SC,2.60,3.10,2.60,,,,,0,0,0,0
 2026-11-02 20:30:00.000,PERU,Liga 1 - Encerramento,Sporting Cristal,FC Cajamarca,1.19,5.00,8.00,,,,,5,0,5,0
-2026-11-02 21:00:00.000,CHILE,Liga de Primera,Limache,A. Italiano,2.00,3.30,2.75,,,,,,,,
+2026-11-02 21:00:00.000,CHILE,Liga de Primera,Limache,A. Italiano,2.00,3.30,2.75,,,,,2,0,2,0
 2026-11-02 21:05:00.000,COLÔMBIA,Primeira A - Encerramento,Aguilas,Fortaleza,1.77,3.10,3.60,,,,,1,0,1,0
 2026-11-02 22:00:00.000,ARGENTINA,Liga Profesional - Encerramento,Platense,Central Cordoba,1.68,3.10,4.33,,,,,2,0,2,0
-2026-11-02 22:00:00.000,CHILE,Taça Chile - Playoffs,Colo Colo,D. Puerto Montt,1.44,3.80,5.00,,,,,,,,
+2026-11-02 22:00:00.000,CHILE,Taça Chile - Playoffs,Colo Colo,D. Puerto Montt,1.44,3.80,5.00,,,,,3,0,3,0
 2026-11-02 22:00:00.000,ARGENTINA,Liga Profesional - Encerramento,Defensa y Justicia,Independiente,2.10,2.90,2.95,,,,,1,1,1,1
-2026-11-02 23:30:00.000,CHILE,Liga de Primera,Dep. Concepcion,Palestino,2.40,3.10,2.37,,,,,,,,
-2026-11-03 00:15:00.000,ARGENTINA,Liga Profesional - Encerramento,Atl. Tucuman,Argentinos Jrs,2.85,2.75,2.25,,,,,,,,
-2026-11-03 00:15:00.000,ARGENTINA,Liga Profesional - Encerramento,Ind. Rivadavia,Banfield,1.44,3.80,5.25,,,,,,,,
-2026-11-03 01:15:00.000,COLÔMBIA,Primeira A - Encerramento,Bucaramanga,Atl. Nacional,2.55,3.10,2.25,,,,,,,,
+2026-11-02 23:30:00.000,CHILE,Liga de Primera,Dep. Concepcion,Palestino,2.40,3.10,2.37,,,,,1,0,1,0
+2026-11-03 00:15:00.000,ARGENTINA,Liga Profesional - Encerramento,Atl. Tucuman,Argentinos Jrs,2.85,2.75,2.25,,,,,1,2,1,2
+2026-11-03 00:15:00.000,ARGENTINA,Liga Profesional - Encerramento,Ind. Rivadavia,Banfield,1.44,3.80,5.25,,,,,3,1,3,1
+2026-11-03 01:15:00.000,COLÔMBIA,Primeira A - Encerramento,Bucaramanga,Atl. Nacional,2.55,3.10,2.25,,,,,1,1,1,1
 2026-11-03 04:55:00.000,JAPÃO,Liga J2,Toyama,Vegalta Sendai,2.45,3.25,2.25,,,,,1,0,1,0
 2026-11-03 05:00:00.000,JAPÃO,Liga J2,Fujieda MYFC,Iwata,2.70,2.90,2.25,,,,,1,2,1,2
 2026-11-03 05:00:00.000,JAPÃO,Liga J2,Kofu,Albirex Niigata,2.75,2.95,2.20,,,,,0,1,0,1
@@ -145816,7 +145816,7 @@ date_time,COUNTRY,LEAGUE,TEAM_HOME,TEAM_AWAY,odd_ft_1,odd_ft_x,odd_ft_2,score_fh
 2026-11-03 20:00:00.000,EUROPA,Liga dos Campeões - Fase de liga,Bodo/Glimt,Lille,1.85,3.80,3.50,,,,,0,0,0,0
 2026-11-03 20:00:00.000,EUROPA,Liga dos Campeões - Fase de liga,Manchester Utd,AS Roma,2.30,3.60,2.65,,,,,3,2,3,2
 2026-11-03 20:00:00.000,EUROPA,Liga dos Campeões - Fase de liga,Villarreal,PSG,4.50,4.20,1.60,,,,,0,6,0,6
-2026-11-03 20:00:00.000,EUROPA,Liga dos Campeões - Fase de liga,Atl. Madrid,Bayern,3.10,3.90,1.95,,,,,,,,
+2026-11-03 20:00:00.000,EUROPA,Liga dos Campeões - Fase de liga,Atl. Madrid,Bayern,3.10,3.90,1.95,,,,,0,2,0,2
 2026-11-03 20:00:00.000,INGLATERRA,Championship,Birmingham,Millwall,1.87,3.30,3.10,,,,,3,0,3,0
 2026-11-03 20:00:00.000,INGLATERRA,Championship,West Brom,Southampton,2.30,3.30,2.37,,,,,1,1,1,1
 2026-11-03 20:00:00.000,PERU,Liga 1 - Encerramento,Comerciantes Unidos,AD Tarma,1.68,3.10,3.70,,,,,2,2,2,2
@@ -145935,194 +145935,194 @@ date_time,COUNTRY,LEAGUE,TEAM_HOME,TEAM_AWAY,odd_ft_1,odd_ft_x,odd_ft_2,score_fh
 2026-11-15 00:00:00.000,MÉXICO,Liga MX - Abertura,Queretaro,Monterrey,2.95,3.40,1.90,,,,,,,,
 2026-11-24 20:45:00.000,INGLATERRA,Liga 1,Bradford City,Barnsley,1.68,3.40,3.75,,,,,,,,
 2026-12-07 14:40:00.000,ARÁBIA SAUDITA,Primeira Liga,Abha,Al-Kholood,2.60,3.10,2.20,,,,,,,,
-2026-11-01T13:00,,,1.FC Nurnberg F,Eintracht Frankfurt F,6.5,5,1.28,,,,,,,,
-2026-11-01T13:00,,,Freiburg F,Jena F,1.19,5.5,9.25,,,,,4,0,4,0
-2026-11-01T13:00,,,Mainz F,Bremen F,5.5,4.33,1.37,,,,,0,2,0,2
-2026-11-01T14:00,,,Bayern F,Leverkusen F,1.22,6,6.75,,,,,1,0,1,0
-2026-11-01T15:00,,,Al Muharraq,Sitra,1.33,4.2,6.5,,,,,4,0,4,0
-2026-11-01T14:00,,,Zhodino,Belshina,1.68,3.25,3.9,,,,,3,0,3,0
-2026-11-01T14:00,,,Sloga Meridian,Velez Mostar,2.15,2.85,2.9,,,,,0,1,0,1
-2026-11-01T18:00,,,Ipojuca,Ibis Sport Club,2.1,2.9,2.95,,,,,0,1,0,1
-2026-11-01T19:00,,,Salgueiro,Facilnet,3.4,3.1,1.85,,,,,2,3,2,3
-2026-11-01T21:00,,,Supra du Quebec,Cavalry,2.45,3.2,2.3,,,,,2,1,2,1
-2026-11-01T21:05,,,Dep. Cali,Chico,1.23,5,8.25,,,,,,,,
-2026-11-01T17:00,,,Cartagines,San Carlos,1.55,3.5,4.5,,,,,3,0,3,0
-2026-11-01T15:30,,,CD Coria,Arenas Getxo,1.78,3.25,3.5,,,,,0,1,0,1
-2026-11-01T15:30,,,UD Ourense,Cultural Leonesa,3.6,3.1,1.8,,,,,1,0,1,0
-2026-11-01T15:00,,,Torremolinos,Aguilas FC,2.8,2.95,2.2,,,,,0,0,0,0
-2026-11-01T19:30,,,Hercules,Rayo Majadahonda,1.88,2.9,3.5,,,,,2,0,2,0
-2026-11-01T11:00,,,Alaves F,Real Sociedad F,4.6,3.7,1.51,,,,,1,1,1,1
-2026-11-01T18:00,,,Sevilla F,Real Madrid F,5.75,4.33,1.36,,,,,1,3,1,3
-2026-11-01T19:00,,,Lexington,Colorado Springs,1.82,3.2,3.4,,,,,1,1,1,1
-2026-11-01T22:00,,,Chattanooga,Columbus Crew 2,1.57,3.8,4.6,,,,,3,2,3,2
-2026-11-01T22:00,,,Angel City F,Boston Legacy F,1.7,3.7,3.8,,,,,4,1,4,1
-2026-11-01T22:00,,,Bay FC F,San Diego Wave F,4.2,3.7,1.65,,,,,0,1,0,1
-2026-11-01T22:00,,,Gotham F,Utah Royals F,1.47,3.9,5.5,,,,,2,0,2,0
-2026-11-01T22:00,,,Houston Dash F,Portland Thorns F,3.2,3.4,1.93,,,,,0,2,0,2
-2026-11-01T22:00,,,North Carolina Courage F,Denver Summit F,2.45,3.4,2.35,,,,,1,0,1,0
-2026-11-01T22:00,,,Racing Louisville F,Kansas City Current F,4.6,4.33,1.49,,,,,0,2,0,2
-2026-11-01T22:00,,,Seattle Reign F,Orlando Pride F,1.57,3.75,4.75,,,,,1,0,1,0
-2026-11-01T22:00,,,Washington F,Chicago F,1.1,8.25,16,,,,,2,0,2,0
-2026-11-01T13:30,,,Paris FC F,PSG F,2.5,3.1,2.25,,,,,1,1,1,1
-2026-11-01T13:00,,,Gagra,Rustavi,3.7,3.1,1.77,,,,,2,2,2,2
-2026-11-01T15:00,,,Dinamo Batumi,Meshakhte Tkibuli,1.18,5.5,9.5,,,,,1,0,1,0
+2026-11-01T13:00,ALEMANHA,Taça da Alemanha - Feminina,1.FC Nurnberg F,Eintracht Frankfurt F,6.5,5,1.28,,,,,0,0,0,0
+2026-11-01T13:00,ALEMANHA,Taça da Alemanha - Feminina,Freiburg F,Jena F,1.19,5.5,9.25,,,,,4,0,4,0
+2026-11-01T13:00,ALEMANHA,Taça da Alemanha - Feminina,Mainz F,Bremen F,5.5,4.33,1.37,,,,,0,2,0,2
+2026-11-01T14:00,ALEMANHA,Taça da Alemanha - Feminina,Bayern F,Leverkusen F,1.22,6,6.75,,,,,1,0,1,0
+2026-11-01T15:00,BAHRAIN,Primeira Liga,Al Muharraq,Sitra,1.33,4.2,6.5,,,,,4,0,4,0
+2026-11-01T14:00,BIELORRÚSSIA,Liga Superior,Zhodino,Belshina,1.68,3.25,3.9,,,,,3,0,3,0
+2026-11-01T14:00,BÓSNIA E HERZEGOVINA,WWIN Liga BiH,Sloga Meridian,Velez Mostar,2.15,2.85,2.9,,,,,0,1,0,1
+2026-11-01T18:00,BRASIL,Pernambucano - Primeiro nível,Ipojuca,Ibis Sport Club,2.1,2.9,2.95,,,,,0,1,0,1
+2026-11-01T19:00,BRASIL,Pernambucano - Primeiro nível,Salgueiro,Facilnet,3.4,3.1,1.85,,,,,2,3,2,3
+2026-11-01T21:00,CANADÁ,Primeira Liga - Playoffs,Supra du Quebec,Cavalry,2.45,3.2,2.3,,,,,2,1,2,1
+2026-11-01T21:05,COLÔMBIA,Primeira A - Encerramento,Dep. Cali,Chico,1.23,5,8.25,,,,,2,0,2,0
+2026-11-01T17:00,COSTA RICA,Primeira Divisão - Abertura,Cartagines,San Carlos,1.55,3.5,4.5,,,,,3,0,3,0
+2026-11-01T15:30,ESPANHA,Primeira RFEF - Grupo 1,CD Coria,Arenas Getxo,1.78,3.25,3.5,,,,,0,1,0,1
+2026-11-01T15:30,ESPANHA,Primeira RFEF - Grupo 1,UD Ourense,Cultural Leonesa,3.6,3.1,1.8,,,,,1,0,1,0
+2026-11-01T15:00,ESPANHA,Primeira RFEF - Grupo 2,Torremolinos,Aguilas FC,2.8,2.95,2.2,,,,,0,0,0,0
+2026-11-01T19:30,ESPANHA,Primeira RFEF - Grupo 2,Hercules,Rayo Majadahonda,1.88,2.9,3.5,,,,,2,0,2,0
+2026-11-01T11:00,ESPANHA,Primeira Liga Feminina,Alaves F,Real Sociedad F,4.6,3.7,1.51,,,,,1,1,1,1
+2026-11-01T18:00,ESPANHA,Primeira Liga Feminina,Sevilla F,Real Madrid F,5.75,4.33,1.36,,,,,1,3,1,3
+2026-11-01T19:00,EUA,Campeonato USL - Playoffs,Lexington,Colorado Springs,1.82,3.2,3.4,,,,,1,1,1,1
+2026-11-01T22:00,EUA,MLS Next Pro - Playoffs,Chattanooga,Columbus Crew 2,1.57,3.8,4.6,,,,,3,2,3,2
+2026-11-01T22:00,EUA,NWSL Feminino,Angel City F,Boston Legacy F,1.7,3.7,3.8,,,,,4,1,4,1
+2026-11-01T22:00,EUA,NWSL Feminino,Bay FC F,San Diego Wave F,4.2,3.7,1.65,,,,,0,1,0,1
+2026-11-01T22:00,EUA,NWSL Feminino,Gotham F,Utah Royals F,1.47,3.9,5.5,,,,,2,0,2,0
+2026-11-01T22:00,EUA,NWSL Feminino,Houston Dash F,Portland Thorns F,3.2,3.4,1.93,,,,,0,2,0,2
+2026-11-01T22:00,EUA,NWSL Feminino,North Carolina Courage F,Denver Summit F,2.45,3.4,2.35,,,,,1,0,1,0
+2026-11-01T22:00,EUA,NWSL Feminino,Racing Louisville F,Kansas City Current F,4.6,4.33,1.49,,,,,0,2,0,2
+2026-11-01T22:00,EUA,NWSL Feminino,Seattle Reign F,Orlando Pride F,1.57,3.75,4.75,,,,,1,0,1,0
+2026-11-01T22:00,EUA,NWSL Feminino,Washington F,Chicago F,1.1,8.25,16,,,,,2,0,2,0
+2026-11-01T13:30,FRANÇA,Primeira Liga Feminina,Paris FC F,PSG F,2.5,3.1,2.25,,,,,1,1,1,1
+2026-11-01T13:00,GEÓRGIA,Primeira Liga,Gagra,Rustavi,3.7,3.1,1.77,,,,,2,2,2,2
+2026-11-01T15:00,GEÓRGIA,Primeira Liga,Dinamo Batumi,Meshakhte Tkibuli,1.18,5.5,9.5,,,,,1,0,1,0
 2026-11-02T00:00,,,Guastatoya,Coban Imperial,1.55,3.3,4.8,,,,,,,,
-2026-11-01T12:00,,,Szentlorinc,Kazincbarcika,2.65,3.1,2.2,,,,,0,3,0,3
-2026-11-01T16:00,,,Soroksar,Kozarmisleny,1.7,3.3,3.7,,,,,0,1,0,1
-2026-11-01T15:00,,,Bray,UC Dublin,2.05,3.3,2.7,,,,,1,3,1,3
-2026-11-01T11:30,,,Inter F,Lazio F,1.29,4.6,6.75,,,,,3,0,3,0
-2026-11-01T14:00,,,AS Roma F,Napoli F,1.21,5.75,7.5,,,,,2,1,2,1
-2026-11-01T17:00,,,Como F,AC Milan F,3.25,3.3,1.83,,,,,1,0,1,0
-2026-11-01T20:00,,,Montego Bay,Portmore,2.2,3,2.7,,,,,2,2,2,2
-2026-11-01T20:00,,,Tivoli,Arnett Gardens,2.8,3.4,1.98,,,,,1,1,1,1
-2026-11-01T20:00,,,Tru-Juice,Chapelton,1.72,3.3,3.6,,,,,1,0,1,0
-2026-11-01T04:00,,,Albirex Niigata F,Urawa F,4.4,3.5,1.65,,,,,0,2,0,2
-2026-11-01T05:00,,,Hiroshima F,Mynavi Sendai F,1.43,3.9,6.25,,,,,1,2,1,2
-2026-11-01T18:00,,,COD Meknes,FAR Rabat,3.4,2.9,1.9,,,,,0,0,0,0
-2026-10-31T23:45,,,Tijuana F,Cruz Azul F,2.75,3.4,2,,,,,1,3,1,3
-2026-11-01T18:00,,,Puebla F,Juarez F,13.5,7.75,1.1,,,,,1,2,1,2
-2026-11-01T16:00,,,Mornar,Petrovac,1.95,2.95,3.25,,,,,0,0,0,0
-2026-11-01T22:00,,,Ferretti,San Marcos,1.3,4.5,6.5,,,,,1,2,1,2
-2026-11-01T13:30,,,Ranheim,Sogndal,1.83,3.75,2.9,,,,,2,1,2,1
-2026-11-01T13:30,,,Rosenborg F,RØA F,1.15,6.75,9.5,,,,,6,0,6,0
-2026-11-01T11:15,,,Ajax F,Twente F,2.85,3.3,1.98,,,,,2,0,2,0
-2026-11-01T15:45,,,Alkmaar F,PEC Zwolle F,2.8,3.2,2.05,,,,,0,2,0,2
-2026-11-01T15:45,,,Den Haag F,Feyenoord F,4,3.8,1.57,,,,,0,1,0,1
-2026-11-01T15:45,,,Utrecht F,Graafschap F,2.6,3.25,2.15,,,,,1,2,1,2
-2026-11-01T23:15,,,Independiente,San Francisco,2.6,2.95,2.3,,,,,3,1,3,1
-2026-11-01T15:00,,,Lusitano Évora,Vitória Sernache,1.7,3.2,4,,,,,0,1,0,1
-2026-11-01T15:00,,,SC Covilhã,Caldas,2.3,2.95,2.6,,,,,0,1,0,1
-2026-11-01T15:00,,,Vitória SC B,SC Vianense,1.68,3.4,3.8,,,,,2,2,2,2
-2026-11-01T20:00,,,Paredes,S. João Ver,1.38,4,5.75,,,,,,,,
-2026-11-01T15:00,,,Braga B,Vila Meã,1.55,3.3,5,,,,,2,2,2,2
-2026-11-01T15:00,,,Brito SC,Limianos,2.95,2.8,2.15,,,,,2,4,2,4
-2026-11-01T15:00,,,CDC Montalegre,Maria da Fonte,1.77,2.95,3.9,,,,,2,0,2,0
-2026-11-01T15:00,,,Celoricense,Rebordosa,2.7,2.8,2.3,,,,,0,0,0,0
-2026-11-01T15:00,,,GD Bragança,Tirsense,2.3,3,2.55,,,,,0,1,0,1
-2026-11-01T15:00,,,Maia Lidador,Chaves B,2.4,2.95,2.45,,,,,1,0,1,0
-2026-11-01T15:00,,,Ponte da Barca,Vinhais,1.55,3.4,4.8,,,,,2,1,2,1
-2026-11-01T15:00,,,Castro Daire,Florgrade,2.35,2.8,2.65,,,,,1,1,1,1
-2026-11-01T15:00,,,Cinfaes,Guarda FC,1.7,3.1,4.1,,,,,0,1,0,1
-2026-11-01T15:00,,,Estrela Calheta,Beira Mar,4.2,3.25,1.63,,,,,1,1,1,1
-2026-11-01T15:00,,,Machico,Camacha,2.1,2.8,3.1,,,,,0,0,0,0
-2026-11-01T15:00,,,Ovarense,FC Alpendorada,1.47,3.5,5.5,,,,,2,1,2,1
-2026-11-01T15:00,,,Malveira,SB Castelo Branco,1.95,2.95,3.25,,,,,2,2,2,2
-2026-11-01T15:00,,,Mortágua FC,Alverca B,2.2,2.85,2.85,,,,,0,0,0,0
-2026-11-01T15:00,,,Nazarenos,Sertanense,3.1,3.1,1.93,,,,,0,0,0,0
-2026-11-01T15:00,,,Oliveira Hospital,AD Nogueirense,1.55,3.4,4.8,,,,,3,3,3,3
-2026-11-01T15:00,,,Amora,GD Alcochetense,2.1,2.87,3,,,,,1,2,1,2
-2026-11-01T16:00,,,Santa Clara B,Aljustrelense,1.47,3.3,5.75,,,,,3,0,3,0
-2026-11-01T13:00,,,IMT Novi Beograd,Cukaricki,1.8,3.2,3.5,,,,,0,0,0,0
-2026-11-01T14:00,,,OFK Beograd,Vojvodina,3.3,3.25,1.85,,,,,0,2,0,2
-2026-11-01T15:00,,,Radnicki 1923,Novi Pazar,1.93,3.1,3.2,,,,,2,0,2,0
-2026-11-01T12:00,,,Proleter 023,Loznica,1.88,3.1,3.3,,,,,1,0,1,0
-2026-11-01T12:00,,,Vrsac,TSC,4,3.25,1.68,,,,,2,1,2,1
-2026-11-01T15:00,,,Borac 1926,Smederevo,1.88,3.1,3.25,,,,,2,0,2,0
-2026-11-01T10:30,,,Taiwan Steel,Taichung,1.8,3.2,3.5,,,,,3,0,3,0
+2026-11-01T12:00,HUNGRIA,NB II.,Szentlorinc,Kazincbarcika,2.65,3.1,2.2,,,,,0,3,0,3
+2026-11-01T16:00,HUNGRIA,NB II.,Soroksar,Kozarmisleny,1.7,3.3,3.7,,,,,0,1,0,1
+2026-11-01T15:00,IRLANDA,Divisão 1 - Playoffs,Bray,UC Dublin,2.05,3.3,2.7,,,,,1,3,1,3
+2026-11-01T11:30,ITÁLIA,Série A Feminina,Inter F,Lazio F,1.29,4.6,6.75,,,,,3,0,3,0
+2026-11-01T14:00,ITÁLIA,Série A Feminina,AS Roma F,Napoli F,1.21,5.75,7.5,,,,,2,1,2,1
+2026-11-01T17:00,ITÁLIA,Série A Feminina,Como F,AC Milan F,3.25,3.3,1.83,,,,,1,0,1,0
+2026-11-01T20:00,JAMAICA,Primeira Liga,Montego Bay,Portmore,2.2,3,2.7,,,,,2,2,2,2
+2026-11-01T20:00,JAMAICA,Primeira Liga,Tivoli,Arnett Gardens,2.8,3.4,1.98,,,,,1,1,1,1
+2026-11-01T20:00,JAMAICA,Primeira Liga,Tru-Juice,Chapelton,1.72,3.3,3.6,,,,,1,0,1,0
+2026-11-01T04:00,JAPÃO,Liga Feminina WE,Albirex Niigata F,Urawa F,4.4,3.5,1.65,,,,,0,2,0,2
+2026-11-01T05:00,JAPÃO,Liga Feminina WE,Hiroshima F,Mynavi Sendai F,1.43,3.9,6.25,,,,,1,2,1,2
+2026-11-01T18:00,MARROCOS,Botola Pro,COD Meknes,FAR Rabat,3.4,2.9,1.9,,,,,0,0,0,0
+2026-10-31T23:45,MÉXICO,Liga MX Feminina - Abertura,Tijuana F,Cruz Azul F,2.75,3.4,2,,,,,1,3,1,3
+2026-11-01T18:00,MÉXICO,Liga MX Feminina - Abertura,Puebla F,Juarez F,13.5,7.75,1.1,,,,,1,2,1,2
+2026-11-01T16:00,MONTENEGRO,Primeira Liga,Mornar,Petrovac,1.95,2.95,3.25,,,,,0,0,0,0
+2026-11-01T22:00,NICARÁGUA,Primeira Liga - Abertura,Ferretti,San Marcos,1.3,4.5,6.5,,,,,1,2,1,2
+2026-11-01T13:30,NORUEGA,Segunda Liga,Ranheim,Sogndal,1.83,3.75,2.9,,,,,2,1,2,1
+2026-11-01T13:30,NORUEGA,Primeira Liga - Feminina,Rosenborg F,RØA F,1.15,6.75,9.5,,,,,6,0,6,0
+2026-11-01T11:15,PAÍSES BAIXOS,Eredivisie Feminina,Ajax F,Twente F,2.85,3.3,1.98,,,,,2,0,2,0
+2026-11-01T15:45,PAÍSES BAIXOS,Eredivisie Feminina,Alkmaar F,PEC Zwolle F,2.8,3.2,2.05,,,,,0,2,0,2
+2026-11-01T15:45,PAÍSES BAIXOS,Eredivisie Feminina,Den Haag F,Feyenoord F,4,3.8,1.57,,,,,0,1,0,1
+2026-11-01T15:45,PAÍSES BAIXOS,Eredivisie Feminina,Utrecht F,Graafschap F,2.6,3.25,2.15,,,,,1,2,1,2
+2026-11-01T23:15,PANAMÁ,Primeira Liga - Abertura,Independiente,San Francisco,2.6,2.95,2.3,,,,,3,1,3,1
+2026-11-01T15:00,PORTUGAL,Liga 3,Lusitano Évora,Vitória Sernache,1.7,3.2,4,,,,,0,1,0,1
+2026-11-01T15:00,PORTUGAL,Liga 3,SC Covilhã,Caldas,2.3,2.95,2.6,,,,,0,1,0,1
+2026-11-01T15:00,PORTUGAL,Liga 3,Vitória SC B,SC Vianense,1.68,3.4,3.8,,,,,2,2,2,2
+2026-11-01T20:00,PORTUGAL,Liga 3,Paredes,S. João Ver,1.38,4,5.75,,,,,2,1,2,1
+2026-11-01T15:00,PORTUGAL,Campeonato de Portugal - Série A,Braga B,Vila Meã,1.55,3.3,5,,,,,2,2,2,2
+2026-11-01T15:00,PORTUGAL,Campeonato de Portugal - Série A,Brito SC,Limianos,2.95,2.8,2.15,,,,,2,4,2,4
+2026-11-01T15:00,PORTUGAL,Campeonato de Portugal - Série A,CDC Montalegre,Maria da Fonte,1.77,2.95,3.9,,,,,2,0,2,0
+2026-11-01T15:00,PORTUGAL,Campeonato de Portugal - Série A,Celoricense,Rebordosa,2.7,2.8,2.3,,,,,0,0,0,0
+2026-11-01T15:00,PORTUGAL,Campeonato de Portugal - Série A,GD Bragança,Tirsense,2.3,3,2.55,,,,,0,1,0,1
+2026-11-01T15:00,PORTUGAL,Campeonato de Portugal - Série A,Maia Lidador,Chaves B,2.4,2.95,2.45,,,,,1,0,1,0
+2026-11-01T15:00,PORTUGAL,Campeonato de Portugal - Série A,Ponte da Barca,Vinhais,1.55,3.4,4.8,,,,,2,1,2,1
+2026-11-01T15:00,PORTUGAL,Campeonato de Portugal - Série B,Castro Daire,Florgrade,2.35,2.8,2.65,,,,,1,1,1,1
+2026-11-01T15:00,PORTUGAL,Campeonato de Portugal - Série B,Cinfaes,Guarda FC,1.7,3.1,4.1,,,,,0,1,0,1
+2026-11-01T15:00,PORTUGAL,Campeonato de Portugal - Série B,Estrela Calheta,Beira Mar,4.2,3.25,1.63,,,,,1,1,1,1
+2026-11-01T15:00,PORTUGAL,Campeonato de Portugal - Série B,Machico,Camacha,2.1,2.8,3.1,,,,,0,0,0,0
+2026-11-01T15:00,PORTUGAL,Campeonato de Portugal - Série B,Ovarense,FC Alpendorada,1.47,3.5,5.5,,,,,2,1,2,1
+2026-11-01T15:00,PORTUGAL,Campeonato de Portugal - Série C,Malveira,SB Castelo Branco,1.95,2.95,3.25,,,,,2,2,2,2
+2026-11-01T15:00,PORTUGAL,Campeonato de Portugal - Série C,Mortágua FC,Alverca B,2.2,2.85,2.85,,,,,0,0,0,0
+2026-11-01T15:00,PORTUGAL,Campeonato de Portugal - Série C,Nazarenos,Sertanense,3.1,3.1,1.93,,,,,0,0,0,0
+2026-11-01T15:00,PORTUGAL,Campeonato de Portugal - Série C,Oliveira Hospital,AD Nogueirense,1.55,3.4,4.8,,,,,3,3,3,3
+2026-11-01T15:00,PORTUGAL,Campeonato de Portugal - Série D,Amora,GD Alcochetense,2.1,2.87,3,,,,,1,2,1,2
+2026-11-01T16:00,PORTUGAL,Campeonato de Portugal - Série D,Santa Clara B,Aljustrelense,1.47,3.3,5.75,,,,,3,0,3,0
+2026-11-01T13:00,SÉRVIA,Superliga,IMT Novi Beograd,Cukaricki,1.8,3.2,3.5,,,,,0,0,0,0
+2026-11-01T14:00,SÉRVIA,Superliga,OFK Beograd,Vojvodina,3.3,3.25,1.85,,,,,0,2,0,2
+2026-11-01T15:00,SÉRVIA,Superliga,Radnicki 1923,Novi Pazar,1.93,3.1,3.2,,,,,2,0,2,0
+2026-11-01T12:00,SÉRVIA,Segunda Liga,Proleter 023,Loznica,1.88,3.1,3.3,,,,,1,0,1,0
+2026-11-01T12:00,SÉRVIA,Segunda Liga,Vrsac,TSC,4,3.25,1.68,,,,,2,1,2,1
+2026-11-01T15:00,SÉRVIA,Segunda Liga,Borac 1926,Smederevo,1.88,3.1,3.25,,,,,2,0,2,0
+2026-11-01T10:30,TAIWAN,Primeira Liga,Taiwan Steel,Taichung,1.8,3.2,3.5,,,,,3,0,3,0
 2026-11-01T11:00,,,Hang Yuen,Taichung Rock,1.35,4.33,5.75,,,,,,,,
-2026-11-01T13:00,,,Polisi Tanzania,Geita Gold,1.85,2.95,3.6,,,,,1,0,1,0
-2026-11-01T10:00,,,Livyi Bereg,Bukovyna,2.4,3.2,2.3,,,,,0,1,0,1
-2026-11-01T11:00,,,Kolos Kovalivka,Polissya Zhytomyr,5.25,3.4,1.51,,,,,,,,
-2026-11-01T11:00,,,LNZ Cherkasy,FC Kharkiv,3,2.8,2.15,,,,,,,,
-2026-11-01T13:00,,,Oriental,Paysandu FC,1.77,3.25,3.5,,,,,1,1,1,1
-2026-11-01T16:00,,,River Plate,Tacuarembo,1.58,3.5,4.33,,,,,1,1,1,1
-2026-11-01T19:00,,,Colon,Atenas,2.6,2.9,2.35,,,,,1,0,1,0
-2026-11-01T22:00,,,Miramar,Plaza Colonia,2.8,2.9,2.15,,,,,1,1,1,1
-2026-11-01T11:00,,,Lok. Tashkent,OKMK,1.93,3.4,2.9,,,,,,,,
-2026-11-01T11:00,,,Ho Chi Minh,Da Nang,1.75,3.3,3.6,,,,,0,1,0,1
-2026-11-02T18:00,,,Penafiel,Feirense,1.8,3.1,3.6,,,,,1,0,1,0
-2026-11-02T17:00,,,Wolfsburg F,Hoffenheim F,1.16,6.5,9.25,,,,,8,0,8,0
-2026-11-02T16:45,,,Temouchent,Biskra,1.75,2.85,4.33,,,,,1,1,1,1
-2026-11-02T19:00,,,Belouizdad,Saoura,1.27,4.2,9,,,,,1,0,1,0
-2026-11-02T13:45,,,Pakhtakor (Uzb),Al Nassr (Sau),5.25,4.1,1.4,,,,,,,,
-2026-11-02T16:00,,,Al Sadd (Qat),Al Ahli SC (Sau),2.7,3.4,2,,,,,,,,
-2026-11-02T16:00,,,Al Wasl (Uae),Al Quwa Al Jawiya (Irq),1.11,7.25,12,,,,,,,,
-2026-11-02T16:00,,,Tractor (Irn),Neftchi Fargona (Uzb),2.15,2.85,2.87,,,,,,,,
-2026-11-02T18:15,,,Al Gharafa (Qat),Al-Qadisiya (Sau),8,6,1.19,,,,,,,,
-2026-11-02T18:15,,,Al-Ittihad FC (Sau),Al-Ain (Uae),2.15,3.3,2.55,,,,,,,,
-2026-11-02T15:00,,,Umm Al Hassam,Bahrain SC,3.5,3.25,1.77,,,,,1,3,1,3
-2026-11-02T16:00,,,Al Shabbab,Tadamun Buri,1.6,3.4,4.2,,,,,3,1,3,1
-2026-11-02T23:00,,,RB Bragantino,Santos,2,3.7,3.25,,,,,2,1,2,1
-2026-11-02T15:00,,,Cherno More,Botev Vratsa,1.8,2.95,3.8,,,,,1,0,1,0
-2026-11-02T19:00,,,Ind. Valle del Cauca,Boca Juniors,1.58,3.5,4.33,,,,,,,,
-2026-11-02T23:10,,,U. Magdalena,Envigado,1.85,2.95,3.6,,,,,,,,
-2026-11-02T13:00,,,Tenerife,Andorra,2.1,2.8,3.1,,,,,2,2,2,2
-2026-11-02T17:15,,,Jaen,Algeciras,2.1,3,2.87,,,,,3,2,3,2
-2026-11-02T19:30,,,Huesca,Gimnastic,1.68,3.25,4,,,,,2,0,2,0
-2026-11-02T20:00,,,Costa Adeje Tenerife F,Athletic Bilbao F,2.37,2.95,2.5,,,,,2,0,2,0
-2026-11-02T02:00,,,Sacramento Republic,FC Tulsa,1.62,3.1,4.6,,,,,1,0,1,0
-2026-11-02T15:00,,,Torpedo Kutaisi,Dila Gori,2,3.2,2.9,,,,,2,1,2,1
+2026-11-01T13:00,TÂNZANIA,Liga Kuu Bara,Polisi Tanzania,Geita Gold,1.85,2.95,3.6,,,,,1,0,1,0
+2026-11-01T10:00,UCRÂNIA,Primeira Liga,Livyi Bereg,Bukovyna,2.4,3.2,2.3,,,,,0,1,0,1
+2026-11-01T11:00,UCRÂNIA,Primeira Liga,Kolos Kovalivka,Polissya Zhytomyr,5.25,3.4,1.51,,,,,,,,
+2026-11-01T11:00,UCRÂNIA,Primeira Liga,LNZ Cherkasy,FC Kharkiv,3,2.8,2.15,,,,,,,,
+2026-11-01T13:00,URUGUAI,Segunda Divisão,Oriental,Paysandu FC,1.77,3.25,3.5,,,,,1,1,1,1
+2026-11-01T16:00,URUGUAI,Segunda Divisão,River Plate,Tacuarembo,1.58,3.5,4.33,,,,,1,1,1,1
+2026-11-01T19:00,URUGUAI,Segunda Divisão,Colon,Atenas,2.6,2.9,2.35,,,,,1,0,1,0
+2026-11-01T22:00,URUGUAI,Segunda Divisão,Miramar,Plaza Colonia,2.8,2.9,2.15,,,,,1,1,1,1
+2026-11-01T11:00,UZBEQUISTÃO,Superliga,Lok. Tashkent,OKMK,1.93,3.4,2.9,,,,,1,2,1,2
+2026-11-01T11:00,VIETNAME,Liga V,Ho Chi Minh,Da Nang,1.75,3.3,3.6,,,,,0,1,0,1
+2026-11-02T18:00,PORTUGAL,Liga Portugal 2,Penafiel,Feirense,1.8,3.1,3.6,,,,,1,0,1,0
+2026-11-02T17:00,ALEMANHA,Taça da Alemanha - Feminina,Wolfsburg F,Hoffenheim F,1.16,6.5,9.25,,,,,8,0,8,0
+2026-11-02T16:45,ARGÉLIA,Primeira Divisão,Temouchent,Biskra,1.75,2.85,4.33,,,,,1,1,1,1
+2026-11-02T19:00,ARGÉLIA,Primeira Divisão,Belouizdad,Saoura,1.27,4.2,9,,,,,1,0,1,0
+2026-11-02T13:45,ÁSIA,AFC - Liga dos Campeões - Fase de Liga,Pakhtakor (Uzb),Al Nassr (Sau),5.25,4.1,1.4,,,,,2,6,2,6
+2026-11-02T16:00,ÁSIA,AFC - Liga dos Campeões - Fase de Liga,Al Sadd (Qat),Al Ahli SC (Sau),2.7,3.4,2,,,,,0,0,0,0
+2026-11-02T16:00,ÁSIA,AFC - Liga dos Campeões - Fase de Liga,Al Wasl (Uae),Al Quwa Al Jawiya (Irq),1.11,7.25,12,,,,,4,3,4,3
+2026-11-02T16:00,ÁSIA,AFC - Liga dos Campeões - Fase de Liga,Tractor (Irn),Neftchi Fargona (Uzb),2.15,2.85,2.87,,,,,2,2,2,2
+2026-11-02T18:15,ÁSIA,AFC - Liga dos Campeões - Fase de Liga,Al Gharafa (Qat),Al-Qadisiya (Sau),8,6,1.19,,,,,0,5,0,5
+2026-11-02T18:15,ÁSIA,AFC - Liga dos Campeões - Fase de Liga,Al-Ittihad FC (Sau),Al-Ain (Uae),2.15,3.3,2.55,,,,,1,4,1,4
+2026-11-02T15:00,BAHRAIN,Taça do Rei,Umm Al Hassam,Bahrain SC,3.5,3.25,1.77,,,,,1,3,1,3
+2026-11-02T16:00,BAHRAIN,Taça do Rei,Al Shabbab,Tadamun Buri,1.6,3.4,4.2,,,,,3,1,3,1
+2026-11-02T23:00,BRASIL,Série A,RB Bragantino,Santos,2,3.7,3.25,,,,,2,1,2,1
+2026-11-02T15:00,BULGÁRIA,Liga Parva,Cherno More,Botev Vratsa,1.8,2.95,3.8,,,,,1,0,1,0
+2026-11-02T19:00,COLÔMBIA,Primeira B - Encerramento - Quadrangular,Ind. Valle del Cauca,Boca Juniors,1.58,3.5,4.33,,,,,2,4,2,4
+2026-11-02T23:10,COLÔMBIA,Primeira B - Encerramento - Quadrangular,U. Magdalena,Envigado,1.85,2.95,3.6,,,,,1,1,1,1
+2026-11-02T13:00,ESPANHA,LaLiga2,Tenerife,Andorra,2.1,2.8,3.1,,,,,2,2,2,2
+2026-11-02T17:15,ESPANHA,Primeira RFEF - Grupo 2,Jaen,Algeciras,2.1,3,2.87,,,,,3,2,3,2
+2026-11-02T19:30,ESPANHA,Primeira RFEF - Grupo 2,Huesca,Gimnastic,1.68,3.25,4,,,,,2,0,2,0
+2026-11-02T20:00,ESPANHA,Primeira Liga Feminina,Costa Adeje Tenerife F,Athletic Bilbao F,2.37,2.95,2.5,,,,,2,0,2,0
+2026-11-02T02:00,EUA,Campeonato USL - Playoffs,Sacramento Republic,FC Tulsa,1.62,3.1,4.6,,,,,1,0,1,0
+2026-11-02T15:00,GEÓRGIA,Primeira Liga,Torpedo Kutaisi,Dila Gori,2,3.2,2.9,,,,,2,1,2,1
 2026-11-02T02:00,,,Comunicaciones,Deportivo Mixco,1.55,3.6,4.5,,,,,,,,
-2026-11-02T18:30,,,DVTK,Kecskemeti,2.3,3.1,2.45,,,,,1,3,1,3
-2026-11-02T18:30,,,H. Tel Aviv,M. Haifa,1.88,3.4,3,,,,,,,,
-2026-11-02T17:00,,,Ashdod,Bnei Yehuda,2.05,3.2,2.8,,,,,3,1,3,1
-2026-11-02T17:00,,,Hapoel Kfar Shalem,Ironi Modiin,1.53,3.8,4.2,,,,,3,2,3,2
-2026-11-02T17:00,,,H. Raanana,Kiryat Yam,2.45,3.25,2.25,,,,,,,,
-2026-11-02T17:00,,,Maccabi Jaffa,H. Kfar Saba,2.5,3.2,2.2,,,,,,,,
-2026-11-02T19:30,,,Fiorentina F,Juventus F,2.65,3.25,2.1,,,,,1,2,1,2
-2026-11-02T15:45,,,Al Naser,Al-Shabab,1.82,3.2,3.4,,,,,2,2,2,2
+2026-11-02T18:30,HUNGRIA,NB II.,DVTK,Kecskemeti,2.3,3.1,2.45,,,,,1,3,1,3
+2026-11-02T18:30,ISRAEL,Liga ha'Al,H. Tel Aviv,M. Haifa,1.88,3.4,3,,,,,2,1,2,1
+2026-11-02T17:00,ISRAEL,Liga Leumit,Ashdod,Bnei Yehuda,2.05,3.2,2.8,,,,,3,1,3,1
+2026-11-02T17:00,ISRAEL,Liga Leumit,Hapoel Kfar Shalem,Ironi Modiin,1.53,3.8,4.2,,,,,3,2,3,2
+2026-11-02T17:00,ISRAEL,Liga Leumit,H. Raanana,Kiryat Yam,2.45,3.25,2.25,,,,,3,2,3,2
+2026-11-02T17:00,ISRAEL,Liga Leumit,Maccabi Jaffa,H. Kfar Saba,2.5,3.2,2.2,,,,,0,3,0,3
+2026-11-02T19:30,ITÁLIA,Série A Feminina,Fiorentina F,Juventus F,2.65,3.25,2.1,,,,,1,2,1,2
+2026-11-02T15:45,KUWAIT,Primeira Liga,Al Naser,Al-Shabab,1.82,3.2,3.4,,,,,2,2,2,2
 2026-11-02T11:00,,,FK Skopje,Sileks,6.25,3.8,1.38,,,,,,,,
 2026-11-02T13:00,,,Bashkimi,Arsimi,2.65,3.3,2.1,,,,,,,,
-2026-11-02T13:00,,,Vardar,Struga,1.77,3.1,3.7,,,,,0,1,0,1
-2026-11-02T13:00,,,Bokelj,Buducnost,2.75,2.75,2.3,,,,,0,1,0,1
-2026-11-02T18:00,,,Kongsvinger,Stabaek,2,3.6,2.55,,,,,1,2,1,2
-2026-11-02T17:00,,,Vålerenga F,Lyn F,1.32,4.8,5.5,,,,,3,0,3,0
-2026-11-02T17:00,,,Radomiak Radom,Slask,1.83,3.25,3.25,,,,,3,1,3,1
-2026-11-02T17:00,,,Zaglebie,Korona,2.45,3,2.4,,,,,1,0,1,0
-2026-11-02T19:30,,,Rakow,Pogon Szczecin,1.83,3.2,3.3,,,,,3,1,3,1
-2026-11-02T17:00,,,Polonia B.,Odra Opole,2.1,3.1,2.8,,,,,,,,
-2026-11-02T19:30,,,LKS Lodz,Polonia W.,2.2,3.1,2.6,,,,,,,,
-2026-11-02T19:30,,,S. Rzeszow,Puszcza,2.25,3.1,2.5,,,,,,,,
-2026-11-02T16:00,,,Leixões U23,Rio Ave U23,2.6,3.4,2.05,,,,,1,4,1,4
-2026-11-02T16:00,,,Ostrava B,Jihlava,2.2,3.3,2.5,,,,,1,3,1,3
-2026-11-02T15:30,,,FC Voluntari,Farul Constanta,3.1,3.1,1.98,,,,,1,2,1,2
-2026-11-02T17:00,,,Mladost,Radnik,2.5,3,2.3,,,,,0,1,0,1
-2026-11-02T17:00,,,Radnicki Nis,Zeleznicar Pancevo,3.4,3.1,1.85,,,,,,,,
-2026-11-02T12:00,,,Bor 1919,Sp. Subotica,3.4,3.1,1.85,,,,,,,,
-2026-11-02T12:00,,,Graficar Beograd,Napredak,2.37,3,2.45,,,,,2,0,2,0
-2026-11-02T12:00,,,Teleoptik,Javor,5,3.9,1.44,,,,,2,3,2,3
-2026-11-02T15:00,,,Dubocica,Vozdovac,2.5,2.9,2.4,,,,,0,0,0,0
-2026-11-02T17:00,,,Metalac,Jedinstvo U.,1.77,3.1,3.7,,,,,,,,
-2026-11-02T18:00,,,Öster,Helsingborg,2.35,3.3,2.35,,,,,3,0,3,0
-2026-11-02T18:05,,,Landskrona,Örebro,1.63,3.6,3.9,,,,,2,1,2,1
-2026-11-02T17:00,,,Hacken F,Kristianstad F,1.16,6.5,9,,,,,4,1,4,1
-2026-11-02T17:00,,,Malmo FF F,Norrkoping F,1.24,5,7.5,,,,,1,1,1,1
-2026-11-02T12:00,,,Chonburi,Pathum United,2.25,3.2,2.5,,,,,1,0,1,0
-2026-11-02T11:00,,,TRA United,Fountain Gate,1.51,3.4,5.25,,,,,3,2,3,2
-2026-11-02T13:15,,,Mashujaa,Pamba,1.73,3,4,,,,,1,0,1,0
-2026-11-02T16:00,,,Simba,Namungo,1.09,7.25,18,,,,,3,2,3,2
-2026-11-02T11:00,,,Zorya,Epitsentr,1.77,3.25,3.6,,,,,1,0,1,0
-2026-11-02T23:00,,,Albion,Maldonado,2.75,3,1.98,,,,,0,0,0,0
-2026-11-03T07:45,,,Newcastle Jets (Aus),Shanghai Port (Chn),3.3,3.7,1.71,,,,,,,,
-2026-11-03T10:00,,,Jeonbuk (Kor),Johor DT (Mys),2.75,3.2,2.1,,,,,,,,
-2026-11-03T10:00,,,Kashiwa (Jpn),Daejeon (Kor),1.4,4,5.25,,,,,,,,
-2026-11-03T10:00,,,Kobe (Jpn),Ratchaburi (Tha),1.22,5.25,8.5,,,,,,,,
-2026-11-03T12:15,,,Cong An Ha Noi (Vie),Kyoto (Jpn),2.45,3.2,2.3,,,,,,,,
-2026-11-03T12:15,,,Port MTI FC (Tha),Beijing Guoan (Chn),4,3.6,1.6,,,,,,,,
-2026-11-03T16:00,,,Esteghlal F.C. (Irn),Shamal (Qat),2.37,2.95,2.5,,,,,,,,
-2026-11-03T18:15,,,Al Hilal (Sau),Al-Ahli Dubai (Uae),1.44,4,4.8,,,,,,,,
-2026-11-03T13:45,,,East Bengal (Ind),Al Seeb (Oma),2.05,3.1,2.8,,,,,,,,
-2026-11-03T16:00,,,Al Hussein (Jor),Al Shorta (Irq),1.95,3,3.2,,,,,,,,
-2026-11-03T22:30,,,Chapecoense-SC,Mirassol,3.6,3.5,1.95,,,,,1,2,1,2
-2026-11-04T00:30,,,Internacional,Coritiba,1.55,4.1,5.5,,,,,1,0,1,0
-2026-11-03T16:00,,,AEL Limassol,Iraklis Yerolakkou,1.03,11,29,,,,,2,1,2,1
-2026-11-03T17:00,,,Karmiotissa,Ermis,1.33,4.5,6,,,,,2,0,2,0
-2026-11-03T13:00,,,Mladost Zdralovi,Slaven Belupo,3.7,3.3,1.72,,,,,2,0,2,0
-2026-11-03T16:00,,,Istra 1961,Neretva,1.1,7.5,13,,,,,3,0,3,0
-2026-11-03T17:00,,,Lyngby,Randers,2.3,3.2,2.2,,,,,1,0,1,0
-2026-11-03T20:30,,,Mushuc Runa,Manta,1.58,3.5,4.33,,,,,2,3,2,3
+2026-11-02T13:00,MACEDÓNIA DO NORTE,Primeira Liga,Vardar,Struga,1.77,3.1,3.7,,,,,0,1,0,1
+2026-11-02T13:00,MONTENEGRO,Primeira Liga,Bokelj,Buducnost,2.75,2.75,2.3,,,,,0,1,0,1
+2026-11-02T18:00,NORUEGA,Segunda Liga,Kongsvinger,Stabaek,2,3.6,2.55,,,,,1,2,1,2
+2026-11-02T17:00,NORUEGA,Primeira Liga - Feminina,Vålerenga F,Lyn F,1.32,4.8,5.5,,,,,3,0,3,0
+2026-11-02T17:00,POLÓNIA,Primeira Liga,Radomiak Radom,Slask,1.83,3.25,3.25,,,,,3,1,3,1
+2026-11-02T17:00,POLÓNIA,Primeira Liga,Zaglebie,Korona,2.45,3,2.4,,,,,1,0,1,0
+2026-11-02T19:30,POLÓNIA,Primeira Liga,Rakow,Pogon Szczecin,1.83,3.2,3.3,,,,,3,1,3,1
+2026-11-02T17:00,POLÓNIA,Liga 1,Polonia B.,Odra Opole,2.1,3.1,2.8,,,,,3,0,3,0
+2026-11-02T19:30,POLÓNIA,Liga 1,LKS Lodz,Polonia W.,2.2,3.1,2.6,,,,,1,1,1,1
+2026-11-02T19:30,POLÓNIA,Liga 1,S. Rzeszow,Puszcza,2.25,3.1,2.5,,,,,2,2,2,2
+2026-11-02T16:00,PORTUGAL,Liga Next Gen sub-23,Leixões U23,Rio Ave U23,2.6,3.4,2.05,,,,,1,4,1,4
+2026-11-02T16:00,REPÚBLICA CHECA,Segunda Divisão,Ostrava B,Jihlava,2.2,3.3,2.5,,,,,1,3,1,3
+2026-11-02T15:30,ROMÉNIA,Superliga,FC Voluntari,Farul Constanta,3.1,3.1,1.98,,,,,1,2,1,2
+2026-11-02T17:00,SÉRVIA,Superliga,Mladost,Radnik,2.5,3,2.3,,,,,0,1,0,1
+2026-11-02T17:00,SÉRVIA,Superliga,Radnicki Nis,Zeleznicar Pancevo,3.4,3.1,1.85,,,,,,,,
+2026-11-02T12:00,SÉRVIA,Segunda Liga,Bor 1919,Sp. Subotica,3.4,3.1,1.85,,,,,0,1,0,1
+2026-11-02T12:00,SÉRVIA,Segunda Liga,Graficar Beograd,Napredak,2.37,3,2.45,,,,,2,0,2,0
+2026-11-02T12:00,SÉRVIA,Segunda Liga,Teleoptik,Javor,5,3.9,1.44,,,,,2,3,2,3
+2026-11-02T15:00,SÉRVIA,Segunda Liga,Dubocica,Vozdovac,2.5,2.9,2.4,,,,,0,0,0,0
+2026-11-02T17:00,SÉRVIA,Segunda Liga,Metalac,Jedinstvo U.,1.77,3.1,3.7,,,,,1,3,1,3
+2026-11-02T18:00,SUÉCIA,Superettan,Öster,Helsingborg,2.35,3.3,2.35,,,,,3,0,3,0
+2026-11-02T18:05,SUÉCIA,Superettan,Landskrona,Örebro,1.63,3.6,3.9,,,,,2,1,2,1
+2026-11-02T17:00,SUÉCIA,Allsvenskan - Feminino,Hacken F,Kristianstad F,1.16,6.5,9,,,,,4,1,4,1
+2026-11-02T17:00,SUÉCIA,Allsvenskan - Feminino,Malmo FF F,Norrkoping F,1.24,5,7.5,,,,,1,1,1,1
+2026-11-02T12:00,TAILÂNDIA,Liga 1,Chonburi,Pathum United,2.25,3.2,2.5,,,,,1,0,1,0
+2026-11-02T11:00,TÂNZANIA,Liga Kuu Bara,TRA United,Fountain Gate,1.51,3.4,5.25,,,,,3,2,3,2
+2026-11-02T13:15,TÂNZANIA,Liga Kuu Bara,Mashujaa,Pamba,1.73,3,4,,,,,1,0,1,0
+2026-11-02T16:00,TÂNZANIA,Liga Kuu Bara,Simba,Namungo,1.09,7.25,18,,,,,3,2,3,2
+2026-11-02T11:00,UCRÂNIA,Primeira Liga,Zorya,Epitsentr,1.77,3.25,3.6,,,,,1,0,1,0
+2026-11-02T23:00,URUGUAI,Liga AUF Uruguaia - Encerramento,Albion,Maldonado,2.75,3,1.98,,,,,0,0,0,0
+2026-11-03T07:45,ÁSIA,AFC - Liga dos Campeões - Fase de Liga,Newcastle Jets (Aus),Shanghai Port (Chn),3.3,3.7,1.71,,,,,2,4,2,4
+2026-11-03T10:00,ÁSIA,AFC - Liga dos Campeões - Fase de Liga,Jeonbuk (Kor),Johor DT (Mys),2.75,3.2,2.1,,,,,2,0,2,0
+2026-11-03T10:00,ÁSIA,AFC - Liga dos Campeões - Fase de Liga,Kashiwa (Jpn),Daejeon (Kor),1.4,4,5.25,,,,,2,0,2,0
+2026-11-03T10:00,ÁSIA,AFC - Liga dos Campeões - Fase de Liga,Kobe (Jpn),Ratchaburi (Tha),1.22,5.25,8.5,,,,,3,2,3,2
+2026-11-03T12:15,ÁSIA,AFC - Liga dos Campeões - Fase de Liga,Cong An Ha Noi (Vie),Kyoto (Jpn),2.45,3.2,2.3,,,,,0,0,0,0
+2026-11-03T12:15,ÁSIA,AFC - Liga dos Campeões - Fase de Liga,Port MTI FC (Tha),Beijing Guoan (Chn),4,3.6,1.6,,,,,7,4,7,4
+2026-11-03T16:00,ÁSIA,AFC - Liga dos Campeões - Fase de Liga,Esteghlal F.C. (Irn),Shamal (Qat),2.37,2.95,2.5,,,,,1,0,1,0
+2026-11-03T18:15,ÁSIA,AFC - Liga dos Campeões - Fase de Liga,Al Hilal (Sau),Al-Ahli Dubai (Uae),1.44,4,4.8,,,,,2,0,2,0
+2026-11-03T13:45,ÁSIA,AFC - Liga dos Campeões 2,East Bengal (Ind),Al Seeb (Oma),2.05,3.1,2.8,,,,,0,2,0,2
+2026-11-03T16:00,ÁSIA,AFC - Liga dos Campeões 2,Al Hussein (Jor),Al Shorta (Irq),1.95,3,3.2,,,,,0,3,0,3
+2026-11-03T22:30,BRASIL,Série A,Chapecoense-SC,Mirassol,3.6,3.5,1.95,,,,,1,2,1,2
+2026-11-04T00:30,BRASIL,Série A,Internacional,Coritiba,1.55,4.1,5.5,,,,,1,0,1,0
+2026-11-03T16:00,CHIPRE,Taça,AEL Limassol,Iraklis Yerolakkou,1.03,11,29,,,,,2,1,2,1
+2026-11-03T17:00,CHIPRE,Taça,Karmiotissa,Ermis,1.33,4.5,6,,,,,2,0,2,0
+2026-11-03T13:00,CROÁCIA,Taça,Mladost Zdralovi,Slaven Belupo,3.7,3.3,1.72,,,,,2,0,2,0
+2026-11-03T16:00,CROÁCIA,Taça,Istra 1961,Neretva,1.1,7.5,13,,,,,3,0,3,0
+2026-11-03T17:00,DINAMARCA,Betano Pokalen,Lyngby,Randers,2.3,3.2,2.2,,,,,1,0,1,0
+2026-11-03T20:30,EQUADOR,Liga Pro - Grupo de Despromoção,Mushuc Runa,Manta,1.58,3.5,4.33,,,,,2,3,2,3
 2026-11-03T02:00,,,Suchitepequez,Malacateco,1.77,3.2,3.6,,,,,,,,
 2026-11-03T21:00,,,Xelaju,Marquense,1.39,3.9,5.75,,,,,,,,
-2026-11-03T01:00,,,Waterhouse,Cavalier,2.05,3,2.95,,,,,2,1,2,1
-2026-11-03T01:06,,,Leon F,Atl. San Luis F,1.73,3.4,3.5,,,,,,,,
-2026-11-03T12:00,,,Otrant,Arsenal Tivat,1.61,3.4,4.2,,,,,3,1,3,1
-2026-11-03T16:00,,,Jezero,Decic,2.9,2.87,2.15,,,,,1,0,1,0
-2026-11-03T20:00,,,2 de Mayo,Sportivo Trinidense,2.95,3,2.05,,,,,0,0,0,0
-2026-11-03T22:30,,,Nacional Asuncion,San Lorenzo,1.26,4.75,7.5,,,,,0,2,0,2
-2026-11-03T17:00,,,Chrobry Glogow,Arka,2.55,2.95,2.3,,,,,0,0,0,0
-2026-11-03T17:00,,,Pogon Siedlce,Ruch,4.1,3.4,1.63,,,,,1,1,1,1
-2026-11-03T11:00,,,Estrela da Amadora U23,Santa Clara U23,2.35,3.1,2.4,,,,,5,1,5,1
-2026-11-03T15:00,,,Académico Viseu U23,Torreense U23,1.8,3.4,3.25,,,,,1,2,1,2
-2026-11-03T15:00,,,Gil Vicente U23,FC Felgueiras U23,3.2,3.4,1.83,,,,,4,3,4,3
-2026-11-03T15:00,,,Marítimo U23,Moreirense U23,4.4,3.75,1.51,,,,,1,0,1,0
-2026-11-03T15:00,,,Vizela U23,Portimonense U23,1.65,3.5,3.8,,,,,1,2,1,2
+2026-11-03T01:00,JAMAICA,Primeira Liga,Waterhouse,Cavalier,2.05,3,2.95,,,,,2,1,2,1
+2026-11-03T01:06,MÉXICO,Liga MX Feminina - Abertura,Leon F,Atl. San Luis F,1.73,3.4,3.5,,,,,1,0,1,0
+2026-11-03T12:00,MONTENEGRO,Primeira Liga,Otrant,Arsenal Tivat,1.61,3.4,4.2,,,,,3,1,3,1
+2026-11-03T16:00,MONTENEGRO,Primeira Liga,Jezero,Decic,2.9,2.87,2.15,,,,,1,0,1,0
+2026-11-03T20:00,PARAGUAI,Taça da Primeira - Encerramento,2 de Mayo,Sportivo Trinidense,2.95,3,2.05,,,,,0,0,0,0
+2026-11-03T22:30,PARAGUAI,Taça da Primeira - Encerramento,Nacional Asuncion,San Lorenzo,1.26,4.75,7.5,,,,,0,2,0,2
+2026-11-03T17:00,POLÓNIA,Liga 1,Chrobry Glogow,Arka,2.55,2.95,2.3,,,,,0,0,0,0
+2026-11-03T17:00,POLÓNIA,Liga 1,Pogon Siedlce,Ruch,4.1,3.4,1.63,,,,,1,1,1,1
+2026-11-03T11:00,PORTUGAL,Liga Next Gen sub-23,Estrela da Amadora U23,Santa Clara U23,2.35,3.1,2.4,,,,,5,1,5,1
+2026-11-03T15:00,PORTUGAL,Liga Next Gen sub-23,Académico Viseu U23,Torreense U23,1.8,3.4,3.25,,,,,1,2,1,2
+2026-11-03T15:00,PORTUGAL,Liga Next Gen sub-23,Gil Vicente U23,FC Felgueiras U23,3.2,3.4,1.83,,,,,4,3,4,3
+2026-11-03T15:00,PORTUGAL,Liga Next Gen sub-23,Marítimo U23,Moreirense U23,4.4,3.75,1.51,,,,,1,0,1,0
+2026-11-03T15:00,PORTUGAL,Liga Next Gen sub-23,Vizela U23,Portimonense U23,1.65,3.5,3.8,,,,,1,2,1,2
