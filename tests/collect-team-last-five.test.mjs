@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { selectTeamLastFiveMatchIds } from "../scripts/collect-flashscore-csv.mjs";
+import { selectTeamLastFiveMatchIds, buildTeamLastFiveCompetitionMap } from "../scripts/collect-flashscore-csv.mjs";
 
 test("selects only unique fixtures without complete core statistics", () => {
   const payload = { fixtures: [
@@ -12,4 +12,16 @@ test("selects only unique fixtures without complete core statistics", () => {
   ] };
   assert.deepEqual(selectTeamLastFiveMatchIds(payload), ["EfGh5678", "IjKl9012"]);
   assert.deepEqual(selectTeamLastFiveMatchIds(payload, 1), ["EfGh5678"]);
+});
+
+
+test("recovers country and competition labels from team feed fixture context", () => {
+  const result = buildTeamLastFiveCompetitionMap({ fixtures: [
+    { match_id: "AbCd1234", competition: "AUSTRALIA: A-League" },
+    { match_id: "EfGh5678", competition: "ASIA: AFC Champions League 2" },
+    { match_id: "IjKl9012", competition: null }
+  ] });
+  assert.deepEqual(result.AbCd1234, { status: "identified", country: "AUSTRALIA", competition: "A-League" });
+  assert.deepEqual(result.EfGh5678, { status: "identified", country: "ASIA", competition: "AFC Champions League 2" });
+  assert.equal(result.IjKl9012, undefined);
 });
