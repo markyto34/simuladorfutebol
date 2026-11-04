@@ -541,14 +541,6 @@ export default {
 
     html = new TextDecoder("utf-8").decode(body);
 
-    if (recordOnly) {
-      // Guardar HTML de estatísticas: retries e recolhas repetidas do mesmo jogo
-      // reutilizam a resposta durante 10 minutos sem novo pedido ao Flashscore.
-      ctx.waitUntil(cache.put(cacheKey, new Response(body.slice(0), {
-        headers: { "Content-Type": contentType, "Cache-Control": "public, max-age=" + CACHE_SECONDS }
-      })));
-    }
-
     if (inspectOnly || recordOnly) {
       const fullInspection = inspectHtml(html, matchId, { sourceUrl: target.toString() });
       const record = fullInspection.match_record;
@@ -601,7 +593,7 @@ export default {
             // Falha do pedido secundário não invalida as estatísticas já recolhidas.
           }
         }
-        return json({
+        const recordResponse = json({
           ok: true,
           match_id: matchId,
           upstream_status: upstream.status,
@@ -609,6 +601,9 @@ export default {
           source_url: target.toString(),
           record
         }, 200, headers);
+        // Cachear o JSON já extraído, não o HTML bruto, porque /record devolve JSON.
+        ctx.waitUntil(cache.put(cacheKey, recordResponse.clone()));
+        return recordResponse;
       }
       if (record && (!record.country || !record.competition)) {
         const matchDate = record.date_time_iso_local ? record.date_time_iso_local.slice(0, 10) : null;
