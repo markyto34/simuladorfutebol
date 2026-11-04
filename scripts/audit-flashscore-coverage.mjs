@@ -58,7 +58,8 @@ export function buildFlashscoreCoverage(records) {
     const competition = String(row.competition || "").trim();
     if (!country || !competition) { rowsWithoutIdentity++; continue; }
     rawLabels.add(normalize(country) + "|" + normalize(competition));
-    const canonicalCountryKey = canonicalCountry(country);\n    const canonicalCompetitionKey = canonicalCompetition(country, competition);\n    const key = canonicalCountryKey + "|" + canonicalCompetitionKey;
+    const canonicalCountryKey = canonicalCountry(country);
+    const canonicalCompetitionKey = canonicalCompetition(country, competition);\n    const key = canonicalCountryKey + "|" + canonicalCompetitionKey;
     let item = byCompetition.get(key);
     if (!item) {
       item = { country, competition, match_ids: new Set(), rows: 0, dates: [], metrics: Object.fromEntries(Object.keys(METRICS).map(k => [k, 0])) };
@@ -106,7 +107,8 @@ export function buildFlashscoreCoverage(records) {
     unique_match_ids: totalUniqueMatches,
     duplicate_match_id_rows: duplicateIds,
     rows_without_competition_identity: rowsWithoutIdentity,
-    raw_competition_label_count: rawLabels.size,\n    competition_count: competitions.length,\n    merged_alias_label_count: rawLabels.size - competitions.length,
+    raw_competition_label_count: rawLabels.size,
+    competition_count: competitions.length,\n    merged_alias_label_count: rawLabels.size - competitions.length,
     competitions_with_5_plus_matches: countAtLeast(5),
     competitions_with_10_plus_matches: countAtLeast(10),
     competitions_with_20_plus_matches: countAtLeast(20),
@@ -135,7 +137,8 @@ async function main() {
   console.log(JSON.stringify({
     source_rows: report.source_rows,
     unique_match_ids: report.unique_match_ids,
-    raw_competition_label_count: report.raw_competition_label_count,\n    competition_count: report.competition_count,\n    merged_alias_label_count: report.merged_alias_label_count,
+    raw_competition_label_count: report.raw_competition_label_count,
+    competition_count: report.competition_count,\n    merged_alias_label_count: report.merged_alias_label_count,
     competitions_with_5_plus_matches: report.competitions_with_5_plus_matches,
     competitions_with_10_plus_matches: report.competitions_with_10_plus_matches,
     competitions_with_20_plus_matches: report.competitions_with_20_plus_matches,
