@@ -87,6 +87,28 @@ export function validateHistory(stats, odds) {
       optionalNumber(row[key + "_home"], key + "_home", id, { max: key === "possession" ? 100 : Infinity });
       optionalNumber(row[key + "_away"], key + "_away", id, { max: key === "possession" ? 100 : Infinity });
     }
+    // Campos acrescentados ao esquema sem invalidar o histórico anterior.
+    if (Object.hasOwn(row, "red_cards_home") || Object.hasOwn(row, "red_cards_away")) {
+      optionalNumber(row.red_cards_home, "red_cards_home", id, { integer: true, max: 99 });
+      optionalNumber(row.red_cards_away, "red_cards_away", id, { integer: true, max: 99 });
+    }
+    const hasHtHome = !blank(row.ht_home), hasHtAway = !blank(row.ht_away);
+    const hasShHome = !blank(row.sh_home), hasShAway = !blank(row.sh_away);
+    if (hasHtHome !== hasHtAway || hasShHome !== hasShAway) throw new Error("Resultado por partes incompleto no jogo " + id);
+    if (hasHtHome) {
+      optionalNumber(row.ht_home, "ht_home", id, { integer: true, max: 99 });
+      optionalNumber(row.ht_away, "ht_away", id, { integer: true, max: 99 });
+    }
+    if (hasShHome) {
+      optionalNumber(row.sh_home, "sh_home", id, { integer: true, max: 99 });
+      optionalNumber(row.sh_away, "sh_away", id, { integer: true, max: 99 });
+    }
+    if (hasHtHome && hasShHome && !homeBlank) {
+      if (Number(row.ht_home) + Number(row.sh_home) !== Number(row.score_home) ||
+          Number(row.ht_away) + Number(row.sh_away) !== Number(row.score_away)) {
+        throw new Error("Resultado HT/ST não corresponde ao resultado FT no jogo " + id);
+      }
+    }
     const competitionKey = row.country + " | " + row.competition;
     if (!competitionCoverage.has(competitionKey)) competitionCoverage.set(competitionKey, { competition: competitionKey, matches: 0, withXg: 0 });
     const competition = competitionCoverage.get(competitionKey);
