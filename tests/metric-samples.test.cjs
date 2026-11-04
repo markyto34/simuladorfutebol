@@ -32,3 +32,24 @@ test("A amostra é calculada por indicador e não exige estatísticas alheias co
   assert.ok(body.includes(".filter(validMetricSampleValue)"));
   assert.ok(!body.includes("records.filter(x=>complete(x.m,x.w))"));
 });
+
+const identityHelper = source.match(/function sameFixtureIdentity\(primary,secondary,date\)\{[^}]+\}/);
+assert.ok(identityHelper, "A identidade de um encontro deve ser independente do resultado.");
+const identityContext = { wdwTeamKey: value => String(value || "").toLowerCase().replace(/\s+/g, " ").trim() };
+vm.createContext(identityContext);
+vm.runInContext(identityHelper[0] + ";this.sameFixtureIdentity=sameFixtureIdentity;", identityContext);
+
+test("A identidade do encontro impede duplicados mesmo quando os resultados divergem", () => {
+  const primary = { date: "2026-11-01", home: "FC Porto", away: "Estoril Praia", hg: 2, ag: 0 };
+  const secondary = { dateKey: "11-01", home: "FC Porto", away: "Estoril Praia", hg: 1, ag: 0 };
+  assert.equal(identityContext.sameFixtureIdentity(primary, secondary, "2026-11-01"), true);
+  assert.equal(identityContext.sameFixtureIdentity(primary, secondary, "2026-11-02"), false);
+  assert.equal(identityContext.sameFixtureIdentity(primary, { ...secondary, away: "Sporting CP" }, "2026-11-01"), false);
+  const teamSampleStart = source.indexOf("function teamSample(");
+  const teamSampleEnd = source.indexOf("\nfunction mean(", teamSampleStart);
+  const teamSampleBody = source.slice(teamSampleStart, teamSampleEnd);
+  assert.ok(teamSampleBody.includes("primary.some(m=>sameFixtureIdentity(m,w,wdwMatchDate(w)))"),
+    "um jogo já existente não deve ser adicionado como WDW-only, mesmo com score divergente");
+  assert.ok(teamSampleBody.includes("sameFixtureIdentity(m,w,date)&&m.hg===w.hg&&m.ag===w.ag"),
+    "a correspondência para enriquecer estatísticas continua a exigir resultado igual");
+});
