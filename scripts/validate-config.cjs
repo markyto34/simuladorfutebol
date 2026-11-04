@@ -51,8 +51,10 @@ if (sampleStart < 0 || sampleEnd < 0) {
   const identity = identityStart >= 0 && identityEnd > identityStart ? app.slice(identityStart, identityEnd) : "";
   if (!identity.includes("primary.date!==date")) fail("Correspondência entre fontes não valida a data completa.");
   if (!sample.includes("sameFixtureIdentity(m,w,date)&&m.hg===w.hg&&m.ag===w.ag")) fail("A importação de estatísticas WDW não valida o resultado FT.");
-  if (!sample.includes("primary.some(m=>sameFixtureIdentity(m,w,wdwMatchDate(w)))")) fail("Jogos existentes não são protegidos contra duplicação WDW com resultado divergente.");
-  if (!sample.includes("records.push({m:{date:wdwMatchDate(w)")) fail("Jogos exclusivos WinDrawWin não são adicionados à amostra.");
+  if (sample.includes("records.push({m:{date:wdwMatchDate(w)")) fail("Jogos exclusivos WinDrawWin não podem ser adicionados à amostra da competição.");
+  if (!sample.includes("const records=primary.map(m=>({m,w:matching(m),h:m.home===team,wdwOnly:false}))")) fail("A amostra deve partir exclusivamente dos jogos da competição selecionada.");
+  if (!app.includes("const scopedMatches=matches.filter(w=>")) fail("Os resultados WinDrawWin não estão limitados aos jogos da competição selecionada.");
+  if (!app.includes("return dataState.matches.some(m=>")) fail("A validação WDW não confirma os jogos na lista da competição selecionada.");
   if (!sample.includes("records.sort((a,b)=>(b.m.date||\"\").localeCompare(a.m.date||\"\")")) fail("A amostra combinada não é ordenada cronologicamente.");
   if (!sample.includes("[m.hg,m.ag,hc,ac,hs,as,ht,at,hf,af].every")) fail("Filtro de completude não valida os cinco grupos obrigatórios.");
   if (!sample.includes("return limit===\"all\"?values:values.slice(0,requested)")) fail("Limite da amostra não é aplicado após combinar as fontes.");
