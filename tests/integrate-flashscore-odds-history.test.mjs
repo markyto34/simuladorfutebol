@@ -124,11 +124,9 @@ test("completa país e competição em falta sem substituir metadados existentes
   const oddsFile = path.join(dir, "data/bwin-odds-flashscore.csv");
   const oddsText = await readFile(oddsFile, "utf8");
   const oddsLines = oddsText.trim().split("\n");
-  const oddsHeaders = oddsLines[0].split(",");
-  const quoteCells = oddsLines[2].split(",");
-  quoteCells[oddsHeaders.indexOf("country")] = "Portugal";
-  quoteCells[oddsHeaders.indexOf("competition")] = "Primeira Liga";
-  oddsLines[2] = quoteCells.join(",");
+  // Remove a observação Bwin do jogo antigo: o metadado deve ser recuperado
+  // diretamente das estatísticas Flashscore, mesmo sem odds para esse jogo.
+  oddsLines.splice(2, 1);
   await writeFile(oddsFile, oddsLines.join("\n") + "\n");
   const statsFile = path.join(dir, "data/flashscore-statistics.csv");
   const statsText = await readFile(statsFile, "utf8");
