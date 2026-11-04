@@ -55,6 +55,8 @@ if (sampleStart < 0 || sampleEnd < 0) {
 
 if (!app.includes("if(hasHalfTime&&poisson(hht)+poisson(aht)>=1)ht05++")) fail("Mercado Over 0,5 HT não é calculado de forma independente dos golos FT.");
 if (!app.includes("escapeHtml(value=>") && !app.includes("const escapeHtml=value=>")) fail("Nomes das equipas não são escapados na apresentação HTML.");
+if (!app.includes("escapeHtml(l)")) fail("Os nomes dinâmicos das equipas não são escapados no HTML das probabilidades 1X2.");
+if (html.includes('<section class="intro" aria-hidden="true">')) fail("A introdução do simulador está escondida dos leitores de ecrã.");
 
 const loadStart = app.indexOf("async function loadHistoricalData()");
 const loadEnd = app.indexOf("\nfunction teamSample(", loadStart);
