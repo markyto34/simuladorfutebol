@@ -47,8 +47,28 @@ function dateKey(value) {
   const match = String(value || "").match(/^\s*(\d{4}-\d{2}-\d{2})/);
   return match ? match[1] : "";
 }
-function identity(row) {
-  return [dateKey(row.date_time), norm(row.TEAM_HOME), norm(row.TEAM_AWAY)].join("|");
+function legacyIdentity(row, isQuote = false) {
+  return [
+    dateKey(row.date_time),
+    norm(isQuote ? row.home_team : row.TEAM_HOME),
+    norm(isQuote ? row.away_team : row.TEAM_AWAY)
+  ].join("|");
+}
+function fullIdentity(row, isQuote = false) {
+  const country = norm(isQuote ? row.country : row.COUNTRY);
+  const competition = norm(isQuote ? row.competition : row.LEAGUE);
+  if (!country || !competition) return "";
+  return [
+    dateKey(row.date_time), country, competition,
+    norm(isQuote ? row.home_team : row.TEAM_HOME),
+    norm(isQuote ? row.away_team : row.TEAM_AWAY)
+  ].join("|");
+}
+function addIndex(index, key, row) {
+  if (!key) return;
+  const rows = index.get(key) || [];
+  rows.push(row);
+  index.set(key, rows);
 }
 function validOdd(value) {
   const number = Number(String(value || "").replace(",", "."));
@@ -68,12 +88,13 @@ for (const field of required) {
 if (!base.records.length) throw new Error("CSV histórico vazio; integração cancelada para proteger os dados.");
 
 const statsById = new Map(stats.filter(row => row.match_id).map(row => [row.match_id, row]));
-const byIdentity = new Map();
+const byFullIdentity = new Map();
+const byLegacyIdentity = new Map();
 for (const row of base.records) {
-  const key = identity(row);
-  if (!key.startsWith("||")) byIdentity.set(key, row);
+  addIndex(byFullIdentity, fullIdentity(row), row);
+  addIndex(byLegacyIdentity, legacyIdentity(row), row);
 }
-let added = 0, oddsRowsUpdated = 0, oddsFieldsUpdated = 0, resultsUpdated = 0, skipped = 0;
+let added = 0, oddsRowsUpdated = 0, oddsFieldsUpdated = 0, resultsUpdated = 0, skipped = 0, ambiguous = 0;
 for (const quote of odds) {
   if (quote.bookmaker !== "Bwin" || quote.market !== "1X2") continue;
   if (![quote.odd_1, quote.odd_x, quote.odd_2].every(validOdd)) { skipped++; continue; }
@@ -95,8 +116,17 @@ for (const quote of odds) {
     row.score_final_home = stat.score_home || "";
     row.score_final_away = stat.score_away || "";
   }
-  const key = identity(row);
-  const existing = byIdentity.get(key);
+  const exactKey = fullIdentity(row);
+  const exactMatches = exactKey ? (byFullIdentity.get(exactKey) || []) : [];
+  const legacyMatches = byLegacyIdentity.get(legacyIdentity(row)) || [];
+  const candidates = exactMatches.length ? exactMatches : legacyMatches;
+  if (candidates.length > 1) {
+    ambiguous++;
+    skipped++;
+    console.warn("Correspondência ambígua; linha ignorada sem alterar o histórico: " + legacyIdentity(row));
+    continue;
+  }
+  const existing = candidates[0];
   if (existing) {
     // Completar apenas odds em falta; nunca substituir valores históricos existentes.
     let oddsChanged = false;
@@ -123,14 +153,15 @@ for (const quote of odds) {
     continue;
   }
   base.records.push(row);
-  byIdentity.set(key, row);
+  addIndex(byFullIdentity, fullIdentity(row), row);
+  addIndex(byLegacyIdentity, legacyIdentity(row), row);
   added++;
 }
 if (added || oddsRowsUpdated || resultsUpdated) {
   await writeFile(BASE_FILE, toCsv(base.headers, base.records), "utf8");
 }
 console.log("CSV histórico integrado: " + base.records.length.toLocaleString("pt-PT") + " registos totais.");
-console.log("Novos jogos acrescentados: " + added + "; jogos existentes com odds completadas: " + oddsRowsUpdated + "; campos de odds preenchidos: " + oddsFieldsUpdated + "; jogos com resultados FT completados: " + resultsUpdated + "; linhas ignoradas: " + skipped + ".");
+console.log("Novos jogos acrescentados: " + added + "; jogos existentes com odds completadas: " + oddsRowsUpdated + "; campos de odds preenchidos: " + oddsFieldsUpdated + "; jogos com resultados FT completados: " + resultsUpdated + "; linhas ignoradas: " + skipped + "; correspondências ambíguas: " + ambiguous + ".");
 console.log("Ficheiro atualizado: " + BASE_FILE);
 if (process.env.GITHUB_STEP_SUMMARY) {
   const { appendFile } = await import("node:fs/promises");
