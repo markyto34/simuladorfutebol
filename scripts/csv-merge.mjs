@@ -31,3 +31,30 @@ export function mergeRows(existing, incoming, keyFn) {
 
   return [...map.values()];
 }
+/**
+ * Merge observations by key, preferring the newest timestamp while backfilling
+ * blank fields from older observations. This also consolidates legacy duplicates.
+ */
+export function mergeLatestRows(existing, incoming, keyFn, timestampKey = "retrieved_at") {
+  const map = new Map();
+  for (const row of [...existing, ...incoming]) {
+    const key = keyFn(row);
+    const current = map.get(key);
+    if (!current) {
+      map.set(key, { ...row });
+      continue;
+    }
+    const nextTime = Date.parse(row[timestampKey] || "") || 0;
+    const currentTime = Date.parse(current[timestampKey] || "") || 0;
+    const newest = nextTime >= currentTime ? row : current;
+    const older = newest === row ? current : row;
+    const merged = { ...older, ...newest };
+    for (const [field, value] of Object.entries(older)) {
+      if (merged[field] === null || merged[field] === undefined || String(merged[field]).trim() === "") {
+        if (value !== null && value !== undefined && String(value).trim() !== "") merged[field] = value;
+      }
+    }
+    map.set(key, merged);
+  }
+  return [...map.values()];
+}
