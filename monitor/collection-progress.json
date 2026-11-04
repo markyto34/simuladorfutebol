@@ -1,15 +1,15 @@
 {
   "run_id": "41923467026",
   "run_number": "4",
-  "target_date": "2026-10-31",
-  "status": "completed",
-  "phase": "completed",
-  "total_games": 386,
-  "processed_games": 386,
-  "stats_games": 376,
-  "bwin_odds": 386,
+  "target_date": "",
+  "status": "running",
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
+  "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Song Lam Nghe An - Cong An Ha Noi: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-04T22:19:05.709Z"
+  "current_match": "A descobrir jogos",
+  "last_result": "",
+  "updated_at": "2026-11-04T22:19:07.475Z"
 }
