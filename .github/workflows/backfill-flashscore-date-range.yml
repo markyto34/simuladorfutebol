@@ -107,6 +107,9 @@ jobs:
           if (( blocked == 1 )); then
             echo "Recolha interrompida preventivamente por limitação do Flashscore." >> "$GITHUB_STEP_SUMMARY"
           fi
+          if (( failures > 0 )); then
+            echo "::error::A recolha teve $failures dia(s) com erros. Os CSVs serão validados e as alterações válidas preservadas, mas a execução terminará como falhada."
+          fi
 
       - name: Validar histórico completo
         run: |
@@ -124,4 +127,12 @@ jobs:
           else
             git commit -m "Recuperar histórico Flashscore por intervalo de datas"
             git push origin main
+          fi
+          if [[ "${{ steps.range.outputs.days }}" -gt 0 ]] && grep -q "Dias com erros: [1-9]" "$GITHUB_STEP_SUMMARY"; then
+            echo "::error::A recuperação histórica terminou com erros. Consulta o diagnóstico da descoberta antes de repetir."
+            exit 1
+          fi
+          if grep -q "Interrompido por 403/429: 1" "$GITHUB_STEP_SUMMARY"; then
+            echo "::error::A recuperação foi interrompida por limitação do Flashscore."
+            exit 1
           fi
