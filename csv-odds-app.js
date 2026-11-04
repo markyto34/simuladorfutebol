@@ -190,7 +190,7 @@
     $("currentNote").textContent=matches.length
       ? (rangeMode?"Pesquisa concluída. As odds 1/X/2 estão dentro dos intervalos definidos":"Pesquisa concluída. As três odds 1/X/2 coincidem exatamente")+scopeText+"."
       : (rangeMode?"Não existem jogos dentro dos intervalos definidos":"Não existem jogos com estas três odds exatamente iguais")+scopeText+".";
-    $("resultsTitle").textContent=league?"Jogos — "+league:"Jogos com odds exatamente iguais";
+    $("resultsTitle").textContent=league?"Jogos — "+league+(rangeMode?" · intervalos":" · odds exatas"):(rangeMode?"Jogos dentro dos intervalos de odds":"Jogos com odds exatamente iguais");
     renderStatistics(result);
     render();
   }
