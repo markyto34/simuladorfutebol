@@ -109,7 +109,7 @@ export async function collectTeamIdSeeds({
 
   return {
     generated_at: new Date().toISOString(), source_files: ["ganhonasodds_com_20261101.csv", "data/flashscore-statistics.csv"],
-    selected_matches: targets.length, requests, successful_matches, matches_without_team_links,
+    selected_matches: targets.length, requests, successful_matches: successfulMatches, matches_without_team_links: matchesWithoutTeamLinks,
     unique_team_ids: teamRows.length, stop_reason: stopReason, failures, teams: teamRows
   };
 }
