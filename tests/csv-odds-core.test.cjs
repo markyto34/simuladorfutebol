@@ -88,3 +88,25 @@ test("odds range helper includes boundaries and excludes incomplete odds", () =>
   assert.equal(filtered.length, 1);
   assert.equal(filtered[0].home, "Casa FC");
 });
+
+
+test("incremental CSV parser handles chunk boundaries inside quoted fields and CRLF", () => {
+  const rows = [];
+  const parser = CSVOdds.createCSVParser(row => rows.push(row));
+  parser.feed('\uFEFFname,notes\r', false);
+  parser.feed('\n"Casa, FC","linha 1', false);
+  parser.feed('\nlinha 2"\r', false);
+  parser.feed('\n"Clube ""B""",ok', true);
+  assert.deepEqual(rows, [
+    ["name", "notes"],
+    ["Casa, FC", "linha 1\nlinha 2"],
+    ['Clube "B"', "ok"]
+  ]);
+});
+
+test("incremental parser emits a final row without a trailing newline", () => {
+  const rows = [];
+  const parser = CSVOdds.createCSVParser(row => rows.push(row));
+  parser.feed("a,b\n1,2", true);
+  assert.deepEqual(rows, [["a", "b"], ["1", "2"]]);
+});

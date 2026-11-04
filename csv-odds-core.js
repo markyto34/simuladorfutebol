@@ -1,34 +1,52 @@
 (function (root) {
   "use strict";
 
+  function createCSVParser(onRow) {
+    let row = [], field = "", quoted = false, atStart = true, finished = false;
+    function emitRow() {
+      row.push(field);
+      field = "";
+      if (row.some(value => value.trim() !== "")) onRow(row);
+      row = [];
+    }
+    return {
+      feed(chunk, final) {
+        if (finished) throw new Error("O parser CSV já foi terminado.");
+        chunk = String(chunk || "");
+        for (let i = 0; i < chunk.length; i++) {
+          const c = chunk[i], next = chunk[i + 1];
+          if (atStart) {
+            atStart = false;
+            if (c === "\uFEFF") continue;
+          }
+          if (quoted) {
+            if (c === '"' && next === '"') { field += '"'; i++; }
+            else if (c === '"') quoted = false;
+            else field += c;
+          } else if (c === '"' && field.length === 0) quoted = true;
+          else if (c === ",") { row.push(field); field = ""; }
+          else if (c === "\n" || c === "\r") {
+            if (c === "\r" && next === "\n") i++;
+            emitRow();
+          } else field += c;
+        }
+        if (final) {
+          if (field.length || row.length) emitRow();
+          finished = true;
+        }
+      }
+    };
+  }
+
   function parseCSV(text) {
     const rows = [];
-    let row = [], field = "", quoted = false;
-    text = String(text || "").replace(/^\uFEFF/, "");
-    for (let i = 0; i < text.length; i++) {
-      const c = text[i], next = text[i + 1];
-      if (quoted) {
-        if (c === '"' && next === '"') { field += '"'; i++; }
-        else if (c === '"') quoted = false;
-        else field += c;
-      } else if (c === '"' && field.length === 0) quoted = true;
-      else if (c === ",") { row.push(field); field = ""; }
-      else if (c === "\n" || c === "\r") {
-        if (c === "\r" && next === "\n") i++;
-        row.push(field); field = "";
-        if (row.some(v => v.trim() !== "")) rows.push(row);
-        row = [];
-      } else field += c;
-    }
-    if (field.length || row.length) {
-      row.push(field);
-      if (row.some(v => v.trim() !== "")) rows.push(row);
-    }
+    const parser = createCSVParser(row => rows.push(row));
+    parser.feed(text, true);
     if (!rows.length) return [];
-    const headers = rows.shift().map(v => v.trim());
+    const headers = rows.shift().map(value => value.trim());
     return rows.map(values => {
       const obj = {};
-      headers.forEach((h, i) => { obj[h] = (values[i] || "").trim(); });
+      headers.forEach((header, index) => { obj[header] = (values[index] || "").trim(); });
       return obj;
     });
   }
@@ -360,7 +378,7 @@
     });
   }
 
-  const api = { parseCSV, normalizeRows, summarize, analyzeOdds, analyzeTriplet, impliedProbabilities,
+  const api = { parseCSV, createCSVParser, normalizeRows, summarize, analyzeOdds, analyzeTriplet, impliedProbabilities,
     hasCompleteOdds, filterOddsRanges, rangeMatches, evaluateCurrentOdds, analyzePeriodMarkets, forecastExactScores, continentForCountry, backtestTriplet, wilsonInterval, filterMatches, sortMatchesChronologically };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   root.CSVOdds = api;
