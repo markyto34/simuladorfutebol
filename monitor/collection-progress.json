@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 111,
-  "processed_games": 75,
-  "stats_games": 72,
-  "bwin_odds": 75,
+  "processed_games": 100,
+  "stats_games": 97,
+  "bwin_odds": 100,
   "failed_games": 0,
-  "current_match": "Último concluído: Maghreb Fez - Berkane",
-  "last_result": "Maghreb Fez - Berkane: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-04T22:15:03.906Z"
+  "current_match": "A consultar jogo 102/111 · ENzpjDQ0",
+  "last_result": "Hammarby - Sirius: 14 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-04T22:15:13.949Z"
 }
