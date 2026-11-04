@@ -67,6 +67,21 @@ export function extractFixtureTeams(anchorText) {
 }
 
 
+function extractFixtureTeamsFromScoreData(html, anchorIndex) {
+  const scoreDataStart = html.search(/<div\b[^>]*\bid=["']score-data["']/i);
+  if (scoreDataStart < 0 || anchorIndex <= scoreDataStart) return null;
+  const spanStart = html.lastIndexOf("<span", anchorIndex);
+  if (spanStart < scoreDataStart) return null;
+  const spanEnd = html.indexOf(">", spanStart);
+  if (spanEnd < 0 || spanEnd >= anchorIndex) return null;
+  const value = plainText(html.slice(spanEnd + 1, anchorIndex)).replace(/^\d{1,2}:\d{2}\s*/, "").trim();
+  const match = value.match(/^(.+?)\s+-\s+(.+?)$/);
+  if (!match) return null;
+  const home = match[1].trim(), away = match[2].trim();
+  if (!home || !away || home.length > 100 || away.length > 100) return null;
+  return { home, away };
+}
+
 function extractFixtureTeamsFromEvent(html, anchorIndex) {
   const before = html.slice(0, anchorIndex);
   const stack = [];
@@ -124,7 +139,7 @@ export function inspectMatchDiscovery(html, requestedDate, options = {}) {
     seen.add(id);
     totalUniqueMatchCount += 1;
     const anchorText = plainText(item[5]).slice(0, 180) || null;
-    const teams = extractFixtureTeams(anchorText) || extractFixtureTeamsFromEvent(html, item.index);
+    const teams = extractFixtureTeams(anchorText) || extractFixtureTeamsFromScoreData(html, item.index) || extractFixtureTeamsFromEvent(html, item.index);
     const compact = { match_id: id, href, anchor_text: anchorText, ...(teams ? { teams } : {}) };
     if (teams) matchFixtures[id] = teams;
     if (targetMatchId && competitionIdentities[id]) compact.competition_identity = competitionIdentities[id];
