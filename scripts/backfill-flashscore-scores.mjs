@@ -35,7 +35,7 @@ export function parseCsv(text) {
   if (cell !== "" || row.length) { row.push(cell); if (row.some(value => value !== "")) rows.push(row); }
   if (!rows.length) return { headers: [], records: [] };
   const headers = rows.shift().map(value => value.trim());
-  return { headers, records: rows.map(values => Object.fromEntries(headers.map((header, index) => [header, values[index] ?? ""])) };
+  return { headers, records: rows.map(values => Object.fromEntries(headers.map((header, index) => [header, values[index] ?? ""]))) };
 }
 
 export function toCsv(headers, records) {
