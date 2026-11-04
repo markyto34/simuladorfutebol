@@ -94,6 +94,7 @@ for (const row of base.records) {
   addIndex(byFullIdentity, fullIdentity(row), row);
   addIndex(byLegacyIdentity, legacyIdentity(row), row);
 }
+const ambiguousIdentities = new Set();
 let added = 0, oddsRowsUpdated = 0, oddsFieldsUpdated = 0, resultsUpdated = 0, metadataRowsUpdated = 0, metadataFieldsUpdated = 0, skipped = 0, ambiguous = 0;
 for (const quote of odds) {
   if (quote.bookmaker !== "Bwin" || quote.market !== "1X2") continue;
@@ -121,9 +122,10 @@ for (const quote of odds) {
   const legacyMatches = byLegacyIdentity.get(legacyIdentity(row)) || [];
   const candidates = exactMatches.length ? exactMatches : legacyMatches;
   if (candidates.length > 1) {
-    ambiguous++;
+    const identity = legacyIdentity(row);
+    if (!ambiguousIdentities.has(identity)) { ambiguous++; ambiguousIdentities.add(identity); }
     skipped++;
-    console.warn("Correspondência ambígua; linha ignorada sem alterar o histórico: " + legacyIdentity(row));
+    console.warn("Correspondência ambígua; linha ignorada sem alterar o histórico: " + identity);
     continue;
   }
   const existing = candidates[0];
@@ -175,7 +177,8 @@ for (const stat of stats) {
   const legacyMatches = byLegacyIdentity.get(legacyIdentity(identityRow)) || [];
   const candidates = exactMatches.length ? exactMatches : legacyMatches;
   if (candidates.length > 1) {
-    ambiguous++;
+    const identity = legacyIdentity(identityRow);
+    if (!ambiguousIdentities.has(identity)) { ambiguous++; ambiguousIdentities.add(identity); }
     continue;
   }
   const existing = candidates[0];
