@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 124,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
+  "processed_games": 25,
+  "stats_games": 24,
+  "bwin_odds": 25,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-04T22:15:27.976Z"
+  "current_match": "Último concluído: Arsenal Dzerzhinsk - BATE",
+  "last_result": "Arsenal Dzerzhinsk - BATE: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-04T22:15:39.325Z"
 }
