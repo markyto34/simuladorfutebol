@@ -51,6 +51,40 @@ const classify = name => {
   if (/\b(playoffs?|play ?off|promotion|relegation|fase de)\b/.test(value)) return "fase_especial";
   return "liga";
 };
+const classifyHierarchy = name => {
+  const value = normalize(name);
+  const gender = /\\b(women|feminina|feminino|ladies)\\b/.test(value) ? "feminino" : "masculino_misto";
+  const ageMatch = value.match(/\\b(u ?(?:1[789]|2[0-3])|under ?(?:1[789]|2[0-3])|sub ?(?:1[789]|2[0-3])|youth|junior)\\b/);
+  const ageCategory = ageMatch ? ageMatch[0].replace(/\\s+/g, " ") : "senior";
+  let family = String(name).trim();
+  let divisionOrGroup = null;
+  let stage = null;
+
+  const groupMatch = family.match(/\\s*[-–—:]\\s*((?:serie|série|grupo|group|division|divisao|north|south|east|west)\\s+[a-z0-9]+)\\s*$/i);
+  if (groupMatch) {
+    divisionOrGroup = groupMatch[1].trim();
+    family = family.slice(0, groupMatch.index).trim();
+  }
+  const phaseMatch = family.match(/\\s*[-–—:]\\s*((?:league phase|fase de liga|fase de grupos|group stage|playoffs?|play-offs?|promotion|relegation|championship round|relegation round|round of 16|quarter-finals?|semi-finals?|final))\\s*$/i);
+  if (phaseMatch) {
+    stage = phaseMatch[1].trim();
+    family = family.slice(0, phaseMatch.index).trim();
+  } else if (/\\b(playoffs?|play-offs?)\\b/i.test(family)) {
+    stage = "Playoffs";
+    family = family.replace(/\\s*[-–—:]?\\s*play-?offs?\\s*/i, " ").trim();
+  }
+  const type = /\\b(cup|copa|taça|taca|pokal|coppa|knockout)\\b/i.test(name) ? "taca"
+    : /\\b(champions league|europa league|conference league|libertadores|sudamericana|uefa|afc|concacaf)\\b/i.test(name) ? "internacional"
+    : "liga";
+  return {
+    competition_family: family || String(name).trim(),
+    division_or_group: divisionOrGroup,
+    stage,
+    gender,
+    age_category: ageCategory,
+    competition_type: type
+  };
+};
 const csvCell = value => {
   const text = String(value ?? "");
   return /[",\r\n]/.test(text) ? '"' + text.replace(/"/g, '""') + '"' : text;
@@ -104,6 +138,7 @@ export function buildFlashscoreCoverage(records) {
       source_labels: [...item.labels_seen].sort(),
       normalized_key: canonicalCountry(item.country) + "|" + canonicalCompetition(item.country, item.competition),
       category: classify(item.competition),
+      ...classifyHierarchy(displayCompetition(item.country, item.competition)),
       unique_matches: games,
       duplicate_rows: item.rows - games,
       date_from: dates[0] || null,
@@ -136,11 +171,11 @@ export function buildFlashscoreCoverage(records) {
 
 export function coverageCsv(report) {
   const metrics = Object.keys(METRICS);
-  const header = ["country", "competition", "category", "unique_matches", "duplicate_rows", "date_from", "date_to", "sample_status",
+  const header = ["country", "competition", "category", "competition_family", "division_or_group", "stage", "gender", "age_category", "competition_type", "unique_matches", "duplicate_rows", "date_from", "date_to", "sample_status",
     ...metrics.flatMap(key => [key + "_complete_matches", key + "_coverage_pct"])];
   const lines = [header.join(",")];
   for (const item of report.competitions) {
-    const row = [item.country, item.competition, item.category, item.unique_matches, item.duplicate_rows, item.date_from || "", item.date_to || "", item.sample_status];
+    const row = [item.country, item.competition, item.category, item.competition_family, item.division_or_group || "", item.stage || "", item.gender, item.age_category, item.competition_type, item.unique_matches, item.duplicate_rows, item.date_from || "", item.date_to || "", item.sample_status];
     for (const key of metrics) row.push(item.metrics[key].complete_matches, item.metrics[key].coverage_pct);
     lines.push(row.map(csvCell).join(","));
   }
