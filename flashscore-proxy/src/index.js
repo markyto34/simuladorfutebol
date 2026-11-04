@@ -210,7 +210,8 @@ function summarizeInspection(inspection) {
     mode: "summary",
     title: inspection.title || null,
     match_id: record.match_id || null,
-    teams: record.teams || null,\n    team_links: Array.isArray(inspection.team_links) ? inspection.team_links : [],
+    teams: record.teams || null,
+    team_links: Array.isArray(inspection.team_links) ? inspection.team_links : [],
     date_time: record.date_time || null,
     status: record.status || null,
     competition_identity: {
