@@ -1,15 +1,15 @@
 {
   "run_id": "41855931774",
   "run_number": "3",
-  "target_date": "2026-11-02",
-  "status": "completed",
-  "phase": "completed",
+  "target_date": "",
+  "status": "running",
+  "phase": "discovery",
   "total_games": 0,
   "processed_games": 0,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Sem jogos para recolher",
+  "current_match": "A descobrir jogos",
   "last_result": "",
-  "updated_at": "2026-11-04T15:16:58.854Z"
+  "updated_at": "2026-11-04T15:17:00.671Z"
 }
