@@ -59,3 +59,11 @@ jobs:
           curl --fail --show-error --silent --retry 5 --retry-all-errors --retry-delay 2 "$PROXY_URL/inspect?id=QXNphZjA&summary=1" -o /tmp/match-inspect.json
           node -e 'const fs=require("node:fs"); const d=JSON.parse(fs.readFileSync("/tmp/team-results.json","utf8")); const rows=d.latest_finished_matches||[]; if(!d.ok || d.team_id!=="tljXuHBC" || rows.length!==5 || rows.some(m=>m.home.id!=="tljXuHBC" && m.away.id!=="tljXuHBC")) { console.error(JSON.stringify(d)); process.exit(1); } console.log(JSON.stringify({team_id:d.team_id,event_count:d.event_count,finished_count:d.finished_count,latest_finished_matches:rows.map(m=>({match_id:m.match_id,date:m.start_time_iso,home:m.home.name,home_score:m.home.score,away:m.away.name,away_score:m.away.score,competition:m.competition}))}));'
           node -e 'const fs=require("node:fs"); const d=JSON.parse(fs.readFileSync("/tmp/match-inspect.json","utf8")); const teams=d.inspection?.team_links||[]; if(!d.ok || teams.length<2 || !teams.some(t=>t.team_id==="tljXuHBC")) { console.error(JSON.stringify(d)); process.exit(1); } console.log(JSON.stringify({match_id:d.match_id,team_links:teams}));'
+      - name: Smoke test descoberta real de jogos e nomes das equipas
+        env:
+          PROXY_URL: https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev
+        run: |
+          set -euo pipefail
+          discovery_date=$(TZ=Europe/Lisbon date +%F)
+          curl --fail --show-error --silent --retry 3 --retry-all-errors --retry-delay 2 "$PROXY_URL/discover-inspect?date=$discovery_date&ids=1" -o /tmp/discovery.json
+          node -e 'const fs=require("node:fs"); const d=JSON.parse(fs.readFileSync("/tmp/discovery.json","utf8")); const i=d.inspection||{}; const fixtures=i.match_fixtures||{}; const ids=i.match_ids||[]; const rows=Object.entries(fixtures); if(!d.ok || !ids.length || !rows.length) { console.error(JSON.stringify({ok:d.ok,error:d.error,match_count:i.match_count,ids:ids.length,fixtures:rows.length})); process.exit(1); } const invalid=rows.filter(([id,t])=>!ids.includes(id)||!t?.home||!t?.away); if(invalid.length) { console.error(JSON.stringify({invalid})); process.exit(1); } console.log(JSON.stringify({date:i.requested_date,discovered_match_ids:ids.length,fixtures_with_both_teams:rows.length,sample:rows.slice(0,5)}));'
