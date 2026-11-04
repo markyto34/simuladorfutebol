@@ -4,7 +4,8 @@ import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { parseCsv, normalize } from "./audit-flashscore-odds-matches.mjs";
 
-const MANIFEST = resolve("historical-flashscore-targets.csv");
+const BASE_FILE = resolve("ganhonasodds_com_20261101.csv");
+const STATS_FILE = resolve("data/flashscore-statistics.csv");
 const PROXY = (process.env.FLASHSCORE_PROXY_URL || "https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev").replace(/\/$/, "");
 const OUTPUT = resolve(process.argv.find(value => value.startsWith("--output="))?.slice(9) || "flashscore-team-id-seeds.json");
 const limitArg = Number(process.argv.find(value => value.startsWith("--limit="))?.slice(8) || 20);
@@ -12,7 +13,6 @@ const delayArg = Number(process.argv.find(value => value.startsWith("--delay-ms=
 
 export function selectSeedTargets(rows, limit = 20) {
   const candidates = rows.filter(row =>
-    row.stats_status === "matched_exact" &&
     /^[A-Za-z0-9]{6,16}$/.test(String(row.flashscore_match_id || "")) &&
     normalize(row.home_team) && normalize(row.away_team)
   );
@@ -108,14 +108,22 @@ export async function collectTeamIdSeeds({
   })).sort((a, b) => a.team_name.localeCompare(b.team_name) || a.team_id.localeCompare(b.team_id));
 
   return {
-    generated_at: new Date().toISOString(), source_manifest: "historical-flashscore-targets.csv",
+    generated_at: new Date().toISOString(), source_files: ["ganhonasodds_com_20261101.csv", "data/flashscore-statistics.csv"],
     selected_matches: targets.length, requests, successful_matches, matches_without_team_links,
     unique_team_ids: teamRows.length, stop_reason: stopReason, failures, teams: teamRows
   };
 }
 
 export async function main() {
-  const targetRows = parseCsv(await readFile(MANIFEST, "utf8"));
+  const [baseRows, statsRows] = await Promise.all([readFile(BASE_FILE, "utf8"), readFile(STATS_FILE, "utf8")]);
+  const base = parseCsv(baseRows), stats = parseCsv(statsRows);
+  const dateKey = value => String(value || "").match(/^\s*(\d{4}-\d{2}-\d{2})/)?.[1] || "";
+  const fixtureKey = row => [dateKey(row.date_time), normalize(row.COUNTRY ?? row.country), normalize(row.LEAGUE ?? row.competition), normalize(row.TEAM_HOME ?? row.home_team), normalize(row.TEAM_AWAY ?? row.away_team)].join("|");
+  const baseKeys = new Set(base.map(fixtureKey));
+  const targetRows = [...new Map(stats.filter(row => row.match_id && baseKeys.has(fixtureKey(row))).map(row => [row.match_id, {
+    stats_status: "matched_exact", flashscore_match_id: row.match_id, date: dateKey(row.date_time),
+    country: row.country, competition: row.competition, home_team: row.home_team, away_team: row.away_team
+  }])).values()];
   const result = await collectTeamIdSeeds({
     targetRows, limit: Number.isFinite(limitArg) ? limitArg : 20,
     delayMs: Number.isFinite(delayArg) ? Math.max(0, delayArg) : 1500
