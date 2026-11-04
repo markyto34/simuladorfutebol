@@ -1,6 +1,7 @@
 (()=>{"use strict";
 const $=id=>document.getElementById(id),N=10000;
 let random=Math.random;
+const MIN_METRIC_SAMPLE=3,MIN_XG_SAMPLE=5;
 const hashSeed=value=>{let hash=2166136261;for(let i=0;i<value.length;i++){hash^=value.charCodeAt(i);hash=Math.imul(hash,16777619);}return hash>>>0;};
 const seededRandom=initial=>{let seed=initial>>>0;return ()=>{let t=seed+=0x6D2B79F5;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return ((t^t>>>14)>>>0)/4294967296;};};
 const num=id=>{const raw=$(id).value.trim();if(raw==="")throw Error("Faltam médias obrigatórias. Carrega os dados históricos e confirma se golos e cantos têm valores para as duas equipas.");const v=Number(raw);if(!Number.isFinite(v)||v<0)throw Error("Confirma os valores numéricos: não podem ser negativos ou vazios.");return v};
@@ -21,7 +22,7 @@ function simulate(){
   const hasXg=xgValues.every(v=>v!==null);
   const xgHome=hasXg?(xgValues[0]+xgValues[1])/2:null;
   const xgAway=hasXg?(xgValues[2]+xgValues[3])/2:null;
-  const hasGoals=hasGoalHistory||hasXg;
+  const hasGoals=hasGoalHistory;
   const htValues=["hhtFor","ahtAgainst","ahtFor","hhtAgainst"].map(read);
   const hasHalfTime=htValues.every(v=>v!==null);
   const hht=hasHalfTime?(htValues[0]+htValues[1])/2:null;
@@ -46,7 +47,7 @@ function simulate(){
    {key:"Cartões vermelhos",ids:["hredFor","hredAgainst","aredFor","aredAgainst"],thresholds:[.5,1.5],dispersion:.7}
   ];
   const extraValues=extraSpecs.map(spec=>({spec,values:spec.ids.map(read)})).filter(x=>x.values.every(v=>v!==null));
-  if(!hasGoals&&!hasCorners&&!hasSecondHalf&&!extraValues.length)throw Error("Não existem dados suficientes para simular. São necessárias médias completas de golos, cantos ou de outro indicador.");
+  if(!hasGoals&&!hasHalfTime&&!hasSecondHalf&&!hasCorners&&!extraValues.length)throw Error("Não existem dados suficientes para simular. São necessárias amostras completas para as duas equipas em pelo menos um indicador.");
   let home=0,draw=0,away=0,g15=0,g25=0,g35=0,c85=0,c95=0,c105=0,ht05=0,sh05=0,sh15=0,shBtts=0,btts=0,sumG=0,sumC=0,sumHG=0,sumAG=0,scoreMap={};
   const seedInput=[h,a,...Array.from(document.querySelectorAll("input")).map(input=>input.id+"="+input.value)].join("|");
   random=seededRandom(hashSeed(seedInput));
@@ -647,12 +648,12 @@ const TEAM_METRIC_PAIRS=[
 function enforcePairedTeamCoverage(){
  const home=$("homePick").value,away=$("awayPick").value;
  if(!home||!away)return "Seleciona as duas equipas para comparar a cobertura.";
- const homeGoals=teamSample(home,"home","goalsFor").length;
- const awayGoals=teamSample(away,"away","goalsFor").length;
+ const homeGoals=Math.min(teamSample(home,"home","goalsFor").length,teamSample(home,"home","goalsAgainst").length);
+ const awayGoals=Math.min(teamSample(away,"away","goalsFor").length,teamSample(away,"away","goalsAgainst").length);
  const missing=[];
  for(const [metric] of TEAM_METRIC_PAIRS){
   const h=teamSample(home,"home",metric),a=teamSample(away,"away",metric);
-  const min=metric==="xgFor"||metric==="xgAgainst"?5:1;
+  const min=metric==="xgFor"||metric==="xgAgainst"?MIN_XG_SAMPLE:MIN_METRIC_SAMPLE;
   if(h.length<min||a.length<min)missing.push(metric+" (casa "+h.length+", fora "+a.length+")");
  }
  const baseNote=homeGoals&&awayGoals?"Amostra de golos disponível para ambas as equipas.":"Amostra de golos incompleta (casa "+homeGoals+", fora "+awayGoals+").";
@@ -666,7 +667,7 @@ function applyTeamSelection(side){
  if(!team){for(const [,id] of fields)fillInput(id,null);$(side==="home"?"homeName":"awayName").value="";$(side==="home"?"homeNameDisplay":"awayNameDisplay").textContent="—";if(!skipPairCheck)$("data-status").textContent=enforcePairedTeamCoverage();return;}
  const venue=side==="home"?"home":"away";
  const coverage={};
- for(const [metric,id] of fields){const values=teamSample(team,venue,metric),avg=mean(values);const usable=metric==="xgFor"||metric==="xgAgainst"?(values.length>=5?avg:null):avg;fillInput(id,usable);coverage[metric]=values.length;}
+ for(const [metric,id] of fields){const values=teamSample(team,venue,metric),avg=mean(values);const minimum=metric==="xgFor"||metric==="xgAgainst"?MIN_XG_SAMPLE:MIN_METRIC_SAMPLE;const usable=values.length>=minimum?avg:null;fillInput(id,usable);coverage[metric]=values.length;}
  $(side==="home"?"homeName":"awayName").value=team;$(side==="home"?"homeNameDisplay":"awayNameDisplay").textContent=team;
  const status=$("data-status"),sample=$("sample").value==="all"?"todos os jogos":"últimos "+$("sample").value+" jogos";
  const count=(a,b)=>Math.min(coverage[a]||0,coverage[b]||0);
