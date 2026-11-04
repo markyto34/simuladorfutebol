@@ -2,14 +2,14 @@
   "run_id": "41931836315",
   "run_number": "6",
   "target_date": "2026-10-31",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 108,
   "processed_games": 108,
   "stats_games": 98,
   "bwin_odds": 108,
   "failed_games": 0,
-  "current_match": "Último concluído: Song Lam Nghe An - Cong An Ha Noi",
+  "current_match": "Recolha terminada",
   "last_result": "Song Lam Nghe An - Cong An Ha Noi: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-04T23:16:11.034Z"
+  "updated_at": "2026-11-04T23:16:12.182Z"
 }
