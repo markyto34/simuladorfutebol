@@ -46,7 +46,7 @@ if (sampleStart < 0 || sampleEnd < 0) {
   if (!sample.includes("const wdwMatchDate=w=>")) fail("Data WinDrawWin não é convertida para o ano correto da época.");
   if (!app.includes("const WDW_CALENDAR_YEAR_LEAGUES=new Set(")) fail("Ligas com época de ano civil não têm tratamento de datas próprio.");
   if (!sample.includes("WDW_CALENDAR_YEAR_LEAGUES.has(league)")) fail("Conversão de datas não considera o calendário da competição.");
-  if (!sample.includes("m.date!==date")) fail("Correspondência entre fontes não valida a data completa.");
+  const identityStart = app.indexOf("function sameFixtureIdentity(");\n  const identityEnd = app.indexOf("\\nfunction teamSample(", identityStart);\n  const identity = identityStart >= 0 && identityEnd > identityStart ? app.slice(identityStart, identityEnd) : "";\n  if (!identity.includes("primary.date!==date")) fail("Correspondência entre fontes não valida a data completa.");\n  if (!sample.includes("sameFixtureIdentity(m,w,date)&&m.hg===w.hg&&m.ag===w.ag")) fail("A importação de estatísticas WDW não valida o resultado FT.");\n  if (!sample.includes("primary.some(m=>sameFixtureIdentity(m,w,wdwMatchDate(w)))")) fail("Jogos existentes não são protegidos contra duplicação WDW com resultado divergente.");
   if (!sample.includes("records.push({m:{date:wdwMatchDate(w)")) fail("Jogos exclusivos WinDrawWin não são adicionados à amostra.");
   if (!sample.includes("records.sort((a,b)=>(b.m.date||\"\").localeCompare(a.m.date||\"\")")) fail("A amostra combinada não é ordenada cronologicamente.");
   if (!sample.includes("[m.hg,m.ag,hc,ac,hs,as,ht,at,hf,af].every")) fail("Filtro de completude não valida os cinco grupos obrigatórios.");
@@ -65,7 +65,7 @@ if (loadStart < 0 || loadEnd < 0) {
 } else {
   const loader = app.slice(loadStart, loadEnd);
   if (!loader.includes("const isComplete=m=>[m.hg,m.ag,m.hc,m.ac,m.homeShots,m.awayShots,m.homeTarget,m.awayTarget,m.homeFouls,m.awayFouls].every")) fail("A validação dos dez campos obrigatórios não está ativa.");
-  if (!loader.includes("teamOptionsForSeason(matches,completeMatches,allowWdw)")) fail("A seleção de equipas não distingue época atual de épocas históricas.");
+  if (!loader.includes("teamOptionsForSeason(matches)")) fail("A seleção de equipas não inclui as equipas da época carregada.");
   if (!loader.includes('for(const id of ["homePick","awayPick"])')) fail("Os dois seletores não partilham a lista validada de equipas.");
   if (!loader.includes("completeMatches.length")) fail("O estado de carregamento não informa quantos jogos estão completos.");
 }
@@ -73,7 +73,7 @@ const applyStart = app.indexOf("function applyTeamSelection(side)");
 const applyEnd = app.indexOf("\\n", app.indexOf("}", applyStart) + 1);
 if (applyStart < 0 || !app.slice(applyStart, applyStart + 1800).includes('if(!team){for(const [,id] of fields)fillInput(id,null)')) fail("A seleção vazia não limpa médias antigas.");
 
-if (!app.includes("function teamOptionsForSeason(matches,completeMatches,allowWdw)")) fail("Função de seleção de equipas por época não existe.");
+if (!app.includes("function teamOptionsForSeason(matches)")) fail("Função de seleção de equipas por época não existe.");
 const statsSection = html.match(/<div class="all-stats-columns">([\s\S]*?)<p class="source-note">/);
 if (!statsSection) fail("Secção de estatísticas das equipas não encontrada.");
 else {
