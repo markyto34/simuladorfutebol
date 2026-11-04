@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 386,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 50,
+  "processed_games": 75,
+  "stats_games": 75,
+  "bwin_odds": 75,
   "failed_games": 0,
-  "current_match": "Último concluído: Racing Club - Aldosivi",
-  "last_result": "Racing Club - Aldosivi: 13 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-04T22:16:50.224Z"
+  "current_match": "Último concluído: Floridsdorfer AC - Kapfenberg",
+  "last_result": "Floridsdorfer AC - Kapfenberg: 6 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-04T22:17:00.195Z"
 }
