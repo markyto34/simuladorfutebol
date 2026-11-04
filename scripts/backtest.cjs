@@ -9,7 +9,7 @@ function normalize(rows){return rows.map(r=>({date:dateKey(val(r,["date","match_
 function summarize(errors){if(!errors.length)return null;return {n:errors.length,mae:errors.reduce((s,x)=>s+Math.abs(x),0)/errors.length,rmse:Math.sqrt(errors.reduce((s,x)=>s+x*x,0)/errors.length),bias:errors.reduce((s,x)=>s+x,0)/errors.length};}
 function logGamma(z){const p=[676.5203681218851,-1259.1392167224028,771.3234287776531,-176.6150291621406,12.507343278686905,-.13857109526572012,9.984369578019572e-6,1.5056327351493116e-7];if(z<.5)return Math.log(Math.PI)-Math.log(Math.sin(Math.PI*z))-logGamma(1-z);z-=1;let x=.9999999999998099;for(let i=0;i<p.length;i++)x+=p[i]/(z+i+1);const t=z+p.length-.5;return .5*Math.log(2*Math.PI)+(z+.5)*Math.log(t)-t+Math.log(x);}
 
-function poissonDistribution(mean,maxGoals=25){
+function poissonDistribution(mean,maxGoals=60){
  const lambda=Number(mean);if(!Number.isFinite(lambda)||lambda<0)throw new Error("Média Poisson inválida.");
  const probabilities=Array(maxGoals+1).fill(0);probabilities[0]=Math.exp(-lambda);
  for(let goals=1;goals<maxGoals;goals++)probabilities[goals]=probabilities[goals-1]*lambda/goals;
