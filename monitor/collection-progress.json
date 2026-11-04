@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 386,
-  "processed_games": 301,
-  "stats_games": 276,
-  "bwin_odds": 285,
-  "failed_games": 16,
-  "current_match": "A consultar jogo 304/386 · AFZ1ZKte",
-  "last_result": "Monterrey F - U.N.A.M. F: 12 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-04T23:01:23.741Z"
+  "processed_games": 325,
+  "stats_games": 296,
+  "bwin_odds": 305,
+  "failed_games": 20,
+  "current_match": "Último concluído: Katowice - Widzew Lodz",
+  "last_result": "Katowice - Widzew Lodz: 13 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-04T23:01:40.330Z"
 }
