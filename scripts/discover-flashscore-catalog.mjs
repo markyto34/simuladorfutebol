@@ -85,7 +85,8 @@ async function fetchHtml(url) {
       "Accept-Language": "pt-PT,pt;q=0.9,en;q=0.7",
       "User-Agent": USER_AGENT
     },
-    redirect: "follow"
+    redirect: "follow",
+    signal: AbortSignal.timeout(15000)
   });
   if (!response.ok) throw new Error("HTTP " + response.status);
   const type = response.headers.get("content-type") || "";
