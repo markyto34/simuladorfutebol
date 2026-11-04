@@ -76,7 +76,7 @@ function simulate(){
   }
   random=Math.random;
   $("extraMarkets").innerHTML=extraHtml.length?extraHtml.join(""):'<p class="model-note">Sem cobertura suficiente para prever remates, faltas ou cartões. Os indicadores adicionais só são simulados quando a fonte contém as quatro médias necessárias.</p>';
-  $("summary").textContent=[hasGoals?"Expectativa de "+(sumG/N).toFixed(2)+" golos ("+h+": "+(sumHG/N).toFixed(2)+"; "+a+": "+(sumAG/N).toFixed(2)+")": "Golos: sem dados suficientes",hasGoals?"BTTS estimado: "+pct(btts):"",hasHalfTime?"Over 0,5 HT estimado: "+pct(ht05):"Over 0,5 HT: sem dados suficientes",hasSecondHalf?"Over 0,5 ST estimado: "+pct(sh05):"Over 0,5 ST: sem dados suficientes",hasXg?"Expectativa de golos ponderada: 65% golos históricos + 35% xG (amostra mínima de 5 jogos por indicador)":"xG: amostra inferior a 5 jogos ou sem dados",hasCorners?"Expectativa de "+(sumC/N).toFixed(2)+" cantos":"Cantos: sem dados suficientes","Simulação reproduzível: os mesmos dados geram os mesmos resultados.",extraHtml.length?"Indicadores adicionais calculados: "+extraValues.map(x=>x.spec.key.toLowerCase()).join(", "):""].filter(Boolean).join(". ")+".";
+  $("summary").textContent=[hasGoals?"Expectativa de "+(sumG/N).toFixed(2)+" golos ("+h+": "+(sumHG/N).toFixed(2)+"; "+a+": "+(sumAG/N).toFixed(2)+")": "Golos: sem dados suficientes",hasGoals?"BTTS estimado: "+pct(btts):"",hasHalfTime?"Over 0,5 HT estimado: "+pct(ht05):"Over 0,5 HT: sem dados suficientes",hasSecondHalf?"Over 0,5 ST estimado: "+pct(sh05):"Over 0,5 ST: sem dados suficientes",hasXg&&hasGoalHistory?"Expectativa de golos ponderada: 65% golos históricos + 35% xG (amostra mínima de 5 jogos por indicador)":hasXg?"xG disponível, mas o histórico de golos é insuficiente; não foi usada uma previsão baseada apenas em xG":"xG: amostra inferior a 5 jogos ou sem dados",hasCorners?"Expectativa de "+(sumC/N).toFixed(2)+" cantos":"Cantos: sem dados suficientes","Simulação reproduzível: os mesmos dados geram os mesmos resultados.",extraHtml.length?"Indicadores adicionais calculados: "+extraValues.map(x=>x.spec.key.toLowerCase()).join(", "):""].filter(Boolean).join(". ")+".";
   $("resultados").classList.remove("hidden");$("resultados").scrollIntoView({behavior:"smooth",block:"start"});
  }catch(e){random=Math.random;alert(e.message)}
 }
@@ -656,7 +656,7 @@ function enforcePairedTeamCoverage(){
   const min=metric==="xgFor"||metric==="xgAgainst"?MIN_XG_SAMPLE:MIN_METRIC_SAMPLE;
   if(h.length<min||a.length<min)missing.push(metric+" (casa "+h.length+", fora "+a.length+")");
  }
- const baseNote=homeGoals&&awayGoals?"Amostra de golos disponível para ambas as equipas.":"Amostra de golos incompleta (casa "+homeGoals+", fora "+awayGoals+").";
+ const baseNote=homeGoals>=MIN_METRIC_SAMPLE&&awayGoals>=MIN_METRIC_SAMPLE?"Amostra mínima de golos confirmada para ambas as equipas.":"Amostra de golos insuficiente (mínimo "+MIN_METRIC_SAMPLE+"; casa "+homeGoals+", fora "+awayGoals+").";
  return missing.length?baseNote+" Cobertura parcial por indicador: "+missing.join("; ")+". Os valores válidos de cada equipa mantêm-se visíveis; os mercados que não tenham os dados completos dos dois lados não serão calculados.":baseNote+" Cobertura confirmada para todos os indicadores.";
 }
 function applyTeamSelection(side){
