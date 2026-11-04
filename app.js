@@ -352,10 +352,25 @@ async function loadWdwTeam(side,team,league,pairRequestId){
     }
    }catch(e){lastError=String(e?.message||e);}
   }
+  // As páginas de resultados WinDrawWin podem misturar ligas e taças.
+  // Só aceitamos jogos que também existam na lista da competição selecionada.
+  const selectedSeason=$("season").value;
+  const seasonStart=2000+Number(selectedSeason.slice(0,2));
+  const scopedMatches=matches.filter(w=>{
+   if(!w.dateKey)return false;
+   const [month,day]=w.dateKey.split("-").map(Number);
+   const year=WDW_CALENDAR_YEAR_LEAGUES.has(league)?seasonStart:(month>=7?seasonStart:seasonStart+1);
+   const date=year+"-"+String(month).padStart(2,"0")+"-"+String(day).padStart(2,"0");
+   return dataState.matches.some(m=>
+    m.date===date&&wdwTeamKey(m.home)===wdwTeamKey(w.home)&&
+    wdwTeamKey(m.away)===wdwTeamKey(w.away)&&m.hg===w.hg&&m.ag===w.ag
+   );
+  });
+  matches=scopedMatches;
   if(!matches.length){
    if(isCurrent())status.textContent=/respondeu 403|HTTP 403/i.test(lastError)
     ?"WinDrawWin: o servidor recusou o acesso (HTTP 403). Não é um erro no nome da equipa; a fonte principal continua ativa."
-    :"WinDrawWin: não foi possível confirmar uma página de resultados para «"+team+"» nesta competição. "+(lastError||"A fonte principal continua ativa.");
+    :"WinDrawWin: não foram encontrados jogos desta equipa confirmados na competição e época selecionadas. A fonte principal mantém-se ativa.";
    return;
   }
   dataState.wdwTeams[key]=matches;
@@ -616,16 +631,8 @@ function teamSample(team,venue,metric){
   return w?wdwValue(w,h):null;
  };
  const records=primary.map(m=>({m,w:matching(m),h:m.home===team,wdwOnly:false}));
- // Add WinDrawWin-only fixtures as a genuine secondary sample, but only for the current mapped season.
- if(allowWdw){
-  for(const w of wdw){
-   const h=w.teamHome;
-   if(venue==="home"&&!h||venue==="away"&&h)continue;
-   const exists=primary.some(m=>sameFixtureIdentity(m,w,wdwMatchDate(w)));
-   if(exists)continue;
-   records.push({m:{date:wdwMatchDate(w),home:w.home,away:w.away,hg:w.hg,ag:w.ag,htHome:w.htHome,htAway:w.htAway,hc:null,ac:null,homeShots:null,awayShots:null,homeTarget:null,awayTarget:null,homeFouls:null,awayFouls:null,homeYellow:null,awayYellow:null,homeRed:null,awayRed:null},w,h,wdwOnly:true});
-  }
- }
+ // WinDrawWin só pode enriquecer jogos já presentes na competição selecionada.
+ // Nunca acrescentar jogos de outras provas à amostra principal.
  records.sort((a,b)=>(b.m.date||"").localeCompare(a.m.date||""));
  // Cada indicador usa a sua própria amostra. Não exigir que um jogo tenha
  // cantos, remates e faltas completos para poder contribuir para golos/HT.
