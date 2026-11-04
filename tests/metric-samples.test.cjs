@@ -48,8 +48,10 @@ test("A identidade do encontro impede duplicados mesmo quando os resultados dive
   const teamSampleStart = source.indexOf("function teamSample(");
   const teamSampleEnd = source.indexOf("\nfunction mean(", teamSampleStart);
   const teamSampleBody = source.slice(teamSampleStart, teamSampleEnd);
-  assert.ok(teamSampleBody.includes("primary.some(m=>sameFixtureIdentity(m,w,wdwMatchDate(w)))"),
-    "um jogo já existente não deve ser adicionado como WDW-only, mesmo com score divergente");
+  assert.ok(!teamSampleBody.includes("records.push({m:{date:wdwMatchDate(w)"),
+    "a amostra não pode adicionar jogos WinDrawWin fora da competição selecionada");
+  assert.ok(teamSampleBody.includes("const records=primary.map(m=>({m,w:matching(m),h:m.home===team,wdwOnly:false}))"),
+    "a amostra deve ser construída exclusivamente com jogos da competição selecionada");
   assert.ok(teamSampleBody.includes("sameFixtureIdentity(m,w,date)&&m.hg===w.hg&&m.ag===w.ag"),
     "a correspondência para enriquecer estatísticas continua a exigir resultado igual");
 });
