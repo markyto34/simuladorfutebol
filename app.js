@@ -495,7 +495,7 @@ async function loadHistoricalData(){
  const requestId=++historicalLoadSequence;wdwPairSequence++;
  const status=$("data-status"),button=$("load-data");button.disabled=true;
  dataState.matches=[];dataState.teams=[];dataState.wdwTeams={};dataState.wdwSummaries={};
- document.body.classList.remove("data-loaded","match-selected");
+ document.body.classList.remove("data-loaded","match-selected");$("recent-matches")?.classList.add("hidden");
  for(const id of ["homePick","awayPick"]){const select=$(id);select.value="";select.innerHTML='<option value="">A carregar nova pesquisa…</option>';select.disabled=true;}
  for(const id of TEAM_METRIC_PAIRS.flatMap(([,homeId,awayId])=>[homeId,awayId]))fillInput(id,null);
  $("homeName").value="";$("awayName").value="";$("homeNameDisplay").textContent="—";$("awayNameDisplay").textContent="—";
@@ -668,16 +668,74 @@ function enforcePairedTeamCoverage(){
  if(!missing.length)return "Cobertura suficiente nos indicadores disponíveis. Os mercados são calculados apenas quando ambos os lados cumprem a amostra mínima.";
  return "Indicadores sem cobertura suficiente:\n"+missing.map(item=>"• "+item).join("\n")+"\n\nOs mercados que não cumpram a amostra mínima dos dois lados ficam indisponíveis. Os dados válidos continuam visíveis.";
 }
+function renderRecentTeamMatches(side){
+ const team=$(side==="home"?"homePick":"awayPick").value;
+ const target=$(side==="home"?"home-recent-matches":"away-recent-matches");
+ const heading=$(side==="home"?"home-recent-title":"away-recent-title");
+ const section=$("recent-matches");
+ if(!target||!heading||!section)return;
+ const otherSelected=Boolean($(side==="home"?"awayPick":"homePick").value);
+ if(!team){
+  heading.textContent=side==="home"?"Equipa da casa":"Equipa visitante";
+  target.innerHTML='<p class="recent-empty">Seleciona uma equipa para consultar os últimos 5 jogos.</p>';
+  section.classList.toggle("hidden",!otherSelected);
+  return;
+ }
+ const key=wdwTeamKey(team);
+ const recent=dataState.matches
+  .filter(match=>wdwTeamKey(match.home)===key||wdwTeamKey(match.away)===key)
+  .sort((a,b)=>(b.date||"").localeCompare(a.date||""))
+  .slice(0,5);
+ heading.textContent=team+" · "+(side==="home"?"casa":"fora");
+ const fmt=(value,decimals=0)=>value===null||value===undefined||value===""||!Number.isFinite(Number(value))?"—":Number(value).toFixed(decimals);
+ const pair=(home,away,decimals=0)=>fmt(home,decimals)+"–"+fmt(away,decimals);
+ const date=value=>{
+  if(!value)return "Data indisponível";
+  const match=String(value).match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  return match?match[3]+"/"+match[2]+"/"+match[1]:String(value);
+ };
+ if(!recent.length){
+  target.innerHTML='<p class="recent-empty">Não foram encontrados jogos desta equipa nesta competição/época.</p>';
+ }else{
+  target.innerHTML=recent.map(match=>{
+   const isHome=wdwTeamKey(match.home)===key;
+   const venue=isHome?"Casa":"Fora";
+   const stats=[
+    ["Cantos",pair(match.hc,match.ac)],
+    ["Remates",pair(match.homeShots,match.awayShots)],
+    ["À baliza",pair(match.homeTarget,match.awayTarget)],
+    ["Faltas",pair(match.homeFouls,match.awayFouls)],
+    ["Amarelos",pair(match.homeYellow,match.awayYellow)],
+    ["xG",pair(match.homeXg,match.awayXg,2)]
+   ];
+   const available=stats.filter(([,value])=>!value.startsWith("—")&&!value.endsWith("–—")&&!value.startsWith("—–"));
+   const hasPair=(home,away)=>home!==null&&home!==undefined&&home!==""&&away!==null&&away!==undefined&&away!=="";
+   const periods=[
+    hasPair(match.htHome,match.htAway)?"HT "+pair(match.htHome,match.htAway):"",
+    hasPair(match.shHome,match.shAway)?"ST "+pair(match.shHome,match.shAway):""
+   ].filter(Boolean).join(" · ");
+   return '<article class="recent-match">'+
+    '<div class="recent-match-top"><span>'+date(match.date)+' · '+venue+'</span><strong>'+fmt(match.hg)+'–'+fmt(match.ag)+'</strong></div>'+
+    '<div class="recent-match-teams">'+escapeHtml(match.home)+' <span>vs</span> '+escapeHtml(match.away)+'</div>'+
+    (periods?'<div class="recent-periods">'+periods+'</div>':'')+
+    (available.length?'<div class="recent-match-stats">'+available.map(([label,value])=>'<span>'+label+' <b>'+value+'</b></span>').join('')+'</div>':'<p class="recent-empty">Estatísticas detalhadas indisponíveis para este jogo.</p>')+
+   '</article>';
+  }).join("");
+ }
+ const competition=$("league").selectedOptions?.[0]?.textContent||"Competição selecionada";
+ $("recent-competition-label").textContent=competition;
+ section.classList.remove("hidden");
+}
 function applyTeamSelection(side){
  const skipPairCheck=arguments[1]===true;
  const team=$(side==="home"?"homePick":"awayPick").value;
  const suffix=side==="home"?"h":"a";
  const fields=[["goalsFor",suffix+"gFor"],["goalsAgainst",suffix+"gAgainst"],["htGoalsFor",suffix+"htFor"],["htGoalsAgainst",suffix+"htAgainst"],["secondHalfGoalsFor",suffix+"shFor"],["secondHalfGoalsAgainst",suffix+"shAgainst"],["xgFor",suffix+"xgFor"],["xgAgainst",suffix+"xgAgainst"],["cornersFor",suffix+"cFor"],["cornersAgainst",suffix+"cAgainst"],["shotsFor",suffix+"shotsFor"],["shotsAgainst",suffix+"shotsAgainst"],["targetFor",suffix+"targetFor"],["targetAgainst",suffix+"targetAgainst"],["foulsFor",suffix+"foulsFor"],["foulsAgainst",suffix+"foulsAgainst"],["yellowFor",suffix+"yellowFor"],["yellowAgainst",suffix+"yellowAgainst"],["redFor",suffix+"redFor"],["redAgainst",suffix+"redAgainst"]];
- if(!team){for(const [,id] of fields)fillInput(id,null);$(side==="home"?"homeName":"awayName").value="";$(side==="home"?"homeNameDisplay":"awayNameDisplay").textContent="—";if(!skipPairCheck)$("data-status").textContent=enforcePairedTeamCoverage();return;}
+ if(!team){for(const [,id] of fields)fillInput(id,null);$(side==="home"?"homeName":"awayName").value="";$(side==="home"?"homeNameDisplay":"awayNameDisplay").textContent="—";renderRecentTeamMatches(side);if(!skipPairCheck)$("data-status").textContent=enforcePairedTeamCoverage();return;}
  const venue=side==="home"?"home":"away";
  const coverage={};
  for(const [metric,id] of fields){const values=teamSample(team,venue,metric),avg=mean(values);const minimum=MetricCoverage.minimumFor(metric);const usable=MetricCoverage.hasSufficientSample(values,metric)?avg:null;fillInput(id,usable);coverage[metric]=values.length;}
- $(side==="home"?"homeName":"awayName").value=team;$(side==="home"?"homeNameDisplay":"awayNameDisplay").textContent=team;
+ $(side==="home"?"homeName":"awayName").value=team;$(side==="home"?"homeNameDisplay":"awayNameDisplay").textContent=team;renderRecentTeamMatches(side);
  const status=$("data-status"),sample=$("sample").value==="all"?"todos os jogos":"últimos "+$("sample").value+" jogos";
  status.textContent=team+" ("+(venue==="home"?"casa":"fora")+") · médias atualizadas · "+sample+".";
  if(!skipPairCheck){
