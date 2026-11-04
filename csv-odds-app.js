@@ -181,6 +181,7 @@
     const league=$("league").value;
     const scopedMatches=allMatches.filter(match=>
       (!country||match.country===country)&&(!league||match.league===league));
+    rangeSearchActive=rangeMode;
     const result=rangeMode?CSVOdds.evaluateOddsRanges(scopedMatches,rangeConfig.ranges):CSVOdds.evaluateCurrentOdds(scopedMatches,odds);
     matches=CSVOdds.sortMatchesChronologically(result.matches);
     page=0;
