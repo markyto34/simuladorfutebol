@@ -1,0 +1,60 @@
+name: Audit Flashscore competition coverage
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/flashscore-statistics.csv"
+      - "scripts/audit-flashscore-coverage.mjs"
+      - "scripts/audit-flashscore-odds-matches.mjs"
+      - ".github/workflows/audit-flashscore-coverage.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout histórico Flashscore
+        uses: actions/checkout@v6
+        with:
+          ref: main
+      - name: Preparar Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Validar script
+        run: node --check scripts/audit-flashscore-coverage.mjs
+      - name: Auditar cobertura por competição
+        run: node scripts/audit-flashscore-coverage.mjs
+      - name: Publicar resumo
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const r = JSON.parse(fs.readFileSync('flashscore-competition-coverage.json', 'utf8'));
+          const lines = [
+            '## Cobertura histórica Flashscore',
+            '',
+            '- Jogos únicos: **' + r.unique_match_ids + '**',
+            '- Competições identificadas: **' + r.competition_count + '**',
+            '- Competições com 5+ jogos: **' + r.competitions_with_5_plus_matches + '**',
+            '- Competições com 10+ jogos: **' + r.competitions_with_10_plus_matches + '**',
+            '- Competições com 20+ jogos: **' + r.competitions_with_20_plus_matches + '**',
+            '',
+            '> Esta auditoria mede apenas a base já recolhida; não representa todo o catálogo do Flashscore.',
+            '',
+            '| País | Competição | Jogos | Cantos | xG | Faltas |',
+            '|---|---|---:|---:|---:|---:|',
+            ...r.competitions.slice(0, 30).map(x => '| ' + x.country + ' | ' + x.competition + ' | ' + x.unique_matches + ' | ' + x.metrics.corners.complete_matches + ' | ' + x.metrics.xg.complete_matches + ' | ' + x.metrics.fouls.complete_matches + ' |')
+          ];
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, lines.join('\n') + '\n');
+          NODE
+      - name: Guardar relatórios
+        uses: actions/upload-artifact@v4
+        with:
+          name: flashscore-competition-coverage
+          path: |
+            flashscore-competition-coverage.json
+            flashscore-competition-coverage.csv
+          if-no-files-found: error
+          retention-days: 30
