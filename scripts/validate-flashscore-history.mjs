@@ -58,6 +58,7 @@ export function validateHistory(stats, odds) {
 
   const seenStats = new Set();
   let withScore = 0, withoutScore = 0, finalWithoutScore = 0, withXg = 0, withCorners = 0, withShots = 0, all13 = 0;
+  const competitionCoverage = new Map();
   for (const row of stats) {
     const id = row.match_id;
     if (blank(id)) throw new Error("Registo estatístico sem match_id.");
@@ -86,7 +87,11 @@ export function validateHistory(stats, odds) {
       optionalNumber(row[key + "_home"], key + "_home", id, { max: key === "possession" ? 100 : Infinity });
       optionalNumber(row[key + "_away"], key + "_away", id, { max: key === "possession" ? 100 : Infinity });
     }
-    if (!blank(row.xg_home) && !blank(row.xg_away)) withXg++;
+    const competitionKey = row.country + " | " + row.competition;
+    if (!competitionCoverage.has(competitionKey)) competitionCoverage.set(competitionKey, { competition: competitionKey, matches: 0, withXg: 0 });
+    const competition = competitionCoverage.get(competitionKey);
+    competition.matches++;
+    if (!blank(row.xg_home) && !blank(row.xg_away)) { withXg++; competition.withXg++; }
     if (!blank(row.corners_home) && !blank(row.corners_away)) withCorners++;
     if (!blank(row.shots_home) && !blank(row.shots_away)) withShots++;
     if (STAT_CATEGORIES.every(key => !blank(row[key + "_home"]) && !blank(row[key + "_away"]))) all13++;
@@ -120,6 +125,12 @@ export function validateHistory(stats, odds) {
     withCorners,
     withShots,
     all13,
+    xgMissingCompetitions: [...competitionCoverage.values()]
+      .filter(item => item.matches >= 5 && item.withXg === 0)
+      .sort((a, b) => b.matches - a.matches || a.competition.localeCompare(b.competition)),
+    xgPartialCompetitions: [...competitionCoverage.values()]
+      .filter(item => item.matches >= 5 && item.withXg > 0 && item.withXg < item.matches)
+      .sort((a, b) => a.withXg / a.matches - b.withXg / b.matches || b.matches - a.matches),
     uniqueStatsIds: seenStats.size,
     uniqueOddsKeys: seenOdds.size
   };
