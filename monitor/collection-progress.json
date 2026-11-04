@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 386,
-  "processed_games": 125,
-  "stats_games": 125,
-  "bwin_odds": 125,
+  "processed_games": 150,
+  "stats_games": 150,
+  "bwin_odds": 150,
   "failed_games": 0,
-  "current_match": "A consultar jogo 127/386 · 6wMh67Nk",
-  "last_result": "Jadran LP - Segesta: 6 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-04T22:17:20.368Z"
+  "current_match": "A consultar jogo 152/386 · MHUPVzGN",
+  "last_result": "Eibar - Almeria: 13 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-04T22:17:30.272Z"
 }
