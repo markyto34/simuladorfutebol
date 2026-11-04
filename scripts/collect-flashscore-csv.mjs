@@ -23,6 +23,22 @@ const BASE_ODDS_HISTORY_FILE = resolve("ganhonasodds_com_20261101.csv");
 const STATS_FILE = resolve("data/flashscore-statistics.csv");
 const ODDS_FILE = resolve("data/bwin-odds-flashscore.csv");
 
+export function buildTeamLastFiveCompetitionMap(payload) {
+  const identities = {};
+  for (const fixture of Array.isArray(payload?.fixtures) ? payload.fixtures : []) {
+    const competitionLabel = String(fixture?.competition || "");
+    const match = competitionLabel.match(/^([^:]+):\\s*(.+)$/);
+    if (fixture?.match_id && match) {
+      identities[fixture.match_id] = {
+        status: "identified",
+        country: match[1].trim(),
+        competition: match[2].trim()
+      };
+    }
+  }
+  return identities;
+}
+
 export function selectTeamLastFiveMatchIds(payload, limit = 0) {
   const fixtures = Array.isArray(payload?.fixtures) ? payload.fixtures : [];
   const ids = [...new Set(fixtures.filter(f => f?.stats_status !== "already_complete" && /^[A-Za-z0-9]{6,16}$/.test(String(f?.match_id || ""))).map(f => f.match_id))];
@@ -322,17 +338,7 @@ async function main() {
     catch (error) { throw new Error("Não foi possível ler o manifesto de últimos cinco jogos: " + error.message); }
     const allIds = selectTeamLastFiveMatchIds(payload, 0);
     matchIds = selectTeamLastFiveMatchIds(payload, teamLastFiveLimit);
-    for (const fixture of payload.fixtures || []) {
-      const competitionLabel = String(fixture.competition || "");
-      const match = competitionLabel.match(/^([^:]+):\s*(.+)$/);
-      if (fixture.match_id && match) {
-        competitionByMatchId[fixture.match_id] = {
-          status: "identified",
-          country: match[1].trim(),
-          competition: match[2].trim()
-        };
-      }
-    }
+    competitionByMatchId = buildTeamLastFiveCompetitionMap(payload);
     console.log("[TEAM LAST FIVE] " + allIds.length + " jogos únicos pendentes; selecionados " + matchIds.length + "; completos ignorados=" + ((payload.fixtures || []).filter(f => f.stats_status === "already_complete").length) + ".");
     await setProgress({ phase: "collecting", current_match: "A preparar jogos dos últimos cinco por equipa", total_games: matchIds.length });
   }
