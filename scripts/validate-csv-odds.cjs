@@ -15,6 +15,24 @@ const pending = matches.length - completed.length;
 const countMissing = key => rows.filter(r => !String(r[key] ?? "").trim()).length;
 const mismatch = (a,b) => a[0] !== null && a[1] !== null && b[0] !== null && b[1] !== null && (a[0] !== b[0] || a[1] !== b[1]);
 const ftFinalMismatch = matches.filter(m => mismatch(m.ft,m.final)).length;
+const finalLowerThanFt = matches.filter(m => m.ft.every(Number.isInteger) && m.final.every(Number.isInteger) &&
+  (m.final[0] < m.ft[0] || m.final[1] < m.ft[1])).length;
+const finalHigherThanFt = matches.filter(m => m.ft.every(Number.isInteger) && m.final.every(Number.isInteger) &&
+  (m.final[0] > m.ft[0] || m.final[1] > m.ft[1])).length;
+const metadataMissingRows = rows.filter(r => !String(r.COUNTRY || "").trim() || !String(r.LEAGUE || "").trim());
+const metadataMissingExamples = metadataMissingRows.slice(0, 50).map(r => ({
+  date: r.date_time || "",
+  country: r.COUNTRY || "",
+  league: r.LEAGUE || "",
+  home: r.TEAM_HOME || "",
+  away: r.TEAM_AWAY || "",
+  ft: [r.score_ft_home || "", r.score_ft_away || ""],
+  final: [r.score_final_home || "", r.score_final_away || ""]
+}));
+const finalLowerThanFtExamples = matches.filter(m => m.ft.every(Number.isInteger) && m.final.every(Number.isInteger) &&
+  (m.final[0] < m.ft[0] || m.final[1] < m.ft[1])).slice(0, 50).map(m => ({
+    date: m.dateRaw, country: m.country, league: m.league, home: m.home, away: m.away, ft: m.ft, final: m.final
+  }));
 const halfSumMismatch = matches.filter(m => m.ht.every(Number.isInteger) && m.secondHalf.every(Number.isInteger) && m.ft.every(Number.isInteger) &&
   (m.ht[0]+m.secondHalf[0] !== m.ft[0] || m.ht[1]+m.secondHalf[1] !== m.ft[1])).length;
 const oddsMissing = Object.fromEntries(["1","X","2"].map(k=>[k,matches.filter(m=>m.odds[k]===null).length]));
@@ -52,7 +70,9 @@ const out = {
 const validationErrors = getValidationErrors({ missingHeaders, invalidDate, noTeams, duplicateRows, oddsOutOfRange });
 out.validationErrors = validationErrors;
 out.warnings = [];
+if (metadataMissingRows.length) out.warnings.push("País/competição em falta em " + metadataMissingRows.length + " jogos; consultar metadataMissingExamples.");
 if (ftFinalMismatch) out.warnings.push("Resultados FT e final divergem em " + ftFinalMismatch + " jogos; requerem revisão, mas não são automaticamente rejeitados.");
+if (finalLowerThanFt) out.warnings.push("Resultado final inferior ao FT em " + finalLowerThanFt + " jogos; consultar finalLowerThanFtExamples.");
 if (halfSumMismatch) out.warnings.push("HT + 2.ª parte não coincide com FT em " + halfSumMismatch + " jogos; requerem revisão.");
 fs.writeFileSync("csv-odds-validation.json", JSON.stringify(out,null,2));
 console.log(JSON.stringify(out,null,2));
