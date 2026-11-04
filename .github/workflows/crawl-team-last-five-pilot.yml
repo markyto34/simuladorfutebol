@@ -1,0 +1,55 @@
+name: Pilot team last-five collection queue
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/crawl-flashscore-team-results.mjs"
+      - ".github/workflows/crawl-team-last-five-pilot.yml"
+      - "scripts/seed-flashscore-team-ids.mjs"
+      - "scripts/build-historical-team-universe.mjs"
+      - "ganhonasodds_com_20261101.csv"
+      - "data/flashscore-statistics.csv"
+  workflow_dispatch:
+    inputs:
+      seed_limit:
+        description: "Jogos de origem para descobrir IDs (0 = todos)"
+        required: false
+        default: "20"
+      max_teams:
+        description: "Máximo de feeds de equipas a consultar"
+        required: false
+        default: "40"
+      delay_ms:
+        description: "Intervalo entre pedidos ao Flashscore"
+        required: false
+        default: "1500"
+
+jobs:
+  pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - name: Build historical team universe
+        run: node scripts/build-historical-team-universe.mjs --output=/tmp/historical-team-universe.json
+      - name: Seed initial team IDs
+        env:
+          SEED_LIMIT: ${{ github.event.inputs.seed_limit || '20' }}
+          DELAY_MS: ${{ github.event.inputs.delay_ms || '1500' }}
+        run: node scripts/seed-flashscore-team-ids.mjs --limit="$SEED_LIMIT" --delay-ms="$DELAY_MS" --output=/tmp/flashscore-team-id-seeds.json
+      - name: Crawl team last-five feeds and deduplicate fixtures
+        env:
+          MAX_TEAMS: ${{ github.event.inputs.max_teams || '40' }}
+          DELAY_MS: ${{ github.event.inputs.delay_ms || '1500' }}
+        run: node scripts/crawl-flashscore-team-results.mjs --universe=/tmp/historical-team-universe.json --seeds=/tmp/flashscore-team-id-seeds.json --max-teams="$MAX_TEAMS" --delay-ms="$DELAY_MS" --output=/tmp/team-last-five-pilot.json
+      - name: Upload pilot queue
+        uses: actions/upload-artifact@v4
+        with:
+          name: team-last-five-pilot
+          path: /tmp/team-last-five-pilot.json
+          if-no-files-found: error
+          retention-days: 14
