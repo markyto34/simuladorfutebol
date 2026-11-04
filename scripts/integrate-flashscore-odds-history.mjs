@@ -94,7 +94,7 @@ for (const row of base.records) {
   addIndex(byFullIdentity, fullIdentity(row), row);
   addIndex(byLegacyIdentity, legacyIdentity(row), row);
 }
-let added = 0, oddsRowsUpdated = 0, oddsFieldsUpdated = 0, resultsUpdated = 0, skipped = 0, ambiguous = 0;
+let added = 0, oddsRowsUpdated = 0, oddsFieldsUpdated = 0, resultsUpdated = 0, metadataRowsUpdated = 0, metadataFieldsUpdated = 0, skipped = 0, ambiguous = 0;
 for (const quote of odds) {
   if (quote.bookmaker !== "Bwin" || quote.market !== "1X2") continue;
   if (![quote.odd_1, quote.odd_x, quote.odd_2].every(validOdd)) { skipped++; continue; }
@@ -161,7 +161,7 @@ if (added || oddsRowsUpdated || resultsUpdated) {
   await writeFile(BASE_FILE, toCsv(base.headers, base.records), "utf8");
 }
 console.log("CSV histórico integrado: " + base.records.length.toLocaleString("pt-PT") + " registos totais.");
-console.log("Novos jogos acrescentados: " + added + "; jogos existentes com odds completadas: " + oddsRowsUpdated + "; campos de odds preenchidos: " + oddsFieldsUpdated + "; jogos com resultados FT completados: " + resultsUpdated + "; linhas ignoradas: " + skipped + "; correspondências ambíguas: " + ambiguous + ".");
+console.log("Novos jogos acrescentados: " + added + "; jogos existentes com metadados completados: " + metadataRowsUpdated + "; campos de país/competição preenchidos: " + metadataFieldsUpdated + "; jogos existentes com odds completadas: " + oddsRowsUpdated + "; campos de odds preenchidos: " + oddsFieldsUpdated + "; jogos com resultados FT completados: " + resultsUpdated + "; linhas ignoradas: " + skipped + "; correspondências ambíguas: " + ambiguous + ".");
 console.log("Ficheiro atualizado: " + BASE_FILE);
 if (process.env.GITHUB_STEP_SUMMARY) {
   const { appendFile } = await import("node:fs/promises");
