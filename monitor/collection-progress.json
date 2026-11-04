@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 111,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
+  "processed_games": 25,
+  "stats_games": 25,
+  "bwin_odds": 25,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-04T22:14:32.265Z"
+  "current_match": "A consultar jogo 27/111 · zZH7dkWG",
+  "last_result": "Tigres - Real Cartagena: 6 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-04T22:14:43.978Z"
 }
