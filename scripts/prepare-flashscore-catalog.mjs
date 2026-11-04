@@ -6,25 +6,27 @@ const OUTPUT = process.env.FLASHSCORE_PREPARED_CATALOG || 'data/flashscore-compe
 const EXCLUDED_NAVIGATION = new Set(['odds', 'futebol ontem', 'futebol amanha']);
 
 export function normalizeLabel(value) {
-  return String(value ?? '').normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').toLowerCase()
-    .replace(/[^a-z0-9]+/g, ' ').trim().replace(/\\s+/g, ' ');
+  return String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
 }
 
 function classify(name, country) {
   const n = normalizeLabel(name);
   const c = normalizeLabel(country);
-  const female = /\\b(feminina|feminino|women|ladies|senhoras)\\b/.test(n);
-  const age = n.match(/\\b(?:u\\s?\\d{2}|sub\\s?\\d{1,2}|under\\s?\\d{1,2}|juniores?|youth|junior)\\b/);
-  const stage = /\\b(playoffs?|play offs?|promocao|despromocao|relegation|promotion|fase de grupos|group stage|league phase|fase de liga|final round|championship round)\\b/.test(n);
-  const group = /\\b(serie|grupo|group|north|south|east|west|norte|sul|este|oeste|nordeste|noroeste|sudeste|sudoeste)\\b/.test(n);
-  const friendly = /\\b(amigavel|friendly)\\b/.test(n);
-  const cup = /\\b(taca|cup|copa|pokal|coppa|coupe|knockout)\\b/.test(n);
+  const female = /\b(feminina|feminino|women|ladies|senhoras)\b/.test(n);
+  const age = n.match(/\b(?:u\s?\d{2}|sub\s?\d{1,2}|under\s?\d{1,2}|juniores?|youth|junior)\b/);
+  const stage = /\b(playoffs?|play offs?|promocao|despromocao|relegation|promotion|fase de grupos|group stage|league phase|fase de liga|final round|championship round)\b/.test(n);
+  const group = /\b(serie|grupo|group|north|south|east|west|norte|sul|este|oeste|nordeste|noroeste|sudeste|sudoeste)\b/.test(n);
+  const friendly = /\b(amigavel|friendly)\b/.test(n);
+  const cup = /\b(taca|cup|copa|pokal|coppa|coupe|knockout)\b/.test(n);
   const globalRegion = /^(mundo|europa|asia|africa|america do sul|america do norte e central|oceania)$/.test(c);
+  const category = female ? 'feminino' : age ? 'formacao' : 'masculino_misto';
+  const competitionType = friendly ? 'amigavel' : cup ? 'taca' : stage ? 'fase_especial' : 'liga_ou_torneio';
   return {
     gender: female ? 'feminino' : 'masculino_misto',
-    age_category: age ? age[0].replace(/\\s+/g, ' ') : 'senior',
-    category: female ? 'feminino' : age ? 'formacao' : 'masculino_misto',
-    competition_type: friendly ? 'amigavel' : cup ? 'taca' : stage ? 'fase_especial' : 'liga_ou_torneio',
+    age_category: age ? age[0].replace(/\s+/g, ' ') : 'senior',
+    category,
+    competition_type: competitionType,
     has_stage_or_playoff_marker: stage,
     has_division_or_group_marker: group,
     geographic_scope: globalRegion ? 'regional_ou_global' : 'pais_ou_regiao'
@@ -33,8 +35,8 @@ function classify(name, country) {
 
 function familyName(name) {
   return String(name).trim()
-    .replace(/\\s*[-–—:]\\s*(?:s[eé]rie|grupo|group|division|divis[aã]o|north|south|east|west|norte|sul|este|oeste)\\s+[a-z0-9]+\\s*$/i, '')
-    .replace(/\\s*[-–—:]\\s*(?:play-?offs?|promotion|relegation|fase de grupos|group stage|league phase|fase de liga|final round|championship round)\\s*$/i, '')
+    .replace(/\s*[-–—:]\s*(?:s[eé]rie|grupo|group|division|divis[aã]o|north|south|east|west|norte|sul|este|oeste)\s+[a-z0-9]+\s*$/i, '')
+    .replace(/\s*[-–—:]\s*(?:play-?offs?|promotion|relegation|fase de grupos|group stage|league phase|fase de liga|final round|championship round)\s*$/i, '')
     .trim() || String(name).trim();
 }
 
@@ -109,7 +111,7 @@ export function prepareFlashscoreCatalog(raw) {
 async function main() {
   const raw = JSON.parse(await readFile(INPUT, 'utf8'));
   const report = prepareFlashscoreCatalog(raw);
-  await writeFile(OUTPUT, JSON.stringify(report, null, 2) + '\\n');
+  await writeFile(OUTPUT, JSON.stringify(report, null, 2) + '\n');
   console.log(JSON.stringify({ ...report.summary, duplicate_groups: report.local_duplicate_groups_for_review }, null, 2));
 }
 
