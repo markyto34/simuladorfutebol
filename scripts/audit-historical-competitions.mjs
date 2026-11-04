@@ -12,7 +12,7 @@ const COUNTRY_ALIASES = {
   "polonia":"poland","chequia":"czech republic","eslovaquia":"slovakia",
   "russia":"russia","romenia":"romania","servia":"serbia","eslovenia":"slovenia",
   "ucrania":"ukraine","irlanda":"ireland","pais de gales":"wales","mexico":"mexico",
-  "argentina":"argentina","japao":"japan","australia":"australia","china":"china",
+  "argentina":"argentina","japao":"japan","australia":"australia","china":"china","eua":"united states","estados unidos":"united states","coreia do sul":"south korea","arabia saudita":"saudi arabia","africa do sul":"south africa","israel":"israel","bulgaria":"bulgaria","marrocos":"morocco","argelia":"algeria","tailandia":"thailand","egipto":"egypt","nova zelandia":"new zealand","mocambique":"mozambique","peru":"peru","uruguai":"uruguay","venezuela":"venezuela","vietname":"vietnam","letonia":"latvia","ruanda":"rwanda","uzbequistao":"uzbekistan","trindade e tobago":"trinidad and tobago",
   "finlandia":"finland","cazaquistao":"kazakhstan","grecia":"greece","austria":"austria",
   "chipre":"cyprus","croacia":"croatia"
 };
