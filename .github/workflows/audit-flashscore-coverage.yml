@@ -22,10 +22,8 @@ jobs:
   audit:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout histórico Flashscore
+      - name: Checkout código do evento
         uses: actions/checkout@v6
-        with:
-          ref: main
       - name: Preparar Node
         uses: actions/setup-node@v6
         with:
