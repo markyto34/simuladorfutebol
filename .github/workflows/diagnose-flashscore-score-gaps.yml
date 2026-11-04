@@ -16,11 +16,11 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout main
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           ref: main
       - name: Preparar Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 22
       - name: Consultar amostra de páginas Flashscore sem alterar dados
