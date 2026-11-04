@@ -336,7 +336,7 @@ export default {
       if (!/^[A-Za-z0-9]{8}$/.test(teamId) || !/^[a-z0-9-]{1,100}$/i.test(slug)) {
         return json({ error: "invalid_team", message: "Indica um ID de equipa de 8 caracteres e um slug válido." }, 400, headers);
       }
-      const teamTarget = new URL("/equipa/" + slug + "/" + teamId + "/resultados/", UPSTREAM);
+      const teamTarget = new URL("/equipa/" + slug + "/" + teamId + "/resultados/", "https://www.flashscore.pt");
       let teamResponse;
       try {
         teamResponse = await fetch(teamTarget.toString(), {
@@ -346,7 +346,7 @@ export default {
       } catch (error) {
         return json({ error: "upstream_unavailable", detail: String(error?.message || "Falha de ligação").slice(0, 180) }, 502, headers);
       }
-      if (teamResponse.status >= 300 && teamResponse.status < 400) return json({ error: "upstream_redirect", upstream_status: teamResponse.status }, 502, headers);
+      if (teamResponse.status >= 300 && teamResponse.status < 400) return json({ error: "upstream_redirect", upstream_status: teamResponse.status, location: teamResponse.headers.get("location") || null }, 502, headers);
       if (!teamResponse.ok) return json({ error: "upstream_rejected", upstream_status: teamResponse.status }, 502, headers);
       const type = teamResponse.headers.get("content-type") || "";
       if (!type.toLowerCase().includes("text/html")) return json({ error: "unexpected_content_type", content_type: type }, 502, headers);
