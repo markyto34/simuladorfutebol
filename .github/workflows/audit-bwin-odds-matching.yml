@@ -1,0 +1,26 @@
+name: Auditoria read-only de correspondência das odds Bwin
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Executar auditoria sem modificar CSVs
+        run: node scripts/audit-flashscore-odds-matches.mjs
+      - name: Guardar relatório
+        uses: actions/upload-artifact@v4
+        with:
+          name: bwin-odds-match-audit
+          path: odds-match-audit.json
+          if-no-files-found: error
