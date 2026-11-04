@@ -322,6 +322,17 @@ async function main() {
     catch (error) { throw new Error("Não foi possível ler o manifesto de últimos cinco jogos: " + error.message); }
     const allIds = selectTeamLastFiveMatchIds(payload, 0);
     matchIds = selectTeamLastFiveMatchIds(payload, teamLastFiveLimit);
+    for (const fixture of payload.fixtures || []) {
+      const competitionLabel = String(fixture.competition || "");
+      const match = competitionLabel.match(/^([^:]+):\s*(.+)$/);
+      if (fixture.match_id && match) {
+        competitionByMatchId[fixture.match_id] = {
+          status: "identified",
+          country: match[1].trim(),
+          competition: match[2].trim()
+        };
+      }
+    }
     console.log("[TEAM LAST FIVE] " + allIds.length + " jogos únicos pendentes; selecionados " + matchIds.length + "; completos ignorados=" + ((payload.fixtures || []).filter(f => f.stats_status === "already_complete").length) + ".");
     await setProgress({ phase: "collecting", current_match: "A preparar jogos dos últimos cinco por equipa", total_games: matchIds.length });
   }
