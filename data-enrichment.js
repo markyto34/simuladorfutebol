@@ -116,6 +116,7 @@
       ["homeTarget", ["shots_on_target_home"]], ["awayTarget", ["shots_on_target_away"]],
       ["homeFouls", ["fouls_home"]], ["awayFouls", ["fouls_away"]],
       ["homeYellow", ["yellow_cards_home"]], ["awayYellow", ["yellow_cards_away"]],
+      ["homeRed", ["red_cards_home"]], ["awayRed", ["red_cards_away"]],
       ["homeXg", ["xg_home"]], ["awayXg", ["xg_away"]],
       ["homePossession", ["possession_home"]], ["awayPossession", ["possession_away"]],
       ["homeBigChances", ["big_chances_home"]], ["awayBigChances", ["big_chances_away"]],
@@ -136,6 +137,10 @@
       matched.add(id);
       let changed = false;
       fields.forEach(([field, names]) => { changed = fillMissing(match, field, number(row, names)) || changed; });
+      for (const [field, names] of [["htHome", ["ht_home"]], ["htAway", ["ht_away"]], ["shHome", ["sh_home"]], ["shAway", ["sh_away"]]]) {
+        const value = score(row, names);
+        changed = fillMissing(match, field, value) || changed;
+      }
       if (changed) enriched.add(id);
       match.flashscoreMatchId = value(row, ["match_id"]) || match.flashscoreMatchId || "";
     });
