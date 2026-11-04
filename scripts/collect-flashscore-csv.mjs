@@ -22,6 +22,13 @@ const BASE_ODDS_HISTORY_FILE = resolve("ganhonasodds_com_20261101.csv");
 const STATS_FILE = resolve("data/flashscore-statistics.csv");
 const ODDS_FILE = resolve("data/bwin-odds-flashscore.csv");
 
+export function selectTeamLastFiveMatchIds(payload, limit = 0) {
+  const fixtures = Array.isArray(payload?.fixtures) ? payload.fixtures : [];
+  const ids = [...new Set(fixtures.filter(f => f?.stats_status !== "already_complete" && /^[A-Za-z0-9]{6,16}$/.test(String(f?.match_id || ""))).map(f => f.match_id))];
+  const n = Number(limit);
+  return Number.isInteger(n) && n > 0 ? ids.slice(0, n) : ids;
+}
+
 const STAT_KEYS = [
   "xg", "possession", "shots", "shots_on_target", "big_chances", "corners",
   "yellow_cards", "red_cards", "shots_off_target", "blocked_shots", "shots_inside_box",
@@ -295,14 +302,27 @@ async function main() {
   await publishProgress();
   const dateOption = args.find(arg => arg.startsWith("--date="));
   const historicalOddsOnly = args.includes("--historical-odds");
+  const teamLastFiveOption = args.find(arg => arg.startsWith("--team-last-five="));
+  const teamLastFiveLimit = Number(args.find(arg => arg.startsWith("--limit="))?.slice("--limit=".length) || 0);
   let matchIds = args.filter(arg => !arg.startsWith("--"));
   let competitionByMatchId = {};
   let fixturesByMatchId = {};
+  if (teamLastFiveOption && (dateOption || matchIds.length)) throw new Error("Usa --team-last-five=ficheiro.json isoladamente, sem IDs nem --date.");
   if (dateOption && matchIds.length) {
     throw new Error("Usa IDs de jogos ou --date=YYYY-MM-DD, não ambos.");
   }
   if (historicalOddsOnly && !dateOption) {
     throw new Error("A opção --historical-odds só pode ser usada com --date=YYYY-MM-DD.");
+  }
+  if (teamLastFiveOption) {
+    const file = resolve(teamLastFiveOption.slice("--team-last-five=".length));
+    let payload;
+    try { payload = JSON.parse(await readFile(file, "utf8")); }
+    catch (error) { throw new Error("Não foi possível ler o manifesto de últimos cinco jogos: " + error.message); }
+    const allIds = selectTeamLastFiveMatchIds(payload, 0);
+    matchIds = selectTeamLastFiveMatchIds(payload, teamLastFiveLimit);
+    console.log("[TEAM LAST FIVE] " + allIds.length + " jogos únicos pendentes; selecionados " + matchIds.length + "; completos ignorados=" + ((payload.fixtures || []).filter(f => f.stats_status === "already_complete").length) + ".");
+    await setProgress({ phase: "collecting", current_match: "A preparar jogos dos últimos cinco por equipa", total_games: matchIds.length });
   }
   if (dateOption) {
     const date = dateOption.slice("--date=".length);
@@ -345,11 +365,16 @@ async function main() {
     }
   }
   matchIds = [...new Set(matchIds)];
-  const maxMatches = dateOption ? MAX_DAILY_MATCHES : MAX_MANUAL_MATCHES;
+  const maxMatches = (dateOption || teamLastFiveOption) ? MAX_DAILY_MATCHES : MAX_MANUAL_MATCHES;
   if (matchIds.length > maxMatches) {
     throw new Error("Limite de segurança: máximo de " + maxMatches + " jogos por execução" + (dateOption ? " diária." : " manual."));
   }
   if (!matchIds.length) {
+    if (teamLastFiveOption) {
+      console.log("Não existem jogos pendentes no manifesto de últimos cinco. Nada a recolher.");
+      await setProgress({ status: "completed", phase: "completed", total_games: 0, current_match: "Sem jogos pendentes" });
+      return;
+    }
     if (dateOption) {
       console.log("Não foram encontrados jogos Flashscore para a data indicada. Nada a acrescentar aos CSV.");
       await setProgress({ status: "completed", phase: "completed", total_games: 0, current_match: "Sem jogos para recolher" });
@@ -357,6 +382,7 @@ async function main() {
     }
     console.error("Uso: node scripts/collect-flashscore-csv.mjs <match_id> [match_id...]");
     console.error("  ou: node scripts/collect-flashscore-csv.mjs --date=YYYY-MM-DD");
+    console.error("  ou: node scripts/collect-flashscore-csv.mjs --team-last-five=ficheiro.json [--limit=5]");
     process.exitCode = 2;
     return;
   }
