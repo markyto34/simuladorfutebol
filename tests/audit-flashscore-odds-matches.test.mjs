@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { auditMatches, parseCsv, normalize } from "../scripts/audit-flashscore-odds-matches.mjs";
+import { auditMatches, parseCsv, normalize, summarizeHistoricalBase, summarizeStatsCoverage } from "../scripts/audit-flashscore-odds-matches.mjs";
 
 const baseRow = (overrides = {}) => ({
   date_time: "2026-11-01T14:30", COUNTRY: "Germany", LEAGUE: "Bundesliga",
@@ -49,4 +49,35 @@ test("lê CSV com campos entre aspas e vírgulas", () => {
   const rows = parseCsv('name,competition\n"FC, Porto","Liga, Portugal"\n');
   assert.equal(rows[0].name, "FC, Porto");
   assert.equal(rows[0].competition, "Liga, Portugal");
+});
+
+
+test("resume o histórico completo por jogos únicos sem apagar observações", () => {
+  const summary = summarizeHistoricalBase([
+    baseRow(),
+    baseRow(),
+    baseRow({ date_time: "2026-11-02T14:30", TEAM_HOME: "Porto", TEAM_AWAY: "Benfica", LEAGUE: "Primeira Liga" }),
+    { date_time: "", COUNTRY: "", LEAGUE: "", TEAM_HOME: "", TEAM_AWAY: "" }
+  ]);
+  assert.equal(summary.total_records, 4);
+  assert.equal(summary.unique_games, 2);
+  assert.equal(summary.repeated_observations, 1);
+  assert.equal(summary.records_without_match_identity, 1);
+  assert.equal(summary.competitions.length, 2);
+  assert.equal(summary.competitions.find(item => item.competition === "Bundesliga").unique_games, 1);
+});
+
+
+test("cruza jogos únicos com Flashscore e mede cobertura estatística", () => {
+  const games = summarizeHistoricalBase([baseRow()]).unique_game_index;
+  const coverage = summarizeStatsCoverage(games, [{
+    date_time: "2026-11-01T14:30", country: "Germany", competition: "Bundesliga",
+    home_team: "Bayern Munchen", away_team: "FC Koln",
+    corners_home: "7", corners_away: "3", shots_home: "15", shots_away: "8"
+  }]);
+  assert.equal(coverage.games_with_stats, 1);
+  assert.equal(coverage.exact_matches, 1);
+  assert.equal(coverage.games_without_stats, 0);
+  assert.equal(coverage.metric_coverage_total.corners, 1);
+  assert.equal(coverage.metric_coverage_total.shots, 1);
 });

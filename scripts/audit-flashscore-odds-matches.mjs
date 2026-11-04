@@ -133,12 +133,114 @@ export function auditMatches(baseRecords, oddsRecords) {
   };
 }
 
+
+export function summarizeHistoricalBase(records) {
+  const games = new Map();
+  const competitions = new Map();
+  const years = new Map();
+  for (const row of records) {
+    const key = fullKey(row);
+    if (!dateKey(row.date_time) || !normalize(row.COUNTRY) || !normalize(row.LEAGUE) || !normalize(row.TEAM_HOME) || !normalize(row.TEAM_AWAY)) continue;
+    const current = games.get(key) || { key, date: dateKey(row.date_time), country: row.COUNTRY || "", competition: row.LEAGUE || "", home_team: row.TEAM_HOME || "", away_team: row.TEAM_AWAY || "", observations: 0 };
+    current.observations++;
+    games.set(key, current);
+    const compKey = [normalize(row.COUNTRY), normalize(row.LEAGUE)].join("|");
+    const comp = competitions.get(compKey) || { country: row.COUNTRY || "", competition: row.LEAGUE || "", observations: 0, unique_games: new Set() };
+    comp.observations++;
+    comp.unique_games.add(key);
+    competitions.set(compKey, comp);
+    const year = dateKey(row.date_time).slice(0, 4);
+    years.set(year, (years.get(year) || 0) + 1);
+  }
+  const uniqueGames = [...games.values()];
+  return {
+    total_records: records.length,
+    identifiable_records: uniqueGames.reduce((sum, game) => sum + game.observations, 0),
+    unique_games: uniqueGames.length,
+    repeated_observations: uniqueGames.reduce((sum, game) => sum + Math.max(0, game.observations - 1), 0),
+    records_without_match_identity: records.length - uniqueGames.reduce((sum, game) => sum + game.observations, 0),
+    competitions: [...competitions.values()].map(item => ({ country: item.country, competition: item.competition, records: item.observations, unique_games: item.unique_games.size }))
+      .sort((a, b) => b.unique_games - a.unique_games || a.country.localeCompare(b.country) || a.competition.localeCompare(b.competition)),
+    years: Object.fromEntries([...years.entries()].sort(([a], [b]) => a.localeCompare(b))),
+    unique_game_index: uniqueGames
+  };
+}
+
+
+export function summarizeStatsCoverage(uniqueGames, statsRecords) {
+  const exactIndex = new Map(), legacyIndex = new Map();
+  const add = (index, key, row) => {
+    const rows = index.get(key) || [];
+    rows.push(row);
+    index.set(key, rows);
+  };
+  for (const stat of statsRecords) {
+    if (!dateKey(stat.date_time) || !normalize(stat.country) || !normalize(stat.competition) || !normalize(stat.home_team) || !normalize(stat.away_team)) continue;
+    add(exactIndex, fullKey(stat, true), stat);
+    add(legacyIndex, legacyKey(stat, true), stat);
+  }
+  const byCompetition = new Map();
+  let exactCount = 0, legacyOnly = 0, ambiguous = 0, missing = 0;
+  const categories = ["xg","possession","shots","shots_on_target","big_chances","corners","yellow_cards","red_cards","shots_off_target","blocked_shots","shots_inside_box","shots_outside_box","offsides","fouls"];
+  const categoryTotals = Object.fromEntries(categories.map(key => [key, 0]));
+  for (const game of uniqueGames) {
+    const competitionKey = [normalize(game.country), normalize(game.competition)].join("|");
+    const comp = byCompetition.get(competitionKey) || {
+      country: game.country, competition: game.competition, unique_games: 0,
+      games_with_stats: 0, exact_matches: 0, legacy_only_matches: 0,
+      ambiguous_matches: 0, missing_stats: 0,
+      metric_coverage: Object.fromEntries(categories.map(key => [key, 0]))
+    };
+    comp.unique_games++;
+    const exactMatches = exactIndex.get(game.key) || [];
+    let stat = null;
+    if (exactMatches.length === 1) { exactCount++; stat = exactMatches[0]; comp.exact_matches++; }
+    else if (exactMatches.length > 1) { ambiguous++; comp.ambiguous_matches++; }
+    else {
+      const legacy = legacyIndex.get([game.date, normalize(game.home_team), normalize(game.away_team)].join("|")) || [];
+      if (legacy.length === 1) { legacyOnly++; stat = legacy[0]; comp.legacy_only_matches++; }
+      else if (legacy.length > 1) { ambiguous++; comp.ambiguous_matches++; }
+    }
+    if (!stat) {
+      if (!exactMatches.length) { missing++; comp.missing_stats++; }
+    } else {
+      comp.games_with_stats++;
+      for (const key of categories) {
+        const home = stat[key + "_home"], away = stat[key + "_away"];
+        if (String(home ?? "").trim() !== "" && String(away ?? "").trim() !== "") {
+          comp.metric_coverage[key]++;
+          categoryTotals[key]++;
+        }
+      }
+    }
+    byCompetition.set(competitionKey, comp);
+  }
+  const competitions = [...byCompetition.values()].map(comp => ({
+    ...comp,
+    coverage_pct: comp.unique_games ? Number((100 * comp.games_with_stats / comp.unique_games).toFixed(2)) : 0
+  })).sort((a,b) => b.games_with_stats-a.games_with_stats || b.unique_games-a.unique_games);
+  return {
+    total_stats_rows: statsRecords.length,
+    total_unique_games: uniqueGames.length,
+    games_with_stats: exactCount + legacyOnly,
+    exact_matches: exactCount,
+    legacy_only_matches: legacyOnly,
+    ambiguous_matches: ambiguous,
+    games_without_stats: missing,
+    metric_coverage_total: categoryTotals,
+    competitions_with_any_stats: competitions.filter(item => item.games_with_stats > 0).length,
+    competitions,
+  };
+}
+
 async function main() {
   const baseText = await readFile(BASE_FILE, "utf8");
   const oddsText = await readFile(ODDS_FILE, "utf8");
+  const statsText = await readFile("data/flashscore-statistics.csv", "utf8");
   const base = parseCsv(baseText);
   const odds = parseCsv(oddsText);
-  if (!base.length || !odds.length) throw new Error("CSV histórico ou CSV Bwin vazio; auditoria cancelada.");
+  const stats = parseCsv(statsText);
+  if (!base.length || !odds.length || !stats.length) throw new Error("CSV histórico, CSV Bwin ou CSV estatístico vazio; auditoria cancelada.");
   for (const field of ["date_time", "COUNTRY", "LEAGUE", "TEAM_HOME", "TEAM_AWAY"]) {
     if (!Object.hasOwn(base[0], field)) throw new Error("Coluna em falta no CSV histórico: " + field);
   }
@@ -146,8 +248,10 @@ async function main() {
     if (!Object.hasOwn(odds[0], field)) throw new Error("Coluna em falta no CSV Bwin: " + field);
   }
   const report = auditMatches(base, odds);
+  report.full_historical_base = summarizeHistoricalBase(base);
+  report.flashscore_stats_coverage = summarizeStatsCoverage(report.full_historical_base.unique_game_index, stats);
   await writeFile(REPORT_FILE, JSON.stringify(report, null, 2) + "\n", "utf8");
-  console.log(JSON.stringify({ mode: report.mode, base_rows: report.base_rows, bwin_quotes: report.bwin_quotes, counts: report.counts, collision_groups: report.legacy_identity_collisions.length, report_file: REPORT_FILE }, null, 2));
+  console.log(JSON.stringify({ mode: report.mode, base_rows: report.base_rows, unique_games: report.full_historical_base.unique_games, repeated_observations: report.full_historical_base.repeated_observations, competitions: report.full_historical_base.competitions.length, years: report.full_historical_base.years, stats_rows: stats.length, games_with_stats: report.flashscore_stats_coverage.games_with_stats, games_without_stats: report.flashscore_stats_coverage.games_without_stats, competitions_with_any_stats: report.flashscore_stats_coverage.competitions_with_any_stats, bwin_quotes: report.bwin_quotes, counts: report.counts, collision_groups: report.legacy_identity_collisions.length, report_file: REPORT_FILE }, null, 2));
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
