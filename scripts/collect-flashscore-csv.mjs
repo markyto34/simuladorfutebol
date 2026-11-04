@@ -250,10 +250,21 @@ async function discoverMatchIds(date) {
   catch { throw new Error("Resposta não JSON na descoberta da data (HTTP " + response.status + ")."); }
   if (!response.ok || payload.ok !== true || !payload.inspection) {
     const upstream = Number(payload.upstream_status || 0);
+    const upstreamMessage = String(payload.message || "").trim();
+    const contentType = String(payload.content_type || "").trim();
+    const detail = [
+      "proxy_http=" + response.status,
+      upstream ? "flashscore_http=" + upstream : "",
+      "error=" + String(payload.error || "unknown"),
+      upstreamMessage ? "message=" + upstreamMessage : "",
+      contentType ? "content_type=" + contentType : ""
+    ].filter(Boolean).join("; ");
     if (upstream === 403 || upstream === 429) {
-      throw new Error("Flashscore respondeu HTTP " + upstream + " na descoberta; recolha interrompida.");
+      const error = new Error("Flashscore respondeu HTTP " + upstream + " na descoberta; recolha interrompida. " + detail);
+      error.stop = true;
+      throw error;
     }
-    throw new Error("Falha na descoberta de jogos: " + (payload.error || "HTTP " + response.status));
+    throw new Error("Falha na descoberta de jogos (" + detail + ").");
   }
   if (payload.inspection.truncated) {
     throw new Error("A lista da data excede o limite seguro de 2000 jogos; não foi iniciada a recolha.");
