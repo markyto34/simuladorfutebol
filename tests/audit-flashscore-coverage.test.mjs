@@ -78,3 +78,16 @@ test("mantém distintas Liga Portugal 2, Liga 3, feminino e séries do Campeonat
   assert.equal(report.competition_count, labels.length);
   assert.equal(report.merged_alias_label_count, 0);
 });
+
+test("identifica séries sem as fundir", () => {
+ const report = buildFlashscoreCoverage([
+  row({match_id:"a",country:"PORTUGAL",competition:"Campeonato de Portugal - Série A"}),
+  row({match_id:"b",country:"PORTUGAL",competition:"Campeonato de Portugal - Série B"})
+ ]);
+ const a=report.competitions.find(x=>x.competition.endsWith("Série A"));
+ const b=report.competitions.find(x=>x.competition.endsWith("Série B"));
+ assert.equal(a.competition_family,"Campeonato de Portugal");
+ assert.equal(a.division_or_group,"Série A");
+ assert.equal(b.division_or_group,"Série B");
+ assert.equal(report.competition_count,2);
+});
