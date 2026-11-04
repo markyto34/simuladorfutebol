@@ -32,7 +32,7 @@ const oddsText = await readFile("data/bwin-odds-flashscore.csv", "utf8");
 const stats = parseCsv(statsText), odds = parseCsv(oddsText);
 const statHeaders = Object.keys(stats[0] || {});
 const oddsHeaders = Object.keys(odds[0] || {});
-const statFields = ["match_id","date_time","home_team","away_team", ...["xg","possession","shots","shots_on_target","big_chances","corners","yellow_cards","shots_off_target","blocked_shots","shots_inside_box","shots_outside_box","offsides","fouls"].flatMap(k => [k+"_home",k+"_away"])];
+const statFields = ["match_id","date_time","home_team","away_team","ht_home","ht_away","sh_home","sh_away", ...["xg","possession","shots","shots_on_target","big_chances","corners","yellow_cards","red_cards","shots_off_target","blocked_shots","shots_inside_box","shots_outside_box","offsides","fouls"].flatMap(k => [k+"_home",k+"_away"])];
 const oddsFields = ["match_id","bookmaker","market","odd_1","odd_x","odd_2","retrieved_at"];
 for (const field of statFields) if (!statHeaders.includes(field)) throw new Error("Coluna ausente no CSV de estatísticas: "+field);
 for (const field of oddsFields) if (!oddsHeaders.includes(field)) throw new Error("Coluna ausente no CSV de odds: "+field);
