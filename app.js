@@ -686,6 +686,35 @@ function applyTeamSelection(side){
  if(!skipPairCheck){const other=side==="home"?"away":"home";if($(other==="home"?"homePick":"awayPick").value)applyTeamSelection(other,true);status.textContent+=" "+enforcePairedTeamCoverage();}
  document.body.classList.toggle("match-selected",Boolean($("homePick").value&&$("awayPick").value));
 }
+/* Filtro de competições por país; os IDs originais das ligas mantêm-se inalterados. */
+const COUNTRY_NAMES={
+ ENG:"Inglaterra",ESP:"Espanha",GER:"Alemanha",ITA:"Itália",FRA:"França",UEFA:"Internacionais",
+ SCO:"Escócia",POR:"Portugal",NED:"Países Baixos",BEL:"Bélgica",TUR:"Turquia",GRE:"Grécia",
+ SUI:"Suíça",AUT:"Áustria",DEN:"Dinamarca",SWE:"Suécia",NOR:"Noruega",ROU:"Roménia",
+ RUS:"Rússia",IRE:"Irlanda",POL:"Polónia",WAL:"País de Gales",CRO:"Croácia",CZE:"Chéquia",
+ UKR:"Ucrânia",CYP:"Chipre",SVK:"Eslováquia",SVN:"Eslovénia",FIN:"Finlândia",KAZ:"Cazaquistão",
+ BRA:"Brasil",ARG:"Argentina",MEX:"México",USA:"Estados Unidos",JPN:"Japão",AUS:"Austrália",CHN:"China"
+};
+const countrySelect=$("country"),leagueSelect=$("league");
+const competitionOptions=[...leagueSelect.options].map(option=>option.cloneNode(true));
+const countryCodes=[...new Set(competitionOptions.map(option=>option.value.split("_")[0]))];
+countrySelect.innerHTML=countryCodes.map(code=>'<option value="'+code+'">'+(COUNTRY_NAMES[code]||code)+'</option>').join("");
+function setCountryCompetitions(preferred){
+ const code=countrySelect.value;
+ const available=competitionOptions.filter(option=>option.value.startsWith(code+"_"));
+ leagueSelect.innerHTML="";
+ for(const option of available){
+  const copy=option.cloneNode(true);
+  copy.textContent=copy.textContent.replace(/^[^—]+—\s*/,"");
+  leagueSelect.appendChild(copy);
+ }
+ if(preferred&&available.some(option=>option.value===preferred))leagueSelect.value=preferred;
+ else if(leagueSelect.options.length)leagueSelect.selectedIndex=0;
+}
+const initialLeague=leagueSelect.value;
+countrySelect.value=initialLeague.split("_")[0];
+setCountryCompetitions(initialLeague);
+countrySelect.addEventListener("change",()=>setCountryCompetitions());
 $("load-data").addEventListener("click",loadHistoricalData);
 $("homePick").addEventListener("change",()=>{applyTeamSelection("home");loadWdwMatchPair();});
 $("awayPick").addEventListener("change",()=>{applyTeamSelection("away");loadWdwMatchPair();});
