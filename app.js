@@ -659,16 +659,14 @@ const TEAM_METRIC_PAIRS=[
 function enforcePairedTeamCoverage(){
  const home=$("homePick").value,away=$("awayPick").value;
  if(!home||!away)return "Seleciona as duas equipas para comparar a cobertura.";
- const homeGoals=Math.min(teamSample(home,"home","goalsFor").length,teamSample(home,"home","goalsAgainst").length);
- const awayGoals=Math.min(teamSample(away,"away","goalsFor").length,teamSample(away,"away","goalsAgainst").length);
+ const labels={goalsFor:"Golos marcados",goalsAgainst:"Golos sofridos",htGoalsFor:"Golos marcados HT",htGoalsAgainst:"Golos sofridos HT",secondHalfGoalsFor:"Golos marcados ST",secondHalfGoalsAgainst:"Golos sofridos ST",xgFor:"xG a favor",xgAgainst:"xG contra",cornersFor:"Cantos a favor",cornersAgainst:"Cantos concedidos",shotsFor:"Remates",shotsAgainst:"Remates concedidos",targetFor:"Remates à baliza",targetAgainst:"Remates à baliza concedidos",foulsFor:"Faltas cometidas",foulsAgainst:"Faltas sofridas",yellowFor:"Amarelos",yellowAgainst:"Amarelos do adversário",redFor:"Vermelhos",redAgainst:"Vermelhos do adversário"};
  const missing=[];
  for(const [metric] of TEAM_METRIC_PAIRS){
-  const h=teamSample(home,"home",metric),a=teamSample(away,"away",metric);
-  const min=MetricCoverage.minimumFor(metric);
-  if(!MetricCoverage.hasPairedCoverage(h,a,metric))missing.push(metric+" (casa "+h.length+", fora "+a.length+", mínimo "+min+")");
+  const h=teamSample(home,"home",metric),a=teamSample(away,"away",metric),min=MetricCoverage.minimumFor(metric);
+  if(!MetricCoverage.hasPairedCoverage(h,a,metric))missing.push((labels[metric]||metric)+": casa "+h.length+"/"+min+" · fora "+a.length+"/"+min);
  }
- const baseNote=homeGoals>=MIN_METRIC_SAMPLE&&awayGoals>=MIN_METRIC_SAMPLE?"Amostra mínima de golos confirmada para ambas as equipas.":"Amostra de golos insuficiente (mínimo "+MIN_METRIC_SAMPLE+"; casa "+homeGoals+", fora "+awayGoals+").";
- return missing.length?baseNote+" Cobertura parcial por indicador: "+missing.join("; ")+". Os valores válidos de cada equipa mantêm-se visíveis; os mercados que não tenham os dados completos dos dois lados não serão calculados.":baseNote+" Cobertura confirmada para todos os indicadores.";
+ if(!missing.length)return "Cobertura suficiente nos indicadores disponíveis. Os mercados são calculados apenas quando ambos os lados cumprem a amostra mínima.";
+ return "Indicadores sem cobertura suficiente:\n"+missing.map(item=>"• "+item).join("\n")+"\n\nOs mercados que não cumpram a amostra mínima dos dois lados ficam indisponíveis. Os dados válidos continuam visíveis.";
 }
 function applyTeamSelection(side){
  const skipPairCheck=arguments[1]===true;
@@ -681,9 +679,13 @@ function applyTeamSelection(side){
  for(const [metric,id] of fields){const values=teamSample(team,venue,metric),avg=mean(values);const minimum=MetricCoverage.minimumFor(metric);const usable=MetricCoverage.hasSufficientSample(values,metric)?avg:null;fillInput(id,usable);coverage[metric]=values.length;}
  $(side==="home"?"homeName":"awayName").value=team;$(side==="home"?"homeNameDisplay":"awayNameDisplay").textContent=team;
  const status=$("data-status"),sample=$("sample").value==="all"?"todos os jogos":"últimos "+$("sample").value+" jogos";
- const count=(a,b)=>Math.min(coverage[a]||0,coverage[b]||0);
- status.textContent=team+": médias "+(venue==="home"?"em casa":"fora")+" preenchidas. Amostras — golos: "+count("goalsFor","goalsAgainst")+"; HT: "+count("htGoalsFor","htGoalsAgainst")+"; ST: "+count("secondHalfGoalsFor","secondHalfGoalsAgainst")+"; xG: "+count("xgFor","xgAgainst")+"; cantos: "+count("cornersFor","cornersAgainst")+"; remates: "+count("shotsFor","shotsAgainst")+"; remates à baliza: "+count("targetFor","targetAgainst")+"; faltas: "+count("foulsFor","foulsAgainst")+"; amarelos: "+count("yellowFor","yellowAgainst")+"; vermelhos: "+count("redFor","redAgainst")+". Janela: "+sample+". Campos sem cobertura ficam indisponíveis; não são substituídos por zeros.";
- if(!skipPairCheck){const other=side==="home"?"away":"home";if($(other==="home"?"homePick":"awayPick").value)applyTeamSelection(other,true);status.textContent+=" "+enforcePairedTeamCoverage();}
+ status.textContent=team+" ("+(venue==="home"?"casa":"fora")+") · médias atualizadas · "+sample+".";
+ if(!skipPairCheck){
+  const other=side==="home"?"away":"home";
+  if($(other==="home"?"homePick":"awayPick").value)applyTeamSelection(other,true);
+  const details=$("team-coverage-details");
+  if(details)details.textContent=enforcePairedTeamCoverage();
+ }
  document.body.classList.toggle("match-selected",Boolean($("homePick").value&&$("awayPick").value));
 }
 /* Filtro de competições por país; os IDs originais das ligas mantêm-se inalterados. */
