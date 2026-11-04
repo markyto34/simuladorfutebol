@@ -94,7 +94,7 @@ for (const row of base.records) {
   addIndex(byFullIdentity, fullIdentity(row), row);
   addIndex(byLegacyIdentity, legacyIdentity(row), row);
 }
-let added = 0, oddsRowsUpdated = 0, oddsFieldsUpdated = 0, resultsUpdated = 0, skipped = 0, ambiguous = 0;
+let added = 0, oddsRowsUpdated = 0, oddsFieldsUpdated = 0, resultsUpdated = 0, metadataRowsUpdated = 0, metadataFieldsUpdated = 0, skipped = 0, ambiguous = 0;
 for (const quote of odds) {
   if (quote.bookmaker !== "Bwin" || quote.market !== "1X2") continue;
   if (![quote.odd_1, quote.odd_x, quote.odd_2].every(validOdd)) { skipped++; continue; }
@@ -128,6 +128,17 @@ for (const quote of odds) {
   }
   const existing = candidates[0];
   if (existing) {
+    // Completar país/competição apenas quando estão vazios; nunca reclassificar o histórico.
+    let metadataChanged = false;
+    for (const [field, value] of [["COUNTRY", row.COUNTRY], ["LEAGUE", row.LEAGUE]]) {
+      if (String(existing[field] ?? "").trim() === "" && String(value ?? "").trim() !== "") {
+        existing[field] = value;
+        metadataFieldsUpdated++;
+        metadataChanged = true;
+      }
+    }
+    if (metadataChanged) metadataRowsUpdated++;
+
     // Completar apenas odds em falta; nunca substituir valores históricos existentes.
     let oddsChanged = false;
     for (const [field, value] of [["odd_ft_1", quote.odd_1], ["odd_ft_x", quote.odd_x], ["odd_ft_2", quote.odd_2]]) {
@@ -157,15 +168,15 @@ for (const quote of odds) {
   addIndex(byLegacyIdentity, legacyIdentity(row), row);
   added++;
 }
-if (added || oddsRowsUpdated || resultsUpdated) {
+if (added || metadataRowsUpdated || oddsRowsUpdated || resultsUpdated) {
   await writeFile(BASE_FILE, toCsv(base.headers, base.records), "utf8");
 }
 console.log("CSV histórico integrado: " + base.records.length.toLocaleString("pt-PT") + " registos totais.");
-console.log("Novos jogos acrescentados: " + added + "; jogos existentes com odds completadas: " + oddsRowsUpdated + "; campos de odds preenchidos: " + oddsFieldsUpdated + "; jogos com resultados FT completados: " + resultsUpdated + "; linhas ignoradas: " + skipped + "; correspondências ambíguas: " + ambiguous + ".");
+console.log("Novos jogos acrescentados: " + added + "; jogos existentes com metadados completados: " + metadataRowsUpdated + "; campos de país/competição preenchidos: " + metadataFieldsUpdated + "; jogos existentes com odds completadas: " + oddsRowsUpdated + "; campos de odds preenchidos: " + oddsFieldsUpdated + "; jogos com resultados FT completados: " + resultsUpdated + "; linhas ignoradas: " + skipped + "; correspondências ambíguas: " + ambiguous + ".");
 console.log("Ficheiro atualizado: " + BASE_FILE);
 if (process.env.GITHUB_STEP_SUMMARY) {
   const { appendFile } = await import("node:fs/promises");
   await appendFile(process.env.GITHUB_STEP_SUMMARY,
     "\n## Integração no CSV histórico de odds\n\n- Total de jogos no CSV: **" + base.records.length +
-    "**\n- Novos jogos: **" + added + "**\n- Resultados FT atualizados: **" + resultsUpdated + "**\n- Linhas ignoradas: **" + skipped + "**\n", "utf8");
+    "**\n- Novos jogos: **" + added + "**\n- Campos de país/competição preenchidos: **" + metadataFieldsUpdated + "**\n- Resultados FT atualizados: **" + resultsUpdated + "**\n- Linhas ignoradas: **" + skipped + "**\n", "utf8");
 }

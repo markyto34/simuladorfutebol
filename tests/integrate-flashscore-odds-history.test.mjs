@@ -109,3 +109,39 @@ test("não escolhe arbitrariamente entre jogos da mesma data e equipas em compet
   assert.equal(lines.length, 4); // cabeçalho + duas linhas históricas + apenas o jogo novo
   assert.equal(lines.filter(line => line.includes("Old FC,Old Town")).length, 2);
 });
+
+
+test("completa país e competição em falta sem substituir metadados existentes", async t => {
+  const dir = await fixture(t);
+  const file = path.join(dir, "ganhonasodds_com_20261101.csv");
+  const original = await readFile(file, "utf8");
+  const [headerLine, dataLine] = original.trim().split("\n");
+  const headers = headerLine.split(",");
+  const cells = dataLine.split(",");
+  cells[headers.indexOf("COUNTRY")] = "";
+  cells[headers.indexOf("LEAGUE")] = "";
+  await writeFile(file, headerLine + "\n" + cells.join(",") + "\n");
+  const oddsFile = path.join(dir, "data/bwin-odds-flashscore.csv");
+  const oddsText = await readFile(oddsFile, "utf8");
+  const oddsLines = oddsText.trim().split("\n");
+  const oddsHeaders = oddsLines[0].split(",");
+  const quoteCells = oddsLines[2].split(",");
+  quoteCells[oddsHeaders.indexOf("country")] = "Portugal";
+  quoteCells[oddsHeaders.indexOf("competition")] = "Primeira Liga";
+  oddsLines[2] = quoteCells.join(",");
+  await writeFile(oddsFile, oddsLines.join("\n") + "\n");
+  const statsFile = path.join(dir, "data/flashscore-statistics.csv");
+  const statsText = await readFile(statsFile, "utf8");
+  const statsLines = statsText.trim().split("\n");
+  const statsHeaders = statsLines[0].split(",");
+  const statCells = statsLines[2].split(",");
+  statCells[statsHeaders.indexOf("country")] = "Portugal";
+  statCells[statsHeaders.indexOf("competition")] = "Primeira Liga";
+  statsLines[2] = statCells.join(",");
+  await writeFile(statsFile, statsLines.join("\n") + "\n");
+  const run = spawnSync(process.execPath, [script], { cwd: dir, encoding: "utf8" });
+  assert.equal(run.status, 0, run.stderr);
+  assert.match(run.stdout, /campos de país\/competição preenchidos: 2/);
+  const result = await readFile(file, "utf8");
+  assert.match(result, /2026-10-30T18:00,Portugal,Primeira Liga,Old FC,Old Town/);
+});
