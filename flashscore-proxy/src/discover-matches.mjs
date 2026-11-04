@@ -66,7 +66,7 @@ export function extractFixtureTeams(anchorText) {
   return { home, away };
 }
 
-export function inspectMatchDiscovery(html, requestedDate, options = {}) {
+\nfunction extractFixtureTeamsFromEvent(html, anchorIndex) {\n  const before = html.slice(0, anchorIndex);\n  const stack = [];\n  const divToken = /<div\\b[^>]*>|<\\/div\\s*>/gi;\n  for (const token of before.matchAll(divToken)) {\n    if (/^<\\/div/i.test(token[0])) stack.pop();\n    else stack.push({ start: token.index, tagEnd: token.index + token[0].length, attributes: token[0] });\n  }\n  const eventContainer = [...stack].reverse().find(item => /(?:^|[\\s"'])event__match(?:[\\s"'-]|$)/i.test(item.attributes));\n  if (!eventContainer) return null;\n  const tail = html.slice(eventContainer.tagEnd);\n  let depth = 1, end = -1;\n  for (const token of tail.matchAll(/<div\\b[^>]*>|<\\/div\\s*>/gi)) {\n    if (/^<\\/div/i.test(token[0])) depth--; else depth++;\n    if (depth === 0) { end = eventContainer.tagEnd + token.index; break; }\n  }\n  if (end < 0 || end - eventContainer.start > 12000) return null;\n  const block = html.slice(eventContainer.tagEnd, end);\n  const participants = { home: null, away: null };\n  const elementPattern = /<([a-z][a-z0-9:-]*)\\b([^>]*)>([\\s\\S]*?)<\\/\\1\\s*>/gi;\n  for (const item of block.matchAll(elementPattern)) {\n    const classValue = item[2].match(/\\bclass\\s*=\\s*(?:"([^"]*)"|'([^']*)')/i)?.slice(1).find(Boolean) || "";\n    const side = /(?:^|\\s)event__participant--home(?:\\s|$)/i.test(classValue) ? "home"\n      : /(?:^|\\s)event__participant--away(?:\\s|$)/i.test(classValue) ? "away" : null;\n    if (!side || participants[side]) continue;\n    const name = plainText(item[3]).trim();\n    if (name && name.length <= 100) participants[side] = name;\n  }\n  return participants.home && participants.away ? participants : null;\n}\nexport function inspectMatchDiscovery(html, requestedDate, options = {}) {
   const summaryOnly = options.summary === true;
   const idsOnly = options.idsOnly === true;
   const targetMatchId = typeof options.matchId === "string" ? options.matchId : null;
@@ -92,7 +92,7 @@ export function inspectMatchDiscovery(html, requestedDate, options = {}) {
     seen.add(id);
     totalUniqueMatchCount += 1;
     const anchorText = plainText(item[5]).slice(0, 180) || null;
-    const teams = extractFixtureTeams(anchorText);
+    const teams = extractFixtureTeams(anchorText) || extractFixtureTeamsFromEvent(html, item.index);
     const compact = { match_id: id, href, anchor_text: anchorText, ...(teams ? { teams } : {}) };
     if (teams) matchFixtures[id] = teams;
     if (targetMatchId && competitionIdentities[id]) compact.competition_identity = competitionIdentities[id];
