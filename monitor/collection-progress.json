@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 124,
-  "processed_games": 100,
-  "stats_games": 95,
-  "bwin_odds": 100,
+  "processed_games": 124,
+  "stats_games": 119,
+  "bwin_odds": 124,
   "failed_games": 0,
-  "current_match": "A consultar jogo 102/124 · jJw6ZSYp",
-  "last_result": "Melgar - Comerciantes Unidos: 14 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-04T22:16:09.469Z"
+  "current_match": "Último concluído: Hanoi FC - Phu Dong Ninh Binh",
+  "last_result": "Hanoi FC - Phu Dong Ninh Binh: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-04T22:16:18.930Z"
 }
