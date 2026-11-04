@@ -135,3 +135,17 @@ test("inclui nomes das equipas no modo compacto de IDs para filtrar jogos do his
   assert.deepEqual(result.match_fixtures["AB12cd34"], { home: "Everton", away: "Arsenal" });
   assert.deepEqual(extractFixtureTeams("15:00 Team A - Team B 0-0"), { home: "Team A", away: "Team B" });
 });
+
+test("extrai equipas dos participantes do evento quando o link contém apenas o resultado", async () => {
+  const { inspectMatchDiscovery } = await import("../flashscore-proxy/src/discover-matches.mjs");
+  const html = '<div class="event__match event__match--static"><div class="event__participant event__participant--home">Liverpool</div><div class="event__participant event__participant--away">Athletic Bilbao</div><div class="event__scores"><a href="/jogo/827gE8Kl/">2-1</a></div></div>';
+  const result = inspectMatchDiscovery(html, "2026-11-04", { idsOnly: true });
+  assert.deepEqual(result.match_fixtures["827gE8Kl"], { home: "Liverpool", away: "Athletic Bilbao" });
+});
+
+test("não inventa equipas quando o evento não tem participantes identificáveis", async () => {
+  const { inspectMatchDiscovery } = await import("../flashscore-proxy/src/discover-matches.mjs");
+  const html = '<div class="event__match"><div class="event__scores"><a href="/jogo/827gE8Kl/">2-1</a></div></div>';
+  const result = inspectMatchDiscovery(html, "2026-11-04", { idsOnly: true });
+  assert.equal(result.match_fixtures["827gE8Kl"], undefined);
+});

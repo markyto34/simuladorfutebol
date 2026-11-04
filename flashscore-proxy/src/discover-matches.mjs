@@ -66,6 +66,38 @@ export function extractFixtureTeams(anchorText) {
   return { home, away };
 }
 
+
+function extractFixtureTeamsFromEvent(html, anchorIndex) {
+  const before = html.slice(0, anchorIndex);
+  const stack = [];
+  const divToken = /<div\b[^>]*>|<\/div\s*>/gi;
+  for (const token of before.matchAll(divToken)) {
+    if (/^<\/div/i.test(token[0])) stack.pop();
+    else stack.push({ start: token.index, tagEnd: token.index + token[0].length, attributes: token[0] });
+  }
+  const eventContainer = [...stack].reverse().find(item => /(?:^|[\s"'])event__match(?:[\s"'-]|$)/i.test(item.attributes));
+  if (!eventContainer) return null;
+  const tail = html.slice(eventContainer.tagEnd);
+  let depth = 1, end = -1;
+  for (const token of tail.matchAll(/<div\b[^>]*>|<\/div\s*>/gi)) {
+    if (/^<\/div/i.test(token[0])) depth--; else depth++;
+    if (depth === 0) { end = eventContainer.tagEnd + token.index; break; }
+  }
+  if (end < 0 || end - eventContainer.start > 12000) return null;
+  const block = html.slice(eventContainer.tagEnd, end);
+  const participants = { home: null, away: null };
+  const elementPattern = /<([a-z][a-z0-9:-]*)\b([^>]*)>([\s\S]*?)<\/\1\s*>/gi;
+  for (const item of block.matchAll(elementPattern)) {
+    const classValue = item[2].match(/\bclass\s*=\s*(?:"([^"]*)"|'([^']*)')/i)?.slice(1).find(Boolean) || "";
+    const side = /(?:^|\s)event__participant--home(?:\s|$)/i.test(classValue) ? "home"
+      : /(?:^|\s)event__participant--away(?:\s|$)/i.test(classValue) ? "away" : null;
+    if (!side || participants[side]) continue;
+    const name = plainText(item[3]).trim();
+    if (name && name.length <= 100) participants[side] = name;
+  }
+  return participants.home && participants.away ? participants : null;
+}
+
 export function inspectMatchDiscovery(html, requestedDate, options = {}) {
   const summaryOnly = options.summary === true;
   const idsOnly = options.idsOnly === true;
@@ -92,7 +124,7 @@ export function inspectMatchDiscovery(html, requestedDate, options = {}) {
     seen.add(id);
     totalUniqueMatchCount += 1;
     const anchorText = plainText(item[5]).slice(0, 180) || null;
-    const teams = extractFixtureTeams(anchorText);
+    const teams = extractFixtureTeams(anchorText) || extractFixtureTeamsFromEvent(html, item.index);
     const compact = { match_id: id, href, anchor_text: anchorText, ...(teams ? { teams } : {}) };
     if (teams) matchFixtures[id] = teams;
     if (targetMatchId && competitionIdentities[id]) compact.competition_identity = competitionIdentities[id];
