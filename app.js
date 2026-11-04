@@ -54,7 +54,7 @@ function simulate(){
   const noData='<p class="model-note">Sem dados suficientes nesta competição/amostra. O indicador não será estimado.</p>';
   const pct=x=>(100*x/N).toFixed(1)+"%";
   const modal=hasGoals?Object.entries(scoreMap).sort((x,y)=>y[1]-x[1])[0][0]:"Sem dados";
-  $("outcomes").innerHTML=hasGoals?[[ "Vitória "+h,home],["Empate",draw],["Vitória "+a,away]].map(([l,p])=>'<div class="bar-row"><div class="bar-label"><span>'+l+'</span><b>'+pct(p)+'</b></div><div class="bar-track"><div class="bar-fill" style="width:'+100*p/N+'%"></div></div></div>').join(""):noData;
+  $("outcomes").innerHTML=hasGoals?[[ "Vitória "+h,home],["Empate",draw],["Vitória "+a,away]].map(([l,p])=>'<div class="bar-row"><div class="bar-label"><span>'+escapeHtml(l)+'</span><b>'+pct(p)+'</b></div><div class="bar-track"><div class="bar-fill" style="width:'+100*p/N+'%"></div></div></div>').join(""):noData;
   $("meanScore").textContent=hasGoals?(sumHG/N).toFixed(2)+" – "+(sumAG/N).toFixed(2):"Sem dados";
   $("modalScore").textContent=modal;
   $("meanGoals").textContent=hasGoals?(sumG/N).toFixed(2):"—";
