@@ -149,3 +149,19 @@ test("não inventa equipas quando o evento não tem participantes identificávei
   const result = inspectMatchDiscovery(html, "2026-11-04", { idsOnly: true });
   assert.equal(result.match_fixtures["827gE8Kl"], undefined);
 });
+
+
+test("extrai equipas do texto entre a hora e o link do resultado no score-data real do Flashscore", async () => {
+  const { inspectMatchDiscovery } = await import("../flashscore-proxy/src/discover-matches.mjs");
+  const html = `<div id="score-data">
+    <h4>EUROPA: Liga dos Campeões - Fase de Liga</h4>
+    <span>17:45</span>AEK - Real Madrid <a href="/jogo/8nfvNJGd/" class="fin">2-3</a><br />
+    <span>17:45</span>Fenerbahce - Liverpool <a href="/jogo/E3VsH66d/" class="fin">3-2</a><br />
+    <h4>EUROPA: Liga Europa - Fase de Liga</h4>
+    <span>15:30</span>Rennes - Olympiakos <a href="/jogo/fTyRNTVP/" class="fin">0-0</a><br />
+  </div>`;
+  const result = inspectMatchDiscovery(html, "2026-11-04", { idsOnly: true });
+  assert.deepEqual(result.match_fixtures["8nfvNJGd"], { home: "AEK", away: "Real Madrid" });
+  assert.deepEqual(result.match_fixtures["E3VsH66d"], { home: "Fenerbahce", away: "Liverpool" });
+  assert.deepEqual(result.match_fixtures["fTyRNTVP"], { home: "Rennes", away: "Olympiakos" });
+});
