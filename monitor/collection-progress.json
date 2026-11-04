@@ -1,15 +1,15 @@
 {
-  "run_id": "41785761621",
-  "run_number": "10",
-  "target_date": "2026-11-03",
-  "status": "completed",
-  "phase": "completed",
-  "total_games": 248,
-  "processed_games": 248,
-  "stats_games": 174,
-  "bwin_odds": 77,
+  "run_id": "41809110051",
+  "run_number": "1",
+  "target_date": "",
+  "status": "running",
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
+  "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Dep. Tachira - Puerto Cabello: 14 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-04T06:30:06.942Z"
+  "current_match": "A descobrir jogos",
+  "last_result": "",
+  "updated_at": "2026-11-04T09:39:06.250Z"
 }
