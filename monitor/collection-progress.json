@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 386,
-  "processed_games": 300,
-  "stats_games": 291,
-  "bwin_odds": 300,
+  "processed_games": 325,
+  "stats_games": 316,
+  "bwin_odds": 325,
   "failed_games": 0,
-  "current_match": "Último concluído: Fredrikstad - Rosenborg",
-  "last_result": "Fredrikstad - Rosenborg: 13 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-04T22:18:30.219Z"
+  "current_match": "A consultar jogo 327/386 · UZ5J40op",
+  "last_result": "Podbeskidzie - Warta Poznan: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-04T22:18:40.338Z"
 }
