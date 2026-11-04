@@ -530,6 +530,54 @@ export default {
       const fullInspection = inspectHtml(html, matchId, { sourceUrl: target.toString() });
       const record = fullInspection.match_record;
       if (recordOnly) {
+        // O separador de estatísticas nem sempre inclui o marcador. Quando o
+        // jogo está terminado e o resultado falta, consultar o Sumário uma vez.
+        // A extração continua a exigir decomposição explícita e validação dos parciais.
+        const finishedStatus = /^(?:Terminado|Tempo Final|Depois de Prolongamento|Após prolongamento|A\.P\.)$/i.test(String(record?.status || ""));
+        if (requestedTab === "statistics" && finishedStatus && !record?.score?.full_time) {
+          const summaryTarget = new URL(buildMatchTabUrl(matchId, "summary"), UPSTREAM);
+          try {
+            const summaryResponse = await fetch(summaryTarget.toString(), {
+              method: "GET",
+              redirect: "manual",
+              headers: {
+                "Accept": "text/html,application/xhtml+xml",
+                "Accept-Language": "pt-PT,pt;q=0.9,en;q=0.7",
+                "User-Agent": "SimuladorFutebol/1.0"
+              }
+            });
+            const summaryType = summaryResponse.headers.get("content-type") || "";
+            if (summaryResponse.ok && summaryType.toLowerCase().includes("text/html")) {
+              const summaryBody = await summaryResponse.arrayBuffer();
+              if (summaryBody.byteLength <= MAX_BODY_BYTES) {
+                const summaryHtml = new TextDecoder("utf-8").decode(summaryBody);
+                const summaryRecord = extractStructuredMatch(summaryHtml, matchId, {
+                  httpStatus: summaryResponse.status,
+                  sourceUrl: summaryTarget.toString()
+                });
+                if (summaryRecord?.score?.full_time) {
+                  record.score = summaryRecord.score;
+                  record.missing_fields = (record.missing_fields || []).filter(field => field !== "score_full_time");
+                  record.source_capture.evidence.push({
+                    field: "score",
+                    source: "validated score breakdown from summary tab fallback",
+                    value: summaryRecord.score.full_time
+                  });
+                  record.source_capture.evidence.push({
+                    field: "score_periods",
+                    source: "summary tab explicit period labels",
+                    value: {
+                      half_time: summaryRecord.score.half_time,
+                      second_half: summaryRecord.score.second_half
+                    }
+                  });
+                }
+              }
+            }
+          } catch {
+            // Falha do pedido secundário não invalida as estatísticas já recolhidas.
+          }
+        }
         return json({
           ok: true,
           match_id: matchId,
