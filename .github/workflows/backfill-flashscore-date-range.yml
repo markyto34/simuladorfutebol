@@ -71,8 +71,8 @@ jobs:
         env:
           START_DATE: ${{ inputs.start_date }}
           DAYS: ${{ steps.range.outputs.days }}
-          FLASHSCORE_REQUEST_DELAY_MS: "1000"
-          FLASHSCORE_CONCURRENCY: "2"
+          FLASHSCORE_REQUEST_DELAY_MS: "400"
+          FLASHSCORE_CONCURRENCY: "4"
           HISTORICAL_ODDS_ONLY: ${{ inputs.historical_odds_only }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
