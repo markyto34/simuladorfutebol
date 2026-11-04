@@ -94,6 +94,7 @@ for (const row of base.records) {
   addIndex(byFullIdentity, fullIdentity(row), row);
   addIndex(byLegacyIdentity, legacyIdentity(row), row);
 }
+const ambiguousIdentities = new Set();
 let added = 0, oddsRowsUpdated = 0, oddsFieldsUpdated = 0, resultsUpdated = 0, metadataRowsUpdated = 0, metadataFieldsUpdated = 0, skipped = 0, ambiguous = 0;
 for (const quote of odds) {
   if (quote.bookmaker !== "Bwin" || quote.market !== "1X2") continue;
@@ -121,24 +122,14 @@ for (const quote of odds) {
   const legacyMatches = byLegacyIdentity.get(legacyIdentity(row)) || [];
   const candidates = exactMatches.length ? exactMatches : legacyMatches;
   if (candidates.length > 1) {
-    ambiguous++;
+    const identity = legacyIdentity(row);
+    if (!ambiguousIdentities.has(identity)) { ambiguous++; ambiguousIdentities.add(identity); }
     skipped++;
-    console.warn("Correspondência ambígua; linha ignorada sem alterar o histórico: " + legacyIdentity(row));
+    console.warn("Correspondência ambígua; linha ignorada sem alterar o histórico: " + identity);
     continue;
   }
   const existing = candidates[0];
   if (existing) {
-    // Completar país/competição apenas quando estão vazios; nunca reclassificar o histórico.
-    let metadataChanged = false;
-    for (const [field, value] of [["COUNTRY", row.COUNTRY], ["LEAGUE", row.LEAGUE]]) {
-      if (String(existing[field] ?? "").trim() === "" && String(value ?? "").trim() !== "") {
-        existing[field] = value;
-        metadataFieldsUpdated++;
-        metadataChanged = true;
-      }
-    }
-    if (metadataChanged) metadataRowsUpdated++;
-
     // Completar apenas odds em falta; nunca substituir valores históricos existentes.
     let oddsChanged = false;
     for (const [field, value] of [["odd_ft_1", quote.odd_1], ["odd_ft_x", quote.odd_x], ["odd_ft_2", quote.odd_2]]) {
@@ -168,6 +159,41 @@ for (const quote of odds) {
   addIndex(byLegacyIdentity, legacyIdentity(row), row);
   added++;
 }
+
+// Completar metadados também a partir das estatísticas Flashscore quando não existe
+// uma observação Bwin 1X2 para o jogo.
+for (const stat of stats) {
+  if (!stat.match_id) continue;
+  const identityRow = {
+    date_time: stat.date_time || "",
+    COUNTRY: stat.country || "",
+    LEAGUE: stat.competition || "",
+    TEAM_HOME: stat.home_team || "",
+    TEAM_AWAY: stat.away_team || ""
+  };
+  if (!identityRow.date_time || !identityRow.TEAM_HOME || !identityRow.TEAM_AWAY) continue;
+  const exactKey = fullIdentity(identityRow);
+  const exactMatches = exactKey ? (byFullIdentity.get(exactKey) || []) : [];
+  const legacyMatches = byLegacyIdentity.get(legacyIdentity(identityRow)) || [];
+  const candidates = exactMatches.length ? exactMatches : legacyMatches;
+  if (candidates.length > 1) {
+    const identity = legacyIdentity(identityRow);
+    if (!ambiguousIdentities.has(identity)) { ambiguous++; ambiguousIdentities.add(identity); }
+    continue;
+  }
+  const existing = candidates[0];
+  if (!existing) continue;
+  let metadataChanged = false;
+  for (const [field, value] of [["COUNTRY", identityRow.COUNTRY], ["LEAGUE", identityRow.LEAGUE]]) {
+    if (String(existing[field] ?? "").trim() === "" && String(value ?? "").trim() !== "") {
+      existing[field] = value;
+      metadataFieldsUpdated++;
+      metadataChanged = true;
+    }
+  }
+  if (metadataChanged) metadataRowsUpdated++;
+}
+
 if (added || metadataRowsUpdated || oddsRowsUpdated || resultsUpdated) {
   await writeFile(BASE_FILE, toCsv(base.headers, base.records), "utf8");
 }
