@@ -128,7 +128,8 @@ function inspectHtml(html, matchId, options = {}) {
 
   return {
     title: title || null,
-    team_links: extractTeamProfileLinks(html),\n    page_structure: inspectPageStructure(html),
+    team_links: extractTeamProfileLinks(html),
+    page_structure: inspectPageStructure(html),
     match_record: extractStructuredMatch(html, matchId, { httpStatus: 200, sourceUrl: options.sourceUrl }),
     bwin: {
       found: /bwin/i.test(html),
