@@ -128,17 +128,6 @@ for (const quote of odds) {
   }
   const existing = candidates[0];
   if (existing) {
-    // Completar país/competição apenas quando estão vazios; nunca reclassificar o histórico.
-    let metadataChanged = false;
-    for (const [field, value] of [["COUNTRY", row.COUNTRY], ["LEAGUE", row.LEAGUE]]) {
-      if (String(existing[field] ?? "").trim() === "" && String(value ?? "").trim() !== "") {
-        existing[field] = value;
-        metadataFieldsUpdated++;
-        metadataChanged = true;
-      }
-    }
-    if (metadataChanged) metadataRowsUpdated++;
-
     // Completar apenas odds em falta; nunca substituir valores históricos existentes.
     let oddsChanged = false;
     for (const [field, value] of [["odd_ft_1", quote.odd_1], ["odd_ft_x", quote.odd_x], ["odd_ft_2", quote.odd_2]]) {
@@ -168,6 +157,40 @@ for (const quote of odds) {
   addIndex(byLegacyIdentity, legacyIdentity(row), row);
   added++;
 }
+
+// Completar metadados também a partir das estatísticas Flashscore quando não existe
+// uma observação Bwin 1X2 para o jogo.
+for (const stat of stats) {
+  if (!stat.match_id) continue;
+  const identityRow = {
+    date_time: stat.date_time || "",
+    COUNTRY: stat.country || "",
+    LEAGUE: stat.competition || "",
+    TEAM_HOME: stat.home_team || "",
+    TEAM_AWAY: stat.away_team || ""
+  };
+  if (!identityRow.date_time || !identityRow.TEAM_HOME || !identityRow.TEAM_AWAY) continue;
+  const exactKey = fullIdentity(identityRow);
+  const exactMatches = exactKey ? (byFullIdentity.get(exactKey) || []) : [];
+  const legacyMatches = byLegacyIdentity.get(legacyIdentity(identityRow)) || [];
+  const candidates = exactMatches.length ? exactMatches : legacyMatches;
+  if (candidates.length > 1) {
+    ambiguous++;
+    continue;
+  }
+  const existing = candidates[0];
+  if (!existing) continue;
+  let metadataChanged = false;
+  for (const [field, value] of [["COUNTRY", identityRow.COUNTRY], ["LEAGUE", identityRow.LEAGUE]]) {
+    if (String(existing[field] ?? "").trim() === "" && String(value ?? "").trim() !== "") {
+      existing[field] = value;
+      metadataFieldsUpdated++;
+      metadataChanged = true;
+    }
+  }
+  if (metadataChanged) metadataRowsUpdated++;
+}
+
 if (added || metadataRowsUpdated || oddsRowsUpdated || resultsUpdated) {
   await writeFile(BASE_FILE, toCsv(base.headers, base.records), "utf8");
 }
