@@ -68,14 +68,14 @@ export function extractFixtureTeams(anchorText) {
 
 
 function extractFixtureTeamsFromScoreData(html, anchorIndex) {
-  const scoreDataStart = html.search(/<div\\b[^>]*\\bid=["']score-data["']/i);
+  const scoreDataStart = html.search(/<div\b[^>]*\bid=["']score-data["']/i);
   if (scoreDataStart < 0 || anchorIndex <= scoreDataStart) return null;
   const spanStart = html.lastIndexOf("<span", anchorIndex);
   if (spanStart < scoreDataStart) return null;
   const spanEnd = html.indexOf(">", spanStart);
   if (spanEnd < 0 || spanEnd >= anchorIndex) return null;
   const value = plainText(html.slice(spanEnd + 1, anchorIndex)).trim();
-  const match = value.match(/^(.+?)\\s+-\\s+(.+?)$/);
+  const match = value.match(/^(.+?)\s+-\s+(.+?)$/);
   if (!match) return null;
   const home = match[1].trim(), away = match[2].trim();
   if (!home || !away || home.length > 100 || away.length > 100) return null;
