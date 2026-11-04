@@ -24,6 +24,22 @@
     leagues.forEach(league=>select.add(new Option(league,league)));
     select.value=leagues.includes(previous)?previous:"";
   }
+  function currentRanges() {
+    const ranges = {};
+    let active = false;
+    for (const key of ["1", "X", "2"]) {
+      const minRaw = $("range" + key + "Min").value.trim();
+      const maxRaw = $("range" + key + "Max").value.trim();
+      active = active || Boolean(minRaw || maxRaw);
+      const min = minRaw ? Number(minRaw) : null;
+      const max = maxRaw ? Number(maxRaw) : null;
+      if (minRaw && (!Number.isFinite(min) || min <= 1 || min > 1000)) throw new Error("Confirma os limites mínimos: devem ser odds superiores a 1,00.");
+      if (maxRaw && (!Number.isFinite(max) || max <= 1 || max > 1000)) throw new Error("Confirma os limites máximos: devem ser odds superiores a 1,00.");
+      if (min !== null && max !== null && min > max) throw new Error("Em cada odd, o limite mínimo não pode ser superior ao máximo.");
+      ranges[key] = { min, max };
+    }
+    return { ranges, active };
+  }
   function currentOdds() {
     return {"1":Number($("current1").value),X:Number($("currentX").value),"2":Number($("current2").value)};
   }
@@ -81,12 +97,11 @@
     else top.forEach((item,index)=>scores.append(metric((index+1)+". "+item.score,fmtPct(item.frequency),item.count+" ocorrências")));
     const p=result.market;
     fillMetrics("impliedStats",[
-      ["Probabilidade implícita 1",fmtPct(p.raw["1"]),""],
-      ["Probabilidade implícita X",fmtPct(p.raw.X),""],
-      ["Probabilidade implícita 2",fmtPct(p.raw["2"]),""],
-      ["Margem teórica do mercado",fmtPct(p.overround),"Calculada a partir das odds introduzidas"]
-    ]);
-  }
+      ["Probabilidade implícita 1",p?fmtPct(p.raw["1"]):"—",p?"":"Sem amostra para calcular"],
+      ["Probabilidade implícita X",p?fmtPct(p.raw.X):"—",p?"":"Sem amostra para calcular"],
+      ["Probabilidade implícita 2",p?fmtPct(p.raw["2"]):"—",p?"":"Sem amostra para calcular"],
+      ["Margem teórica do mercado",p?fmtPct(p.overround):"—",p?"Odds introduzidas ou odds médias da amostra":"Sem amostra para calcular"]
+    ]);  }
   function makeText(tag,className,value){
     const node=document.createElement(tag);
     if(className)node.className=className;
@@ -142,9 +157,17 @@
   }
   async function search() {
     const odds=currentOdds();
-    if (!CSVOdds.hasCompleteOdds(odds)) {
+    let rangeConfig;
+    try { rangeConfig = currentRanges(); }
+    catch (error) {
+      $("resultsPanel").hidden = true;
+      $("currentNote").textContent = error.message;
+      return;
+    }
+    const rangeMode = rangeConfig.active;
+    if (!rangeMode && !CSVOdds.hasCompleteOdds(odds)) {
       $("resultsPanel").hidden=true;
-      $("currentNote").textContent="Introduz três odds válidas, todas superiores a 1,00.";
+      $("currentNote").textContent="Introduz as três odds exatas ou define pelo menos um limite nos intervalos.";
       return;
     }
     if (!databaseLoaded) {
@@ -158,15 +181,15 @@
     const league=$("league").value;
     const scopedMatches=allMatches.filter(match=>
       (!country||match.country===country)&&(!league||match.league===league));
-    const result=CSVOdds.evaluateCurrentOdds(scopedMatches,odds);
+    const result=rangeMode?CSVOdds.evaluateOddsRanges(scopedMatches,rangeConfig.ranges):CSVOdds.evaluateCurrentOdds(scopedMatches,odds);
     matches=CSVOdds.sortMatchesChronologically(result.matches);
     page=0;
     $("resultsPanel").hidden=false;
-    $("resultsTitle").textContent="Jogos com odds exatamente iguais";
+    $("resultsTitle").textContent=rangeMode?"Jogos dentro dos intervalos de odds":"Jogos com odds exatamente iguais";
     const scopeText=(country?" no país "+country:"")+(league?" · divisão "+league:"");
     $("currentNote").textContent=matches.length
-      ? "Pesquisa concluída. As três odds 1/X/2 coincidem exatamente"+scopeText+"."
-      : "Não existem jogos com estas três odds exatamente iguais"+scopeText+".";
+      ? (rangeMode?"Pesquisa concluída. As odds 1/X/2 estão dentro dos intervalos definidos":"Pesquisa concluída. As três odds 1/X/2 coincidem exatamente")+scopeText+"."
+      : (rangeMode?"Não existem jogos dentro dos intervalos definidos":"Não existem jogos com estas três odds exatamente iguais")+scopeText+".";
     $("resultsTitle").textContent=league?"Jogos — "+league:"Jogos com odds exatamente iguais";
     renderStatistics(result);
     render();
@@ -230,7 +253,7 @@
   }
   $("searchHistoricalOdds").addEventListener("click",search);
   $("clearSearch").addEventListener("click",()=>{
-    ["current1","currentX","current2"].forEach(id=>$(id).value="");
+    ["current1","currentX","current2","range1Min","range1Max","rangeXMin","rangeXMax","range2Min","range2Max"].forEach(id=>$(id).value="");
     $("country").value="";
     setLeagues();
     $("league").value="";
