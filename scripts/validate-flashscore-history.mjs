@@ -51,8 +51,8 @@ for (const row of odds) {
     const value = Number(row[field]);
     if (!Number.isFinite(value) || value <= 1 || value > 1000) throw new Error("Odd inválida (" + field + ") no jogo " + row.match_id);
   }
-  const key = row.match_id + "|" + row.retrieved_at;
-  if (seenOdds.has(key)) throw new Error("Observação de odds duplicada: " + key);
+  const key = [row.match_id, row.bookmaker, row.market].join("|");
+  if (seenOdds.has(key)) throw new Error("Registo duplicado de odds para jogo/casa/mercado: " + key);
   seenOdds.add(key);
 }
 console.log("Histórico CSV validado: " + stats.length + " jogos com estatísticas; " + odds.length + " observações Bwin 1X2.");
