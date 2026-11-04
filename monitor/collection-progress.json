@@ -2,14 +2,14 @@
   "run_id": "41931836315",
   "run_number": "6",
   "target_date": "2026-10-30",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 32,
   "processed_games": 32,
   "stats_games": 27,
   "bwin_odds": 32,
   "failed_games": 0,
-  "current_match": "Último concluído: Bac Ninh - Gia Lai",
+  "current_match": "Recolha terminada",
   "last_result": "Bac Ninh - Gia Lai: 6 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-04T23:13:52.370Z"
+  "updated_at": "2026-11-04T23:13:53.701Z"
 }
