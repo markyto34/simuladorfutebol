@@ -25,6 +25,8 @@ jobs:
           node --check flashscore-proxy/src/discover-matches.mjs
           node --check flashscore-proxy/src/match-tabs.mjs
           node --check flashscore-proxy/src/team-results.mjs
+      - name: Build Worker bundle (dry run)
+        run: cd flashscore-proxy && npx --yes wrangler@4 deploy --dry-run
       - name: Test Flashscore extractors
         run: node --test tests/*.test.cjs tests/*.test.mjs
 
