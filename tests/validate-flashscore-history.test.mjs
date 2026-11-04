@@ -73,7 +73,7 @@ test("valida cartões vermelhos e resultados HT/ST quando as novas colunas exist
   });
   assert.doesNotThrow(() => validateHistory([row],[oddsRow()]));
   assert.throws(() => validateHistory([{
-    ...row, sh_home:"0"
+    ...row, sh_home:"0", sh_away:""
   }],[oddsRow()]), /Resultado por partes incompleto/);
   assert.throws(() => validateHistory([{
     ...row, sh_home:"0", sh_away:"1"
