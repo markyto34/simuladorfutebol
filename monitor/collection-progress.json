@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 386,
-  "processed_games": 275,
-  "stats_games": 257,
-  "bwin_odds": 260,
-  "failed_games": 15,
-  "current_match": "Último concluído: Al Faisaly Amman - Al Hussein",
-  "last_result": "Al Faisaly Amman - Al Hussein: 6 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-04T23:01:11.843Z"
+  "processed_games": 301,
+  "stats_games": 276,
+  "bwin_odds": 285,
+  "failed_games": 16,
+  "current_match": "A consultar jogo 304/386 · AFZ1ZKte",
+  "last_result": "Monterrey F - U.N.A.M. F: 12 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-04T23:01:23.741Z"
 }
