@@ -1,0 +1,27 @@
+name: Diagnóstico read-only de resultados Flashscore em falta
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/diagnose-flashscore-score-gaps.mjs"
+      - ".github/workflows/diagnose-flashscore-score-gaps.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Preparar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Consultar amostra de páginas Flashscore sem alterar dados
+        run: node scripts/diagnose-flashscore-score-gaps.mjs
