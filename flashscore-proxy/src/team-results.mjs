@@ -74,8 +74,8 @@ export function parseTeamResultsFeed(feed) {
       start_time_iso: Number.isFinite(timestamp) && timestamp > 0 ? new Date(timestamp * 1000).toISOString() : null,
       stage_code: Number.isFinite(stageCode) ? stageCode : null,
       stage: stageCode === 3 ? "finished" : stageCode === 2 ? "live" : stageCode === 1 ? "scheduled" : "unknown",
-      home: { id: fields.AU || null, name: fields.AE || null, slug: fields.WU || null, score: fields.AG === undefined ? null : Number(fields.AG) },
-      away: { id: fields.AV || null, name: fields.AF || null, slug: fields.WV || null, score: fields.AH === undefined ? null : Number(fields.AH) },
+      home: { id: fields.PX || null, name: fields.AE || null, slug: fields.WU || null, score: fields.AG === undefined || fields.AG === "" ? null : Number(fields.AG) },
+      away: { id: fields.PY || null, name: fields.AF || null, slug: fields.WV || null, score: fields.AH === undefined || fields.AH === "" ? null : Number(fields.AH) },
       competition,
       raw: fields
     });
