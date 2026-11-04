@@ -2,14 +2,14 @@
   "run_id": "41931836315",
   "run_number": "6",
   "target_date": "2026-11-02",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 28,
   "processed_games": 28,
   "stats_games": 24,
   "bwin_odds": 28,
   "failed_games": 0,
-  "current_match": "Último concluído: Zorya - Epitsentr",
+  "current_match": "Recolha terminada",
   "last_result": "Zorya - Epitsentr: 7 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-04T23:18:07.580Z"
+  "updated_at": "2026-11-04T23:18:08.951Z"
 }
