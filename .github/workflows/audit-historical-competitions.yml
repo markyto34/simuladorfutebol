@@ -1,0 +1,32 @@
+name: Audit historical competitions
+on:
+  push:
+    branches: [main]
+    paths:
+      - "ganhonasodds_com_20261101.csv"
+      - "scripts/audit-historical-competitions.mjs"
+      - "scripts/audit-flashscore-odds-matches.mjs"
+      - "index.html"
+      - "app.js"
+      - "data/windrawwin-leagues.json"
+      - ".github/workflows/audit-historical-competitions.yml"
+  workflow_dispatch:
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - name: Compare historical competitions with simulator
+        run: node scripts/audit-historical-competitions.mjs
+      - name: Upload competition audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: historical-competition-audit
+          path: |
+            historical-competition-audit.json
+            historical-competition-audit.csv
+          if-no-files-found: error
+          retention-days: 14
