@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { auditMatches, parseCsv, normalize, summarizeHistoricalBase, summarizeStatsCoverage } from "../scripts/audit-flashscore-odds-matches.mjs";
+import { auditMatches, parseCsv, normalize, summarizeHistoricalBase, summarizeStatsCoverage, buildHistoricalManifest } from "../scripts/audit-flashscore-odds-matches.mjs";
 
 const baseRow = (overrides = {}) => ({
   date_time: "2026-11-01T14:30", COUNTRY: "Germany", LEAGUE: "Bundesliga",
@@ -80,4 +80,22 @@ test("cruza jogos únicos com Flashscore e mede cobertura estatística", () => {
   assert.equal(coverage.games_without_stats, 0);
   assert.equal(coverage.metric_coverage_total.corners, 1);
   assert.equal(coverage.metric_coverage_total.shots, 1);
+});
+
+
+test("gera manifesto de todos os jogos com estado de cobertura Flashscore", () => {
+  const games = summarizeHistoricalBase([
+    baseRow(),
+    baseRow({ date_time: "2026-11-02T14:30", TEAM_HOME: "Porto", TEAM_AWAY: "Benfica", LEAGUE: "Primeira Liga" })
+  ]).unique_game_index;
+  const manifest = buildHistoricalManifest(games, [{
+    match_id: "flash123", date_time: "2026-11-01T14:30", country: "Germany",
+    competition: "Bundesliga", home_team: "Bayern Munchen", away_team: "FC Koln",
+    corners_home: "7", corners_away: "3"
+  }]);
+  assert.equal(manifest.length, 2);
+  assert.equal(manifest[0].stats_status, "matched_exact");
+  assert.equal(manifest[0].flashscore_match_id, "flash123");
+  assert.equal(manifest[0].available_metrics, "corners");
+  assert.equal(manifest[1].stats_status, "missing");
 });
