@@ -8,6 +8,7 @@
  */
 import { readFile, writeFile, mkdir, appendFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
+import { pathToFileURL } from "node:url";
 import { mergeRows, mergeLatestRows } from "./csv-merge.mjs";
 import { filterHistoricalMatchIds } from "./historical-fixture-matching.mjs";
 
@@ -490,7 +491,7 @@ async function main() {
   if (failures) process.exitCode = 1;
 }
 
-main().catch(async error => {
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) main().catch(async error => {
   console.error(error);
   if (progressSnapshot) await setProgress({ status: "failed", phase: "failed", current_match: "Falha na recolha", last_result: error.message });
   process.exitCode = 1;
