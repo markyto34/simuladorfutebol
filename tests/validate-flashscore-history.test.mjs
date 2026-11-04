@@ -64,3 +64,21 @@ test("identifica competições com cinco ou mais jogos sem qualquer xG", () => {
     { competition: "PORTUGAL | Primeira Liga", matches: 5, withXg: 0 }
   ]);
 });
+
+
+test("valida cartões vermelhos e resultados HT/ST quando as novas colunas existem", () => {
+  const row = statsRow({
+    ht_home:"1", ht_away:"0", sh_home:"1", sh_away:"1",
+    red_cards_home:"0", red_cards_away:"1"
+  });
+  assert.doesNotThrow(() => validateHistory([row],[oddsRow()]));
+  assert.throws(() => validateHistory([{
+    ...row, sh_home:"0"
+  }],[oddsRow()]), /Resultado por partes incompleto/);
+  assert.throws(() => validateHistory([{
+    ...row, sh_home:"0", sh_away:"1"
+  }],[oddsRow()]), /não corresponde ao resultado FT/);
+  assert.throws(() => validateHistory([{
+    ...row, red_cards_home:"-1"
+  }],[oddsRow()]), /Valor estatístico inválido/);
+});
