@@ -96,3 +96,34 @@ test("second-half goals are derived only from valid FT and HT scores", () => {
   assert.equal(deriveSecondHalfGoals(null, 0), null);
   assert.equal(deriveSecondHalfGoals(2.5, 1), null, "goal counts must be integers");
 });
+
+
+test("Flashscore preenche cartões vermelhos e resultados HT/ST sem sobrescrever dados existentes", () => {
+  const matches = [{
+    date: "2026-11-01", home: "Union Berlin", away: "FC Koln", hg: 1, ag: 1,
+    htHome: null, htAway: null, shHome: null, shAway: null,
+    homeRed: null, awayRed: null
+  }];
+  const csv = [
+    "match_id,date_time,home_team,away_team,score_home,score_away,ht_home,ht_away,sh_home,sh_away,red_cards_home,red_cards_away",
+    "abc123,2026-11-01T14:30,Union Berlin,FC Koln,1,1,0,1,1,0,1,0"
+  ].join("\\n");
+  const result = enrichFlashscoreStats(matches, csv);
+  assert.deepEqual(result, { matched: 1, enriched: 1 });
+  assert.deepEqual([matches[0].htHome,matches[0].htAway,matches[0].shHome,matches[0].shAway],[0,1,1,0]);
+  assert.deepEqual([matches[0].homeRed,matches[0].awayRed],[1,0]);
+});
+
+test("Flashscore does not invent missing red cards or half-time scores", () => {
+  const matches = [{
+    date: "2026-11-01", home: "Union Berlin", away: "FC Koln", hg: 1, ag: 1,
+    htHome: null, htAway: null, shHome: null, shAway: null, homeRed: null, awayRed: null
+  }];
+  const csv = [
+    "match_id,date_time,home_team,away_team,score_home,score_away,ht_home,ht_away,sh_home,sh_away,red_cards_home,red_cards_away",
+    "abc123,2026-11-01T14:30,Union Berlin,FC Koln,1,1,,,,,"
+  ].join("\\n");
+  enrichFlashscoreStats(matches, csv);
+  assert.equal(matches[0].htHome, null);
+  assert.equal(matches[0].homeRed, null);
+});
