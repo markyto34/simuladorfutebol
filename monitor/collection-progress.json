@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 54,
-  "processed_games": 25,
-  "stats_games": 19,
-  "bwin_odds": 22,
-  "failed_games": 3,
-  "current_match": "Último erro: xArRhRJc",
-  "last_result": "Falha em xArRhRJc: Falha ao recolher xArRhRJc: HTTP 503",
-  "updated_at": "2026-11-04T23:02:49.672Z"
+  "processed_games": 51,
+  "stats_games": 40,
+  "bwin_odds": 45,
+  "failed_games": 6,
+  "current_match": "A consultar jogo 54/54 · QBlwb5Lj",
+  "last_result": "Kaohsiung - Taipower: 6 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-04T23:03:01.177Z"
 }
