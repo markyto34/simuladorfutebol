@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 124,
-  "processed_games": 25,
-  "stats_games": 24,
-  "bwin_odds": 25,
+  "processed_games": 50,
+  "stats_games": 49,
+  "bwin_odds": 50,
   "failed_games": 0,
-  "current_match": "Último concluído: Arsenal Dzerzhinsk - BATE",
-  "last_result": "Arsenal Dzerzhinsk - BATE: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-04T22:15:39.325Z"
+  "current_match": "A consultar jogo 52/124 · YZIiOPoK",
+  "last_result": "Charleston - Rhode Island: 13 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-04T22:15:49.401Z"
 }
