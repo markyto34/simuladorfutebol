@@ -32,9 +32,29 @@ const COMP_ALIASES = {
   "champions league":"champions league","uefa champions league":"champions league",
   "europa league":"europa league","conference league":"conference league"
 };
+const PAIR_ALIASES = {
+  "argentina|primeira liga nacional":"argentina|primera nacional",
+  "england|liga 1":"england|league one",
+  "united states|mls":"united states|major league soccer",
+  "spain|laliga2":"spain|segunda division",
+  "spain|liga 2":"spain|segunda division",
+  "netherlands|primeira divisao":"netherlands|eredivisie",
+  "japan|liga j1":"japan|j1 league",
+  "japan|liga j2":"japan|j2 league",
+  "france|liga 1":"france|ligue 1",
+  "france|liga2":"france|ligue 2",
+  "poland|primeira liga":"poland|ekstraklasa",
+  "poland|liga 1":"poland|i liga",
+  "norway|liga de elite":"norway|eliteserien",
+  "england|campeonato":"england|championship",
+  "brazil|serie a betano":"brazil|serie a",
+  "norway|segunda liga":"norway|1 division",
+  "belgium|primeira liga":"belgium|first division a"
+};
 const key = (country, competition) => {
   const c = normalize(country), l = normalize(competition);
-  return (COUNTRY_ALIASES[c] || c) + "|" + (COMP_ALIASES[l] || l);
+  const countryKey = COUNTRY_ALIASES[c] || c;
+  return PAIR_ALIASES[countryKey + "|" + l] || countryKey + "|" + (COMP_ALIASES[l] || l);
 };
 const base = parseCsv(await readFile(BASE, "utf8"));
 if (!base.length) throw new Error("CSV histórico vazio.");
