@@ -1,0 +1,28 @@
+name: Build historical team universe
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "ganhonasodds_com_20261101.csv"
+      - "scripts/build-historical-team-universe.mjs"
+      - ".github/workflows/audit-historical-team-universe.yml"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - name: Build unique team manifest
+        run: node scripts/build-historical-team-universe.mjs --output=/tmp/historical-team-universe.json
+      - name: Upload team manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: historical-team-universe
+          path: /tmp/historical-team-universe.json
+          if-no-files-found: error
+          retention-days: 14
