@@ -43,7 +43,7 @@ function dateKey(value) {
 function fullKey(row, isQuote = false) {
   return [
     dateKey(row.date_time),
-    normalize(row.country),
+    normalize(isQuote ? row.country : row.COUNTRY),
     normalize(isQuote ? row.competition : row.LEAGUE),
     normalize(isQuote ? row.home_team : row.TEAM_HOME),
     normalize(isQuote ? row.away_team : row.TEAM_AWAY)
