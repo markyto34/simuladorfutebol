@@ -2,14 +2,14 @@
   "run_id": "41809898576",
   "run_number": "2",
   "target_date": "2025-08-04",
-  "status": "running",
-  "phase": "discovery",
+  "status": "failed",
+  "phase": "failed",
   "total_games": 0,
   "processed_games": 0,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A descobrir jogos",
-  "last_result": "",
-  "updated_at": "2026-11-04T09:47:26.954Z"
+  "current_match": "Falha na recolha",
+  "last_result": "Falha na descoberta de jogos (proxy_http=502; flashscore_http=404; error=upstream_rejected; message=A página de resultados não pôde ser obtida.).",
+  "updated_at": "2026-11-04T09:47:32.483Z"
 }
