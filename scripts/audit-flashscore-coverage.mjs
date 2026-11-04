@@ -16,6 +16,19 @@ const METRICS = {
   red_cards: ["red_cards_home", "red_cards_away"]
 };
 const present = value => String(value ?? "").trim() !== "";
+
+// Aliases confirmed by the collected Flashscore labels. Keep this list explicit:
+// similar-looking leagues and different competition phases must not be merged.
+const COUNTRY_ALIASES = new Map([["europe", "europa"]]);
+const COMPETITION_ALIASES = new Map([
+  ["europa|champions league league phase", "liga dos campeoes fase de liga"],
+  ["europa|liga dos campeoes fase de liga", "liga dos campeoes fase de liga"]
+]);
+const canonicalCountry = value => COUNTRY_ALIASES.get(normalize(value)) || normalize(value);
+const canonicalCompetition = (country, value) => {
+  const key = canonicalCountry(country) + "|" + normalize(value);
+  return COMPETITION_ALIASES.get(key) || normalize(value);
+};
 const dateOf = value => String(value ?? "").match(/^\s*(\d{4}-\d{2}-\d{2})/)?.[1] || "";
 const classify = name => {
   const value = normalize(name);
@@ -36,6 +49,7 @@ export function buildFlashscoreCoverage(records) {
   const byCompetition = new Map();
   const ids = new Set();
   let duplicateIds = 0, rowsWithoutIdentity = 0;
+  const rawLabels = new Set();
   for (const row of records) {
     const id = String(row.match_id || "").trim();
     if (id && ids.has(id)) duplicateIds++;
@@ -43,13 +57,18 @@ export function buildFlashscoreCoverage(records) {
     const country = String(row.country || "").trim();
     const competition = String(row.competition || "").trim();
     if (!country || !competition) { rowsWithoutIdentity++; continue; }
-    const key = normalize(country) + "|" + normalize(competition);
+    rawLabels.add(normalize(country) + "|" + normalize(competition));
+    const canonicalCountryKey = canonicalCountry(country);
+    const canonicalCompetitionKey = canonicalCompetition(country, competition);
+    const key = canonicalCountryKey + "|" + canonicalCompetitionKey;
     let item = byCompetition.get(key);
     if (!item) {
-      item = { country, competition, match_ids: new Set(), rows: 0, dates: [], metrics: Object.fromEntries(Object.keys(METRICS).map(k => [k, 0])) };
+      item = { country, competition, countries_seen: new Set(), labels_seen: new Set(), match_ids: new Set(), rows: 0, dates: [], metrics: Object.fromEntries(Object.keys(METRICS).map(k => [k, 0])) };
       byCompetition.set(key, item);
     }
     item.rows++;
+    item.countries_seen.add(country);
+    item.labels_seen.add(competition);
     if (id) item.match_ids.add(id);
     const date = dateOf(row.date_time);
     if (date) item.dates.push(date);
@@ -68,8 +87,10 @@ export function buildFlashscoreCoverage(records) {
     const sample_status = games >= 10 ? "amostra_inicial_10+" : games >= 5 ? "em_desenvolvimento_5_9" : "amostra_curta_1_4";
     return {
       country: item.country,
+      countries_seen: [...item.countries_seen].sort(),
       competition: item.competition,
-      normalized_key: normalize(item.country) + "|" + normalize(item.competition),
+      source_labels: [...item.labels_seen].sort(),
+      normalized_key: canonicalCountry(item.country) + "|" + canonicalCompetition(item.country, item.competition),
       category: classify(item.competition),
       unique_matches: games,
       duplicate_rows: item.rows - games,
@@ -91,7 +112,9 @@ export function buildFlashscoreCoverage(records) {
     unique_match_ids: totalUniqueMatches,
     duplicate_match_id_rows: duplicateIds,
     rows_without_competition_identity: rowsWithoutIdentity,
+    raw_competition_label_count: rawLabels.size,
     competition_count: competitions.length,
+    merged_alias_label_count: rawLabels.size - competitions.length,
     competitions_with_5_plus_matches: countAtLeast(5),
     competitions_with_10_plus_matches: countAtLeast(10),
     competitions_with_20_plus_matches: countAtLeast(20),
@@ -120,7 +143,9 @@ async function main() {
   console.log(JSON.stringify({
     source_rows: report.source_rows,
     unique_match_ids: report.unique_match_ids,
+    raw_competition_label_count: report.raw_competition_label_count,
     competition_count: report.competition_count,
+    merged_alias_label_count: report.merged_alias_label_count,
     competitions_with_5_plus_matches: report.competitions_with_5_plus_matches,
     competitions_with_10_plus_matches: report.competitions_with_10_plus_matches,
     competitions_with_20_plus_matches: report.competitions_with_20_plus_matches,

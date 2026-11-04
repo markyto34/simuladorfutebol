@@ -30,6 +30,8 @@ jobs:
           node-version: 22
       - name: Validar script
         run: node --check scripts/audit-flashscore-coverage.mjs
+      - name: Testar normalização das competições
+        run: node --test tests/audit-flashscore-coverage.test.mjs
       - name: Auditar cobertura por competição
         run: node scripts/audit-flashscore-coverage.mjs
       - name: Publicar resumo
