@@ -1,0 +1,13 @@
+"use strict";
+const assert=require("node:assert/strict");
+const coverage=require("../metric-coverage.js");
+const sample=n=>Array.from({length:n},(_,i)=>i+0.5);
+assert.equal(coverage.hasPairedCoverage(sample(5),[], "cornersFor"),false,"não prever se a equipa visitante não tem dados");
+assert.equal(coverage.hasPairedCoverage(sample(5),sample(2),"goalsFor"),false,"não prever abaixo do mínimo numa das equipas");
+assert.equal(coverage.hasPairedCoverage(sample(3),sample(3),"goalsAgainst"),true,"aceitar quando ambas atingem o mínimo");
+assert.equal(coverage.hasPairedCoverage(sample(4),sample(5),"xgFor"),false,"xG exige cinco observações em cada lado");
+assert.equal(coverage.hasPairedCoverage(sample(5),sample(5),"xgAgainst"),true,"aceitar xG quando ambas têm cinco observações");
+assert.equal(coverage.hasPairedCoverage([1,2,"",null,NaN],sample(3),"cornersFor"),false,"campos vazios e inválidos não contam como observações");
+assert.equal(coverage.hasPairedCoverage(sample(3),sample(3),"cornersFor"),true,"cobertura de cantos válida não depende de outros indicadores");
+assert.equal(coverage.hasPairedCoverage(sample(3),[], "shotsFor"),false,"cobertura parcial de remates não pode gerar previsão");
+console.log("OK: 8 testes de cobertura emparelhada passaram.");

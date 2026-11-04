@@ -1,7 +1,8 @@
 (()=>{"use strict";
 const $=id=>document.getElementById(id),N=10000;
 let random=Math.random;
-const MIN_METRIC_SAMPLE=3,MIN_XG_SAMPLE=5;
+const MetricCoverage=window.MetricCoverage;
+const MIN_METRIC_SAMPLE=MetricCoverage.MIN_METRIC_SAMPLE,MIN_XG_SAMPLE=MetricCoverage.MIN_XG_SAMPLE;
 const hashSeed=value=>{let hash=2166136261;for(let i=0;i<value.length;i++){hash^=value.charCodeAt(i);hash=Math.imul(hash,16777619);}return hash>>>0;};
 const seededRandom=initial=>{let seed=initial>>>0;return ()=>{let t=seed+=0x6D2B79F5;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return ((t^t>>>14)>>>0)/4294967296;};};
 const num=id=>{const raw=$(id).value.trim();if(raw==="")throw Error("Faltam médias obrigatórias. Carrega os dados históricos e confirma se golos e cantos têm valores para as duas equipas.");const v=Number(raw);if(!Number.isFinite(v)||v<0)throw Error("Confirma os valores numéricos: não podem ser negativos ou vazios.");return v};
@@ -653,8 +654,8 @@ function enforcePairedTeamCoverage(){
  const missing=[];
  for(const [metric] of TEAM_METRIC_PAIRS){
   const h=teamSample(home,"home",metric),a=teamSample(away,"away",metric);
-  const min=metric==="xgFor"||metric==="xgAgainst"?MIN_XG_SAMPLE:MIN_METRIC_SAMPLE;
-  if(h.length<min||a.length<min)missing.push(metric+" (casa "+h.length+", fora "+a.length+")");
+  const min=MetricCoverage.minimumFor(metric);
+  if(!MetricCoverage.hasPairedCoverage(h,a,metric))missing.push(metric+" (casa "+h.length+", fora "+a.length+", mínimo "+min+")");
  }
  const baseNote=homeGoals>=MIN_METRIC_SAMPLE&&awayGoals>=MIN_METRIC_SAMPLE?"Amostra mínima de golos confirmada para ambas as equipas.":"Amostra de golos insuficiente (mínimo "+MIN_METRIC_SAMPLE+"; casa "+homeGoals+", fora "+awayGoals+").";
  return missing.length?baseNote+" Cobertura parcial por indicador: "+missing.join("; ")+". Os valores válidos de cada equipa mantêm-se visíveis; os mercados que não tenham os dados completos dos dois lados não serão calculados.":baseNote+" Cobertura confirmada para todos os indicadores.";
@@ -667,7 +668,7 @@ function applyTeamSelection(side){
  if(!team){for(const [,id] of fields)fillInput(id,null);$(side==="home"?"homeName":"awayName").value="";$(side==="home"?"homeNameDisplay":"awayNameDisplay").textContent="—";if(!skipPairCheck)$("data-status").textContent=enforcePairedTeamCoverage();return;}
  const venue=side==="home"?"home":"away";
  const coverage={};
- for(const [metric,id] of fields){const values=teamSample(team,venue,metric),avg=mean(values);const minimum=metric==="xgFor"||metric==="xgAgainst"?MIN_XG_SAMPLE:MIN_METRIC_SAMPLE;const usable=values.length>=minimum?avg:null;fillInput(id,usable);coverage[metric]=values.length;}
+ for(const [metric,id] of fields){const values=teamSample(team,venue,metric),avg=mean(values);const minimum=MetricCoverage.minimumFor(metric);const usable=MetricCoverage.hasSufficientSample(values,metric)?avg:null;fillInput(id,usable);coverage[metric]=values.length;}
  $(side==="home"?"homeName":"awayName").value=team;$(side==="home"?"homeNameDisplay":"awayNameDisplay").textContent=team;
  const status=$("data-status"),sample=$("sample").value==="all"?"todos os jogos":"últimos "+$("sample").value+" jogos";
  const count=(a,b)=>Math.min(coverage[a]||0,coverage[b]||0);
