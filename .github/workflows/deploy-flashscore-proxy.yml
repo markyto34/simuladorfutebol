@@ -24,6 +24,7 @@ jobs:
           node --check scripts/collect-flashscore-csv.mjs
           node --check flashscore-proxy/src/discover-matches.mjs
           node --check flashscore-proxy/src/match-tabs.mjs
+          node --check flashscore-proxy/src/team-results.mjs
       - name: Test Flashscore extractors
         run: node --test tests/*.test.cjs tests/*.test.mjs
 
