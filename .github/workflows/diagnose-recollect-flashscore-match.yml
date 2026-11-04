@@ -1,0 +1,58 @@
+name: Diagnóstico e nova recolha de um jogo Flashscore
+
+on:
+  workflow_dispatch:
+    inputs:
+      match_id:
+        description: "ID do jogo Flashscore"
+        required: true
+        default: "ncabLF3j"
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  recollect-one:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v6
+        with:
+          ref: main
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Recolher novamente apenas este jogo
+        env:
+          MATCH_ID: ${{ inputs.match_id }}
+        run: node scripts/collect-flashscore-csv.mjs "$MATCH_ID"
+      - name: Diagnosticar resultado e estatísticas sem gravar no repositório
+        env:
+          MATCH_ID: ${{ inputs.match_id }}
+        run: |
+          python - <<'PY'
+          import csv, json, os
+          match_id = os.environ["MATCH_ID"]
+          with open("data/flashscore-statistics.csv", newline="", encoding="utf-8") as f:
+              rows = list(csv.DictReader(f))
+          matches = [r for r in rows if r.get("match_id") == match_id]
+          if not matches:
+              raise SystemExit("O jogo não foi encontrado no CSV gerado.")
+          row = matches[-1]
+          keys = ["match_id","date_time","country","competition","home_team","away_team","status","score_home","score_away","ht_home","ht_away","corners_home","corners_away","shots_home","shots_away","shots_on_target_home","shots_on_target_away","fouls_home","fouls_away","yellow_cards_home","yellow_cards_away","xg_home","xg_away"]
+          print(json.dumps({k: row.get(k, "") for k in keys}, ensure_ascii=False, indent=2))
+          populated = [k for k,v in row.items() if k not in ("match_id","date_time","country","competition","home_team","away_team","status","source","source_url","retrieved_at") and v != ""]
+          print("ESTATISTICAS_PREENCHIDAS=" + str(len(populated)))
+          print("RESULTADO_FINAL=" + ("OK" if row.get("score_home","") != "" and row.get("score_away","") != "" else "EM_FALTA"))
+          PY
+      - name: Disponibilizar CSV de diagnóstico
+        uses: actions/upload-artifact@v6
+        with:
+          name: diagnostico-flashscore-${{ inputs.match_id }}
+          path: |
+            data/flashscore-statistics.csv
+            data/bwin-odds-flashscore.csv
+          if-no-files-found: error
+          retention-days: 3
