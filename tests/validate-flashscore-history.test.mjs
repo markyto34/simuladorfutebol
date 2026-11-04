@@ -52,3 +52,15 @@ test("rejeita odds fora da Bwin 1X2 e odds duplicadas", () => {
   assert.throws(() => validateHistory([statsRow()],[oddsRow({bookmaker:"Betano"})]),/fora do âmbito/);
   assert.throws(() => validateHistory([statsRow()],[oddsRow(),oddsRow()]),/duplicado de odds/);
 });
+
+test("identifica competições com cinco ou mais jogos sem qualquer xG", () => {
+  const rows = Array.from({ length: 5 }, (_, i) => statsRow({
+    match_id: "missxg" + i,
+    xg_home: "",
+    xg_away: ""
+  }));
+  const summary = validateHistory(rows, [oddsRow()]);
+  assert.deepEqual(summary.xgMissingCompetitions, [
+    { competition: "PORTUGAL | Primeira Liga", matches: 5, withXg: 0 }
+  ]);
+});
