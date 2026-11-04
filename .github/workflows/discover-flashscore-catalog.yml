@@ -1,0 +1,30 @@
+name: Descobrir catálogo completo de competições Flashscore
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Obter código
+        uses: actions/checkout@v4
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Descobrir competições por país
+        run: node scripts/discover-flashscore-catalog.mjs
+        env:
+          FLASHSCORE_CATALOG_WAIT_MS: "700"
+      - name: Publicar catálogo bruto
+        uses: actions/upload-artifact@v4
+        with:
+          name: flashscore-competition-catalog-raw
+          path: data/flashscore-competition-catalog-raw.json
+          if-no-files-found: error
+          retention-days: 30
