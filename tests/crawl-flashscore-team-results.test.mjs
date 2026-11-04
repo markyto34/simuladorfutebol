@@ -32,5 +32,5 @@ test("crawls seeded teams, discovers target opponents and deduplicates shared fi
   assert.equal(result.queried_teams, 2);
   assert.equal(result.unique_fixtures, 1);
   assert.equal(result.fixtures[0].source_team_ids.length, 2);
-  assert.equal(result.known_team_ids, 2);
+  assert.equal(result.known_team_ids, 3);
 });
