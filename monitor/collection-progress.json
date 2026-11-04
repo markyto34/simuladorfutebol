@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 386,
-  "processed_games": 225,
-  "stats_games": 215,
-  "bwin_odds": 215,
-  "failed_games": 10,
-  "current_match": "Último concluído: Peterborough - Luton",
-  "last_result": "Peterborough - Luton: 13 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-04T23:00:45.716Z"
+  "processed_games": 250,
+  "stats_games": 235,
+  "bwin_odds": 238,
+  "failed_games": 12,
+  "current_match": "Último concluído: Bari - Scafatese",
+  "last_result": "Bari - Scafatese: 13 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-04T23:00:58.784Z"
 }
