@@ -74,6 +74,12 @@ jobs:
             echo "Sem equipas extraídas. A recolher amostra HTML/âncoras para diagnóstico."
             curl --fail --show-error --silent --retry 3 --retry-all-errors --retry-delay 2 "$PROXY_URL/discover-inspect?date=$discovery_date&summary=1" -o /tmp/discovery-summary.json
             node -e 'const fs=require("node:fs"); const d=JSON.parse(fs.readFileSync("/tmp/discovery-summary.json","utf8")); console.log("DIAGNÓSTICO DA PÁGINA REAL:"); console.log(JSON.stringify(d.inspection||d));'
+            sample_id=$(node -e 'const fs=require("node:fs"); const d=JSON.parse(fs.readFileSync("/tmp/discovery-summary.json","utf8")); process.stdout.write(d.inspection?.sample_matches?.[0]?.match_id || "")')
+            if [ -n "$sample_id" ]; then
+              echo "A recolher HTML em redor do jogo $sample_id"
+              curl --fail --show-error --silent --retry 3 --retry-all-errors --retry-delay 2 "$PROXY_URL/discover-inspect?date=$discovery_date&match_id=$sample_id" -o /tmp/discovery-context.json
+              node -e 'const fs=require("node:fs"); const d=JSON.parse(fs.readFileSync("/tmp/discovery-context.json","utf8")); const i=d.inspection||{}; console.log("CONTEXTO HTML DO PRIMEIRO JOGO:"); console.log(JSON.stringify({target_match_id:i.target_match_id,matches:i.matches?.map(m=>({match_id:m.match_id,href:m.href,anchor_text:m.anchor_text,context:m.context,context_html:m.context_html}))}));'
+            fi
               exit 1
             else
               exit "$discovery_status"
