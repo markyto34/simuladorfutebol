@@ -16,6 +16,19 @@ const METRICS = {
   red_cards: ["red_cards_home", "red_cards_away"]
 };
 const present = value => String(value ?? "").trim() !== "";
+
+// Aliases confirmed by the collected Flashscore labels. Keep this list explicit:
+// similar-looking leagues and different competition phases must not be merged.
+const COUNTRY_ALIASES = new Map([["europe", "europa"]]);
+const COMPETITION_ALIASES = new Map([
+  ["europa|champions league league phase", "liga dos campeoes fase de liga"],
+  ["europa|liga dos campeoes fase de liga", "liga dos campeoes fase de liga"]
+]);
+const canonicalCountry = value => COUNTRY_ALIASES.get(normalize(value)) || normalize(value);
+const canonicalCompetition = (country, value) => {
+  const key = canonicalCountry(country) + "|" + normalize(value);
+  return COMPETITION_ALIASES.get(key) || normalize(value);
+};
 const dateOf = value => String(value ?? "").match(/^\s*(\d{4}-\d{2}-\d{2})/)?.[1] || "";
 const classify = name => {
   const value = normalize(name);
@@ -35,7 +48,7 @@ export function buildFlashscoreCoverage(records) {
   if (!Array.isArray(records) || records.length === 0) throw new Error("O CSV Flashscore está vazio.");
   const byCompetition = new Map();
   const ids = new Set();
-  let duplicateIds = 0, rowsWithoutIdentity = 0;
+  let duplicateIds = 0, rowsWithoutIdentity = 0;\n  const rawLabels = new Set();
   for (const row of records) {
     const id = String(row.match_id || "").trim();
     if (id && ids.has(id)) duplicateIds++;
@@ -43,7 +56,7 @@ export function buildFlashscoreCoverage(records) {
     const country = String(row.country || "").trim();
     const competition = String(row.competition || "").trim();
     if (!country || !competition) { rowsWithoutIdentity++; continue; }
-    const key = normalize(country) + "|" + normalize(competition);
+    rawLabels.add(normalize(country) + "|" + normalize(competition));\n    const canonicalCountryKey = canonicalCountry(country);\n    const canonicalCompetitionKey = canonicalCompetition(country, competition);\n    const key = canonicalCountryKey + "|" + canonicalCompetitionKey;
     let item = byCompetition.get(key);
     if (!item) {
       item = { country, competition, match_ids: new Set(), rows: 0, dates: [], metrics: Object.fromEntries(Object.keys(METRICS).map(k => [k, 0])) };
@@ -91,7 +104,7 @@ export function buildFlashscoreCoverage(records) {
     unique_match_ids: totalUniqueMatches,
     duplicate_match_id_rows: duplicateIds,
     rows_without_competition_identity: rowsWithoutIdentity,
-    competition_count: competitions.length,
+    raw_competition_label_count: rawLabels.size,\n    competition_count: competitions.length,\n    merged_alias_label_count: rawLabels.size - competitions.length,
     competitions_with_5_plus_matches: countAtLeast(5),
     competitions_with_10_plus_matches: countAtLeast(10),
     competitions_with_20_plus_matches: countAtLeast(20),
@@ -120,7 +133,7 @@ async function main() {
   console.log(JSON.stringify({
     source_rows: report.source_rows,
     unique_match_ids: report.unique_match_ids,
-    competition_count: report.competition_count,
+    raw_competition_label_count: report.raw_competition_label_count,\n    competition_count: report.competition_count,\n    merged_alias_label_count: report.merged_alias_label_count,
     competitions_with_5_plus_matches: report.competitions_with_5_plus_matches,
     competitions_with_10_plus_matches: report.competitions_with_10_plus_matches,
     competitions_with_20_plus_matches: report.competitions_with_20_plus_matches,
