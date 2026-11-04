@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// Pilot batch: deduplicate the last five completed matches for each discovered team.
 import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
