@@ -1,7 +1,7 @@
 {
   "run_id": "41809110051",
   "run_number": "1",
-  "target_date": "",
+  "target_date": "2025-08-04",
   "status": "running",
   "phase": "discovery",
   "total_games": 0,
@@ -11,5 +11,5 @@
   "failed_games": 0,
   "current_match": "A descobrir jogos",
   "last_result": "",
-  "updated_at": "2026-11-04T09:39:06.250Z"
+  "updated_at": "2026-11-04T09:39:16.781Z"
 }
