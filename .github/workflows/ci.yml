@@ -24,6 +24,7 @@ jobs:
       - run: node --check scripts/validate-flashscore-history.mjs
       - run: node --check scripts/integrate-flashscore-odds-history.mjs
       - run: node scripts/validate-config.cjs
+      - run: node scripts/validate-flashscore-history.mjs
       - run: node --test tests/*.test.cjs
       - run: node --test tests/*.test.mjs
       - run: node --test tests/integrate-flashscore-odds-history.test.mjs
