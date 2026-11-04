@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 248,
-  "processed_games": 151,
-  "stats_games": 113,
+  "processed_games": 175,
+  "stats_games": 120,
   "bwin_odds": 50,
   "failed_games": 0,
-  "current_match": "Último concluído: Truro - West Brom U21",
-  "last_result": "Truro - West Brom U21: 6 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-04T06:29:36.167Z"
+  "current_match": "Último concluído: Cambridge Utd - Brighton U21",
+  "last_result": "Cambridge Utd - Brighton U21: 14 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-04T06:29:43.704Z"
 }
