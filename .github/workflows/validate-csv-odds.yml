@@ -30,11 +30,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Obter repositório
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name: Validar ficheiro completo com o mesmo motor usado na página
         run: node scripts/validate-csv-odds.cjs
       - name: Guardar relatório técnico
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: csv-odds-validation
           path: csv-odds-validation.json
