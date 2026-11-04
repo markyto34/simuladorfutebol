@@ -2,14 +2,14 @@
   "run_id": "41929609874",
   "run_number": "5",
   "target_date": "2026-10-30",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 124,
   "processed_games": 124,
   "stats_games": 119,
   "bwin_odds": 124,
   "failed_games": 0,
-  "current_match": "Último concluído: Hanoi FC - Phu Dong Ninh Binh",
+  "current_match": "Recolha terminada",
   "last_result": "Hanoi FC - Phu Dong Ninh Binh: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-04T22:58:47.810Z"
+  "updated_at": "2026-11-04T22:58:49.049Z"
 }
