@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 386,
-  "processed_games": 275,
-  "stats_games": 272,
-  "bwin_odds": 275,
+  "processed_games": 300,
+  "stats_games": 291,
+  "bwin_odds": 300,
   "failed_games": 0,
-  "current_match": "Último concluído: JEF United F - Nojima Stella F",
-  "last_result": "JEF United F - Nojima Stella F: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-04T22:18:20.173Z"
+  "current_match": "Último concluído: Fredrikstad - Rosenborg",
+  "last_result": "Fredrikstad - Rosenborg: 13 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-04T22:18:30.219Z"
 }
