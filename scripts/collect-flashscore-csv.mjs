@@ -246,7 +246,7 @@ async function collectWithRetry(matchId) {
     try {
       return await collect(matchId);
     } catch (error) {
-      const retryable = !error.stop && /Erro de rede|Timeout:|HTTP 408|HTTP 429|HTTP 5\\d\\d|upstream_unavailable|upstream_rejected/i.test(error.message || "");
+      const retryable = !error.stop && /Erro de rede|Timeout:|HTTP 408|HTTP 429|HTTP 5\d\d|upstream_unavailable|upstream_rejected/i.test(error.message || "");
       if (!retryable || attempt === maxAttempts) throw error;
       const waitMs = Math.min(60_000, 5_000 * (2 ** (attempt - 1)));
       console.warn("[RETRY] " + matchId + " | tentativa " + (attempt + 1) + "/" + maxAttempts + " em " + waitMs + " ms | " + error.message);
