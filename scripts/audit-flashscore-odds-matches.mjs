@@ -140,7 +140,7 @@ export function summarizeHistoricalBase(records) {
   const years = new Map();
   for (const row of records) {
     const key = fullKey(row);
-    if (!dateKey(row.date_time) || !normalize(row.TEAM_HOME) || !normalize(row.TEAM_AWAY)) continue;
+    if (!dateKey(row.date_time) || !normalize(row.COUNTRY) || !normalize(row.LEAGUE) || !normalize(row.TEAM_HOME) || !normalize(row.TEAM_AWAY)) continue;
     const current = games.get(key) || { key, date: dateKey(row.date_time), country: row.COUNTRY || "", competition: row.LEAGUE || "", home_team: row.TEAM_HOME || "", away_team: row.TEAM_AWAY || "", observations: 0 };
     current.observations++;
     games.set(key, current);
