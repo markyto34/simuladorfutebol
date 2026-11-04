@@ -20,29 +20,30 @@ function parsePair(value) {
 
 export function extractPeriodScores(input) {
   const html = decodeMarkup(input);
-  const firstMatch = html.match(/1(?:\\.|ª|º)\\s*Parte\\s*:\\s*<b[^>]*>\\s*(\\d{1,2}\\s*[-:]\\s*\\d{1,2})\\s*<\\/b>/i);
-  const secondMatch = html.match(/2(?:\\.|ª|º)\\s*Parte\\s*:\\s*<b[^>]*>\\s*(\\d{1,2}\\s*[-:]\\s*\\d{1,2})\\s*<\\/b>/i);
-  const extraTimeMatch = html.match(/(?:Prolong(?:amento)?\\.?|Extra\\s*Time)\\s*:\\s*<b[^>]*>\\s*(\\d{1,2}\\s*[-:]\\s*\\d{1,2})\\s*<\\/b>/i);
+  const firstMatch = html.match(/1(?:\.|ª|º)\s*Parte\s*:\s*<b[^>]*>\s*(\d{1,2}\s*[-:]\s*\d{1,2})\s*<\/b>/i);
+  const secondMatch = html.match(/2(?:\.|ª|º)\s*Parte\s*:\s*<b[^>]*>\s*(\d{1,2}\s*[-:]\s*\d{1,2})\s*<\/b>/i);
+  const extraTimeMatch = html.match(/(?:Prolong(?:amento)?\.?|Extra\s*Time)\s*:\s*<b[^>]*>\s*(\d{1,2}\s*[-:]\s*\d{1,2})\s*<\/b>/i);
 
   // O resumo do jogo aparece imediatamente antes do estado final. O Flashscore
   // usa rótulos diferentes em jogos normais e em partidas com prolongamento.
-  const finishedAt = html.search(/>\\s*(?:Terminado|Tempo\\s+Final|Depois\\s+de\\s+Prolongamento|Após\\s+prolongamento)\\s*</i);
+  const finishedAt = html.search(/>\s*(?:Terminado|Tempo\s+Final|Depois\s+de\s+Prolongamento|Após\s+prolongamento)\s*</i);
   const summaryArea = finishedAt >= 0 ? html.slice(Math.max(0, finishedAt - 900), finishedAt) : "";
-  const finalMatches = [...summaryArea.matchAll(/<b[^>]*>\\s*(\\d{1,2}\\s*[-:]\\s*\\d{1,2})\\s*<\\/b>\\s*\\(\\s*(\\d{1,2}\\s*[-:]\\s*\\d{1,2})\\s*,\\s*(\\d{1,2}\\s*[-:]\\s*\\d{1,2})(?:\\s*,\\s*(\\d{1,2}\\s*[-:]\\s*\\d{1,2}))?\\s*\\)/gi)];
+  const finalMatches = [...summaryArea.matchAll(/<b[^>]*>\s*(\d{1,2}\s*[-:]\s*\d{1,2})\s*<\/b>\s*\(\s*(\d{1,2}\s*[-:]\s*\d{1,2})\s*,\s*(\d{1,2}\s*[-:]\s*\d{1,2})(?:\s*,\s*(\d{1,2}\s*[-:]\s*\d{1,2}))?\s*\)/gi)];
 
   if (!firstMatch || !secondMatch || finalMatches.length !== 1) return null;
-  const firstHalf = parsePair(firstMatch[1]);
-  const secondHalf = parsePair(secondMatch[1]);
+  const firstHalf = parsePair(finalMatches[0][2]);
+  const secondHalf = parsePair(finalMatches[0][3]);
   const fullTime = parsePair(finalMatches[0][1]);
-  const summaryFirst = parsePair(finalMatches[0][2]);
-  const summarySecond = parsePair(finalMatches[0][3]);
   const summaryExtra = finalMatches[0][4] ? parsePair(finalMatches[0][4]) : null;
   const extraTime = extraTimeMatch ? parsePair(extraTimeMatch[1]) : null;
-  if (!firstHalf || !secondHalf || !fullTime || !summaryFirst || !summarySecond) return null;
+  if (!firstHalf || !secondHalf || !fullTime) return null;
 
   // Cross-check every explicitly labelled period against the summary and FT
   // arithmetic. Penalty shootouts are outside this breakdown and never enter FT.
-  if (firstHalf.text !== summaryFirst.text || secondHalf.text !== summarySecond.text) return null;
+  const labelledFirst = parsePair(firstMatch[1]);
+  const labelledSecond = parsePair(secondMatch[1]);
+  if (!labelledFirst || !labelledSecond ||
+      labelledFirst.text !== firstHalf.text || labelledSecond.text !== secondHalf.text) return null;
   if (summaryExtra && (!extraTime || summaryExtra.text !== extraTime.text)) return null;
   if (!summaryExtra && extraTime) return null;
   const expectedHome = firstHalf.home + secondHalf.home + (extraTime?.home || 0);
