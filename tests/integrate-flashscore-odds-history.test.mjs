@@ -87,3 +87,25 @@ test("completa apenas odds em falta e preserva odds históricas existentes", asy
   const result = await readFile(file, "utf8");
   assert.match(result, /Old FC,Old Town,2.1,3.3,3.4/);
 });
+
+
+test("não escolhe arbitrariamente entre jogos da mesma data e equipas em competições diferentes", async t => {
+  const dir = await fixture(t);
+  const file = path.join(dir, "ganhonasodds_com_20261101.csv");
+  const original = await readFile(file, "utf8");
+  const [headerLine, dataLine] = original.trim().split("\\n");
+  const headers = headerLine.split(",");
+  const cells = dataLine.split(",");
+  const duplicate = [...cells];
+  duplicate[headers.indexOf("COUNTRY")] = "Portugal";
+  duplicate[headers.indexOf("LEAGUE")] = "Taça";
+  await writeFile(file, headerLine + "\\n" + dataLine + "\\n" + duplicate.join(",") + "\\n");
+  const run = spawnSync(process.execPath, [script], { cwd: dir, encoding: "utf8" });
+  assert.equal(run.status, 0, run.stderr);
+  assert.match(run.stdout, /correspondências ambíguas: 1/);
+  assert.match(run.stdout, /Novos jogos acrescentados: 1/);
+  const result = await readFile(file, "utf8");
+  const lines = result.trim().split("\\n");
+  assert.equal(lines.length, 4); // cabeçalho + duas linhas históricas + apenas o jogo novo
+  assert.equal(lines.filter(line => line.includes("Old FC,Old Town")).length, 2);
+});
