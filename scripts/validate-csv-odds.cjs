@@ -62,7 +62,8 @@ const out = {
  invalidDate, noTeams, distinctLeagues: leagueCounts.size, distinctCountries: countryCounts.size,
  distinctTeams: teams.size, distinctCountryLeaguePairs: leaguePairs.size, duplicateRows,
  missingValues: Object.fromEntries(required.map(k=>[k,countMissing(k)])),
- oddsMissing, oddsOutOfRange, ftFinalMismatch, halfSumMismatch,
+ oddsMissing, oddsOutOfRange, ftFinalMismatch, finalLowerThanFt, finalHigherThanFt, halfSumMismatch,
+ metadataMissingRows: metadataMissingRows.length, metadataMissingExamples, finalLowerThanFtExamples,
  mismatchExamples: matches.filter(m => mismatch(m.ft,m.final)).slice(0,25).map(m=>({date:m.dateRaw,country:m.country,league:m.league,home:m.home,away:m.away,ht:m.ht,secondHalf:m.secondHalf,ft:m.ft,final:m.final})),
  topLeagues: [...leagueCounts.entries()].sort((a,b)=>b[1]-a[1]).slice(0,15).map(([league,count])=>({league,count})),
  topCountries: [...countryCounts.entries()].sort((a,b)=>b[1]-a[1]).slice(0,15).map(([country,count])=>({country,count}))
