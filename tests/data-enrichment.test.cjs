@@ -107,7 +107,7 @@ test("Flashscore preenche cartões vermelhos e resultados HT/ST sem sobrescrever
   const csv = [
     "match_id,date_time,home_team,away_team,score_home,score_away,ht_home,ht_away,sh_home,sh_away,red_cards_home,red_cards_away",
     "abc123,2026-11-01T14:30,Union Berlin,FC Koln,1,1,0,1,1,0,1,0"
-  ].join("\\n");
+  ].join("\n");
   const result = enrichFlashscoreStats(matches, csv);
   assert.deepEqual(result, { matched: 1, enriched: 1 });
   assert.deepEqual([matches[0].htHome,matches[0].htAway,matches[0].shHome,matches[0].shAway],[0,1,1,0]);
@@ -122,7 +122,7 @@ test("Flashscore does not invent missing red cards or half-time scores", () => {
   const csv = [
     "match_id,date_time,home_team,away_team,score_home,score_away,ht_home,ht_away,sh_home,sh_away,red_cards_home,red_cards_away",
     "abc123,2026-11-01T14:30,Union Berlin,FC Koln,1,1,,,,,"
-  ].join("\\n");
+  ].join("\n");
   enrichFlashscoreStats(matches, csv);
   assert.equal(matches[0].htHome, null);
   assert.equal(matches[0].homeRed, null);
