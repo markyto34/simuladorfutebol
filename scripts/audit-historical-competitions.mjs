@@ -41,18 +41,18 @@ if (!base.length) throw new Error("CSV histórico vazio.");
 const indexHtml = await readFile("index.html", "utf8");
 const appJs = await readFile("app.js", "utf8");
 const catalog = JSON.parse(await readFile("data/windrawwin-leagues.json", "utf8"));
-const options = [...indexHtml.matchAll(/<option\\s+value="([^"]+)"[^>]*>([^<]+)<\\/option>/g)]
+const options = [...indexHtml.matchAll(/<option\s+value="([^"]+)"[^>]*>([^<]+)<\/option>/g)]
   .map(m => ({id:m[1], label:m[2].trim()}));
 const selectorKeys = new Set(options.map(o => key(o.label.split("—")[0].trim(), o.label.split("—").slice(1).join("—").trim())));
 const wdwKeys = new Set(catalog.competitions.map(c => key(c.country,c.name)));
-const wdwIds = new Set([...appJs.matchAll(/"([A-Z0-9_]+)"\\s*:/g)].map(m=>m[1]));
+const wdwIds = new Set([...appJs.matchAll(/"([A-Z0-9_]+)"\s*:/g)].map(m=>m[1]));
 const comps = new Map(), fixtureSet = new Set();
 for (const row of base) {
   const date = String(row.date_time||"").slice(0,10);
   const country = String(row.COUNTRY||"").trim();
   const competition = String(row.LEAGUE||"").trim();
   const home = normalize(row.TEAM_HOME), away = normalize(row.TEAM_AWAY);
-  if (!/^\\d{4}-\\d{2}-\\d{2}$/.test(date)||!country||!competition||!home||!away) continue;
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date)||!country||!competition||!home||!away) continue;
   const compKey = key(country,competition);
   const fixture = [date,normalize(country),normalize(competition),home,away].join("|");
   const item = comps.get(compKey)||{country,competition,observations:0,unique_games:0,teams:new Set(),variants:new Set()};
@@ -77,8 +77,8 @@ const summary={
  not_catalogued:rows.filter(x=>x.selector_status==="not_catalogued").length,
  competitions:rows
 };
-await writeFile("historical-competition-audit.json",JSON.stringify(summary,null,2)+"\\n");
+await writeFile("historical-competition-audit.json",JSON.stringify(summary,null,2)+"\n");
 const csv=["country,competition,unique_games,observations,teams,selector_status,catalog_status",
- ...rows.map(x=>[x.country,x.competition,x.unique_games,x.observations,x.teams,x.selector_status,x.catalog_status].map(v=>/[",\\r\\n]/.test(String(v))?'"'+String(v).replace(/"/g,'""')+'"':String(v)).join(","))].join("\\n")+"\\n";
+ ...rows.map(x=>[x.country,x.competition,x.unique_games,x.observations,x.teams,x.selector_status,x.catalog_status].map(v=>/[",\r\n]/.test(String(v))?'"'+String(v).replace(/"/g,'""')+'"':String(v)).join(","))].join("\n")+"\n";
 await writeFile("historical-competition-audit.csv",csv);
 console.log(JSON.stringify({source_records:summary.source_records,unique_fixtures:summary.unique_fixtures,unique_competitions:summary.unique_competitions,already_in_selector:summary.already_in_selector,catalogued_not_in_selector:summary.catalogued_not_in_selector,not_catalogued:summary.not_catalogued,top_missing:rows.filter(x=>x.selector_status!=="already_in_selector").slice(0,35)},null,2));
