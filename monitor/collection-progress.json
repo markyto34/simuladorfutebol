@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 248,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
+  "processed_games": 25,
+  "stats_games": 15,
+  "bwin_odds": 11,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-04T06:28:49.783Z"
+  "current_match": "A consultar jogo 27/248 · vNrnZmzi",
+  "last_result": "Argentinos Jrs 2 - Talleres Cordoba 2: 6 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-04T06:28:58.541Z"
 }
