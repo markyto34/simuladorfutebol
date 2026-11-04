@@ -66,4 +66,13 @@ jobs:
           set -euo pipefail
           discovery_date=$(TZ=Europe/Lisbon date +%F)
           curl --fail --show-error --silent --retry 3 --retry-all-errors --retry-delay 2 "$PROXY_URL/discover-inspect?date=$discovery_date&ids=1" -o /tmp/discovery.json
-          node -e 'const fs=require("node:fs"); const d=JSON.parse(fs.readFileSync("/tmp/discovery.json","utf8")); const i=d.inspection||{}; const fixtures=i.match_fixtures||{}; const ids=i.match_ids||[]; const rows=Object.entries(fixtures); if(!d.ok || !ids.length || !rows.length) { console.error(JSON.stringify({ok:d.ok,error:d.error,match_count:i.match_count,ids:ids.length,fixtures:rows.length})); process.exit(1); } const invalid=rows.filter(([id,t])=>!ids.includes(id)||!t?.home||!t?.away); if(invalid.length) { console.error(JSON.stringify({invalid})); process.exit(1); } console.log(JSON.stringify({date:i.requested_date,discovered_match_ids:ids.length,fixtures_with_both_teams:rows.length,sample:rows.slice(0,5)}));'
+          node -e 'const fs=require("node:fs"); const d=JSON.parse(fs.readFileSync("/tmp/discovery.json","utf8")); const i=d.inspection||{}; const fixtures=i.match_fixtures||{}; const ids=i.match_ids||[]; const rows=Object.entries(fixtures); console.log(JSON.stringify({date:i.requested_date,match_count:i.match_count,ids:ids.length,fixtures:rows.length})); if(!d.ok || !ids.length || !rows.length) process.exit(2); const invalid=rows.filter(([id,t])=>!ids.includes(id)||!t?.home||!t?.away); if(invalid.length) { console.error(JSON.stringify({invalid})); process.exit(1); } console.log(JSON.stringify({date:i.requested_date,discovered_match_ids:ids.length,fixtures_with_both_teams:rows.length,sample:rows.slice(0,5)}));'
+          discovery_status=$?
+          if [ "$discovery_status" -eq 2 ]; then
+            echo "Sem equipas extraídas. A recolher amostra HTML/âncoras para diagnóstico."
+            curl --fail --show-error --silent --retry 3 --retry-all-errors --retry-delay 2 "$PROXY_URL/discover-inspect?date=$discovery_date&summary=1" -o /tmp/discovery-summary.json
+            node -e 'const fs=require("node:fs"); const d=JSON.parse(fs.readFileSync("/tmp/discovery-summary.json","utf8")); console.log("DIAGNÓSTICO DA PÁGINA REAL:"); console.log(JSON.stringify(d.inspection||d));'
+            exit 1
+          elif [ "$discovery_status" -ne 0 ]; then
+            exit "$discovery_status"
+          fi
