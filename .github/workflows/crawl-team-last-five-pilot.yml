@@ -51,12 +51,13 @@ jobs:
           MAX_TEAMS: ${{ github.event.inputs.max_teams || '40' }}
           DELAY_MS: ${{ github.event.inputs.delay_ms || '1500' }}
         run: node scripts/crawl-flashscore-team-results.mjs --universe=/tmp/historical-team-universe.json --seeds=/tmp/flashscore-team-id-seeds.json --max-teams="$MAX_TEAMS" --delay-ms="$DELAY_MS" --output=/tmp/team-last-five-pilot.json
-      - name: Collect stats for five unique pilot fixtures
+      - name: Collect stats for all pending unique fixtures
         env:
           FLASHSCORE_CONCURRENCY: "1"
           FLASHSCORE_REQUEST_DELAY_MS: "1500"
-        run: node scripts/collect-flashscore-csv.mjs --team-last-five=/tmp/team-last-five-pilot.json --limit=5
-      - name: Upload pilot data CSVs
+        run: node scripts/collect-flashscore-csv.mjs --team-last-five=/tmp/team-last-five-pilot.json
+      - name: Upload collected stats CSVs
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: team-last-five-stats-pilot
@@ -65,7 +66,8 @@ jobs:
             data/bwin-odds-flashscore.csv
           if-no-files-found: error
           retention-days: 14
-      - name: Upload pilot queue
+      - name: Upload deduplicated last-five queue
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: team-last-five-pilot
