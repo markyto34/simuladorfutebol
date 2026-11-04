@@ -92,3 +92,35 @@ test("recognizes extra time and excludes the penalty shootout from full time", a
   assert.deepEqual(record.score.full_time, { home: 0, away: 0 });
   assert.deepEqual(record.score.extra_time, { home: 0, away: 0 });
 });
+
+
+test("Flashscore match record carries red-card statistics and validated period scores", async () => {
+  const { extractStructuredMatch } = await import("../flashscore-proxy/src/extract-match-record.mjs");
+  const html = `
+    <title>UNI 1-1 KOL | Union Berlin - FC Koln</title>
+    <h3>Union Berlin - FC Koln</h3>
+    <div class="detail"><b>1-1</b> (1-0,0-1)</div>
+    <div class="detail">Terminado</div>
+    <div class="detail">01.11.2026 14:30</div>
+    <div id="detail-tab-content">
+      <h4>1ª Parte: <b>1-0</b></h4>
+      <h4>2ª Parte: <b>0-1</b></h4>
+    </div>
+    <div data-testid="wcl-statistics">
+      <div class="stat-row"><span>Cartões vermelhos</span><span>1</span><span>0</span></div>
+      <div class="stat-row"><span>Cantos</span><span>2</span><span>6</span></div>
+      <div class="stat-row"><span>Faltas</span><span>11</span><span>10</span></div>
+    </div>`;
+  const record = extractStructuredMatch(html, "hW5lOaOP", { retrievedAt: "2026-11-04T10:00:00.000Z" });
+  assert.deepEqual(record.score.half_time, { home: 1, away: 0 });
+  assert.deepEqual(record.score.second_half, { home: 0, away: 1 });
+  assert.deepEqual(record.statistics.red_cards, {
+    home: 1, away: 0, unit: null, source_label: "Cartões vermelhos"
+  });
+  assert.deepEqual(record.statistics.corners, {
+    home: 2, away: 6, unit: null, source_label: "Cantos"
+  });
+  assert.deepEqual(record.statistics.fouls, {
+    home: 11, away: 10, unit: null, source_label: "Faltas"
+  });
+});
