@@ -56,10 +56,10 @@ A integração de novas fontes é feita apenas depois de verificar cobertura rea
 
 O Worker Flashscore disponibiliza `/record?id=<match_id>`. Para cada jogo, este endpoint consulta uma única página de estatísticas e extrai dessa mesma resposta as 13 categorias estatísticas e, quando a identificação é inequívoca, o mercado 1X2 da Bwin apresentado no Flashscore. A identificação da Bwin exige o marcador de bookmaker `459` e a indicação `bwin.pt`; não são recolhidas odds de outras casas.
 
-O workflow `.github/workflows/recolha-diaria-flashscore.yml` executa automaticamente todos os dias às 05:30 UTC. Descobre os jogos do dia anterior segundo o calendário de Portugal e recolhe cada jogo sequencialmente, com um intervalo mínimo de 2,5 segundos entre pedidos. Também pode ser iniciado manualmente para uma data específica no separador Actions do GitHub.
+O workflow `.github/workflows/recolha-diaria-flashscore.yml` executa automaticamente todos os dias às 05:30 UTC. Descobre os jogos do dia anterior segundo o calendário de Portugal. A descoberta diária também associa cada ID à competição e ao país apenas quando o HTML apresenta uma associação explícita e inequívoca. A recolha usa até 10 jogos em simultâneo e um intervalo global mínimo de 300 ms entre inícios de pedidos (configuração atual do workflow); interrompe novos pedidos perante HTTP 403/429. Também pode ser iniciado manualmente para uma data específica no separador Actions do GitHub.
 
 A recolha diária:
-- Faz apenas uma consulta de estatísticas por jogo; as odds Bwin são extraídas da mesma resposta.
+- Faz apenas uma consulta de estatísticas por jogo; as odds Bwin são extraídas da mesma resposta. A identificação de país/competição vem da página diária de descoberta já consultada, sem um pedido adicional por jogo.
 - Atualiza `data/flashscore-statistics.csv` com os dados estatísticos e de identificação.
 - Atualiza `data/bwin-odds-flashscore.csv` apenas com odds 1X2 da Bwin observadas no momento da recolha.
 - Preserva o histórico existente, deduplica estatísticas por `match_id` e observações de odds por jogo e instante de recolha.

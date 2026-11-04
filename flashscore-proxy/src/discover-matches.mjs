@@ -20,10 +20,11 @@ function plainText(value) {
     .trim();
 }
 
-export function extractExplicitCompetitionForMatch(html, matchId) {
+export function extractExplicitCompetitionIdentities(html) {
   const scoreData = html.match(/<div\b[^>]*id=["']score-data["'][^>]*>([\s\S]*?)<\/div>/i)?.[1];
-  if (!scoreData) return null;
+  if (!scoreData) return {};
   let currentHeading = null;
+  const identities = {};
   const tokens = scoreData.match(/<h4\b[^>]*>[\s\S]*?<\/h4>|<a\b[^>]*href\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)[^>]*>[\s\S]*?<\/a>/gi) || [];
   for (const token of tokens) {
     if (/^<h4\b/i.test(token)) {
@@ -32,12 +33,22 @@ export function extractExplicitCompetitionForMatch(html, matchId) {
     }
     const href = decodeEntities(token.match(/\bhref\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i)?.slice(1).find(Boolean) || "");
     const id = href.match(/\/jogo\/([A-Za-z0-9]{6,16})(?:\/|[?#]|$)/i)?.[1];
-    if (id !== matchId || !currentHeading) continue;
+    if (!id || !currentHeading) continue;
     const match = currentHeading.match(/^\s*([^:]+?)\s*:\s*(.+?)\s*$/);
-    if (!match) return { status: "ambiguous", heading: currentHeading, country: null, competition: null };
-    return { status: "identified", heading: currentHeading, country: match[1].trim(), competition: match[2].trim() };
+    const identity = match
+      ? { status: "identified", heading: currentHeading, country: match[1].trim(), competition: match[2].trim() }
+      : { status: "ambiguous", heading: currentHeading, country: null, competition: null };
+    const previous = identities[id];
+    if (!previous) identities[id] = identity;
+    else if (previous.status !== "ambiguous" && (previous.country !== identity.country || previous.competition !== identity.competition)) {
+      identities[id] = { status: "ambiguous", heading: "multiple_competition_groups", country: null, competition: null };
+    }
   }
-  return null;
+  return identities;
+}
+
+export function extractExplicitCompetitionForMatch(html, matchId) {
+  return extractExplicitCompetitionIdentities(html)[matchId] || null;
 }
 
 export function inspectMatchDiscovery(html, requestedDate, options = {}) {
@@ -50,6 +61,7 @@ export function inspectMatchDiscovery(html, requestedDate, options = {}) {
   let candidateAnchorCount = 0;
   let duplicateLinkCount = 0;
   let totalUniqueMatchCount = 0;
+  const competitionIdentities = (idsOnly || targetMatchId) ? extractExplicitCompetitionIdentities(html) : {};
   const anchorPattern = /<a\b([^>]*href\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))[^>]*)>([\s\S]*?)<\/a>/gi;
 
   for (const item of html.matchAll(anchorPattern)) {
@@ -65,10 +77,7 @@ export function inspectMatchDiscovery(html, requestedDate, options = {}) {
     totalUniqueMatchCount += 1;
     const anchorText = plainText(item[5]).slice(0, 180) || null;
     const compact = { match_id: id, href, anchor_text: anchorText };
-    if (targetMatchId) {
-      const identity = extractExplicitCompetitionForMatch(html, id);
-      if (identity) compact.competition_identity = identity;
-    }
+    if (targetMatchId && competitionIdentities[id]) compact.competition_identity = competitionIdentities[id];
     if (sampleMatches.length < 15) sampleMatches.push(compact);
 
     if (!summaryOnly && !idsOnly && matches.length < 2000) {
@@ -103,7 +112,9 @@ export function inspectMatchDiscovery(html, requestedDate, options = {}) {
     return {
       ...common,
       match_ids: [...seen],
-      note: "Lista compacta de IDs únicos encontrados no HTML da data. Não valida resultados, odds ou estatísticas."
+      match_competition_identities: Object.fromEntries([...seen].filter(id => competitionIdentities[id]).map(id => [id, competitionIdentities[id]])),
+      identified_competition_count: [...seen].filter(id => competitionIdentities[id]?.status === "identified").length,
+      note: "Lista compacta de IDs únicos e identidades de competição explicitamente associadas no HTML do calendário. Não valida resultados, odds ou estatísticas."
     };
   }
 
