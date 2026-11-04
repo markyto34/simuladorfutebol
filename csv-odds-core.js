@@ -226,6 +226,21 @@
       matches: completedCohort };
   }
 
+  function evaluateOddsRanges(matches, ranges) {
+    const eligible = rangeMatches(matches, ranges);
+    const analysis = analyzeTriplet(eligible);
+    return {
+      sample: analysis.count,
+      matchedOddsSample: eligible.length,
+      historical: analysis.outcomes,
+      averageOverround: analysis.averageOverround,
+      market: analysis.count ? impliedProbabilities(analysis.averageOdds) : null,
+      marketAnalysis: analyzePeriodMarkets(eligible),
+      matches: eligible,
+      averageOdds: analysis.averageOdds
+    };
+  }
+
   function marketRows(matches, scoreKey) {
     return matches.filter(m => hasCompleteOdds(m.odds) && Array.isArray(m[scoreKey]) &&
       m[scoreKey].length === 2 && m[scoreKey].every(Number.isInteger));
@@ -379,7 +394,7 @@
   }
 
   const api = { parseCSV, createCSVParser, normalizeRows, summarize, analyzeOdds, analyzeTriplet, impliedProbabilities,
-    hasCompleteOdds, filterOddsRanges, rangeMatches, evaluateCurrentOdds, analyzePeriodMarkets, forecastExactScores, continentForCountry, backtestTriplet, wilsonInterval, filterMatches, sortMatchesChronologically };
+    hasCompleteOdds, filterOddsRanges, rangeMatches, evaluateCurrentOdds, evaluateOddsRanges, analyzePeriodMarkets, forecastExactScores, continentForCountry, backtestTriplet, wilsonInterval, filterMatches, sortMatchesChronologically };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   root.CSVOdds = api;
 })(typeof globalThis !== "undefined" ? globalThis : this);
