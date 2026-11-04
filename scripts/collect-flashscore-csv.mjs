@@ -14,7 +14,7 @@ import { filterHistoricalMatchIds } from "./historical-fixture-matching.mjs";
 
 const PROXY = (process.env.FLASHSCORE_PROXY_URL || "https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev").replace(/\/$/, "");
 const DELAY_MS = Math.max(250, Number(process.env.FLASHSCORE_REQUEST_DELAY_MS || 300));
-const CONCURRENCY = Math.max(1, Math.min(10, Number.parseInt(process.env.FLASHSCORE_CONCURRENCY || "10", 10) || 10));
+const CONCURRENCY = Math.max(1, Math.min(4, Number.parseInt(process.env.FLASHSCORE_CONCURRENCY || "2", 10) || 2));
 const REQUEST_TIMEOUT_MS = 45_000;
 const DISCOVERY_TIMEOUT_MS = 60_000;
 const MAX_MANUAL_MATCHES = 5;
@@ -240,14 +240,15 @@ async function collect(matchId) {
 }
 
 async function collectWithRetry(matchId) {
-  const maxAttempts = 3;
+  // Backoff exponencial para 5xx/timeout: evita repetir pedidos demasiado depressa.
+  const maxAttempts = 5;
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {
       return await collect(matchId);
     } catch (error) {
-      const retryable = !error.stop && /Erro de rede|Timeout:|HTTP 408|HTTP 5\d\d/i.test(error.message || "");
+      const retryable = !error.stop && /Erro de rede|Timeout:|HTTP 408|HTTP 429|HTTP 5\d\d|upstream_unavailable|upstream_rejected/i.test(error.message || "");
       if (!retryable || attempt === maxAttempts) throw error;
-      const waitMs = 1500 * attempt;
+      const waitMs = Math.min(60_000, 5_000 * (2 ** (attempt - 1)));
       console.warn("[RETRY] " + matchId + " | tentativa " + (attempt + 1) + "/" + maxAttempts + " em " + waitMs + " ms | " + error.message);
       await sleep(waitMs);
     }
@@ -263,12 +264,29 @@ async function discoverMatchIds(date) {
   url.searchParams.set("ids", "1");
   console.log("[DISCOVERY] A pedir ao proxy a lista de jogos de " + date + "...");
   let response;
-  try {
-    response = await fetch(url, { headers: { "Accept": "application/json" }, signal: AbortSignal.timeout(DISCOVERY_TIMEOUT_MS) });
-  } catch (error) {
-    if (error.name === "TimeoutError" || error.name === "AbortError") throw new Error("Timeout na descoberta: o proxy não respondeu em " + (DISCOVERY_TIMEOUT_MS / 1000) + " segundos.");
-    throw new Error("Erro de rede durante a descoberta: " + error.message);
+  let lastDiscoveryError = null;
+  for (let attempt = 1; attempt <= 4; attempt++) {
+    try {
+      response = await fetch(url, { headers: { "Accept": "application/json" }, signal: AbortSignal.timeout(DISCOVERY_TIMEOUT_MS) });
+      if (response.status >= 500 && attempt < 4) {
+        const waitMs = 5_000 * (2 ** (attempt - 1));
+        console.warn("[DISCOVERY RETRY] " + date + " | HTTP " + response.status + " | tentativa " + (attempt + 1) + "/4 em " + waitMs + " ms.");
+        await sleep(waitMs);
+        continue;
+      }
+      break;
+    } catch (error) {
+      lastDiscoveryError = error;
+      if (attempt === 4) {
+        if (error.name === "TimeoutError" || error.name === "AbortError") throw new Error("Timeout na descoberta: o proxy não respondeu em " + (DISCOVERY_TIMEOUT_MS / 1000) + " segundos.");
+        throw new Error("Erro de rede durante a descoberta: " + error.message);
+      }
+      const waitMs = 5_000 * (2 ** (attempt - 1));
+      console.warn("[DISCOVERY RETRY] " + date + " | erro de rede | tentativa " + (attempt + 1) + "/4 em " + waitMs + " ms.");
+      await sleep(waitMs);
+    }
   }
+  if (!response) throw new Error("Falha na descoberta após novas tentativas: " + String(lastDiscoveryError?.message || "sem resposta"));
   let payload;
   try { payload = await response.json(); }
   catch { throw new Error("Resposta não JSON na descoberta da data (HTTP " + response.status + ")."); }

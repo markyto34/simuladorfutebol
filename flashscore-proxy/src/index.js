@@ -401,35 +401,50 @@ export default {
       if (!Number.isSafeInteger(dayOffset) || Math.abs(dayOffset) > 3650) {
         return json({ error: "date_out_of_supported_range" }, 400, headers);
       }
-      // URL fixa do Flashscore; nunca encaminhar URL arbitrário.
-      const discoveryTarget = new URL("/", UPSTREAM);
-      discoveryTarget.searchParams.set("d", String(dayOffset));
-      let discoveryResponse;
-      try {
-        discoveryResponse = await fetch(discoveryTarget.toString(), {
-          method: "GET", redirect: "manual",
-          headers: { "Accept": "text/html,application/xhtml+xml", "Accept-Language": "pt-PT,pt;q=0.9,en;q=0.7", "User-Agent": "SimuladorFutebol/1.0" }
-        });
-      } catch (error) {
-        return json({ error: "upstream_unavailable", detail: String(error?.message || "Falha de ligação").slice(0, 200) }, 502, headers);
+      // Cache curta por data: evita repetir a descoberta durante retries/backfills.
+      const discoveryCache = caches.default;
+      const discoveryCacheKey = new Request("https://simuladorfutebol-flashscore-proxy.cache/discovery?date=" + date);
+      const cachedDiscovery = await discoveryCache.match(discoveryCacheKey);
+      let discoveryHtml;
+      let discoveryStatus = 200;
+      let discoveryType = "text/html; charset=utf-8";
+      if (cachedDiscovery) {
+        discoveryHtml = await cachedDiscovery.text();
+      } else {
+        // URL fixa do Flashscore; nunca encaminhar URL arbitrário.
+        const discoveryTarget = new URL("/", UPSTREAM);
+        discoveryTarget.searchParams.set("d", String(dayOffset));
+        let discoveryResponse;
+        try {
+          discoveryResponse = await fetch(discoveryTarget.toString(), {
+            method: "GET", redirect: "manual",
+            headers: { "Accept": "text/html,application/xhtml+xml", "Accept-Language": "pt-PT,pt;q=0.9,en;q=0.7", "User-Agent": "SimuladorFutebol/1.0" }
+          });
+        } catch (error) {
+          return json({ error: "upstream_unavailable", detail: String(error?.message || "Falha de ligação").slice(0, 200) }, 502, headers);
+        }
+        if (discoveryResponse.status >= 300 && discoveryResponse.status < 400) {
+          return json({ error: "upstream_redirect", upstream_status: discoveryResponse.status, message: "O Flashscore redirecionou a página de resultados; não foi seguido." }, 502, headers);
+        }
+        if (!discoveryResponse.ok) {
+          return json({ error: "upstream_rejected", upstream_status: discoveryResponse.status, message: discoveryResponse.status === 403 || discoveryResponse.status === 429 ? "O Flashscore recusou ou limitou o pedido. A recolha foi interrompida." : "A página de resultados não pôde ser obtida." }, 502, headers);
+        }
+        discoveryType = discoveryResponse.headers.get("content-type") || "";
+        if (!discoveryType.toLowerCase().includes("text/html")) return json({ error: "unexpected_content_type", content_type: discoveryType || "unknown" }, 502, headers);
+        const discoveryBody = await discoveryResponse.arrayBuffer();
+        if (discoveryBody.byteLength > MAX_BODY_BYTES) return json({ error: "response_too_large" }, 502, headers);
+        discoveryHtml = new TextDecoder("utf-8").decode(discoveryBody);
+        ctx.waitUntil(discoveryCache.put(discoveryCacheKey, new Response(discoveryHtml, {
+          headers: { "Content-Type": discoveryType, "Cache-Control": "public, max-age=" + CACHE_SECONDS }
+        })));
+        discoveryStatus = discoveryResponse.status;
       }
-      if (discoveryResponse.status >= 300 && discoveryResponse.status < 400) {
-        return json({ error: "upstream_redirect", upstream_status: discoveryResponse.status, message: "O Flashscore redirecionou a página de resultados; não foi seguido." }, 502, headers);
-      }
-      if (!discoveryResponse.ok) {
-        return json({ error: "upstream_rejected", upstream_status: discoveryResponse.status, message: discoveryResponse.status === 403 || discoveryResponse.status === 429 ? "O Flashscore recusou ou limitou o pedido. A recolha foi interrompida." : "A página de resultados não pôde ser obtida." }, 502, headers);
-      }
-      const discoveryType = discoveryResponse.headers.get("content-type") || "";
-      if (!discoveryType.toLowerCase().includes("text/html")) return json({ error: "unexpected_content_type", content_type: discoveryType || "unknown" }, 502, headers);
-      const discoveryBody = await discoveryResponse.arrayBuffer();
-      if (discoveryBody.byteLength > MAX_BODY_BYTES) return json({ error: "response_too_large" }, 502, headers);
-      const discoveryHtml = new TextDecoder("utf-8").decode(discoveryBody);
       const summaryOnly = incoming.searchParams.get("summary") === "1";
       const targetMatchId = incoming.searchParams.get("match_id") || null;
       if (targetMatchId && !validMatchId(targetMatchId)) {
         return json({ error: "invalid_match_id", message: "O match_id deve ser um identificador alfanumérico válido." }, 400, headers);
       }
-      return json({ ok: true, upstream_status: discoveryResponse.status, content_type: discoveryType, body_bytes: discoveryBody.byteLength, inspection: inspectMatchDiscovery(discoveryHtml, date, { summary: summaryOnly, idsOnly: incoming.searchParams.get("ids") === "1", matchId: targetMatchId }) }, 200, headers);
+      return json({ ok: true, upstream_status: discoveryStatus, content_type: discoveryType, body_bytes: new TextEncoder().encode(discoveryHtml).byteLength, inspection: inspectMatchDiscovery(discoveryHtml, date, { summary: summaryOnly, idsOnly: incoming.searchParams.get("ids") === "1", matchId: targetMatchId }) }, 200, headers);
     }
 
     const inspectOnly = incoming.pathname === "/inspect";
@@ -578,7 +593,7 @@ export default {
             // Falha do pedido secundário não invalida as estatísticas já recolhidas.
           }
         }
-        return json({
+        const recordResponse = json({
           ok: true,
           match_id: matchId,
           upstream_status: upstream.status,
@@ -586,6 +601,17 @@ export default {
           source_url: target.toString(),
           record
         }, 200, headers);
+        // Cachear o JSON já extraído, não o HTML bruto, porque /record devolve JSON.
+        const cacheableRecordResponse = new Response(recordResponse.clone().body, {
+          status: 200,
+          headers: {
+            "Content-Type": "application/json; charset=utf-8",
+            "Cache-Control": "public, max-age=" + CACHE_SECONDS,
+            ...headers
+          }
+        });
+        ctx.waitUntil(cache.put(cacheKey, cacheableRecordResponse));
+        return recordResponse;
       }
       if (record && (!record.country || !record.competition)) {
         const matchDate = record.date_time_iso_local ? record.date_time_iso_local.slice(0, 10) : null;
