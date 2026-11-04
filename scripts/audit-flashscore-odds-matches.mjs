@@ -180,7 +180,7 @@ export function summarizeStatsCoverage(uniqueGames, statsRecords) {
     add(legacyIndex, legacyKey(stat, true), stat);
   }
   const byCompetition = new Map();
-  let exact = 0, legacyOnly = 0, ambiguous = 0, missing = 0;
+  let exactCount = 0, legacyOnly = 0, ambiguous = 0, missing = 0;
   const categories = ["xg","possession","shots","shots_on_target","big_chances","corners","yellow_cards","red_cards","shots_off_target","blocked_shots","shots_inside_box","shots_outside_box","offsides","fouls"];
   const categoryTotals = Object.fromEntries(categories.map(key => [key, 0]));
   for (const game of uniqueGames) {
@@ -192,17 +192,17 @@ export function summarizeStatsCoverage(uniqueGames, statsRecords) {
       metric_coverage: Object.fromEntries(categories.map(key => [key, 0]))
     };
     comp.unique_games++;
-    const exact = exactIndex.get(game.key) || [];
+    const exactMatches = exactIndex.get(game.key) || [];
     let stat = null;
-    if (exact.length === 1) { exact++; stat = exact[0]; comp.exact_matches++; }
-    else if (exact.length > 1) { ambiguous++; comp.ambiguous_matches++; }
+    if (exactMatches.length === 1) { exactCount++; stat = exactMatches[0]; comp.exact_matches++; }
+    else if (exactMatches.length > 1) { ambiguous++; comp.ambiguous_matches++; }
     else {
       const legacy = legacyIndex.get([game.date, normalize(game.home_team), normalize(game.away_team)].join("|")) || [];
       if (legacy.length === 1) { legacyOnly++; stat = legacy[0]; comp.legacy_only_matches++; }
       else if (legacy.length > 1) { ambiguous++; comp.ambiguous_matches++; }
     }
     if (!stat) {
-      if (!exact.length) { missing++; comp.missing_stats++; }
+      if (!exactMatches.length) { missing++; comp.missing_stats++; }
     } else {
       comp.games_with_stats++;
       for (const key of categories) {
@@ -222,8 +222,8 @@ export function summarizeStatsCoverage(uniqueGames, statsRecords) {
   return {
     total_stats_rows: statsRecords.length,
     total_unique_games: uniqueGames.length,
-    games_with_stats: exact + legacyOnly,
-    exact_matches: exact,
+    games_with_stats: exactCount + legacyOnly,
+    exact_matches: exactCount,
     legacy_only_matches: legacyOnly,
     ambiguous_matches: ambiguous,
     games_without_stats: missing,
