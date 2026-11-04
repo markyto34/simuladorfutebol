@@ -1,0 +1,40 @@
+name: Seed Flashscore team IDs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/seed-flashscore-team-ids.mjs"
+      - ".github/workflows/seed-flashscore-team-ids.yml"
+      - "historical-flashscore-targets.csv"
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Número de jogos de origem (0 = todos os jogos com match_id)"
+        required: false
+        default: "20"
+      delay_ms:
+        description: "Intervalo entre pedidos ao Flashscore"
+        required: false
+        default: "1500"
+
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - name: Seed team IDs from historical match pages
+        env:
+          SEED_LIMIT: \${{ github.event.inputs.limit || '20' }}
+          SEED_DELAY_MS: \${{ github.event.inputs.delay_ms || '1500' }}
+        run: node scripts/seed-flashscore-team-ids.mjs --limit="$SEED_LIMIT" --delay-ms="$SEED_DELAY_MS" --output=/tmp/flashscore-team-id-seeds.json
+      - name: Upload team ID seed map
+        uses: actions/upload-artifact@v4
+        with:
+          name: flashscore-team-id-seeds
+          path: /tmp/flashscore-team-id-seeds.json
+          if-no-files-found: error
+          retention-days: 14
