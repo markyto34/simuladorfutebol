@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 386,
-  "processed_games": 350,
-  "stats_games": 341,
-  "bwin_odds": 350,
+  "processed_games": 375,
+  "stats_games": 366,
+  "bwin_odds": 375,
   "failed_games": 0,
-  "current_match": "A consultar jogo 352/386 · Y17vtgtI",
-  "last_result": "Stefanesti - Chindia Targoviste: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-04T22:18:50.262Z"
+  "current_match": "Último concluído: Racing Montevideo - Cerro Largo",
+  "last_result": "Racing Montevideo - Cerro Largo: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-04T22:19:00.209Z"
 }
