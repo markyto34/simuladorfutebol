@@ -354,7 +354,7 @@ export default {
       if (bytes.byteLength > MAX_BODY_BYTES) return json({ error: "response_too_large" }, 502, headers);
       const teamHtml = new TextDecoder("utf-8").decode(bytes);
       const candidates = extractTeamResultCandidates(teamHtml, 40);
-      const title = (teamHtml.match(/<title[^>]*>([\\s\\S]*?)<\\/title>/i)?.[1] || "").replace(/<[^>]+>/g, " ").replace(/\\s+/g, " ").trim().slice(0, 180);
+      const title = (teamHtml.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim().slice(0, 180);
       return json({
         ok: true, team_id: teamId, slug, upstream_status: teamResponse.status,
         content_type: type, body_bytes: bytes.byteLength, source_url: teamTarget.toString(),
