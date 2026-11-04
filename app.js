@@ -537,6 +537,10 @@ async function loadHistoricalData(){
   $("wdw-status").textContent=WDW_PROXY_URL?(allowWdw?"WinDrawWin: equipas descobertas no índice da competição; seleciona as duas para validar os jogos completos.":"WinDrawWin: disponível apenas para a época atual."):"WinDrawWin: proxy não configurado.";
  }catch(e){if(requestId===historicalLoadSequence){document.body.classList.remove("data-loaded","match-selected");status.textContent="Não foi possível pesquisar os jogos: "+e.message+". Tenta outra competição ou época.";if($("data-coverage"))$("data-coverage").textContent="Cobertura estatística não disponível."; }}finally{if(requestId===historicalLoadSequence)button.disabled=false;}
 }
+function sameFixtureIdentity(primary,secondary,date){
+ if(!date||!primary.date||primary.date!==date)return false;
+ return wdwTeamKey(primary.home)===wdwTeamKey(secondary.home)&&wdwTeamKey(primary.away)===wdwTeamKey(secondary.away);
+}
 function teamSample(team,venue,metric){
  const limit=$("sample").value,requested=limit==="all"?Infinity:Number(limit);
  const league=$("league").value,season=$("season").value;
@@ -594,8 +598,7 @@ function teamSample(team,venue,metric){
  };
  const sameFixture=(m,w)=>{
   const date=wdwMatchDate(w);
-  if(!date||!m.date||m.date!==date)return false;
-  return wdwTeamKey(m.home)===wdwTeamKey(w.home)&&wdwTeamKey(m.away)===wdwTeamKey(w.away)&&m.hg===w.hg&&m.ag===w.ag;
+  return sameFixtureIdentity(m,w,date)&&m.hg===w.hg&&m.ag===w.ag;
  };
  const matching=m=>wdw.find(w=>w.teamHome===(m.home===team)&&sameFixture(m,w))||null;
  const complete=(m,w)=>{
@@ -618,7 +621,7 @@ function teamSample(team,venue,metric){
   for(const w of wdw){
    const h=w.teamHome;
    if(venue==="home"&&!h||venue==="away"&&h)continue;
-   const exists=primary.some(m=>sameFixture(m,w));
+   const exists=primary.some(m=>sameFixtureIdentity(m,w,wdwMatchDate(w)));
    if(exists)continue;
    records.push({m:{date:wdwMatchDate(w),home:w.home,away:w.away,hg:w.hg,ag:w.ag,htHome:w.htHome,htAway:w.htAway,hc:null,ac:null,homeShots:null,awayShots:null,homeTarget:null,awayTarget:null,homeFouls:null,awayFouls:null,homeYellow:null,awayYellow:null,homeRed:null,awayRed:null},w,h,wdwOnly:true});
   }
