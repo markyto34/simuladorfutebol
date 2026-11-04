@@ -5,6 +5,7 @@ import { inspectMatchDiscovery, extractExplicitCompetitionForMatch } from "./dis
 import { extractStructuredMatch } from "./extract-match-record.mjs";
 import { inspectPageStructure } from "./inspect-page-structure.mjs";
 import { buildMatchTabUrl, resolveMatchTab } from "./match-tabs.mjs";
+import { extractTeamProfileLinks, extractTeamResultCandidates } from "./team-results.mjs";
 const UPSTREAM = "https://m.flashscore.pt";
 const ALLOWED_ORIGINS = new Set([
   "https://simuladorfutebol.onrender.com"
@@ -127,7 +128,7 @@ function inspectHtml(html, matchId, options = {}) {
 
   return {
     title: title || null,
-    page_structure: inspectPageStructure(html),
+    team_links: extractTeamProfileLinks(html),\n    page_structure: inspectPageStructure(html),
     match_record: extractStructuredMatch(html, matchId, { httpStatus: 200, sourceUrl: options.sourceUrl }),
     bwin: {
       found: /bwin/i.test(html),
@@ -208,7 +209,7 @@ function summarizeInspection(inspection) {
     mode: "summary",
     title: inspection.title || null,
     match_id: record.match_id || null,
-    teams: record.teams || null,
+    teams: record.teams || null,\n    team_links: Array.isArray(inspection.team_links) ? inspection.team_links : [],
     date_time: record.date_time || null,
     status: record.status || null,
     competition_identity: {
@@ -324,6 +325,39 @@ export default {
         service: "simuladorfutebol-flashscore-proxy",
         upstream: UPSTREAM,
         mode: "single-match-html-relay"
+      }, 200, headers);
+    }
+
+    if (incoming.pathname === "/team-inspect") {
+      const teamId = incoming.searchParams.get("id") || "";
+      const slug = incoming.searchParams.get("slug") || "";
+      if (!/^[A-Za-z0-9]{8}$/.test(teamId) || !/^[a-z0-9-]{1,100}$/i.test(slug)) {
+        return json({ error: "invalid_team", message: "Indica um ID de equipa de 8 caracteres e um slug válido." }, 400, headers);
+      }
+      const teamTarget = new URL("/equipa/" + slug + "/" + teamId + "/resultados/", UPSTREAM);
+      let teamResponse;
+      try {
+        teamResponse = await fetch(teamTarget.toString(), {
+          method: "GET", redirect: "manual",
+          headers: { "Accept": "text/html,application/xhtml+xml", "Accept-Language": "pt-PT,pt;q=0.9,en;q=0.7", "User-Agent": "SimuladorFutebol/1.0" }
+        });
+      } catch (error) {
+        return json({ error: "upstream_unavailable", detail: String(error?.message || "Falha de ligação").slice(0, 180) }, 502, headers);
+      }
+      if (teamResponse.status >= 300 && teamResponse.status < 400) return json({ error: "upstream_redirect", upstream_status: teamResponse.status }, 502, headers);
+      if (!teamResponse.ok) return json({ error: "upstream_rejected", upstream_status: teamResponse.status }, 502, headers);
+      const type = teamResponse.headers.get("content-type") || "";
+      if (!type.toLowerCase().includes("text/html")) return json({ error: "unexpected_content_type", content_type: type }, 502, headers);
+      const bytes = await teamResponse.arrayBuffer();
+      if (bytes.byteLength > MAX_BODY_BYTES) return json({ error: "response_too_large" }, 502, headers);
+      const teamHtml = new TextDecoder("utf-8").decode(bytes);
+      const candidates = extractTeamResultCandidates(teamHtml, 40);
+      const title = (teamHtml.match(/<title[^>]*>([\\s\\S]*?)<\\/title>/i)?.[1] || "").replace(/<[^>]+>/g, " ").replace(/\\s+/g, " ").trim().slice(0, 180);
+      return json({
+        ok: true, team_id: teamId, slug, upstream_status: teamResponse.status,
+        content_type: type, body_bytes: bytes.byteLength, source_url: teamTarget.toString(),
+        title, match_link_count: candidates.length, matches: candidates,
+        note: "Diagnóstico passivo da página de resultados da equipa. Os candidatos ainda não são considerados jogos concluídos até validar estado, data e resultado."
       }, 200, headers);
     }
 
