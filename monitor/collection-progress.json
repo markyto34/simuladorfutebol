@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 386,
-  "processed_games": 200,
-  "stats_games": 200,
-  "bwin_odds": 200,
+  "processed_games": 225,
+  "stats_games": 225,
+  "bwin_odds": 225,
   "failed_games": 0,
-  "current_match": "A consultar jogo 202/386 · nmNZu3Iq",
-  "last_result": "BVSC-Zuglo - Csakvari: 6 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-04T22:17:50.333Z"
+  "current_match": "Último concluído: Mansfield - Notts County",
+  "last_result": "Mansfield - Notts County: 13 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-04T22:18:00.252Z"
 }
