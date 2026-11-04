@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 386,
-  "processed_games": 375,
-  "stats_games": 366,
-  "bwin_odds": 375,
+  "processed_games": 386,
+  "stats_games": 376,
+  "bwin_odds": 386,
   "failed_games": 0,
-  "current_match": "Último concluído: Racing Montevideo - Cerro Largo",
-  "last_result": "Racing Montevideo - Cerro Largo: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-04T22:19:00.209Z"
+  "current_match": "Último concluído: Song Lam Nghe An - Cong An Ha Noi",
+  "last_result": "Song Lam Nghe An - Cong An Ha Noi: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-04T22:19:04.581Z"
 }
