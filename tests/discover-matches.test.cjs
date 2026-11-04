@@ -122,3 +122,16 @@ test("não atribui identidade quando o mesmo ID aparece em grupos diferentes", a
   assert.equal(identities.hW5lOaOP.status, "ambiguous");
   assert.equal(identities.hW5lOaOP.country, null);
 });
+
+
+test("inclui nomes das equipas no modo compacto de IDs para filtrar jogos do histórico", async () => {
+  const { inspectMatchDiscovery, extractFixtureTeams } = await import("../flashscore-proxy/src/discover-matches.mjs");
+  const html = `<div id="score-data"><h4>INGLATERRA: Premier League</h4>
+    <a href="/jogo/827gE8Kl/"><span>14:30 Liverpool - Athletic Bilbao 2-1</span></a>
+    <a href="/jogo/AB12cd34/"><span>Everton - Arsenal</span></a>
+  </div>`;
+  const result = inspectMatchDiscovery(html, "2025-08-04", { idsOnly: true });
+  assert.deepEqual(result.match_fixtures["827gE8Kl"], { home: "Liverpool", away: "Athletic Bilbao" });
+  assert.deepEqual(result.match_fixtures["AB12cd34"], { home: "Everton", away: "Arsenal" });
+  assert.deepEqual(extractFixtureTeams("15:00 Team A - Team B 0-0"), { home: "Team A", away: "Team B" });
+});

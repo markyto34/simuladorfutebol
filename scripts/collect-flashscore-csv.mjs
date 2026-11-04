@@ -9,6 +9,7 @@
 import { readFile, writeFile, mkdir, appendFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { mergeRows, mergeLatestRows } from "./csv-merge.mjs";
+import { filterHistoricalMatchIds } from "./historical-fixture-matching.mjs";
 
 const PROXY = (process.env.FLASHSCORE_PROXY_URL || "https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev").replace(/\/$/, "");
 const DELAY_MS = Math.max(250, Number(process.env.FLASHSCORE_REQUEST_DELAY_MS || 300));
@@ -17,6 +18,7 @@ const REQUEST_TIMEOUT_MS = 45_000;
 const DISCOVERY_TIMEOUT_MS = 60_000;
 const MAX_MANUAL_MATCHES = 5;
 const MAX_DAILY_MATCHES = 2000;
+const BASE_ODDS_HISTORY_FILE = resolve("ganhonasodds_com_20261101.csv");
 const STATS_FILE = resolve("data/flashscore-statistics.csv");
 const ODDS_FILE = resolve("data/bwin-odds-flashscore.csv");
 
@@ -258,7 +260,8 @@ async function discoverMatchIds(date) {
   }
   return {
     matchIds: [...new Set((payload.inspection.match_ids || []).filter(id => /^[A-Za-z0-9]{6,16}$/.test(id)))],
-    competitionByMatchId: payload.inspection.match_competition_identities || {}
+    competitionByMatchId: payload.inspection.match_competition_identities || {},
+    fixturesByMatchId: payload.inspection.match_fixtures || {}
   };
 }
 
@@ -280,10 +283,15 @@ async function main() {
   };
   await publishProgress();
   const dateOption = args.find(arg => arg.startsWith("--date="));
+  const historicalOddsOnly = args.includes("--historical-odds");
   let matchIds = args.filter(arg => !arg.startsWith("--"));
   let competitionByMatchId = {};
+  let fixturesByMatchId = {};
   if (dateOption && matchIds.length) {
     throw new Error("Usa IDs de jogos ou --date=YYYY-MM-DD, não ambos.");
+  }
+  if (historicalOddsOnly && !dateOption) {
+    throw new Error("A opção --historical-odds só pode ser usada com --date=YYYY-MM-DD.");
   }
   if (dateOption) {
     const date = dateOption.slice("--date=".length);
@@ -292,9 +300,38 @@ async function main() {
     const discovery = await discoverMatchIds(date);
     matchIds = discovery.matchIds;
     competitionByMatchId = discovery.competitionByMatchId;
+    fixturesByMatchId = discovery.fixturesByMatchId;
     const identified = Object.values(competitionByMatchId).filter(identity => identity?.status === "identified").length;
     console.log("[DISCOVERY] Concluída: " + matchIds.length + " IDs únicos válidos encontrados para " + date + "; " + identified + " com país/competição explicitamente identificados.");
     await setProgress({ total_games: matchIds.length, phase: "collecting", current_match: "A preparar recolha" });
+    if (historicalOddsOnly) {
+      const [historicalRows, statsRows] = await Promise.all([
+        readRows(BASE_ODDS_HISTORY_FILE),
+        readRows(STATS_FILE)
+      ]);
+      if (!historicalRows.length) throw new Error("O CSV histórico completo não foi encontrado ou está vazio; recolha filtrada cancelada.");
+      const selection = filterHistoricalMatchIds({
+        date,
+        matchIds,
+        fixturesByMatchId,
+        competitionByMatchId,
+        historicalRows,
+        existingStats: statsRows
+      });
+      matchIds = selection.matchIds;
+      console.log("[HISTORICAL FILTER] " + JSON.stringify(selection));
+      if (process.env.GITHUB_STEP_SUMMARY) {
+        await appendFile(process.env.GITHUB_STEP_SUMMARY,
+          "\n## Filtro pelo histórico completo de odds\n\n" +
+          "- Jogos descobertos no Flashscore: **" + selection.discovered + "**\n" +
+          "- Jogos do histórico encontrados: **" + selection.matched_targets + "**\n" +
+          "- Sem correspondência: **" + selection.unmatched_fixtures + "**\n" +
+          "- Ambíguos ignorados: **" + selection.ambiguous_fixtures + "**\n" +
+          "- Sem nomes de equipas: **" + selection.missing_fixture_names + "**\n" +
+          "- Já completos e ignorados: **" + selection.skipped_complete_stats + "**\n" +
+          "- Na fila para recolha: **" + selection.queued_for_collection + "**\n", "utf8");
+      }
+    }
   }
   matchIds = [...new Set(matchIds)];
   const maxMatches = dateOption ? MAX_DAILY_MATCHES : MAX_MANUAL_MATCHES;

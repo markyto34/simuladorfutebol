@@ -51,12 +51,28 @@ export function extractExplicitCompetitionForMatch(html, matchId) {
   return extractExplicitCompetitionIdentities(html)[matchId] || null;
 }
 
+
+export function extractFixtureTeams(anchorText) {
+  let value = plainText(String(anchorText || ""));
+  value = value
+    .replace(/^\s*\d{1,2}:\d{2}\s*/, "")
+    .replace(/\s+(?:Terminado|Tempo Final|Adiado|Cancelado|Interrompido|Atrasado|Não iniciado)\s*$/i, "")
+    .replace(/\s+\d{1,2}\s*[-:]\s*\d{1,2}\s*$/, "")
+    .trim();
+  const match = value.match(/^(.+?)\s+-\s+(.+?)$/);
+  if (!match) return null;
+  const home = match[1].trim(), away = match[2].trim();
+  if (!home || !away || home.length > 100 || away.length > 100) return null;
+  return { home, away };
+}
+
 export function inspectMatchDiscovery(html, requestedDate, options = {}) {
   const summaryOnly = options.summary === true;
   const idsOnly = options.idsOnly === true;
   const targetMatchId = typeof options.matchId === "string" ? options.matchId : null;
   const matches = [];
   const sampleMatches = [];
+  const matchFixtures = {};
   const seen = new Set();
   let candidateAnchorCount = 0;
   let duplicateLinkCount = 0;
@@ -76,7 +92,9 @@ export function inspectMatchDiscovery(html, requestedDate, options = {}) {
     seen.add(id);
     totalUniqueMatchCount += 1;
     const anchorText = plainText(item[5]).slice(0, 180) || null;
-    const compact = { match_id: id, href, anchor_text: anchorText };
+    const teams = extractFixtureTeams(anchorText);
+    const compact = { match_id: id, href, anchor_text: anchorText, ...(teams ? { teams } : {}) };
+    if (teams) matchFixtures[id] = teams;
     if (targetMatchId && competitionIdentities[id]) compact.competition_identity = competitionIdentities[id];
     if (sampleMatches.length < 15) sampleMatches.push(compact);
 
@@ -113,6 +131,7 @@ export function inspectMatchDiscovery(html, requestedDate, options = {}) {
       ...common,
       match_ids: [...seen],
       match_competition_identities: Object.fromEntries([...seen].filter(id => competitionIdentities[id]).map(id => [id, competitionIdentities[id]])),
+      match_fixtures: matchFixtures,
       identified_competition_count: [...seen].filter(id => competitionIdentities[id]?.status === "identified").length,
       note: "Lista compacta de IDs únicos e identidades de competição explicitamente associadas no HTML do calendário. Não valida resultados, odds ou estatísticas."
     };

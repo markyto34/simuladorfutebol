@@ -11,6 +11,11 @@ on:
         description: "Data final (YYYY-MM-DD), máximo 14 dias incluindo as pontas"
         required: true
         type: string
+      historical_odds_only:
+        description: "Recolher apenas jogos que constam no CSV histórico completo de odds"
+        required: false
+        type: boolean
+        default: true
 
 permissions:
   contents: write
@@ -68,6 +73,7 @@ jobs:
           DAYS: ${{ steps.range.outputs.days }}
           FLASHSCORE_REQUEST_DELAY_MS: "1000"
           FLASHSCORE_CONCURRENCY: "2"
+          HISTORICAL_ODDS_ONLY: ${{ inputs.historical_odds_only }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -uo pipefail
@@ -77,7 +83,11 @@ jobs:
             day=$(date -u -d "$START_DATE + $offset days" +%F)
             echo "::group::Flashscore · $day"
             set +e
-            node scripts/collect-flashscore-csv.mjs --date="$day" 2>&1 | tee "/tmp/flashscore-$day.log"
+            if [[ "$HISTORICAL_ODDS_ONLY" == "true" ]]; then
+              node scripts/collect-flashscore-csv.mjs --date="$day" --historical-odds 2>&1 | tee "/tmp/flashscore-$day.log"
+            else
+              node scripts/collect-flashscore-csv.mjs --date="$day" 2>&1 | tee "/tmp/flashscore-$day.log"
+            fi
             code=${PIPESTATUS[0]}
             set -e
             if grep -Eiq 'HTTP (403|429)|respond(e|eu) HTTP (403|429)' "/tmp/flashscore-$day.log"; then
