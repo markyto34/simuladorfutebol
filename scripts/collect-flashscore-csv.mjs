@@ -27,7 +27,7 @@ export function buildTeamLastFiveCompetitionMap(payload) {
   const identities = {};
   for (const fixture of Array.isArray(payload?.fixtures) ? payload.fixtures : []) {
     const competitionLabel = String(fixture?.competition || "");
-    const match = competitionLabel.match(/^([^:]+):\\s*(.+)$/);
+    const match = competitionLabel.match(/^([^:]+):\s*(.+)$/);
     if (fixture?.match_id && match) {
       identities[fixture.match_id] = {
         status: "identified",
