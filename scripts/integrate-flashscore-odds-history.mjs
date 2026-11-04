@@ -128,6 +128,17 @@ for (const quote of odds) {
   }
   const existing = candidates[0];
   if (existing) {
+    // Completar país/competição apenas quando estão vazios; nunca reclassificar o histórico.
+    let metadataChanged = false;
+    for (const [field, value] of [["COUNTRY", row.COUNTRY], ["LEAGUE", row.LEAGUE]]) {
+      if (String(existing[field] ?? "").trim() === "" && String(value ?? "").trim() !== "") {
+        existing[field] = value;
+        metadataFieldsUpdated++;
+        metadataChanged = true;
+      }
+    }
+    if (metadataChanged) metadataRowsUpdated++;
+
     // Completar apenas odds em falta; nunca substituir valores históricos existentes.
     let oddsChanged = false;
     for (const [field, value] of [["odd_ft_1", quote.odd_1], ["odd_ft_x", quote.odd_x], ["odd_ft_2", quote.odd_2]]) {
@@ -157,7 +168,7 @@ for (const quote of odds) {
   addIndex(byLegacyIdentity, legacyIdentity(row), row);
   added++;
 }
-if (added || oddsRowsUpdated || resultsUpdated) {
+if (added || metadataRowsUpdated || oddsRowsUpdated || resultsUpdated) {
   await writeFile(BASE_FILE, toCsv(base.headers, base.records), "utf8");
 }
 console.log("CSV histórico integrado: " + base.records.length.toLocaleString("pt-PT") + " registos totais.");
