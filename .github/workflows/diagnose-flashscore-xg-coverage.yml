@@ -1,0 +1,25 @@
+name: Diagnóstico read-only de cobertura xG Flashscore
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/diagnose-flashscore-xg-coverage.mjs"
+      - ".github/workflows/diagnose-flashscore-xg-coverage.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Inspecionar estatísticas de cinco jogos sem xG
+        run: node scripts/diagnose-flashscore-xg-coverage.mjs
