@@ -28,7 +28,7 @@ jobs:
           node-version: 24
       - name: Seed team IDs from historical match pages
         env:
-          SEED_LIMIT: \${{ github.event.inputs.limit || '20' }}
+          SEED_LIMIT: ${{ github.event.inputs.limit || '20' }}
           SEED_DELAY_MS: \${{ github.event.inputs.delay_ms || '1500' }}
         run: node scripts/seed-flashscore-team-ids.mjs --limit="$SEED_LIMIT" --delay-ms="$SEED_DELAY_MS" --output=/tmp/flashscore-team-id-seeds.json
       - name: Upload team ID seed map
