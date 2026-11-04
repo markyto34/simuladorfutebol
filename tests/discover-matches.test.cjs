@@ -90,3 +90,35 @@ test("returns all unique IDs without building HTML excerpts in compact collectio
   assert.equal(Object.hasOwn(result, "matches"), false);
   assert.equal(Object.hasOwn(result, "sample_matches"), false);
 });
+
+test("inclui país e competição no modo compacto sem pedidos por jogo", async () => {
+  const { inspectMatchDiscovery } = await import("../flashscore-proxy/src/discover-matches.mjs");
+  const html = `<div id="score-data">
+    <h4>ALEMANHA: Bundesliga</h4>
+    <a href="/jogo/hW5lOaOP/?d=-1">Union Berlin - FC Koln</a>
+    <a href="/jogo/fuGf2I16/?d=-1">Frankfurt - Hamburger SV</a>
+    <h4>ESPANHA: LaLiga</h4>
+    <a href="/jogo/EoME4ck5/?d=-1">Getafe - Sevilla</a>
+  </div>`;
+  const result = inspectMatchDiscovery(html, "2026-11-01", { idsOnly: true });
+  assert.equal(result.identified_competition_count, 3);
+  assert.deepEqual(result.match_competition_identities.hW5lOaOP, {
+    status: "identified", heading: "ALEMANHA: Bundesliga",
+    country: "ALEMANHA", competition: "Bundesliga"
+  });
+  assert.deepEqual(result.match_competition_identities.EoME4ck5, {
+    status: "identified", heading: "ESPANHA: LaLiga",
+    country: "ESPANHA", competition: "LaLiga"
+  });
+});
+
+test("não atribui identidade quando o mesmo ID aparece em grupos diferentes", async () => {
+  const { extractExplicitCompetitionIdentities } = await import("../flashscore-proxy/src/discover-matches.mjs");
+  const html = `<div id="score-data">
+    <h4>ALEMANHA: Bundesliga</h4><a href="/jogo/hW5lOaOP/">A - B</a>
+    <h4>ESPANHA: LaLiga</h4><a href="/jogo/hW5lOaOP/">A - B</a>
+  </div>`;
+  const identities = extractExplicitCompetitionIdentities(html);
+  assert.equal(identities.hW5lOaOP.status, "ambiguous");
+  assert.equal(identities.hW5lOaOP.country, null);
+});
