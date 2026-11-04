@@ -4,12 +4,12 @@
   "target_date": "2026-10-31",
   "status": "running",
   "phase": "collecting",
-  "total_games": 1827,
+  "total_games": 108,
   "processed_games": 0,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A preparar recolha",
+  "current_match": "A iniciar recolha",
   "last_result": "",
-  "updated_at": "2026-11-04T23:13:59.225Z"
+  "updated_at": "2026-11-04T23:14:00.934Z"
 }
