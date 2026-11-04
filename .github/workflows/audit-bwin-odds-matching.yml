@@ -30,5 +30,7 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: bwin-odds-match-audit
-          path: odds-match-audit.json
+          path: |
+            odds-match-audit.json
+            historical-flashscore-targets.csv
           if-no-files-found: error
