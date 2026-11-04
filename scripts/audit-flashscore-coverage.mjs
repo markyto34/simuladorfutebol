@@ -63,10 +63,12 @@ export function buildFlashscoreCoverage(records) {
     const key = canonicalCountryKey + "|" + canonicalCompetitionKey;
     let item = byCompetition.get(key);
     if (!item) {
-      item = { country, competition, match_ids: new Set(), rows: 0, dates: [], metrics: Object.fromEntries(Object.keys(METRICS).map(k => [k, 0])) };
+      item = { country, competition, countries_seen: new Set(), labels_seen: new Set(), match_ids: new Set(), rows: 0, dates: [], metrics: Object.fromEntries(Object.keys(METRICS).map(k => [k, 0])) };
       byCompetition.set(key, item);
     }
     item.rows++;
+    item.countries_seen.add(country);
+    item.labels_seen.add(competition);
     if (id) item.match_ids.add(id);
     const date = dateOf(row.date_time);
     if (date) item.dates.push(date);
@@ -85,8 +87,10 @@ export function buildFlashscoreCoverage(records) {
     const sample_status = games >= 10 ? "amostra_inicial_10+" : games >= 5 ? "em_desenvolvimento_5_9" : "amostra_curta_1_4";
     return {
       country: item.country,
+      countries_seen: [...item.countries_seen].sort(),
       competition: item.competition,
-      normalized_key: normalize(item.country) + "|" + normalize(item.competition),
+      source_labels: [...item.labels_seen].sort(),
+      normalized_key: canonicalCountry(item.country) + "|" + canonicalCompetition(item.country, item.competition),
       category: classify(item.competition),
       unique_matches: games,
       duplicate_rows: item.rows - games,
