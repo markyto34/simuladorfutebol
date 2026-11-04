@@ -11,7 +11,6 @@ on:
       - "scripts/collect-flashscore-csv.mjs"
       - "tests/collect-team-last-five.test.mjs"
       - "ganhonasodds_com_20261101.csv"
-      - "data/flashscore-statistics.csv"
   workflow_dispatch:
     inputs:
       seed_limit:
@@ -26,6 +25,9 @@ on:
         description: "Intervalo entre pedidos ao Flashscore"
         required: false
         default: "1500"
+
+permissions:
+  contents: write
 
 concurrency:
   group: team-last-five-pilot
@@ -65,6 +67,18 @@ jobs:
           FLASHSCORE_CONCURRENCY: "1"
           FLASHSCORE_REQUEST_DELAY_MS: "1500"
         run: node scripts/collect-flashscore-csv.mjs --team-last-five=/tmp/team-last-five-pilot.json
+      - name: Commit pilot CSV updates
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/flashscore-statistics.csv data/bwin-odds-flashscore.csv
+          if git diff --cached --quiet; then
+            echo "No CSV changes to commit."
+          else
+            git commit -m "Add validated Sporting last-five match statistics"
+            git push
+          fi
       - name: Upload collected stats CSVs
         if: always()
         uses: actions/upload-artifact@v4
