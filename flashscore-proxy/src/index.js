@@ -602,7 +602,15 @@ export default {
           record
         }, 200, headers);
         // Cachear o JSON já extraído, não o HTML bruto, porque /record devolve JSON.
-        ctx.waitUntil(cache.put(cacheKey, recordResponse.clone()));
+        const cacheableRecordResponse = new Response(recordResponse.clone().body, {
+          status: 200,
+          headers: {
+            "Content-Type": "application/json; charset=utf-8",
+            "Cache-Control": "public, max-age=" + CACHE_SECONDS,
+            ...headers
+          }
+        });
+        ctx.waitUntil(cache.put(cacheKey, cacheableRecordResponse));
         return recordResponse;
       }
       if (record && (!record.country || !record.competition)) {
