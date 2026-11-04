@@ -133,6 +133,39 @@ export function auditMatches(baseRecords, oddsRecords) {
   };
 }
 
+
+export function summarizeHistoricalBase(records) {
+  const games = new Map();
+  const competitions = new Map();
+  const years = new Map();
+  for (const row of records) {
+    const key = fullKey(row);
+    if (!dateKey(row.date_time) || !normalize(row.TEAM_HOME) || !normalize(row.TEAM_AWAY)) continue;
+    const current = games.get(key) || { key, date: dateKey(row.date_time), country: row.COUNTRY || "", competition: row.LEAGUE || "", home_team: row.TEAM_HOME || "", away_team: row.TEAM_AWAY || "", observations: 0 };
+    current.observations++;
+    games.set(key, current);
+    const compKey = [normalize(row.COUNTRY), normalize(row.LEAGUE)].join("|");
+    const comp = competitions.get(compKey) || { country: row.COUNTRY || "", competition: row.LEAGUE || "", observations: 0, unique_games: new Set() };
+    comp.observations++;
+    comp.unique_games.add(key);
+    competitions.set(compKey, comp);
+    const year = dateKey(row.date_time).slice(0, 4);
+    years.set(year, (years.get(year) || 0) + 1);
+  }
+  const uniqueGames = [...games.values()];
+  return {
+    total_records: records.length,
+    identifiable_records: uniqueGames.reduce((sum, game) => sum + game.observations, 0),
+    unique_games: uniqueGames.length,
+    repeated_observations: uniqueGames.reduce((sum, game) => sum + Math.max(0, game.observations - 1), 0),
+    records_without_match_identity: records.length - uniqueGames.reduce((sum, game) => sum + game.observations, 0),
+    competitions: [...competitions.values()].map(item => ({ country: item.country, competition: item.competition, records: item.observations, unique_games: item.unique_games.size }))
+      .sort((a, b) => b.unique_games - a.unique_games || a.country.localeCompare(b.country) || a.competition.localeCompare(b.competition)),
+    years: Object.fromEntries([...years.entries()].sort(([a], [b]) => a.localeCompare(b))),
+    unique_game_index: uniqueGames
+  };
+}
+
 async function main() {
   const baseText = await readFile(BASE_FILE, "utf8");
   const oddsText = await readFile(ODDS_FILE, "utf8");
@@ -146,8 +179,9 @@ async function main() {
     if (!Object.hasOwn(odds[0], field)) throw new Error("Coluna em falta no CSV Bwin: " + field);
   }
   const report = auditMatches(base, odds);
+  report.full_historical_base = summarizeHistoricalBase(base);
   await writeFile(REPORT_FILE, JSON.stringify(report, null, 2) + "\n", "utf8");
-  console.log(JSON.stringify({ mode: report.mode, base_rows: report.base_rows, bwin_quotes: report.bwin_quotes, counts: report.counts, collision_groups: report.legacy_identity_collisions.length, report_file: REPORT_FILE }, null, 2));
+  console.log(JSON.stringify({ mode: report.mode, base_rows: report.base_rows, unique_games: report.full_historical_base.unique_games, repeated_observations: report.full_historical_base.repeated_observations, competitions: report.full_historical_base.competitions.length, years: report.full_historical_base.years, bwin_quotes: report.bwin_quotes, counts: report.counts, collision_groups: report.legacy_identity_collisions.length, report_file: REPORT_FILE }, null, 2));
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
