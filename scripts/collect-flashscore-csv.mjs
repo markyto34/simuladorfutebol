@@ -8,6 +8,7 @@
  */
 import { readFile, writeFile, mkdir, appendFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
+import { mergeRows } from "./csv-merge.mjs";
 
 const PROXY = (process.env.FLASHSCORE_PROXY_URL || "https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev").replace(/\/$/, "");
 const DELAY_MS = Math.max(250, Number(process.env.FLASHSCORE_REQUEST_DELAY_MS || 300));
@@ -117,11 +118,6 @@ function bwinOddsRow(record) {
     source: "Flashscore",
     source_url: record.source_capture?.url || ""
   };
-}
-function mergeRows(existing, incoming, keyFn) {
-  const map = new Map(existing.map(row => [keyFn(row), row]));
-  for (const row of incoming) map.set(keyFn(row), row);
-  return [...map.values()];
 }
 function mergeLatestRows(existing, incoming, keyFn, timestampKey = "retrieved_at") {
   const map = new Map();
