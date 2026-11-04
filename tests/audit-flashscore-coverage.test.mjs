@@ -42,3 +42,39 @@ test("não elimina jogos repetidos com IDs diferentes", () => {
   assert.equal(report.competitions[0].unique_matches, 2);
   assert.equal(report.competitions[0].metrics.corners.complete_matches, 1);
 });
+
+test("agrupa Liga Portugal e Liga Portugal Betclic sem perder os nomes de origem", () => {
+  const report = buildFlashscoreCoverage([
+    row({ match_id: "pt1", country: "PORTUGAL", competition: "Liga Portugal" }),
+    row({ match_id: "pt2", country: "PORTUGAL", competition: "Liga Portugal Betclic" })
+  ]);
+  assert.equal(report.competition_count, 1);
+  assert.equal(report.merged_alias_label_count, 1);
+  assert.equal(report.competitions[0].competition, "Liga Portugal");
+  assert.deepEqual(report.competitions[0].source_labels, ["Liga Portugal", "Liga Portugal Betclic"]);
+  assert.equal(report.competitions[0].unique_matches, 2);
+});
+
+test("agrupa League Cup e Taça da Liga como a mesma competição", () => {
+  const report = buildFlashscoreCoverage([
+    row({ match_id: "cup1", country: "PORTUGAL", competition: "League Cup" }),
+    row({ match_id: "cup2", country: "PORTUGAL", competition: "Taça da Liga" })
+  ]);
+  assert.equal(report.competition_count, 1);
+  assert.equal(report.competitions[0].competition, "Taça da Liga");
+  assert.deepEqual(report.competitions[0].source_labels, ["League Cup", "Taça da Liga"]);
+});
+
+test("mantém distintas Liga Portugal 2, Liga 3, feminino e séries do Campeonato de Portugal", () => {
+  const labels = [
+    "Liga Portugal", "Liga Portugal 2", "Liga 3",
+    "Liga de Futebol Feminino",
+    "Campeonato de Portugal - Série A",
+    "Campeonato de Portugal - Série B"
+  ];
+  const report = buildFlashscoreCoverage(labels.map((competition, index) =>
+    row({ match_id: "pt-distinct-" + index, country: "PORTUGAL", competition })
+  ));
+  assert.equal(report.competition_count, labels.length);
+  assert.equal(report.merged_alias_label_count, 0);
+});

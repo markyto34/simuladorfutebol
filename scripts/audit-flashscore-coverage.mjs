@@ -22,12 +22,24 @@ const present = value => String(value ?? "").trim() !== "";
 const COUNTRY_ALIASES = new Map([["europe", "europa"]]);
 const COMPETITION_ALIASES = new Map([
   ["europa|champions league league phase", "liga dos campeoes fase de liga"],
-  ["europa|liga dos campeoes fase de liga", "liga dos campeoes fase de liga"]
+  ["europa|liga dos campeoes fase de liga", "liga dos campeoes fase de liga"],
+  ["portugal|liga portugal betclic", "liga portugal"],
+  ["portugal|league cup", "taca da liga"],
+  ["portugal|taca da liga", "taca da liga"]
+]);
+const CANONICAL_DISPLAY_NAMES = new Map([
+  ["portugal|liga portugal", "Liga Portugal"],
+  ["portugal|taca da liga", "Taça da Liga"],
+  ["europa|liga dos campeoes fase de liga", "Liga dos Campeões - Fase de Liga"]
 ]);
 const canonicalCountry = value => COUNTRY_ALIASES.get(normalize(value)) || normalize(value);
 const canonicalCompetition = (country, value) => {
   const key = canonicalCountry(country) + "|" + normalize(value);
   return COMPETITION_ALIASES.get(key) || normalize(value);
+};
+const displayCompetition = (country, value) => {
+  const key = canonicalCountry(country) + "|" + canonicalCompetition(country, value);
+  return CANONICAL_DISPLAY_NAMES.get(key) || value;
 };
 const dateOf = value => String(value ?? "").match(/^\s*(\d{4}-\d{2}-\d{2})/)?.[1] || "";
 const classify = name => {
@@ -88,7 +100,7 @@ export function buildFlashscoreCoverage(records) {
     return {
       country: item.country,
       countries_seen: [...item.countries_seen].sort(),
-      competition: item.competition,
+      competition: displayCompetition(item.country, item.competition),
       source_labels: [...item.labels_seen].sort(),
       normalized_key: canonicalCountry(item.country) + "|" + canonicalCompetition(item.country, item.competition),
       category: classify(item.competition),
