@@ -263,7 +263,10 @@ async function discoverMatchIds(date) {
   if (payload.inspection.truncated) {
     throw new Error("A lista da data excede o limite seguro de 2000 jogos; não foi iniciada a recolha.");
   }
-  return [...new Set((payload.inspection.match_ids || []).filter(id => /^[A-Za-z0-9]{6,16}$/.test(id)))];
+  return {
+    matchIds: [...new Set((payload.inspection.match_ids || []).filter(id => /^[A-Za-z0-9]{6,16}$/.test(id)))],
+    competitionByMatchId: payload.inspection.match_competition_identities || {}
+  };
 }
 
 async function main() {
@@ -285,6 +288,7 @@ async function main() {
   await publishProgress();
   const dateOption = args.find(arg => arg.startsWith("--date="));
   let matchIds = args.filter(arg => !arg.startsWith("--"));
+  let competitionByMatchId = {};
   if (dateOption && matchIds.length) {
     throw new Error("Usa IDs de jogos ou --date=YYYY-MM-DD, não ambos.");
   }
@@ -292,8 +296,11 @@ async function main() {
     const date = dateOption.slice("--date=".length);
     await setProgress({ target_date: date, phase: "discovery", current_match: "A descobrir jogos" });
     console.log("[DISCOVERY] Início da descoberta no Flashscore para " + date + ".");
-    matchIds = await discoverMatchIds(date);
-    console.log("[DISCOVERY] Concluída: " + matchIds.length + " IDs únicos válidos encontrados para " + date + ".");
+    const discovery = await discoverMatchIds(date);
+    matchIds = discovery.matchIds;
+    competitionByMatchId = discovery.competitionByMatchId;
+    const identified = Object.values(competitionByMatchId).filter(identity => identity?.status === "identified").length;
+    console.log("[DISCOVERY] Concluída: " + matchIds.length + " IDs únicos válidos encontrados para " + date + "; " + identified + " com país/competição explicitamente identificados.");
     await setProgress({ total_games: matchIds.length, phase: "collecting", current_match: "A preparar recolha" });
   }
   matchIds = [...new Set(matchIds)];
@@ -317,6 +324,7 @@ async function main() {
   const existingOdds = await readRows(ODDS_FILE);
   const statsNew = [], oddsNew = [];
   let failures = 0, processed = 0, stoppedByUpstream = false;
+  let competitionIdentified = 0, competitionMissing = 0;
   let nextIndex = 0, nextStartAt = 0;
   const collectionStartedAt = Date.now();
   await setProgress({ total_games: matchIds.length, phase: "collecting", current_match: "A iniciar recolha" });
@@ -344,6 +352,13 @@ async function main() {
       console.log("[PROGRESS] " + (index + 1) + "/" + matchIds.length + " | START | id=" + matchId);
       try {
         const record = await collectWithRetry(matchId);
+        const identity = competitionByMatchId[matchId];
+        if (identity?.status === "identified") {
+          if (!record.country) record.country = identity.country;
+          if (!record.competition) record.competition = identity.competition;
+        }
+        if (record.country && record.competition) competitionIdentified++;
+        else competitionMissing++;
         if (record.statistics && Object.keys(record.statistics).length) {
           statsNew.push(statisticsRow(record));
           progressSnapshot.stats_games++;
@@ -357,7 +372,7 @@ async function main() {
         const away = record.teams?.away?.name || "Fora";
         progressSnapshot.last_result = home + " - " + away + ": " + Object.keys(record.statistics || {}).length + " estatísticas; Bwin 1X2 " + (oddsRow ? "encontradas" : "não confirmado");
         progressSnapshot.current_match = "Último concluído: " + home + " - " + away;
-        console.log("[PROGRESS] " + (index + 1) + "/" + matchIds.length + " | OK | " + home + " - " + away + " | id=" + matchId + " | stats=" + Object.keys(record.statistics || {}).length + " | bwin_1x2=" + (oddsRow ? "sim" : "não confirmado") + " | " + (Date.now() - matchStartedAt) + " ms");
+        console.log("[PROGRESS] " + (index + 1) + "/" + matchIds.length + " | OK | " + home + " - " + away + " | id=" + matchId + " | stats=" + Object.keys(record.statistics || {}).length + " | competição=" + (record.country && record.competition ? record.country + "/" + record.competition : "não identificada") + " | bwin_1x2=" + (oddsRow ? "sim" : "não confirmado") + " | " + (Date.now() - matchStartedAt) + " ms");
       } catch (error) {
         failures++;
         progressSnapshot.failed_games++;
@@ -396,6 +411,7 @@ async function main() {
     "- Jogos descobertos: **" + matchIds.length + "**",
     "- Jogos processados: **" + processed + "**",
     "- Registos com estatísticas: **" + statsNew.length + "**",
+    "- Jogos com país/competição identificados: **" + competitionIdentified + "/" + processed + "**",
     "- Novas observações Bwin 1X2: **" + oddsNew.length + "**",
     "- Total atualizado de registos no CSV Bwin: **" + mergedOdds.length + "**",
     "- Falhas: **" + failures + "**",
@@ -403,7 +419,7 @@ async function main() {
     "- Duração: **" + elapsedSeconds + " s**"
    ].join("\n");
   if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, summary + "\n", "utf8");
-  console.log("[SUMMARY] " + processed + "/" + matchIds.length + " processados; " + statsNew.length + " jogos com estatísticas; " + oddsNew.length + " novas odds Bwin; total CSV Bwin=" + mergedOdds.length + "; " + failures + " falhas; " + elapsedSeconds + " s.");
+  console.log("[SUMMARY] " + processed + "/" + matchIds.length + " processados; " + statsNew.length + " jogos com estatísticas; país/competição=" + competitionIdentified + "/" + processed + "; " + oddsNew.length + " novas odds Bwin; total CSV Bwin=" + mergedOdds.length + "; " + failures + " falhas; " + elapsedSeconds + " s.");
   if (failures) process.exitCode = 1;
 }
 
