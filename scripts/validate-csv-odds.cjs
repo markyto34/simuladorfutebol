@@ -1,6 +1,7 @@
 "use strict";
 const fs = require("node:fs");
 const core = require("../csv-odds-core.js");
+const { getValidationErrors } = require("./csv-odds-validation-rules.cjs");
 const file = "ganhonasodds_com_20261101.csv";
 const text = fs.readFileSync(file, "utf8");
 const rows = core.parseCSV(text);
@@ -48,6 +49,11 @@ const out = {
  topLeagues: [...leagueCounts.entries()].sort((a,b)=>b[1]-a[1]).slice(0,15).map(([league,count])=>({league,count})),
  topCountries: [...countryCounts.entries()].sort((a,b)=>b[1]-a[1]).slice(0,15).map(([country,count])=>({country,count}))
 };
+const validationErrors = getValidationErrors({ missingHeaders, invalidDate, noTeams, duplicateRows, oddsOutOfRange });
+out.validationErrors = validationErrors;
+out.warnings = [];
+if (ftFinalMismatch) out.warnings.push("Resultados FT e final divergem em " + ftFinalMismatch + " jogos; requerem revisão, mas não são automaticamente rejeitados.");
+if (halfSumMismatch) out.warnings.push("HT + 2.ª parte não coincide com FT em " + halfSumMismatch + " jogos; requerem revisão.");
 fs.writeFileSync("csv-odds-validation.json", JSON.stringify(out,null,2));
 console.log(JSON.stringify(out,null,2));
-if (missingHeaders.length || invalidDate || noTeams) process.exitCode=1;
+if (validationErrors.length) process.exitCode=1;
