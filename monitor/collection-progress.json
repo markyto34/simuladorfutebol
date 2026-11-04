@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 386,
-  "processed_games": 350,
-  "stats_games": 316,
-  "bwin_odds": 325,
-  "failed_games": 25,
-  "current_match": "Último concluído: FC ASA Tg. Mures - Unirea Slobozia",
-  "last_result": "FC ASA Tg. Mures - Unirea Slobozia: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-04T23:01:58.835Z"
+  "processed_games": 375,
+  "stats_games": 338,
+  "bwin_odds": 347,
+  "failed_games": 28,
+  "current_match": "Último concluído: Racing Montevideo - Cerro Largo",
+  "last_result": "Racing Montevideo - Cerro Largo: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-04T23:02:12.739Z"
 }
