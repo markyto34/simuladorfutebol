@@ -2,14 +2,14 @@
   "run_id": "41931836315",
   "run_number": "6",
   "target_date": "2026-11-03",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 11,
   "processed_games": 11,
   "stats_games": 9,
   "bwin_odds": 11,
   "failed_games": 0,
-  "current_match": "Último concluído: Stade Tunisien - Club Africain",
+  "current_match": "Recolha terminada",
   "last_result": "Stade Tunisien - Club Africain: 6 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-04T23:18:29.327Z"
+  "updated_at": "2026-11-04T23:18:30.455Z"
 }
