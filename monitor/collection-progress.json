@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 386,
-  "processed_games": 250,
-  "stats_games": 235,
-  "bwin_odds": 238,
-  "failed_games": 12,
-  "current_match": "Último concluído: Bari - Scafatese",
-  "last_result": "Bari - Scafatese: 13 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-04T23:00:58.784Z"
+  "processed_games": 275,
+  "stats_games": 257,
+  "bwin_odds": 260,
+  "failed_games": 15,
+  "current_match": "Último concluído: Al Faisaly Amman - Al Hussein",
+  "last_result": "Al Faisaly Amman - Al Hussein: 6 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-04T23:01:11.843Z"
 }
