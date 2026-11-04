@@ -2,14 +2,14 @@
   "run_id": "41929609874",
   "run_number": "5",
   "target_date": "2026-11-01",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed_with_errors",
+  "phase": "completed",
   "total_games": 54,
   "processed_games": 54,
   "stats_games": 42,
   "bwin_odds": 47,
   "failed_games": 7,
-  "current_match": "Último concluído: Lok. Tashkent - OKMK",
+  "current_match": "Recolha terminada",
   "last_result": "Lok. Tashkent - OKMK: 6 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-04T23:03:04.073Z"
+  "updated_at": "2026-11-04T23:03:05.267Z"
 }
