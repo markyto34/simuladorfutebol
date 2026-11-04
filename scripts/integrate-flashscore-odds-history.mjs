@@ -167,5 +167,5 @@ if (process.env.GITHUB_STEP_SUMMARY) {
   const { appendFile } = await import("node:fs/promises");
   await appendFile(process.env.GITHUB_STEP_SUMMARY,
     "\n## Integração no CSV histórico de odds\n\n- Total de jogos no CSV: **" + base.records.length +
-    "**\n- Novos jogos: **" + added + "**\n- Resultados FT atualizados: **" + resultsUpdated + "**\n- Linhas ignoradas: **" + skipped + "**\n", "utf8");
+    "**\n- Novos jogos: **" + added + "**\n- Campos de país/competição preenchidos: **" + metadataFieldsUpdated + "**\n- Resultados FT atualizados: **" + resultsUpdated + "**\n- Linhas ignoradas: **" + skipped + "**\n", "utf8");
 }
