@@ -1,0 +1,32 @@
+name: Validar JavaScript do simulador
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  syntax:
+    name: Verificar sintaxe JavaScript
+    runs-on: ubuntu-latest
+    steps:
+      - name: Obter código
+        uses: actions/checkout@v4
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Validar ficheiros JavaScript
+        shell: bash
+        run: |
+          set -euo pipefail
+          for file in app.js data-enrichment.js csv-odds-app.js csv-odds-core.js scripts/*.cjs; do
+            if [ -f "$file" ]; then
+              echo "A validar $file"
+              node --check "$file"
+            fi
+          done

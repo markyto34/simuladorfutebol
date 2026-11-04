@@ -1,9 +1,12 @@
 (()=>{"use strict";
 const $=id=>document.getElementById(id),N=10000;
+let random=Math.random;
+const hashSeed=value=>{let hash=2166136261;for(let i=0;i<value.length;i++){hash^=value.charCodeAt(i);hash=Math.imul(hash,16777619);}return hash>>>0;};
+const seededRandom=initial=>{let seed=initial>>>0;return ()=>{let t=seed+=0x6D2B79F5;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return ((t^t>>>14)>>>0)/4294967296;};};
 const num=id=>{const raw=$(id).value.trim();if(raw==="")throw Error("Faltam médias obrigatórias. Carrega os dados históricos e confirma se golos e cantos têm valores para as duas equipas.");const v=Number(raw);if(!Number.isFinite(v)||v<0)throw Error("Confirma os valores numéricos: não podem ser negativos ou vazios.");return v};
-const poisson=lambda=>{const limit=Math.exp(-lambda);let k=0,p=1;do{k++;p*=Math.random()}while(p>limit);return k-1};
-const gamma=(shape,scale)=>{if(shape<1){return gamma(shape+1,scale)*Math.pow(Math.random(),1/shape)}const d=shape-1/3,c=1/Math.sqrt(9*d);for(;;){let x,v;do{x=normal();v=1+c*x}while(v<=0);v=v*v*v;const u=Math.random();if(u<1-.0331*x*x*x*x||Math.log(u)<.5*x*x+d*(1-v+Math.log(v)))return d*v*scale}};
-const normal=()=>{let u=0,v=0;while(!u)u=Math.random();while(!v)v=Math.random();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)};
+const poisson=lambda=>{const limit=Math.exp(-lambda);let k=0,p=1;do{k++;p*=random()}while(p>limit);return k-1};
+const gamma=(shape,scale)=>{if(shape<1){return gamma(shape+1,scale)*Math.pow(random(),1/shape)}const d=shape-1/3,c=1/Math.sqrt(9*d);for(;;){let x,v;do{x=normal();v=1+c*x}while(v<=0);v=v*v*v;const u=random();if(u<1-.0331*x*x*x*x||Math.log(u)<.5*x*x+d*(1-v+Math.log(v)))return d*v*scale}};
+const normal=()=>{let u=0,v=0;while(!u)u=random();while(!v)v=random();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)};
 const negBin=(mean,disp)=>{if(mean<=0)return 0;const shape=Math.max(.25,1/disp);return poisson(gamma(shape,mean/shape))};
 const pct=x=>(100*x/N).toFixed(1)+"%";
 const escapeHtml=value=>String(value??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
@@ -45,6 +48,8 @@ function simulate(){
   const extraValues=extraSpecs.map(spec=>({spec,values:spec.ids.map(read)})).filter(x=>x.values.every(v=>v!==null));
   if(!hasGoals&&!hasCorners&&!hasSecondHalf&&!extraValues.length)throw Error("Não existem dados suficientes para simular. São necessárias médias completas de golos, cantos ou de outro indicador.");
   let home=0,draw=0,away=0,g15=0,g25=0,g35=0,c85=0,c95=0,c105=0,ht05=0,sh05=0,sh15=0,shBtts=0,btts=0,sumG=0,sumC=0,sumHG=0,sumAG=0,scoreMap={};
+  const seedInput=[h,a,...Array.from(document.querySelectorAll("input")).map(input=>input.id+"="+input.value)].join("|");
+  random=seededRandom(hashSeed(seedInput));
   for(let i=0;i<N;i++){
    if(hasGoals){const x=poisson(hg),y=poisson(ag),gt=x+y;sumG+=gt;sumHG+=x;sumAG+=y;if(x>y)home++;else if(x===y)draw++;else away++;if(x>0&&y>0)btts++;if(gt>=2)g15++;if(gt>=3)g25++;if(gt>=4)g35++;const key=x+"-"+y;scoreMap[key]=(scoreMap[key]||0)+1;}
    if(hasHalfTime&&poisson(hht)+poisson(aht)>=1)ht05++;
@@ -68,10 +73,11 @@ function simulate(){
    for(let j=0;j<N;j++){const total=negBin(homeMean,spec.dispersion)+negBin(awayMean,spec.dispersion);sum+=total;spec.thresholds.forEach((t,k)=>{if(total>t)hits[k]++;});}
    extraHtml.push('<article class="card extra-result"><small>'+spec.key.toUpperCase()+'</small><div class="big">'+(sum/N).toFixed(2)+'</div><p>média total esperada · casa '+homeMean.toFixed(2)+' / fora '+awayMean.toFixed(2)+'</p>'+spec.thresholds.map((t,k)=>line("Mais de "+t.toFixed(1),hits[k])).join("")+'</article>');
   }
+  random=Math.random;
   $("extraMarkets").innerHTML=extraHtml.length?extraHtml.join(""):'<p class="model-note">Sem cobertura suficiente para prever remates, faltas ou cartões. Os indicadores adicionais só são simulados quando a fonte contém as quatro médias necessárias.</p>';
-  $("summary").textContent=[hasGoals?"Expectativa de "+(sumG/N).toFixed(2)+" golos ("+h+": "+(sumHG/N).toFixed(2)+"; "+a+": "+(sumAG/N).toFixed(2)+")": "Golos: sem dados suficientes",hasGoals?"BTTS estimado: "+pct(btts):"",hasHalfTime?"Over 0,5 HT estimado: "+pct(ht05):"Over 0,5 HT: sem dados suficientes",hasSecondHalf?"Over 0,5 ST estimado: "+pct(sh05):"Over 0,5 ST: sem dados suficientes",hasXg?"Expectativa de golos ponderada: 65% golos históricos + 35% xG (amostra mínima de 5 jogos por indicador)":"xG: amostra inferior a 5 jogos ou sem dados",hasCorners?"Expectativa de "+(sumC/N).toFixed(2)+" cantos":"Cantos: sem dados suficientes",extraHtml.length?"Indicadores adicionais calculados: "+extraValues.map(x=>x.spec.key.toLowerCase()).join(", "):""].filter(Boolean).join(". ")+".";
+  $("summary").textContent=[hasGoals?"Expectativa de "+(sumG/N).toFixed(2)+" golos ("+h+": "+(sumHG/N).toFixed(2)+"; "+a+": "+(sumAG/N).toFixed(2)+")": "Golos: sem dados suficientes",hasGoals?"BTTS estimado: "+pct(btts):"",hasHalfTime?"Over 0,5 HT estimado: "+pct(ht05):"Over 0,5 HT: sem dados suficientes",hasSecondHalf?"Over 0,5 ST estimado: "+pct(sh05):"Over 0,5 ST: sem dados suficientes",hasXg?"Expectativa de golos ponderada: 65% golos históricos + 35% xG (amostra mínima de 5 jogos por indicador)":"xG: amostra inferior a 5 jogos ou sem dados",hasCorners?"Expectativa de "+(sumC/N).toFixed(2)+" cantos":"Cantos: sem dados suficientes","Simulação reproduzível: os mesmos dados geram os mesmos resultados.",extraHtml.length?"Indicadores adicionais calculados: "+extraValues.map(x=>x.spec.key.toLowerCase()).join(", "):""].filter(Boolean).join(". ")+".";
   $("resultados").classList.remove("hidden");$("resultados").scrollIntoView({behavior:"smooth",block:"start"});
- }catch(e){alert(e.message)}
+ }catch(e){random=Math.random;alert(e.message)}
 }
 $("run").addEventListener("click",simulate);
 
