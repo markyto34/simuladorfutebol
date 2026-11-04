@@ -1,0 +1,49 @@
+name: Backfill metadados Flashscore (sem recolha jogo a jogo)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/backfill-flashscore-metadata.mjs"
+      - "tests/backfill-flashscore-metadata.test.mjs"
+      - ".github/workflows/backfill-flashscore-metadata.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: backfill-flashscore-metadata
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Preparar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validar script e testes
+        run: |
+          node --check scripts/backfill-flashscore-metadata.mjs
+          node --test tests/backfill-flashscore-metadata.test.mjs
+      - name: Preencher metadados históricos a partir do calendário diário
+        run: node scripts/backfill-flashscore-metadata.mjs --apply
+      - name: Validar CSVs após backfill
+        run: node scripts/validate-flashscore-history.mjs
+      - name: Guardar apenas metadados recuperados
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+users.noreply.github.com"
+          git add data/flashscore-statistics.csv data/bwin-odds-flashscore.csv
+          if git diff --cached --quiet; then
+            echo "Sem metadados novos para guardar."
+          else
+            git commit -m "Preencher país e competição em CSVs Flashscore existentes"
+            git push origin HEAD:main
+          fi
