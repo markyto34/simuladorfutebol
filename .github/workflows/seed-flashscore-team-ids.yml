@@ -6,7 +6,8 @@ on:
     paths:
       - "scripts/seed-flashscore-team-ids.mjs"
       - ".github/workflows/seed-flashscore-team-ids.yml"
-      - "historical-flashscore-targets.csv"
+      - "ganhonasodds_com_20261101.csv"
+      - "data/flashscore-statistics.csv"
   workflow_dispatch:
     inputs:
       limit:
@@ -29,7 +30,7 @@ jobs:
       - name: Seed team IDs from historical match pages
         env:
           SEED_LIMIT: ${{ github.event.inputs.limit || '20' }}
-          SEED_DELAY_MS: \${{ github.event.inputs.delay_ms || '1500' }}
+          SEED_DELAY_MS: ${{ github.event.inputs.delay_ms || '1500' }}
         run: node scripts/seed-flashscore-team-ids.mjs --limit="$SEED_LIMIT" --delay-ms="$SEED_DELAY_MS" --output=/tmp/flashscore-team-id-seeds.json
       - name: Upload team ID seed map
         uses: actions/upload-artifact@v4
