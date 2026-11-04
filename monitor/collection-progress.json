@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 28,
-  "processed_games": 25,
-  "stats_games": 21,
-  "bwin_odds": 25,
+  "processed_games": 28,
+  "stats_games": 24,
+  "bwin_odds": 28,
   "failed_games": 0,
-  "current_match": "Último concluído: Teleoptik - Javor",
-  "last_result": "Teleoptik - Javor: 6 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-04T23:18:04.030Z"
+  "current_match": "Último concluído: Zorya - Epitsentr",
+  "last_result": "Zorya - Epitsentr: 7 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-04T23:18:07.580Z"
 }
