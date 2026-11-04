@@ -1,0 +1,60 @@
+name: Backfill seguro do CSV histórico de odds
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/backfill-historical-odds-metadata.yml"
+      - "scripts/integrate-flashscore-odds-history.mjs"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: backfill-historical-odds-metadata
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Obter histórico atual
+        uses: actions/checkout@v6
+        with:
+          ref: main
+      - name: Preparar Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Validar CSVs de origem
+        run: node scripts/validate-flashscore-history.mjs
+      - name: Completar metadados, odds e resultados em falta sem duplicar
+        run: node scripts/integrate-flashscore-odds-history.mjs
+      - name: Validar o histórico completo de odds
+        run: node scripts/validate-csv-odds.cjs
+      - name: Publicar apenas se existirem alterações
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ganhonasodds_com_20261101.csv
+          if git diff --cached --quiet; then
+            echo "Não foram encontrados registos históricos seguros para completar."
+            exit 0
+          fi
+          git commit -m "Backfill seguro de metadados no CSV histórico"
+          pushed=false
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              pushed=true
+              break
+            fi
+            echo "Push recusado (tentativa ${attempt}/3); a sincronizar novamente."
+          done
+          if [ "$pushed" != "true" ]; then
+            echo "Não foi possível publicar o backfill após 3 tentativas."
+            exit 1
+          fi
