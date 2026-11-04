@@ -50,6 +50,12 @@ const blank = value => String(value ?? "").trim() === "";
 const dateKey = value => String(value || "").match(/^(\d{4}-\d{2}-\d{2})/)?.[1] || "";
 const normalize = value => String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
 
+export function extractRecord(payload) {
+  return payload?.ok === true && payload?.inspection?.match_record
+    ? payload.inspection.match_record
+    : null;
+}
+
 export function eligibleRows(rows) {
   return rows.filter(row => row.match_id && (blank(row.score_home) || blank(row.score_away)) && !NOT_PLAYED.test(String(row.status || "").trim()));
 }
@@ -110,7 +116,7 @@ export async function runBackfill({ apply = false, fetchImpl = fetch, sleep = ms
       try {
         await throttle();
         if (stopError) return;
-        const response = await fetchImpl(PROXY + "/record?id=" + encodeURIComponent(row.match_id), {
+        const response = await fetchImpl(PROXY + "/inspect?id=" + encodeURIComponent(row.match_id), {
           headers: { "Accept": "application/json" },
           signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS)
         });
@@ -124,7 +130,7 @@ export async function runBackfill({ apply = false, fetchImpl = fetch, sleep = ms
           continue;
         }
         const payload = await response.json();
-        const result = applyScoreUpdate(row, payload?.record);
+        const result = applyScoreUpdate(row, extractRecord(payload));
         if (result.updated) {
           updates.set(row.match_id, row);
           console.log("[OK] " + row.match_id + " " + row.home_team + " " + row.score_home + "-" + row.score_away + " " + (row.status || ""));
