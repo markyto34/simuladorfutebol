@@ -358,6 +358,14 @@ export default {
       const feed = new TextDecoder("utf-8").decode(bytes);
       const events = parseTeamResultsFeed(feed);
       const latestFinished = selectLatestFinishedTeamMatches(events, 5);
+      const discovered = new Map();
+      for (const event of events) {
+        for (const side of [event.home, event.away]) {
+          if (side?.id && /^[A-Za-z0-9]{8}$/.test(side.id) && side.name) {
+            discovered.set(side.id, { team_id: side.id, name: side.name, slug: side.slug || null });
+          }
+        }
+      }
       return json({
         ok: true,
         team_id: teamId,
@@ -368,8 +376,8 @@ export default {
         event_count: events.length,
         finished_count: events.filter(event => event.stage === "finished").length,
         latest_finished_matches: latestFinished,
-        feed_preview: feed.slice(0, 900),
-        note: "Resultados da equipa ordenados por data descendente; apenas jogos com estado terminado entram nos últimos cinco. Nenhuma recolha de estatísticas foi iniciada."
+        discovered_teams: [...discovered.values()],
+        note: "Últimos cinco jogos concluídos da equipa e IDs de todos os adversários encontrados no feed recente. Nenhuma recolha de estatísticas foi iniciada."
       }, 200, headers);
     }
 
