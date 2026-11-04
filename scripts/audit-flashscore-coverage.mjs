@@ -48,7 +48,8 @@ export function buildFlashscoreCoverage(records) {
   if (!Array.isArray(records) || records.length === 0) throw new Error("O CSV Flashscore está vazio.");
   const byCompetition = new Map();
   const ids = new Set();
-  let duplicateIds = 0, rowsWithoutIdentity = 0;\n  const rawLabels = new Set();
+  let duplicateIds = 0, rowsWithoutIdentity = 0;
+  const rawLabels = new Set();
   for (const row of records) {
     const id = String(row.match_id || "").trim();
     if (id && ids.has(id)) duplicateIds++;
