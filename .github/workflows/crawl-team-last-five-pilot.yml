@@ -8,6 +8,8 @@ on:
       - ".github/workflows/crawl-team-last-five-pilot.yml"
       - "scripts/seed-flashscore-team-ids.mjs"
       - "scripts/build-historical-team-universe.mjs"
+      - "scripts/collect-flashscore-csv.mjs"
+      - "tests/collect-team-last-five.test.mjs"
       - "ganhonasodds_com_20261101.csv"
       - "data/flashscore-statistics.csv"
   workflow_dispatch:
@@ -46,6 +48,20 @@ jobs:
           MAX_TEAMS: ${{ github.event.inputs.max_teams || '40' }}
           DELAY_MS: ${{ github.event.inputs.delay_ms || '1500' }}
         run: node scripts/crawl-flashscore-team-results.mjs --universe=/tmp/historical-team-universe.json --seeds=/tmp/flashscore-team-id-seeds.json --max-teams="$MAX_TEAMS" --delay-ms="$DELAY_MS" --output=/tmp/team-last-five-pilot.json
+      - name: Collect stats for five unique pilot fixtures
+        env:
+          FLASHSCORE_CONCURRENCY: "1"
+          FLASHSCORE_REQUEST_DELAY_MS: "1500"
+        run: node scripts/collect-flashscore-csv.mjs --team-last-five=/tmp/team-last-five-pilot.json --limit=5
+      - name: Upload pilot data CSVs
+        uses: actions/upload-artifact@v4
+        with:
+          name: team-last-five-stats-pilot
+          path: |
+            data/flashscore-statistics.csv
+            data/bwin-odds-flashscore.csv
+          if-no-files-found: error
+          retention-days: 14
       - name: Upload pilot queue
         uses: actions/upload-artifact@v4
         with:
