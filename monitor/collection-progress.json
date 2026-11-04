@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 386,
-  "processed_games": 150,
-  "stats_games": 150,
-  "bwin_odds": 150,
-  "failed_games": 0,
-  "current_match": "Último concluído: Aluminij - Radomlje",
-  "last_result": "Aluminij - Radomlje: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-04T22:59:58.905Z"
+  "processed_games": 175,
+  "stats_games": 170,
+  "bwin_odds": 170,
+  "failed_games": 5,
+  "current_match": "Último concluído: St. Louis City - San Diego FC",
+  "last_result": "St. Louis City - San Diego FC: 13 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-04T23:00:18.171Z"
 }
