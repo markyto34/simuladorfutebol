@@ -233,6 +233,48 @@ export function summarizeStatsCoverage(uniqueGames, statsRecords) {
   };
 }
 
+
+export function buildHistoricalManifest(uniqueGames, statsRecords) {
+  const exactIndex = new Map(), legacyIndex = new Map();
+  const add = (index, key, row) => {
+    const list = index.get(key) || [];
+    list.push(row);
+    index.set(key, list);
+  };
+  for (const stat of statsRecords) {
+    if (!dateKey(stat.date_time) || !normalize(stat.country) || !normalize(stat.competition) || !normalize(stat.home_team) || !normalize(stat.away_team)) continue;
+    add(exactIndex, fullKey(stat, true), stat);
+    add(legacyIndex, legacyKey(stat, true), stat);
+  }
+  const metrics = ["xg","possession","shots","shots_on_target","big_chances","corners","yellow_cards","red_cards","shots_off_target","blocked_shots","shots_inside_box","shots_outside_box","offsides","fouls"];
+  return uniqueGames.map(game => {
+    const exact = exactIndex.get(game.key) || [];
+    let stat = exact.length === 1 ? exact[0] : null;
+    let status = exact.length === 1 ? "matched_exact" : exact.length > 1 ? "ambiguous" : "missing";
+    if (!exact.length) {
+      const legacy = legacyIndex.get([game.date, normalize(game.home_team), normalize(game.away_team)].join("|")) || [];
+      if (legacy.length === 1) { stat = legacy[0]; status = "matched_legacy"; }
+      else if (legacy.length > 1) status = "ambiguous";
+    }
+    const availableMetrics = stat ? metrics.filter(key =>
+      String(stat[key + "_home"] ?? "").trim() !== "" &&
+      String(stat[key + "_away"] ?? "").trim() !== ""
+    ) : [];
+    return {
+      date: game.date,
+      country: game.country,
+      competition: game.competition,
+      home_team: game.home_team,
+      away_team: game.away_team,
+      odds_observations: game.observations,
+      stats_status: status,
+      flashscore_match_id: stat?.match_id || "",
+      available_metrics: availableMetrics.join(";"),
+      available_metric_count: availableMetrics.length
+    };
+  });
+}
+
 async function main() {
   const baseText = await readFile(BASE_FILE, "utf8");
   const oddsText = await readFile(ODDS_FILE, "utf8");
@@ -250,6 +292,18 @@ async function main() {
   const report = auditMatches(base, odds);
   report.full_historical_base = summarizeHistoricalBase(base);
   report.flashscore_stats_coverage = summarizeStatsCoverage(report.full_historical_base.unique_game_index, stats);
+  const manifest = buildHistoricalManifest(report.full_historical_base.unique_game_index, stats);
+  const manifestHeaders = ["date","country","competition","home_team","away_team","odds_observations","stats_status","flashscore_match_id","available_metrics","available_metric_count"];
+  const csvCell = value => /[",\r\n]/.test(String(value ?? "")) ? '"' + String(value ?? "").replace(/"/g, '""') + '"' : String(value ?? "");
+  await writeFile("historical-flashscore-targets.csv", [manifestHeaders.join(","), ...manifest.map(row => manifestHeaders.map(key => csvCell(row[key])).join(","))].join("\n") + "\n", "utf8");
+  report.historical_manifest = {
+    rows: manifest.length,
+    matched_exact: manifest.filter(row => row.stats_status === "matched_exact").length,
+    matched_legacy: manifest.filter(row => row.stats_status === "matched_legacy").length,
+    ambiguous: manifest.filter(row => row.stats_status === "ambiguous").length,
+    missing: manifest.filter(row => row.stats_status === "missing").length,
+    file: "historical-flashscore-targets.csv"
+  };
   await writeFile(REPORT_FILE, JSON.stringify(report, null, 2) + "\n", "utf8");
   console.log(JSON.stringify({ mode: report.mode, base_rows: report.base_rows, unique_games: report.full_historical_base.unique_games, repeated_observations: report.full_historical_base.repeated_observations, competitions: report.full_historical_base.competitions.length, years: report.full_historical_base.years, stats_rows: stats.length, games_with_stats: report.flashscore_stats_coverage.games_with_stats, games_without_stats: report.flashscore_stats_coverage.games_without_stats, competitions_with_any_stats: report.flashscore_stats_coverage.competitions_with_any_stats, bwin_quotes: report.bwin_quotes, counts: report.counts, collision_groups: report.legacy_identity_collisions.length, report_file: REPORT_FILE }, null, 2));
 }
