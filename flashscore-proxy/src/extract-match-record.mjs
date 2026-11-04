@@ -90,7 +90,7 @@ function parseFullTimeFromSummary(html, home, away) {
   const plain = cleanText(html);
   const escapeRegex = value => String(value).split('').map(char => '.^$*+?()[]{}|\\\\'.includes(char) ? '\\\\' + char : char).join('');
   const pattern = new RegExp(
-    escapeRegex(home) + '\\s+-\\s+' + escapeRegex(away) + '\\s+(\\d{1,2})\\s*[-:]\\s*(\\d{1,2})(?=\\s*\\(|\\s+(?:Terminado|A\\.P\\.|Após|Adiado|Cancelado|Interrompido|Atrasado|Não iniciado))',
+    escapeRegex(home) + '\\s+-\\s+' + escapeRegex(away) + '\\s+(\\d{1,2})\\s*[-:]\\s*(\\d{1,2})(?=\\s*\\(|\\s+(?:Terminado|Tempo Final|Depois de Prolongamento|Após prolongamento|A\\.P\\.|Após|Adiado|Cancelado|Interrompido|Atrasado|Não iniciado))',
     'i'
   );
   const match = plain.match(pattern);
@@ -104,7 +104,7 @@ export function extractStructuredMatch(html, matchId, options = {}) {
   const title = cleanText(decoded.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] || "");
   const teams = parseTitle(title);
   const dateTime = parseDateTime(decoded);
-  const statusMatch = decoded.match(/>\s*(Terminado|A\.P\.|Após prolongamento|Adiado|Cancelado|Interrompido|Atrasado|Não iniciado)\s*</i);
+  const statusMatch = decoded.match(/>\s*(Terminado|Tempo Final|Depois de Prolongamento|Após prolongamento|A\.P\.|Adiado|Cancelado|Interrompido|Atrasado|Não iniciado)\s*</i);
   const status = statusMatch ? cleanText(statusMatch[1]) : null;
   const periods = extractPeriodScores(decoded);
   const summaryFullTime = parseFullTimeFromSummary(decoded, teams.home, teams.away);
@@ -113,6 +113,7 @@ export function extractStructuredMatch(html, matchId, options = {}) {
   const score = fullTime ? {
     half_time: periods ? parsePair(periods.ht) : null,
     second_half: periods ? parsePair(periods.second_half) : null,
+    ...(periods?.extra_time ? { extra_time: parsePair(periods.extra_time) } : {}),
     full_time: fullTime
   } : null;
   const events = parseEvents(decoded);

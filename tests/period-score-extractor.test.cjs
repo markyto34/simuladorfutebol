@@ -41,6 +41,35 @@ const assert = require("node:assert/strict");
   );
   assert.equal(extractPeriodScores(ambiguousFinal), null);
 
+  const extraTime = [
+    '<h3>1.FC Nurnberg F</h3><h3>Eintracht Frankfurt F</h3>',
+    '<div class="detail"><b>0-0</b> (0-0,0-0,0-0)</div>',
+    '<div class="detail">Depois de Prolongamento</div>',
+    '<div id="detail-tab-content">',
+    '<h4>1ª Parte: <b>0-0</b></h4>',
+    '<h4>2ª Parte: <b>0-0</b></h4>',
+    '<h4>Prolong.: <b>0-0</b></h4>',
+    '<h4>Penáltis: <b>2-4</b></h4>',
+    '</div>'
+  ].join("");
+  assert.deepEqual(extractPeriodScores(extraTime), {
+    status: "validated",
+    ht: "0-0",
+    second_half: "0-0",
+    extra_time: "0-0",
+    ft: "0-0",
+    evidence: "Explicit first half, second half and extra-time scores cross-checked against the FT breakdown and score arithmetic; penalties excluded."
+  });
+
+  const regulation = [
+    '<div class="detail"><b>4-4</b> (2-0,2-4)</div>',
+    '<div class="detail">Tempo Final</div>',
+    '<h4>1ª Parte: <b>2-0</b></h4>',
+    '<h4>2ª Parte: <b>2-4</b></h4>',
+    '<h4>Penáltis: <b>4-5</b></h4>'
+  ].join("");
+  assert.equal(extractPeriodScores(regulation).ft, "4-4");
+
   console.log("Flashscore period score extraction: OK");
 })().catch(error => {
   console.error(error);

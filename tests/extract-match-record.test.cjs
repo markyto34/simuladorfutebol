@@ -67,3 +67,28 @@ test("does not invent unavailable fields or attach ambiguous Bwin odds", async (
   assert.equal(record.competition, null);
   assert.ok(record.missing_fields.includes("country"));
 });
+
+test("recognizes Tempo Final and preserves the regulation score before penalties", async () => {
+  const { extractStructuredMatch } = await import("../flashscore-proxy/src/extract-match-record.mjs");
+  const html = `<title>COR 4-4 CRU | Corinthians F (Bra) - Cruzeiro F (Bra)</title>
+    <h3>Corinthians F (Bra) - Cruzeiro F (Bra)</h3>
+    <div class="detail"><b>4-4</b> (2-0,2-4)</div><div class="detail">Tempo Final</div>
+    <div class="detail">Penáltis: <b>4-5</b></div><div class="detail">01.11.2026 00:00</div>
+    <div id="detail-tab-content"><h4>1ª Parte: <b>2-0</b></h4><h4>2ª Parte: <b>2-4</b></h4><h4>Penáltis: <b>4-5</b></h4></div>`;
+  const record = extractStructuredMatch(html, "IPPZATYR");
+  assert.equal(record.status, "Tempo Final");
+  assert.deepEqual(record.score.full_time, { home: 4, away: 4 });
+});
+
+test("recognizes extra time and excludes the penalty shootout from full time", async () => {
+  const { extractStructuredMatch } = await import("../flashscore-proxy/src/extract-match-record.mjs");
+  const html = `<title>FCN 0-0 EIF | 1.FC Nurnberg F - Eintracht Frankfurt F</title>
+    <h3>1.FC Nurnberg F - Eintracht Frankfurt F</h3>
+    <div class="detail"><b>0-0</b> (0-0,0-0,0-0)</div><div class="detail">Depois de Prolongamento</div>
+    <div class="detail">Penáltis: <b>2-4</b></div><div class="detail">01.11.2026 13:00</div>
+    <div id="detail-tab-content"><h4>1ª Parte: <b>0-0</b></h4><h4>2ª Parte: <b>0-0</b></h4><h4>Prolong.: <b>0-0</b></h4><h4>Penáltis: <b>2-4</b></h4></div>`;
+  const record = extractStructuredMatch(html, "C0jJWeam");
+  assert.equal(record.status, "Depois de Prolongamento");
+  assert.deepEqual(record.score.full_time, { home: 0, away: 0 });
+  assert.deepEqual(record.score.extra_time, { home: 0, away: 0 });
+});
