@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { parseCsv, toCsv, eligibleRows, applyScoreUpdate } from "../scripts/backfill-flashscore-scores.mjs";
+import { parseCsv, toCsv, eligibleRows, applyScoreUpdate, extractRecord } from "../scripts/backfill-flashscore-scores.mjs";
 
 test("CSV parser round-trips quoted team names", () => {
   const parsed = parseCsv('match_id,date_time,home_team,away_team,status,score_home,score_away\nabc123,2026-11-01T12:00,"A, B",C,Terminado,,\n');
@@ -44,4 +44,11 @@ test("does not use penalty-only or unvalidated scores", () => {
   const row = { match_id: "abc123", date_time: "2026-11-01T12:00", home_team: "A", away_team: "B", score_home: "", score_away: "", status: "" };
   const record = { match_id: "abc123", date_time_iso_local: "2026-11-01T12:00", teams: { home: { name: "A" }, away: { name: "B" } }, score: null };
   assert.equal(applyScoreUpdate(row, record).reason, "validated_full_time_unavailable");
+});
+
+test("reads the full match record from the read-only inspect endpoint, not the statistics-only record endpoint", () => {
+  const record = { match_id: "abc123", score: { full_time: { home: 2, away: 1 } } };
+  assert.equal(extractRecord({ ok: true, inspection: { match_record: record } }), record);
+  assert.equal(extractRecord({ ok: true, record }), null);
+  assert.equal(extractRecord({ ok: true, inspection: {} }), null);
 });
