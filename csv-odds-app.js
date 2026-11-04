@@ -3,7 +3,7 @@
   const $ = id => document.getElementById(id);
   const CSV_URL = "https://raw.githubusercontent.com/markyto34/simuladorfutebol/main/ganhonasodds_com_20261101.csv";
   const PAGE_SIZE = 50;
-  let allMatches = [], matches = [], page = 0, databaseLoaded = false, databasePromise = null;
+  let allMatches = [], matches = [], page = 0, databaseLoaded = false, databasePromise = null, rangeSearchActive = false;
   const fmtOdd = n => Number.isFinite(n) ? n.toFixed(2).replace(".", ",") : "—";
   const fmtPct = n => Number.isFinite(n) ? n.toFixed(1).replace(".", ",")+"%" : "—";
   const dateText = d => d ? new Intl.DateTimeFormat("pt-PT").format(d) : "—";
@@ -114,7 +114,7 @@
     const start=page*PAGE_SIZE;
     const rows=matches.slice(start,start+PAGE_SIZE);
     if(!rows.length){
-      list.append(makeText("p","empty-card","Não foram encontrados jogos com as três odds exatamente iguais."));
+      list.append(makeText("p","empty-card",rangeSearchActive?"Não foram encontrados jogos dentro dos intervalos de odds definidos.":"Não foram encontrados jogos com as três odds exatamente iguais."));
     }else rows.forEach(match=>{
       const card=makeText("article","match-card","");
       const head=makeText("div","match-card-head","");
@@ -181,6 +181,7 @@
     const league=$("league").value;
     const scopedMatches=allMatches.filter(match=>
       (!country||match.country===country)&&(!league||match.league===league));
+    rangeSearchActive=rangeMode;
     const result=rangeMode?CSVOdds.evaluateOddsRanges(scopedMatches,rangeConfig.ranges):CSVOdds.evaluateCurrentOdds(scopedMatches,odds);
     matches=CSVOdds.sortMatchesChronologically(result.matches);
     page=0;
@@ -258,7 +259,8 @@
     setLeagues();
     $("league").value="";
     $("resultsPanel").hidden=true;
-    $("currentNote").textContent="Pesquisa limpa. Introduz as três odds para começar.";
+    rangeSearchActive=false;
+    $("currentNote").textContent="Pesquisa limpa. Introduz as três odds ou define intervalos para começar.";
   });
   $("prevPage").addEventListener("click",()=>{if(page>0){page--;render();}});
   $("nextPage").addEventListener("click",()=>{if((page+1)*PAGE_SIZE<matches.length){page++;render();}});
