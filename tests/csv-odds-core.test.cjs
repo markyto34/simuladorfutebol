@@ -110,3 +110,21 @@ test("incremental parser emits a final row without a trailing newline", () => {
   parser.feed("a,b\n1,2", true);
   assert.deepEqual(rows, [["a", "b"], ["1", "2"]]);
 });
+
+test("range evaluation includes completed matches at both boundaries", () => {
+  const matches = CSVOdds.normalizeRows([
+    row({ odd_ft_1: "1.80" }),
+    row({ TEAM_HOME: "Limite", odd_ft_1: "1.90" }),
+    row({ TEAM_HOME: "Fora", odd_ft_1: "1.91" }),
+    row({ TEAM_HOME: "Pendente", odd_ft_1: "1.85", score_ft_home: "", score_ft_away: "" })
+  ]);
+  const result = CSVOdds.evaluateOddsRanges(matches, {
+    "1": { min: 1.8, max: 1.9 },
+    X: { min: 3.4, max: 3.4 },
+    "2": { min: 4.5, max: 4.5 }
+  });
+  assert.equal(result.sample, 2);
+  assert.equal(result.matches.length, 2);
+  assert.ok(result.market);
+  assert.equal(result.marketAnalysis.fullTime.over15.count, 2);
+});

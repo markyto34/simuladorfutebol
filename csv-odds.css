@@ -26,3 +26,13 @@
 .odd-value{font-size:13px;color:#dff1e3;font-variant-numeric:tabular-nums}
 .empty-card{padding:24px;text-align:center;color:#9aa99f;border:1px dashed #3b5145;border-radius:10px}
 @media(max-width:480px){.match-card{padding:12px}.match-card-head{align-items:flex-start;flex-direction:column}.match-teams{gap:7px}.match-teams strong{font-size:14px}.score-periods{gap:5px}.score-period{padding:9px 4px}.period-label{font-size:9px}.match-odds{grid-template-columns:repeat(3,minmax(0,1fr))}.odds-heading{grid-column:1/-1}.odd-item{padding:7px 8px}}
+
+.range-options{margin-top:16px;padding:13px 14px;border:1px solid #304238;border-radius:9px;background:#101a14}
+.range-options summary{cursor:pointer;color:#a9dfba;font-size:12px;font-weight:750;min-height:24px}
+.range-options>p{margin:8px 0 12px;color:#91a398;font-size:11px;line-height:1.5}
+.range-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.range-grid label{display:grid;gap:7px;color:#aab8af;font-size:11px}
+.range-grid input{width:100%;min-width:0;min-height:42px;padding:9px 10px;border:1px solid #34483c;border-radius:8px;background:#0e1712;color:#edf5ef;font:inherit;font-size:14px}
+.range-grid input:focus{outline:1px solid #83dba1;border-color:#83dba1}
+@media(max-width:760px){.range-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:380px){.range-grid{grid-template-columns:1fr}}
