@@ -8,7 +8,7 @@
  */
 import { readFile, writeFile, mkdir, appendFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
-import { mergeRows } from "./csv-merge.mjs";
+import { mergeRows, mergeLatestRows } from "./csv-merge.mjs";
 
 const PROXY = (process.env.FLASHSCORE_PROXY_URL || "https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev").replace(/\/$/, "");
 const DELAY_MS = Math.max(250, Number(process.env.FLASHSCORE_REQUEST_DELAY_MS || 300));
@@ -118,17 +118,6 @@ function bwinOddsRow(record) {
     source: "Flashscore",
     source_url: record.source_capture?.url || ""
   };
-}
-function mergeLatestRows(existing, incoming, keyFn, timestampKey = "retrieved_at") {
-  const map = new Map();
-  for (const row of [...existing, ...incoming]) {
-    const key = keyFn(row);
-    const current = map.get(key);
-    const nextTime = Date.parse(row[timestampKey] || "") || 0;
-    const currentTime = current ? (Date.parse(current[timestampKey] || "") || 0) : -1;
-    if (!current || nextTime >= currentTime) map.set(key, row);
-  }
-  return [...map.values()];
 }
 const sleep = ms => new Promise(resolveSleep => setTimeout(resolveSleep, ms));
 const PROGRESS_BRANCH = "collection-progress";
