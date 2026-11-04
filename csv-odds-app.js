@@ -175,27 +175,56 @@
     if (databaseLoaded) return true;
     if (databasePromise) return databasePromise;
     databasePromise = (async () => {
-    try {
-      const response=await fetch(CSV_URL,{method:"GET",mode:"cors",cache:"default"});
-      if(!response.ok) throw new Error("HTTP "+response.status);
-      const raw=CSVOdds.parseCSV(await response.text());
-      const required=["date_time","COUNTRY","LEAGUE","TEAM_HOME","TEAM_AWAY","odd_ft_1","odd_ft_x","odd_ft_2","score_ft_home","score_ft_away"];
-      if(!raw.length||required.some(key=>!(key in raw[0]))) throw new Error("Faltam colunas obrigatórias no CSV.");
-      allMatches=CSVOdds.normalizeRows(raw).filter(m=>m.oddsComplete);
-      setCountries();
-      $("recordCount").textContent=allMatches.length.toLocaleString("pt-PT")+" jogos com odds 1X2 válidas";
-      $("status").textContent="Base histórica carregada.";
-      $("searchHistoricalOdds").disabled=false;
-      $("currentNote").textContent="Base pronta. Confirma as três odds para pesquisar.";
-      databaseLoaded = true;
-      return true;
-    } catch(error) {
-      $("status").textContent="Não foi possível carregar a base histórica: "+error.message;
-      $("currentNote").textContent="Verifica a ligação à internet e tenta novamente.";
-      return false;
-    } finally {
-      if (!databaseLoaded) databasePromise = null;
-    }
+      try {
+        const response = await fetch(CSV_URL, { method: "GET", mode: "cors", cache: "default" });
+        if (!response.ok) throw new Error("HTTP " + response.status);
+        const required = ["date_time","COUNTRY","LEAGUE","TEAM_HOME","TEAM_AWAY","odd_ft_1","odd_ft_x","odd_ft_2","score_ft_home","score_ft_away"];
+        let headers = null;
+        const consumeRow = values => {
+          if (!headers) {
+            headers = values.map(value => value.trim());
+            if (required.some(key => !headers.includes(key))) throw new Error("Faltam colunas obrigatórias no CSV.");
+            return;
+          }
+          const raw = {};
+          headers.forEach((header, index) => { raw[header] = (values[index] || "").trim(); });
+          const match = CSVOdds.normalizeRows([raw])[0];
+          if (match.oddsComplete) allMatches.push(match);
+        };
+        if (response.body && typeof response.body.getReader === "function" && typeof TextDecoder !== "undefined") {
+          const reader = response.body.getReader();
+          const decoder = new TextDecoder("utf-8");
+          const parser = CSVOdds.createCSVParser(consumeRow);
+          while (true) {
+            const part = await reader.read();
+            if (part.done) break;
+            parser.feed(decoder.decode(part.value, { stream: true }), false);
+          }
+          parser.feed(decoder.decode(), true);
+        } else {
+          const rawRows = CSVOdds.parseCSV(await response.text());
+          if (!rawRows.length || required.some(key => !(key in rawRows[0]))) throw new Error("Faltam colunas obrigatórias no CSV.");
+          rawRows.forEach(raw => {
+            const match = CSVOdds.normalizeRows([raw])[0];
+            if (match.oddsComplete) allMatches.push(match);
+          });
+        }
+        if (!headers && !allMatches.length) throw new Error("O CSV não contém registos.");
+        setCountries();
+        $("recordCount").textContent = allMatches.length.toLocaleString("pt-PT") + " jogos com odds 1X2 válidas";
+        $("status").textContent = "Base histórica carregada.";
+        $("searchHistoricalOdds").disabled = false;
+        $("currentNote").textContent = "Base pronta. Confirma as três odds para pesquisar.";
+        databaseLoaded = true;
+        return true;
+      } catch (error) {
+        allMatches = [];
+        $("status").textContent = "Não foi possível carregar a base histórica: " + error.message;
+        $("currentNote").textContent = "Verifica a ligação à internet e tenta novamente.";
+        return false;
+      } finally {
+        if (!databaseLoaded) databasePromise = null;
+      }
     })();
     return databasePromise;
   }
