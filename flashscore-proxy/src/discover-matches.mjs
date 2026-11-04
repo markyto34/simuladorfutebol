@@ -74,7 +74,7 @@ function extractFixtureTeamsFromScoreData(html, anchorIndex) {
   if (spanStart < scoreDataStart) return null;
   const spanEnd = html.indexOf(">", spanStart);
   if (spanEnd < 0 || spanEnd >= anchorIndex) return null;
-  const value = plainText(html.slice(spanEnd + 1, anchorIndex)).trim();
+  const value = plainText(html.slice(spanEnd + 1, anchorIndex)).replace(/^\\d{1,2}:\\d{2}\\s*/, "").trim();
   const match = value.match(/^(.+?)\s+-\s+(.+?)$/);
   if (!match) return null;
   const home = match[1].trim(), away = match[2].trim();
