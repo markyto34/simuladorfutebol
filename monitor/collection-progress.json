@@ -2,14 +2,14 @@
   "run_id": "41929609874",
   "run_number": "5",
   "target_date": "2026-10-31",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed_with_errors",
+  "phase": "completed",
   "total_games": 386,
   "processed_games": 386,
   "stats_games": 343,
   "bwin_odds": 353,
   "failed_games": 33,
-  "current_match": "Último erro: 8Cmu5vRp",
+  "current_match": "Recolha terminada",
   "last_result": "Falha em 8Cmu5vRp: Falha ao recolher 8Cmu5vRp: HTTP 503",
-  "updated_at": "2026-11-04T23:02:25.612Z"
+  "updated_at": "2026-11-04T23:02:27.000Z"
 }
