@@ -26,9 +26,9 @@ const COMP_ALIASES = {
   "bundesliga":"bundesliga","2 bundesliga":"2 bundesliga","2 bundesliga":"2 bundesliga",
   "ligue 1":"ligue 1","ligue 2":"ligue 2","eredivisie":"eredivisie",
   "eerste divisie":"eerste divisie","premier league":"premier league",
-  "premiership":"premiership","scottish premiership":"premiership",
-  "super lig":"super lig","superliga":"superliga",
-  "first division a":"first division a","pro league":"first division a",
+  "premiership":"premiership","scottish premiership":"premiership","scottish championship":"championship",
+  "super lig":"super lig","superliga":"superliga","danish superliga":"superliga",
+  "first division a":"first division a","pro league":"first division a","belgian pro league":"first division a",
   "champions league":"champions league","uefa champions league":"champions league",
   "europa league":"europa league","conference league":"conference league"
 };
