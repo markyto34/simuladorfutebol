@@ -1,0 +1,7 @@
+"use strict";
+const test=require("node:test");const assert=require("node:assert/strict");
+const {poissonDistribution,goalMarketProbabilities,evaluateGoalMarkets}=require("../scripts/backtest.cjs");
+test("Poisson soma 1 e aceita média zero",()=>{const z=poissonDistribution(0);assert.equal(z[0],1);assert.equal(z.slice(1).reduce((a,b)=>a+b,0),0);assert.ok(Math.abs(poissonDistribution(2.4).reduce((a,b)=>a+b,0)-1)<1e-12);});
+test("probabilidades 1X2 somam 1 e mercados são monotónicos",()=>{const p=goalMarketProbabilities(1.7,1.1);assert.ok(Math.abs(p.home+p.draw+p.away-1)<1e-12);for(const k of ["over15","over25","over35","btts"])assert.ok(p[k]>=0&&p[k]<=1);assert.ok(p.over15>=p.over25&&p.over25>=p.over35);});
+test("médias zero produzem empate certo e zero mercados de golos",()=>{const p=goalMarketProbabilities(0,0);assert.deepEqual([p.home,p.draw,p.away,p.over15,p.over25,p.over35,p.btts],[0,1,0,0,0,0,0]);});
+test("avalia Brier, Log Loss e fiabilidade",()=>{const predictions=[{actualHomeGoals:2,actualAwayGoals:0,goalProbabilities:{home:.7,draw:.2,away:.1,over15:.8,over25:.5,over35:.2,btts:.3}},{actualHomeGoals:0,actualAwayGoals:0,goalProbabilities:{home:.2,draw:.6,away:.2,over15:.2,over25:.1,over35:.05,btts:.1}}];const r=evaluateGoalMarkets(predictions);assert.equal(r.oneXTwo.n,2);assert.ok(r.oneXTwo.brier>=0&&r.oneXTwo.logLoss>=0);for(const k of ["over15","over25","over35","btts"]){assert.equal(r.binary[k].n,2);assert.ok(r.binary[k].brier>=0&&r.binary[k].logLoss>=0);assert.ok(r.binary[k].reliability.length>0);}});
