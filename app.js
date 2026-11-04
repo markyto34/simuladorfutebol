@@ -469,9 +469,10 @@ function updateLeagueCoverage(matches){
  const parts=stats.map(([label,test])=>{const n=matches.filter(test).length;return label+": "+n+"/"+matches.length+" ("+(100*n/matches.length).toFixed(0)+"%)";});
  if(box)box.textContent="Cobertura combinada das fontes para esta competição: "+parts.join(" · ")+". Os valores representam jogos com os dois lados disponíveis, não médias das equipas.";
 }
-function teamOptionsForSeason(matches,completeMatches,allowWdw){
- const source=allowWdw?matches:completeMatches;
- return [...new Set(source.flatMap(m=>[m.home,m.away]).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+function teamOptionsForSeason(matches){
+ // A lista de equipas não deve depender de um jogo ter todas as estatísticas.
+ // Cada indicador calcula depois a sua própria amostra válida em teamSample().
+ return [...new Set(matches.flatMap(m=>[m.home,m.away]).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
 }
 async function loadHistoricalData(){
  const requestId=++historicalLoadSequence;wdwPairSequence++;
@@ -515,7 +516,7 @@ async function loadHistoricalData(){
    try{wdwTeams=await loadWdwLeagueTeams(league);}
    catch(e){wdwIndexError=String(e?.message||e);}
   }
-  const primaryTeams=teamOptionsForSeason(matches,completeMatches,allowWdw);
+  const primaryTeams=teamOptionsForSeason(matches);
   const teams=[...new Set([...primaryTeams,...wdwTeams.map(x=>x.name).filter(Boolean)])].sort((a,b)=>a.localeCompare(b));
   if(!matches.length&&!teams.length){
    const reason=primaryError?"Fonte principal: "+primaryError+". ":"";
