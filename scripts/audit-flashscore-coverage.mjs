@@ -53,28 +53,28 @@ const classify = name => {
 };
 const classifyHierarchy = name => {
   const value = normalize(name);
-  const gender = /\\b(women|feminina|feminino|ladies)\\b/.test(value) ? "feminino" : "masculino_misto";
-  const ageMatch = value.match(/\\b(u ?(?:1[789]|2[0-3])|under ?(?:1[789]|2[0-3])|sub ?(?:1[789]|2[0-3])|youth|junior)\\b/);
-  const ageCategory = ageMatch ? ageMatch[0].replace(/\\s+/g, " ") : "senior";
+  const gender = /\b(women|feminina|feminino|ladies)\b/.test(value) ? "feminino" : "masculino_misto";
+  const ageMatch = value.match(/\b(u ?(?:1[789]|2[0-3])|under ?(?:1[789]|2[0-3])|sub ?(?:1[789]|2[0-3])|youth|junior)\b/);
+  const ageCategory = ageMatch ? ageMatch[0].replace(/\s+/g, " ") : "senior";
   let family = String(name).trim();
   let divisionOrGroup = null;
   let stage = null;
 
-  const groupMatch = family.match(/\\s*[-–—:]\\s*((?:serie|série|grupo|group|division|divisao|north|south|east|west)\\s+[a-z0-9]+)\\s*$/i);
+  const groupMatch = family.match(/\s*[-–—:]\s*((?:serie|série|grupo|group|division|divisao|north|south|east|west)\s+[a-z0-9]+)\s*$/i);
   if (groupMatch) {
     divisionOrGroup = groupMatch[1].trim();
     family = family.slice(0, groupMatch.index).trim();
   }
-  const phaseMatch = family.match(/\\s*[-–—:]\\s*((?:league phase|fase de liga|fase de grupos|group stage|playoffs?|play-offs?|promotion|relegation|championship round|relegation round|round of 16|quarter-finals?|semi-finals?|final))\\s*$/i);
+  const phaseMatch = family.match(/\s*[-–—:]\s*((?:league phase|fase de liga|fase de grupos|group stage|playoffs?|play-offs?|promotion|relegation|championship round|relegation round|round of 16|quarter-finals?|semi-finals?|final))\s*$/i);
   if (phaseMatch) {
     stage = phaseMatch[1].trim();
     family = family.slice(0, phaseMatch.index).trim();
-  } else if (/\\b(playoffs?|play-offs?)\\b/i.test(family)) {
+  } else if (/\b(playoffs?|play-offs?)\b/i.test(family)) {
     stage = "Playoffs";
-    family = family.replace(/\\s*[-–—:]?\\s*play-?offs?\\s*/i, " ").trim();
+    family = family.replace(/\s*[-–—:]?\s*play-?offs?\s*/i, " ").trim();
   }
-  const type = /\\b(cup|copa|taça|taca|pokal|coppa|knockout)\\b/i.test(name) ? "taca"
-    : /\\b(champions league|europa league|conference league|libertadores|sudamericana|uefa|afc|concacaf)\\b/i.test(name) ? "internacional"
+  const type = /\b(cup|copa|taça|taca|pokal|coppa|knockout)\b/i.test(name) ? "taca"
+    : /\b(champions league|europa league|conference league|libertadores|sudamericana|uefa|afc|concacaf)\b/i.test(name) ? "internacional"
     : "liga";
   return {
     competition_family: family || String(name).trim(),
