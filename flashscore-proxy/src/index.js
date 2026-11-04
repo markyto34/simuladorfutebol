@@ -5,7 +5,7 @@ import { inspectMatchDiscovery, extractExplicitCompetitionForMatch } from "./dis
 import { extractStructuredMatch } from "./extract-match-record.mjs";
 import { inspectPageStructure } from "./inspect-page-structure.mjs";
 import { buildMatchTabUrl, resolveMatchTab } from "./match-tabs.mjs";
-import { extractTeamProfileLinks, extractTeamResultCandidates } from "./team-results.mjs";
+import { extractTeamProfileLinks, parseTeamResultsFeed, selectLatestFinishedTeamMatches } from "./team-results.mjs";
 const UPSTREAM = "https://m.flashscore.pt";
 const ALLOWED_ORIGINS = new Set([
   "https://simuladorfutebol.onrender.com"
@@ -332,34 +332,44 @@ export default {
 
     if (incoming.pathname === "/team-inspect") {
       const teamId = incoming.searchParams.get("id") || "";
-      const slug = incoming.searchParams.get("slug") || "";
-      if (!/^[A-Za-z0-9]{8}$/.test(teamId) || !/^[a-z0-9-]{1,100}$/i.test(slug)) {
-        return json({ error: "invalid_team", message: "Indica um ID de equipa de 8 caracteres e um slug válido." }, 400, headers);
+      if (!/^[A-Za-z0-9]{8}$/.test(teamId)) {
+        return json({ error: "invalid_team", message: "Indica um ID Flashscore de equipa com 8 caracteres." }, 400, headers);
       }
-      const teamTarget = new URL("/equipa/" + slug + "/" + teamId + "/resultados/", "https://www.flashscore.pt");
+      const teamTarget = new URL("/2/x/feed/pr_1_198_" + teamId + "_0_1_en_1", "https://global.flashscore.ninja");
       let teamResponse;
       try {
         teamResponse = await fetch(teamTarget.toString(), {
-          method: "GET", redirect: "manual",
-          headers: { "Accept": "text/html,application/xhtml+xml", "Accept-Language": "pt-PT,pt;q=0.9,en;q=0.7", "User-Agent": "SimuladorFutebol/1.0" }
+          method: "GET",
+          headers: {
+            "Accept": "*/*",
+            "Accept-Language": "en-US,en;q=0.9",
+            "Referer": "https://www.flashscore.pt/",
+            "Origin": "https://www.flashscore.pt",
+            "x-fsign": "SW9D1eZo",
+            "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36"
+          }
         });
       } catch (error) {
         return json({ error: "upstream_unavailable", detail: String(error?.message || "Falha de ligação").slice(0, 180) }, 502, headers);
       }
-      if (teamResponse.status >= 300 && teamResponse.status < 400) return json({ error: "upstream_redirect", upstream_status: teamResponse.status, location: teamResponse.headers.get("location") || null }, 502, headers);
       if (!teamResponse.ok) return json({ error: "upstream_rejected", upstream_status: teamResponse.status }, 502, headers);
-      const type = teamResponse.headers.get("content-type") || "";
-      if (!type.toLowerCase().includes("text/html")) return json({ error: "unexpected_content_type", content_type: type }, 502, headers);
       const bytes = await teamResponse.arrayBuffer();
       if (bytes.byteLength > MAX_BODY_BYTES) return json({ error: "response_too_large" }, 502, headers);
-      const teamHtml = new TextDecoder("utf-8").decode(bytes);
-      const candidates = extractTeamResultCandidates(teamHtml, 40);
-      const title = (teamHtml.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim().slice(0, 180);
+      const feed = new TextDecoder("utf-8").decode(bytes);
+      const events = parseTeamResultsFeed(feed);
+      const latestFinished = selectLatestFinishedTeamMatches(events, 5);
       return json({
-        ok: true, team_id: teamId, slug, upstream_status: teamResponse.status,
-        content_type: type, body_bytes: bytes.byteLength, source_url: teamTarget.toString(),
-        title, match_link_count: candidates.length, matches: candidates,
-        note: "Diagnóstico passivo da página de resultados da equipa. Os candidatos ainda não são considerados jogos concluídos até validar estado, data e resultado."
+        ok: true,
+        team_id: teamId,
+        upstream_status: teamResponse.status,
+        content_type: teamResponse.headers.get("content-type") || null,
+        body_bytes: bytes.byteLength,
+        source_url: teamTarget.toString(),
+        event_count: events.length,
+        finished_count: events.filter(event => event.stage === "finished").length,
+        latest_finished_matches: latestFinished,
+        feed_preview: feed.slice(0, 900),
+        note: "Resultados da equipa ordenados por data descendente; apenas jogos com estado terminado entram nos últimos cinco. Nenhuma recolha de estatísticas foi iniciada."
       }, 200, headers);
     }
 
