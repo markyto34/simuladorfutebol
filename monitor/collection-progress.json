@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 124,
-  "processed_games": 50,
-  "stats_games": 49,
-  "bwin_odds": 50,
+  "processed_games": 75,
+  "stats_games": 70,
+  "bwin_odds": 75,
   "failed_games": 0,
-  "current_match": "A consultar jogo 52/124 · YZIiOPoK",
-  "last_result": "Charleston - Rhode Island: 13 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-04T22:15:49.401Z"
+  "current_match": "Último concluído: H. Akko - H. Ironi Rishon",
+  "last_result": "H. Akko - H. Ironi Rishon: 7 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-04T22:15:59.314Z"
 }
