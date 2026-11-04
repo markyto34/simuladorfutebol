@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 386,
-  "processed_games": 175,
-  "stats_games": 170,
-  "bwin_odds": 170,
-  "failed_games": 5,
-  "current_match": "Último concluído: St. Louis City - San Diego FC",
-  "last_result": "St. Louis City - San Diego FC: 13 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-04T23:00:18.171Z"
+  "processed_games": 200,
+  "stats_games": 193,
+  "bwin_odds": 193,
+  "failed_games": 7,
+  "current_match": "Último concluído: Zalaegerszeg - MTK Budapest",
+  "last_result": "Zalaegerszeg - MTK Budapest: 13 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-04T23:00:30.527Z"
 }
