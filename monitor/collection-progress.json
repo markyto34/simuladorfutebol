@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 631,
-  "processed_games": 78,
-  "stats_games": 78,
-  "bwin_odds": 73,
+  "processed_games": 101,
+  "stats_games": 101,
+  "bwin_odds": 95,
   "failed_games": 0,
-  "current_match": "Último concluído: Midland - Tristan Suarez",
-  "last_result": "Midland - Tristan Suarez: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:01:22.212Z"
+  "current_match": "A consultar jogo 104/631 · M1JWE33F",
+  "last_result": "Agropecuario - Gimnasia y Tiro: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:01:28.327Z"
 }
