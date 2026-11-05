@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 60,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 10,
+  "processed_games": 50,
+  "stats_games": 50,
+  "bwin_odds": 29,
   "failed_games": 0,
-  "current_match": "Último concluído: SK Rapid - Tirol",
-  "last_result": "SK Rapid - Tirol: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T09:44:15.791Z"
+  "current_match": "Último concluído: Ried - SK Rapid",
+  "last_result": "Ried - SK Rapid: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T09:44:45.039Z"
 }
