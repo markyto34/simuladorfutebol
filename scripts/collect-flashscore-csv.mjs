@@ -47,7 +47,7 @@ export function selectTeamLastFiveMatchIds(payload, limit = 0) {
 }
 
 const STAT_KEYS = [
-  "xg", "possession", "shots", "shots_on_target", "big_chances", "corners",
+  "xg", "possession", "shots", "shots_on_target", "big_chances", "corners", "corners_ht", "corners_st",
   "yellow_cards", "red_cards", "shots_off_target", "blocked_shots", "shots_inside_box",
   "shots_outside_box", "offsides", "fouls"
 ];
