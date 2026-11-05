@@ -144,3 +144,24 @@ test('reconhece fases adicionais sem as fundir com a competição-base', () => {
     assert.equal(item.relationship, 'same_base_competition_distinct_stage_not_merged');
   }
 });
+
+
+test('mede cobertura por indicador nas fases que permanecem separadas', () => {
+  const report = buildFlashscoreCatalogCoverage(
+    catalog([candidate('México','Liga MX')]),
+    [
+      row('México','Liga MX - Abertura','stage-m1',{corners_home:'4',corners_away:'3',corners_ht_home:'2',corners_ht_away:'1'}),
+      row('México','Liga MX - Abertura','stage-m2',{corners_home:'6',corners_away:'2',corners_ht_home:'',corners_ht_away:''})
+    ]
+  );
+  const stage = report.unmatched_stats_labels[0];
+  assert.equal(stage.reason,'catalog_base_found_stage_kept_separate');
+  assert.equal(stage.unique_stats_matches,2);
+  assert.equal(stage.metrics.corners.complete_matches,2);
+  assert.equal(stage.metrics.corners.coverage_pct,100);
+  assert.equal(stage.metrics.corners_ht.complete_matches,1);
+  assert.equal(stage.metrics.corners_ht.coverage_pct,50);
+  assert.equal(stage.metrics.corners_st.complete_matches,0);
+  assert.equal(report.summary.unmatched_stage_labels_kept_separate,1);
+  assert.equal(report.summary.unmatched_labels_without_catalog_base,0);
+});
