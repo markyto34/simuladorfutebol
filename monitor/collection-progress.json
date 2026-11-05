@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 224,
-  "processed_games": 26,
-  "stats_games": 26,
-  "bwin_odds": 26,
+  "processed_games": 50,
+  "stats_games": 50,
+  "bwin_odds": 50,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/224 · QqB1tVrI",
-  "last_result": "Egersund - Hodd: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:23:40.661Z"
+  "current_match": "Último concluído: Raufoss - Odd",
+  "last_result": "Raufoss - Odd: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:23:49.142Z"
 }
