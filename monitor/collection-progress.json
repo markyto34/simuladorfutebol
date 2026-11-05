@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 121,
-  "processed_games": 101,
-  "stats_games": 101,
-  "bwin_odds": 101,
+  "processed_games": 121,
+  "stats_games": 121,
+  "bwin_odds": 121,
   "failed_games": 0,
-  "current_match": "A consultar jogo 104/121 · O8JewXtg",
-  "last_result": "Celta Vigo B - Andorra: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:52:12.326Z"
+  "current_match": "Último concluído: Real Sociedad B - Castellon",
+  "last_result": "Real Sociedad B - Castellon: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:52:16.680Z"
 }
