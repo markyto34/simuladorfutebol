@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed_with_errors",
+  "phase": "completed",
   "total_games": 175,
   "processed_games": 175,
   "stats_games": 167,
   "bwin_odds": 167,
   "failed_games": 8,
-  "current_match": "Último erro: AofArllT",
+  "current_match": "Recolha terminada",
   "last_result": "Falha em AofArllT: Falha ao recolher AofArllT: HTTP 503",
-  "updated_at": "2026-11-05T21:58:02.785Z"
+  "updated_at": "2026-11-05T21:58:04.213Z"
 }
