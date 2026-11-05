@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-11-05T07:17:36.383Z",
+  "generated_at": "2026-11-05T07:18:32.205Z",
   "source": "Flashscore catalog + data/flashscore-statistics.csv",
   "scope": "Correspondência por país e competição com normalização e apenas aliases explicitamente confirmados. Nomes repetidos no mesmo país ficam em revisão e não são considerados cobertura validada.",
   "summary": {
     "catalog_candidates": 1303,
-    "candidates_with_stats": 219,
-    "candidates_without_stats": 1078,
+    "candidates_with_stats": 220,
+    "candidates_without_stats": 1077,
     "candidates_1_to_4_matches": 84,
-    "candidates_5_plus_matches": 135,
+    "candidates_5_plus_matches": 136,
     "candidates_10_plus_matches": 26,
     "candidates_20_plus_matches": 4,
     "duplicate_name_candidates_for_review": 6,
     "stats_competitions": 279,
-    "stats_competitions_matched_to_catalog": 220,
-    "stats_competitions_not_in_catalog": 59,
+    "stats_competitions_matched_to_catalog": 221,
+    "stats_competitions_not_in_catalog": 58,
     "stats_rows": 1572,
     "stats_unique_match_ids": 1572,
     "stats_competition_labels": 282,
-    "matched_stats_competition_labels": 222,
-    "unmatched_stats_competition_labels": 60
+    "matched_stats_competition_labels": 223,
+    "unmatched_stats_competition_labels": 59
   },
   "unmatched_stats_labels": [
     {
@@ -231,13 +231,6 @@
       "related_catalog_url": "https://www.flashscore.pt/futebol/argentina/liga-reservas/"
     },
     {
-      "country_name": "CATAR",
-      "competition_name": "Primeira Liga",
-      "unique_stats_matches": 6,
-      "stats_rows": 6,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
-    },
-    {
       "country_name": "HONDURAS",
       "competition_name": "Liga Nacional - Abertura",
       "unique_stats_matches": 6,
@@ -445,6 +438,13 @@
       ],
       "related_catalog_competition": "UEFA Youth League",
       "related_catalog_url": "https://www.flashscore.pt/futebol/europa/uefa-youth-league/"
+    },
+    {
+      "country_name": "LITUÂNIA",
+      "competition_name": "Segunda Liga",
+      "unique_stats_matches": 3,
+      "stats_rows": 3,
+      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
     },
     {
       "country_name": "ARGENTINA",
@@ -770,13 +770,6 @@
       ],
       "related_catalog_competition": "Divisão 1",
       "related_catalog_url": "https://www.flashscore.pt/futebol/irlanda/divisao-1/"
-    },
-    {
-      "country_name": "LITUÂNIA",
-      "competition_name": "Primeira Liga",
-      "unique_stats_matches": 1,
-      "stats_rows": 1,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
     },
     {
       "country_name": "RÚSSIA",
@@ -6661,6 +6654,71 @@
       }
     },
     {
+      "country_name": "Catar",
+      "country_slug": "qatar",
+      "competition_name": "Primeira Liga",
+      "source_competition_name": "Taça",
+      "name_override_reason": "official_flashscore_page_title_verified",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/qatar/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/qatar/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao",
+      "stats_match_key": "catar|primeira liga",
+      "stats_source_labels": [
+        "CATAR / Primeira Liga"
+      ],
+      "unique_stats_matches": 6,
+      "stats_rows": 6,
+      "sample_status": "amostra_5_9",
+      "metrics": {
+        "corners": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 16.7
+        }
+      }
+    },
+    {
       "country_name": "Croácia",
       "country_slug": "croacia",
       "competition_name": "Prva NL",
@@ -11575,69 +11633,6 @@
       }
     },
     {
-      "country_name": "Lituânia",
-      "country_slug": "lituania",
-      "competition_name": "Segunda Liga",
-      "competition_slug": "primeira-liga",
-      "url": "https://www.flashscore.pt/futebol/lituania/primeira-liga/",
-      "source_country_url": "https://www.flashscore.pt/futebol/lituania/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Segunda Liga",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "liga_ou_torneio",
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "pais_ou_regiao",
-      "stats_match_key": "lituania|segunda liga",
-      "stats_source_labels": [
-        "LITUÂNIA / Segunda Liga"
-      ],
-      "unique_stats_matches": 3,
-      "stats_rows": 3,
-      "sample_status": "amostra_1_4",
-      "metrics": {
-        "corners": {
-          "complete_matches": 3,
-          "coverage_pct": 100
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 3,
-          "coverage_pct": 100
-        },
-        "shots_on_target": {
-          "complete_matches": 3,
-          "coverage_pct": 100
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 2,
-          "coverage_pct": 66.7
-        },
-        "yellow_cards": {
-          "complete_matches": 3,
-          "coverage_pct": 100
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
       "country_name": "Macedónia do Norte",
       "country_slug": "macedonia-do-norte",
       "competition_name": "Primeira Liga",
@@ -14525,6 +14520,71 @@
         "fouls": {
           "complete_matches": 1,
           "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      }
+    },
+    {
+      "country_name": "Lituânia",
+      "country_slug": "lituania",
+      "competition_name": "Primeira Liga",
+      "source_competition_name": "Segunda Liga",
+      "name_override_reason": "official_flashscore_page_title_verified",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/lituania/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/lituania/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao",
+      "stats_match_key": "lituania|primeira liga",
+      "stats_source_labels": [
+        "LITUÂNIA / Primeira Liga"
+      ],
+      "unique_stats_matches": 1,
+      "stats_rows": 1,
+      "sample_status": "amostra_1_4",
+      "metrics": {
+        "corners": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 0,
+          "coverage_pct": 0
         },
         "yellow_cards": {
           "complete_matches": 1,
@@ -40058,67 +40118,6 @@
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao",
       "stats_match_key": "catar|qsl 2",
-      "stats_source_labels": [],
-      "unique_stats_matches": 0,
-      "stats_rows": 0,
-      "sample_status": "sem_dados",
-      "metrics": {
-        "corners": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots_on_target": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "yellow_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "country_name": "Catar",
-      "country_slug": "qatar",
-      "competition_name": "Taça",
-      "competition_slug": "primeira-liga",
-      "url": "https://www.flashscore.pt/futebol/qatar/primeira-liga/",
-      "source_country_url": "https://www.flashscore.pt/futebol/qatar/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Taça",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "taca",
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "pais_ou_regiao",
-      "stats_match_key": "catar|taca",
       "stats_source_labels": [],
       "unique_stats_matches": 0,
       "stats_rows": 0,
@@ -81508,51 +81507,6 @@
       }
     },
     {
-      "stats_match_key": "catar|primeira liga",
-      "source_labels": [
-        "CATAR / Primeira Liga"
-      ],
-      "unique_stats_matches": 6,
-      "metrics": {
-        "corners": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        },
-        "shots_on_target": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        },
-        "xg": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        },
-        "fouls": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        },
-        "yellow_cards": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        },
-        "red_cards": {
-          "complete_matches": 1,
-          "coverage_pct": 16.7
-        }
-      }
-    },
-    {
       "stats_match_key": "finlandia|primeira liga grupo campeonato",
       "source_labels": [
         "FINLÂNDIA / Primeira Liga - Grupo Campeonato"
@@ -82126,6 +82080,51 @@
         "fouls": {
           "complete_matches": 0,
           "coverage_pct": 0
+        },
+        "yellow_cards": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      }
+    },
+    {
+      "stats_match_key": "lituania|segunda liga",
+      "source_labels": [
+        "LITUÂNIA / Segunda Liga"
+      ],
+      "unique_stats_matches": 3,
+      "metrics": {
+        "corners": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 2,
+          "coverage_pct": 66.7
         },
         "yellow_cards": {
           "complete_matches": 3,
@@ -83026,51 +83025,6 @@
         "fouls": {
           "complete_matches": 1,
           "coverage_pct": 100
-        },
-        "yellow_cards": {
-          "complete_matches": 1,
-          "coverage_pct": 100
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "stats_match_key": "lituania|primeira liga",
-      "source_labels": [
-        "LITUÂNIA / Primeira Liga"
-      ],
-      "unique_stats_matches": 1,
-      "metrics": {
-        "corners": {
-          "complete_matches": 1,
-          "coverage_pct": 100
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 1,
-          "coverage_pct": 100
-        },
-        "shots_on_target": {
-          "complete_matches": 1,
-          "coverage_pct": 100
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 0,
-          "coverage_pct": 0
         },
         "yellow_cards": {
           "complete_matches": 1,
