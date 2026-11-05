@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 472,
-  "processed_games": 275,
-  "stats_games": 275,
-  "bwin_odds": 274,
+  "processed_games": 300,
+  "stats_games": 300,
+  "bwin_odds": 299,
   "failed_games": 0,
-  "current_match": "Último concluído: Seattle Sounders - Los Angeles Galaxy",
-  "last_result": "Seattle Sounders - Los Angeles Galaxy: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:32:46.570Z"
+  "current_match": "Último concluído: Minnesota - Austin FC",
+  "last_result": "Minnesota - Austin FC: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T21:32:51.892Z"
 }
