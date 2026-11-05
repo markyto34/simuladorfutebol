@@ -73,6 +73,7 @@ jobs:
           FLASHSCORE_SEASON_PAGE_DELAY_MS: "1500"
           FLASHSCORE_REQUEST_DELAY_MS: "1200"
           FLASHSCORE_CONCURRENCY: "2"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -uo pipefail
           completed=0
