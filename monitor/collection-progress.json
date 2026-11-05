@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 110,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 25,
+  "processed_games": 51,
+  "stats_games": 51,
+  "bwin_odds": 51,
   "failed_games": 0,
-  "current_match": "Último concluído: Perugia - Vado",
-  "last_result": "Perugia - Vado: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:05:10.148Z"
+  "current_match": "A consultar jogo 54/110 · fmC36Rnl",
+  "last_result": "Guidonia - Livorno: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:05:31.591Z"
 }
