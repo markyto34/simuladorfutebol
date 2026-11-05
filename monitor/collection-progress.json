@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 73,
-  "processed_games": 25,
-  "stats_games": 20,
-  "bwin_odds": 19,
+  "processed_games": 50,
+  "stats_games": 43,
+  "bwin_odds": 40,
   "failed_games": 0,
-  "current_match": "Último concluído: Pamba - TRA United",
-  "last_result": "Pamba - TRA United: 7 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T23:14:02.354Z"
+  "current_match": "Último concluído: Young Africans - JKT Tanzania",
+  "last_result": "Young Africans - JKT Tanzania: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T23:14:11.704Z"
 }
