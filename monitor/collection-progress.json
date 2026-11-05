@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 472,
-  "processed_games": 326,
-  "stats_games": 326,
-  "bwin_odds": 325,
+  "processed_games": 350,
+  "stats_games": 350,
+  "bwin_odds": 349,
   "failed_games": 0,
-  "current_match": "A consultar jogo 329/472 · xbN3otet",
-  "last_result": "Real Salt Lake - Portland Timbers: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:32:57.332Z"
+  "current_match": "Último concluído: Columbus Crew - Los Angeles Galaxy",
+  "last_result": "Columbus Crew - Los Angeles Galaxy: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T21:33:02.464Z"
 }
