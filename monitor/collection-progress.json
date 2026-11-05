@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 51,
-  "processed_games": 50,
-  "stats_games": 49,
-  "bwin_odds": 50,
+  "processed_games": 51,
+  "stats_games": 50,
+  "bwin_odds": 51,
   "failed_games": 0,
-  "current_match": "Último concluído: El Biar - Olympique Akbou",
-  "last_result": "El Biar - Olympique Akbou: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T09:12:14.008Z"
+  "current_match": "Último concluído: Setif - Ben Aknoun",
+  "last_result": "Setif - Ben Aknoun: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T09:12:15.144Z"
 }
