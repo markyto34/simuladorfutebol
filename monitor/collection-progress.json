@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 631,
-  "processed_games": 525,
-  "stats_games": 524,
-  "bwin_odds": 452,
+  "processed_games": 550,
+  "stats_games": 549,
+  "bwin_odds": 477,
   "failed_games": 0,
-  "current_match": "A consultar jogo 526/631 · KCazFsxo",
-  "last_result": "Def. de Belgrano - Atl. Rafaela: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T09:36:47.415Z"
+  "current_match": "Último concluído: Chaco For Ever - Godoy Cruz",
+  "last_result": "Chaco For Ever - Godoy Cruz: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T09:37:17.095Z"
 }
