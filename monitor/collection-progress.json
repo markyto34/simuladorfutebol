@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 631,
-  "processed_games": 600,
-  "stats_games": 599,
-  "bwin_odds": 508,
+  "processed_games": 625,
+  "stats_games": 624,
+  "bwin_odds": 529,
   "failed_games": 0,
-  "current_match": "Último concluído: Almirante Brown - All Boys",
-  "last_result": "Almirante Brown - All Boys: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T09:38:49.862Z"
+  "current_match": "Último concluído: All Boys - CA Mitre",
+  "last_result": "All Boys - CA Mitre: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T09:39:29.260Z"
 }
