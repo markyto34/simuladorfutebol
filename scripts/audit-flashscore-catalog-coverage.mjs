@@ -76,6 +76,27 @@ export function buildFlashscoreCatalogCoverage(catalog, statsRows) {
     }
   }
 
+  const catalogKeys = new Set(catalog.competitions.map(candidate => key(candidate.country_name, candidate.competition_name)));
+  const rawStatsLabels = new Map();
+  for (const row of statsRows) {
+    const country = String(row.country || '').trim();
+    const competition = String(row.competition || '').trim();
+    if (!country || !competition) continue;
+    const labelKey = normalize(country) + '|' + normalize(competition);
+    let label = rawStatsLabels.get(labelKey);
+    if (!label) {
+      label = { country_name: country, competition_name: competition, stats_match_key: key(country, competition), ids: new Set(), rows: 0 };
+      rawStatsLabels.set(labelKey, label);
+    }
+    label.rows++;
+    if (row.match_id) label.ids.add(String(row.match_id));
+  }
+  const unmatchedStatsLabels = [...rawStatsLabels.values()]
+    .filter(label => !catalogKeys.has(label.stats_match_key))
+    .map(label => ({ country_name: label.country_name, competition_name: label.competition_name, unique_stats_matches: label.ids.size || label.rows, stats_rows: label.rows, reason: 'no_exact_catalog_match_review_alias_or_missing_competition' }))
+    .sort((a, b) => b.unique_stats_matches - a.unique_stats_matches || a.country_name.localeCompare(b.country_name) || a.competition_name.localeCompare(b.competition_name));
+  const matchedStatsLabelCount = rawStatsLabels.size - unmatchedStatsLabels.length;
+
   const duplicateKeys = new Set((catalog.local_duplicate_groups_for_review || []).map(x => x.key));
   const matchedStatsKeys = new Set();
   const competitions = catalog.competitions.map(candidate => {
@@ -127,8 +148,12 @@ export function buildFlashscoreCatalogCoverage(catalog, statsRows) {
       stats_competitions_matched_to_catalog: matchedStatsKeys.size,
       stats_competitions_not_in_catalog: unmatchedStatsCompetitions.length,
       stats_rows: statsRows.length,
-      stats_unique_match_ids: new Set(statsRows.map(x => String(x.match_id || '').trim()).filter(Boolean)).size
+      stats_unique_match_ids: new Set(statsRows.map(x => String(x.match_id || '').trim()).filter(Boolean)).size,
+      stats_competition_labels: rawStatsLabels.size,
+      matched_stats_competition_labels: matchedStatsLabelCount,
+      unmatched_stats_competition_labels: unmatchedStatsLabels.length
     },
+    unmatched_stats_labels: unmatchedStatsLabels,
     competitions: competitions.sort((a, b) => b.unique_stats_matches - a.unique_stats_matches || a.country_name.localeCompare(b.country_name) || a.competition_name.localeCompare(b.competition_name)),
     unmatched_stats_competitions: unmatchedStatsCompetitions
   };
