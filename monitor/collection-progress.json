@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 61,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 38,
+  "processed_games": 61,
+  "stats_games": 59,
+  "bwin_odds": 47,
   "failed_games": 0,
-  "current_match": "Último concluído: Petrovac - Jezero",
-  "last_result": "Petrovac - Jezero: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:20:01.660Z"
+  "current_match": "Último concluído: Petrovac - Bokelj",
+  "last_result": "Petrovac - Bokelj: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:20:03.878Z"
 }
