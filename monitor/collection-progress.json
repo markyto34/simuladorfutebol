@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
-  "total_games": 72,
-  "processed_games": 72,
-  "stats_games": 72,
-  "bwin_odds": 72,
+  "status": "running",
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
+  "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "AFS - Tondela: 11 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:39:24.993Z"
+  "current_match": "A descobrir jogos",
+  "last_result": "",
+  "updated_at": "2026-11-05T22:39:34.128Z"
 }
