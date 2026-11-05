@@ -14,7 +14,7 @@ function plain(value) {
     .replace(/\s+/g, " ").trim();
 }
 function getAttr(tag, name) {
-  const m = tag.match(new RegExp("\\b" + name + "\\s*=\\s*(['\"])([\\s\\S]*?)\\1", "i"));
+  const m = tag.match(new RegExp("\\b" + name + "\s*=\s*(['\"])([\s\\S]*?)\\1", "i"));
   return m?.[2] ?? null;
 }
 function parseAttrs(raw) {
@@ -102,15 +102,15 @@ function extractVisible(html, out) {
   for (const m of p.matchAll(/\b(?:jornada|round|matchday|rodada)\s*#?\s*(\d{1,3})\b/gi)) add(out, "round", m[1], "visible-page-text");
   for (const m of p.matchAll(/\b(oitavos de final|quartos de final|meias?-finais|final|playoffs?|group stage|fase de grupos)\b/gi)) add(out, "stage", m[1], "visible-page-text");
   for (const [label, field] of [["Árbitro", "referee"], ["Referee", "referee"], ["Estádio", "venue"], ["Stadium", "venue"], ["Assistência", "attendance"], ["Attendance", "attendance"]]) {
-    const m = p.match(new RegExp(label + "\\s*:?\\s*([^|]{2,90})", "i"));
+    const m = p.match(new RegExp(label + "\s*:?\s*([^|]{2,90})", "i"));
     if (m) add(out, field, m[1].split(/\s{2,}/)[0], "visible-label:" + label);
   }
 }
 const STAT_LABELS = [
   ["expected_goals", /^(golos esperados(?: \(xg\))?|expected goals(?: \(xg\))?|xg)$/i],
   ["big_chances", /^(grandes oportunidades|big chances)$/i],
-  ["corners_ht", /^(?:(?:cantos|pontap[eé]s de canto|escanteios|corners)\\s*[-:]?\\s*(?:1(?:[.ºª°]\\s*)?(?:parte|tempo|half)|primeira parte|first half|1st half)|(?:1(?:[.ºª°]\\s*)?(?:parte|tempo|half)|primeira parte|first half|1st half)\\s*[-:]?\\s*(?:cantos|pontap[eé]s de canto|escanteios|corners))$/i],
-  ["corners_st", /^(?:(?:cantos|pontap[eé]s de canto|escanteios|corners)\\s*[-:]?\\s*(?:2(?:[.ºª°]\\s*)?(?:parte|tempo|half)|segunda parte|second half|2nd half)|(?:2(?:[.ºª°]\\s*)?(?:parte|tempo|half)|segunda parte|second half|2nd half)\\s*[-:]?\\s*(?:cantos|pontap[eé]s de canto|escanteios|corners))$/i],
+  ["corners_ht", /^(?:(?:cantos|pontap[eé]s de canto|escanteios|corners)\s*[-:]?\s*(?:1(?:[.ºª°]\s*)?(?:parte|tempo|half)|primeira parte|first half|1st half)|(?:1(?:[.ºª°]\s*)?(?:parte|tempo|half)|primeira parte|first half|1st half)\s*[-:]?\s*(?:cantos|pontap[eé]s de canto|escanteios|corners))$/i],
+  ["corners_st", /^(?:(?:cantos|pontap[eé]s de canto|escanteios|corners)\s*[-:]?\s*(?:2(?:[.ºª°]\s*)?(?:parte|tempo|half)|segunda parte|second half|2nd half)|(?:2(?:[.ºª°]\s*)?(?:parte|tempo|half)|segunda parte|second half|2nd half)\s*[-:]?\s*(?:cantos|pontap[eé]s de canto|escanteios|corners))$/i],
   ["corners", /^(cantos|pontapés de canto|escanteios|corners)$/i],
   ["shots", /^(remates|finalizações|chutes|shots|total remates|total de remates|total shots)$/i],
   ["shots_on_target", /^(remates à baliza|remates enquadrados|finalizações no alvo|chutes no gol|shots on target)$/i],
@@ -191,7 +191,7 @@ function extractWclStatistics(html) {
       collectTextLeaves(scope, leaves);
       const values = leaves.map(plain).filter(Boolean);
       for (let i = 0; i < values.length; i++) {
-        const label = values[i].replace(/\\s+/g, " ").trim();
+        const label = values[i].replace(/\s+/g, " ").trim();
         const found = STAT_LABELS.find(([, re]) => re.test(label));
         if (!found) continue;
         const [key] = found;
