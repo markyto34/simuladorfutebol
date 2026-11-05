@@ -167,7 +167,7 @@ async function main() {
           "Accept": "text/html,application/xhtml+xml", "Accept-Language": "pt-PT,pt;q=0.9,en;q=0.7",
           "User-Agent": "Mozilla/5.0 (compatible; SimuladorFutebol/1.0)"
         }, "página inicial para atualizar assinatura do feed");
-        const fresh = /feed_sign\\s*[:=]\\s*["']([A-Za-z0-9_-]{4,32})["']/.exec(home)?.[1];
+        const fresh = /feed_sign\s*[:=]\s*["']([A-Za-z0-9_-]{4,32})["']/.exec(home)?.[1];
         if (fresh) activeFeedSign = fresh;
         response = await fetch(FEED + feedName, { headers: headers(), signal: AbortSignal.timeout(60000) });
       }
