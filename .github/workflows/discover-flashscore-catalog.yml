@@ -1,8 +1,6 @@
 name: Descobrir catálogo completo de competições Flashscore
 
 on:
-  schedule:
-    - cron: "15 4 * * *"
   push:
     branches: [feature/flashscore-full-competition-discovery, main]
     paths:
