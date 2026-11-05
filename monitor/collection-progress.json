@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 322,
-  "processed_games": 276,
-  "stats_games": 276,
-  "bwin_odds": 276,
+  "processed_games": 300,
+  "stats_games": 300,
+  "bwin_odds": 300,
   "failed_games": 0,
-  "current_match": "A consultar jogo 279/322 · dEhLdBgd",
-  "last_result": "Vitoria - Atletico-MG: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:25:17.913Z"
+  "current_match": "Último concluído: Vitoria - Flamengo",
+  "last_result": "Vitoria - Flamengo: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:25:32.060Z"
 }
