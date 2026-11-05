@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 96,
-  "processed_games": 26,
-  "stats_games": 26,
-  "bwin_odds": 22,
+  "processed_games": 51,
+  "stats_games": 51,
+  "bwin_odds": 45,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/96 · xWPyh1q4",
-  "last_result": "Al Shabab - Al-Taawon: 16 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T14:56:52.882Z"
+  "current_match": "A consultar jogo 54/96 · 8v4XFnFk",
+  "last_result": "Al-Khaleej - Al Riyadh: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T14:56:58.610Z"
 }
