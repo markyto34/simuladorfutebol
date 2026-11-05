@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 81,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 25,
+  "processed_games": 50,
+  "stats_games": 50,
+  "bwin_odds": 50,
   "failed_games": 0,
-  "current_match": "Último concluído: Osnabruck - Dresden",
-  "last_result": "Osnabruck - Dresden: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T09:03:57.618Z"
+  "current_match": "Último concluído: Kaiserslautern - Darmstadt",
+  "last_result": "Kaiserslautern - Darmstadt: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T09:04:27.597Z"
 }
