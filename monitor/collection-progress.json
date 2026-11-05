@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 40,
-  "processed_games": 25,
-  "stats_games": 24,
-  "bwin_odds": 21,
+  "processed_games": 40,
+  "stats_games": 31,
+  "bwin_odds": 22,
   "failed_games": 0,
-  "current_match": "Último concluído: Alcazar - Talayuela",
-  "last_result": "Alcazar - Talayuela: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T14:17:24.071Z"
+  "current_match": "Último concluído: Lebrijana - Ceuta 6 de Junio",
+  "last_result": "Lebrijana - Ceuta 6 de Junio: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T14:17:41.977Z"
 }
