@@ -46,3 +46,25 @@ test('classifica abertura, encerramento e quadrangulares como fases sem fundir a
   assert.equal(result.competitions.find(x => x.competition_name === 'Liga Profesional - Abertura').competition_family_candidate,'Liga Profesional');
   assert.equal(result.competitions.find(x => x.competition_name === 'Liga Profesional - Encerramento').competition_family_candidate,'Liga Profesional');
 });
+
+
+test('corrige o nome quando o link lateral não corresponde ao título oficial da página', () => {
+  const source = {
+    generated_at: '2026-11-05T00:00:00.000Z',
+    country_page_count: 2,
+    country_pages_successful: 2,
+    country_pages_failed: 0,
+    countries: [
+      {country_name:'Catar',country_slug:'qatar',url:'https://www.flashscore.pt/futebol/qatar/',fetch_status:'success'},
+      {country_name:'Lituânia',country_slug:'lituania',url:'https://www.flashscore.pt/futebol/lituania/',fetch_status:'success'}
+    ],
+    competitions: [
+      {country_name:'Catar',country_slug:'qatar',competition_name:'Taça',competition_slug:'primeira-liga',url:'https://www.flashscore.pt/futebol/qatar/primeira-liga/',status:'success'},
+      {country_name:'Lituânia',country_slug:'lituania',competition_name:'Segunda Liga',competition_slug:'primeira-liga',url:'https://www.flashscore.pt/futebol/lituania/primeira-liga/',status:'success'}
+    ]
+  };
+  const result = prepareFlashscoreCatalog(source);
+  assert.ok(result.competitions.every(item => item.competition_name === 'Primeira Liga'));
+  assert.deepEqual(result.competitions.map(item => item.source_competition_name).sort(), ['Segunda Liga', 'Taça']);
+  assert.ok(result.competitions.every(item => item.name_override_reason === 'official_flashscore_page_title_verified'));
+});
