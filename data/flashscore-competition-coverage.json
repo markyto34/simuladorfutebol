@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-11-05T07:09:32.143Z",
+  "generated_at": "2026-11-05T07:11:49.641Z",
   "source": "Flashscore catalog + data/flashscore-statistics.csv",
   "scope": "Correspondência por país e competição com normalização e apenas aliases explicitamente confirmados. Nomes repetidos no mesmo país ficam em revisão e não são considerados cobertura validada.",
   "summary": {
     "catalog_candidates": 1303,
-    "candidates_with_stats": 203,
-    "candidates_without_stats": 1094,
-    "candidates_1_to_4_matches": 81,
-    "candidates_5_plus_matches": 122,
+    "candidates_with_stats": 219,
+    "candidates_without_stats": 1078,
+    "candidates_1_to_4_matches": 84,
+    "candidates_5_plus_matches": 135,
     "candidates_10_plus_matches": 26,
     "candidates_20_plus_matches": 4,
     "duplicate_name_candidates_for_review": 6,
     "stats_competitions": 279,
-    "stats_competitions_matched_to_catalog": 204,
-    "stats_competitions_not_in_catalog": 75,
+    "stats_competitions_matched_to_catalog": 220,
+    "stats_competitions_not_in_catalog": 59,
     "stats_rows": 1572,
     "stats_unique_match_ids": 1572,
     "stats_competition_labels": 282,
-    "matched_stats_competition_labels": 206,
-    "unmatched_stats_competition_labels": 76
+    "matched_stats_competition_labels": 222,
+    "unmatched_stats_competition_labels": 60
   },
   "unmatched_stats_labels": [
     {
@@ -139,34 +139,6 @@
       "related_catalog_url": "https://www.flashscore.pt/futebol/mexico/liga-mx-feminino/"
     },
     {
-      "country_name": "REPÚBLICA CHECA",
-      "competition_name": "Chance Liga",
-      "unique_stats_matches": 9,
-      "stats_rows": 9,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
-    },
-    {
-      "country_name": "TURQUIA",
-      "competition_name": "Superliga",
-      "unique_stats_matches": 9,
-      "stats_rows": 9,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
-    },
-    {
-      "country_name": "ARGÉLIA",
-      "competition_name": "Primeira Divisão",
-      "unique_stats_matches": 8,
-      "stats_rows": 8,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
-    },
-    {
-      "country_name": "BIELORRÚSSIA",
-      "competition_name": "Liga Superior",
-      "unique_stats_matches": 8,
-      "stats_rows": 8,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
-    },
-    {
       "country_name": "EUA",
       "competition_name": "Campeonato USL - Playoffs",
       "unique_stats_matches": 8,
@@ -246,20 +218,6 @@
       "related_catalog_url": "https://www.flashscore.pt/futebol/costa-rica/liga-de-subida/"
     },
     {
-      "country_name": "MONTENEGRO",
-      "competition_name": "Primeira Liga",
-      "unique_stats_matches": 7,
-      "stats_rows": 7,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
-    },
-    {
-      "country_name": "UZBEQUISTÃO",
-      "competition_name": "Superliga",
-      "unique_stats_matches": 7,
-      "stats_rows": 7,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
-    },
-    {
       "country_name": "ARGENTINA",
       "competition_name": "Liga Reservas - Encerramento",
       "unique_stats_matches": 6,
@@ -273,28 +231,7 @@
       "related_catalog_url": "https://www.flashscore.pt/futebol/argentina/liga-reservas/"
     },
     {
-      "country_name": "BRASIL",
-      "competition_name": "Pernambucano - Primeiro nível",
-      "unique_stats_matches": 6,
-      "stats_rows": 6,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
-    },
-    {
       "country_name": "CATAR",
-      "competition_name": "Primeira Liga",
-      "unique_stats_matches": 6,
-      "stats_rows": 6,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
-    },
-    {
-      "country_name": "ESLOVÁQUIA",
-      "competition_name": "Niké liga",
-      "unique_stats_matches": 6,
-      "stats_rows": 6,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
-    },
-    {
-      "country_name": "ESLOVÉNIA",
       "competition_name": "Primeira Liga",
       "unique_stats_matches": 6,
       "stats_rows": 6,
@@ -314,20 +251,6 @@
       "related_catalog_url": "https://www.flashscore.pt/futebol/honduras/liga-nacional/"
     },
     {
-      "country_name": "ALBÂNIA",
-      "competition_name": "Superliga",
-      "unique_stats_matches": 5,
-      "stats_rows": 5,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
-    },
-    {
-      "country_name": "DINAMARCA",
-      "competition_name": "Superliga",
-      "unique_stats_matches": 5,
-      "stats_rows": 5,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
-    },
-    {
       "country_name": "FINLÂNDIA",
       "competition_name": "Primeira Liga - Grupo Campeonato",
       "unique_stats_matches": 5,
@@ -339,20 +262,6 @@
       ],
       "related_catalog_competition": "Primeira Liga",
       "related_catalog_url": "https://www.flashscore.pt/futebol/finlandia/primeira-liga/"
-    },
-    {
-      "country_name": "GEÓRGIA",
-      "competition_name": "Primeira Liga",
-      "unique_stats_matches": 5,
-      "stats_rows": 5,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
-    },
-    {
-      "country_name": "ÍNDIA",
-      "competition_name": "Superliga",
-      "unique_stats_matches": 5,
-      "stats_rows": 5,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
     },
     {
       "country_name": "NICARÁGUA",
@@ -441,13 +350,6 @@
       "related_catalog_url": "https://www.flashscore.pt/futebol/europa/liga-dos-campeoes-feminina/"
     },
     {
-      "country_name": "MALÁSIA",
-      "competition_name": "Superliga",
-      "unique_stats_matches": 4,
-      "stats_rows": 4,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
-    },
-    {
       "country_name": "MUNDO",
       "competition_name": "Campeonato do Mundo Sub17 Feminino - Playoffs",
       "unique_stats_matches": 4,
@@ -459,13 +361,6 @@
       ],
       "related_catalog_competition": "Campeonato do Mundo Sub17 Feminino",
       "related_catalog_url": "https://www.flashscore.pt/futebol/mundo/finais-campeonato-do-mundo-de-sub17-senhoras/"
-    },
-    {
-      "country_name": "NIGÉRIA",
-      "competition_name": "Primeira Liga",
-      "unique_stats_matches": 4,
-      "stats_rows": 4,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
     },
     {
       "country_name": "COREIA DO SUL",
@@ -483,13 +378,6 @@
     {
       "country_name": "COREIA DO SUL",
       "competition_name": "Liga K1 - Grupo de Despromoção",
-      "unique_stats_matches": 3,
-      "stats_rows": 3,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
-    },
-    {
-      "country_name": "EMIRADOS ÁRABES UNIDOS",
-      "competition_name": "Primeira Liga",
       "unique_stats_matches": 3,
       "stats_rows": 3,
       "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
@@ -3539,6 +3427,132 @@
       }
     },
     {
+      "country_name": "República Checa",
+      "country_slug": "republica-checa",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/republica-checa/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/republica-checa/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao",
+      "stats_match_key": "republica checa|primeira liga",
+      "stats_source_labels": [
+        "REPÚBLICA CHECA / Chance Liga"
+      ],
+      "unique_stats_matches": 9,
+      "stats_rows": 9,
+      "sample_status": "amostra_5_9",
+      "metrics": {
+        "corners": {
+          "complete_matches": 9,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 9,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 9,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 9,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 9,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 9,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 11.1
+        }
+      }
+    },
+    {
+      "country_name": "Turquia",
+      "country_slug": "turquia",
+      "competition_name": "Super Liga",
+      "competition_slug": "super-liga",
+      "url": "https://www.flashscore.pt/futebol/turquia/super-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/turquia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Super Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao",
+      "stats_match_key": "turquia|super liga",
+      "stats_source_labels": [
+        "TURQUIA / Superliga"
+      ],
+      "unique_stats_matches": 9,
+      "stats_rows": 9,
+      "sample_status": "amostra_5_9",
+      "metrics": {
+        "corners": {
+          "complete_matches": 9,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 9,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 9,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 9,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 9,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 9,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      }
+    },
+    {
       "country_name": "África do Sul",
       "country_slug": "africa-do-sul",
       "competition_name": "Primeira Liga",
@@ -3728,6 +3742,69 @@
       }
     },
     {
+      "country_name": "Argélia",
+      "country_slug": "argelia",
+      "competition_name": "1 Divisao",
+      "competition_slug": "1-divisao",
+      "url": "https://www.flashscore.pt/futebol/argelia/1-divisao/",
+      "source_country_url": "https://www.flashscore.pt/futebol/argelia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "1 Divisao",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao",
+      "stats_match_key": "argelia|1 divisao",
+      "stats_source_labels": [
+        "ARGÉLIA / Primeira Divisão"
+      ],
+      "unique_stats_matches": 8,
+      "stats_rows": 8,
+      "sample_status": "amostra_5_9",
+      "metrics": {
+        "corners": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 7,
+          "coverage_pct": 87.5
+        },
+        "yellow_cards": {
+          "complete_matches": 6,
+          "coverage_pct": 75
+        },
+        "red_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 12.5
+        }
+      }
+    },
+    {
       "country_name": "Ásia",
       "country_slug": "asia",
       "competition_name": "AFC - Liga dos Campeões 2",
@@ -3850,6 +3927,69 @@
         "red_cards": {
           "complete_matches": 3,
           "coverage_pct": 37.5
+        }
+      }
+    },
+    {
+      "country_name": "Bielorrússia",
+      "country_slug": "belarus",
+      "competition_name": "Liga Vysshaya",
+      "competition_slug": "liga-vysshaya",
+      "url": "https://www.flashscore.pt/futebol/belarus/liga-vysshaya/",
+      "source_country_url": "https://www.flashscore.pt/futebol/belarus/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Vysshaya",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao",
+      "stats_match_key": "bielorrussia|liga vysshaya",
+      "stats_source_labels": [
+        "BIELORRÚSSIA / Liga Superior"
+      ],
+      "unique_stats_matches": 8,
+      "stats_rows": 8,
+      "sample_status": "amostra_5_9",
+      "metrics": {
+        "corners": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
         }
       }
     },
@@ -5366,6 +5506,69 @@
       }
     },
     {
+      "country_name": "Montenegro",
+      "country_slug": "montenegro",
+      "competition_name": "Liga Prva Crnogorska",
+      "competition_slug": "liga-prva-crnogorska",
+      "url": "https://www.flashscore.pt/futebol/montenegro/liga-prva-crnogorska/",
+      "source_country_url": "https://www.flashscore.pt/futebol/montenegro/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Prva Crnogorska",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao",
+      "stats_match_key": "montenegro|liga prva crnogorska",
+      "stats_source_labels": [
+        "MONTENEGRO / Primeira Liga"
+      ],
+      "unique_stats_matches": 7,
+      "stats_rows": 7,
+      "sample_status": "amostra_5_9",
+      "metrics": {
+        "corners": {
+          "complete_matches": 7,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 7,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 7,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 2,
+          "coverage_pct": 28.6
+        },
+        "yellow_cards": {
+          "complete_matches": 7,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      }
+    },
+    {
       "country_name": "Portugal",
       "country_slug": "portugal",
       "competition_name": "Campeonato de Portugal - Série A",
@@ -5870,6 +6073,69 @@
       }
     },
     {
+      "country_name": "Uzbequistão",
+      "country_slug": "uzbequistao",
+      "competition_name": "Super Liga",
+      "competition_slug": "super-liga",
+      "url": "https://www.flashscore.pt/futebol/uzbequistao/super-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/uzbequistao/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Super Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao",
+      "stats_match_key": "uzbequistao|super liga",
+      "stats_source_labels": [
+        "UZBEQUISTÃO / Superliga"
+      ],
+      "unique_stats_matches": 7,
+      "stats_rows": 7,
+      "sample_status": "amostra_5_9",
+      "metrics": {
+        "corners": {
+          "complete_matches": 7,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 7,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 7,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 1,
+          "coverage_pct": 14.3
+        },
+        "yellow_cards": {
+          "complete_matches": 7,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 3,
+          "coverage_pct": 42.9
+        }
+      }
+    },
+    {
       "country_name": "Ásia",
       "country_slug": "asia",
       "competition_name": "AFC Liga dos Campeões Feminina",
@@ -6114,6 +6380,69 @@
         "yellow_cards": {
           "complete_matches": 6,
           "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      }
+    },
+    {
+      "country_name": "Brasil",
+      "country_slug": "brasil",
+      "competition_name": "Pernambucano",
+      "competition_slug": "pernambucano",
+      "url": "https://www.flashscore.pt/futebol/brasil/pernambucano/",
+      "source_country_url": "https://www.flashscore.pt/futebol/brasil/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Pernambucano",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao",
+      "stats_match_key": "brasil|pernambucano",
+      "stats_source_labels": [
+        "BRASIL / Pernambucano - Primeiro nível"
+      ],
+      "unique_stats_matches": 6,
+      "stats_rows": 6,
+      "sample_status": "amostra_5_9",
+      "metrics": {
+        "corners": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 4,
+          "coverage_pct": 66.7
+        },
+        "yellow_cards": {
+          "complete_matches": 4,
+          "coverage_pct": 66.7
         },
         "red_cards": {
           "complete_matches": 0,
@@ -6393,6 +6722,132 @@
       "stats_match_key": "egipto|taca da liga",
       "stats_source_labels": [
         "EGIPTO / Taça da Liga"
+      ],
+      "unique_stats_matches": 6,
+      "stats_rows": 6,
+      "sample_status": "amostra_5_9",
+      "metrics": {
+        "corners": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      }
+    },
+    {
+      "country_name": "Eslováquia",
+      "country_slug": "eslovaquia",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/eslovaquia/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/eslovaquia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao",
+      "stats_match_key": "eslovaquia|primeira liga",
+      "stats_source_labels": [
+        "ESLOVÁQUIA / Niké liga"
+      ],
+      "unique_stats_matches": 6,
+      "stats_rows": 6,
+      "sample_status": "amostra_5_9",
+      "metrics": {
+        "corners": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      }
+    },
+    {
+      "country_name": "Eslovénia",
+      "country_slug": "eslovenia",
+      "competition_name": "Liga Prva",
+      "competition_slug": "liga-prva",
+      "url": "https://www.flashscore.pt/futebol/eslovenia/liga-prva/",
+      "source_country_url": "https://www.flashscore.pt/futebol/eslovenia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Prva",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao",
+      "stats_match_key": "eslovenia|liga prva",
+      "stats_source_labels": [
+        "ESLOVÉNIA / Primeira Liga"
       ],
       "unique_stats_matches": 6,
       "stats_rows": 6,
@@ -7193,6 +7648,69 @@
       }
     },
     {
+      "country_name": "Albânia",
+      "country_slug": "albania",
+      "competition_name": "Super Liga",
+      "competition_slug": "super-liga",
+      "url": "https://www.flashscore.pt/futebol/albania/super-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/albania/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Super Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao",
+      "stats_match_key": "albania|super liga",
+      "stats_source_labels": [
+        "ALBÂNIA / Superliga"
+      ],
+      "unique_stats_matches": 5,
+      "stats_rows": 5,
+      "sample_status": "amostra_5_9",
+      "metrics": {
+        "corners": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      }
+    },
+    {
       "country_name": "Argentina",
       "country_slug": "argentina",
       "competition_name": "Primeira B",
@@ -7441,6 +7959,69 @@
         "red_cards": {
           "complete_matches": 1,
           "coverage_pct": 20
+        }
+      }
+    },
+    {
+      "country_name": "Dinamarca",
+      "country_slug": "dinamarca",
+      "competition_name": "Super Liga",
+      "competition_slug": "super-liga",
+      "url": "https://www.flashscore.pt/futebol/dinamarca/super-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/dinamarca/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Super Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao",
+      "stats_match_key": "dinamarca|super liga",
+      "stats_source_labels": [
+        "DINAMARCA / Superliga"
+      ],
+      "unique_stats_matches": 5,
+      "stats_rows": 5,
+      "sample_status": "amostra_5_9",
+      "metrics": {
+        "corners": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
         }
       }
     },
@@ -7760,6 +8341,69 @@
       }
     },
     {
+      "country_name": "Geórgia",
+      "country_slug": "georgia",
+      "competition_name": "Liga Crystalbet Erovnuli",
+      "competition_slug": "liga-crystalbet-erovnuli",
+      "url": "https://www.flashscore.pt/futebol/georgia/liga-crystalbet-erovnuli/",
+      "source_country_url": "https://www.flashscore.pt/futebol/georgia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Crystalbet Erovnuli",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao",
+      "stats_match_key": "georgia|liga crystalbet erovnuli",
+      "stats_source_labels": [
+        "GEÓRGIA / Primeira Liga"
+      ],
+      "unique_stats_matches": 5,
+      "stats_rows": 5,
+      "sample_status": "amostra_5_9",
+      "metrics": {
+        "corners": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      }
+    },
+    {
       "country_name": "Grécia",
       "country_slug": "grecia",
       "competition_name": "Superliga 2",
@@ -7819,6 +8463,69 @@
         "red_cards": {
           "complete_matches": 0,
           "coverage_pct": 0
+        }
+      }
+    },
+    {
+      "country_name": "Índia",
+      "country_slug": "india",
+      "competition_name": "Super Liga",
+      "competition_slug": "super-liga",
+      "url": "https://www.flashscore.pt/futebol/india/super-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/india/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Super Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao",
+      "stats_match_key": "india|super liga",
+      "stats_source_labels": [
+        "ÍNDIA / Superliga"
+      ],
+      "unique_stats_matches": 5,
+      "stats_rows": 5,
+      "sample_status": "amostra_5_9",
+      "metrics": {
+        "corners": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 20
         }
       }
     },
@@ -9272,6 +9979,69 @@
       }
     },
     {
+      "country_name": "Malásia",
+      "country_slug": "malasia",
+      "competition_name": "Super Liga",
+      "competition_slug": "super-liga",
+      "url": "https://www.flashscore.pt/futebol/malasia/super-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/malasia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Super Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao",
+      "stats_match_key": "malasia|super liga",
+      "stats_source_labels": [
+        "MALÁSIA / Superliga"
+      ],
+      "unique_stats_matches": 4,
+      "stats_rows": 4,
+      "sample_status": "amostra_1_4",
+      "metrics": {
+        "corners": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "yellow_cards": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 2,
+          "coverage_pct": 50
+        }
+      }
+    },
+    {
       "country_name": "Malta",
       "country_slug": "malta",
       "competition_name": "Segunda Liga",
@@ -9323,6 +10093,69 @@
         "fouls": {
           "complete_matches": 0,
           "coverage_pct": 0
+        },
+        "yellow_cards": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      }
+    },
+    {
+      "country_name": "Nigéria",
+      "country_slug": "nigeria",
+      "competition_name": "Npfl",
+      "competition_slug": "npfl",
+      "url": "https://www.flashscore.pt/futebol/nigeria/npfl/",
+      "source_country_url": "https://www.flashscore.pt/futebol/nigeria/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Npfl",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao",
+      "stats_match_key": "nigeria|npfl",
+      "stats_source_labels": [
+        "NIGÉRIA / Primeira Liga"
+      ],
+      "unique_stats_matches": 4,
+      "stats_rows": 4,
+      "sample_status": "amostra_1_4",
+      "metrics": {
+        "corners": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 3,
+          "coverage_pct": 75
         },
         "yellow_cards": {
           "complete_matches": 4,
@@ -10209,6 +11042,69 @@
         "yellow_cards": {
           "complete_matches": 3,
           "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      }
+    },
+    {
+      "country_name": "Emirados Árabes Unidos",
+      "country_slug": "emirados-arabes-unidos",
+      "competition_name": "Liga Uae",
+      "competition_slug": "liga-uae",
+      "url": "https://www.flashscore.pt/futebol/emirados-arabes-unidos/liga-uae/",
+      "source_country_url": "https://www.flashscore.pt/futebol/emirados-arabes-unidos/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Uae",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao",
+      "stats_match_key": "emirados arabes unidos|liga uae",
+      "stats_source_labels": [
+        "EMIRADOS ÁRABES UNIDOS / Primeira Liga"
+      ],
+      "unique_stats_matches": 3,
+      "stats_rows": 3,
+      "sample_status": "amostra_1_4",
+      "metrics": {
+        "corners": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
         },
         "red_cards": {
           "complete_matches": 0,
@@ -15334,67 +16230,6 @@
     {
       "country_name": "Albânia",
       "country_slug": "albania",
-      "competition_name": "Super Liga",
-      "competition_slug": "super-liga",
-      "url": "https://www.flashscore.pt/futebol/albania/super-liga/",
-      "source_country_url": "https://www.flashscore.pt/futebol/albania/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Super Liga",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "liga_ou_torneio",
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "pais_ou_regiao",
-      "stats_match_key": "albania|super liga",
-      "stats_source_labels": [],
-      "unique_stats_matches": 0,
-      "stats_rows": 0,
-      "sample_status": "sem_dados",
-      "metrics": {
-        "corners": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots_on_target": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "yellow_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "country_name": "Albânia",
-      "country_slug": "albania",
       "competition_name": "Supertaça",
       "competition_slug": "super-taca",
       "url": "https://www.flashscore.pt/futebol/albania/super-taca/",
@@ -20351,67 +21186,6 @@
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao",
       "stats_match_key": "arabia saudita|taca do rei",
-      "stats_source_labels": [],
-      "unique_stats_matches": 0,
-      "stats_rows": 0,
-      "sample_status": "sem_dados",
-      "metrics": {
-        "corners": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots_on_target": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "yellow_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "country_name": "Argélia",
-      "country_slug": "argelia",
-      "competition_name": "1 Divisao",
-      "competition_slug": "1-divisao",
-      "url": "https://www.flashscore.pt/futebol/argelia/1-divisao/",
-      "source_country_url": "https://www.flashscore.pt/futebol/argelia/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "1 Divisao",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "liga_ou_torneio",
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "pais_ou_regiao",
-      "stats_match_key": "argelia|1 divisao",
       "stats_source_labels": [],
       "unique_stats_matches": 0,
       "stats_rows": 0,
@@ -28205,67 +28979,6 @@
     {
       "country_name": "Bielorrússia",
       "country_slug": "belarus",
-      "competition_name": "Liga Vysshaya",
-      "competition_slug": "liga-vysshaya",
-      "url": "https://www.flashscore.pt/futebol/belarus/liga-vysshaya/",
-      "source_country_url": "https://www.flashscore.pt/futebol/belarus/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Liga Vysshaya",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "liga_ou_torneio",
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "pais_ou_regiao",
-      "stats_match_key": "bielorrussia|liga vysshaya",
-      "stats_source_labels": [],
-      "unique_stats_matches": 0,
-      "stats_rows": 0,
-      "sample_status": "sem_dados",
-      "metrics": {
-        "corners": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots_on_target": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "yellow_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "country_name": "Bielorrússia",
-      "country_slug": "belarus",
       "competition_name": "Supertaça",
       "competition_slug": "super-taca",
       "url": "https://www.flashscore.pt/futebol/belarus/super-taca/",
@@ -34930,67 +35643,6 @@
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao",
       "stats_match_key": "brasil|paulista u20",
-      "stats_source_labels": [],
-      "unique_stats_matches": 0,
-      "stats_rows": 0,
-      "sample_status": "sem_dados",
-      "metrics": {
-        "corners": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots_on_target": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "yellow_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "country_name": "Brasil",
-      "country_slug": "brasil",
-      "competition_name": "Pernambucano",
-      "competition_slug": "pernambucano",
-      "url": "https://www.flashscore.pt/futebol/brasil/pernambucano/",
-      "source_country_url": "https://www.flashscore.pt/futebol/brasil/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Pernambucano",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "liga_ou_torneio",
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "pais_ou_regiao",
-      "stats_match_key": "brasil|pernambucano",
       "stats_source_labels": [],
       "unique_stats_matches": 0,
       "stats_rows": 0,
@@ -42113,67 +42765,6 @@
     {
       "country_name": "Dinamarca",
       "country_slug": "dinamarca",
-      "competition_name": "Super Liga",
-      "competition_slug": "super-liga",
-      "url": "https://www.flashscore.pt/futebol/dinamarca/super-liga/",
-      "source_country_url": "https://www.flashscore.pt/futebol/dinamarca/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Super Liga",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "liga_ou_torneio",
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "pais_ou_regiao",
-      "stats_match_key": "dinamarca|super liga",
-      "stats_source_labels": [],
-      "unique_stats_matches": 0,
-      "stats_rows": 0,
-      "sample_status": "sem_dados",
-      "metrics": {
-        "corners": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots_on_target": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "yellow_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "country_name": "Dinamarca",
-      "country_slug": "dinamarca",
       "competition_name": "Taça Feminina",
       "competition_slug": "taca-feminina",
       "url": "https://www.flashscore.pt/futebol/dinamarca/taca-feminina/",
@@ -42555,67 +43146,6 @@
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao",
       "stats_match_key": "el salvador|primeira divisao",
-      "stats_source_labels": [],
-      "unique_stats_matches": 0,
-      "stats_rows": 0,
-      "sample_status": "sem_dados",
-      "metrics": {
-        "corners": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots_on_target": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "yellow_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "country_name": "Emirados Árabes Unidos",
-      "country_slug": "emirados-arabes-unidos",
-      "competition_name": "Liga Uae",
-      "competition_slug": "liga-uae",
-      "url": "https://www.flashscore.pt/futebol/emirados-arabes-unidos/liga-uae/",
-      "source_country_url": "https://www.flashscore.pt/futebol/emirados-arabes-unidos/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Liga Uae",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "liga_ou_torneio",
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "pais_ou_regiao",
-      "stats_match_key": "emirados arabes unidos|liga uae",
       "stats_source_labels": [],
       "unique_stats_matches": 0,
       "stats_rows": 0,
@@ -43821,67 +44351,6 @@
     {
       "country_name": "Eslováquia",
       "country_slug": "eslovaquia",
-      "competition_name": "Primeira Liga",
-      "competition_slug": "primeira-liga",
-      "url": "https://www.flashscore.pt/futebol/eslovaquia/primeira-liga/",
-      "source_country_url": "https://www.flashscore.pt/futebol/eslovaquia/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Primeira Liga",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "liga_ou_torneio",
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "pais_ou_regiao",
-      "stats_match_key": "eslovaquia|primeira liga",
-      "stats_source_labels": [],
-      "unique_stats_matches": 0,
-      "stats_rows": 0,
-      "sample_status": "sem_dados",
-      "metrics": {
-        "corners": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots_on_target": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "yellow_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "country_name": "Eslováquia",
-      "country_slug": "eslovaquia",
       "competition_name": "Quarta Liga - Bratislava",
       "competition_slug": "quarta-liga-bratislava",
       "url": "https://www.flashscore.pt/futebol/eslovaquia/quarta-liga-bratislava/",
@@ -44263,67 +44732,6 @@
       "has_division_or_group_marker": true,
       "geographic_scope": "pais_ou_regiao",
       "stats_match_key": "eslovaquia|terceira liga oeste",
-      "stats_source_labels": [],
-      "unique_stats_matches": 0,
-      "stats_rows": 0,
-      "sample_status": "sem_dados",
-      "metrics": {
-        "corners": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots_on_target": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "yellow_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "country_name": "Eslovénia",
-      "country_slug": "eslovenia",
-      "competition_name": "Liga Prva",
-      "competition_slug": "liga-prva",
-      "url": "https://www.flashscore.pt/futebol/eslovenia/liga-prva/",
-      "source_country_url": "https://www.flashscore.pt/futebol/eslovenia/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Liga Prva",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "liga_ou_torneio",
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "pais_ou_regiao",
-      "stats_match_key": "eslovenia|liga prva",
       "stats_source_labels": [],
       "unique_stats_matches": 0,
       "stats_rows": 0,
@@ -50958,67 +51366,6 @@
     {
       "country_name": "Geórgia",
       "country_slug": "georgia",
-      "competition_name": "Liga Crystalbet Erovnuli",
-      "competition_slug": "liga-crystalbet-erovnuli",
-      "url": "https://www.flashscore.pt/futebol/georgia/liga-crystalbet-erovnuli/",
-      "source_country_url": "https://www.flashscore.pt/futebol/georgia/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Liga Crystalbet Erovnuli",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "liga_ou_torneio",
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "pais_ou_regiao",
-      "stats_match_key": "georgia|liga crystalbet erovnuli",
-      "stats_source_labels": [],
-      "unique_stats_matches": 0,
-      "stats_rows": 0,
-      "sample_status": "sem_dados",
-      "metrics": {
-        "corners": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots_on_target": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "yellow_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "country_name": "Geórgia",
-      "country_slug": "georgia",
       "competition_name": "Segunda Liga",
       "competition_slug": "segunda-liga",
       "url": "https://www.flashscore.pt/futebol/georgia/segunda-liga/",
@@ -53779,67 +54126,6 @@
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao",
       "stats_match_key": "india|segunda liga indiana",
-      "stats_source_labels": [],
-      "unique_stats_matches": 0,
-      "stats_rows": 0,
-      "sample_status": "sem_dados",
-      "metrics": {
-        "corners": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots_on_target": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "yellow_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "country_name": "Índia",
-      "country_slug": "india",
-      "competition_name": "Super Liga",
-      "competition_slug": "super-liga",
-      "url": "https://www.flashscore.pt/futebol/india/super-liga/",
-      "source_country_url": "https://www.flashscore.pt/futebol/india/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Super Liga",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "liga_ou_torneio",
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "pais_ou_regiao",
-      "stats_match_key": "india|super liga",
       "stats_source_labels": [],
       "unique_stats_matches": 0,
       "stats_rows": 0,
@@ -61694,67 +61980,6 @@
     {
       "country_name": "Malásia",
       "country_slug": "malasia",
-      "competition_name": "Super Liga",
-      "competition_slug": "super-liga",
-      "url": "https://www.flashscore.pt/futebol/malasia/super-liga/",
-      "source_country_url": "https://www.flashscore.pt/futebol/malasia/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Super Liga",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "liga_ou_torneio",
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "pais_ou_regiao",
-      "stats_match_key": "malasia|super liga",
-      "stats_source_labels": [],
-      "unique_stats_matches": 0,
-      "stats_rows": 0,
-      "sample_status": "sem_dados",
-      "metrics": {
-        "corners": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots_on_target": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "yellow_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "country_name": "Malásia",
-      "country_slug": "malasia",
       "competition_name": "Taça Challenge MFL",
       "competition_slug": "taca-challenge-mfl",
       "url": "https://www.flashscore.pt/futebol/malasia/taca-challenge-mfl/",
@@ -63728,67 +63953,6 @@
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao",
       "stats_match_key": "mongolia|supertaca",
-      "stats_source_labels": [],
-      "unique_stats_matches": 0,
-      "stats_rows": 0,
-      "sample_status": "sem_dados",
-      "metrics": {
-        "corners": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots_on_target": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "yellow_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "country_name": "Montenegro",
-      "country_slug": "montenegro",
-      "competition_name": "Liga Prva Crnogorska",
-      "competition_slug": "liga-prva-crnogorska",
-      "url": "https://www.flashscore.pt/futebol/montenegro/liga-prva-crnogorska/",
-      "source_country_url": "https://www.flashscore.pt/futebol/montenegro/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Liga Prva Crnogorska",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "liga_ou_torneio",
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "pais_ou_regiao",
-      "stats_match_key": "montenegro|liga prva crnogorska",
       "stats_source_labels": [],
       "unique_stats_matches": 0,
       "stats_rows": 0,
@@ -66839,67 +67003,6 @@
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao",
       "stats_match_key": "nigeria|federation cup",
-      "stats_source_labels": [],
-      "unique_stats_matches": 0,
-      "stats_rows": 0,
-      "sample_status": "sem_dados",
-      "metrics": {
-        "corners": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots_on_target": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "yellow_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "country_name": "Nigéria",
-      "country_slug": "nigeria",
-      "competition_name": "Npfl",
-      "competition_slug": "npfl",
-      "url": "https://www.flashscore.pt/futebol/nigeria/npfl/",
-      "source_country_url": "https://www.flashscore.pt/futebol/nigeria/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Npfl",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "liga_ou_torneio",
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "pais_ou_regiao",
-      "stats_match_key": "nigeria|npfl",
       "stats_source_labels": [],
       "unique_stats_matches": 0,
       "stats_rows": 0,
@@ -72747,67 +72850,6 @@
     {
       "country_name": "República Checa",
       "country_slug": "republica-checa",
-      "competition_name": "Primeira Liga",
-      "competition_slug": "primeira-liga",
-      "url": "https://www.flashscore.pt/futebol/republica-checa/primeira-liga/",
-      "source_country_url": "https://www.flashscore.pt/futebol/republica-checa/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Primeira Liga",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "liga_ou_torneio",
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "pais_ou_regiao",
-      "stats_match_key": "republica checa|primeira liga",
-      "stats_source_labels": [],
-      "unique_stats_matches": 0,
-      "stats_rows": 0,
-      "sample_status": "sem_dados",
-      "metrics": {
-        "corners": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots_on_target": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "yellow_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "country_name": "República Checa",
-      "country_slug": "republica-checa",
       "competition_name": "Segunda Liga - Feminina",
       "competition_slug": "segunda-liga-feminina",
       "url": "https://www.flashscore.pt/futebol/republica-checa/segunda-liga-feminina/",
@@ -78481,67 +78523,6 @@
     {
       "country_name": "Turquia",
       "country_slug": "turquia",
-      "competition_name": "Super Liga",
-      "competition_slug": "super-liga",
-      "url": "https://www.flashscore.pt/futebol/turquia/super-liga/",
-      "source_country_url": "https://www.flashscore.pt/futebol/turquia/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Super Liga",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "liga_ou_torneio",
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "pais_ou_regiao",
-      "stats_match_key": "turquia|super liga",
-      "stats_source_labels": [],
-      "unique_stats_matches": 0,
-      "stats_rows": 0,
-      "sample_status": "sem_dados",
-      "metrics": {
-        "corners": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots_on_target": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "yellow_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "country_name": "Turquia",
-      "country_slug": "turquia",
       "competition_name": "Superliga Feminina",
       "competition_slug": "super-liga-feminina",
       "url": "https://www.flashscore.pt/futebol/turquia/super-liga-feminina/",
@@ -79655,67 +79636,6 @@
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao",
       "stats_match_key": "uruguai|taca do uruguai",
-      "stats_source_labels": [],
-      "unique_stats_matches": 0,
-      "stats_rows": 0,
-      "sample_status": "sem_dados",
-      "metrics": {
-        "corners": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots_on_target": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "yellow_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "country_name": "Uzbequistão",
-      "country_slug": "uzbequistao",
-      "competition_name": "Super Liga",
-      "competition_slug": "super-liga",
-      "url": "https://www.flashscore.pt/futebol/uzbequistao/super-liga/",
-      "source_country_url": "https://www.flashscore.pt/futebol/uzbequistao/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Super Liga",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "liga_ou_torneio",
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "pais_ou_regiao",
-      "stats_match_key": "uzbequistao|super liga",
       "stats_source_labels": [],
       "unique_stats_matches": 0,
       "stats_rows": 0,
@@ -81099,96 +81019,6 @@
       }
     },
     {
-      "stats_match_key": "republica checa|chance liga",
-      "source_labels": [
-        "REPÚBLICA CHECA / Chance Liga"
-      ],
-      "unique_stats_matches": 9,
-      "metrics": {
-        "corners": {
-          "complete_matches": 9,
-          "coverage_pct": 100
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 9,
-          "coverage_pct": 100
-        },
-        "shots_on_target": {
-          "complete_matches": 9,
-          "coverage_pct": 100
-        },
-        "xg": {
-          "complete_matches": 9,
-          "coverage_pct": 100
-        },
-        "fouls": {
-          "complete_matches": 9,
-          "coverage_pct": 100
-        },
-        "yellow_cards": {
-          "complete_matches": 9,
-          "coverage_pct": 100
-        },
-        "red_cards": {
-          "complete_matches": 1,
-          "coverage_pct": 11.1
-        }
-      }
-    },
-    {
-      "stats_match_key": "turquia|superliga",
-      "source_labels": [
-        "TURQUIA / Superliga"
-      ],
-      "unique_stats_matches": 9,
-      "metrics": {
-        "corners": {
-          "complete_matches": 9,
-          "coverage_pct": 100
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 9,
-          "coverage_pct": 100
-        },
-        "shots_on_target": {
-          "complete_matches": 9,
-          "coverage_pct": 100
-        },
-        "xg": {
-          "complete_matches": 9,
-          "coverage_pct": 100
-        },
-        "fouls": {
-          "complete_matches": 9,
-          "coverage_pct": 100
-        },
-        "yellow_cards": {
-          "complete_matches": 9,
-          "coverage_pct": 100
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
       "stats_match_key": "europa|uefa youth league fase de liga",
       "source_labels": [
         "EUROPA / UEFA Youth League - Fase de Liga"
@@ -81225,51 +81055,6 @@
         },
         "yellow_cards": {
           "complete_matches": 9,
-          "coverage_pct": 100
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "stats_match_key": "bielorrussia|liga superior",
-      "source_labels": [
-        "BIELORRÚSSIA / Liga Superior"
-      ],
-      "unique_stats_matches": 8,
-      "metrics": {
-        "corners": {
-          "complete_matches": 8,
-          "coverage_pct": 100
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 8,
-          "coverage_pct": 100
-        },
-        "shots_on_target": {
-          "complete_matches": 8,
-          "coverage_pct": 100
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 8,
-          "coverage_pct": 100
-        },
-        "yellow_cards": {
-          "complete_matches": 8,
           "coverage_pct": 100
         },
         "red_cards": {
@@ -81459,51 +81244,6 @@
       }
     },
     {
-      "stats_match_key": "argelia|primeira divisao",
-      "source_labels": [
-        "ARGÉLIA / Primeira Divisão"
-      ],
-      "unique_stats_matches": 8,
-      "metrics": {
-        "corners": {
-          "complete_matches": 8,
-          "coverage_pct": 100
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 8,
-          "coverage_pct": 100
-        },
-        "shots_on_target": {
-          "complete_matches": 8,
-          "coverage_pct": 100
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 7,
-          "coverage_pct": 87.5
-        },
-        "yellow_cards": {
-          "complete_matches": 6,
-          "coverage_pct": 75
-        },
-        "red_cards": {
-          "complete_matches": 1,
-          "coverage_pct": 12.5
-        }
-      }
-    },
-    {
       "stats_match_key": "colombia|primeira b encerramento quadrangular",
       "source_labels": [
         "COLÔMBIA / Primeira B - Encerramento - Quadrangular"
@@ -81585,231 +81325,6 @@
         },
         "yellow_cards": {
           "complete_matches": 7,
-          "coverage_pct": 100
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "stats_match_key": "montenegro|primeira liga",
-      "source_labels": [
-        "MONTENEGRO / Primeira Liga"
-      ],
-      "unique_stats_matches": 7,
-      "metrics": {
-        "corners": {
-          "complete_matches": 7,
-          "coverage_pct": 100
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 7,
-          "coverage_pct": 100
-        },
-        "shots_on_target": {
-          "complete_matches": 7,
-          "coverage_pct": 100
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 2,
-          "coverage_pct": 28.6
-        },
-        "yellow_cards": {
-          "complete_matches": 7,
-          "coverage_pct": 100
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "stats_match_key": "uzbequistao|superliga",
-      "source_labels": [
-        "UZBEQUISTÃO / Superliga"
-      ],
-      "unique_stats_matches": 7,
-      "metrics": {
-        "corners": {
-          "complete_matches": 7,
-          "coverage_pct": 100
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 7,
-          "coverage_pct": 100
-        },
-        "shots_on_target": {
-          "complete_matches": 7,
-          "coverage_pct": 100
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 1,
-          "coverage_pct": 14.3
-        },
-        "yellow_cards": {
-          "complete_matches": 7,
-          "coverage_pct": 100
-        },
-        "red_cards": {
-          "complete_matches": 3,
-          "coverage_pct": 42.9
-        }
-      }
-    },
-    {
-      "stats_match_key": "brasil|pernambucano primeiro nivel",
-      "source_labels": [
-        "BRASIL / Pernambucano - Primeiro nível"
-      ],
-      "unique_stats_matches": 6,
-      "metrics": {
-        "corners": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        },
-        "shots_on_target": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 4,
-          "coverage_pct": 66.7
-        },
-        "yellow_cards": {
-          "complete_matches": 4,
-          "coverage_pct": 66.7
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "stats_match_key": "eslovaquia|nike liga",
-      "source_labels": [
-        "ESLOVÁQUIA / Niké liga"
-      ],
-      "unique_stats_matches": 6,
-      "metrics": {
-        "corners": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        },
-        "shots_on_target": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        },
-        "xg": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        },
-        "fouls": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        },
-        "yellow_cards": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "stats_match_key": "eslovenia|primeira liga",
-      "source_labels": [
-        "ESLOVÉNIA / Primeira Liga"
-      ],
-      "unique_stats_matches": 6,
-      "metrics": {
-        "corners": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        },
-        "shots_on_target": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        },
-        "yellow_cards": {
-          "complete_matches": 6,
           "coverage_pct": 100
         },
         "red_cards": {
@@ -81954,96 +81469,6 @@
       }
     },
     {
-      "stats_match_key": "albania|superliga",
-      "source_labels": [
-        "ALBÂNIA / Superliga"
-      ],
-      "unique_stats_matches": 5,
-      "metrics": {
-        "corners": {
-          "complete_matches": 5,
-          "coverage_pct": 100
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 5,
-          "coverage_pct": 100
-        },
-        "shots_on_target": {
-          "complete_matches": 5,
-          "coverage_pct": 100
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 5,
-          "coverage_pct": 100
-        },
-        "yellow_cards": {
-          "complete_matches": 5,
-          "coverage_pct": 100
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "stats_match_key": "dinamarca|superliga",
-      "source_labels": [
-        "DINAMARCA / Superliga"
-      ],
-      "unique_stats_matches": 5,
-      "metrics": {
-        "corners": {
-          "complete_matches": 5,
-          "coverage_pct": 100
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 5,
-          "coverage_pct": 100
-        },
-        "shots_on_target": {
-          "complete_matches": 5,
-          "coverage_pct": 100
-        },
-        "xg": {
-          "complete_matches": 5,
-          "coverage_pct": 100
-        },
-        "fouls": {
-          "complete_matches": 5,
-          "coverage_pct": 100
-        },
-        "yellow_cards": {
-          "complete_matches": 5,
-          "coverage_pct": 100
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
       "stats_match_key": "finlandia|primeira liga grupo campeonato",
       "source_labels": [
         "FINLÂNDIA / Primeira Liga - Grupo Campeonato"
@@ -82085,96 +81510,6 @@
         "red_cards": {
           "complete_matches": 0,
           "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "stats_match_key": "georgia|primeira liga",
-      "source_labels": [
-        "GEÓRGIA / Primeira Liga"
-      ],
-      "unique_stats_matches": 5,
-      "metrics": {
-        "corners": {
-          "complete_matches": 5,
-          "coverage_pct": 100
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 5,
-          "coverage_pct": 100
-        },
-        "shots_on_target": {
-          "complete_matches": 5,
-          "coverage_pct": 100
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 5,
-          "coverage_pct": 100
-        },
-        "yellow_cards": {
-          "complete_matches": 5,
-          "coverage_pct": 100
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "stats_match_key": "india|superliga",
-      "source_labels": [
-        "ÍNDIA / Superliga"
-      ],
-      "unique_stats_matches": 5,
-      "metrics": {
-        "corners": {
-          "complete_matches": 5,
-          "coverage_pct": 100
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 5,
-          "coverage_pct": 100
-        },
-        "shots_on_target": {
-          "complete_matches": 5,
-          "coverage_pct": 100
-        },
-        "xg": {
-          "complete_matches": 5,
-          "coverage_pct": 100
-        },
-        "fouls": {
-          "complete_matches": 5,
-          "coverage_pct": 100
-        },
-        "yellow_cards": {
-          "complete_matches": 5,
-          "coverage_pct": 100
-        },
-        "red_cards": {
-          "complete_matches": 1,
-          "coverage_pct": 20
         }
       }
     },
@@ -82494,96 +81829,6 @@
       }
     },
     {
-      "stats_match_key": "malasia|superliga",
-      "source_labels": [
-        "MALÁSIA / Superliga"
-      ],
-      "unique_stats_matches": 4,
-      "metrics": {
-        "corners": {
-          "complete_matches": 4,
-          "coverage_pct": 100
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 4,
-          "coverage_pct": 100
-        },
-        "shots_on_target": {
-          "complete_matches": 4,
-          "coverage_pct": 100
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "yellow_cards": {
-          "complete_matches": 4,
-          "coverage_pct": 100
-        },
-        "red_cards": {
-          "complete_matches": 2,
-          "coverage_pct": 50
-        }
-      }
-    },
-    {
-      "stats_match_key": "nigeria|primeira liga",
-      "source_labels": [
-        "NIGÉRIA / Primeira Liga"
-      ],
-      "unique_stats_matches": 4,
-      "metrics": {
-        "corners": {
-          "complete_matches": 4,
-          "coverage_pct": 100
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 4,
-          "coverage_pct": 100
-        },
-        "shots_on_target": {
-          "complete_matches": 4,
-          "coverage_pct": 100
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 3,
-          "coverage_pct": 75
-        },
-        "yellow_cards": {
-          "complete_matches": 4,
-          "coverage_pct": 100
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
       "stats_match_key": "europa|liga dos campeoes feminina fase de liga",
       "source_labels": [
         "EUROPA / Liga dos Campeões Feminina - Fase de Liga"
@@ -82711,51 +81956,6 @@
         "yellow_cards": {
           "complete_matches": 3,
           "coverage_pct": 100
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "stats_match_key": "emirados arabes unidos|primeira liga",
-      "source_labels": [
-        "EMIRADOS ÁRABES UNIDOS / Primeira Liga"
-      ],
-      "unique_stats_matches": 3,
-      "metrics": {
-        "corners": {
-          "complete_matches": 3,
-          "coverage_pct": 100
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 3,
-          "coverage_pct": 100
-        },
-        "shots_on_target": {
-          "complete_matches": 3,
-          "coverage_pct": 100
-        },
-        "xg": {
-          "complete_matches": 3,
-          "coverage_pct": 100
-        },
-        "fouls": {
-          "complete_matches": 3,
-          "coverage_pct": 100
-        },
-        "yellow_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
         },
         "red_cards": {
           "complete_matches": 0,
