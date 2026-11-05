@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 631,
-  "processed_games": 225,
-  "stats_games": 225,
-  "bwin_odds": 193,
+  "processed_games": 250,
+  "stats_games": 250,
+  "bwin_odds": 216,
   "failed_games": 0,
-  "current_match": "Último concluído: Almirante Brown - Ciudad Bolivar",
-  "last_result": "Almirante Brown - Ciudad Bolivar: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T09:30:05.445Z"
+  "current_match": "Último concluído: Gimnasia y Tiro - Deportivo Maipu",
+  "last_result": "Gimnasia y Tiro - Deportivo Maipu: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T09:30:34.921Z"
 }
