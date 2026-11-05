@@ -11,6 +11,20 @@ const VERIFIED_NAME_OVERRIDES = new Map([
   ['lituania|primeira-liga', 'Primeira Liga']
 ]);
 
+// A página PT lista esta competição, mas expõe o link da primeira divisão.
+const VERIFIED_SUPPLEMENTAL_COMPETITIONS = [
+  {
+    country_name: 'Lituânia',
+    country_slug: 'lituania',
+    competition_name: 'Segunda Liga',
+    competition_slug: 'i-lyga',
+    url: 'https://www.flashscore.com/football/lithuania/i-lyga/',
+    source_country_url: 'https://www.flashscore.pt/futebol/lituania/',
+    source_status: 'verified_supplemental_locale_fallback',
+    supplemental_source_locale: 'en'
+  }
+];
+
 export function normalizeLabel(value) {
   return String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
     .replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
@@ -78,6 +92,19 @@ export function prepareFlashscoreCatalog(raw) {
     });
   }
 
+  for (const item of VERIFIED_SUPPLEMENTAL_COMPETITIONS) {
+    const exists = candidates.some(candidate =>
+      candidate.country_slug === item.country_slug && candidate.competition_slug === item.competition_slug
+    );
+    if (exists) continue;
+    candidates.push({
+      ...item,
+      validation_status: 'discovered_not_yet_validated',
+      competition_family_candidate: familyName(item.competition_name),
+      ...classify(item.competition_name, item.country_name)
+    });
+  }
+
   const duplicateGroups = new Map();
   for (const item of candidates) {
     const key = normalizeLabel(item.country_name) + '|' + normalizeLabel(item.competition_name);
@@ -112,6 +139,7 @@ export function prepareFlashscoreCatalog(raw) {
       raw_links: raw.competitions.length,
       excluded_navigation_or_odds_links: excluded.length,
       competition_candidates: candidates.length,
+      verified_supplemental_candidates: VERIFIED_SUPPLEMENTAL_COMPETITIONS.length,
       local_duplicate_name_groups_for_review: localDuplicates.length
     },
     countries: countrySummary,
