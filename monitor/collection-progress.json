@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 73,
-  "processed_games": 25,
-  "stats_games": 24,
+  "processed_games": 50,
+  "stats_games": 48,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Las Palmas B - Tenerife B",
-  "last_result": "Las Palmas B - Tenerife B: 10 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T14:14:02.901Z"
+  "current_match": "Último concluído: Marbella - Atletico Central",
+  "last_result": "Marbella - Atletico Central: 10 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T14:14:32.887Z"
 }
