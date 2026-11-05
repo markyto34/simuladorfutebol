@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 48,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 25,
-  "failed_games": 0,
-  "current_match": "Último concluído: Chonburi - Buriram",
-  "last_result": "Chonburi - Buriram: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T23:12:43.696Z"
+  "processed_games": 48,
+  "stats_games": 47,
+  "bwin_odds": 47,
+  "failed_games": 1,
+  "current_match": "Último concluído: Buriram - Sisaket United",
+  "last_result": "Buriram - Sisaket United: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T23:13:39.547Z"
 }
