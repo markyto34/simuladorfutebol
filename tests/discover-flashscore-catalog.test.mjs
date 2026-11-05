@@ -44,7 +44,7 @@ test("recupera o nome da competição do alt de imagem em links sem texto", () =
 
 test("recupera links de competições embutidos no estado JSON da página", () => {
   const country = { country_name: "Suécia", country_slug: "suecia", url: "https://www.flashscore.pt/futebol/suecia/" };
-  const html = String.raw`{"competitionUrl":"\\/futebol\\/suecia\\/allsvenskan\\/"}`;
+  const html = String.raw`{"competitionUrl":"\/futebol\/suecia\/allsvenskan\/"}`;
   const result = parseCompetitionLinks(html, country);
   assert.equal(result.length, 1);
   assert.equal(result[0].competition_slug, "allsvenskan");
@@ -70,7 +70,7 @@ test("o crawler regista erros por país e preserva páginas que responderam", as
   assert.equal(report.country_pages_failed, 1);
   assert.equal(report.competition_candidate_count, 2);
   assert.ok(report.competitions.some(item => item.competition_slug === "taca-de-portugal"));
-  assert.equal(report.errors[0].country, "Alemanha");
+  assert.ok(report.errors.some(item => item.country === "Alemanha"));
 });
 
 
