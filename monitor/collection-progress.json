@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 99,
-  "processed_games": 52,
-  "stats_games": 52,
-  "bwin_odds": 52,
+  "processed_games": 76,
+  "stats_games": 76,
+  "bwin_odds": 76,
   "failed_games": 0,
-  "current_match": "Último concluído: Levante - Barcelona",
-  "last_result": "Levante - Barcelona: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:51:25.851Z"
+  "current_match": "A consultar jogo 79/99 · CrPiFJSq",
+  "last_result": "Sevilla - Atl. Madrid: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:51:31.447Z"
 }
