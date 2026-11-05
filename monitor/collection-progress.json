@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 62,
-  "processed_games": 50,
-  "stats_games": 49,
+  "processed_games": 62,
+  "stats_games": 61,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 53/62 · prlSZOLO",
-  "last_result": "Brentford U21 - Wycombe U21: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T21:52:48.371Z"
+  "current_match": "Último concluído: Bristol City U21 - Reading U21",
+  "last_result": "Bristol City U21 - Reading U21: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T21:52:50.788Z"
 }
