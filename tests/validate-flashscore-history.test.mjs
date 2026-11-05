@@ -112,9 +112,9 @@ test("reporta cobertura de todos os indicadores e deteta divergência entre cant
   assert.equal(summary.indicatorCoverage.corners_st.complete, 1);
   assert.equal(summary.indicatorCoverage.red_cards.complete, 1);
   assert.equal(summary.cornersTotalChecked, 1);
-  assert.throws(() => validateHistory([{
-    ...row, corners_st_away:"2", corners_away:"4"
-  }], [oddsRow()]), /Cantos HT \+ ST não correspondem aos cantos FT/);
+  const inconsistent = validateHistory([{ ...row, corners_st_away:"2", corners_away:"4" }], [oddsRow()]);
+  assert.equal(inconsistent.cornerTotalMismatches.length, 1);
+  assert.equal(inconsistent.cornerTotalMismatches[0].side, "away");
 });
 
 test("mostra campos em falta na cobertura em vez de os esconder", () => {
