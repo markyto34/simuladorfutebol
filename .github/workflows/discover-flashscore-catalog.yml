@@ -1,7 +1,18 @@
 name: Descobrir catálogo completo de competições Flashscore
 
 on:
-  workflow_dispatch:
+  schedule:
+    - cron: "15 4 * * *"
+  push:
+    branches: [feature/flashscore-full-competition-discovery, main]
+    paths:
+      - ".github/workflows/discover-flashscore-catalog.yml"
+      - "scripts/discover-flashscore-catalog.mjs"
+      - "scripts/prepare-flashscore-catalog.mjs"
+      - "scripts/audit-flashscore-catalog-coverage.mjs"
+      - "tests/discover-flashscore-catalog.test.mjs"
+      - "tests/prepare-flashscore-catalog.test.mjs"
+      - "tests/audit-flashscore-catalog-coverage.test.mjs"
 
 concurrency:
   group: flashscore-catalog-discovery
