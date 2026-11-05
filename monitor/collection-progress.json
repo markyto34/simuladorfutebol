@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 631,
-  "processed_games": 401,
-  "stats_games": 400,
-  "bwin_odds": 378,
+  "processed_games": 425,
+  "stats_games": 424,
+  "bwin_odds": 400,
   "failed_games": 0,
-  "current_match": "A consultar jogo 404/631 · Ia11gqTj",
-  "last_result": "Gimnasia y Tiro - San Martin Tucuman: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:02:44.600Z"
+  "current_match": "Último concluído: Chacarita Juniors - Colegiales",
+  "last_result": "Chacarita Juniors - Colegiales: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:02:50.784Z"
 }
