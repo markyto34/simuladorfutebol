@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 631,
-  "processed_games": 576,
-  "stats_games": 573,
-  "bwin_odds": 541,
+  "processed_games": 600,
+  "stats_games": 597,
+  "bwin_odds": 564,
   "failed_games": 2,
-  "current_match": "A consultar jogo 579/631 · tCJ4WdfC",
-  "last_result": "Atl. Rafaela - San Martin S.J.: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:04:40.920Z"
+  "current_match": "Último concluído: Chacarita Juniors - Gimnasia Jujuy",
+  "last_result": "Chacarita Juniors - Gimnasia Jujuy: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:04:48.359Z"
 }
