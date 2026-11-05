@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 34,
-  "processed_games": 26,
-  "stats_games": 23,
+  "processed_games": 34,
+  "stats_games": 31,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 28/34 · Ctj6NcMi",
-  "last_result": "Shabana - Migori: 10 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T22:40:36.710Z"
+  "current_match": "Último concluído: Mombasa United - Kakamega Homeboyz",
+  "last_result": "Mombasa United - Kakamega Homeboyz: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T22:40:42.281Z"
 }
