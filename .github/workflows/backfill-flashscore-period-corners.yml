@@ -85,11 +85,13 @@ jobs:
         if: steps.marker.outputs.exists == 'true'
         continue-on-error: true
         env:
-          FLASHSCORE_REQUEST_DELAY_MS: "1000"
+          FLASHSCORE_REQUEST_DELAY_MS: "2000"
           FLASHSCORE_CONCURRENCY: "1"
         run: node scripts/backfill-flashscore-period-corners.mjs --start-date="${{ steps.dates.outputs.start_date }}" --end-date="${{ steps.dates.outputs.end_date }}"
       - name: Validar histórico e atualizar auditoria
+        id: validation
         if: steps.marker.outputs.exists == 'true'
+        continue-on-error: true
         run: |
           node scripts/validate-flashscore-history.mjs
           node scripts/audit-flashscore-catalog-coverage.mjs
@@ -97,16 +99,18 @@ jobs:
         if: always() && steps.marker.outputs.exists == 'true'
         env:
           BACKFILL_OUTCOME: ${{ steps.backfill.outcome }}
+          VALIDATION_OUTCOME: ${{ steps.validation.outcome }}
         run: |
           set -euo pipefail
-          if [ "$BACKFILL_OUTCOME" = "success" ]; then
-            rm data/force-flashscore-period-corners-backfill.once
+          if [ "$BACKFILL_OUTCOME" = "success" ] && [ "$VALIDATION_OUTCOME" = "success" ]; then
+            rm -f data/force-flashscore-period-corners-backfill.once data/flashscore-period-corners-backfill-progress.json
           else
-            echo "O marcador fica ativo para a próxima tentativa automática; os valores válidos já recolhidos serão preservados."
+            echo "O marcador e o checkpoint ficam ativos para a próxima tentativa; os valores válidos são preservados."
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/flashscore-statistics.csv data/flashscore-competition-coverage.json
+          if [ -f data/flashscore-period-corners-backfill-progress.json ]; then git add data/flashscore-period-corners-backfill-progress.json; fi
           git add -u data/force-flashscore-period-corners-backfill.once 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "Não havia novos valores HT/ST para guardar."
@@ -115,7 +119,7 @@ jobs:
             git push origin HEAD:main
           fi
       - name: Assinalar falhas depois de guardar os valores válidos
-        if: steps.marker.outputs.exists == 'true' && steps.backfill.outcome == 'failure'
+        if: always() && steps.marker.outputs.exists == 'true' && (steps.backfill.outcome == 'failure' || steps.validation.outcome == 'failure')
         run: |
           echo "O backfill teve falhas ou foi limitado pelo Flashscore. Os dados válidos foram preservados e a próxima tentativa automática continuará apenas os jogos em falta."
           exit 1
