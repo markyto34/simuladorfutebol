@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 354,
-  "processed_games": 50,
-  "stats_games": 40,
+  "processed_games": 75,
+  "stats_games": 47,
   "bwin_odds": 0,
-  "failed_games": 10,
-  "current_match": "Último concluído: Londrina - Criciuma",
-  "last_result": "Londrina - Criciuma: 16 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T10:17:14.835Z"
+  "failed_games": 28,
+  "current_match": "Último erro: rsCIvVBs",
+  "last_result": "Falha em rsCIvVBs: Falha ao recolher rsCIvVBs: HTTP 503",
+  "updated_at": "2026-11-05T10:29:32.798Z"
 }
