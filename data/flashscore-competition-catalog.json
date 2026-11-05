@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T07:18:31.864Z",
+  "generated_at": "2026-11-05T07:20:30.206Z",
   "catalog_discovery_version": "2.0",
   "source": "Flashscore.pt",
   "source_catalog_generated_at": "2026-11-05T07:13:04.308Z",
@@ -10,7 +10,8 @@
     "country_pages_failed": 0,
     "raw_links": 1838,
     "excluded_navigation_or_odds_links": 535,
-    "competition_candidates": 1303,
+    "competition_candidates": 1304,
+    "verified_supplemental_candidates": 1,
     "local_duplicate_name_groups_for_review": 3
   },
   "countries": [
@@ -17717,6 +17718,25 @@
       "source_status": "candidate_not_yet_validated",
       "validation_status": "discovered_not_yet_validated",
       "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Lituânia",
+      "country_slug": "lituania",
+      "competition_name": "Segunda Liga",
+      "competition_slug": "i-lyga",
+      "url": "https://www.flashscore.com/football/lithuania/i-lyga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/lituania/",
+      "source_status": "verified_supplemental_locale_fallback",
+      "supplemental_source_locale": "en",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Segunda Liga",
       "gender": "masculino_misto",
       "age_category": "senior",
       "category": "masculino_misto",
