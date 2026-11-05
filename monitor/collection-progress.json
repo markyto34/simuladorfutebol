@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 303,
-  "processed_games": 175,
-  "stats_games": 100,
-  "bwin_odds": 46,
+  "processed_games": 200,
+  "stats_games": 119,
+  "bwin_odds": 51,
   "failed_games": 0,
-  "current_match": "A consultar jogo 177/303 · 8ndNixjT",
-  "last_result": "Zilina U19 - HJK U19: 11 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T07:46:08.856Z"
+  "current_match": "A consultar jogo 202/303 · Of4b1TYR",
+  "last_result": "Wrexham - Middlesbrough: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T07:46:16.402Z"
 }
