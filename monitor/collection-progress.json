@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 143,
-  "processed_games": 100,
-  "stats_games": 100,
-  "bwin_odds": 100,
+  "processed_games": 125,
+  "stats_games": 125,
+  "bwin_odds": 125,
   "failed_games": 0,
-  "current_match": "Último concluído: Wigan - Milton Keynes",
-  "last_result": "Wigan - Milton Keynes: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:48:50.099Z"
+  "current_match": "Último concluído: Stockport - Blackpool",
+  "last_result": "Stockport - Blackpool: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T21:48:56.117Z"
 }
