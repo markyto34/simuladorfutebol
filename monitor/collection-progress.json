@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 457,
-  "processed_games": 50,
-  "stats_games": 50,
+  "processed_games": 75,
+  "stats_games": 75,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Villa San Carlos - Arsenal Sarandi",
-  "last_result": "Villa San Carlos - Arsenal Sarandi: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T09:13:49.502Z"
+  "current_match": "Último concluído: Excursionistas - Villa Dalmine",
+  "last_result": "Excursionistas - Villa Dalmine: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T09:14:39.480Z"
 }
