@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 232,
-  "processed_games": 51,
-  "stats_games": 51,
-  "bwin_odds": 51,
+  "processed_games": 75,
+  "stats_games": 75,
+  "bwin_odds": 75,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/232 · GtzjOrLN",
-  "last_result": "Seattle Reign F - San Diego Wave F: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:34:19.036Z"
+  "current_match": "Último concluído: San Diego Wave F - Utah Royals F",
+  "last_result": "San Diego Wave F - Utah Royals F: 14 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T21:34:24.224Z"
 }
