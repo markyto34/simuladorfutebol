@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 48,
-  "processed_games": 25,
-  "stats_games": 22,
+  "processed_games": 48,
+  "stats_games": 44,
   "bwin_odds": 0,
-  "failed_games": 3,
-  "current_match": "Último concluído: Bugesera - Etincelles",
-  "last_result": "Bugesera - Etincelles: 10 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T22:54:37.414Z"
+  "failed_games": 4,
+  "current_match": "Último erro: bPAYDuBs",
+  "last_result": "Falha em bPAYDuBs: Falha ao recolher bPAYDuBs: HTTP 503",
+  "updated_at": "2026-11-05T22:55:35.761Z"
 }
