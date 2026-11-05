@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 225,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 43,
+  "processed_games": 75,
+  "stats_games": 75,
+  "bwin_odds": 64,
   "failed_games": 0,
-  "current_match": "Último concluído: Helsingborg - Sandviken",
-  "last_result": "Helsingborg - Sandviken: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T23:08:26.409Z"
+  "current_match": "Último concluído: Nordic United - Varberg",
+  "last_result": "Nordic United - Varberg: 6 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T23:08:34.674Z"
 }
