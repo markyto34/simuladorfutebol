@@ -64,7 +64,12 @@ test('corrige o nome quando o link lateral não corresponde ao título oficial d
     ]
   };
   const result = prepareFlashscoreCatalog(source);
-  assert.ok(result.competitions.every(item => item.competition_name === 'Primeira Liga'));
-  assert.deepEqual(result.competitions.map(item => item.source_competition_name).sort(), ['Segunda Liga', 'Taça']);
-  assert.ok(result.competitions.every(item => item.name_override_reason === 'official_flashscore_page_title_verified'));
+  const overridden = result.competitions.filter(item => item.name_override_reason === 'official_flashscore_page_title_verified');
+  assert.ok(overridden.every(item => item.competition_name === 'Primeira Liga'));
+  assert.deepEqual(overridden.map(item => item.source_competition_name).sort(), ['Segunda Liga', 'Taça']);
+  const supplemental = result.competitions.find(item => item.competition_slug === 'i-lyga');
+  assert.equal(supplemental.competition_name, 'Segunda Liga');
+  assert.equal(supplemental.supplemental_source_locale, 'en');
+  assert.equal(supplemental.country_name, 'Lituânia');
+  assert.notEqual(supplemental.url, overridden.find(item => item.country_slug === 'lituania').url);
 });
