@@ -2,14 +2,14 @@
   "run_id": "41998841542",
   "run_number": "2",
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
-  "total_games": 82,
-  "processed_games": 82,
-  "stats_games": 82,
-  "bwin_odds": 67,
+  "status": "running",
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
+  "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Sesvete - Karlovac: 11 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T13:40:29.460Z"
+  "current_match": "A descobrir jogos",
+  "last_result": "",
+  "updated_at": "2026-11-05T13:40:34.644Z"
 }
