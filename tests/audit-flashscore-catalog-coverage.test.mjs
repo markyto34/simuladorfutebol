@@ -91,3 +91,31 @@ test('audita separadamente cobertura de cantos HT e ST', () => {
   assert.equal(report.competitions[0].metrics.corners_st.complete_matches,1);
   assert.equal(report.competitions[0].metrics.corners_st.coverage_pct,50);
 });
+
+
+test('resolve nomes locais de primeiras divisões apenas dentro do respetivo país', () => {
+  const aliases = [
+    ['Turquia','Super Liga','Superliga'],
+    ['República Checa','Primeira Liga','Chance Liga'],
+    ['Argélia','1 Divisao','Primeira Divisão'],
+    ['Bielorrússia','Liga Vysshaya','Liga Superior'],
+    ['Montenegro','Liga Prva Crnogorska','Primeira Liga'],
+    ['Uzbequistão','Super Liga','Superliga'],
+    ['Brasil','Pernambucano','Pernambucano - Primeiro nível'],
+    ['Eslováquia','Primeira Liga','Niké liga'],
+    ['Eslovénia','Liga Prva','Primeira Liga'],
+    ['Albânia','Super Liga','Superliga'],
+    ['Dinamarca','Super Liga','Superliga'],
+    ['Geórgia','Liga Crystalbet Erovnuli','Primeira Liga'],
+    ['Índia','Super Liga','Superliga'],
+    ['Malásia','Super Liga','Superliga'],
+    ['Nigéria','NPFL','Primeira Liga'],
+    ['Emirados Árabes Unidos','Liga UAE','Primeira Liga']
+  ];
+  const report = buildFlashscoreCatalogCoverage(
+    catalog(aliases.map(([country, name]) => candidate(country, name))),
+    aliases.map(([country, , statsName], index) => row(country, statsName, 'alias-' + index))
+  );
+  assert.equal(report.summary.unmatched_stats_competition_labels, 0);
+  assert.ok(report.competitions.every(item => item.unique_stats_matches === 1));
+});
