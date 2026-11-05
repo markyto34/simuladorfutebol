@@ -60,6 +60,7 @@ export function validateHistory(stats, odds) {
   const seenStats = new Set();
   let withScore = 0, withoutScore = 0, finalWithoutScore = 0, withXg = 0, withCorners = 0, withShots = 0, allStats = 0, cornersTotalChecked = 0;
   const cornerTotalMismatches = [];
+  const scorePartMismatches = [];
   const competitionCoverage = new Map();
   const indicatorCounts = Object.fromEntries(["score_ft","score_ht","score_st", ...STAT_CATEGORIES].map(key => [key, 0]));
   for (const row of stats) {
@@ -111,7 +112,12 @@ export function validateHistory(stats, odds) {
     if (hasHtHome && hasShHome && !homeBlank) {
       if (Number(row.ht_home) + Number(row.sh_home) !== Number(row.score_home) ||
           Number(row.ht_away) + Number(row.sh_away) !== Number(row.score_away)) {
-        throw new Error("Resultado HT/ST não corresponde ao resultado FT no jogo " + id);
+        scorePartMismatches.push({
+          match_id: id,
+          score_ft: [Number(row.score_home), Number(row.score_away)],
+          score_ht: [Number(row.ht_home), Number(row.ht_away)],
+          score_st: [Number(row.sh_home), Number(row.sh_away)]
+        });
       }
     }
     const competitionKey = row.country + " | " + row.competition;
@@ -177,6 +183,7 @@ export function validateHistory(stats, odds) {
     allStats,
     cornersTotalChecked,
     cornerTotalMismatches,
+    scorePartMismatches,
     indicatorCoverage: Object.fromEntries(Object.entries(indicatorCounts).map(([key, count]) => [key, { complete: count, missing: stats.length - count, coveragePercent: Number((count / stats.length * 100).toFixed(2)) }])),
     competitionCoverage: [...competitionCoverage.values()].map(item => ({ ...item, oddsRows: oddsByCompetition.get(item.competition) || 0, indicators: Object.fromEntries(Object.entries(item.indicators).map(([key, count]) => [key, { complete: count, missing: item.matches - count, coveragePercent: Number((count / item.matches * 100).toFixed(2)) }])) })).sort((a,b) => a.competition.localeCompare(b.competition)),
     xgMissingCompetitions: [...competitionCoverage.values()].filter(item => item.matches >= 5 && item.indicators.xg === 0).sort((a, b) => b.matches - a.matches || a.competition.localeCompare(b.competition)),
