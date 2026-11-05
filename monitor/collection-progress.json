@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 631,
-  "processed_games": 250,
-  "stats_games": 250,
-  "bwin_odds": 216,
+  "processed_games": 275,
+  "stats_games": 275,
+  "bwin_odds": 240,
   "failed_games": 0,
-  "current_match": "Último concluído: Gimnasia y Tiro - Deportivo Maipu",
-  "last_result": "Gimnasia y Tiro - Deportivo Maipu: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T09:30:34.921Z"
+  "current_match": "Último concluído: Gimnasia y Tiro - Patronato",
+  "last_result": "Gimnasia y Tiro - Patronato: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T09:31:04.971Z"
 }
