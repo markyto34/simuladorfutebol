@@ -4,8 +4,9 @@ import { resolve } from "node:path";
 
 const STATS_FILE = resolve(process.env.FLASHSCORE_STATS_FILE || "data/flashscore-statistics.csv");
 const PROXY = (process.env.FLASHSCORE_PROXY_URL || "https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev").replace(/\/$/, "");
-const DELAY_MS = Math.max(500, Number(process.env.FLASHSCORE_REQUEST_DELAY_MS || 900));
-const CONCURRENCY = Math.max(1, Math.min(4, Number.parseInt(process.env.FLASHSCORE_CONCURRENCY || "2", 10) || 2));
+const DELAY_MS = Math.max(1500, Number(process.env.FLASHSCORE_REQUEST_DELAY_MS || 2000));
+const CONCURRENCY = 1;
+const PROGRESS_FILE = resolve("data/flashscore-period-corners-backfill-progress.json");
 const PERIOD_FIELDS = ["corners_ht_home", "corners_ht_away", "corners_st_home", "corners_st_away"];
 
 function parseCsv(text) {
@@ -52,7 +53,7 @@ function isValidDate(value) {
   const date = new Date(value + "T00:00:00Z");
   return Number.isFinite(date.getTime()) && date.toISOString().slice(0, 10) === value;
 }
-export function selectRowsNeedingPeriodCorners(rows, startDate, endDate, limit = 0) {
+export function selectRowsNeedingPeriodCorners(rows, startDate, endDate, limit = 0, options = {}) {
   if (!isValidDate(startDate) || !isValidDate(endDate) || endDate < startDate) {
     throw new Error("Intervalo inválido; usa datas YYYY-MM-DD e uma data final não anterior à inicial.");
   }
@@ -60,7 +61,7 @@ export function selectRowsNeedingPeriodCorners(rows, startDate, endDate, limit =
     const date = dateKey(row.date_time);
     const id = String(row.match_id || "");
     const missing = PERIOD_FIELDS.some(field => String(row[field] ?? "").trim() === "");
-    return /^[A-Za-z0-9]{6,16}$/.test(id) && date >= startDate && date <= endDate && missing;
+    return /^[A-Za-z0-9]{6,16}$/.test(id) && date >= startDate && date <= endDate && missing && !options.excludeIds?.has(id);
   });
   const n = Number(limit);
   return Number.isInteger(n) && n > 0 ? selected.slice(0, n) : selected;
@@ -77,11 +78,13 @@ async function fetchRecord(matchId) {
       const response = await fetch(url, { headers: { Accept: "application/json" }, signal: AbortSignal.timeout(45_000) });
       if (response.status === 403 || response.status === 429) {
         const error = new Error("Flashscore limitou pedidos (HTTP " + response.status + ").");
+        error.status = response.status;
         error.blocked = true;
         throw error;
       }
       if (!response.ok) {
         const error = new Error("Proxy respondeu HTTP " + response.status + ".");
+        error.status = response.status;
         error.transient = [500, 502, 503, 504].includes(response.status);
         throw error;
       }
@@ -97,9 +100,12 @@ async function fetchRecord(matchId) {
   throw lastError || new Error("Falha desconhecida ao consultar jogo.");
 }
 export async function backfillPeriodCorners(rows, options = {}) {
-  const selected = selectRowsNeedingPeriodCorners(rows, options.startDate, options.endDate, options.limit || 0);
+  const attempted = new Set(options.attemptedIds || []);
+  const initialAttemptedCount = attempted.size;
+  const selected = selectRowsNeedingPeriodCorners(rows, options.startDate, options.endDate, options.limit || 0, { excludeIds: attempted });
   const updated = new Map();
-  const summary = { selected: selected.length, processed: 0, ht_available: 0, st_available: 0, both_available: 0, no_period_data: 0, failed: 0, blocked: false };
+  const summary = { selected: selected.length, processed: 0, ht_available: 0, st_available: 0, both_available: 0, no_period_data: 0, failed: 0, blocked: false, remaining: 0 };
+  let consecutiveTransientFailures = 0;
   let nextIndex = 0, nextStartAt = 0;
   let checkpointChain = Promise.resolve();
   let lastCheckpoint = 0;
@@ -128,6 +134,8 @@ export async function backfillPeriodCorners(rows, options = {}) {
       if (!job) return;
       try {
         const record = await (options.fetchRecord || fetchRecord)(job.row.match_id);
+        attempted.add(job.row.match_id);
+        consecutiveTransientFailures = 0;
         const ht = numericPair(record.statistics?.corners_ht);
         const st = numericPair(record.statistics?.corners_st);
         const patch = { match_id: job.row.match_id };
@@ -139,26 +147,31 @@ export async function backfillPeriodCorners(rows, options = {}) {
       } catch (error) {
         summary.failed++;
         if (error?.blocked) summary.blocked = true;
+        else if ([502, 503, 504].includes(Number(error?.status))) {
+          consecutiveTransientFailures++;
+          if (consecutiveTransientFailures >= 3) summary.blocked = true;
+        } else consecutiveTransientFailures = 0;
         console.error("[PERIOD CORNERS] " + job.row.match_id + ": " + String(error?.message || error));
       }
       summary.processed++;
-      if (options.onProgress) await options.onProgress({ ...summary, current: job.index + 1, match_id: job.row.match_id });
+      if (options.onProgress) await options.onProgress({ ...summary, current: job.index + 1, match_id: job.row.match_id, attemptedIds: [...attempted], rows: mergeUpdatedRows() });
       if (options.onCheckpoint && (summary.processed % checkpointEvery === 0 || summary.processed === summary.selected)) {
         const snapshot = mergeUpdatedRows();
         const snapshotSummary = { ...summary };
-        checkpointChain = checkpointChain.then(() => options.onCheckpoint(snapshot, snapshotSummary));
+        checkpointChain = checkpointChain.then(() => options.onCheckpoint(snapshot, snapshotSummary, [...attempted]));
         await checkpointChain;
         lastCheckpoint = summary.processed;
       }
     }
   }
   await Promise.all(Array.from({ length: Math.min(options.concurrency ?? CONCURRENCY, Math.max(1, selected.length)) }, () => worker()));
+  summary.remaining = Math.max(0, selected.length - (attempted.size - initialAttemptedCount));
   const merged = mergeUpdatedRows();
   if (options.onCheckpoint && lastCheckpoint !== summary.processed) {
-    checkpointChain = checkpointChain.then(() => options.onCheckpoint(merged, { ...summary }));
+    checkpointChain = checkpointChain.then(() => options.onCheckpoint(merged, { ...summary }, [...attempted]));
     await checkpointChain;
   }
-  return { rows: merged, summary };
+  return { rows: merged, summary, attemptedIds: [...attempted] };
 }
 
 async function main() {
@@ -171,23 +184,28 @@ async function main() {
   if (!parsed.rows.length) throw new Error("CSV de estatísticas vazio.");
   const headers = [...parsed.headers];
   for (const field of PERIOD_FIELDS) if (!headers.includes(field)) headers.push(field);
+  let progress = { attempted_ids: [] };
+  try { progress = JSON.parse(await readFile(PROGRESS_FILE, "utf8")); } catch {}
+  if (progress.start_date !== startDate || progress.end_date !== endDate) progress = { attempted_ids: [] };
   let lastSaved = 0;
-  const saveCheckpoint = async (rows, summary) => {
+  const saveCheckpoint = async (rows, summary, attemptedIds = progress.attempted_ids || []) => {
     const temporary = STATS_FILE + ".checkpoint.tmp";
     await writeFile(temporary, toCsv(headers, rows), "utf8");
     await rename(temporary, STATS_FILE);
+    await writeFile(PROGRESS_FILE, JSON.stringify({ start_date: startDate, end_date: endDate, attempted_ids: attemptedIds, updated_at: new Date().toISOString() }, null, 2) + "\n", "utf8");
+    progress.attempted_ids = attemptedIds;
     lastSaved = summary.processed;
     console.log("[PERIOD CORNERS CHECKPOINT] guardados " + lastSaved + "/" + summary.selected + " jogos; HT=" + summary.ht_available + "; ST=" + summary.st_available + "; falhas=" + summary.failed);
   };
   const result = await backfillPeriodCorners(parsed.rows, {
-    startDate, endDate, limit, checkpointEvery: 25, onCheckpoint: saveCheckpoint,
+    startDate, endDate, limit, attemptedIds: progress.attempted_ids || [], checkpointEvery: 25, onCheckpoint: saveCheckpoint,
     onProgress: item => {
       if (item.current % 25 === 0 || item.current === item.selected) {
         console.log("[PERIOD CORNERS] " + item.current + "/" + item.selected + " | HT=" + item.ht_available + " | ST=" + item.st_available + " | falhas=" + item.failed + " | " + item.match_id);
       }
     }
   });
-  if (lastSaved !== result.summary.processed) await saveCheckpoint(result.rows, result.summary);
+  if (lastSaved !== result.summary.processed || JSON.stringify(progress.attempted_ids || []) !== JSON.stringify(result.attemptedIds)) await saveCheckpoint(result.rows, result.summary, result.attemptedIds);
   console.log("[PERIOD CORNERS SUMMARY] " + JSON.stringify(result.summary));
   if (process.env.GITHUB_STEP_SUMMARY) {
     await appendFile(process.env.GITHUB_STEP_SUMMARY,
@@ -199,9 +217,10 @@ async function main() {
       "- HT e ST disponíveis: **" + result.summary.both_available + "**\n" +
       "- Sem dados por período: **" + result.summary.no_period_data + "**\n" +
       "- Falhas: **" + result.summary.failed + "**\n" +
+      "- Jogos ainda por consultar: **" + result.summary.remaining + "**\n" +
       "- Bloqueio upstream: **" + result.summary.blocked + "**\n");
   }
-  if (result.summary.failed || result.summary.blocked) process.exitCode = 1;
+  if (result.summary.failed || result.summary.blocked || result.summary.remaining > 0) process.exitCode = 1;
 }
 if (process.argv[1] && import.meta.url === new URL(process.argv[1], "file:").href) {
   main().catch(error => { console.error(error); process.exitCode = 1; });
