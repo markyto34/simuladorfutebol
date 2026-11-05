@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed_with_errors",
+  "phase": "completed",
   "total_games": 48,
   "processed_games": 48,
   "stats_games": 47,
   "bwin_odds": 47,
   "failed_games": 1,
-  "current_match": "Último concluído: Buriram - Sisaket United",
+  "current_match": "Recolha terminada",
   "last_result": "Buriram - Sisaket United: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T23:13:39.547Z"
+  "updated_at": "2026-11-05T23:13:41.015Z"
 }
