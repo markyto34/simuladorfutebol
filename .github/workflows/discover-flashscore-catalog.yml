@@ -30,7 +30,7 @@ jobs:
       - name: Verificar se o catálogo permanente já existe
         id: catalog-check
         run: |
-          if [ -s data/flashscore-competition-catalog.json ]; then
+          if [ -s data/flashscore-competition-catalog.json ] && grep -q '"catalog_discovery_version": "2.0"' data/flashscore-competition-catalog.json; then
             echo "exists=true" >> "$GITHUB_OUTPUT"
             echo "Catálogo permanente encontrado; saltar descoberta completa."
           else
