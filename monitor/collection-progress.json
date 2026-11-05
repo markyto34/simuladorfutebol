@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 631,
-  "processed_games": 100,
-  "stats_games": 100,
-  "bwin_odds": 90,
+  "processed_games": 125,
+  "stats_games": 125,
+  "bwin_odds": 113,
   "failed_games": 0,
-  "current_match": "Último concluído: Deportivo Madryn - Racing Cordoba",
-  "last_result": "Deportivo Madryn - Racing Cordoba: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T09:26:47.672Z"
+  "current_match": "Último concluído: Almagro - Deportivo Maipu",
+  "last_result": "Almagro - Deportivo Maipu: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T09:27:17.662Z"
 }
