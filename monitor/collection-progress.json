@@ -2,14 +2,14 @@
   "run_id": "41998841542",
   "run_number": "2",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 70,
   "processed_games": 70,
   "stats_games": 69,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Real Murcia B - Orihuela",
+  "current_match": "Recolha terminada",
   "last_result": "Real Murcia B - Orihuela: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T14:13:22.218Z"
+  "updated_at": "2026-11-05T14:13:23.492Z"
 }
