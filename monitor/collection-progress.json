@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 60,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 26,
+  "stats_games": 23,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-05T15:23:24.915Z"
+  "current_match": "A consultar jogo 29/60 · lpGtrH6d",
+  "last_result": "Belford Roxo - Santa Cruz RJ: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T15:23:32.183Z"
 }
