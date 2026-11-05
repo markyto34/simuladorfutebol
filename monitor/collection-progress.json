@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 208,
-  "processed_games": 100,
-  "stats_games": 100,
-  "bwin_odds": 75,
+  "processed_games": 125,
+  "stats_games": 125,
+  "bwin_odds": 100,
   "failed_games": 0,
-  "current_match": "Último concluído: Vitebsk - Dnepr Mogilev",
-  "last_result": "Vitebsk - Dnepr Mogilev: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T09:50:03.627Z"
+  "current_match": "Último concluído: ML Vitebsk - Vitebsk",
+  "last_result": "ML Vitebsk - Vitebsk: 11 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T09:50:33.606Z"
 }
