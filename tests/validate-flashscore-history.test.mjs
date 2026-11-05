@@ -64,7 +64,7 @@ test("identifica competições com cinco ou mais jogos sem qualquer xG", () => {
   }));
   const summary = validateHistory(rows, [oddsRow()]);
   assert.equal(summary.xgMissingCompetitions[0].competition, "PORTUGAL | Primeira Liga");
-  assert.equal(summary.xgMissingCompetitions[0].indicators.xg.complete, 0);
+  assert.equal(summary.xgMissingCompetitions[0].indicators.xg, 0);
 });
 
 
