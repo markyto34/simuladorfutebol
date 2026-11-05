@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 73,
-  "processed_games": 51,
-  "stats_games": 49,
+  "processed_games": 73,
+  "stats_games": 68,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/73 · CY55S8TG",
-  "last_result": "Tamaraceite - Huelva: 10 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T15:57:08.597Z"
+  "current_match": "Último concluído: CD Estepona - Xerez CD",
+  "last_result": "CD Estepona - Xerez CD: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T15:57:13.273Z"
 }
