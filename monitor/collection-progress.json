@@ -2,14 +2,14 @@
   "run_id": "42053542737",
   "run_number": "6",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 170,
   "processed_games": 170,
   "stats_games": 170,
   "bwin_odds": 169,
   "failed_games": 0,
-  "current_match": "Último concluído: Flora - Nomme Utd",
+  "current_match": "Recolha terminada",
   "last_result": "Flora - Nomme Utd: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:58:55.021Z"
+  "updated_at": "2026-11-05T15:58:56.338Z"
 }
