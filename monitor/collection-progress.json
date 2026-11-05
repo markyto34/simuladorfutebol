@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 472,
-  "processed_games": 100,
-  "stats_games": 100,
-  "bwin_odds": 100,
+  "processed_games": 127,
+  "stats_games": 127,
+  "bwin_odds": 127,
   "failed_games": 0,
-  "current_match": "Último concluído: San Diego FC - Philadelphia Union",
-  "last_result": "San Diego FC - Philadelphia Union: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:59:33.394Z"
+  "current_match": "A consultar jogo 130/472 · CMj8QONa",
+  "last_result": "DC United - Columbus Crew: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:59:44.222Z"
 }
