@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 72,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
-  "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-05T13:40:37.006Z"
+  "processed_games": 25,
+  "stats_games": 24,
+  "bwin_odds": 24,
+  "failed_games": 1,
+  "current_match": "Último concluído: Kolding - Fredericia",
+  "last_result": "Kolding - Fredericia: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T13:42:28.296Z"
 }
