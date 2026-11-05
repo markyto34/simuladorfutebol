@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 226,
-  "processed_games": 100,
-  "stats_games": 99,
+  "processed_games": 125,
+  "stats_games": 124,
   "bwin_odds": 0,
   "failed_games": 1,
-  "current_match": "Último concluído: Vasalund - Stockholm Internazionale",
-  "last_result": "Vasalund - Stockholm Internazionale: 10 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T23:06:36.319Z"
+  "current_match": "Último concluído: Gefle - Stockholm Internazionale",
+  "last_result": "Gefle - Stockholm Internazionale: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T23:06:51.803Z"
 }
