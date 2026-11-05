@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 225,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 21,
+  "processed_games": 50,
+  "stats_games": 50,
+  "bwin_odds": 43,
   "failed_games": 0,
-  "current_match": "Último concluído: Sandviken - Örebro",
-  "last_result": "Sandviken - Örebro: 11 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T23:08:17.084Z"
+  "current_match": "Último concluído: Helsingborg - Sandviken",
+  "last_result": "Helsingborg - Sandviken: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T23:08:26.409Z"
 }
