@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 200,
-  "processed_games": 175,
-  "stats_games": 175,
-  "bwin_odds": 174,
+  "processed_games": 200,
+  "stats_games": 200,
+  "bwin_odds": 199,
   "failed_games": 0,
-  "current_match": "A consultar jogo 176/200 · YwQ2kosf",
-  "last_result": "Dep. Concepcion - Cobresal: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T11:52:37.821Z"
+  "current_match": "Último concluído: U. De Chile - A. Italiano",
+  "last_result": "U. De Chile - A. Italiano: 16 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T11:53:07.847Z"
 }
