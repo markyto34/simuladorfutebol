@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 170,
-  "processed_games": 125,
-  "stats_games": 125,
-  "bwin_odds": 125,
+  "processed_games": 150,
+  "stats_games": 150,
+  "bwin_odds": 149,
   "failed_games": 0,
-  "current_match": "Último concluído: Flora - Harju JK Laagri",
-  "last_result": "Flora - Harju JK Laagri: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T14:20:23.530Z"
+  "current_match": "Último concluído: Narva - Tammeka",
+  "last_result": "Narva - Tammeka: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T14:20:53.559Z"
 }
