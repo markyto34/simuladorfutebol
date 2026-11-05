@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 63,
-  "processed_games": 51,
-  "stats_games": 51,
-  "bwin_odds": 51,
+  "processed_games": 63,
+  "stats_games": 63,
+  "bwin_odds": 63,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/63 · fN420n0D",
-  "last_result": "Radomlje - Bravo: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:50:57.294Z"
+  "current_match": "Último concluído: Nafta - Koper",
+  "last_result": "Nafta - Koper: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:50:59.952Z"
 }
