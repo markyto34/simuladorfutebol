@@ -76,7 +76,7 @@ async function fetchRecord(matchId) {
   const url = PROXY + "/record?id=" + encodeURIComponent(matchId) + "&tab=statistics";
   let lastError;
   const backoff = [2000, 5000, 10000];
-  for (let attempt = 1; attempt <= 3; attempt++) {
+  for (let attempt = 1; attempt <= 4; attempt++) {
     try {
       const response = await fetch(url, { headers: { Accept: "application/json" }, signal: AbortSignal.timeout(45_000) });
       if (response.status === 403 || response.status === 429) {
@@ -96,7 +96,7 @@ async function fetchRecord(matchId) {
     } catch (error) {
       lastError = error;
       if (error.blocked) throw error;
-      if (attempt < 3) await new Promise(resolveSleep => setTimeout(resolveSleep, backoff[attempt - 1]));
+      if (attempt < 4) await new Promise(resolveSleep => setTimeout(resolveSleep, backoff[attempt - 1]));
     }
   }
   throw lastError || new Error("Falha desconhecida ao consultar jogo.");
