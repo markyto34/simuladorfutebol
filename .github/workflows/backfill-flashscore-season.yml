@@ -99,6 +99,7 @@ jobs:
               fi
               failures=$((failures + 1))
               echo "Falha de descoberta nesta competição; avançar para a próxima."
+              sleep 2
               echo "::endgroup::"
               continue
             fi
