@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 106,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 25,
+  "processed_games": 50,
+  "stats_games": 50,
+  "bwin_odds": 50,
   "failed_games": 0,
-  "current_match": "Último concluído: Wieczysta Krakow - Plock",
-  "last_result": "Wieczysta Krakow - Plock: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:34:18.637Z"
+  "current_match": "Último concluído: Jagiellonia - Slask",
+  "last_result": "Jagiellonia - Slask: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:34:26.369Z"
 }
