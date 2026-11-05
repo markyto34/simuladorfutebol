@@ -142,6 +142,7 @@ export function validateHistory(stats, odds) {
   }
 
   const seenOdds = new Set();
+  const oddsByCompetition = new Map();
   for (const row of odds) {
     if (blank(row.match_id)) throw new Error("Registo de odds sem match_id.");
     if (blank(row.country) || blank(row.competition)) throw new Error("País/competição em falta nas odds do jogo " + row.match_id);
@@ -156,6 +157,8 @@ export function validateHistory(stats, odds) {
     const key = [row.match_id, row.bookmaker, row.market].join("|");
     if (seenOdds.has(key)) throw new Error("Registo duplicado de odds para jogo/casa/mercado: " + key);
     seenOdds.add(key);
+    const competitionKey = row.country + " | " + row.competition;
+    oddsByCompetition.set(competitionKey, (oddsByCompetition.get(competitionKey) || 0) + 1);
   }
 
   return {
@@ -171,7 +174,7 @@ export function validateHistory(stats, odds) {
     allStats,
     cornersTotalChecked,
     indicatorCoverage: Object.fromEntries(Object.entries(indicatorCounts).map(([key, count]) => [key, { complete: count, missing: stats.length - count, coveragePercent: Number((count / stats.length * 100).toFixed(2)) }])),
-    competitionCoverage: [...competitionCoverage.values()].map(item => ({ ...item, indicators: Object.fromEntries(Object.entries(item.indicators).map(([key, count]) => [key, { complete: count, missing: item.matches - count, coveragePercent: Number((count / item.matches * 100).toFixed(2)) }])) })).sort((a,b) => a.competition.localeCompare(b.competition)),
+    competitionCoverage: [...competitionCoverage.values()].map(item => ({ ...item, oddsRows: oddsByCompetition.get(item.competition) || 0, indicators: Object.fromEntries(Object.entries(item.indicators).map(([key, count]) => [key, { complete: count, missing: item.matches - count, coveragePercent: Number((count / item.matches * 100).toFixed(2)) }])) })).sort((a,b) => a.competition.localeCompare(b.competition)),
     xgMissingCompetitions: [...competitionCoverage.values()].filter(item => item.matches >= 5 && item.indicators.xg === 0).sort((a, b) => b.matches - a.matches || a.competition.localeCompare(b.competition)),
     xgPartialCompetitions: [...competitionCoverage.values()].filter(item => item.matches >= 5 && item.indicators.xg > 0 && item.indicators.xg < item.matches).sort((a, b) => a.indicators.xg / a.matches - b.indicators.xg / b.matches || b.matches - a.matches),
     uniqueStatsIds: seenStats.size,
