@@ -35,7 +35,7 @@ async function main() {
     errors
   };
   if (countries.length !== output.total_country_page_count) throw new Error(`Páginas de países incompletas: ${countries.length}/${output.total_country_page_count}.`);
-  await writeFile(OUTPUT, JSON.stringify(output, null, 2) + "\\n");
+  await writeFile(OUTPUT, JSON.stringify(output, null, 2) + "\n");
   console.log(JSON.stringify({ output: OUTPUT, groups_completed: indices.size, country_pages: countries.length, successful: output.country_pages_successful, failed: output.country_pages_failed, competition_candidates: output.competition_candidate_count }, null, 2));
 }
 
