@@ -34,7 +34,7 @@ function parseCsv(text) {
 const STATS_FILE = process.env.FLASHSCORE_STATS_FILE || 'data/flashscore-statistics.csv';
 const CATALOG_FILE = process.env.FLASHSCORE_CATALOG_FILE || 'data/flashscore-competition-catalog.json';
 const OUTPUT = process.env.FLASHSCORE_CATALOG_COVERAGE || 'data/flashscore-competition-coverage.json';
-const METRICS = ['corners', 'shots', 'shots_on_target', 'xg', 'fouls', 'yellow_cards', 'red_cards'];
+const METRICS = ['corners', 'corners_ht', 'corners_st', 'shots', 'shots_on_target', 'xg', 'fouls', 'yellow_cards', 'red_cards'];
 
 const COUNTRY_ALIASES = new Map([['europe', 'europa']]);
 const COMPETITION_ALIASES = new Map([
