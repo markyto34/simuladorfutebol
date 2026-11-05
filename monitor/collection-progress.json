@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 631,
-  "processed_games": 125,
-  "stats_games": 125,
-  "bwin_odds": 117,
+  "processed_games": 150,
+  "stats_games": 150,
+  "bwin_odds": 140,
   "failed_games": 0,
-  "current_match": "Último concluído: Almagro - Deportivo Maipu",
-  "last_result": "Almagro - Deportivo Maipu: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:01:34.429Z"
+  "current_match": "Último concluído: Los Andes - Acassuso",
+  "last_result": "Los Andes - Acassuso: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T15:01:40.864Z"
 }
