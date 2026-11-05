@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 192,
-  "processed_games": 101,
-  "stats_games": 101,
-  "bwin_odds": 101,
+  "processed_games": 125,
+  "stats_games": 125,
+  "bwin_odds": 125,
   "failed_games": 0,
-  "current_match": "A consultar jogo 104/192 · vwrUKXCl",
-  "last_result": "Tromsø - Vålerenga: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:22:25.820Z"
+  "current_match": "Último concluído: Lilleström - Sandefjord",
+  "last_result": "Lilleström - Sandefjord: 16 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:22:30.924Z"
 }
