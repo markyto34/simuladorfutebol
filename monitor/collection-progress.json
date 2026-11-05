@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 90,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 25,
+  "processed_games": 50,
+  "stats_games": 50,
+  "bwin_odds": 50,
   "failed_games": 0,
-  "current_match": "A consultar jogo 26/90 · 4GbpwaqH",
-  "last_result": "Ath. Bilbao B - R. Union: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T14:04:55.903Z"
+  "current_match": "Último concluído: CD Extremadura - Zamora",
+  "last_result": "CD Extremadura - Zamora: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T14:05:25.759Z"
 }
