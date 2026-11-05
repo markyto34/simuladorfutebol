@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 121,
-  "processed_games": 50,
-  "stats_games": 49,
-  "bwin_odds": 48,
+  "processed_games": 75,
+  "stats_games": 74,
+  "bwin_odds": 73,
   "failed_games": 0,
-  "current_match": "A consultar jogo 53/121 · 8b9m42B5",
-  "last_result": "Lyn F - Aalesund F: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:25:34.289Z"
+  "current_match": "Último concluído: Bodo/Glimt F - LSK Kvinner F",
+  "last_result": "Bodo/Glimt F - LSK Kvinner F: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:25:49.032Z"
 }
