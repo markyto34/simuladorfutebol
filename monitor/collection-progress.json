@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 73,
-  "processed_games": 50,
-  "stats_games": 44,
+  "processed_games": 73,
+  "stats_games": 64,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Conquense - Salamanca",
-  "last_result": "Conquense - Salamanca: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T14:16:11.229Z"
+  "current_match": "Último concluído: Atl. Madrid C - Real Avila",
+  "last_result": "Atl. Madrid C - Real Avila: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T14:16:39.127Z"
 }
