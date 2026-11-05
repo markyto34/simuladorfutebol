@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 9,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 9,
+  "stats_games": 6,
   "bwin_odds": 0,
-  "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-05T13:47:02.131Z"
+  "failed_games": 3,
+  "current_match": "Último concluído: Pyramids - Al Qanah",
+  "last_result": "Pyramids - Al Qanah: 10 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T13:49:55.820Z"
 }
