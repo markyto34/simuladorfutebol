@@ -62,6 +62,8 @@ jobs:
           node --check scripts/backfill-flashscore-period-corners.mjs
           node --test tests/backfill-flashscore-period-corners.test.mjs
       - name: Recolher cantos HT/ST em falta
+        id: backfill
+        continue-on-error: true
         env:
           FLASHSCORE_REQUEST_DELAY_MS: "500"
           FLASHSCORE_CONCURRENCY: "2"
@@ -82,3 +84,9 @@ jobs:
             git commit -m "Backfill histórico de cantos HT e ST"
             git push origin HEAD:main
           fi
+
+      - name: Assinalar falhas depois de guardar os valores válidos
+        if: steps.backfill.outcome == 'failure'
+        run: |
+          echo "O backfill teve falhas ou foi limitado pelo Flashscore. Os valores válidos foram preservados no CSV; consulta o resumo da execução."
+          exit 1
