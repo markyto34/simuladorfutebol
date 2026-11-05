@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 208,
-  "processed_games": 125,
-  "stats_games": 125,
-  "bwin_odds": 100,
+  "processed_games": 150,
+  "stats_games": 150,
+  "bwin_odds": 125,
   "failed_games": 0,
-  "current_match": "Último concluído: ML Vitebsk - Vitebsk",
-  "last_result": "ML Vitebsk - Vitebsk: 11 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T09:50:33.606Z"
+  "current_match": "Último concluído: FC Minsk - Belshina",
+  "last_result": "FC Minsk - Belshina: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T09:51:03.622Z"
 }
