@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 120,
-  "processed_games": 75,
-  "stats_games": 71,
-  "bwin_odds": 71,
+  "processed_games": 100,
+  "stats_games": 96,
+  "bwin_odds": 96,
   "failed_games": 4,
-  "current_match": "Último concluído: Heracles - Graafschap",
-  "last_result": "Heracles - Graafschap: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:30:35.332Z"
+  "current_match": "Último concluído: Graafschap - Jong AZ",
+  "last_result": "Graafschap - Jong AZ: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:30:41.402Z"
 }
