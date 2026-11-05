@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 170,
-  "processed_games": 25,
-  "stats_games": 24,
+  "processed_games": 50,
+  "stats_games": 49,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Super Nova - Tukums 2000",
-  "last_result": "Super Nova - Tukums 2000: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T22:12:15.804Z"
+  "current_match": "Último concluído: Grobina - Ogre United",
+  "last_result": "Grobina - Ogre United: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T22:12:47.320Z"
 }
