@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 224,
-  "processed_games": 150,
-  "stats_games": 77,
-  "bwin_odds": 77,
-  "failed_games": 73,
-  "current_match": "Último concluído: Yanbian Longding - Changchun Yatai",
-  "last_result": "Yanbian Longding - Changchun Yatai: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T12:47:40.646Z"
+  "processed_games": 175,
+  "stats_games": 81,
+  "bwin_odds": 81,
+  "failed_games": 94,
+  "current_match": "Último erro: AVbwBjHl",
+  "last_result": "Falha em AVbwBjHl: Falha ao recolher AVbwBjHl: HTTP 503",
+  "updated_at": "2026-11-05T13:00:52.009Z"
 }
