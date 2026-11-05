@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 225,
-  "processed_games": 200,
-  "stats_games": 200,
-  "bwin_odds": 173,
+  "processed_games": 225,
+  "stats_games": 224,
+  "bwin_odds": 195,
   "failed_games": 0,
-  "current_match": "Último concluído: Örebro - Norrkoping",
-  "last_result": "Örebro - Norrkoping: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T23:09:14.497Z"
+  "current_match": "Último concluído: Helsingborg - Öster",
+  "last_result": "Helsingborg - Öster: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T23:09:21.897Z"
 }
