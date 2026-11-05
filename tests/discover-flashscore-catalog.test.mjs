@@ -51,3 +51,14 @@ test("o crawler regista erros por país e preserva páginas que responderam", as
   assert.equal(report.competition_candidate_count, 1);
   assert.equal(report.errors[0].country, "Alemanha");
 });
+
+
+test("recupera o nome da competição de aria-label ou title quando o link não tem texto visível", () => {
+  const country = { country_name: "Argentina", country_slug: "argentina", url: "https://www.flashscore.pt/futebol/argentina/" };
+  const html = `
+    <a href="/futebol/argentina/liga-profesional/" aria-label="Liga Profesional"><img src="/logo.png"></a>
+    <a href="/futebol/argentina/primera-b/" title="Primeira B"><svg></svg></a>
+  `;
+  const result = parseCompetitionLinks(html, country);
+  assert.deepEqual(result.map(item => item.competition_name).sort(), ["Liga Profesional", "Primeira B"]);
+});
