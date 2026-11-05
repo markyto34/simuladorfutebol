@@ -2,14 +2,14 @@
   "run_id": "42053542737",
   "run_number": "6",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 224,
   "processed_games": 224,
   "stats_games": 224,
   "bwin_odds": 224,
   "failed_games": 0,
-  "current_match": "Último concluído: Wuxi Wugou - Foshan Nanshi",
+  "current_match": "Recolha terminada",
   "last_result": "Wuxi Wugou - Foshan Nanshi: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:42:38.117Z"
+  "updated_at": "2026-11-05T15:42:39.617Z"
 }
