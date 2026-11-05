@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 240,
-  "processed_games": 175,
-  "stats_games": 167,
-  "bwin_odds": 166,
-  "failed_games": 8,
-  "current_match": "Último concluído: Suwon Bluewings - Busan",
-  "last_result": "Suwon Bluewings - Busan: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T13:35:26.141Z"
+  "processed_games": 200,
+  "stats_games": 191,
+  "bwin_odds": 188,
+  "failed_games": 9,
+  "current_match": "Último concluído: Yongin - Jeonnam",
+  "last_result": "Yongin - Jeonnam: 11 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T13:36:36.205Z"
 }
