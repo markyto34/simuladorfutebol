@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T07:20:30.534Z",
+  "generated_at": "2026-11-05T07:21:22.767Z",
   "source": "Flashscore catalog + data/flashscore-statistics.csv",
   "scope": "Correspondência por país e competição com normalização e apenas aliases explicitamente confirmados. Nomes repetidos no mesmo país ficam em revisão e não são considerados cobertura validada.",
   "summary": {
@@ -18,7 +18,9 @@
     "stats_unique_match_ids": 1572,
     "stats_competition_labels": 282,
     "matched_stats_competition_labels": 224,
-    "unmatched_stats_competition_labels": 58
+    "unmatched_stats_competition_labels": 58,
+    "unmatched_stage_labels_kept_separate": 58,
+    "unmatched_labels_without_catalog_base": 0
   },
   "unmatched_stats_labels": [
     {
@@ -26,6 +28,44 @@
       "competition_name": "Liga dos Campeões - Fase de Liga",
       "unique_stats_matches": 18,
       "stats_rows": 18,
+      "metrics": {
+        "corners": {
+          "complete_matches": 18,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 18,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 18,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 18,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 18,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 18,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 3,
+          "coverage_pct": 16.7
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -39,6 +79,44 @@
       "competition_name": "Taça Challenge - Playoffs",
       "unique_stats_matches": 16,
       "stats_rows": 16,
+      "metrics": {
+        "corners": {
+          "complete_matches": 16,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 16,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 16,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "yellow_cards": {
+          "complete_matches": 15,
+          "coverage_pct": 93.8
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -52,6 +130,44 @@
       "competition_name": "Liga Profesional - Encerramento",
       "unique_stats_matches": 15,
       "stats_rows": 15,
+      "metrics": {
+        "corners": {
+          "complete_matches": 15,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 15,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 15,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 15,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 15,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 14,
+          "coverage_pct": 93.3
+        },
+        "red_cards": {
+          "complete_matches": 3,
+          "coverage_pct": 20
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -65,6 +181,44 @@
       "competition_name": "AFC - Liga dos Campeões - Fase de Liga",
       "unique_stats_matches": 14,
       "stats_rows": 14,
+      "metrics": {
+        "corners": {
+          "complete_matches": 14,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 14,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 14,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 14,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 14,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 14,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -78,6 +232,44 @@
       "competition_name": "Primeira A - Encerramento",
       "unique_stats_matches": 13,
       "stats_rows": 13,
+      "metrics": {
+        "corners": {
+          "complete_matches": 13,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 13,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 13,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 13,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 13,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 12,
+          "coverage_pct": 92.3
+        },
+        "red_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 7.7
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -91,6 +283,44 @@
       "competition_name": "Liga 1 - Encerramento",
       "unique_stats_matches": 13,
       "stats_rows": 13,
+      "metrics": {
+        "corners": {
+          "complete_matches": 13,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 13,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 13,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 13,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 13,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 13,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 3,
+          "coverage_pct": 23.1
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -104,6 +334,44 @@
       "competition_name": "Liga MX - Abertura",
       "unique_stats_matches": 10,
       "stats_rows": 10,
+      "metrics": {
+        "corners": {
+          "complete_matches": 10,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 10,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 10,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 10,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 10,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 10,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 10
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -117,6 +385,44 @@
       "competition_name": "UEFA Youth League - Fase de Liga",
       "unique_stats_matches": 9,
       "stats_rows": 9,
+      "metrics": {
+        "corners": {
+          "complete_matches": 9,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 9,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 9,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 9,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 9,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -130,6 +436,44 @@
       "competition_name": "Liga MX Feminina - Abertura",
       "unique_stats_matches": 9,
       "stats_rows": 9,
+      "metrics": {
+        "corners": {
+          "complete_matches": 9,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 9,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 9,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 9,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 9,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 8,
+          "coverage_pct": 88.9
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -143,6 +487,44 @@
       "competition_name": "Campeonato USL - Playoffs",
       "unique_stats_matches": 8,
       "stats_rows": 8,
+      "metrics": {
+        "corners": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 7,
+          "coverage_pct": 87.5
+        },
+        "red_cards": {
+          "complete_matches": 2,
+          "coverage_pct": 25
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -156,6 +538,44 @@
       "competition_name": "Liga de Expansion MX - Abertura",
       "unique_stats_matches": 8,
       "stats_rows": 8,
+      "metrics": {
+        "corners": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 3,
+          "coverage_pct": 37.5
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -169,6 +589,44 @@
       "competition_name": "Taça da Primeira - Encerramento",
       "unique_stats_matches": 8,
       "stats_rows": 8,
+      "metrics": {
+        "corners": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 7,
+          "coverage_pct": 87.5
+        },
+        "red_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 12.5
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -182,6 +640,44 @@
       "competition_name": "Liga AUF Uruguaia - Encerramento",
       "unique_stats_matches": 8,
       "stats_rows": 8,
+      "metrics": {
+        "corners": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 7,
+          "coverage_pct": 87.5
+        },
+        "yellow_cards": {
+          "complete_matches": 8,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 3,
+          "coverage_pct": 37.5
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -195,6 +691,44 @@
       "competition_name": "Primeira B - Encerramento - Quadrangular",
       "unique_stats_matches": 7,
       "stats_rows": 7,
+      "metrics": {
+        "corners": {
+          "complete_matches": 6,
+          "coverage_pct": 85.7
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 7,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 7,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "yellow_cards": {
+          "complete_matches": 7,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -209,6 +743,44 @@
       "competition_name": "Liga de Subida - Abertura",
       "unique_stats_matches": 7,
       "stats_rows": 7,
+      "metrics": {
+        "corners": {
+          "complete_matches": 7,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 7,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 7,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "yellow_cards": {
+          "complete_matches": 7,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -222,6 +794,44 @@
       "competition_name": "Liga Reservas - Encerramento",
       "unique_stats_matches": 6,
       "stats_rows": 6,
+      "metrics": {
+        "corners": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "yellow_cards": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -235,6 +845,44 @@
       "competition_name": "Liga Nacional - Abertura",
       "unique_stats_matches": 6,
       "stats_rows": 6,
+      "metrics": {
+        "corners": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "yellow_cards": {
+          "complete_matches": 6,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -248,6 +896,44 @@
       "competition_name": "Primeira Liga - Grupo Campeonato",
       "unique_stats_matches": 5,
       "stats_rows": 5,
+      "metrics": {
+        "corners": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -261,6 +947,44 @@
       "competition_name": "Primeira Liga - Abertura",
       "unique_stats_matches": 5,
       "stats_rows": 5,
+      "metrics": {
+        "corners": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 4,
+          "coverage_pct": 80
+        },
+        "yellow_cards": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -274,6 +998,44 @@
       "competition_name": "Primeira Liga - Abertura",
       "unique_stats_matches": 5,
       "stats_rows": 5,
+      "metrics": {
+        "corners": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 2,
+          "coverage_pct": 40
+        },
+        "yellow_cards": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 20
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -287,6 +1049,44 @@
       "competition_name": "Liga FUTVE - Encerramento - Quadrangular",
       "unique_stats_matches": 5,
       "stats_rows": 5,
+      "metrics": {
+        "corners": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -301,6 +1101,44 @@
       "competition_name": "Liga 2 - Grupo de Promoção",
       "unique_stats_matches": 4,
       "stats_rows": 4,
+      "metrics": {
+        "corners": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -314,6 +1152,44 @@
       "competition_name": "Primeira Divisão - Abertura",
       "unique_stats_matches": 4,
       "stats_rows": 4,
+      "metrics": {
+        "corners": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -327,6 +1203,44 @@
       "competition_name": "Primeira Divisão - Abertura",
       "unique_stats_matches": 4,
       "stats_rows": 4,
+      "metrics": {
+        "corners": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "yellow_cards": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -340,6 +1254,44 @@
       "competition_name": "Liga dos Campeões Feminina - Fase de Liga",
       "unique_stats_matches": 4,
       "stats_rows": 4,
+      "metrics": {
+        "corners": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 25
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -353,6 +1305,44 @@
       "competition_name": "Campeonato do Mundo Sub17 Feminino - Playoffs",
       "unique_stats_matches": 4,
       "stats_rows": 4,
+      "metrics": {
+        "corners": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 4,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -366,6 +1356,44 @@
       "competition_name": "Liga K1 - Grupo Campeonato",
       "unique_stats_matches": 3,
       "stats_rows": 3,
+      "metrics": {
+        "corners": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -379,6 +1407,44 @@
       "competition_name": "Liga K1 - Grupo de Despromoção",
       "unique_stats_matches": 3,
       "stats_rows": 3,
+      "metrics": {
+        "corners": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 2,
+          "coverage_pct": 66.7
+        },
+        "yellow_cards": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -392,6 +1458,44 @@
       "competition_name": "Liga Pro - Grupo Campeonato",
       "unique_stats_matches": 3,
       "stats_rows": 3,
+      "metrics": {
+        "corners": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -405,6 +1509,44 @@
       "competition_name": "Liga Pro - Grupo de Despromoção",
       "unique_stats_matches": 3,
       "stats_rows": 3,
+      "metrics": {
+        "corners": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 33.3
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -418,6 +1560,44 @@
       "competition_name": "Taça Feminina SWPL - Playoffs",
       "unique_stats_matches": 3,
       "stats_rows": 3,
+      "metrics": {
+        "corners": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "yellow_cards": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -431,6 +1611,44 @@
       "competition_name": "UEFA Youth League - PlayOffs Vencedores",
       "unique_stats_matches": 3,
       "stats_rows": 3,
+      "metrics": {
+        "corners": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 3,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -444,6 +1662,44 @@
       "competition_name": "Torneio Federal - Playoffs de Promoção",
       "unique_stats_matches": 2,
       "stats_rows": 2,
+      "metrics": {
+        "corners": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 1,
+          "coverage_pct": 50
+        },
+        "yellow_cards": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -457,6 +1713,44 @@
       "competition_name": "Primeira Liga - Playoffs",
       "unique_stats_matches": 2,
       "stats_rows": 2,
+      "metrics": {
+        "corners": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -470,6 +1764,44 @@
       "competition_name": "Liga Pro - Grupo de Colocação",
       "unique_stats_matches": 2,
       "stats_rows": 2,
+      "metrics": {
+        "corners": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -483,6 +1815,44 @@
       "competition_name": "Taça da Liga - Playoffs",
       "unique_stats_matches": 2,
       "stats_rows": 2,
+      "metrics": {
+        "corners": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 1,
+          "coverage_pct": 50
+        },
+        "yellow_cards": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -496,6 +1866,44 @@
       "competition_name": "MLS Next Pro - Playoffs",
       "unique_stats_matches": 2,
       "stats_rows": 2,
+      "metrics": {
+        "corners": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 50
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -509,6 +1917,44 @@
       "competition_name": "USL Liga 1 - Playoffs",
       "unique_stats_matches": 2,
       "stats_rows": 2,
+      "metrics": {
+        "corners": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -522,6 +1968,44 @@
       "competition_name": "Liga Nacional - Abertura",
       "unique_stats_matches": 2,
       "stats_rows": 2,
+      "metrics": {
+        "corners": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "yellow_cards": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 50
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -535,6 +2019,44 @@
       "competition_name": "Primeira Liga - Primeira Fase - Principal",
       "unique_stats_matches": 2,
       "stats_rows": 2,
+      "metrics": {
+        "corners": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -548,6 +2070,44 @@
       "competition_name": "Liga MX U21 - Abertura",
       "unique_stats_matches": 2,
       "stats_rows": 2,
+      "metrics": {
+        "corners": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "yellow_cards": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -561,6 +2121,44 @@
       "competition_name": "Liga Nacional - Grupo Campeonato",
       "unique_stats_matches": 2,
       "stats_rows": 2,
+      "metrics": {
+        "corners": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "yellow_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 50
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -574,6 +2172,44 @@
       "competition_name": "Primeira Liga - Abertura",
       "unique_stats_matches": 2,
       "stats_rows": 2,
+      "metrics": {
+        "corners": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 1,
+          "coverage_pct": 50
+        },
+        "yellow_cards": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -587,6 +2223,44 @@
       "competition_name": "Taça da Turquia - Qualificação",
       "unique_stats_matches": 2,
       "stats_rows": 2,
+      "metrics": {
+        "corners": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 2,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -600,6 +2274,44 @@
       "competition_name": "Taça dos Libertadores - Feminina - Playoffs",
       "unique_stats_matches": 1,
       "stats_rows": 1,
+      "metrics": {
+        "corners": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -613,6 +2325,44 @@
       "competition_name": "Primeira A Feminina - Encerramento",
       "unique_stats_matches": 1,
       "stats_rows": 1,
+      "metrics": {
+        "corners": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "yellow_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -626,6 +2376,44 @@
       "competition_name": "Primeira C - Playoffs de Promoção",
       "unique_stats_matches": 1,
       "stats_rows": 1,
+      "metrics": {
+        "corners": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "yellow_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -639,6 +2427,44 @@
       "competition_name": "Taça Pacena - Playoffs",
       "unique_stats_matches": 1,
       "stats_rows": 1,
+      "metrics": {
+        "corners": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -652,6 +2478,44 @@
       "competition_name": "Gaucho 2 - Playoffs",
       "unique_stats_matches": 1,
       "stats_rows": 1,
+      "metrics": {
+        "corners": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -665,6 +2529,44 @@
       "competition_name": "NSL Feminino - Playoffs",
       "unique_stats_matches": 1,
       "stats_rows": 1,
+      "metrics": {
+        "corners": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -678,6 +2580,44 @@
       "competition_name": "Segunda Divisão - Grupo de Despromoção",
       "unique_stats_matches": 1,
       "stats_rows": 1,
+      "metrics": {
+        "corners": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -691,6 +2631,44 @@
       "competition_name": "Segunda Divisão - Grupo de Promoção",
       "unique_stats_matches": 1,
       "stats_rows": 1,
+      "metrics": {
+        "corners": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -704,6 +2682,44 @@
       "competition_name": "Taça Chile - Playoffs",
       "unique_stats_matches": 1,
       "stats_rows": 1,
+      "metrics": {
+        "corners": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -717,6 +2733,44 @@
       "competition_name": "Taça da Colômbia - Segundo nível",
       "unique_stats_matches": 1,
       "stats_rows": 1,
+      "metrics": {
+        "corners": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "yellow_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -730,6 +2784,44 @@
       "competition_name": "Liga Europa - Fase de Liga",
       "unique_stats_matches": 1,
       "stats_rows": 1,
+      "metrics": {
+        "corners": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -743,6 +2835,44 @@
       "competition_name": "Champions League - League phase",
       "unique_stats_matches": 1,
       "stats_rows": 1,
+      "metrics": {
+        "corners": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -756,6 +2886,44 @@
       "competition_name": "Divisão 1 - Playoffs",
       "unique_stats_matches": 1,
       "stats_rows": 1,
+      "metrics": {
+        "corners": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
@@ -769,6 +2937,44 @@
       "competition_name": "Taça da Rússia - Caminho das Regiões",
       "unique_stats_matches": 1,
       "stats_rows": 1,
+      "metrics": {
+        "corners": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
       "reason": "catalog_base_found_stage_kept_separate",
       "relationship": "same_base_competition_distinct_stage_not_merged",
       "stage_markers": [
