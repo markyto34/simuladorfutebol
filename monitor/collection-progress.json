@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 322,
-  "processed_games": 300,
-  "stats_games": 300,
-  "bwin_odds": 300,
-  "failed_games": 0,
-  "current_match": "Último concluído: Vitoria - Flamengo",
-  "last_result": "Vitoria - Flamengo: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:25:32.060Z"
+  "processed_games": 322,
+  "stats_games": 321,
+  "bwin_odds": 320,
+  "failed_games": 1,
+  "current_match": "Último erro: ttBjgHV6",
+  "last_result": "Falha em ttBjgHV6: Falha ao recolher ttBjgHV6: HTTP 503",
+  "updated_at": "2026-11-05T15:26:38.922Z"
 }
