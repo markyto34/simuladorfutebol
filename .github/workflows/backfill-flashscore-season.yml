@@ -117,6 +117,7 @@ jobs:
               failures=$((failures + 1))
               echo "Falha na recolha desta competição; avançar para a próxima."
             fi
+            sleep 2
             echo "::endgroup::"
           done < /tmp/flashscore-season-paths.txt
           echo "Competições concluídas: $completed"
