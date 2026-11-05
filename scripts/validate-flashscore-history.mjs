@@ -117,7 +117,9 @@ export function validateHistory(stats, odds) {
     if (!competitionCoverage.has(competitionKey)) competitionCoverage.set(competitionKey, { competition: competitionKey, matches: 0, indicators: Object.fromEntries(["score_ft","score_ht","score_st", ...STAT_CATEGORIES].map(key => [key, 0])) });
     const competition = competitionCoverage.get(competitionKey);
     competition.matches++;
-    if (!homeBlank) indicatorCounts.score_ft++, competition.indicators.score_ft++;
+    if (!homeBlank) { indicatorCounts.score_ft++; competition.indicators.score_ft++; }
+    if (hasHtHome) competition.indicators.score_ht++;
+    if (hasShHome) competition.indicators.score_st++;
     for (const key of STAT_CATEGORIES) {
       const complete = !blank(row[key + "_home"]) && !blank(row[key + "_away"]);
       if (complete) { indicatorCounts[key]++; competition.indicators[key]++; }
