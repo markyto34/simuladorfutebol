@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 170,
-  "processed_games": 75,
-  "stats_games": 74,
+  "processed_games": 100,
+  "stats_games": 99,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Jelgava - Tukums 2000",
-  "last_result": "Jelgava - Tukums 2000: 16 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T22:13:04.841Z"
+  "current_match": "Último concluído: BFC Daugavpils - Ogre United",
+  "last_result": "BFC Daugavpils - Ogre United: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T22:13:22.571Z"
 }
