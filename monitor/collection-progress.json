@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 74,
-  "processed_games": 25,
-  "stats_games": 8,
+  "processed_games": 50,
+  "stats_games": 24,
   "bwin_odds": 0,
   "failed_games": 6,
-  "current_match": "Último concluído: Zeta - Grbalj",
-  "last_result": "Zeta - Grbalj: 9 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T22:18:35.676Z"
+  "current_match": "Último concluído: Grbalj - Lovcen",
+  "last_result": "Grbalj - Lovcen: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T22:18:49.578Z"
 }
