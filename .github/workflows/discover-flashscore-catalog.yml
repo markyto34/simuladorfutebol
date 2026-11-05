@@ -2,8 +2,6 @@ name: Descobrir catálogo completo de competições Flashscore
 
 on:
   workflow_dispatch:
-  push:
-    branches: [feature/flashscore-full-competition-discovery]
 
 concurrency:
   group: flashscore-catalog-discovery
