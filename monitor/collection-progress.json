@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 208,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 19,
+  "processed_games": 50,
+  "stats_games": 50,
+  "bwin_odds": 30,
   "failed_games": 0,
-  "current_match": "Último concluído: Neman - Baranovici",
-  "last_result": "Neman - Baranovici: 10 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T09:47:57.853Z"
+  "current_match": "Último concluído: Naftan - FC Minsk",
+  "last_result": "Naftan - FC Minsk: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T09:48:53.766Z"
 }
