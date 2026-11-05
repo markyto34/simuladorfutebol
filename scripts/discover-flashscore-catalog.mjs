@@ -54,8 +54,6 @@ function anchors(html) {
   // Alguns links de competições também vêm embutidos no estado JSON da página,
   // fora de elementos <a>. Recuperá-los evita perder ligas carregadas pelo frontend.
   const embedded = source
-    .replace(/\\\\u002[fF]/g, "/")
-    .replace(/\\\\\//g, "/")
     .replace(/\\u002[fF]/g, "/")
     .replace(/\\\//g, "/");
   const pathPattern = /(?:https?:\\/\\/(?:www\\.)?flashscore\\.pt)?(\\/futebol\\/[^\\s"'<>\\\\?]+\\/[^\\s"'<>\\\\?]+\\/?)/g;
