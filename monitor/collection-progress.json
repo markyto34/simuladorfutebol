@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 34,
   "processed_games": 34,
   "stats_games": 31,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Mombasa United - Kakamega Homeboyz",
+  "current_match": "Recolha terminada",
   "last_result": "Mombasa United - Kakamega Homeboyz: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T22:40:42.281Z"
+  "updated_at": "2026-11-05T22:40:43.540Z"
 }
