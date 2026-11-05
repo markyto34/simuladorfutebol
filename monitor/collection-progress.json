@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 54,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 25,
+  "processed_games": 50,
+  "stats_games": 50,
+  "bwin_odds": 50,
   "failed_games": 0,
-  "current_match": "A consultar jogo 26/54 · jB9vn2Sg",
-  "last_result": "Osijek - Din. Zagreb: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T13:38:04.520Z"
+  "current_match": "Último concluído: Rijeka - Rudes",
+  "last_result": "Rijeka - Rudes: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T13:38:34.154Z"
 }
