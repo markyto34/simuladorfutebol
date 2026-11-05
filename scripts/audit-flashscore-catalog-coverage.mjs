@@ -92,14 +92,14 @@ export function buildFlashscoreCatalogCoverage(catalog, statsRows) {
     label.rows++;
     if (row.match_id) label.ids.add(String(row.match_id));
   }
-  const stageSuffix = /\\s*(?:-\\s*)?(fase de liga|playoffs?|abertura|encerramento|apertura|clausura|quadrangular|octogonal|hexagonal|grupo campeonato|grupo rebaixamento)\\s*$/i;
+  const stageSuffix = /\s*(?:-\s*)?(fase de liga|playoffs?|abertura|encerramento|apertura|clausura|quadrangular|octogonal|hexagonal|grupo campeonato|grupo rebaixamento)\s*$/i;
   function findStageRelatedCandidate(label) {
     let base = label.competition_name;
     const stages = [];
     while (stageSuffix.test(base)) {
       const match = base.match(stageSuffix);
       stages.unshift(match[1]);
-      base = base.replace(stageSuffix, '').trim().replace(/[-–—\\s]+$/, '').trim();
+      base = base.replace(stageSuffix, '').trim().replace(/[-–—\s]+$/, '').trim();
     }
     if (!stages.length || !base) return null;
     const matches = catalog.competitions.filter(candidate =>
