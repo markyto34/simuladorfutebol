@@ -1,0 +1,84 @@
+name: Backfill histórico de cantos HT/ST Flashscore
+
+on:
+  workflow_dispatch:
+    inputs:
+      start_date:
+        description: "Data inicial (YYYY-MM-DD)"
+        required: true
+        type: string
+      end_date:
+        description: "Data final (YYYY-MM-DD), máximo 31 dias"
+        required: true
+        type: string
+      limit:
+        description: "Limite opcional de jogos (0 = todos)"
+        required: false
+        default: "0"
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: recolha-diaria-flashscore
+  cancel-in-progress: false
+
+jobs:
+  backfill-period-corners:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Checkout histórico
+        uses: actions/checkout@v6
+        with:
+          ref: main
+      - name: Preparar Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Validar intervalo e limite
+        env:
+          START_DATE: \${{ inputs.start_date }}
+          END_DATE: \${{ inputs.end_date }}
+          LIMIT: \${{ inputs.limit }}
+        run: |
+          set -euo pipefail
+          for value in "$START_DATE" "$END_DATE"; do
+            if [[ ! "$value" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] || [[ "$(date -u -d "$value" +%F 2>/dev/null || true)" != "$value" ]]; then
+              echo "Data inválida: $value"
+              exit 2
+            fi
+          done
+          start_epoch=$(date -u -d "$START_DATE" +%s)
+          end_epoch=$(date -u -d "$END_DATE" +%s)
+          if (( end_epoch < start_epoch )); then echo "Data final anterior à inicial."; exit 2; fi
+          days=$(( (end_epoch - start_epoch) / 86400 + 1 ))
+          if (( days > 31 )); then echo "Máximo de 31 dias por execução."; exit 2; fi
+          if [[ ! "$LIMIT" =~ ^[0-9]+$ ]]; then echo "Limite inválido."; exit 2; fi
+          echo "Intervalo: $START_DATE a $END_DATE ($days dias); limite=$LIMIT"
+      - name: Testar backfill
+        run: |
+          node --check scripts/backfill-flashscore-period-corners.mjs
+          node --test tests/backfill-flashscore-period-corners.test.mjs
+      - name: Recolher cantos HT/ST em falta
+        env:
+          FLASHSCORE_REQUEST_DELAY_MS: "500"
+          FLASHSCORE_CONCURRENCY: "2"
+        run: node scripts/backfill-flashscore-period-corners.mjs --start-date="\${{ inputs.start_date }}" --end-date="\${{ inputs.end_date }}" --limit="\${{ inputs.limit }}"
+      - name: Validar histórico e atualizar auditoria
+        run: |
+          node scripts/validate-flashscore-history.mjs
+          node scripts/audit-flashscore-catalog-coverage.mjs
+      - name: Guardar CSV e auditoria sem perder dados
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+users.noreply.github.com"
+          git add data/flashscore-statistics.csv data/flashscore-competition-coverage.json
+          if git diff --cached --quiet; then
+            echo "Não havia novos valores HT/ST para guardar."
+          else
+            git commit -m "Backfill histórico de cantos HT e ST"
+            git push origin HEAD:main
+          fi
