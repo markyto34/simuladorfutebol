@@ -170,6 +170,7 @@ async function main() {
   if (!parsed.rows.length) throw new Error("CSV de estatísticas vazio.");
   let progress = { attempted_ids: [] };
   try { progress = JSON.parse(await readFile(PROGRESS_FILE, "utf8")); } catch {}
+  if (progress.start_date !== startDate || progress.end_date !== endDate) progress = { attempted_ids: [] };
   const checkpoint = async (rows, attemptedIds, summary) => {
     const headers = [...parsed.headers];
     for (const field of PERIOD_FIELDS) if (!headers.includes(field)) headers.push(field);
