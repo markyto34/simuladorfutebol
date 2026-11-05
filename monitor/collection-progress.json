@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 224,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 50,
+  "processed_games": 75,
+  "stats_games": 75,
+  "bwin_odds": 75,
   "failed_games": 0,
-  "current_match": "Último concluído: Raufoss - Odd",
-  "last_result": "Raufoss - Odd: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:23:49.142Z"
+  "current_match": "Último concluído: Strömsgodset - Hodd",
+  "last_result": "Strömsgodset - Hodd: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:24:03.925Z"
 }
