@@ -41,9 +41,20 @@ test("recupera o nome da competição do alt de imagem em links sem texto", () =
   assert.equal(result[0].url, "https://www.flashscore.pt/futebol/suecia/allsvenskan/");
 });
 
+
+test("recupera links de competições embutidos no estado JSON da página", () => {
+  const country = { country_name: "Suécia", country_slug: "suecia", url: "https://www.flashscore.pt/futebol/suecia/" };
+  const html = String.raw`{"competitionUrl":"\\/futebol\\/suecia\\/allsvenskan\\/"}`;
+  const result = parseCompetitionLinks(html, country);
+  assert.equal(result.length, 1);
+  assert.equal(result[0].competition_slug, "allsvenskan");
+  assert.equal(result[0].competition_name, "Allsvenskan");
+});
+
 test("o crawler regista erros por país e preserva páginas que responderam", async () => {
   const pages = new Map([
     ["https://www.flashscore.pt/futebol/", '<a href="/futebol/portugal/">Portugal</a><a href="/futebol/alemanha/">Alemanha</a>'],
+    ["https://www.flashscore.pt/futebol/mundo/", '<a href="/futebol/portugal/taca-de-portugal/">Taça de Portugal</a>'],
     ["https://www.flashscore.pt/futebol/portugal/", '<a href="/futebol/portugal/liga-portugal/">Liga Portugal</a>']
   ]);
   const report = await discoverFlashscoreCatalog({
