@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 37,
-  "processed_games": 25,
-  "stats_games": 25,
+  "processed_games": 37,
+  "stats_games": 37,
   "bwin_odds": 9,
   "failed_games": 0,
-  "current_match": "A consultar jogo 28/37 · Gnbtklz9",
-  "last_result": "Inac Kobe Leonesa F - Parceiro Nagano F: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T22:08:40.630Z"
+  "current_match": "Último concluído: Nojima Stella F - Saitama F",
+  "last_result": "Nojima Stella F - Saitama F: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T22:08:42.974Z"
 }
