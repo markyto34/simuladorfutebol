@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 83,
-  "processed_games": 75,
-  "stats_games": 75,
-  "bwin_odds": 75,
+  "processed_games": 83,
+  "stats_games": 83,
+  "bwin_odds": 83,
   "failed_games": 0,
-  "current_match": "Último concluído: CSKA 1948 Sofia - Botev Vratsa",
-  "last_result": "CSKA 1948 Sofia - Botev Vratsa: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T11:48:18.894Z"
+  "current_match": "Último concluído: Spartak Varna - CSKA 1948 Sofia",
+  "last_result": "Spartak Varna - CSKA 1948 Sofia: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T11:48:28.576Z"
 }
