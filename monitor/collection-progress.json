@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 110,
-  "processed_games": 76,
-  "stats_games": 76,
-  "bwin_odds": 75,
+  "processed_games": 100,
+  "stats_games": 100,
+  "bwin_odds": 97,
   "failed_games": 0,
-  "current_match": "A consultar jogo 79/110 · xMWCXWr3",
-  "last_result": "Savoia - Crotone: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:06:16.331Z"
+  "current_match": "Último concluído: Crotone - Foggia",
+  "last_result": "Crotone - Foggia: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T22:06:23.362Z"
 }
