@@ -93,6 +93,9 @@ export function prepareFlashscoreCatalog(raw) {
   }
 
   for (const item of VERIFIED_SUPPLEMENTAL_COMPETITIONS) {
+    const countryIsInSource = raw.countries.some(country => country.country_slug === item.country_slug)
+      || raw.competitions.some(candidate => candidate.country_slug === item.country_slug);
+    if (!countryIsInSource) continue;
     const exists = candidates.some(candidate =>
       candidate.country_slug === item.country_slug && candidate.competition_slug === item.competition_slug
     );
