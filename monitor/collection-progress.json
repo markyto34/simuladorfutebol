@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 80,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 25,
+  "processed_games": 51,
+  "stats_games": 51,
+  "bwin_odds": 51,
   "failed_games": 0,
-  "current_match": "Último concluído: Chelsea - Bournemouth",
-  "last_result": "Chelsea - Bournemouth: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:50:09.580Z"
+  "current_match": "A consultar jogo 54/80 · 25c1yohJ",
+  "last_result": "Hull - Aston Villa: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T21:50:18.656Z"
 }
