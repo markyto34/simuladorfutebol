@@ -165,3 +165,26 @@ test('mede cobertura por indicador nas fases que permanecem separadas', () => {
   assert.equal(report.summary.unmatched_stage_labels_kept_separate,1);
   assert.equal(report.summary.unmatched_labels_without_catalog_base,0);
 });
+
+
+test('audita golos FT, HT e ST e métricas complementares por jogo', () => {
+  const report = buildFlashscoreCatalogCoverage(
+    catalog([candidate('Portugal','Liga Portugal')]),
+    [
+      row('Portugal','Liga Portugal','g1',{
+        score_home:'2',score_away:'1',ht_home:'1',ht_away:'0',sh_home:'1',sh_away:'1',
+        possession_home:'55',possession_away:'45',big_chances_home:'3',big_chances_away:'1'
+      }),
+      row('Portugal','Liga Portugal','g2',{
+        score_home:'0',score_away:'0',ht_home:'0',ht_away:'0',sh_home:'0',sh_away:'0',
+        possession_home:'48',possession_away:'52',big_chances_home:'0',big_chances_away:'0'
+      })
+    ]
+  );
+  const metrics = report.competitions[0].metrics;
+  assert.equal(metrics.goals.complete_matches,2);
+  assert.equal(metrics.goals_ht.complete_matches,2);
+  assert.equal(metrics.goals_st.complete_matches,2);
+  assert.equal(metrics.possession.coverage_pct,100);
+  assert.equal(metrics.big_chances.coverage_pct,100);
+});
