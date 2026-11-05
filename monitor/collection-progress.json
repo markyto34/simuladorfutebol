@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 150,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 25,
+  "processed_games": 50,
+  "stats_games": 50,
+  "bwin_odds": 50,
   "failed_games": 0,
-  "current_match": "Último concluído: Meshakhte Tkibuli - Rustavi",
-  "last_result": "Meshakhte Tkibuli - Rustavi: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:38:57.569Z"
+  "current_match": "A consultar jogo 53/150 · rH9heJyJ",
+  "last_result": "Torpedo Kutaisi - Iberia 1999: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T21:39:02.786Z"
 }
