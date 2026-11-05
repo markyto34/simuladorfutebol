@@ -1,0 +1,139 @@
+name: Backfill Flashscore por época
+on:
+  workflow_dispatch:
+    inputs:
+      competition_path:
+        description: "Opcional: uma competição para teste. Vazio = lote de competições relevantes do catálogo."
+        required: false
+        type: string
+permissions:
+  contents: write
+concurrency:
+  group: recolha-diaria-flashscore
+  cancel-in-progress: false
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Validar e testar descoberta
+        env:
+          COMPETITION_PATH: ${{ inputs.competition_path }}
+        run: |
+          set -euo pipefail
+          if [[ -n "$COMPETITION_PATH" ]]; then
+            [[ "$COMPETITION_PATH" =~ ^/futebol/[a-z0-9-]+/[a-z0-9-]+/$ ]] || {
+              echo "Caminho inválido. Usa /futebol/<pais>/<competicao>/."
+              exit 2
+            }
+            if [[ "$COMPETITION_PATH" =~ friendly|friendlies|amig[aá]v|amistos ]]; then
+              echo "Competições amigáveis estão excluídas."
+              exit 2
+            fi
+          fi
+          node --check scripts/discover-flashscore-season.mjs
+          node --test tests/discover-flashscore-season.test.mjs
+      - name: Preparar lista de competições da época atual
+        env:
+          COMPETITION_PATH: ${{ inputs.competition_path }}
+        run: |
+          set -euo pipefail
+          node --input-type=module <<'NODE'
+          import fs from "node:fs";
+          const requested = process.env.COMPETITION_PATH || "";
+          let paths;
+          if (requested) {
+            paths = [requested];
+          } else {
+            const report = JSON.parse(fs.readFileSync("data/flashscore-competition-coverage.json", "utf8"));
+            const selected = (report.competitions || []).filter(item =>
+              Number(item.unique_stats_matches || 0) >= 5 &&
+              item.age_category === "senior" &&
+              ["masculino_misto", "feminino"].includes(item.gender) &&
+              ["liga_ou_torneio", "taca"].includes(item.competition_type) &&
+              !/friendly|friendlies|amig[aá]v|amistos/i.test((item.competition_name || "") + " " + (item.url || ""))
+            );
+            paths = [...new Set(selected.map(item => {
+              try { return new URL(item.url).pathname; } catch { return ""; }
+            }).filter(Boolean))].sort();
+          }
+          if (!paths.length) throw new Error("O filtro não encontrou competições elegíveis.");
+          fs.writeFileSync("/tmp/flashscore-season-paths.txt", paths.join("\n") + "\n");
+          console.log("Competições selecionadas: " + paths.length);
+          console.log("Critério: sénior, liga/torneio ou taça, pelo menos 5 jogos estatísticos históricos, sem amigáveis.");
+          NODE
+      - name: Descobrir épocas e recolher estatísticas + odds Bwin
+        env:
+          FLASHSCORE_SEASON_PAGE_DELAY_MS: "1500"
+          FLASHSCORE_REQUEST_DELAY_MS: "1200"
+          FLASHSCORE_CONCURRENCY: "2"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -uo pipefail
+          completed=0
+          failures=0
+          blocked=0
+          index=0
+          while IFS= read -r competition_path; do
+            [[ -n "$competition_path" ]] || continue
+            index=$((index + 1))
+            log="/tmp/flashscore-season-$index.log"
+            manifest="/tmp/flashscore-season-$index.json"
+            echo "::group::Competição $index · $competition_path"
+            if node scripts/discover-flashscore-season.mjs --path="$competition_path" --out="$manifest" >"$log" 2>&1; then
+              cat "$log"
+            else
+              code=$?
+              cat "$log"
+              if grep -Eiq 'HTTP (401|403|429)|bloqueou/limitou|Flashscore bloqueou' "$log"; then
+                blocked=1
+                echo "Flashscore limitou o acesso; parar o lote para proteger a recolha."
+                echo "::endgroup::"
+                break
+              fi
+              failures=$((failures + 1))
+              echo "Falha de descoberta nesta competição; avançar para a próxima."
+              sleep 2
+              echo "::endgroup::"
+              continue
+            fi
+            if node scripts/collect-flashscore-csv.mjs --team-last-five="$manifest" >>"$log" 2>&1; then
+              cat "$log"
+              completed=$((completed + 1))
+            else
+              code=$?
+              cat "$log"
+              if grep -Eiq 'HTTP (401|403|429)|bloqueou/limitou|Flashscore bloqueou' "$log"; then
+                blocked=1
+                echo "Flashscore limitou a recolha; parar o lote."
+                echo "::endgroup::"
+                break
+              fi
+              failures=$((failures + 1))
+              echo "Falha na recolha desta competição; avançar para a próxima."
+            fi
+            sleep 2
+            echo "::endgroup::"
+          done < /tmp/flashscore-season-paths.txt
+          echo "Competições concluídas: $completed"
+          echo "Competições com erros: $failures"
+          echo "Interrompido por bloqueio: $blocked"
+          node scripts/validate-flashscore-history.mjs || exit 1
+          node scripts/integrate-flashscore-odds-history.mjs || exit 1
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/flashscore-statistics.csv data/bwin-odds-flashscore.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "Backfill Flashscore das épocas atuais" || exit 1
+            git push origin main || exit 1
+          fi
+          if (( blocked == 1 || failures > 0 )); then
+            echo "::error::O lote preservou os dados válidos, mas terminou com $failures falhas e bloqueio=$blocked."
+            exit 1
+          fi
