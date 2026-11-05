@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 121,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 25,
+  "processed_games": 50,
+  "stats_games": 50,
+  "bwin_odds": 50,
   "failed_games": 0,
-  "current_match": "Último concluído: Burgos CF - Granada",
-  "last_result": "Burgos CF - Granada: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T13:59:20.755Z"
+  "current_match": "Último concluído: Valladolid - Cordoba",
+  "last_result": "Valladolid - Cordoba: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T13:59:50.754Z"
 }
