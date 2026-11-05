@@ -24,7 +24,7 @@ jobs:
           node-version: 22
       - name: Validar e testar descoberta
         env:
-          COMPETITION_PATH: \${{ inputs.competition_path }}
+          COMPETITION_PATH: ${{ inputs.competition_path }}
         run: |
           set -euo pipefail
           if [[ -n "$COMPETITION_PATH" ]]; then
@@ -41,7 +41,7 @@ jobs:
           node --test tests/discover-flashscore-season.test.mjs
       - name: Preparar lista de competições da época atual
         env:
-          COMPETITION_PATH: \${{ inputs.competition_path }}
+          COMPETITION_PATH: ${{ inputs.competition_path }}
         run: |
           set -euo pipefail
           node --input-type=module <<'NODE'
