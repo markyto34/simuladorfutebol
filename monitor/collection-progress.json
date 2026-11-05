@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 130,
-  "processed_games": 100,
-  "stats_games": 100,
-  "bwin_odds": 100,
+  "processed_games": 126,
+  "stats_games": 126,
+  "bwin_odds": 126,
   "failed_games": 0,
-  "current_match": "Último concluído: Tochigi City - Iwata",
-  "last_result": "Tochigi City - Iwata: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:10:01.088Z"
+  "current_match": "A consultar jogo 129/130 · 6Dr4ikFO",
+  "last_result": "Omiya Ardija - Albirex Niigata: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:10:06.181Z"
 }
