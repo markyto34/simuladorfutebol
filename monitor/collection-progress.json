@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 472,
-  "processed_games": 175,
-  "stats_games": 173,
-  "bwin_odds": 173,
+  "processed_games": 200,
+  "stats_games": 198,
+  "bwin_odds": 198,
   "failed_games": 2,
-  "current_match": "Último concluído: Seattle Sounders - Austin FC",
-  "last_result": "Seattle Sounders - Austin FC: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T16:01:40.315Z"
+  "current_match": "Último concluído: Toronto FC - New England Revolution",
+  "last_result": "Toronto FC - New England Revolution: 16 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T16:01:50.840Z"
 }
