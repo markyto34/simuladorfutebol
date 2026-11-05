@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 34,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 23,
+  "processed_games": 34,
+  "stats_games": 34,
+  "bwin_odds": 32,
   "failed_games": 0,
-  "current_match": "Último concluído: Al Jahra - Al Arabi",
-  "last_result": "Al Jahra - Al Arabi: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:11:21.907Z"
+  "current_match": "Último concluído: Al Sahel - Al Naser",
+  "last_result": "Al Sahel - Al Naser: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:11:52.343Z"
 }
