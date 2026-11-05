@@ -2,14 +2,14 @@
   "run_id": "42053542737",
   "run_number": "6",
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
-  "total_games": 12,
-  "processed_games": 12,
-  "stats_games": 11,
+  "status": "running",
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Catar (Qat) - Al Zawraa (Irq): 10 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T15:19:13.521Z"
+  "current_match": "A descobrir jogos",
+  "last_result": "",
+  "updated_at": "2026-11-05T15:19:22.150Z"
 }
