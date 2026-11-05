@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 80,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 25,
+  "processed_games": 52,
+  "stats_games": 52,
+  "bwin_odds": 52,
   "failed_games": 0,
-  "current_match": "Último concluído: Leuven - RAAL La Louviere",
-  "last_result": "Leuven - RAAL La Louviere: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:22:10.638Z"
+  "current_match": "A consultar jogo 55/80 · tpGWzPHG",
+  "last_result": "Cercle Brugge - Lommel SK: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:22:16.407Z"
 }
