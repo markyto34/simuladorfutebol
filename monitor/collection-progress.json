@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 472,
-  "processed_games": 350,
-  "stats_games": 350,
-  "bwin_odds": 349,
+  "processed_games": 375,
+  "stats_games": 375,
+  "bwin_odds": 374,
   "failed_games": 0,
-  "current_match": "Último concluído: Columbus Crew - Los Angeles Galaxy",
-  "last_result": "Columbus Crew - Los Angeles Galaxy: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T14:28:46.076Z"
+  "current_match": "Último concluído: Sporting Kansas City - San Jose Earthquakes",
+  "last_result": "Sporting Kansas City - San Jose Earthquakes: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T14:29:16.248Z"
 }
