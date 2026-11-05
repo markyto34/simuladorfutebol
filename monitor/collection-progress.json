@@ -2,14 +2,14 @@
   "run_id": "42049381940",
   "run_number": "3",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 81,
-  "processed_games": 77,
-  "stats_games": 77,
-  "bwin_odds": 77,
+  "processed_games": 81,
+  "stats_games": 81,
+  "bwin_odds": 81,
   "failed_games": 0,
-  "current_match": "A consultar jogo 80/81 · SEondXgU",
-  "last_result": "Darmstadt - Kiel: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T14:55:10.403Z"
+  "current_match": "Recolha terminada",
+  "last_result": "Bochum - Hertha: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T14:55:12.231Z"
 }
