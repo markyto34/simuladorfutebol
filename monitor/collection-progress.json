@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 88,
-  "processed_games": 26,
-  "stats_games": 21,
-  "bwin_odds": 23,
+  "processed_games": 50,
+  "stats_games": 42,
+  "bwin_odds": 46,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/88 · YsDrjV2N",
-  "last_result": "Videoton - Szentlorinc: 11 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:43:42.946Z"
+  "current_match": "Último concluído: Nagykanizsa - Tiszakecske",
+  "last_result": "Nagykanizsa - Tiszakecske: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T21:43:48.167Z"
 }
