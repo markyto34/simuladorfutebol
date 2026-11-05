@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 631,
-  "processed_games": 150,
-  "stats_games": 150,
-  "bwin_odds": 136,
+  "processed_games": 175,
+  "stats_games": 175,
+  "bwin_odds": 160,
   "failed_games": 0,
-  "current_match": "Último concluído: Los Andes - Acassuso",
-  "last_result": "Los Andes - Acassuso: 9 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T09:27:47.692Z"
+  "current_match": "A consultar jogo 176/631 · vZsCthtm",
+  "last_result": "Temperley - Midland: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T09:28:18.209Z"
 }
