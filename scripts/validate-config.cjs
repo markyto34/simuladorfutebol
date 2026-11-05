@@ -74,7 +74,8 @@ if (loadStart < 0 || loadEnd < 0) {
   if (!loader.includes("const isComplete=m=>[m.hg,m.ag,m.hc,m.ac,m.homeShots,m.awayShots,m.homeTarget,m.awayTarget,m.homeFouls,m.awayFouls].every")) fail("A validação dos dez campos obrigatórios não está ativa.");
   if (!loader.includes("teamOptionsForSeason(matches)")) fail("A seleção de equipas não inclui as equipas da época carregada.");
   if (!loader.includes('for(const id of ["homePick","awayPick"])')) fail("Os dois seletores não partilham a lista validada de equipas.");
-  if (!loader.includes("completeMatches.length")) fail("O estado de carregamento não informa quantos jogos estão completos.");
+  if (/jogos com dados|jogos completos|completeMatches\\.length/i.test(loader) || app.includes("recolha pendente")) fail("A interface não deve expor contagens de jogos com dados nem avisos de recolha pendente.");
+  if (/Flashscore/i.test(html)) fail("A interface principal não deve destacar a fonte estatística.");
 }
 const applyStart = app.indexOf("function applyTeamSelection(side)");
 const applyEnd = app.indexOf("\\n", app.indexOf("}", applyStart) + 1);
