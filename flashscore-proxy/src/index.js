@@ -371,7 +371,7 @@ export default {
         ok: true,
         service: "simuladorfutebol-flashscore-proxy",
         upstream: UPSTREAM,
-        mode: "single-match-html-relay"
+        mode: "single-match-html-and-period-statistics-feed"
       }, 200, headers);
     }
 
@@ -501,8 +501,8 @@ export default {
       }, 404, headers);
     }
 
-    // /record recolhe uma única página de estatísticas e extrai dela estatísticas
-    // e odds Bwin. Não faz descoberta secundária nem pedidos adicionais.
+    // /record recolhe a página de estatísticas e as odds Bwin. Quando há estatísticas,
+    // consulta também o feed de períodos para cantos HT/ST; não faz descoberta secundária.
     const requestedTab = incoming.searchParams.get("tab") || (recordOnly ? "statistics" : "summary");
     if (!inspectOnly && !recordOnly && incoming.searchParams.has("tab")) {
       return json({ error: "tab_only_supported_on_inspect" }, 400, headers);
