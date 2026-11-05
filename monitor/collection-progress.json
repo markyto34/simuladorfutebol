@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed_with_errors",
+  "phase": "completed",
   "total_games": 205,
   "processed_games": 205,
   "stats_games": 203,
   "bwin_odds": 203,
   "failed_games": 2,
-  "current_match": "Último erro: b7UotNvn",
+  "current_match": "Recolha terminada",
   "last_result": "Falha em b7UotNvn: Falha ao recolher b7UotNvn: HTTP 503",
-  "updated_at": "2026-11-05T23:04:57.418Z"
+  "updated_at": "2026-11-05T23:04:58.753Z"
 }
