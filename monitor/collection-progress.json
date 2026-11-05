@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 354,
-  "processed_games": 325,
-  "stats_games": 209,
+  "processed_games": 350,
+  "stats_games": 221,
   "bwin_odds": 0,
-  "failed_games": 115,
-  "current_match": "Último erro: rqVZv1qS",
-  "last_result": "Falha em rqVZv1qS: Falha ao recolher rqVZv1qS: HTTP 503",
-  "updated_at": "2026-11-05T11:35:57.691Z"
+  "failed_games": 128,
+  "current_match": "Último concluído: Botafogo SP - Fortaleza",
+  "last_result": "Botafogo SP - Fortaleza: 16 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T11:46:18.851Z"
 }
