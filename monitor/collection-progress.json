@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 354,
-  "processed_games": 250,
-  "stats_games": 180,
+  "processed_games": 275,
+  "stats_games": 201,
   "bwin_odds": 0,
-  "failed_games": 69,
-  "current_match": "Último concluído: Sport Recife - Nautico",
-  "last_result": "Sport Recife - Nautico: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T11:04:12.395Z"
+  "failed_games": 73,
+  "current_match": "Último erro: E77wvzHO",
+  "last_result": "Falha em E77wvzHO: Falha ao recolher E77wvzHO: HTTP 503",
+  "updated_at": "2026-11-05T11:07:13.132Z"
 }
