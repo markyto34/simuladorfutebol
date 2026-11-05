@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 54,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 30,
+  "processed_games": 54,
+  "stats_games": 54,
+  "bwin_odds": 34,
   "failed_games": 0,
-  "current_match": "Último concluído: Zrinjski - Celik Zenica",
-  "last_result": "Zrinjski - Celik Zenica: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T09:59:41.527Z"
+  "current_match": "Último concluído: Zeljeznicar - BSK Banja Luka",
+  "last_result": "Zeljeznicar - BSK Banja Luka: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T09:59:46.392Z"
 }
