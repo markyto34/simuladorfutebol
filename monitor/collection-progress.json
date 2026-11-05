@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 98,
-  "processed_games": 50,
-  "stats_games": 49,
+  "processed_games": 75,
+  "stats_games": 73,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Sparta Praga B - Bohemians 1905 B",
-  "last_result": "Sparta Praga B - Bohemians 1905 B: 10 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T22:41:30.840Z"
+  "current_match": "Último concluído: Benesov - Povltavska FA",
+  "last_result": "Benesov - Povltavska FA: 10 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T22:41:44.342Z"
 }
