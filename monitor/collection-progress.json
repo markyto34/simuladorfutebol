@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 175,
-  "processed_games": 125,
-  "stats_games": 125,
-  "bwin_odds": 125,
+  "processed_games": 150,
+  "stats_games": 150,
+  "bwin_odds": 150,
   "failed_games": 0,
-  "current_match": "Último concluído: Dundalk - Derry City",
-  "last_result": "Dundalk - Derry City: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:54:27.955Z"
+  "current_match": "Último concluído: Shelbourne - Shamrock Rovers",
+  "last_result": "Shelbourne - Shamrock Rovers: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T21:54:33.665Z"
 }
