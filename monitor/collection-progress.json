@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 322,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
+  "processed_games": 25,
+  "stats_games": 25,
+  "bwin_odds": 25,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-05T15:24:16.565Z"
+  "current_match": "A consultar jogo 28/322 · OrXc0lNq",
+  "last_result": "Chapecoense-SC - Athletico-PR: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:24:24.439Z"
 }
