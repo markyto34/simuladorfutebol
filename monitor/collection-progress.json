@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 224,
-  "processed_games": 201,
-  "stats_games": 82,
-  "bwin_odds": 82,
-  "failed_games": 119,
-  "current_match": "A consultar jogo 202/224 · AyfT97yJ",
-  "last_result": "Falha em KUVhQSLa: Falha ao recolher KUVhQSLa: HTTP 503",
-  "updated_at": "2026-11-05T13:17:40.120Z"
+  "processed_games": 224,
+  "stats_games": 98,
+  "bwin_odds": 98,
+  "failed_games": 126,
+  "current_match": "Último concluído: Wuxi Wugou - Foshan Nanshi",
+  "last_result": "Wuxi Wugou - Foshan Nanshi: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T13:23:22.264Z"
 }
