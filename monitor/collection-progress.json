@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 121,
-  "processed_games": 100,
-  "stats_games": 99,
-  "bwin_odds": 96,
+  "processed_games": 121,
+  "stats_games": 120,
+  "bwin_odds": 114,
   "failed_games": 0,
-  "current_match": "Último concluído: Aalesund F - Rosenborg F",
-  "last_result": "Aalesund F - Rosenborg F: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:26:05.391Z"
+  "current_match": "Último concluído: Molde F - Brann F",
+  "last_result": "Molde F - Brann F: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:26:14.240Z"
 }
