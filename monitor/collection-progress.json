@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 225,
-  "processed_games": 150,
-  "stats_games": 150,
-  "bwin_odds": 129,
+  "processed_games": 176,
+  "stats_games": 176,
+  "bwin_odds": 152,
   "failed_games": 0,
-  "current_match": "Último concluído: Landskrona - Brage",
-  "last_result": "Landskrona - Brage: 11 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T23:08:58.746Z"
+  "current_match": "A consultar jogo 179/225 · AqgUULsg",
+  "last_result": "Sandviken - Ljungskile: 1 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T23:09:06.857Z"
 }
