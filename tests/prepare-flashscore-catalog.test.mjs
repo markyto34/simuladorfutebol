@@ -10,10 +10,12 @@ const raw = (competitions) => ({
 });
 
 test('exclui links de navegação e odds sem os confundir com competições', () => {
-  const result = prepareFlashscoreCatalog(raw(['Odds','Futebol ontem','Liga Portugal']));
-  assert.equal(result.summary.raw_links, 3);
+  const result = prepareFlashscoreCatalog(raw(['Odds','Futebol ontem','Liga Portugal','Amigável Clubes']));
+  assert.equal(result.summary.raw_links, 4);
   assert.equal(result.summary.excluded_navigation_or_odds_links, 2);
+  assert.equal(result.summary.excluded_friendlies, 1);
   assert.equal(result.competitions.length, 1);
+  assert.ok(result.excluded_links.some(item => item.reason === 'friendly_match_excluded_by_project_scope'));
   assert.equal(result.competitions[0].competition_name, 'Liga Portugal');
 });
 
@@ -72,4 +74,17 @@ test('corrige o nome quando o link lateral não corresponde ao título oficial d
   assert.equal(supplemental.supplemental_source_locale, 'en');
   assert.equal(supplemental.country_name, 'Lituânia');
   assert.notEqual(supplemental.url, overridden.find(item => item.country_slug === 'lituania').url);
+});
+
+
+test('exclui amigáveis de clubes e seleções do catálogo principal', () => {
+  const result = prepareFlashscoreCatalog(raw([
+    'Amigável Clubes',
+    'Amigável internacional',
+    'Amigável Clubes Feminino',
+    'Liga Portugal'
+  ]));
+  assert.equal(result.summary.excluded_friendlies, 3);
+  assert.deepEqual(result.competitions.map(item => item.competition_name), ['Liga Portugal']);
+  assert.ok(result.excluded_links.every(item => item.reason === 'friendly_match_excluded_by_project_scope'));
 });
