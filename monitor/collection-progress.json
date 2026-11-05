@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 631,
-  "processed_games": 375,
-  "stats_games": 374,
-  "bwin_odds": 353,
+  "processed_games": 401,
+  "stats_games": 400,
+  "bwin_odds": 378,
   "failed_games": 0,
-  "current_match": "Último concluído: Almirante Brown - Colon",
-  "last_result": "Almirante Brown - Colon: 7 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:02:38.288Z"
+  "current_match": "A consultar jogo 404/631 · Ia11gqTj",
+  "last_result": "Gimnasia y Tiro - San Martin Tucuman: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:02:44.600Z"
 }
