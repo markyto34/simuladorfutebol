@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 90,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 50,
+  "processed_games": 75,
+  "stats_games": 75,
+  "bwin_odds": 75,
   "failed_games": 0,
-  "current_match": "A consultar jogo 51/90 · h0XEGeCs",
-  "last_result": "Atl. Madrid B - Villarreal B: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T14:07:24.131Z"
+  "current_match": "Último concluído: Zaragoza - Antequera",
+  "last_result": "Zaragoza - Antequera: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T14:07:53.741Z"
 }
