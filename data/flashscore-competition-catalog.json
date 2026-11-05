@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T07:20:30.206Z",
+  "generated_at": "2026-11-05T07:29:55.069Z",
   "catalog_discovery_version": "2.0",
   "source": "Flashscore.pt",
   "source_catalog_generated_at": "2026-11-05T07:13:04.308Z",
@@ -10,7 +10,8 @@
     "country_pages_failed": 0,
     "raw_links": 1838,
     "excluded_navigation_or_odds_links": 535,
-    "competition_candidates": 1304,
+    "excluded_friendlies": 5,
+    "competition_candidates": 1299,
     "verified_supplemental_candidates": 1,
     "local_duplicate_name_groups_for_review": 3
   },
@@ -6216,24 +6217,6 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "pais_ou_regiao"
-    },
-    {
-      "country_name": "Bolívia",
-      "country_slug": "bolivia",
-      "competition_name": "Torneio Amigável de Verão",
-      "competition_slug": "torneio-amigavel-de-verao",
-      "url": "https://www.flashscore.pt/futebol/bolivia/torneio-amigavel-de-verao/",
-      "source_country_url": "https://www.flashscore.pt/futebol/bolivia/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Torneio Amigável de Verão",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "amigavel",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -18708,78 +18691,6 @@
     {
       "country_name": "Mundo",
       "country_slug": "mundo",
-      "competition_name": "Amigável Clubes",
-      "competition_slug": "amigavel-clubes",
-      "url": "https://www.flashscore.pt/futebol/mundo/amigavel-clubes/",
-      "source_country_url": "https://www.flashscore.pt/futebol/mundo/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Amigável Clubes",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "amigavel",
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "regional_ou_global"
-    },
-    {
-      "country_name": "Mundo",
-      "country_slug": "mundo",
-      "competition_name": "Amigável Clubes Feminino",
-      "competition_slug": "amigavel-clubes-feminino",
-      "url": "https://www.flashscore.pt/futebol/mundo/amigavel-clubes-feminino/",
-      "source_country_url": "https://www.flashscore.pt/futebol/mundo/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Amigável Clubes Feminino",
-      "gender": "feminino",
-      "age_category": "senior",
-      "category": "feminino",
-      "competition_type": "amigavel",
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "regional_ou_global"
-    },
-    {
-      "country_name": "Mundo",
-      "country_slug": "mundo",
-      "competition_name": "Amigável internacional",
-      "competition_slug": "amigavel-internacional",
-      "url": "https://www.flashscore.pt/futebol/mundo/amigavel-internacional/",
-      "source_country_url": "https://www.flashscore.pt/futebol/mundo/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Amigável internacional",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "amigavel",
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "regional_ou_global"
-    },
-    {
-      "country_name": "Mundo",
-      "country_slug": "mundo",
-      "competition_name": "Amigável internacional - Feminino",
-      "competition_slug": "amigavel-internacional-senhoras",
-      "url": "https://www.flashscore.pt/futebol/mundo/amigavel-internacional-senhoras/",
-      "source_country_url": "https://www.flashscore.pt/futebol/mundo/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Amigável internacional - Feminino",
-      "gender": "feminino",
-      "age_category": "senior",
-      "category": "feminino",
-      "competition_type": "amigavel",
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "regional_ou_global"
-    },
-    {
-      "country_name": "Mundo",
-      "country_slug": "mundo",
       "competition_name": "Campeonato do mundo",
       "competition_slug": "campeonato-do-mundo",
       "url": "https://www.flashscore.pt/futebol/mundo/campeonato-do-mundo/",
@@ -25254,6 +25165,12 @@
       "reason": "navigation_or_odds_link"
     },
     {
+      "country_name": "Bolívia",
+      "competition_name": "Torneio Amigável de Verão",
+      "url": "https://www.flashscore.pt/futebol/bolivia/torneio-amigavel-de-verao/",
+      "reason": "friendly_match_excluded_by_project_scope"
+    },
+    {
       "country_name": "Bósnia e Herzegovina",
       "competition_name": "Futebol amanhã",
       "url": "https://www.flashscore.pt/futebol/bosnia-e-herzegovina/amanha/",
@@ -26980,6 +26897,30 @@
       "competition_name": "Odds",
       "url": "https://www.flashscore.pt/futebol/montenegro/odds/",
       "reason": "navigation_or_odds_link"
+    },
+    {
+      "country_name": "Mundo",
+      "competition_name": "Amigável Clubes",
+      "url": "https://www.flashscore.pt/futebol/mundo/amigavel-clubes/",
+      "reason": "friendly_match_excluded_by_project_scope"
+    },
+    {
+      "country_name": "Mundo",
+      "competition_name": "Amigável Clubes Feminino",
+      "url": "https://www.flashscore.pt/futebol/mundo/amigavel-clubes-feminino/",
+      "reason": "friendly_match_excluded_by_project_scope"
+    },
+    {
+      "country_name": "Mundo",
+      "competition_name": "Amigável internacional",
+      "url": "https://www.flashscore.pt/futebol/mundo/amigavel-internacional/",
+      "reason": "friendly_match_excluded_by_project_scope"
+    },
+    {
+      "country_name": "Mundo",
+      "competition_name": "Amigável internacional - Feminino",
+      "url": "https://www.flashscore.pt/futebol/mundo/amigavel-internacional-senhoras/",
+      "reason": "friendly_match_excluded_by_project_scope"
     },
     {
       "country_name": "Mundo",
