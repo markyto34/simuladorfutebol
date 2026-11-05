@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 111,
-  "processed_games": 75,
-  "stats_games": 74,
-  "bwin_odds": 74,
+  "processed_games": 102,
+  "stats_games": 101,
+  "bwin_odds": 101,
   "failed_games": 0,
-  "current_match": "Último concluído: Llandudno - Haverfordwest",
-  "last_result": "Llandudno - Haverfordwest: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:26:57.716Z"
+  "current_match": "Último concluído: Trefelin - Llandudno",
+  "last_result": "Trefelin - Llandudno: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:27:03.937Z"
 }
