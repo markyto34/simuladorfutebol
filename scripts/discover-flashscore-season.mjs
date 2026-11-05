@@ -6,6 +6,7 @@ import { parseCsv } from "./validate-flashscore-history.mjs";
 const SITE = "https://www.flashscore.pt";
 const FEED = "https://global.flashscore.ninja/2/x/feed/";
 const FEED_SIGN = process.env.FLASHSCORE_FEED_SIGN || "SW9D1eZo";
+let activeFeedSign = FEED_SIGN;
 const MAX_PAGES = 100;
 const MAX_MATCHES = 2000;
 const DELAY_MS = Math.max(1000, Number(process.env.FLASHSCORE_SEASON_PAGE_DELAY_MS || 1500));
@@ -154,11 +155,28 @@ async function main() {
   }, "página da competição");
   const result = await discoverSeasonFromHtml({
     html, path,
-    fetchFeedPage: feedName => fetchText(FEED + feedName, {
-      "Accept": "*/*", "Accept-Language": "en-US,en;q=0.9", "Referer": SITE + "/",
-      "Origin": SITE, "x-fsign": FEED_SIGN,
-      "User-Agent": "Mozilla/5.0 (compatible; SimuladorFutebol/1.0)"
-    }, "feed " + feedName)
+    fetchFeedPage: async feedName => {
+      const headers = () => ({
+        "Accept": "*/*", "Accept-Language": "en-US,en;q=0.9", "Referer": SITE + "/",
+        "Origin": SITE, "x-fsign": activeFeedSign,
+        "User-Agent": "Mozilla/5.0 (compatible; SimuladorFutebol/1.0)"
+      });
+      let response = await fetch(FEED + feedName, { headers: headers(), signal: AbortSignal.timeout(60000) });
+      if (response.status === 401) {
+        const home = await fetchText(SITE + "/", {
+          "Accept": "text/html,application/xhtml+xml", "Accept-Language": "pt-PT,pt;q=0.9,en;q=0.7",
+          "User-Agent": "Mozilla/5.0 (compatible; SimuladorFutebol/1.0)"
+        }, "página inicial para atualizar assinatura do feed");
+        const fresh = /feed_sign\\s*[:=]\\s*["']([A-Za-z0-9_-]{4,32})["']/.exec(home)?.[1];
+        if (fresh) activeFeedSign = fresh;
+        response = await fetch(FEED + feedName, { headers: headers(), signal: AbortSignal.timeout(60000) });
+      }
+      if (response.status === 403 || response.status === 429) {
+        throw new Error("Flashscore bloqueou/limitou feed " + feedName + ": HTTP " + response.status + "; recolha interrompida.");
+      }
+      if (!response.ok) throw new Error("Feed " + feedName + ": HTTP " + response.status);
+      return response.text();
+    }
   });
   let catalogLabel = null;
   try {
