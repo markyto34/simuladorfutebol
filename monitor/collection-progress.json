@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 150,
-  "processed_games": 76,
-  "stats_games": 76,
-  "bwin_odds": 76,
+  "processed_games": 100,
+  "stats_games": 100,
+  "bwin_odds": 100,
   "failed_games": 0,
-  "current_match": "A consultar jogo 79/150 · hWtPpj0n",
-  "last_result": "Dinamo Batumi - Rustavi: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:39:08.568Z"
+  "current_match": "Último concluído: Torpedo Kutaisi - Rustavi",
+  "last_result": "Torpedo Kutaisi - Rustavi: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T21:39:14.275Z"
 }
