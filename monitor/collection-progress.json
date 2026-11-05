@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 104,
-  "processed_games": 50,
-  "stats_games": 47,
-  "bwin_odds": 47,
-  "failed_games": 3,
-  "current_match": "Último concluído: Corvinul - Din. Bucuresti",
-  "last_result": "Corvinul - Din. Bucuresti: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:48:45.104Z"
+  "processed_games": 75,
+  "stats_games": 64,
+  "bwin_odds": 64,
+  "failed_games": 11,
+  "current_match": "Último concluído: Din. Bucuresti - FC Voluntari",
+  "last_result": "Din. Bucuresti - FC Voluntari: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:51:26.149Z"
 }
