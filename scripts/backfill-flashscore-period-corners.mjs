@@ -80,7 +80,11 @@ async function fetchRecord(matchId) {
         error.blocked = true;
         throw error;
       }
-      if (!response.ok) {\n        const error = new Error("Proxy respondeu HTTP " + response.status + ".");\n        error.transient = [500, 502, 503, 504].includes(response.status);\n        throw error;\n      }
+      if (!response.ok) {
+        const error = new Error("Proxy respondeu HTTP " + response.status + ".");
+        error.transient = [500, 502, 503, 504].includes(response.status);
+        throw error;
+      }
       const payload = await response.json();
       if (!payload?.ok || !payload?.record) throw new Error("Resposta do proxy sem registo válido.");
       return payload.record;
