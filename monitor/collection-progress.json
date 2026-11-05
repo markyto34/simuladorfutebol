@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 110,
-  "processed_games": 51,
-  "stats_games": 51,
-  "bwin_odds": 50,
+  "processed_games": 76,
+  "stats_games": 76,
+  "bwin_odds": 75,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/110 · Y9J0mzuI",
-  "last_result": "Potenza - Cavese: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:06:11.129Z"
+  "current_match": "A consultar jogo 79/110 · xMWCXWr3",
+  "last_result": "Savoia - Crotone: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:06:16.331Z"
 }
