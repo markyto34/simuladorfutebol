@@ -103,13 +103,55 @@ jobs:
           index=0
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Publicar checkpoints com retries para absorver falhas transitórias do GitHub.
+          # Se outro processo tiver avançado a main, rebasear o checkpoint antes de tentar novamente.
+          push_with_retry() {
+            local attempt=1
+            local max_attempts=5
+            local delay=2
+            while (( attempt <= max_attempts )); do
+              echo "Publicação na main: tentativa $attempt/$max_attempts."
+              if git push origin HEAD:main; then
+                echo "Checkpoint publicado com sucesso."
+                return 0
+              fi
+
+              echo "::warning::Push falhou na tentativa $attempt/$max_attempts; a verificar o estado remoto."
+              if git fetch origin main; then
+                if git merge-base --is-ancestor HEAD origin/main; then
+                  echo "O checkpoint já está incluído na main remota."
+                  return 0
+                fi
+                if ! git merge-base --is-ancestor origin/main HEAD; then
+                  echo "A main avançou entretanto; a rebasear o checkpoint sobre origin/main."
+                  if ! git rebase origin/main; then
+                    git rebase --abort || true
+                    echo "::error::Não foi possível rebasear o checkpoint sem conflitos."
+                    return 1
+                  fi
+                fi
+              else
+                echo "::warning::Não foi possível consultar a main remota nesta tentativa."
+              fi
+
+              if (( attempt < max_attempts )); then
+                echo "Nova tentativa dentro de ${delay}s."
+                sleep "$delay"
+                delay=$((delay * 2))
+              fi
+              attempt=$((attempt + 1))
+            done
+            echo "::error::Push falhou após $max_attempts tentativas."
+            return 1
+          }
+
           checkpoint() {
             node scripts/validate-flashscore-history.mjs || return 1
             node scripts/integrate-flashscore-odds-history.mjs || return 1
             git add data/flashscore-statistics.csv data/bwin-odds-flashscore.csv
             if ! git diff --cached --quiet; then
               git commit -m "Checkpoint Flashscore: competição $index" || return 1
-              git push origin main || return 1
+              push_with_retry || return 1
             fi
           }
           while IFS= read -r competition_path; do
@@ -168,7 +210,7 @@ jobs:
           git add data/flashscore-statistics.csv data/bwin-odds-flashscore.csv
           if ! git diff --cached --quiet; then
             git commit -m "Backfill Flashscore das épocas atuais" || exit 1
-            git push origin main || exit 1
+            push_with_retry || exit 1
           fi
           if (( blocked == 1 || failures > 0 )); then
             echo "::error::O lote preservou os dados válidos, mas terminou com $failures falhas e bloqueio=$blocked."
