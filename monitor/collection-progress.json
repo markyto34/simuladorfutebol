@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 90,
-  "processed_games": 76,
-  "stats_games": 76,
-  "bwin_odds": 76,
+  "processed_games": 90,
+  "stats_games": 90,
+  "bwin_odds": 90,
   "failed_games": 0,
-  "current_match": "A consultar jogo 79/90 · UL4lBqCc",
-  "last_result": "Feyenoord - G.A. Eagles: 14 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:28:28.342Z"
+  "current_match": "Último concluído: Cambuur - Excelsior",
+  "last_result": "Cambuur - Excelsior: 14 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:28:31.325Z"
 }
