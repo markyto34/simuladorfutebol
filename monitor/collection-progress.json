@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 240,
-  "processed_games": 125,
-  "stats_games": 125,
-  "bwin_odds": 124,
+  "processed_games": 150,
+  "stats_games": 150,
+  "bwin_odds": 149,
   "failed_games": 0,
-  "current_match": "Último concluído: Daegu - Paju Frontier",
-  "last_result": "Daegu - Paju Frontier: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:45:37.424Z"
+  "current_match": "Último concluído: Seoul E-Land - Yongin",
+  "last_result": "Seoul E-Land - Yongin: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:45:45.302Z"
 }
