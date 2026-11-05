@@ -56,7 +56,7 @@ function anchors(html) {
   const embedded = source
     .replace(/\\u002[fF]/g, "/")
     .replace(/\\\//g, "/");
-  const pathPattern = /(?:https?:\/\/(?:www\.)?flashscore\.pt)?(\/futebol\/[^\s"'<>\\?]+\/[^\s"'<>\\?]+\/?)/g;
+  const pathPattern = /(?:https?:\/\/(?:www\.)?flashscore\.pt)?(\/futebol\/[^\/\s"'<>\\?]+\/[^\/\s"'<>\\?]+\/?)/g;
   for (const match of embedded.matchAll(pathPattern)) {
     const href = match[1].replace(/\/$/, "") + "/";
     if (seen.has(href.replace(/\/$/, ""))) continue;
