@@ -30,7 +30,8 @@ test("A época atual combina equipas da fonte principal com o índice WDW", () =
  assert.ok(source.includes("async function loadWdwLeagueTeams(leagueId)"));
  assert.ok(source.includes("wdwTeams.map(x=>x.name)"));
  assert.ok(source.includes("if(!matches.length&&!teams.length)"));
- assert.ok(source.includes("Sem resultados Open Matchday"));
+ assert.ok(source.includes('status.textContent="Dados carregados. "+teams.length+" equipas disponíveis.'));
+ assert.ok(!source.includes("Sem resultados Open Matchday"));
 });
 test("O carregamento usa a lista de equipas da fonte principal e do índice WDW", () => {
  const loadStart=source.indexOf("async function loadHistoricalData()");
