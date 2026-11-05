@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 472,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
+  "processed_games": 25,
+  "stats_games": 25,
+  "bwin_odds": 25,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-05T14:21:35.322Z"
+  "current_match": "Último concluído: San Jose Earthquakes - Nashville SC",
+  "last_result": "San Jose Earthquakes - Nashville SC: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T14:22:11.024Z"
 }
