@@ -76,3 +76,18 @@ test('identifica a competição-base de uma fase sem misturar nem atribuir os jo
   assert.equal(report.unmatched_stats_labels[0].related_catalog_competition,'Liga dos Campeões');
   assert.deepEqual(report.unmatched_stats_labels[0].stage_markers,['Fase de Liga']);
 });
+
+
+test('audita separadamente cobertura de cantos HT e ST', () => {
+  const report = buildFlashscoreCatalogCoverage(
+    catalog([candidate('Portugal','Liga Portugal')]),
+    [
+      row('Portugal','Liga Portugal','m1',{corners_ht_home:'2',corners_ht_away:'3',corners_st_home:'4',corners_st_away:'2'}),
+      row('Portugal','Liga Portugal','m2',{corners_ht_home:'1',corners_ht_away:'1',corners_st_home:'',corners_st_away:''})
+    ]
+  );
+  assert.equal(report.competitions[0].metrics.corners_ht.complete_matches,2);
+  assert.equal(report.competitions[0].metrics.corners_ht.coverage_pct,100);
+  assert.equal(report.competitions[0].metrics.corners_st.complete_matches,1);
+  assert.equal(report.competitions[0].metrics.corners_st.coverage_pct,50);
+});
