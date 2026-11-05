@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 200,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 25,
-  "failed_games": 0,
-  "current_match": "Último concluído: Huachipato - Colo Colo",
-  "last_result": "Huachipato - Colo Colo: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:37:39.626Z"
+  "processed_games": 50,
+  "stats_games": 47,
+  "bwin_odds": 47,
+  "failed_games": 3,
+  "current_match": "Último concluído: Colo Colo - O'Higgins",
+  "last_result": "Colo Colo - O'Higgins: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:38:01.842Z"
 }
