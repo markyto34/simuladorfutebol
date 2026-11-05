@@ -2,14 +2,14 @@
   "run_id": "41998841542",
   "run_number": "2",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed_with_errors",
+  "phase": "completed",
   "total_games": 54,
   "processed_games": 54,
   "stats_games": 53,
   "bwin_odds": 49,
   "failed_games": 1,
-  "current_match": "Último concluído: Seraing - Sporting Lokeren",
+  "current_match": "Recolha terminada",
   "last_result": "Seraing - Sporting Lokeren: 16 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T09:58:01.136Z"
+  "updated_at": "2026-11-05T09:58:02.485Z"
 }
