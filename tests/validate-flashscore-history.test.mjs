@@ -77,9 +77,11 @@ test("valida cartões vermelhos e resultados HT/ST quando as novas colunas exist
   assert.throws(() => validateHistory([{
     ...row, sh_home:"0", sh_away:""
   }],[oddsRow()]), /Resultado por partes incompleto/);
-  assert.throws(() => validateHistory([{
+  const inconsistent = validateHistory([{
     ...row, sh_home:"0", sh_away:"1"
-  }],[oddsRow()]), /não corresponde ao resultado FT/);
+  }],[oddsRow()]);
+  assert.equal(inconsistent.scorePartMismatches.length, 1);
+  assert.equal(inconsistent.scorePartMismatches[0].match_id, "abc123");
   assert.throws(() => validateHistory([{
     ...row, red_cards_home:"-1"
   }],[oddsRow()]), /Valor estatístico inválido/);
