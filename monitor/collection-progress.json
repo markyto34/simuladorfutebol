@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 322,
-  "processed_games": 175,
-  "stats_games": 175,
-  "bwin_odds": 146,
+  "processed_games": 200,
+  "stats_games": 200,
+  "bwin_odds": 171,
   "failed_games": 0,
-  "current_match": "Último concluído: Internacional - Vasco",
-  "last_result": "Internacional - Vasco: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T10:06:33.571Z"
+  "current_match": "Último concluído: Corinthians - Vasco",
+  "last_result": "Corinthians - Vasco: 16 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T10:07:03.549Z"
 }
