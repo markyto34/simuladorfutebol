@@ -119,3 +119,28 @@ test('resolve nomes locais de primeiras divisões apenas dentro do respetivo pa�
   assert.equal(report.summary.unmatched_stats_competition_labels, 0);
   assert.ok(report.competitions.every(item => item.unique_stats_matches === 1));
 });
+
+
+test('reconhece fases adicionais sem as fundir com a competição-base', () => {
+  const cases = [
+    ['China','Liga 2','Liga 2 - Grupo de Promoção'],
+    ['Coreia do Sul','Liga K1','Liga K1 - Grupo de Despromoção'],
+    ['Equador','Liga Pro','Liga Pro - Grupo de Colocação'],
+    ['Turquia','Taça da Turquia','Taça da Turquia - Qualificação'],
+    ['Rússia','Taça da Rússia','Taça da Rússia - Caminho das Regiões'],
+    ['Argentina','Torneio Federal','Torneio Federal - Playoffs de Promoção'],
+    ['Colômbia','Taça da Colômbia','Taça da Colômbia - Segundo nível'],
+    ['Chile','Segunda Divisão','Segunda Divisão - Grupo de Promoção'],
+    ['Malta','Primeira Liga','Primeira Liga - Primeira Fase - Principal'],
+    ['Europa','Liga dos Campeões','Champions League - League phase']
+  ];
+  const report = buildFlashscoreCatalogCoverage(
+    catalog(cases.map(([country, base]) => candidate(country, base))),
+    cases.map(([country, , label], index) => row(country, label, 'stage-' + index))
+  );
+  assert.equal(report.summary.unmatched_stats_competition_labels, cases.length);
+  for (const item of report.unmatched_stats_labels) {
+    assert.equal(item.reason, 'catalog_base_found_stage_kept_separate', item.country_name + ' / ' + item.competition_name);
+    assert.equal(item.relationship, 'same_base_competition_distinct_stage_not_merged');
+  }
+});
