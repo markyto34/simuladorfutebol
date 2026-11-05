@@ -54,3 +54,36 @@ test("interrompe novas consultas quando Flashscore responde 403/429", async () =
   assert.equal(result.summary.blocked, true);
   assert.equal(result.summary.failed, 1);
 });
+
+
+test("regista IDs consultados sem dados HT/ST para não repetir na retoma", async () => {
+  const rows = [row("match11", "2026-10-31T12:00"), row("match12", "2026-10-31T13:00")];
+  const first = await backfillPeriodCorners(rows, {
+    startDate: "2026-10-31", endDate: "2026-10-31", concurrency: 1, delayMs: 0,
+    fetchRecord: async () => ({ statistics: {} })
+  });
+  assert.deepEqual(first.attemptedIds, ["match11", "match12"]);
+  const second = await backfillPeriodCorners(first.rows, {
+    startDate: "2026-10-31", endDate: "2026-10-31", attemptedIds: first.attemptedIds,
+    concurrency: 1, delayMs: 0,
+    fetchRecord: async () => { throw new Error("Não devia voltar a consultar"); }
+  });
+  assert.equal(second.summary.selected, 0);
+  assert.equal(second.summary.processed, 0);
+});
+
+test("abre circuito após três falhas consecutivas 502/503/504", async () => {
+  const rows = [
+    row("match21", "2026-10-31T12:00"), row("match22", "2026-10-31T13:00"),
+    row("match23", "2026-10-31T14:00"), row("match24", "2026-10-31T15:00")
+  ];
+  let calls = 0;
+  const result = await backfillPeriodCorners(rows, {
+    startDate: "2026-10-31", endDate: "2026-10-31", concurrency: 1, delayMs: 0,
+    fetchRecord: async () => { calls++; const error = new Error("Proxy HTTP 503"); error.status = 503; throw error; }
+  });
+  assert.equal(calls, 3);
+  assert.equal(result.summary.blocked, true);
+  assert.equal(result.summary.failed, 3);
+  assert.equal(result.summary.remaining, 4);
+});
