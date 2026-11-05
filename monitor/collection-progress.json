@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 96,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 50,
+  "processed_games": 76,
+  "stats_games": 76,
+  "bwin_odds": 76,
   "failed_games": 0,
-  "current_match": "Último concluído: Taborsko - Usti n. L.",
-  "last_result": "Taborsko - Usti n. L.: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:44:42.641Z"
+  "current_match": "A consultar jogo 79/96 · xdufYkbd",
+  "last_result": "Usti n. L. - Ceska Lipa: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:44:51.798Z"
 }
