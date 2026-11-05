@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 83,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
-  "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-05T15:31:10.254Z"
+  "processed_games": 25,
+  "stats_games": 23,
+  "bwin_odds": 23,
+  "failed_games": 2,
+  "current_match": "Último concluído: Cherno More - Lok. Sofia",
+  "last_result": "Cherno More - Lok. Sofia: 11 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:34:42.418Z"
 }
