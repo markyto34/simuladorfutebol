@@ -7,6 +7,9 @@ function statsRow(overrides = {}) {
   const row = {
     match_id:"abc123",date_time:"2026-11-01T12:00",country:"PORTUGAL",competition:"Primeira Liga",
     home_team:"A",away_team:"B",status:"Terminado",score_home:"2",score_away:"1",
+    ht_home:"",ht_away:"",sh_home:"",sh_away:"",
+    corners_ht_home:"",corners_ht_away:"",corners_st_home:"",corners_st_away:"",
+    red_cards_home:"",red_cards_away:"",
     source:"Flashscore",source_url:"https://m.flashscore.pt/jogo/abc123/",retrieved_at:"2026-11-04T07:00:00Z"
   };
   for (const key of categories) { row[key+"_home"]="1"; row[key+"_away"]="2"; }
@@ -109,7 +112,7 @@ test("reporta cobertura de todos os indicadores e deteta divergência entre cant
   assert.equal(summary.indicatorCoverage.corners_ht.complete, 1);
   assert.equal(summary.indicatorCoverage.corners_st.complete, 1);
   assert.equal(summary.indicatorCoverage.red_cards.complete, 1);
-  assert.equal(summary.cornersTotalChecked, 0); // HT+ST home/away must equal FT; away intentionally mismatches below
+  assert.equal(summary.cornersTotalChecked, 1);
   assert.throws(() => validateHistory([{
     ...row, corners_st_away:"2", corners_away:"4"
   }], [oddsRow()]), /Cantos HT \\+ ST não correspondem aos cantos FT/);
