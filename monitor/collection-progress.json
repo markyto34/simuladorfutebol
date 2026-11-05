@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 226,
-  "processed_games": 225,
+  "processed_games": 226,
   "stats_games": 222,
   "bwin_odds": 0,
-  "failed_games": 2,
-  "current_match": "Último concluído: Arlanda - Vasalund",
-  "last_result": "Arlanda - Vasalund: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T23:07:28.390Z"
+  "failed_games": 3,
+  "current_match": "Último erro: 6cTMDHp1",
+  "last_result": "Falha em 6cTMDHp1: Falha ao recolher 6cTMDHp1: HTTP 503",
+  "updated_at": "2026-11-05T23:07:46.561Z"
 }
