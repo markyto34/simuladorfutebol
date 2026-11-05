@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 130,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 25,
+  "processed_games": 50,
+  "stats_games": 50,
+  "bwin_odds": 50,
   "failed_games": 0,
-  "current_match": "Último concluído: Oita - Albirex Niigata",
-  "last_result": "Oita - Albirex Niigata: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:09:45.997Z"
+  "current_match": "A consultar jogo 53/130 · 4UeN7vpR",
+  "last_result": "Fujieda MYFC - Shonan: 11 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:09:51.023Z"
 }
