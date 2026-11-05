@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
-  "total_games": 34,
-  "processed_games": 34,
-  "stats_games": 34,
-  "bwin_odds": 32,
+  "status": "running",
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
+  "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Al Sahel - Al Naser: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:11:53.623Z"
+  "current_match": "A descobrir jogos",
+  "last_result": "",
+  "updated_at": "2026-11-05T22:12:03.490Z"
 }
