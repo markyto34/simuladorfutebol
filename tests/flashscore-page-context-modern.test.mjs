@@ -54,3 +54,10 @@ test("does not infer period corners from total corners or score periods", () => 
   assert.equal(result.statistics.corners_ht, undefined);
   assert.equal(result.statistics.corners_st, undefined);
 });
+
+
+test("extrai árbitro e estádio apenas após rótulos explícitos", () => {
+  const result = extractPageContext("<main>Árbitro: João Silva | Estádio: Dragão</main>");
+  assert.equal(result.fields.referee, "João Silva");
+  assert.equal(result.fields.venue, "Dragão");
+});
