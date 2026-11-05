@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 90,
   "processed_games": 90,
   "stats_games": 90,
   "bwin_odds": 89,
   "failed_games": 0,
-  "current_match": "Último concluído: Sochaux - St. Etienne",
+  "current_match": "Recolha terminada",
   "last_result": "Sochaux - St. Etienne: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:36:18.759Z"
+  "updated_at": "2026-11-05T21:36:20.635Z"
 }
