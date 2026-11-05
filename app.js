@@ -457,33 +457,59 @@ const flashscoreCompetitionState={items:[],loaded:false};
 async function populateFlashscoreCompetitions(){
  if(flashscoreCompetitionState.loaded)return;
  try{
-  const csv=await fetchSourceCSV(FLASHSCORE_STATS_CSV_URL),rows=parseSourceCSV(csv),competitions=new Map();
+  const [csv,coverageText]=await Promise.all([
+   fetchSourceCSV(FLASHSCORE_STATS_CSV_URL),
+   fetchSourceCSV(FLASHSCORE_COVERAGE_JSON_URL)
+  ]);
+  const rows=parseSourceCSV(csv),coverage=JSON.parse(coverageText);
+  if(!Array.isArray(coverage.competitions))throw new Error("O ficheiro de cobertura não contém a lista de competições.");
+  const statsByLabel=new Map();
   rows.forEach((row,index)=>{
    const country=sourceVal(row,["country"]),competition=sourceVal(row,["competition"]);
    if(!country||!competition)return;
-   const value=flashscoreCompetitionValue(country,competition);
-   if(!competitions.has(value))competitions.set(value,{value,country,competition,matchIds:new Set()});
-   competitions.get(value).matchIds.add(sourceVal(row,["match_id"])||"row-"+index);
+   const label=country+" / "+competition;
+   if(!statsByLabel.has(label))statsByLabel.set(label,new Set());
+   statsByLabel.get(label).add(sourceVal(row,["match_id"])||"row-"+index);
   });
-  flashscoreCompetitionState.items=[...competitions.values()].map(item=>({
-   ...item,countryCode:flashscoreCountryCode(item.country),count:item.matchIds.size
-  })).sort((a,b)=>(a.country+"/"+a.competition).localeCompare(b.country+"/"+b.competition,"pt"));
+  const eligible=coverage.competitions.filter(item=>
+   Number(item.unique_stats_matches)>=5&&
+   item.age_category==="senior"&&
+   ["masculino_misto","feminino"].includes(item.gender)&&
+   ["liga_ou_torneio","taca"].includes(item.competition_type)&&
+   item.sample_status!=="rever_nome_duplicado"&&
+   !/friendly|friendlies|amig[aá]v|amistos|club[- ]?friend/i.test(String(item.competition_name||"")+" "+String(item.url||""))
+  );
+  flashscoreCompetitionState.items=eligible.map(item=>{
+   const labels=Array.isArray(item.stats_source_labels)&&item.stats_source_labels.length
+    ?item.stats_source_labels:[item.country_name+" / "+item.competition_name];
+   const matchIds=new Set();
+   labels.forEach(label=>(statsByLabel.get(label)||new Set()).forEach(id=>matchIds.add(id)));
+   const country=item.country_name,competition=item.competition_name;
+   return {
+    value:flashscoreCompetitionValue(country,competition),
+    country,competition,countryCode:flashscoreCountryCode(country),
+    count:matchIds.size,statsSourceLabels:labels
+   };
+  }).sort((a,b)=>(a.country+"/"+a.competition).localeCompare(b.country+"/"+b.competition,"pt"));
   flashscoreCompetitionState.loaded=true;
   const currentCountry=countrySelect.value;
-  const flashCountries=[...new Set(flashscoreCompetitionState.items.filter(item=>!item.countryCode).map(item=>item.country))]
-   .sort((a,b)=>a.localeCompare(b,"pt"));
+  const flashCountries=[...new Set(flashscoreCompetitionState.items
+   .filter(item=>!item.countryCode||!countryCodes.includes(item.countryCode))
+   .map(item=>item.country))].sort((a,b)=>a.localeCompare(b,"pt"));
   countrySelect.innerHTML=countryCodes.map(code=>'<option value="'+code+'">'+(COUNTRY_NAMES[code]||code)+'</option>').join("")+
    flashCountries.map(country=>'<option value="FSCOUNTRY|'+encodeURIComponent(country)+'">'+country+'</option>').join("");
-  countrySelect.value=countryCodes.includes(currentCountry)?currentCountry:
-   (flashCountries.some(country=>"FSCOUNTRY|"+encodeURIComponent(country)===currentCountry)?currentCountry:initialLeague.split("_")[0]);
+  const availableCountries=[...countrySelect.options].map(option=>option.value);
+  countrySelect.value=availableCountries.includes(currentCountry)?currentCountry:
+   (availableCountries.includes(initialLeague.split("_")[0])?initialLeague.split("_")[0]:availableCountries[0]||"");
   setCountryCompetitions(initialLeague);
- }catch(error){console.warn("Não foi possível carregar as competições com histórico Flashscore:",error);}
+ }catch(error){console.warn("Não foi possível carregar o catálogo de competições Flashscore:",error);}
 }
 function normalizeSourceMatch(r){const home=sourceVal(r,["home","home_team","HomeTeam"]),away=sourceVal(r,["away","away_team","AwayTeam"]);const hg=sourceNum(r,["ft_home","home_score","home_goals","FTHG"]),ag=sourceNum(r,["ft_away","away_score","away_goals","FTAG"]);if(!home||!away||hg===null||ag===null)return null;return {date:sourceDate(sourceVal(r,["date","match_date","Date"])),home,away,hg,ag,htHome:sourceNum(r,["ht_home"]),htAway:sourceNum(r,["ht_away"]),hc:sourceNum(r,["home_corners","HomeCorners","HC","home_corner"]),ac:sourceNum(r,["away_corners","AwayCorners","AC","away_corner"]),homeShots:sourceNum(r,["home_shots"]),awayShots:sourceNum(r,["away_shots"]),homeTarget:sourceNum(r,["home_target"]),awayTarget:sourceNum(r,["away_target"]),homeFouls:sourceNum(r,["home_fouls"]),awayFouls:sourceNum(r,["away_fouls"]),homeYellow:sourceNum(r,["home_yellow"]),awayYellow:sourceNum(r,["away_yellow"]),homeRed:sourceNum(r,["home_red"]),awayRed:sourceNum(r,["away_red"])};}
 const DATA_CACHE_DB="simulador-futebol-cache";
 const DATA_CACHE_STORE="resources";
 const DATA_CACHE_TTL=30*60*1000;
 const FLASHSCORE_STATS_CSV_URL="https://raw.githubusercontent.com/markyto34/simuladorfutebol/main/data/flashscore-statistics.csv";
+const FLASHSCORE_COVERAGE_JSON_URL="https://raw.githubusercontent.com/markyto34/simuladorfutebol/main/data/flashscore-competition-coverage.json";
 const ODDS_PERIODS_CSV_URL="https://raw.githubusercontent.com/markyto34/simuladorfutebol/main/ganhonasodds_com_20261101.csv";
 let dataCacheDbPromise=null;
 function openDataCache(){
@@ -562,9 +588,11 @@ async function loadHistoricalData(){
   if(flashscoreMode){
    const [,countryEncoded,competitionEncoded]=league.split("|");
    const country=decodeURIComponent(countryEncoded||""),competition=decodeURIComponent(competitionEncoded||"");
+   const selectedFlashCompetition=flashscoreCompetitionState.items.find(item=>item.value===league);
+   const acceptedLabels=new Set([country+" / "+competition,...(selectedFlashCompetition?.statsSourceLabels||[])]);
    status.textContent="A carregar o histórico Flashscore de "+country+" — "+competition+"…";
    const csv=await fetchSourceCSV(FLASHSCORE_STATS_CSV_URL);
-   matches=parseSourceCSV(csv).filter(row=>sourceVal(row,["country"])===country&&sourceVal(row,["competition"])===competition)
+   matches=parseSourceCSV(csv).filter(row=>acceptedLabels.has(sourceVal(row,["country"])+" / "+sourceVal(row,["competition"])))
     .map(normalizeFlashscoreMatch).filter(Boolean).sort((a,b)=>b.date.localeCompare(a.date));
    if(!matches.length)throw new Error("A competição não tem jogos concluídos com resultados FT e equipas identificadas.");
    const completeMatches=matches.filter(m=>[m.hg,m.ag,m.hc,m.ac,m.homeShots,m.awayShots,m.homeTarget,m.awayTarget,m.homeFouls,m.awayFouls].every(v=>v!==null&&v!==undefined&&Number.isFinite(Number(v))));
@@ -869,7 +897,7 @@ function setCountryCompetitions(preferred){
   flashAvailable.forEach(item=>{
    const option=document.createElement("option");
    option.value=item.value;
-   option.textContent=item.competition+" ("+item.count+" jogos)";
+   option.textContent=item.competition+(item.count>0?" ("+item.count+" jogos com dados)":" (0 jogos · recolha pendente)");
    group.appendChild(option);
   });
   leagueSelect.appendChild(group);
