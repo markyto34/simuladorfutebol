@@ -32,6 +32,15 @@ test("extrai todas as competições da página de país sem fundir fases e divis
   assert.equal(result.find(item => item.competition_slug === "campeonato-portugal-playoffs").status, "candidate_not_yet_validated");
 });
 
+test("recupera o nome da competição do alt de imagem em links sem texto", () => {
+  const country = { country_name: "Suécia", country_slug: "suecia", url: "https://www.flashscore.pt/futebol/suecia/" };
+  const html = '<a href="/futebol/suecia/allsvenskan/"><img src="/logo.png" alt="Allsvenskan"></a>';
+  const result = parseCompetitionLinks(html, country);
+  assert.equal(result.length, 1);
+  assert.equal(result[0].competition_name, "Allsvenskan");
+  assert.equal(result[0].url, "https://www.flashscore.pt/futebol/suecia/allsvenskan/");
+});
+
 test("o crawler regista erros por país e preserva páginas que responderam", async () => {
   const pages = new Map([
     ["https://www.flashscore.pt/futebol/", '<a href="/futebol/portugal/">Portugal</a><a href="/futebol/alemanha/">Alemanha</a>'],
