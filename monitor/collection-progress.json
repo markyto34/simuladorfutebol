@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 161,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 22,
+  "processed_games": 50,
+  "stats_games": 50,
+  "bwin_odds": 47,
   "failed_games": 0,
-  "current_match": "Último concluído: Kristianstad F - Vittsjo F",
-  "last_result": "Kristianstad F - Vittsjo F: 11 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T23:02:32.793Z"
+  "current_match": "Último concluído: Hammarby F - Vittsjo F",
+  "last_result": "Hammarby F - Vittsjo F: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T23:02:40.578Z"
 }
