@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 226,
-  "processed_games": 200,
-  "stats_games": 197,
+  "processed_games": 225,
+  "stats_games": 222,
   "bwin_odds": 0,
   "failed_games": 2,
-  "current_match": "Último concluído: Sollentuna - Assyriska FF",
-  "last_result": "Sollentuna - Assyriska FF: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T23:07:22.798Z"
+  "current_match": "Último concluído: Arlanda - Vasalund",
+  "last_result": "Arlanda - Vasalund: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T23:07:28.390Z"
 }
