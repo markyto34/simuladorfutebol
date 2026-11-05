@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 82,
-  "processed_games": 26,
-  "stats_games": 26,
-  "bwin_odds": 19,
+  "processed_games": 52,
+  "stats_games": 52,
+  "bwin_odds": 41,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/82 · CraXXoJi",
-  "last_result": "Sesvete - Jadran LP: 11 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:47:35.741Z"
+  "current_match": "A consultar jogo 55/82 · z5WNatjB",
+  "last_result": "Bijelo Brdo - Jadran LP: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:47:41.068Z"
 }
