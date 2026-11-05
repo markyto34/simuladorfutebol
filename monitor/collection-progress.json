@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 472,
-  "processed_games": 225,
-  "stats_games": 225,
-  "bwin_odds": 224,
+  "processed_games": 250,
+  "stats_games": 250,
+  "bwin_odds": 249,
   "failed_games": 0,
-  "current_match": "Último concluído: Minnesota - Vancouver Whitecaps",
-  "last_result": "Minnesota - Vancouver Whitecaps: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T14:26:11.009Z"
+  "current_match": "Último concluído: Los Angeles Galaxy - Los Angeles FC",
+  "last_result": "Los Angeles Galaxy - Los Angeles FC: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T14:26:40.961Z"
 }
