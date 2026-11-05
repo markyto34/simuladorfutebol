@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 457,
-  "processed_games": 75,
-  "stats_games": 75,
+  "processed_games": 100,
+  "stats_games": 99,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Excursionistas - Villa Dalmine",
-  "last_result": "Excursionistas - Villa Dalmine: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T09:14:39.480Z"
+  "current_match": "Último concluído: Brown Adrogue - Liniers",
+  "last_result": "Brown Adrogue - Liniers: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T09:15:27.687Z"
 }
