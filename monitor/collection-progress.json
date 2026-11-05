@@ -2,14 +2,14 @@
   "run_id": "41998841542",
   "run_number": "2",
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
-  "total_games": 472,
-  "processed_games": 472,
-  "stats_games": 472,
-  "bwin_odds": 471,
+  "status": "running",
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
+  "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "St. Louis City - Charlotte: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T14:31:14.429Z"
+  "current_match": "A descobrir jogos",
+  "last_result": "",
+  "updated_at": "2026-11-05T14:31:24.328Z"
 }
