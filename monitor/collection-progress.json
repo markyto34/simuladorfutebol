@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 457,
-  "processed_games": 275,
-  "stats_games": 273,
+  "processed_games": 300,
+  "stats_games": 298,
   "bwin_odds": 0,
   "failed_games": 1,
-  "current_match": "A consultar jogo 276/457 · K4LcMd2s",
-  "last_result": "Brown Adrogue - Talleres (R.E): 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T09:20:14.265Z"
+  "current_match": "Último concluído: San Martin Burzaco - Talleres (R.E)",
+  "last_result": "San Martin Burzaco - Talleres (R.E): 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T09:20:44.221Z"
 }
