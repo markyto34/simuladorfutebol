@@ -135,10 +135,15 @@ async function fetchHtml(url) {
 
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-export async function discoverFlashscoreCatalog({ fetchPage = fetchHtml, waitMs = WAIT_MS } = {}) {
+export async function discoverFlashscoreCatalog({ fetchPage = fetchHtml, waitMs = WAIT_MS, groupIndex = 0, groupSize = 30 } = {}) {
   const indexHtml = await fetchPage(INDEX_URL);
-  const countries = parseCountryLinks(indexHtml);
-  if (!countries.length) throw new Error("Não foram encontradas páginas de países no índice Flashscore.");
+  const allCountries = parseCountryLinks(indexHtml);
+  if (!allCountries.length) throw new Error("Não foram encontradas páginas de países no índice Flashscore.");
+  const groupCount = Math.ceil(allCountries.length / groupSize);
+  if (!Number.isInteger(groupIndex) || groupIndex < 0 || groupIndex >= groupCount) {
+    throw new Error(`Grupo inválido: ${groupIndex + 1}; existem ${groupCount} grupos.`);
+  }
+  const countries = allCountries.slice(groupIndex * groupSize, (groupIndex + 1) * groupSize);
   const competitions = [];
   const errors = [];
 
@@ -175,6 +180,10 @@ export async function discoverFlashscoreCatalog({ fetchPage = fetchHtml, waitMs 
     source_index: INDEX_URL,
     supplemental_index: WORLD_INDEX_URL,
     scope: "Catálogo bruto das páginas públicas de futebol por país/região. Não confirma que todas as competições têm histórico estatístico ou odds.",
+    total_country_page_count: allCountries.length,
+    group_index: groupIndex,
+    group_number: groupIndex + 1,
+    group_count: groupCount,
     country_page_count: countries.length,
     country_pages_successful: countries.filter(item => item.fetch_status === "success").length,
     country_pages_failed: errors.length,
@@ -186,10 +195,13 @@ export async function discoverFlashscoreCatalog({ fetchPage = fetchHtml, waitMs 
 }
 
 async function main() {
-  const report = await discoverFlashscoreCatalog();
+  const groupIndex = Number(process.env.FLASHSCORE_CATALOG_GROUP_INDEX || 0);
+  const groupSize = Number(process.env.FLASHSCORE_CATALOG_GROUP_SIZE || 30);
+  const report = await discoverFlashscoreCatalog({ groupIndex, groupSize });
   await writeFile(OUTPUT, JSON.stringify(report, null, 2) + "\n");
   console.log(JSON.stringify({
     output: OUTPUT,
+    group: report.group_number + "/" + report.group_count,
     country_page_count: report.country_page_count,
     country_pages_successful: report.country_pages_successful,
     country_pages_failed: report.country_pages_failed,
