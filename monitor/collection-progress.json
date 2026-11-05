@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 200,
-  "processed_games": 50,
-  "stats_games": 47,
-  "bwin_odds": 47,
+  "processed_games": 75,
+  "stats_games": 72,
+  "bwin_odds": 72,
   "failed_games": 3,
-  "current_match": "Último concluído: Colo Colo - O'Higgins",
-  "last_result": "Colo Colo - O'Higgins: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:38:01.842Z"
+  "current_match": "Último concluído: U. Catolica - La Serena",
+  "last_result": "U. Catolica - La Serena: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:38:27.075Z"
 }
