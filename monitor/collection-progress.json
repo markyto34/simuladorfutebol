@@ -3,13 +3,13 @@
   "run_number": "7",
   "target_date": "",
   "status": "running",
-  "phase": "collecting",
-  "total_games": 94,
-  "processed_games": 94,
-  "stats_games": 94,
-  "bwin_odds": 94,
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
+  "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Zlin - Sigma Olomouc",
-  "last_result": "Zlin - Sigma Olomouc: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:43:42.374Z"
+  "current_match": "A descobrir jogos",
+  "last_result": "",
+  "updated_at": "2026-11-05T22:43:52.137Z"
 }
