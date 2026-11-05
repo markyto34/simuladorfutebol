@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 224,
-  "processed_games": 200,
-  "stats_games": 200,
-  "bwin_odds": 200,
+  "processed_games": 224,
+  "stats_games": 224,
+  "bwin_odds": 224,
   "failed_games": 0,
-  "current_match": "A consultar jogo 203/224 · O6BVtvoS",
-  "last_result": "Bryne - Odd: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:24:35.349Z"
+  "current_match": "Último concluído: Strömsgodset - Stabaek",
+  "last_result": "Strömsgodset - Stabaek: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:24:40.272Z"
 }
