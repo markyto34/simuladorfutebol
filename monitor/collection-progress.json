@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 472,
-  "processed_games": 127,
-  "stats_games": 127,
-  "bwin_odds": 127,
-  "failed_games": 0,
-  "current_match": "A consultar jogo 130/472 · CMj8QONa",
-  "last_result": "DC United - Columbus Crew: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:59:44.222Z"
+  "processed_games": 150,
+  "stats_games": 148,
+  "bwin_odds": 148,
+  "failed_games": 2,
+  "current_match": "Último concluído: DC United - Los Angeles FC",
+  "last_result": "DC United - Los Angeles FC: 14 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T16:01:24.510Z"
 }
