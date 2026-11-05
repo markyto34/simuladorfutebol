@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 232,
-  "processed_games": 226,
-  "stats_games": 226,
-  "bwin_odds": 225,
+  "processed_games": 232,
+  "stats_games": 232,
+  "bwin_odds": 231,
   "failed_games": 0,
-  "current_match": "A consultar jogo 229/232 · hMZ8AtoQ",
-  "last_result": "Orlando Pride F - Seattle Reign F: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:34:55.041Z"
+  "current_match": "Último concluído: Washington F - Portland Thorns F",
+  "last_result": "Washington F - Portland Thorns F: 14 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T21:34:56.410Z"
 }
