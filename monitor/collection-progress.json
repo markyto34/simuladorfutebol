@@ -2,14 +2,14 @@
   "run_id": "42049381940",
   "run_number": "3",
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
-  "total_games": 81,
-  "processed_games": 81,
-  "stats_games": 81,
-  "bwin_odds": 81,
+  "status": "running",
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
+  "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Bochum - Hertha: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T14:55:12.231Z"
+  "current_match": "A descobrir jogos",
+  "last_result": "",
+  "updated_at": "2026-11-05T14:55:19.660Z"
 }
