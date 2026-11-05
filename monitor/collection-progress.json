@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 208,
-  "processed_games": 200,
-  "stats_games": 200,
-  "bwin_odds": 173,
+  "processed_games": 208,
+  "stats_games": 208,
+  "bwin_odds": 181,
   "failed_games": 0,
-  "current_match": "Último concluído: Arsenal Dzerzhinsk - Naftan",
-  "last_result": "Arsenal Dzerzhinsk - Naftan: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T09:52:03.593Z"
+  "current_match": "Último concluído: Vitebsk - Gomel",
+  "last_result": "Vitebsk - Gomel: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T09:52:13.217Z"
 }
