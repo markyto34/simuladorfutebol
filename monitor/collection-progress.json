@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 70,
-  "processed_games": 50,
-  "stats_games": 15,
-  "bwin_odds": 35,
+  "processed_games": 70,
+  "stats_games": 18,
+  "bwin_odds": 47,
   "failed_games": 0,
-  "current_match": "Último concluído: Sparta Nijkerk - Venray",
-  "last_result": "Sparta Nijkerk - Venray: 0 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:32:01.690Z"
+  "current_match": "Último concluído: Sparta Rotterdam - Sittard",
+  "last_result": "Sparta Rotterdam - Sittard: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:32:35.552Z"
 }
