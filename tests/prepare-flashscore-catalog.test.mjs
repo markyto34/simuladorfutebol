@@ -36,3 +36,13 @@ test('assinala nomes repetidos no mesmo país para revisão sem os eliminar', ()
   assert.equal(result.summary.local_duplicate_name_groups_for_review, 1);
   assert.ok(result.competitions.every(x => x.review_flags.includes('same_country_same_name_multiple_urls')));
 });
+
+
+test('classifica abertura, encerramento e quadrangulares como fases sem fundir as entradas', () => {
+  const result = prepareFlashscoreCatalog(raw(['Liga Profesional - Abertura','Liga Profesional - Encerramento','Primeira A - Encerramento - Quadrangular']));
+  assert.equal(result.competitions.length,3);
+  assert.ok(result.competitions.every(x => x.has_stage_or_playoff_marker));
+  assert.ok(result.competitions.every(x => x.competition_type === 'fase_especial'));
+  assert.equal(result.competitions.find(x => x.competition_name === 'Liga Profesional - Abertura').competition_family_candidate,'Liga Profesional');
+  assert.equal(result.competitions.find(x => x.competition_name === 'Liga Profesional - Encerramento').competition_family_candidate,'Liga Profesional');
+});
