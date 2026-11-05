@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 472,
-  "processed_games": 301,
-  "stats_games": 299,
-  "bwin_odds": 298,
+  "processed_games": 375,
+  "stats_games": 373,
+  "bwin_odds": 372,
   "failed_games": 2,
-  "current_match": "A consultar jogo 304/472 · 0GMdrp36",
-  "last_result": "Portland Timbers - Sporting Kansas City: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T16:02:25.669Z"
+  "current_match": "Último concluído: New England Revolution - DC United",
+  "last_result": "New England Revolution - DC United: 14 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T16:03:07.373Z"
 }
