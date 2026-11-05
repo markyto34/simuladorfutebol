@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 472,
-  "processed_games": 251,
-  "stats_games": 251,
-  "bwin_odds": 250,
+  "processed_games": 275,
+  "stats_games": 275,
+  "bwin_odds": 274,
   "failed_games": 0,
-  "current_match": "A consultar jogo 254/472 · phGxAaqd",
-  "last_result": "Nashville SC - Atlanta Utd: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:32:41.305Z"
+  "current_match": "Último concluído: Seattle Sounders - Los Angeles Galaxy",
+  "last_result": "Seattle Sounders - Los Angeles Galaxy: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T21:32:46.570Z"
 }
