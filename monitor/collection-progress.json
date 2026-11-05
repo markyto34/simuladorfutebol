@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 457,
-  "processed_games": 25,
-  "stats_games": 25,
+  "processed_games": 50,
+  "stats_games": 50,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Villa San Carlos - Villa Dalmine",
-  "last_result": "Villa San Carlos - Villa Dalmine: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T09:13:03.574Z"
+  "current_match": "Último concluído: Villa San Carlos - Arsenal Sarandi",
+  "last_result": "Villa San Carlos - Arsenal Sarandi: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T09:13:49.502Z"
 }
