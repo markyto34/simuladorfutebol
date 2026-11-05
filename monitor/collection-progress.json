@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed_with_errors",
+  "phase": "completed",
   "total_games": 88,
   "processed_games": 88,
   "stats_games": 75,
   "bwin_odds": 81,
   "failed_games": 3,
-  "current_match": "Último concluído: Nagykanizsa - DVTK",
+  "current_match": "Recolha terminada",
   "last_result": "Nagykanizsa - DVTK: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:45:24.154Z"
+  "updated_at": "2026-11-05T21:45:25.518Z"
 }
