@@ -639,6 +639,10 @@ function teamSample(team,venue,metric){
   if(metric==="xgAgainst")return h?m.awayXg:m.homeXg;
   if(metric==="cornersFor")return h?m.hc:m.ac;
   if(metric==="cornersAgainst")return h?m.ac:m.hc;
+  if(metric==="cornersHtFor")return h?m.homeCornersHt:m.awayCornersHt;
+  if(metric==="cornersHtAgainst")return h?m.awayCornersHt:m.homeCornersHt;
+  if(metric==="cornersStFor")return h?m.homeCornersSt:m.awayCornersSt;
+  if(metric==="cornersStAgainst")return h?m.awayCornersSt:m.homeCornersSt;
   if(metric==="shotsFor")return h?m.homeShots:m.awayShots;
   if(metric==="shotsAgainst")return h?m.awayShots:m.homeShots;
   if(metric==="targetFor")return h?m.homeTarget:m.awayTarget;
@@ -658,6 +662,7 @@ function teamSample(team,venue,metric){
   if(metric==="secondHalfGoalsFor")return window.FootballDataEnrichment.deriveSecondHalfGoals(h?w.hg:w.ag,h?w.htHome:w.htAway);
   if(metric==="secondHalfGoalsAgainst")return window.FootballDataEnrichment.deriveSecondHalfGoals(h?w.ag:w.hg,h?w.htAway:w.htHome);
   if(metric==="xgFor"||metric==="xgAgainst")return null;
+  if(metric==="cornersHtFor"||metric==="cornersHtAgainst"||metric==="cornersStFor"||metric==="cornersStAgainst")return null;
   if(metric==="cornersFor")return h?w.homeCorners:w.awayCorners;
   if(metric==="cornersAgainst")return h?w.awayCorners:w.homeCorners;
   if(metric==="shotsFor")return h?(w.homeTarget===null||w.homeShotsOff===null?null:w.homeTarget+w.homeShotsOff):(w.awayTarget===null||w.awayShotsOff===null?null:w.awayTarget+w.awayShotsOff);
@@ -714,6 +719,8 @@ const TEAM_METRIC_PAIRS=[
  ["secondHalfGoalsFor","hshFor","ashFor"],["secondHalfGoalsAgainst","hshAgainst","ashAgainst"],
  ["xgFor","hxgFor","axgFor"],["xgAgainst","hxgAgainst","axgAgainst"],
  ["cornersFor","hcFor","acFor"],["cornersAgainst","hcAgainst","acAgainst"],
+ ["cornersHtFor","hchtFor","achtFor"],["cornersHtAgainst","hchtAgainst","achtAgainst"],
+ ["cornersStFor","hcstFor","acstFor"],["cornersStAgainst","hcstAgainst","acstAgainst"],
  ["shotsFor","hshotsFor","ashotsFor"],["shotsAgainst","hshotsAgainst","ashotsAgainst"],
  ["targetFor","htargetFor","atargetFor"],["targetAgainst","htargetAgainst","atargetAgainst"],
  ["foulsFor","hfoulsFor","afoulsFor"],["foulsAgainst","hfoulsAgainst","afoulsAgainst"],
@@ -723,7 +730,7 @@ const TEAM_METRIC_PAIRS=[
 function enforcePairedTeamCoverage(){
  const home=$("homePick").value,away=$("awayPick").value;
  if(!home||!away)return "Seleciona as duas equipas para comparar a cobertura.";
- const labels={goalsFor:"Golos marcados",goalsAgainst:"Golos sofridos",htGoalsFor:"Golos marcados HT",htGoalsAgainst:"Golos sofridos HT",secondHalfGoalsFor:"Golos marcados ST",secondHalfGoalsAgainst:"Golos sofridos ST",xgFor:"xG a favor",xgAgainst:"xG contra",cornersFor:"Cantos a favor",cornersAgainst:"Cantos concedidos",shotsFor:"Remates",shotsAgainst:"Remates concedidos",targetFor:"Remates à baliza",targetAgainst:"Remates à baliza concedidos",foulsFor:"Faltas cometidas",foulsAgainst:"Faltas sofridas",yellowFor:"Amarelos",yellowAgainst:"Amarelos do adversário",redFor:"Vermelhos",redAgainst:"Vermelhos do adversário"};
+ const labels={goalsFor:"Golos marcados",goalsAgainst:"Golos sofridos",htGoalsFor:"Golos marcados HT",htGoalsAgainst:"Golos sofridos HT",secondHalfGoalsFor:"Golos marcados ST",secondHalfGoalsAgainst:"Golos sofridos ST",xgFor:"xG a favor",xgAgainst:"xG contra",cornersFor:"Cantos a favor",cornersAgainst:"Cantos concedidos",cornersHtFor:"Cantos HT a favor",cornersHtAgainst:"Cantos HT concedidos",cornersStFor:"Cantos ST a favor",cornersStAgainst:"Cantos ST concedidos",shotsFor:"Remates",shotsAgainst:"Remates concedidos",targetFor:"Remates à baliza",targetAgainst:"Remates à baliza concedidos",foulsFor:"Faltas cometidas",foulsAgainst:"Faltas sofridas",yellowFor:"Amarelos",yellowAgainst:"Amarelos do adversário",redFor:"Vermelhos",redAgainst:"Vermelhos do adversário"};
  const missing=[];
  for(const [metric] of TEAM_METRIC_PAIRS){
   const h=teamSample(home,"home",metric),a=teamSample(away,"away",metric),min=MetricCoverage.minimumFor(metric);
@@ -794,7 +801,7 @@ function applyTeamSelection(side){
  const skipPairCheck=arguments[1]===true;
  const team=$(side==="home"?"homePick":"awayPick").value;
  const suffix=side==="home"?"h":"a";
- const fields=[["goalsFor",suffix+"gFor"],["goalsAgainst",suffix+"gAgainst"],["htGoalsFor",suffix+"htFor"],["htGoalsAgainst",suffix+"htAgainst"],["secondHalfGoalsFor",suffix+"shFor"],["secondHalfGoalsAgainst",suffix+"shAgainst"],["xgFor",suffix+"xgFor"],["xgAgainst",suffix+"xgAgainst"],["cornersFor",suffix+"cFor"],["cornersAgainst",suffix+"cAgainst"],["shotsFor",suffix+"shotsFor"],["shotsAgainst",suffix+"shotsAgainst"],["targetFor",suffix+"targetFor"],["targetAgainst",suffix+"targetAgainst"],["foulsFor",suffix+"foulsFor"],["foulsAgainst",suffix+"foulsAgainst"],["yellowFor",suffix+"yellowFor"],["yellowAgainst",suffix+"yellowAgainst"],["redFor",suffix+"redFor"],["redAgainst",suffix+"redAgainst"]];
+ const fields=[["goalsFor",suffix+"gFor"],["goalsAgainst",suffix+"gAgainst"],["htGoalsFor",suffix+"htFor"],["htGoalsAgainst",suffix+"htAgainst"],["secondHalfGoalsFor",suffix+"shFor"],["secondHalfGoalsAgainst",suffix+"shAgainst"],["xgFor",suffix+"xgFor"],["xgAgainst",suffix+"xgAgainst"],["cornersFor",suffix+"cFor"],["cornersAgainst",suffix+"cAgainst"],["cornersHtFor",suffix+"chtFor"],["cornersHtAgainst",suffix+"chtAgainst"],["cornersStFor",suffix+"cstFor"],["cornersStAgainst",suffix+"cstAgainst"],["shotsFor",suffix+"shotsFor"],["shotsAgainst",suffix+"shotsAgainst"],["targetFor",suffix+"targetFor"],["targetAgainst",suffix+"targetAgainst"],["foulsFor",suffix+"foulsFor"],["foulsAgainst",suffix+"foulsAgainst"],["yellowFor",suffix+"yellowFor"],["yellowAgainst",suffix+"yellowAgainst"],["redFor",suffix+"redFor"],["redAgainst",suffix+"redAgainst"]];
  if(!team){for(const [,id] of fields)fillInput(id,null);$(side==="home"?"homeName":"awayName").value="";$(side==="home"?"homeNameDisplay":"awayNameDisplay").textContent="—";renderRecentTeamMatches(side);if(!skipPairCheck)$("data-status").textContent=enforcePairedTeamCoverage();return;}
  const venue=side==="home"?"home":"away";
  const coverage={};
