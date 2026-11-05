@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 170,
-  "processed_games": 100,
-  "stats_games": 99,
+  "processed_games": 125,
+  "stats_games": 123,
   "bwin_odds": 0,
-  "failed_games": 0,
-  "current_match": "Último concluído: BFC Daugavpils - Ogre United",
-  "last_result": "BFC Daugavpils - Ogre United: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T22:13:22.571Z"
+  "failed_games": 1,
+  "current_match": "Último concluído: FK Liepaja - Grobina",
+  "last_result": "FK Liepaja - Grobina: 16 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T22:13:32.067Z"
 }
