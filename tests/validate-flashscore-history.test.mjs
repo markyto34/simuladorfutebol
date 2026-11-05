@@ -95,3 +95,30 @@ test("valida cantos HT/ST em pares completos e rejeita valores inválidos", () =
     corners_st_home:"1.5", corners_st_away:"2"
   })],[oddsRow()]), /Valor estatístico inválido/);
 });
+
+
+test("reporta cobertura de todos os indicadores e deteta divergência entre cantos HT/ST/FT", () => {
+  const row = statsRow({
+    corners_home:"7", corners_away:"3",
+    corners_ht_home:"3", corners_ht_away:"1",
+    corners_st_home:"4", corners_st_away:"2",
+    red_cards_home:"0", red_cards_away:"0",
+    ht_home:"1", ht_away:"0", sh_home:"1", sh_away:"1"
+  });
+  const summary = validateHistory([row], [oddsRow()]);
+  assert.equal(summary.indicatorCoverage.corners_ht.complete, 1);
+  assert.equal(summary.indicatorCoverage.corners_st.complete, 1);
+  assert.equal(summary.indicatorCoverage.red_cards.complete, 1);
+  assert.equal(summary.cornersTotalChecked, 0); // HT+ST home/away must equal FT; away intentionally mismatches below
+  assert.throws(() => validateHistory([{
+    ...row, corners_st_away:"2", corners_away:"4"
+  }], [oddsRow()]), /Cantos HT \\+ ST não correspondem aos cantos FT/);
+});
+
+test("mostra campos em falta na cobertura em vez de os esconder", () => {
+  const row = statsRow({ xg_home:"", xg_away:"", corners_ht_home:"", corners_ht_away:"", corners_st_home:"", corners_st_away:"" });
+  const summary = validateHistory([row], [oddsRow()]);
+  assert.equal(summary.indicatorCoverage.xg.missing, 1);
+  assert.equal(summary.indicatorCoverage.corners_ht.missing, 1);
+  assert.equal(summary.competitionCoverage[0].indicators.corners_st.coveragePercent, 0);
+});
