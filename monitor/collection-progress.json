@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 96,
-  "processed_games": 76,
-  "stats_games": 76,
-  "bwin_odds": 76,
-  "failed_games": 0,
-  "current_match": "A consultar jogo 79/96 · xdufYkbd",
-  "last_result": "Usti n. L. - Ceska Lipa: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:44:51.798Z"
+  "processed_games": 96,
+  "stats_games": 95,
+  "bwin_odds": 95,
+  "failed_games": 1,
+  "current_match": "Último erro: SImdRj4e",
+  "last_result": "Falha em SImdRj4e: Falha ao recolher SImdRj4e: HTTP 503",
+  "updated_at": "2026-11-05T22:45:14.255Z"
 }
