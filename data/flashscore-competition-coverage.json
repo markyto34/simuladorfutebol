@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-11-05T07:36:18.134Z",
+  "generated_at": "2026-11-05T07:46:48.808Z",
   "source": "Flashscore catalog + data/flashscore-statistics.csv",
   "scope": "Correspondência por país e competição com normalização e apenas aliases explicitamente confirmados. Nomes repetidos no mesmo país ficam em revisão e não são considerados cobertura validada.",
   "summary": {
     "catalog_candidates": 1299,
-    "candidates_with_stats": 228,
-    "candidates_without_stats": 1065,
+    "candidates_with_stats": 229,
+    "candidates_without_stats": 1064,
     "candidates_1_to_4_matches": 86,
-    "candidates_5_plus_matches": 142,
+    "candidates_5_plus_matches": 143,
     "candidates_10_plus_matches": 33,
     "candidates_20_plus_matches": 4,
     "duplicate_name_candidates_for_review": 6,
-    "stats_competitions": 288,
-    "stats_competitions_matched_to_catalog": 229,
+    "stats_competitions": 289,
+    "stats_competitions_matched_to_catalog": 230,
     "stats_competitions_not_in_catalog": 59,
-    "stats_rows": 1695,
-    "stats_unique_match_ids": 1695,
-    "stats_competition_labels": 291,
-    "matched_stats_competition_labels": 231,
+    "stats_rows": 1703,
+    "stats_unique_match_ids": 1703,
+    "stats_competition_labels": 292,
+    "matched_stats_competition_labels": 232,
     "unmatched_stats_competition_labels": 60,
     "unmatched_stage_labels_kept_separate": 60,
     "unmatched_labels_without_catalog_base": 0
@@ -34,12 +34,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 17,
+          "coverage_pct": 85
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 17,
+          "coverage_pct": 85
         },
         "shots": {
           "complete_matches": 20,
@@ -85,12 +85,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 50
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 50
         },
         "shots": {
           "complete_matches": 18,
@@ -136,12 +136,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 50
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 50
         },
         "shots": {
           "complete_matches": 18,
@@ -187,12 +187,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 12.5
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 12.5
         },
         "shots": {
           "complete_matches": 16,
@@ -340,12 +340,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 15.4
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 15.4
         },
         "shots": {
           "complete_matches": 13,
@@ -391,12 +391,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 7.7
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 7.7
         },
         "shots": {
           "complete_matches": 13,
@@ -442,12 +442,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 50
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 50
         },
         "shots": {
           "complete_matches": 12,
@@ -493,12 +493,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 27.3
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 27.3
         },
         "shots": {
           "complete_matches": 11,
@@ -646,12 +646,12 @@
           "coverage_pct": 87.5
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 12.5
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 12.5
         },
         "shots": {
           "complete_matches": 8,
@@ -749,12 +749,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 25
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 25
         },
         "shots": {
           "complete_matches": 8,
@@ -953,12 +953,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 42.9
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 42.9
         },
         "shots": {
           "complete_matches": 7,
@@ -1005,12 +1005,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 33.3
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 33.3
         },
         "shots": {
           "complete_matches": 6,
@@ -1056,12 +1056,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 33.3
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 33.3
         },
         "shots": {
           "complete_matches": 6,
@@ -1413,12 +1413,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -1719,12 +1719,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 66.7
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 66.7
         },
         "shots": {
           "complete_matches": 3,
@@ -1758,6 +1758,57 @@
       ],
       "related_catalog_competition": "Taça da Rússia",
       "related_catalog_url": "https://www.flashscore.pt/futebol/russia/taca/"
+    },
+    {
+      "country_name": "TURQUIA",
+      "competition_name": "Taça da Turquia - Qualificação",
+      "unique_stats_matches": 3,
+      "stats_rows": 3,
+      "metrics": {
+        "corners": {
+          "complete_matches": 2,
+          "coverage_pct": 66.7
+        },
+        "corners_ht": {
+          "complete_matches": 1,
+          "coverage_pct": 33.3
+        },
+        "corners_st": {
+          "complete_matches": 1,
+          "coverage_pct": 33.3
+        },
+        "shots": {
+          "complete_matches": 2,
+          "coverage_pct": 66.7
+        },
+        "shots_on_target": {
+          "complete_matches": 2,
+          "coverage_pct": 66.7
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 2,
+          "coverage_pct": 66.7
+        },
+        "yellow_cards": {
+          "complete_matches": 2,
+          "coverage_pct": 66.7
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Qualificação"
+      ],
+      "related_catalog_competition": "Taça da Turquia",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/turquia/taca/"
     },
     {
       "country_name": "ARGENTINA",
@@ -1872,12 +1923,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 50
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 50
         },
         "shots": {
           "complete_matches": 2,
@@ -2372,57 +2423,6 @@
       "related_catalog_url": "https://www.flashscore.pt/futebol/republica-dominicana/primeira-liga/"
     },
     {
-      "country_name": "TURQUIA",
-      "competition_name": "Taça da Turquia - Qualificação",
-      "unique_stats_matches": 2,
-      "stats_rows": 2,
-      "metrics": {
-        "corners": {
-          "complete_matches": 2,
-          "coverage_pct": 100
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 2,
-          "coverage_pct": 100
-        },
-        "shots_on_target": {
-          "complete_matches": 2,
-          "coverage_pct": 100
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 2,
-          "coverage_pct": 100
-        },
-        "yellow_cards": {
-          "complete_matches": 2,
-          "coverage_pct": 100
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      },
-      "reason": "catalog_base_found_stage_kept_separate",
-      "relationship": "same_base_competition_distinct_stage_not_merged",
-      "stage_markers": [
-        "Qualificação"
-      ],
-      "related_catalog_competition": "Taça da Turquia",
-      "related_catalog_url": "https://www.flashscore.pt/futebol/turquia/taca/"
-    },
-    {
       "country_name": "URUGUAI",
       "competition_name": "Taça do Uruguai - Playoffs",
       "unique_stats_matches": 2,
@@ -2433,12 +2433,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -2892,12 +2892,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -3045,12 +3045,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -3183,12 +3183,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 12.5
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 12.5
         },
         "shots": {
           "complete_matches": 24,
@@ -3409,6 +3409,70 @@
       }
     },
     {
+      "country_name": "Ásia",
+      "country_slug": "asia",
+      "competition_name": "AFC - Liga dos Campeões 2",
+      "competition_slug": "afc-liga-dos-campeoes-2",
+      "url": "https://www.flashscore.pt/futebol/asia/afc-liga-dos-campeoes-2/",
+      "source_country_url": "https://www.flashscore.pt/futebol/asia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "AFC - Liga dos Campeões 2",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "non_standard_format": false,
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "regional_ou_global",
+      "stats_match_key": "asia|afc liga dos campeoes 2",
+      "stats_source_labels": [
+        "ÁSIA / AFC - Liga dos Campeões 2"
+      ],
+      "unique_stats_matches": 16,
+      "stats_rows": 16,
+      "sample_status": "amostra_10_19",
+      "metrics": {
+        "corners": {
+          "complete_matches": 15,
+          "coverage_pct": 93.8
+        },
+        "corners_ht": {
+          "complete_matches": 8,
+          "coverage_pct": 50
+        },
+        "corners_st": {
+          "complete_matches": 8,
+          "coverage_pct": 50
+        },
+        "shots": {
+          "complete_matches": 15,
+          "coverage_pct": 93.8
+        },
+        "shots_on_target": {
+          "complete_matches": 15,
+          "coverage_pct": 93.8
+        },
+        "xg": {
+          "complete_matches": 14,
+          "coverage_pct": 87.5
+        },
+        "fouls": {
+          "complete_matches": 14,
+          "coverage_pct": 87.5
+        },
+        "yellow_cards": {
+          "complete_matches": 15,
+          "coverage_pct": 93.8
+        },
+        "red_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 6.3
+        }
+      }
+    },
+    {
       "country_name": "África do Sul",
       "country_slug": "africa-do-sul",
       "competition_name": "Primeira Liga",
@@ -3473,70 +3537,6 @@
       }
     },
     {
-      "country_name": "Ásia",
-      "country_slug": "asia",
-      "competition_name": "AFC - Liga dos Campeões 2",
-      "competition_slug": "afc-liga-dos-campeoes-2",
-      "url": "https://www.flashscore.pt/futebol/asia/afc-liga-dos-campeoes-2/",
-      "source_country_url": "https://www.flashscore.pt/futebol/asia/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "AFC - Liga dos Campeões 2",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "liga_ou_torneio",
-      "non_standard_format": false,
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "regional_ou_global",
-      "stats_match_key": "asia|afc liga dos campeoes 2",
-      "stats_source_labels": [
-        "ÁSIA / AFC - Liga dos Campeões 2"
-      ],
-      "unique_stats_matches": 15,
-      "stats_rows": 15,
-      "sample_status": "amostra_10_19",
-      "metrics": {
-        "corners": {
-          "complete_matches": 15,
-          "coverage_pct": 100
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 15,
-          "coverage_pct": 100
-        },
-        "shots_on_target": {
-          "complete_matches": 15,
-          "coverage_pct": 100
-        },
-        "xg": {
-          "complete_matches": 14,
-          "coverage_pct": 93.3
-        },
-        "fouls": {
-          "complete_matches": 14,
-          "coverage_pct": 93.3
-        },
-        "yellow_cards": {
-          "complete_matches": 15,
-          "coverage_pct": 100
-        },
-        "red_cards": {
-          "complete_matches": 1,
-          "coverage_pct": 6.7
-        }
-      }
-    },
-    {
       "country_name": "Inglaterra",
       "country_slug": "inglaterra",
       "competition_name": "Liga 1",
@@ -3567,12 +3567,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 6.7
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 6.7
         },
         "shots": {
           "complete_matches": 15,
@@ -3631,12 +3631,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 35.7
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 35.7
         },
         "shots": {
           "complete_matches": 14,
@@ -3759,12 +3759,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 50
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 50
         },
         "shots": {
           "complete_matches": 12,
@@ -3823,12 +3823,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 50
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 50
         },
         "shots": {
           "complete_matches": 12,
@@ -4207,12 +4207,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 10
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 10
         },
         "shots": {
           "complete_matches": 10,
@@ -4847,12 +4847,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 10
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 10
         },
         "shots": {
           "complete_matches": 10,
@@ -4911,12 +4911,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 10
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 10
         },
         "shots": {
           "complete_matches": 10,
@@ -5239,12 +5239,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 50
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 50
         },
         "shots": {
           "complete_matches": 10,
@@ -5559,12 +5559,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 22.2
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 22.2
         },
         "shots": {
           "complete_matches": 9,
@@ -6199,12 +6199,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 11.1
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 11.1
         },
         "shots": {
           "complete_matches": 9,
@@ -6455,12 +6455,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 12.5
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 12.5
         },
         "shots": {
           "complete_matches": 8,
@@ -6647,12 +6647,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 25
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 25
         },
         "shots": {
           "complete_matches": 8,
@@ -6933,6 +6933,70 @@
         "red_cards": {
           "complete_matches": 2,
           "coverage_pct": 25
+        }
+      }
+    },
+    {
+      "country_name": "Egipto",
+      "country_slug": "egipto",
+      "competition_name": "Taça da Liga",
+      "competition_slug": "taca-da-liga",
+      "url": "https://www.flashscore.pt/futebol/egipto/taca-da-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/egipto/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Taça da Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "taca",
+      "non_standard_format": false,
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao",
+      "stats_match_key": "egipto|taca da liga",
+      "stats_source_labels": [
+        "EGIPTO / Taça da Liga"
+      ],
+      "unique_stats_matches": 8,
+      "stats_rows": 8,
+      "sample_status": "amostra_5_9",
+      "metrics": {
+        "corners": {
+          "complete_matches": 7,
+          "coverage_pct": 87.5
+        },
+        "corners_ht": {
+          "complete_matches": 1,
+          "coverage_pct": 12.5
+        },
+        "corners_st": {
+          "complete_matches": 2,
+          "coverage_pct": 25
+        },
+        "shots": {
+          "complete_matches": 7,
+          "coverage_pct": 87.5
+        },
+        "shots_on_target": {
+          "complete_matches": 7,
+          "coverage_pct": 87.5
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 7,
+          "coverage_pct": 87.5
+        },
+        "yellow_cards": {
+          "complete_matches": 7,
+          "coverage_pct": 87.5
+        },
+        "red_cards": {
+          "complete_matches": 1,
+          "coverage_pct": 12.5
         }
       }
     },
@@ -7223,12 +7287,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 12.5
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 12.5
         },
         "shots": {
           "complete_matches": 8,
@@ -7671,12 +7735,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 25
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 25
         },
         "shots": {
           "complete_matches": 8,
@@ -8085,70 +8149,6 @@
         "red_cards": {
           "complete_matches": 0,
           "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "country_name": "Egipto",
-      "country_slug": "egipto",
-      "competition_name": "Taça da Liga",
-      "competition_slug": "taca-da-liga",
-      "url": "https://www.flashscore.pt/futebol/egipto/taca-da-liga/",
-      "source_country_url": "https://www.flashscore.pt/futebol/egipto/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Taça da Liga",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "taca",
-      "non_standard_format": false,
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "pais_ou_regiao",
-      "stats_match_key": "egipto|taca da liga",
-      "stats_source_labels": [
-        "EGIPTO / Taça da Liga"
-      ],
-      "unique_stats_matches": 7,
-      "stats_rows": 7,
-      "sample_status": "amostra_5_9",
-      "metrics": {
-        "corners": {
-          "complete_matches": 7,
-          "coverage_pct": 100
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 7,
-          "coverage_pct": 100
-        },
-        "shots_on_target": {
-          "complete_matches": 7,
-          "coverage_pct": 100
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 7,
-          "coverage_pct": 100
-        },
-        "yellow_cards": {
-          "complete_matches": 7,
-          "coverage_pct": 100
-        },
-        "red_cards": {
-          "complete_matches": 1,
-          "coverage_pct": 14.3
         }
       }
     },
@@ -9015,12 +9015,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 33.3
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 33.3
         },
         "shots": {
           "complete_matches": 6,
@@ -9079,12 +9079,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 50
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 50
         },
         "shots": {
           "complete_matches": 6,
@@ -10361,12 +10361,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 33.3
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 33.3
         },
         "shots": {
           "complete_matches": 6,
@@ -11834,12 +11834,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 40
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 40
         },
         "shots": {
           "complete_matches": 5,
@@ -11860,6 +11860,70 @@
         "yellow_cards": {
           "complete_matches": 5,
           "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      }
+    },
+    {
+      "country_name": "Montenegro",
+      "country_slug": "montenegro",
+      "competition_name": "Segunda Liga",
+      "competition_slug": "liga-druga",
+      "url": "https://www.flashscore.pt/futebol/montenegro/liga-druga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/montenegro/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Segunda Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "non_standard_format": false,
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao",
+      "stats_match_key": "montenegro|segunda liga",
+      "stats_source_labels": [
+        "MONTENEGRO / Segunda Liga"
+      ],
+      "unique_stats_matches": 5,
+      "stats_rows": 5,
+      "sample_status": "amostra_5_9",
+      "metrics": {
+        "corners": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_ht": {
+          "complete_matches": 5,
+          "coverage_pct": 100
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots_on_target": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "yellow_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
         },
         "red_cards": {
           "complete_matches": 0,
@@ -11898,12 +11962,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 20
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 20
         },
         "shots": {
           "complete_matches": 5,
@@ -12090,12 +12154,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 20
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 20
         },
         "shots": {
           "complete_matches": 5,
@@ -13562,12 +13626,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -13626,12 +13690,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 33.3
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 33.3
         },
         "shots": {
           "complete_matches": 3,
@@ -14010,12 +14074,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 33.3
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 33.3
         },
         "shots": {
           "complete_matches": 3,
@@ -14394,12 +14458,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 33.3
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 33.3
         },
         "shots": {
           "complete_matches": 3,
@@ -15226,12 +15290,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 50
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 50
         },
         "shots": {
           "complete_matches": 2,
@@ -15354,12 +15418,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 50
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 50
         },
         "shots": {
           "complete_matches": 2,
@@ -15610,12 +15674,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -15674,12 +15738,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -15738,12 +15802,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -16763,12 +16827,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -17533,12 +17597,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -17725,12 +17789,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -17789,12 +17853,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -67617,68 +67681,6 @@
     {
       "country_name": "Montenegro",
       "country_slug": "montenegro",
-      "competition_name": "Segunda Liga",
-      "competition_slug": "liga-druga",
-      "url": "https://www.flashscore.pt/futebol/montenegro/liga-druga/",
-      "source_country_url": "https://www.flashscore.pt/futebol/montenegro/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Segunda Liga",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "liga_ou_torneio",
-      "non_standard_format": false,
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "pais_ou_regiao",
-      "stats_match_key": "montenegro|segunda liga",
-      "stats_source_labels": [],
-      "unique_stats_matches": 0,
-      "stats_rows": 0,
-      "sample_status": "sem_dados",
-      "metrics": {
-        "corners": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots_on_target": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "yellow_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "country_name": "Montenegro",
-      "country_slug": "montenegro",
       "competition_name": "Taça",
       "competition_slug": "taca",
       "url": "https://www.flashscore.pt/futebol/montenegro/taca/",
@@ -84126,12 +84128,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 17,
+          "coverage_pct": 85
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 17,
+          "coverage_pct": 85
         },
         "shots": {
           "complete_matches": 20,
@@ -84172,12 +84174,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 47.4
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 47.4
         },
         "shots": {
           "complete_matches": 19,
@@ -84217,12 +84219,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 50
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 50
         },
         "shots": {
           "complete_matches": 18,
@@ -84262,12 +84264,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 12.5
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 12.5
         },
         "shots": {
           "complete_matches": 16,
@@ -84397,12 +84399,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 15.4
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 15.4
         },
         "shots": {
           "complete_matches": 13,
@@ -84442,12 +84444,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 7.7
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 7.7
         },
         "shots": {
           "complete_matches": 13,
@@ -84487,12 +84489,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 50
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 50
         },
         "shots": {
           "complete_matches": 12,
@@ -84532,12 +84534,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 27.3
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 27.3
         },
         "shots": {
           "complete_matches": 11,
@@ -84667,12 +84669,12 @@
           "coverage_pct": 87.5
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 12.5
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 12.5
         },
         "shots": {
           "complete_matches": 8,
@@ -84757,12 +84759,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 25
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 25
         },
         "shots": {
           "complete_matches": 8,
@@ -84937,12 +84939,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 42.9
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 42.9
         },
         "shots": {
           "complete_matches": 7,
@@ -84982,12 +84984,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 33.3
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 33.3
         },
         "shots": {
           "complete_matches": 6,
@@ -85027,12 +85029,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 33.3
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 33.3
         },
         "shots": {
           "complete_matches": 6,
@@ -85567,12 +85569,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -85612,12 +85614,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 66.7
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 66.7
         },
         "shots": {
           "complete_matches": 3,
@@ -85638,6 +85640,51 @@
         "yellow_cards": {
           "complete_matches": 3,
           "coverage_pct": 100
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      }
+    },
+    {
+      "stats_match_key": "turquia|taca da turquia qualificacao",
+      "source_labels": [
+        "TURQUIA / Taça da Turquia - Qualificação"
+      ],
+      "unique_stats_matches": 3,
+      "metrics": {
+        "corners": {
+          "complete_matches": 2,
+          "coverage_pct": 66.7
+        },
+        "corners_ht": {
+          "complete_matches": 1,
+          "coverage_pct": 33.3
+        },
+        "corners_st": {
+          "complete_matches": 1,
+          "coverage_pct": 33.3
+        },
+        "shots": {
+          "complete_matches": 2,
+          "coverage_pct": 66.7
+        },
+        "shots_on_target": {
+          "complete_matches": 2,
+          "coverage_pct": 66.7
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 2,
+          "coverage_pct": 66.7
+        },
+        "yellow_cards": {
+          "complete_matches": 2,
+          "coverage_pct": 66.7
         },
         "red_cards": {
           "complete_matches": 0,
@@ -86107,12 +86154,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 50
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 50
         },
         "shots": {
           "complete_matches": 2,
@@ -86125,51 +86172,6 @@
         "xg": {
           "complete_matches": 2,
           "coverage_pct": 100
-        },
-        "fouls": {
-          "complete_matches": 2,
-          "coverage_pct": 100
-        },
-        "yellow_cards": {
-          "complete_matches": 2,
-          "coverage_pct": 100
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "stats_match_key": "turquia|taca da turquia qualificacao",
-      "source_labels": [
-        "TURQUIA / Taça da Turquia - Qualificação"
-      ],
-      "unique_stats_matches": 2,
-      "metrics": {
-        "corners": {
-          "complete_matches": 2,
-          "coverage_pct": 100
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 2,
-          "coverage_pct": 100
-        },
-        "shots_on_target": {
-          "complete_matches": 2,
-          "coverage_pct": 100
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
         },
         "fouls": {
           "complete_matches": 2,
@@ -86242,12 +86244,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -86692,12 +86694,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -86737,12 +86739,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
