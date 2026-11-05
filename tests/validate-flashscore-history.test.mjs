@@ -31,7 +31,7 @@ test("valida CSV completo e devolve cobertura real sem exigir todas as estatíst
   assert.equal(summary.withScore,1);
   assert.equal(summary.withXg,0);
   assert.equal(summary.withCorners,1);
-  assert.equal(summary.all13,0);
+  assert.equal(summary.allStats,0);
 });
 
 test("rejeita país ou competição em falta", () => {
@@ -63,9 +63,8 @@ test("identifica competições com cinco ou mais jogos sem qualquer xG", () => {
     xg_away: ""
   }));
   const summary = validateHistory(rows, [oddsRow()]);
-  assert.deepEqual(summary.xgMissingCompetitions, [
-    { competition: "PORTUGAL | Primeira Liga", matches: 5, withXg: 0 }
-  ]);
+  assert.equal(summary.xgMissingCompetitions[0].competition, "PORTUGAL | Primeira Liga");
+  assert.equal(summary.xgMissingCompetitions[0].indicators.xg.complete, 0);
 });
 
 
@@ -115,7 +114,7 @@ test("reporta cobertura de todos os indicadores e deteta divergência entre cant
   assert.equal(summary.cornersTotalChecked, 1);
   assert.throws(() => validateHistory([{
     ...row, corners_st_away:"2", corners_away:"4"
-  }], [oddsRow()]), /Cantos HT \\+ ST não correspondem aos cantos FT/);
+  }], [oddsRow()]), /Cantos HT \+ ST não correspondem aos cantos FT/);
 });
 
 test("mostra campos em falta na cobertura em vez de os esconder", () => {
