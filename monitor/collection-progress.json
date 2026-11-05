@@ -2,14 +2,14 @@
   "run_id": "42053542737",
   "run_number": "6",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 99,
   "processed_games": 99,
   "stats_games": 99,
   "bwin_odds": 98,
   "failed_games": 0,
-  "current_match": "Último concluído: Racing Santander - Villarreal",
+  "current_match": "Recolha terminada",
   "last_result": "Racing Santander - Villarreal: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:51:37.041Z"
+  "updated_at": "2026-11-05T15:51:38.401Z"
 }
