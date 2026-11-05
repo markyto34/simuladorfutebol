@@ -12,6 +12,7 @@ on:
       - "tests/prepare-flashscore-catalog.test.mjs"
       - "tests/audit-flashscore-catalog-coverage.test.mjs"
       - "data/flashscore-statistics.csv"
+      - "data/force-flashscore-catalog-discovery.once"
 
 concurrency:
   group: flashscore-catalog-discovery
