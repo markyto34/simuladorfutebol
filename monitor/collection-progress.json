@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 200,
-  "processed_games": 75,
-  "stats_games": 72,
-  "bwin_odds": 72,
+  "processed_games": 100,
+  "stats_games": 97,
+  "bwin_odds": 97,
   "failed_games": 3,
-  "current_match": "Último concluído: U. Catolica - La Serena",
-  "last_result": "U. Catolica - La Serena: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:38:27.075Z"
+  "current_match": "Último concluído: A. Italiano - Cobresal",
+  "last_result": "A. Italiano - Cobresal: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:38:50.458Z"
 }
