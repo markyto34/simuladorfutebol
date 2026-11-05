@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 144,
-  "processed_games": 125,
-  "stats_games": 125,
-  "bwin_odds": 125,
-  "failed_games": 0,
-  "current_match": "Último concluído: Southampton - Stoke",
-  "last_result": "Southampton - Stoke: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:47:44.911Z"
+  "processed_games": 144,
+  "stats_games": 143,
+  "bwin_odds": 143,
+  "failed_games": 1,
+  "current_match": "Último erro: KEghVizQ",
+  "last_result": "Falha em KEghVizQ: Falha ao recolher KEghVizQ: HTTP 503",
+  "updated_at": "2026-11-05T21:47:59.049Z"
 }
