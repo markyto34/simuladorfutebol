@@ -34,7 +34,27 @@ function parseCsv(text) {
 const STATS_FILE = process.env.FLASHSCORE_STATS_FILE || 'data/flashscore-statistics.csv';
 const CATALOG_FILE = process.env.FLASHSCORE_CATALOG_FILE || 'data/flashscore-competition-catalog.json';
 const OUTPUT = process.env.FLASHSCORE_CATALOG_COVERAGE || 'data/flashscore-competition-coverage.json';
-const METRICS = ['corners', 'corners_ht', 'corners_st', 'shots', 'shots_on_target', 'xg', 'fouls', 'yellow_cards', 'red_cards'];
+const METRIC_FIELDS = {
+  goals: ['score_home', 'score_away'],
+  goals_ht: ['ht_home', 'ht_away'],
+  goals_st: ['sh_home', 'sh_away'],
+  corners: ['corners_home', 'corners_away'],
+  corners_ht: ['corners_ht_home', 'corners_ht_away'],
+  corners_st: ['corners_st_home', 'corners_st_away'],
+  shots: ['shots_home', 'shots_away'],
+  shots_on_target: ['shots_on_target_home', 'shots_on_target_away'],
+  big_chances: ['big_chances_home', 'big_chances_away'],
+  xg: ['xg_home', 'xg_away'],
+  possession: ['possession_home', 'possession_away'],
+  fouls: ['fouls_home', 'fouls_away'],
+  yellow_cards: ['yellow_cards_home', 'yellow_cards_away'],
+  red_cards: ['red_cards_home', 'red_cards_away']
+};
+const METRICS = Object.keys(METRIC_FIELDS);
+function hasCompleteMetricPair(row, metric) {
+  const [homeField, awayField] = METRIC_FIELDS[metric];
+  return String(row[homeField] ?? '').trim() !== '' && String(row[awayField] ?? '').trim() !== '';
+}
 
 const COUNTRY_ALIASES = new Map([['europe', 'europa']]);
 const COMPETITION_ALIASES = new Map([
@@ -91,7 +111,7 @@ export function buildFlashscoreCatalogCoverage(catalog, statsRows) {
     if (row.match_id) item.ids.add(String(row.match_id));
     const rowId = String(row.match_id || 'row-' + item.rows);
     for (const metric of METRICS) {
-      if (String(row[metric + '_home'] ?? '').trim() !== '' && String(row[metric + '_away'] ?? '').trim() !== '') item.metricIds[metric].add(rowId);
+      if (hasCompleteMetricPair(row, metric)) item.metricIds[metric].add(rowId);
     }
   }
 
@@ -118,7 +138,7 @@ export function buildFlashscoreCatalogCoverage(catalog, statsRows) {
     if (row.match_id) label.ids.add(String(row.match_id));
     const labelRowId = String(row.match_id || 'row-' + label.rows);
     for (const metric of METRICS) {
-      if (String(row[metric + '_home'] ?? '').trim() !== '' && String(row[metric + '_away'] ?? '').trim() !== '') {
+      if (hasCompleteMetricPair(row, metric)) {
         label.metricIds[metric].add(labelRowId);
       }
     }
