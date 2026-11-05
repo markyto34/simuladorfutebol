@@ -670,7 +670,7 @@ async function loadHistoricalData(){
   
   applyTeamSelection("home");applyTeamSelection("away");
   $("wdw-home-data").textContent="A aguardar seleção da equipa da casa."; $("wdw-away-data").textContent="A aguardar seleção da equipa visitante.";
-  $("wdw-status").textContent=WDW_PROXY_URL?(allowWdw?"WinDrawWin: equipas descobertas no índice da competição; seleciona as duas para validar os jogos completos.":"WinDrawWin: disponível apenas para a época atual."):"WinDrawWin: proxy não configurado.";
+  $("wdw-status").textContent=WDW_PROXY_URL?(allowWdw?"Dados complementares disponíveis.":"Dados complementares disponíveis apenas na época atual."):"Dados complementares indisponíveis neste momento.";
  }catch(e){if(requestId===historicalLoadSequence){document.body.classList.remove("data-loaded","match-selected");status.textContent="Não foi possível carregar os dados. Tenta outra competição ou época.";if($("data-coverage"))$("data-coverage").textContent=""; }}finally{if(requestId===historicalLoadSequence)button.disabled=false;}
 }
 function sameFixtureIdentity(primary,secondary,date){
