@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 73,
-  "processed_games": 50,
-  "stats_games": 48,
+  "processed_games": 73,
+  "stats_games": 68,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Marbella - Atletico Central",
-  "last_result": "Marbella - Atletico Central: 10 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T14:14:32.887Z"
+  "current_match": "Último concluído: CD Estepona - Xerez CD",
+  "last_result": "CD Estepona - Xerez CD: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T14:15:00.434Z"
 }
