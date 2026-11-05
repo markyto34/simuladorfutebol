@@ -2,14 +2,14 @@
   "run_id": "41998254867",
   "run_number": "1",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 80,
   "processed_games": 80,
   "stats_games": 80,
   "bwin_odds": 80,
   "failed_games": 0,
-  "current_match": "Último concluído: Estoril - Famalicão",
+  "current_match": "Recolha terminada",
   "last_result": "Estoril - Famalicão: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T08:57:42.572Z"
+  "updated_at": "2026-11-05T08:57:43.985Z"
 }
