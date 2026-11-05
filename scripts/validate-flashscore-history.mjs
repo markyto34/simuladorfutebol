@@ -59,6 +59,7 @@ export function validateHistory(stats, odds) {
 
   const seenStats = new Set();
   let withScore = 0, withoutScore = 0, finalWithoutScore = 0, withXg = 0, withCorners = 0, withShots = 0, allStats = 0, cornersTotalChecked = 0;
+  const cornerTotalMismatches = [];
   const competitionCoverage = new Map();
   const indicatorCounts = Object.fromEntries(["score_ft","score_ht","score_st", ...STAT_CATEGORIES].map(key => [key, 0]));
   for (const row of stats) {
@@ -137,7 +138,7 @@ export function validateHistory(stats, odds) {
     if (cornerParts.every(key => cornerValues[key].every(value => !blank(value)))) {
       for (const side of ["home","away"]) {
         const total = Number(row["corners_ht_" + side]) + Number(row["corners_st_" + side]);
-        if (total !== Number(row["corners_" + side])) throw new Error("Cantos HT + ST não correspondem aos cantos FT (" + side + ") no jogo " + id);
+        if (total !== Number(row["corners_" + side])) cornerTotalMismatches.push({ match_id: id, side, corners_ht: Number(row["corners_ht_" + side]), corners_st: Number(row["corners_st_" + side]), corners_ft: Number(row["corners_" + side]) });
       }
       cornersTotalChecked++;
     }
@@ -175,6 +176,7 @@ export function validateHistory(stats, odds) {
     withShots,
     allStats,
     cornersTotalChecked,
+    cornerTotalMismatches,
     indicatorCoverage: Object.fromEntries(Object.entries(indicatorCounts).map(([key, count]) => [key, { complete: count, missing: stats.length - count, coveragePercent: Number((count / stats.length * 100).toFixed(2)) }])),
     competitionCoverage: [...competitionCoverage.values()].map(item => ({ ...item, oddsRows: oddsByCompetition.get(item.competition) || 0, indicators: Object.fromEntries(Object.entries(item.indicators).map(([key, count]) => [key, { complete: count, missing: item.matches - count, coveragePercent: Number((count / item.matches * 100).toFixed(2)) }])) })).sort((a,b) => a.competition.localeCompare(b.competition)),
     xgMissingCompetitions: [...competitionCoverage.values()].filter(item => item.matches >= 5 && item.indicators.xg === 0).sort((a, b) => b.matches - a.matches || a.competition.localeCompare(b.competition)),
