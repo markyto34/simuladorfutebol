@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed_with_errors",
+  "phase": "completed",
   "total_games": 99,
   "processed_games": 99,
   "stats_games": 95,
   "bwin_odds": 0,
   "failed_games": 4,
-  "current_match": "Último concluído: Kazan - Samara",
+  "current_match": "Recolha terminada",
   "last_result": "Kazan - Samara: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T22:58:24.879Z"
+  "updated_at": "2026-11-05T22:58:26.125Z"
 }
