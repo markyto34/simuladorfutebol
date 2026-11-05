@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 631,
-  "processed_games": 500,
-  "stats_games": 499,
-  "bwin_odds": 471,
-  "failed_games": 0,
-  "current_match": "Último concluído: Almagro - Patronato",
-  "last_result": "Almagro - Patronato: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:03:57.396Z"
+  "processed_games": 525,
+  "stats_games": 522,
+  "bwin_odds": 492,
+  "failed_games": 2,
+  "current_match": "Último concluído: Deportivo Maipu - Godoy Cruz",
+  "last_result": "Deportivo Maipu - Godoy Cruz: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:04:13.915Z"
 }
