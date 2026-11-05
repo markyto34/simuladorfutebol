@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 130,
-  "processed_games": 126,
-  "stats_games": 126,
-  "bwin_odds": 126,
+  "processed_games": 130,
+  "stats_games": 130,
+  "bwin_odds": 130,
   "failed_games": 0,
-  "current_match": "A consultar jogo 129/130 · 6Dr4ikFO",
-  "last_result": "Omiya Ardija - Albirex Niigata: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:10:06.181Z"
+  "current_match": "Recolha terminada",
+  "last_result": "Sapporo - Tokushima: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:10:07.829Z"
 }
