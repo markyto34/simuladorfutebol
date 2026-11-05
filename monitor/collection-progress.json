@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed_with_errors",
+  "phase": "completed",
   "total_games": 96,
   "processed_games": 96,
   "stats_games": 95,
   "bwin_odds": 95,
   "failed_games": 1,
-  "current_match": "Último erro: SImdRj4e",
+  "current_match": "Recolha terminada",
   "last_result": "Falha em SImdRj4e: Falha ao recolher SImdRj4e: HTTP 503",
-  "updated_at": "2026-11-05T22:45:14.255Z"
+  "updated_at": "2026-11-05T22:45:15.568Z"
 }
