@@ -15,7 +15,7 @@ function classify(name, country) {
   const c = normalizeLabel(country);
   const female = /\b(feminina|feminino|women|ladies|senhoras)\b/.test(n);
   const age = n.match(/\b(?:u\s?\d{2}|sub\s?\d{1,2}|under\s?\d{1,2}|juniores?|youth|junior)\b/);
-  const stage = /\b(playoffs?|play offs?|promocao|despromocao|relegation|promotion|fase de grupos|group stage|league phase|fase de liga|final round|championship round)\b/.test(n);
+  const stage = /\b(playoffs?|play offs?|promocao|despromocao|relegation|promotion|fase de grupos|group stage|league phase|fase de liga|final round|championship round|abertura|encerramento|apertura|clausura|quadrangular|octogonal|hexagonal)\b/.test(n);
   const group = /\b(serie|grupo|group|north|south|east|west|norte|sul|este|oeste|nordeste|noroeste|sudeste|sudoeste)\b/.test(n);
   const friendly = /\b(amigavel|friendly)\b/.test(n);
   const cup = /\b(taca|cup|copa|pokal|coppa|coupe|knockout)\b/.test(n);
@@ -36,7 +36,7 @@ function classify(name, country) {
 function familyName(name) {
   return String(name).trim()
     .replace(/\s*[-–—:]\s*(?:s[eé]rie|grupo|group|division|divis[aã]o|north|south|east|west|norte|sul|este|oeste)\s+[a-z0-9]+\s*$/i, '')
-    .replace(/\s*[-–—:]\s*(?:play-?offs?|promotion|relegation|fase de grupos|group stage|league phase|fase de liga|final round|championship round)\s*$/i, '')
+    .replace(/\s*[-–—:]\s*(?:play-?offs?|promotion|relegation|fase de grupos|group stage|league phase|fase de liga|final round|championship round|abertura|encerramento|apertura|clausura|quadrangular|octogonal|hexagonal)\s*$/i, '')
     .trim() || String(name).trim();
 }
 
