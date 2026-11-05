@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed_with_errors",
+  "phase": "completed",
   "total_games": 144,
   "processed_games": 144,
   "stats_games": 143,
   "bwin_odds": 143,
   "failed_games": 1,
-  "current_match": "Último erro: KEghVizQ",
+  "current_match": "Recolha terminada",
   "last_result": "Falha em KEghVizQ: Falha ao recolher KEghVizQ: HTTP 503",
-  "updated_at": "2026-11-05T21:47:59.049Z"
+  "updated_at": "2026-11-05T21:48:00.231Z"
 }
