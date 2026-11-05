@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 322,
-  "processed_games": 250,
-  "stats_games": 250,
-  "bwin_odds": 221,
+  "processed_games": 275,
+  "stats_games": 275,
+  "bwin_odds": 246,
   "failed_games": 0,
-  "current_match": "Último concluído: Athletico-PR - Coritiba",
-  "last_result": "Athletico-PR - Coritiba: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T10:08:03.470Z"
+  "current_match": "Último concluído: Botafogo RJ - Flamengo",
+  "last_result": "Botafogo RJ - Flamengo: 16 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T10:08:33.510Z"
 }
