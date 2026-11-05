@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 121,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 50,
+  "processed_games": 75,
+  "stats_games": 75,
+  "bwin_odds": 75,
   "failed_games": 0,
-  "current_match": "Último concluído: Valladolid - Cordoba",
-  "last_result": "Valladolid - Cordoba: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T13:59:50.754Z"
+  "current_match": "Último concluído: Cadiz - Las Palmas",
+  "last_result": "Cadiz - Las Palmas: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T14:00:20.727Z"
 }
