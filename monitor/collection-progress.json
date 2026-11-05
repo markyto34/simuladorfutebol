@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 83,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 50,
+  "processed_games": 75,
+  "stats_games": 75,
+  "bwin_odds": 75,
   "failed_games": 0,
-  "current_match": "Último concluído: Arda - Lok. Sofia",
-  "last_result": "Arda - Lok. Sofia: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T11:47:49.177Z"
+  "current_match": "Último concluído: CSKA 1948 Sofia - Botev Vratsa",
+  "last_result": "CSKA 1948 Sofia - Botev Vratsa: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T11:48:18.894Z"
 }
