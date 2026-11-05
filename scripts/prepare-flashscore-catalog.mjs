@@ -72,6 +72,11 @@ export function prepareFlashscoreCatalog(raw) {
       excluded.push({ country_name: item.country_name, competition_name: item.competition_name, url: item.url, reason: 'navigation_or_odds_link' });
       continue;
     }
+    const classification = classify(item.competition_name, item.country_name);
+    if (classification.competition_type === 'amigavel') {
+      excluded.push({ country_name: item.country_name, competition_name: item.competition_name, url: item.url, reason: 'friendly_match_excluded_by_project_scope' });
+      continue;
+    }
     const overrideKey = String(item.country_slug || '').toLowerCase() + '|' + String(item.competition_slug || '').toLowerCase();
     const competitionName = VERIFIED_NAME_OVERRIDES.get(overrideKey) || item.competition_name;
     candidates.push({
@@ -140,7 +145,8 @@ export function prepareFlashscoreCatalog(raw) {
       country_pages_successful: raw.country_pages_successful,
       country_pages_failed: raw.country_pages_failed,
       raw_links: raw.competitions.length,
-      excluded_navigation_or_odds_links: excluded.length,
+      excluded_navigation_or_odds_links: excluded.filter(item => item.reason === 'navigation_or_odds_link').length,
+      excluded_friendlies: excluded.filter(item => item.reason === 'friendly_match_excluded_by_project_scope').length,
       competition_candidates: candidates.length,
       verified_supplemental_candidates: VERIFIED_SUPPLEMENTAL_COMPETITIONS.length,
       local_duplicate_name_groups_for_review: localDuplicates.length
