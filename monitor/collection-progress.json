@@ -2,14 +2,14 @@
   "run_id": "42053542737",
   "run_number": "6",
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
-  "total_games": 75,
-  "processed_games": 75,
-  "stats_games": 69,
+  "status": "running",
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Oviedo B - Eibar B: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T15:55:48.476Z"
+  "current_match": "A descobrir jogos",
+  "last_result": "",
+  "updated_at": "2026-11-05T15:55:56.459Z"
 }
