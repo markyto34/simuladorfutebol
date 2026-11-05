@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 120,
-  "processed_games": 51,
-  "stats_games": 51,
-  "bwin_odds": 51,
+  "processed_games": 75,
+  "stats_games": 75,
+  "bwin_odds": 75,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/120 · 8dNgDFk1",
-  "last_result": "Urawa - Okayama: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:09:09.792Z"
+  "current_match": "Último concluído: Machida - Kawasaki",
+  "last_result": "Machida - Kawasaki: 14 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:09:14.943Z"
 }
