@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 49,
   "processed_games": 49,
   "stats_games": 48,
   "bwin_odds": 48,
   "failed_games": 0,
-  "current_match": "Último concluído: Slask II - S. Wola",
+  "current_match": "Recolha terminada",
   "last_result": "Slask II - S. Wola: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:35:23.864Z"
+  "updated_at": "2026-11-05T22:35:25.291Z"
 }
