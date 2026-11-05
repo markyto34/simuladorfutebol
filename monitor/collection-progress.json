@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 120,
-  "processed_games": 25,
-  "stats_games": 21,
-  "bwin_odds": 21,
+  "processed_games": 51,
+  "stats_games": 47,
+  "bwin_odds": 47,
   "failed_games": 4,
-  "current_match": "Último concluído: Heracles - Waalwijk",
-  "last_result": "Heracles - Waalwijk: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:30:23.442Z"
+  "current_match": "A consultar jogo 54/120 · ruTxn03c",
+  "last_result": "Jong Ajax - Roda: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:30:29.313Z"
 }
