@@ -43,3 +43,15 @@ test('separa estatísticas sem correspondência no catálogo e fecha a contagem 
   assert.equal(report.unmatched_stats_competitions[0].source_labels[0],'Brasil / Série B');
   assert.equal(report.summary.catalog_candidates, report.summary.candidates_with_stats + report.summary.candidates_without_stats + report.summary.duplicate_name_candidates_for_review);
 });
+
+
+test('lista etiquetas estatísticas sem correspondência exata no catálogo para revisão', () => {
+  const report = buildFlashscoreCatalogCoverage(
+    catalog([candidate('Portugal','Liga Portugal')]),
+    [row('Portugal','Liga Portugal Betclic','m1'),row('Portugal','Liga 3','m2'),row('Brasil','Série B','m3')]
+  );
+  assert.equal(report.summary.stats_competition_labels,3);
+  assert.equal(report.summary.matched_stats_competition_labels,1);
+  assert.equal(report.summary.unmatched_stats_competition_labels,2);
+  assert.deepEqual(report.unmatched_stats_labels.map(x=>x.competition_name),['Série B','Liga 3']);
+});
