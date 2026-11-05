@@ -2,14 +2,14 @@
   "run_id": "41998841542",
   "run_number": "2",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed_with_errors",
+  "phase": "completed",
   "total_games": 240,
   "processed_games": 240,
   "stats_games": 231,
   "bwin_odds": 228,
   "failed_games": 9,
-  "current_match": "Último concluído: Gimhae - Ansan Greeners",
+  "current_match": "Recolha terminada",
   "last_result": "Gimhae - Ansan Greeners: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T13:37:24.261Z"
+  "updated_at": "2026-11-05T13:37:25.499Z"
 }
