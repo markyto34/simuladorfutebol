@@ -109,8 +109,8 @@ function extractVisible(html, out) {
 const STAT_LABELS = [
   ["expected_goals", /^(golos esperados(?: \(xg\))?|expected goals(?: \(xg\))?|xg)$/i],
   ["big_chances", /^(grandes oportunidades|big chances)$/i],
-  ["corners_ht", /^(?:(?:cantos|pontap[eé]s de canto|escanteios|corners)\s*[-:]?\s*(?:1(?:[.ºª°]\s*)?(?:parte|tempo|half)|primeira parte|first half|1st half)|(?:1(?:[.ºª°]\s*)?(?:parte|tempo|half)|primeira parte|first half|1st half)\s*[-:]?\s*(?:cantos|pontap[eé]s de canto|escanteios|corners))$/i],
-  ["corners_st", /^(?:(?:cantos|pontap[eé]s de canto|escanteios|corners)\s*[-:]?\s*(?:2(?:[.ºª°]\s*)?(?:parte|tempo|half)|segunda parte|second half|2nd half)|(?:2(?:[.ºª°]\s*)?(?:parte|tempo|half)|segunda parte|second half|2nd half)\s*[-:]?\s*(?:cantos|pontap[eé]s de canto|escanteios|corners))$/i],
+  ["corners_ht", /^(?:(?:cantos|pontap[eé]s de canto|escanteios|corners)\s*[-:]?\s*(?:1[.ºª°]{0,2}\s*(?:parte|tempo|half)|primeira parte|first half|1st half)|(?:1[.ºª°]{0,2}\s*(?:parte|tempo|half)|primeira parte|first half|1st half)\s*[-:]?\s*(?:cantos|pontap[eé]s de canto|escanteios|corners))$/i],
+  ["corners_st", /^(?:(?:cantos|pontap[eé]s de canto|escanteios|corners)\s*[-:]?\s*(?:2[.ºª°]{0,2}\s*(?:parte|tempo|half)|segunda parte|second half|2nd half)|(?:2[.ºª°]{0,2}\s*(?:parte|tempo|half)|segunda parte|second half|2nd half)\s*[-:]?\s*(?:cantos|pontap[eé]s de canto|escanteios|corners))$/i],
   ["corners", /^(cantos|pontapés de canto|escanteios|corners)$/i],
   ["shots", /^(remates|finalizações|chutes|shots|total remates|total de remates|total shots)$/i],
   ["shots_on_target", /^(remates à baliza|remates enquadrados|finalizações no alvo|chutes no gol|shots on target)$/i],
