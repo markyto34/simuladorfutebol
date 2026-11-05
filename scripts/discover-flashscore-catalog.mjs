@@ -25,7 +25,8 @@ function attributeValue(attributes, name) {
     href: /\bhref\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i,
     'aria-label': /\baria-label\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i,
     title: /\btitle\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i,
-    'data-competition-name': /\bdata-competition-name\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i
+    'data-competition-name': /\bdata-competition-name\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i,
+    alt: /\balt\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i
   };
   return patterns[name]?.exec(attributes || '')?.slice(1).find(Boolean) || '';
 }
@@ -39,7 +40,8 @@ function anchors(html) {
     const name = plainText(match[2]) || decodeHtml(
       attributeValue(match[1], 'aria-label') ||
       attributeValue(match[1], 'title') ||
-      attributeValue(match[1], 'data-competition-name')
+      attributeValue(match[1], 'data-competition-name') ||
+      attributeValue(match[2], 'alt')
     ).trim();
     found.push({ href: decodeHtml(href), name });
   }
