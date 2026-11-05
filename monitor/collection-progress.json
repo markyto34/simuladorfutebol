@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 472,
-  "processed_games": 450,
-  "stats_games": 450,
-  "bwin_odds": 449,
+  "processed_games": 472,
+  "stats_games": 472,
+  "bwin_odds": 471,
   "failed_games": 0,
-  "current_match": "Último concluído: Houston Dynamo - Los Angeles FC",
-  "last_result": "Houston Dynamo - Los Angeles FC: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T14:30:46.183Z"
+  "current_match": "Último concluído: St. Louis City - Charlotte",
+  "last_result": "St. Louis City - Charlotte: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T14:31:12.958Z"
 }
