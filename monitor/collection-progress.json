@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 49,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 25,
+  "processed_games": 49,
+  "stats_games": 49,
+  "bwin_odds": 49,
   "failed_games": 0,
-  "current_match": "Último concluído: Omonia 29th May - AEK Larnaca",
-  "last_result": "Omonia 29th May - AEK Larnaca: 11 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:43:18.816Z"
+  "current_match": "Último concluído: AEK Larnaca - Omonia Aradippou",
+  "last_result": "AEK Larnaca - Omonia Aradippou: 11 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:44:18.978Z"
 }
