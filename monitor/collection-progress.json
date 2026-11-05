@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 224,
-  "processed_games": 101,
-  "stats_games": 101,
-  "bwin_odds": 101,
+  "processed_games": 125,
+  "stats_games": 125,
+  "bwin_odds": 125,
   "failed_games": 0,
-  "current_match": "A consultar jogo 104/224 · llgHmwX1",
-  "last_result": "Lyn - Sogndal: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:24:14.516Z"
+  "current_match": "A consultar jogo 128/224 · INiPx11n",
+  "last_result": "Lyn - Hodd: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:24:19.925Z"
 }
