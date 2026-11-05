@@ -59,6 +59,13 @@ jobs:
           curl --fail --show-error --silent --retry 5 --retry-all-errors --retry-delay 2 "$PROXY_URL/inspect?id=QXNphZjA&summary=1" -o /tmp/match-inspect.json
           node -e 'const fs=require("node:fs"); const d=JSON.parse(fs.readFileSync("/tmp/team-results.json","utf8")); const rows=d.latest_finished_matches||[]; if(!d.ok || d.team_id!=="tljXuHBC" || rows.length!==5 || rows.some(m=>m.home.id!=="tljXuHBC" && m.away.id!=="tljXuHBC")) { console.error(JSON.stringify(d)); process.exit(1); } console.log(JSON.stringify({team_id:d.team_id,event_count:d.event_count,finished_count:d.finished_count,latest_finished_matches:rows.map(m=>({match_id:m.match_id,date:m.start_time_iso,home:m.home.name,home_score:m.home.score,away:m.away.name,away_score:m.away.score,competition:m.competition}))}));'
           node -e 'const fs=require("node:fs"); const d=JSON.parse(fs.readFileSync("/tmp/match-inspect.json","utf8")); const teams=d.inspection?.team_links||[]; if(!d.ok || teams.length<2 || !teams.some(t=>t.team_id==="tljXuHBC")) { console.error(JSON.stringify(d)); process.exit(1); } console.log(JSON.stringify({match_id:d.match_id,team_links:teams}));'
+      - name: Smoke test cantos HT e ST do feed Flashscore
+        env:
+          PROXY_URL: https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev
+        run: |
+          set -euo pipefail
+          curl --fail --show-error --silent --retry 3 --retry-all-errors --retry-delay 2 "$PROXY_URL/record?id=hW5lOaOP&tab=statistics" -o /tmp/period-corners.json
+          node -e 'const fs=require("node:fs"); const d=JSON.parse(fs.readFileSync("/tmp/period-corners.json","utf8")); const r=d.record||{}; const ht=r.statistics?.corners_ht; const st=r.statistics?.corners_st; const status=r.period_statistics_feed?.status; if(!d.ok || status!=="available" || !ht || !st || ![ht.home,ht.away,st.home,st.away].every(Number.isFinite)) { console.error(JSON.stringify({ok:d.ok,status,feed:r.period_statistics_feed,corners_ht:ht,corners_st:st})); process.exit(1); } console.log(JSON.stringify({match_id:d.match_id,feed_status:status,corners_ht:{home:ht.home,away:ht.away},corners_st:{home:st.home,away:st.away}}));'
       - name: Smoke test descoberta real de jogos e nomes das equipas
         env:
           PROXY_URL: https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev
