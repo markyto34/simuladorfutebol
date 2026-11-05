@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 82,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 18,
+  "processed_games": 50,
+  "stats_games": 50,
+  "bwin_odds": 39,
   "failed_games": 0,
-  "current_match": "Último concluído: Opatija - Kustosija",
-  "last_result": "Opatija - Kustosija: 11 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T13:39:19.698Z"
+  "current_match": "Último concluído: Opatija - Bijelo Brdo",
+  "last_result": "Opatija - Bijelo Brdo: 10 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T13:39:50.217Z"
 }
