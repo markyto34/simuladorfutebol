@@ -68,7 +68,8 @@ test("o crawler regista erros por país e preserva páginas que responderam", as
   assert.equal(report.country_page_count, 2);
   assert.equal(report.country_pages_successful, 1);
   assert.equal(report.country_pages_failed, 1);
-  assert.equal(report.competition_candidate_count, 1);
+  assert.equal(report.competition_candidate_count, 2);
+  assert.ok(report.competitions.some(item => item.competition_slug === "taca-de-portugal"));
   assert.equal(report.errors[0].country, "Alemanha");
 });
 
