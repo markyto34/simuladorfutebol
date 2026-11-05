@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 103,
-  "processed_games": 50,
-  "stats_games": 36,
+  "processed_games": 75,
+  "stats_games": 55,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Kano - Enyimba",
-  "last_result": "Kano - Enyimba: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T22:21:02.798Z"
+  "current_match": "Último concluído: Katsina Utd - Níger",
+  "last_result": "Katsina Utd - Níger: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T22:21:09.893Z"
 }
