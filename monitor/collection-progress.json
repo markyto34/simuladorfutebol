@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 62,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 50,
+  "processed_games": 62,
+  "stats_games": 62,
+  "bwin_odds": 62,
   "failed_games": 0,
-  "current_match": "Último concluído: PSS Sleman - Madura United",
-  "last_result": "PSS Sleman - Madura United: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:46:22.852Z"
+  "current_match": "Último concluído: Persija Jakarta - Persik Kediri",
+  "last_result": "Persija Jakarta - Persik Kediri: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T21:46:26.969Z"
 }
