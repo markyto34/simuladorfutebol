@@ -55,3 +55,10 @@ test('lista etiquetas estatísticas sem correspondência exata no catálogo para
   assert.equal(report.summary.unmatched_stats_competition_labels,2);
   assert.deepEqual(report.unmatched_stats_labels.map(x=>x.competition_name),['Série B','Liga 3']);
 });
+
+
+test('reconhece LaLiga como alias de LaLiga EA Sports sem alargar a outras competições', () => {
+  const report = buildFlashscoreCatalogCoverage(catalog([candidate('Espanha','LaLiga EA Sports')]), [row('ESPANHA','LaLiga','laliga-1')]);
+  assert.equal(report.competitions[0].unique_stats_matches,1);
+  assert.equal(report.summary.unmatched_stats_competition_labels,0);
+});
