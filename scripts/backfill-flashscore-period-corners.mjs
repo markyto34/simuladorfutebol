@@ -100,7 +100,19 @@ export async function backfillPeriodCorners(rows, options = {}) {
   const selected = selectRowsNeedingPeriodCorners(rows, options.startDate, options.endDate, options.limit || 0);
   const updated = new Map();
   const summary = { selected: selected.length, processed: 0, ht_available: 0, st_available: 0, both_available: 0, no_period_data: 0, failed: 0, blocked: false };
-  let nextIndex = 0, nextStartAt = 0;\n  let checkpointChain = Promise.resolve();\n  let lastCheckpoint = 0;\n  const checkpointEvery = Math.max(1, Number(options.checkpointEvery || 25));\n  const mergeUpdatedRows = () => rows.map(row => {\n    const patch = updated.get(row.match_id);\n    if (!patch) return row;\n    const next = { ...row };\n    for (const field of PERIOD_FIELDS) {\n      if (String(next[field] ?? "").trim() === "" && patch[field] !== undefined) next[field] = patch[field];\n    }\n    return next;\n  });
+  let nextIndex = 0, nextStartAt = 0;
+  let checkpointChain = Promise.resolve();
+  let lastCheckpoint = 0;
+  const checkpointEvery = Math.max(1, Number(options.checkpointEvery || 25));
+  const mergeUpdatedRows = () => rows.map(row => {
+    const patch = updated.get(row.match_id);
+    if (!patch) return row;
+    const next = { ...row };
+    for (const field of PERIOD_FIELDS) {
+      if (String(next[field] ?? "").trim() === "" && patch[field] !== undefined) next[field] = patch[field];
+    }
+    return next;
+  });
   async function takeNext() {
     if (summary.blocked || nextIndex >= selected.length) return null;
     const index = nextIndex++;
@@ -130,7 +142,14 @@ export async function backfillPeriodCorners(rows, options = {}) {
         console.error("[PERIOD CORNERS] " + job.row.match_id + ": " + String(error?.message || error));
       }
       summary.processed++;
-      if (options.onProgress) await options.onProgress({ ...summary, current: job.index + 1, match_id: job.row.match_id });\n      if (options.onCheckpoint && (summary.processed % checkpointEvery === 0 || summary.processed === summary.selected)) {\n        const snapshot = mergeUpdatedRows();\n        const snapshotSummary = { ...summary };\n        checkpointChain = checkpointChain.then(() => options.onCheckpoint(snapshot, snapshotSummary));\n        await checkpointChain;\n        lastCheckpoint = summary.processed;\n      }
+      if (options.onProgress) await options.onProgress({ ...summary, current: job.index + 1, match_id: job.row.match_id });
+      if (options.onCheckpoint && (summary.processed % checkpointEvery === 0 || summary.processed === summary.selected)) {
+        const snapshot = mergeUpdatedRows();
+        const snapshotSummary = { ...summary };
+        checkpointChain = checkpointChain.then(() => options.onCheckpoint(snapshot, snapshotSummary));
+        await checkpointChain;
+        lastCheckpoint = summary.processed;
+      }
     }
   }
   await Promise.all(Array.from({ length: Math.min(options.concurrency ?? CONCURRENCY, Math.max(1, selected.length)) }, () => worker()));
