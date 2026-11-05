@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 108,
-  "processed_games": 26,
-  "stats_games": 26,
-  "bwin_odds": 26,
+  "processed_games": 50,
+  "stats_games": 50,
+  "bwin_odds": 50,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/108 · ITi567E4",
-  "last_result": "Podbeskidzie - Pogon Siedlce: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:33:19.387Z"
+  "current_match": "Último concluído: Stal Mielec - Odra Opole",
+  "last_result": "Stal Mielec - Odra Opole: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:33:29.975Z"
 }
