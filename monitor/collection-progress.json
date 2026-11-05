@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 472,
-  "processed_games": 225,
-  "stats_games": 223,
-  "bwin_odds": 222,
+  "processed_games": 250,
+  "stats_games": 248,
+  "bwin_odds": 247,
   "failed_games": 2,
-  "current_match": "Último concluído: CF Montreal - Inter Miami",
-  "last_result": "CF Montreal - Inter Miami: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T16:01:59.775Z"
+  "current_match": "Último concluído: Seattle Sounders - Portland Timbers",
+  "last_result": "Seattle Sounders - Portland Timbers: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T16:02:09.161Z"
 }
