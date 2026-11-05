@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 80,
-  "processed_games": 75,
-  "stats_games": 74,
-  "bwin_odds": 62,
+  "processed_games": 80,
+  "stats_games": 79,
+  "bwin_odds": 67,
   "failed_games": 1,
-  "current_match": "Último concluído: Waregem - Genk",
-  "last_result": "Waregem - Genk: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T09:55:05.920Z"
+  "current_match": "Último concluído: Club Brugge - Kortrijk",
+  "last_result": "Club Brugge - Kortrijk: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T09:55:11.964Z"
 }
