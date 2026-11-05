@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 99,
-  "processed_games": 25,
-  "stats_games": 23,
-  "bwin_odds": 23,
+  "processed_games": 50,
+  "stats_games": 48,
+  "bwin_odds": 48,
   "failed_games": 2,
-  "current_match": "Último concluído: Elche - Celta Vigo",
-  "last_result": "Elche - Celta Vigo: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T13:57:09.451Z"
+  "current_match": "A consultar jogo 51/99 · 63N1x5WO",
+  "last_result": "Real Sociedad - Atl. Madrid: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T13:57:39.364Z"
 }
