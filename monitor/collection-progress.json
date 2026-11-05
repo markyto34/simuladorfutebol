@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 208,
-  "processed_games": 26,
-  "stats_games": 26,
-  "bwin_odds": 26,
+  "processed_games": 50,
+  "stats_games": 50,
+  "bwin_odds": 50,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/208 · Y1RwiOuB",
-  "last_result": "BATE - Slavia Mozyr: 11 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:21:11.461Z"
+  "current_match": "Último concluído: Naftan - FC Minsk",
+  "last_result": "Naftan - FC Minsk: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:21:17.263Z"
 }
