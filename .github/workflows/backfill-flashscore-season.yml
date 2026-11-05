@@ -1,0 +1,54 @@
+name: Backfill Flashscore por época
+on:
+  workflow_dispatch:
+    inputs:
+      competition_path:
+        description: "Caminho /futebol/<pais>/<competicao>/"
+        required: true
+        type: string
+permissions:
+  contents: write
+concurrency:
+  group: recolha-diaria-flashscore
+  cancel-in-progress: false
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Validar e testar
+        env:
+          COMPETITION_PATH: ${{ inputs.competition_path }}
+        run: |
+          set -euo pipefail
+          [[ "$COMPETITION_PATH" =~ ^/futebol/[a-z0-9-]+/[a-z0-9-]+/$ ]]
+          node --check scripts/discover-flashscore-season.mjs
+          node scripts/test-discover-flashscore-season.mjs
+      - name: Descobrir época
+        env:
+          COMPETITION_PATH: ${{ inputs.competition_path }}
+          FLASHSCORE_SEASON_PAGE_DELAY_MS: "1500"
+        run: node scripts/discover-flashscore-season.mjs --path="$COMPETITION_PATH" --out=/tmp/season.json
+      - name: Recolher estatísticas e odds Bwin
+        env:
+          FLASHSCORE_REQUEST_DELAY_MS: "1200"
+          FLASHSCORE_CONCURRENCY: "2"
+        run: node scripts/collect-flashscore-csv.mjs --team-last-five=/tmp/season.json
+      - name: Validar e guardar
+        run: |
+          set -euo pipefail
+          node scripts/validate-flashscore-history.mjs
+          node scripts/integrate-flashscore-odds-history.mjs
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/flashscore-statistics.csv data/bwin-odds-flashscore.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "Backfill Flashscore da época atual"
+            git push origin main
+          fi
