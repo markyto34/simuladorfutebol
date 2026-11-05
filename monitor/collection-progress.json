@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 76,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 25,
+  "processed_games": 50,
+  "stats_games": 50,
+  "bwin_odds": 50,
   "failed_games": 0,
-  "current_match": "A consultar jogo 28/76 · jeTFLqs2",
-  "last_result": "Portadown - Limavady: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:53:34.530Z"
+  "current_match": "Último concluído: Coleraine - Crusaders",
+  "last_result": "Coleraine - Crusaders: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T21:53:39.930Z"
 }
