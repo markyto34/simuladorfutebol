@@ -91,7 +91,7 @@ jobs:
             else
               code=$?
               cat "$log"
-              if grep -Eiq 'HTTP (403|429)|bloqueou/limitou|Flashscore bloqueou' "$log"; then
+              if grep -Eiq 'HTTP (401|403|429)|bloqueou/limitou|Flashscore bloqueou' "$log"; then
                 blocked=1
                 echo "Flashscore limitou o acesso; parar o lote para proteger a recolha."
                 echo "::endgroup::"
@@ -109,7 +109,7 @@ jobs:
             else
               code=$?
               cat "$log"
-              if grep -Eiq 'HTTP (403|429)|bloqueou/limitou|Flashscore bloqueou' "$log"; then
+              if grep -Eiq 'HTTP (401|403|429)|bloqueou/limitou|Flashscore bloqueou' "$log"; then
                 blocked=1
                 echo "Flashscore limitou a recolha; parar o lote."
                 echo "::endgroup::"
