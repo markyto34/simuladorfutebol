@@ -425,9 +425,10 @@ function parseSourceCSV(text){
 function sourceVal(row,names){for(const n of names){const key=Object.keys(row).find(k=>k.toLowerCase()===n.toLowerCase());if(key&&row[key]!=="")return row[key];}return "";}
 function normalizeFlashscoreSourceLabel(label){
  const parts=String(label||"").split(/\s+\/\s+/);
- if(parts.length<2)return normalizeCompetitionCountry(label);
+ const normalize=value=>String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLocaleLowerCase().replace(/[^a-z0-9]+/g," ").trim().replace(/\s+/g," ");
+ if(parts.length<2)return normalize(label);
  const country=parts.shift(),competition=parts.join(" / ");
- return normalizeCompetitionCountry(country)+" / "+normalizeCompetitionCountry(competition);
+ return normalize(country)+" / "+normalize(competition);
 }
 function sourceNum(row,names){const raw=String(sourceVal(row,names)).trim().replace(/\s/g,"").replace(",",".");if(!raw)return null;const n=Number(raw);return Number.isFinite(n)&&n>=0?n:null;}
 function sourceDate(raw){const s=String(raw||"").trim();let m=s.match(/^(\d{4})[-/.](\d{1,2})[-/.](\d{1,2})/);if(m)return m[1]+"-"+m[2].padStart(2,"0")+"-"+m[3].padStart(2,"0");m=s.match(/^(\d{1,2})[-/.](\d{1,2})[-/.](\d{4})/);if(m)return m[3]+"-"+m[2].padStart(2,"0")+"-"+m[1].padStart(2,"0");const d=new Date(s);return Number.isNaN(d.getTime())?"":d.toISOString().slice(0,10);}
