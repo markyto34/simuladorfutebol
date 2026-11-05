@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 111,
-  "processed_games": 25,
-  "stats_games": 24,
-  "bwin_odds": 25,
+  "processed_games": 51,
+  "stats_games": 50,
+  "bwin_odds": 50,
   "failed_games": 0,
-  "current_match": "Último concluído: Colwyn Bay - Haverfordwest",
-  "last_result": "Colwyn Bay - Haverfordwest: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:26:44.001Z"
+  "current_match": "A consultar jogo 54/111 · xQnuXYwo",
+  "last_result": "Cambrian United - Holywell: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:26:51.705Z"
 }
