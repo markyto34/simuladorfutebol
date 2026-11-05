@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 161,
-  "processed_games": 100,
-  "stats_games": 100,
-  "bwin_odds": 97,
+  "processed_games": 125,
+  "stats_games": 125,
+  "bwin_odds": 122,
   "failed_games": 0,
-  "current_match": "Último concluído: Eskilstuna Utd F - Malmo FF F",
-  "last_result": "Eskilstuna Utd F - Malmo FF F: 11 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T23:02:54.189Z"
+  "current_match": "Último concluído: Eskilstuna Utd F - Uppsala F",
+  "last_result": "Eskilstuna Utd F - Uppsala F: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T23:02:59.889Z"
 }
