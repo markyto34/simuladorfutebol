@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 35,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 17,
+  "processed_games": 35,
+  "stats_games": 35,
+  "bwin_odds": 26,
   "failed_games": 0,
-  "current_match": "Último concluído: Nantes F - Fleury 91 F",
-  "last_result": "Nantes F - Fleury 91 F: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:37:27.658Z"
+  "current_match": "Último concluído: Fleury 91 F - Lyon F",
+  "last_result": "Fleury 91 F - Lyon F: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T21:37:29.942Z"
 }
