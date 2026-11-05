@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 65,
-  "processed_games": 51,
-  "stats_games": 51,
-  "bwin_odds": 51,
+  "processed_games": 65,
+  "stats_games": 65,
+  "bwin_odds": 65,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/65 · x8uXNLlI",
-  "last_result": "AmaZulu - Orlando: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T14:53:53.490Z"
+  "current_match": "Último concluído: Stellenbosch - AmaZulu",
+  "last_result": "Stellenbosch - AmaZulu: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T14:53:56.977Z"
 }
