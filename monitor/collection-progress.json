@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 75,
-  "processed_games": 25,
-  "stats_games": 23,
+  "processed_games": 50,
+  "stats_games": 45,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Alaves B - Gernika",
-  "last_result": "Alaves B - Gernika: 10 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T14:09:06.855Z"
+  "current_match": "Último concluído: Gernika - Llanera",
+  "last_result": "Gernika - Llanera: 10 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T14:09:36.884Z"
 }
