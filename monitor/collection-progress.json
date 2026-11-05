@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 76,
   "processed_games": 76,
   "stats_games": 73,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: M. Ironi Kiryat Malachi - Hapoel Mahane Yehuda",
+  "current_match": "Recolha terminada",
   "last_result": "M. Ironi Kiryat Malachi - Hapoel Mahane Yehuda: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T22:01:43.854Z"
+  "updated_at": "2026-11-05T22:01:45.210Z"
 }
