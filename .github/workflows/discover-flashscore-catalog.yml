@@ -25,12 +25,15 @@ jobs:
           FLASHSCORE_CATALOG_WAIT_MS: "700"
       - name: Preparar catálogo e excluir ligações de navegação
         run: node scripts/prepare-flashscore-catalog.mjs
-      - name: Publicar catálogos bruto e preparado
+      - name: Cruzar catálogo com estatísticas existentes
+        run: node scripts/audit-flashscore-catalog-coverage.mjs
+      - name: Publicar catálogos e auditoria de cobertura
         uses: actions/upload-artifact@v4
         with:
           name: flashscore-competition-catalogs
           path: |
             data/flashscore-competition-catalog-raw.json
             data/flashscore-competition-catalog.json
+            data/flashscore-competition-coverage.json
           if-no-files-found: error
           retention-days: 30
