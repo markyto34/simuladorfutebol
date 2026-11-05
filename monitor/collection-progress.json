@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 91,
-  "processed_games": 75,
-  "stats_games": 75,
-  "bwin_odds": 75,
-  "failed_games": 0,
-  "current_match": "Último concluído: Novi Pazar - OFK Beograd",
-  "last_result": "Novi Pazar - OFK Beograd: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T23:01:31.856Z"
+  "processed_games": 91,
+  "stats_games": 88,
+  "bwin_odds": 88,
+  "failed_games": 3,
+  "current_match": "Último erro: ENRJGxD6",
+  "last_result": "Falha em ENRJGxD6: Falha ao recolher ENRJGxD6: HTTP 503",
+  "updated_at": "2026-11-05T23:02:01.925Z"
 }
