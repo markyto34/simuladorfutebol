@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 63,
-  "processed_games": 26,
-  "stats_games": 26,
-  "bwin_odds": 26,
+  "processed_games": 51,
+  "stats_games": 51,
+  "bwin_odds": 51,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/63 · Q15vi0qL",
-  "last_result": "Maribor - Mura: 11 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:50:51.611Z"
+  "current_match": "A consultar jogo 54/63 · fN420n0D",
+  "last_result": "Radomlje - Bravo: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:50:57.294Z"
 }
