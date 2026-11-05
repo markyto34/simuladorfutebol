@@ -41,6 +41,7 @@ const COMPETITION_ALIASES = new Map([
   ['portugal|liga portugal betclic', 'liga portugal'],
   ['portugal|league cup', 'taca da liga'],
   ['portugal|taca da liga', 'taca da liga'],
+  ['europa|champions league', 'liga dos campeoes'],
   ['europa|champions league league phase', 'liga dos campeoes fase de liga'],
   ['europa|liga dos campeoes fase de liga', 'liga dos campeoes fase de liga'],
   ['espanha|laliga', 'laliga ea sports'],
@@ -109,7 +110,7 @@ export function buildFlashscoreCatalogCoverage(catalog, statsRows) {
     label.rows++;
     if (row.match_id) label.ids.add(String(row.match_id));
   }
-  const stageSuffix = /\s*(?:-\s*)?(fase de liga|playoffs?|abertura|encerramento|apertura|clausura|quadrangular|octogonal|hexagonal|grupo campeonato|grupo rebaixamento)\s*$/i;
+  const stageSuffix = /\s*(?:-\s*)?(fase de liga|league phase|playoffs?(?: de promoção| vencedores)?|abertura|encerramento|apertura|clausura|qualificação|qualification|caminho das regiões|segundo nível|primeira fase(?:\s*-\s*principal)?|quadrangular|octogonal|hexagonal|grupo campeonato|grupo de campeonato|grupo rebaixamento|grupo de rebaixamento|grupo de promoção|grupo de despromoção|grupo de colocação)\s*$/i;
   function findStageRelatedCandidate(label) {
     let base = label.competition_name;
     const stages = [];
@@ -121,7 +122,7 @@ export function buildFlashscoreCatalogCoverage(catalog, statsRows) {
     if (!stages.length || !base) return null;
     const matches = catalog.competitions.filter(candidate =>
       countryKey(candidate.country_name) === countryKey(label.country_name) &&
-      normalize(candidate.competition_name) === normalize(base)
+      competitionKey(candidate.country_name, candidate.competition_name) === competitionKey(label.country_name, base)
     );
     if (matches.length !== 1) return null;
     return {
