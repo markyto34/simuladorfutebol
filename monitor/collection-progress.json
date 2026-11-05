@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 88,
-  "processed_games": 75,
-  "stats_games": 62,
-  "bwin_odds": 68,
+  "processed_games": 88,
+  "stats_games": 75,
+  "bwin_odds": 81,
   "failed_games": 3,
-  "current_match": "Último concluído: Gyirmot - Kozarmisleny",
-  "last_result": "Gyirmot - Kozarmisleny: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:45:17.385Z"
+  "current_match": "Último concluído: Nagykanizsa - DVTK",
+  "last_result": "Nagykanizsa - DVTK: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T21:45:24.154Z"
 }
