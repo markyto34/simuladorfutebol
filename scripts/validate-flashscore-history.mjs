@@ -28,7 +28,8 @@ export function parseCsv(text) {
   return rows.map(values => Object.fromEntries(headers.map((header, index) => [header, values[index] ?? ""])));
 }
 
-const STAT_CATEGORIES = ["xg","possession","shots","shots_on_target","big_chances","corners","yellow_cards","shots_off_target","blocked_shots","shots_inside_box","shots_outside_box","offsides","fouls"];
+const STAT_CATEGORIES = ["xg","possession","shots","shots_on_target","big_chances","corners","corners_ht","corners_st","yellow_cards","red_cards","shots_off_target","blocked_shots","shots_inside_box","shots_outside_box","offsides","fouls"];
+const INTEGER_STATS = new Set(["shots","shots_on_target","big_chances","corners","corners_ht","corners_st","yellow_cards","red_cards","shots_off_target","blocked_shots","shots_inside_box","shots_outside_box","offsides","fouls"]);
 const REQUIRED_STATS = ["match_id","date_time","country","competition","home_team","away_team","status","score_home","score_away",
   ...STAT_CATEGORIES.flatMap(key => [key + "_home", key + "_away"]), "source","source_url","retrieved_at"];
 const REQUIRED_ODDS = ["match_id","date_time","country","competition","home_team","away_team","bookmaker","market","odd_1","odd_x","odd_2","odds_timestamp_type","retrieved_at","source","source_url"];
@@ -57,8 +58,10 @@ export function validateHistory(stats, odds) {
   requireColumns(odds, REQUIRED_ODDS, "Bwin");
 
   const seenStats = new Set();
-  let withScore = 0, withoutScore = 0, finalWithoutScore = 0, withXg = 0, withCorners = 0, withShots = 0, all13 = 0;
+  let withScore = 0, withoutScore = 0, finalWithoutScore = 0, withXg = 0, withCorners = 0, withShots = 0, allStats = 0, cornersTotalChecked = 0;
+  const cornerTotalMismatches = [];
   const competitionCoverage = new Map();
+  const indicatorCounts = Object.fromEntries(["score_ft","score_ht","score_st", ...STAT_CATEGORIES].map(key => [key, 0]));
   for (const row of stats) {
     const id = row.match_id;
     if (blank(id)) throw new Error("Registo estatístico sem match_id.");
@@ -84,8 +87,8 @@ export function validateHistory(stats, odds) {
     }
 
     for (const key of STAT_CATEGORIES) {
-      optionalNumber(row[key + "_home"], key + "_home", id, { max: key === "possession" ? 100 : Infinity });
-      optionalNumber(row[key + "_away"], key + "_away", id, { max: key === "possession" ? 100 : Infinity });
+      optionalNumber(row[key + "_home"], key + "_home", id, { integer: INTEGER_STATS.has(key), max: key === "possession" ? 100 : Infinity });
+      optionalNumber(row[key + "_away"], key + "_away", id, { integer: INTEGER_STATS.has(key), max: key === "possession" ? 100 : Infinity });
     }
     // Campos acrescentados ao esquema sem invalidar o histórico anterior.
     if (Object.hasOwn(row, "red_cards_home") || Object.hasOwn(row, "red_cards_away")) {
@@ -103,6 +106,8 @@ export function validateHistory(stats, odds) {
       optionalNumber(row.sh_home, "sh_home", id, { integer: true, max: 99 });
       optionalNumber(row.sh_away, "sh_away", id, { integer: true, max: 99 });
     }
+    if (hasHtHome) indicatorCounts.score_ht++;
+    if (hasShHome) indicatorCounts.score_st++;
     if (hasHtHome && hasShHome && !homeBlank) {
       if (Number(row.ht_home) + Number(row.sh_home) !== Number(row.score_home) ||
           Number(row.ht_away) + Number(row.sh_away) !== Number(row.score_away)) {
@@ -110,24 +115,37 @@ export function validateHistory(stats, odds) {
       }
     }
     const competitionKey = row.country + " | " + row.competition;
-    if (!competitionCoverage.has(competitionKey)) competitionCoverage.set(competitionKey, { competition: competitionKey, matches: 0, withXg: 0 });
+    if (!competitionCoverage.has(competitionKey)) competitionCoverage.set(competitionKey, { competition: competitionKey, matches: 0, indicators: Object.fromEntries(["score_ft","score_ht","score_st", ...STAT_CATEGORIES].map(key => [key, 0])) });
     const competition = competitionCoverage.get(competitionKey);
     competition.matches++;
-    if (!blank(row.xg_home) && !blank(row.xg_away)) { withXg++; competition.withXg++; }
-    if (!blank(row.corners_home) && !blank(row.corners_away)) withCorners++;
-    for (const key of ["corners_ht", "corners_st"]) {
-      const home = !blank(row[key + "_home"]), away = !blank(row[key + "_away"]);
-      if (home !== away) throw new Error("Cantos por período incompletos (" + key + ") no jogo " + id);
-      if (home) {
-        optionalNumber(row[key + "_home"], key + "_home", id, { integer: true, max: 99 });
-        optionalNumber(row[key + "_away"], key + "_away", id, { integer: true, max: 99 });
-      }
+    if (!homeBlank) { indicatorCounts.score_ft++; competition.indicators.score_ft++; }
+    if (hasHtHome) competition.indicators.score_ht++;
+    if (hasShHome) competition.indicators.score_st++;
+    for (const key of STAT_CATEGORIES) {
+      const complete = !blank(row[key + "_home"]) && !blank(row[key + "_away"]);
+      if (complete) { indicatorCounts[key]++; competition.indicators[key]++; }
     }
+    if (!blank(row.xg_home) && !blank(row.xg_away)) withXg++;
+    if (!blank(row.corners_home) && !blank(row.corners_away)) withCorners++;
     if (!blank(row.shots_home) && !blank(row.shots_away)) withShots++;
-    if (STAT_CATEGORIES.every(key => !blank(row[key + "_home"]) && !blank(row[key + "_away"]))) all13++;
+    if (STAT_CATEGORIES.every(key => !blank(row[key + "_home"]) && !blank(row[key + "_away"]))) allStats++;
+    const cornerParts = ["corners_ht","corners_st","corners"];
+    const cornerValues = Object.fromEntries(cornerParts.map(key => [key, [row[key + "_home"], row[key + "_away"]]]));
+    for (const key of ["corners_ht", "corners_st"]) {
+      const [homeValue, awayValue] = cornerValues[key];
+      if (blank(homeValue) !== blank(awayValue)) throw new Error("Cantos por período incompletos (" + key + ") no jogo " + id);
+    }
+    if (cornerParts.every(key => cornerValues[key].every(value => !blank(value)))) {
+      for (const side of ["home","away"]) {
+        const total = Number(row["corners_ht_" + side]) + Number(row["corners_st_" + side]);
+        if (total !== Number(row["corners_" + side])) cornerTotalMismatches.push({ match_id: id, side, corners_ht: Number(row["corners_ht_" + side]), corners_st: Number(row["corners_st_" + side]), corners_ft: Number(row["corners_" + side]) });
+      }
+      cornersTotalChecked++;
+    }
   }
 
   const seenOdds = new Set();
+  const oddsByCompetition = new Map();
   for (const row of odds) {
     if (blank(row.match_id)) throw new Error("Registo de odds sem match_id.");
     if (blank(row.country) || blank(row.competition)) throw new Error("País/competição em falta nas odds do jogo " + row.match_id);
@@ -142,6 +160,8 @@ export function validateHistory(stats, odds) {
     const key = [row.match_id, row.bookmaker, row.market].join("|");
     if (seenOdds.has(key)) throw new Error("Registo duplicado de odds para jogo/casa/mercado: " + key);
     seenOdds.add(key);
+    const competitionKey = row.country + " | " + row.competition;
+    oddsByCompetition.set(competitionKey, (oddsByCompetition.get(competitionKey) || 0) + 1);
   }
 
   return {
@@ -154,13 +174,13 @@ export function validateHistory(stats, odds) {
     withXg,
     withCorners,
     withShots,
-    all13,
-    xgMissingCompetitions: [...competitionCoverage.values()]
-      .filter(item => item.matches >= 5 && item.withXg === 0)
-      .sort((a, b) => b.matches - a.matches || a.competition.localeCompare(b.competition)),
-    xgPartialCompetitions: [...competitionCoverage.values()]
-      .filter(item => item.matches >= 5 && item.withXg > 0 && item.withXg < item.matches)
-      .sort((a, b) => a.withXg / a.matches - b.withXg / b.matches || b.matches - a.matches),
+    allStats,
+    cornersTotalChecked,
+    cornerTotalMismatches,
+    indicatorCoverage: Object.fromEntries(Object.entries(indicatorCounts).map(([key, count]) => [key, { complete: count, missing: stats.length - count, coveragePercent: Number((count / stats.length * 100).toFixed(2)) }])),
+    competitionCoverage: [...competitionCoverage.values()].map(item => ({ ...item, oddsRows: oddsByCompetition.get(item.competition) || 0, indicators: Object.fromEntries(Object.entries(item.indicators).map(([key, count]) => [key, { complete: count, missing: item.matches - count, coveragePercent: Number((count / item.matches * 100).toFixed(2)) }])) })).sort((a,b) => a.competition.localeCompare(b.competition)),
+    xgMissingCompetitions: [...competitionCoverage.values()].filter(item => item.matches >= 5 && item.indicators.xg === 0).sort((a, b) => b.matches - a.matches || a.competition.localeCompare(b.competition)),
+    xgPartialCompetitions: [...competitionCoverage.values()].filter(item => item.matches >= 5 && item.indicators.xg > 0 && item.indicators.xg < item.matches).sort((a, b) => a.indicators.xg / a.matches - b.indicators.xg / b.matches || b.matches - a.matches),
     uniqueStatsIds: seenStats.size,
     uniqueOddsKeys: seenOdds.size
   };

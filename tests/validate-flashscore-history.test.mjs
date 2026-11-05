@@ -7,6 +7,9 @@ function statsRow(overrides = {}) {
   const row = {
     match_id:"abc123",date_time:"2026-11-01T12:00",country:"PORTUGAL",competition:"Primeira Liga",
     home_team:"A",away_team:"B",status:"Terminado",score_home:"2",score_away:"1",
+    ht_home:"",ht_away:"",sh_home:"",sh_away:"",
+    corners_ht_home:"",corners_ht_away:"",corners_st_home:"",corners_st_away:"",
+    red_cards_home:"",red_cards_away:"",
     source:"Flashscore",source_url:"https://m.flashscore.pt/jogo/abc123/",retrieved_at:"2026-11-04T07:00:00Z"
   };
   for (const key of categories) { row[key+"_home"]="1"; row[key+"_away"]="2"; }
@@ -28,7 +31,7 @@ test("valida CSV completo e devolve cobertura real sem exigir todas as estatíst
   assert.equal(summary.withScore,1);
   assert.equal(summary.withXg,0);
   assert.equal(summary.withCorners,1);
-  assert.equal(summary.all13,0);
+  assert.equal(summary.allStats,0);
 });
 
 test("rejeita país ou competição em falta", () => {
@@ -60,9 +63,8 @@ test("identifica competições com cinco ou mais jogos sem qualquer xG", () => {
     xg_away: ""
   }));
   const summary = validateHistory(rows, [oddsRow()]);
-  assert.deepEqual(summary.xgMissingCompetitions, [
-    { competition: "PORTUGAL | Primeira Liga", matches: 5, withXg: 0 }
-  ]);
+  assert.equal(summary.xgMissingCompetitions[0].competition, "PORTUGAL | Primeira Liga");
+  assert.equal(summary.xgMissingCompetitions[0].indicators.xg, 0);
 });
 
 
@@ -86,7 +88,7 @@ test("valida cartões vermelhos e resultados HT/ST quando as novas colunas exist
 
 test("valida cantos HT/ST em pares completos e rejeita valores inválidos", () => {
   assert.doesNotThrow(() => validateHistory([statsRow({
-    corners_ht_home:"3", corners_ht_away:"2", corners_st_home:"4", corners_st_away:"1"
+    corners_home:"7", corners_away:"3", corners_ht_home:"3", corners_ht_away:"2", corners_st_home:"4", corners_st_away:"1"
   })],[oddsRow()]));
   assert.throws(() => validateHistory([statsRow({
     corners_ht_home:"3", corners_ht_away:""
@@ -94,4 +96,31 @@ test("valida cantos HT/ST em pares completos e rejeita valores inválidos", () =
   assert.throws(() => validateHistory([statsRow({
     corners_st_home:"1.5", corners_st_away:"2"
   })],[oddsRow()]), /Valor estatístico inválido/);
+});
+
+
+test("reporta cobertura de todos os indicadores e deteta divergência entre cantos HT/ST/FT", () => {
+  const row = statsRow({
+    corners_home:"7", corners_away:"3",
+    corners_ht_home:"3", corners_ht_away:"1",
+    corners_st_home:"4", corners_st_away:"2",
+    red_cards_home:"0", red_cards_away:"0",
+    ht_home:"1", ht_away:"0", sh_home:"1", sh_away:"1"
+  });
+  const summary = validateHistory([row], [oddsRow()]);
+  assert.equal(summary.indicatorCoverage.corners_ht.complete, 1);
+  assert.equal(summary.indicatorCoverage.corners_st.complete, 1);
+  assert.equal(summary.indicatorCoverage.red_cards.complete, 1);
+  assert.equal(summary.cornersTotalChecked, 1);
+  const inconsistent = validateHistory([{ ...row, corners_st_away:"2", corners_away:"4" }], [oddsRow()]);
+  assert.equal(inconsistent.cornerTotalMismatches.length, 1);
+  assert.equal(inconsistent.cornerTotalMismatches[0].side, "away");
+});
+
+test("mostra campos em falta na cobertura em vez de os esconder", () => {
+  const row = statsRow({ xg_home:"", xg_away:"", corners_ht_home:"", corners_ht_away:"", corners_st_home:"", corners_st_away:"" });
+  const summary = validateHistory([row], [oddsRow()]);
+  assert.equal(summary.indicatorCoverage.xg.missing, 1);
+  assert.equal(summary.indicatorCoverage.corners_ht.missing, 1);
+  assert.equal(summary.competitionCoverage[0].indicators.corners_st.coveragePercent, 0);
 });
