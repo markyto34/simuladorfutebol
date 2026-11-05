@@ -2,14 +2,14 @@
   "run_id": "41998841542",
   "run_number": "2",
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
-  "total_games": 80,
-  "processed_games": 80,
-  "stats_games": 80,
-  "bwin_odds": 80,
+  "status": "running",
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
+  "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Voitsberg - Amstetten: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T09:46:58.698Z"
+  "current_match": "A descobrir jogos",
+  "last_result": "",
+  "updated_at": "2026-11-05T09:47:08.173Z"
 }
