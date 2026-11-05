@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 631,
-  "processed_games": 575,
-  "stats_games": 574,
-  "bwin_odds": 493,
+  "processed_games": 600,
+  "stats_games": 599,
+  "bwin_odds": 508,
   "failed_games": 0,
-  "current_match": "Último concluído: Los Andes - Central Norte",
-  "last_result": "Los Andes - Central Norte: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T09:37:58.027Z"
+  "current_match": "Último concluído: Almirante Brown - All Boys",
+  "last_result": "Almirante Brown - All Boys: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T09:38:49.862Z"
 }
