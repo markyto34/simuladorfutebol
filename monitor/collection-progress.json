@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 170,
-  "processed_games": 126,
-  "stats_games": 126,
-  "bwin_odds": 126,
+  "processed_games": 151,
+  "stats_games": 151,
+  "bwin_odds": 150,
   "failed_games": 0,
-  "current_match": "A consultar jogo 129/170 · j9VKpK0f",
-  "last_result": "Levadia - Narva: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:58:45.963Z"
+  "current_match": "A consultar jogo 154/170 · zcmP1Izg",
+  "last_result": "Parnu JK Vaprus - Harju JK Laagri: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:58:50.962Z"
 }
