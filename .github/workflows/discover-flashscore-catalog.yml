@@ -6,9 +6,7 @@ on:
     paths:
       - "scripts/discover-flashscore-catalog.mjs"
       - "scripts/merge-flashscore-catalog-groups.mjs"
-      - "scripts/prepare-flashscore-catalog.mjs"
       - "tests/discover-flashscore-catalog.test.mjs"
-      - "tests/prepare-flashscore-catalog.test.mjs"
       - "data/force-flashscore-catalog-discovery.once"
 
 concurrency:
