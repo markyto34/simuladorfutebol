@@ -2,14 +2,14 @@
   "run_id": "41998841542",
   "run_number": "2",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 77,
   "processed_games": 77,
   "stats_games": 77,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Al-Jeel - Al-Zulfi",
+  "current_match": "Recolha terminada",
   "last_result": "Al-Jeel - Al-Zulfi: 2 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T09:08:58.720Z"
+  "updated_at": "2026-11-05T09:08:59.833Z"
 }
