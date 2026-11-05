@@ -2,14 +2,14 @@
   "run_id": "42053542737",
   "run_number": "6",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 11,
   "processed_games": 11,
   "stats_games": 11,
   "bwin_odds": 7,
   "failed_games": 0,
-  "current_match": "Último concluído: Sydney FC - WS Wanderers",
+  "current_match": "Recolha terminada",
   "last_result": "Sydney FC - WS Wanderers: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T15:19:45.489Z"
+  "updated_at": "2026-11-05T15:19:46.678Z"
 }
