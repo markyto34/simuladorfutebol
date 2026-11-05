@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 120,
-  "processed_games": 75,
-  "stats_games": 71,
-  "bwin_odds": 71,
-  "failed_games": 4,
-  "current_match": "Último concluído: Sariyer - Pendikspor",
-  "last_result": "Sariyer - Pendikspor: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T23:17:15.209Z"
+  "processed_games": 100,
+  "stats_games": 93,
+  "bwin_odds": 93,
+  "failed_games": 7,
+  "current_match": "Último erro: xfhreHZ7",
+  "last_result": "Falha em xfhreHZ7: Falha ao recolher xfhreHZ7: HTTP 503",
+  "updated_at": "2026-11-05T23:17:46.031Z"
 }
