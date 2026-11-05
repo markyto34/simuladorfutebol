@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 631,
-  "processed_games": 26,
-  "stats_games": 26,
-  "bwin_odds": 24,
+  "processed_games": 51,
+  "stats_games": 51,
+  "bwin_odds": 47,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/631 · MibpOJq2",
-  "last_result": "Ferro - Racing Cordoba: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:01:09.818Z"
+  "current_match": "A consultar jogo 54/631 · 403KaRb4",
+  "last_result": "Deportivo Madryn - Chaco For Ever: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:01:15.817Z"
 }
