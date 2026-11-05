@@ -13,10 +13,6 @@ on:
       - "tests/audit-flashscore-catalog-coverage.test.mjs"
       - "data/flashscore-statistics.csv"
       - "data/force-flashscore-catalog-discovery.once"
-  pull_request:
-    branches: [main]
-    paths:
-      - "data/force-flashscore-catalog-discovery.once"
 
 concurrency:
   group: flashscore-catalog-discovery
@@ -32,6 +28,8 @@ jobs:
     steps:
       - name: Obter código
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
       - name: Verificar se o catálogo permanente já existe
         id: catalog-check
         run: |
@@ -74,7 +72,7 @@ jobs:
             echo "Catálogo e auditoria já estão atualizados."
           else
             git commit -m "Atualizar auditoria de cobertura Flashscore"
-            git push
+            git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
       - name: Publicar catálogos e auditoria de cobertura
         uses: actions/upload-artifact@v4
