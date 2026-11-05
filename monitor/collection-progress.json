@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 354,
-  "processed_games": 125,
-  "stats_games": 68,
+  "processed_games": 150,
+  "stats_games": 80,
   "bwin_odds": 0,
-  "failed_games": 56,
-  "current_match": "Último erro: vgVvFWyJ",
-  "last_result": "Falha em vgVvFWyJ: Falha ao recolher vgVvFWyJ: HTTP 503",
-  "updated_at": "2026-11-05T10:51:07.321Z"
+  "failed_games": 69,
+  "current_match": "Último concluído: Nautico - Atletico-GO",
+  "last_result": "Nautico - Atletico-GO: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T11:02:12.718Z"
 }
