@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 99,
-  "processed_games": 25,
-  "stats_games": 21,
+  "processed_games": 50,
+  "stats_games": 46,
   "bwin_odds": 0,
   "failed_games": 4,
-  "current_match": "Último concluído: FK Rostov - Akron Togliatti",
-  "last_result": "FK Rostov - Akron Togliatti: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T22:57:29.559Z"
+  "current_match": "Último concluído: Kazan - Dynamo Makhachkala",
+  "last_result": "Kazan - Dynamo Makhachkala: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T22:57:40.037Z"
 }
