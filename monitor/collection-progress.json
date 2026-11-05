@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 303,
-  "processed_games": 125,
+  "processed_games": 150,
   "stats_games": 80,
-  "bwin_odds": 39,
+  "bwin_odds": 45,
   "failed_games": 0,
-  "current_match": "A consultar jogo 126/303 · AJhapB9d",
-  "last_result": "Litija - Tolmin: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T06:30:50.127Z"
+  "current_match": "Último concluído: CA Osasuna F - Logrono F",
+  "last_result": "CA Osasuna F - Logrono F: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T06:30:57.739Z"
 }
