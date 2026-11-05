@@ -5,12 +5,6 @@ on:
     branches: [feature/flashscore-full-competition-discovery, main]
     paths:
       - ".github/workflows/discover-flashscore-catalog.yml"
-      - "scripts/discover-flashscore-catalog.mjs"
-      - "scripts/prepare-flashscore-catalog.mjs"
-      - "scripts/audit-flashscore-catalog-coverage.mjs"
-      - "tests/discover-flashscore-catalog.test.mjs"
-      - "tests/prepare-flashscore-catalog.test.mjs"
-      - "tests/audit-flashscore-catalog-coverage.test.mjs"
 
 concurrency:
   group: flashscore-catalog-discovery
@@ -26,19 +20,34 @@ jobs:
     steps:
       - name: Obter código
         uses: actions/checkout@v4
+      - name: Verificar se o catálogo permanente já existe
+        id: catalog-check
+        run: |
+          if [ -s data/flashscore-competition-catalog.json ]; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+            echo "Catálogo permanente encontrado; não repetir a descoberta."
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+            echo "Catálogo ainda não existe; executar descoberta inicial."
+          fi
       - name: Configurar Node.js
+        if: steps.catalog-check.outputs.exists != 'true'
         uses: actions/setup-node@v4
         with:
           node-version: 22
       - name: Descobrir competições por país
+        if: steps.catalog-check.outputs.exists != 'true'
         run: node scripts/discover-flashscore-catalog.mjs
         env:
           FLASHSCORE_CATALOG_WAIT_MS: "700"
       - name: Preparar catálogo e excluir ligações de navegação
+        if: steps.catalog-check.outputs.exists != 'true'
         run: node scripts/prepare-flashscore-catalog.mjs
       - name: Cruzar catálogo com estatísticas existentes
+        if: steps.catalog-check.outputs.exists != 'true'
         run: node scripts/audit-flashscore-catalog-coverage.mjs
       - name: Guardar catálogo e auditoria permanentemente no repositório
+        if: steps.catalog-check.outputs.exists != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -50,6 +59,7 @@ jobs:
             git push
           fi
       - name: Publicar catálogos e auditoria de cobertura
+        if: steps.catalog-check.outputs.exists != 'true'
         uses: actions/upload-artifact@v4
         with:
           name: flashscore-competition-catalogs
