@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 59,
-  "processed_games": 51,
-  "stats_games": 51,
-  "bwin_odds": 51,
+  "processed_games": 59,
+  "stats_games": 59,
+  "bwin_odds": 59,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/59 · dh4d1wBF",
-  "last_result": "Dunfermline - Ayr: 1 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:49:59.483Z"
+  "current_match": "Último concluído: Raith - Stenhousemuir",
+  "last_result": "Raith - Stenhousemuir: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:50:01.350Z"
 }
