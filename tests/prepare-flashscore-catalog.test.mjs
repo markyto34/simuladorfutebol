@@ -88,3 +88,18 @@ test('exclui amigáveis de clubes e seleções do catálogo principal', () => {
   assert.deepEqual(result.competitions.map(item => item.competition_name), ['Liga Portugal']);
   assert.ok(result.excluded_links.every(item => item.reason === 'friendly_match_excluded_by_project_scope'));
 });
+
+
+test('normaliza escalões equivalentes e identifica formatos Kings League como especiais', () => {
+  const result = prepareFlashscoreCatalog(raw([
+    'Liga U20',
+    'Liga Sub-20',
+    'Liga Under 20',
+    'Kings Liga Portugal'
+  ]));
+  const ages = result.competitions.filter(item => item.competition_name.startsWith('Liga ')).map(item => item.age_category);
+  assert.deepEqual(ages, ['sub 20', 'sub 20', 'sub 20']);
+  const kings = result.competitions.find(item => item.competition_name.startsWith('Kings'));
+  assert.equal(kings.competition_type, 'formato_especial');
+  assert.equal(kings.non_standard_format, true);
+});
