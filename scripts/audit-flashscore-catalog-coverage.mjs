@@ -43,7 +43,24 @@ const COMPETITION_ALIASES = new Map([
   ['portugal|taca da liga', 'taca da liga'],
   ['europa|champions league league phase', 'liga dos campeoes fase de liga'],
   ['europa|liga dos campeoes fase de liga', 'liga dos campeoes fase de liga'],
-  ['espanha|laliga', 'laliga ea sports']
+  ['espanha|laliga', 'laliga ea sports'],
+  // Traduções/nomes locais confirmados para a mesma primeira divisão; país sempre faz parte da chave.
+  ['turquia|superliga', 'super liga'],
+  ['republica checa|chance liga', 'primeira liga'],
+  ['argelia|primeira divisao', '1 divisao'],
+  ['bielorrussia|liga superior', 'liga vysshaya'],
+  ['montenegro|primeira liga', 'liga prva crnogorska'],
+  ['uzbequistao|superliga', 'super liga'],
+  ['brasil|pernambucano primeiro nivel', 'pernambucano'],
+  ['eslovaquia|nike liga', 'primeira liga'],
+  ['eslovenia|primeira liga', 'liga prva'],
+  ['albania|superliga', 'super liga'],
+  ['dinamarca|superliga', 'super liga'],
+  ['georgia|primeira liga', 'liga crystalbet erovnuli'],
+  ['india|superliga', 'super liga'],
+  ['malasia|superliga', 'super liga'],
+  ['nigeria|primeira liga', 'npfl'],
+  ['emirados arabes unidos|primeira liga', 'liga uae']
 ]);
 
 function countryKey(value) { return COUNTRY_ALIASES.get(normalize(value)) || normalize(value); }
