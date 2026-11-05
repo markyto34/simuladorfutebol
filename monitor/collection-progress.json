@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 354,
-  "processed_games": 100,
-  "stats_games": 57,
+  "processed_games": 125,
+  "stats_games": 68,
   "bwin_odds": 0,
-  "failed_games": 43,
-  "current_match": "Último concluído: CRB - America MG",
-  "last_result": "CRB - America MG: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T10:40:39.814Z"
+  "failed_games": 56,
+  "current_match": "Último erro: vgVvFWyJ",
+  "last_result": "Falha em vgVvFWyJ: Falha ao recolher vgVvFWyJ: HTTP 503",
+  "updated_at": "2026-11-05T10:51:07.321Z"
 }
