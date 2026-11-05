@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 121,
-  "processed_games": 25,
-  "stats_games": 24,
-  "bwin_odds": 23,
+  "processed_games": 50,
+  "stats_games": 49,
+  "bwin_odds": 48,
   "failed_games": 0,
-  "current_match": "Último concluído: Brann F - Bodo/Glimt F",
-  "last_result": "Brann F - Bodo/Glimt F: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T22:25:19.209Z"
+  "current_match": "A consultar jogo 53/121 · 8b9m42B5",
+  "last_result": "Lyn F - Aalesund F: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:25:34.289Z"
 }
