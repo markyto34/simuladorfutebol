@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 67,
-  "processed_games": 51,
-  "stats_games": 50,
+  "processed_games": 67,
+  "stats_games": 65,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/67 · bmJt5sdl",
-  "last_result": "Panionios - Kalamaria: 9 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T21:40:08.355Z"
+  "current_match": "Último concluído: Panthrakikos - Olympiakos B",
+  "last_result": "Panthrakikos - Olympiakos B: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T21:40:17.555Z"
 }
