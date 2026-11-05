@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 54,
-  "processed_games": 50,
-  "stats_games": 49,
-  "bwin_odds": 46,
+  "processed_games": 54,
+  "stats_games": 53,
+  "bwin_odds": 49,
   "failed_games": 1,
-  "current_match": "Último concluído: Virton - K. Lierse S.K.",
-  "last_result": "Virton - K. Lierse S.K.: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T09:57:51.738Z"
+  "current_match": "Último concluído: Seraing - Sporting Lokeren",
+  "last_result": "Seraing - Sporting Lokeren: 16 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T09:58:01.136Z"
 }
