@@ -34,3 +34,12 @@ test('coloca candidatos com URL duplicada em revisão e não os conta como cober
   assert.equal(report.summary.candidates_with_stats,0);
   assert.ok(report.competitions.every(x=>x.sample_status==='rever_nome_duplicado'));
 });
+
+test('separa estatísticas sem correspondência no catálogo e fecha a contagem dos candidatos', () => {
+  const report = buildFlashscoreCatalogCoverage(catalog([candidate('Portugal','Liga Portugal'),candidate('Portugal','Liga Portugal 2')]), [row('Portugal','Liga Portugal','m1'),row('Brasil','Série B','m2')]);
+  assert.equal(report.summary.stats_competitions,2);
+  assert.equal(report.summary.stats_competitions_matched_to_catalog,1);
+  assert.equal(report.summary.stats_competitions_not_in_catalog,1);
+  assert.equal(report.unmatched_stats_competitions[0].source_labels[0],'Brasil / Série B');
+  assert.equal(report.summary.catalog_candidates, report.summary.candidates_with_stats + report.summary.candidates_without_stats + report.summary.duplicate_name_candidates_for_review);
+});

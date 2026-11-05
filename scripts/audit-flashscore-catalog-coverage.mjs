@@ -77,9 +77,11 @@ export function buildFlashscoreCatalogCoverage(catalog, statsRows) {
   }
 
   const duplicateKeys = new Set((catalog.local_duplicate_groups_for_review || []).map(x => x.key));
+  const matchedStatsKeys = new Set();
   const competitions = catalog.competitions.map(candidate => {
     const candidateKey = key(candidate.country_name, candidate.competition_name);
     const found = stats.get(candidateKey);
+    if (found) matchedStatsKeys.add(candidateKey);
     const games = found ? (found.ids.size || found.rows) : 0;
     const sampleStatus = games >= 20 ? 'amostra_20_plus' : games >= 10 ? 'amostra_10_19' : games >= 5 ? 'amostra_5_9' : games >= 1 ? 'amostra_1_4' : 'sem_dados';
     const metrics = Object.fromEntries(METRICS.map(metric => [metric, {
@@ -98,6 +100,15 @@ export function buildFlashscoreCatalogCoverage(catalog, statsRows) {
     };
   });
   const count = status => competitions.filter(x => x.sample_status === status).length;
+  const unmatchedStatsCompetitions = [...stats.entries()].filter(([k]) => !matchedStatsKeys.has(k)).map(([k, item]) => ({
+    stats_match_key: k,
+    source_labels: [...item.labels].sort(),
+    unique_stats_matches: item.ids.size || item.rows,
+    metrics: Object.fromEntries(METRICS.map(metric => [metric, {
+      complete_matches: item.metricIds[metric].size,
+      coverage_pct: (item.ids.size || item.rows) ? Math.round(item.metricIds[metric].size / (item.ids.size || item.rows) * 1000) / 10 : 0
+    }]))
+  })).sort((a, b) => b.unique_stats_matches - a.unique_stats_matches);
   const withData = competitions.filter(x => x.unique_stats_matches > 0 && x.sample_status !== 'rever_nome_duplicado').length;
   return {
     generated_at: new Date().toISOString(),
@@ -106,15 +117,20 @@ export function buildFlashscoreCatalogCoverage(catalog, statsRows) {
     summary: {
       catalog_candidates: competitions.length,
       candidates_with_stats: withData,
-      candidates_without_stats: competitions.filter(x => x.unique_stats_matches === 0).length,
+      candidates_without_stats: competitions.filter(x => x.unique_stats_matches === 0 && x.sample_status !== 'rever_nome_duplicado').length,
+      candidates_1_to_4_matches: competitions.filter(x => x.unique_stats_matches >= 1 && x.unique_stats_matches <= 4 && x.sample_status !== 'rever_nome_duplicado').length,
       candidates_5_plus_matches: competitions.filter(x => x.unique_stats_matches >= 5 && x.sample_status !== 'rever_nome_duplicado').length,
       candidates_10_plus_matches: competitions.filter(x => x.unique_stats_matches >= 10 && x.sample_status !== 'rever_nome_duplicado').length,
       candidates_20_plus_matches: competitions.filter(x => x.unique_stats_matches >= 20 && x.sample_status !== 'rever_nome_duplicado').length,
       duplicate_name_candidates_for_review: count('rever_nome_duplicado'),
+      stats_competitions: stats.size,
+      stats_competitions_matched_to_catalog: matchedStatsKeys.size,
+      stats_competitions_not_in_catalog: unmatchedStatsCompetitions.length,
       stats_rows: statsRows.length,
       stats_unique_match_ids: new Set(statsRows.map(x => String(x.match_id || '').trim()).filter(Boolean)).size
     },
-    competitions: competitions.sort((a, b) => b.unique_stats_matches - a.unique_stats_matches || a.country_name.localeCompare(b.country_name) || a.competition_name.localeCompare(b.competition_name))
+    competitions: competitions.sort((a, b) => b.unique_stats_matches - a.unique_stats_matches || a.country_name.localeCompare(b.country_name) || a.competition_name.localeCompare(b.competition_name)),
+    unmatched_stats_competitions: unmatchedStatsCompetitions
   };
 }
 
