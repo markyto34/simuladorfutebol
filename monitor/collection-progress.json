@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 170,
-  "processed_games": 125,
-  "stats_games": 123,
+  "processed_games": 150,
+  "stats_games": 147,
   "bwin_odds": 0,
-  "failed_games": 1,
-  "current_match": "Último concluído: FK Liepaja - Grobina",
-  "last_result": "FK Liepaja - Grobina: 16 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T22:13:32.067Z"
+  "failed_games": 2,
+  "current_match": "Último concluído: Tukums 2000 - Grobina",
+  "last_result": "Tukums 2000 - Grobina: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T22:13:38.400Z"
 }
