@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 concurrency:
   group: recolha-diaria-flashscore
@@ -25,6 +26,18 @@ jobs:
         uses: actions/checkout@v6
         with:
           ref: main
+      - name: Preparar branch persistente de checkpoints
+        env:
+          CHECKPOINT_BRANCH: fix/flashscore-period-corners-checkpoint
+        run: |
+          set -euo pipefail
+          if git ls-remote --exit-code --heads origin "$CHECKPOINT_BRANCH" >/dev/null 2>&1; then
+            git fetch origin "$CHECKPOINT_BRANCH"
+            git checkout -B "$CHECKPOINT_BRANCH" FETCH_HEAD
+          else
+            git checkout -b "$CHECKPOINT_BRANCH"
+            git push -u origin "$CHECKPOINT_BRANCH"
+          fi
       - name: Verificar marcador de backfill único
         id: marker
         run: |
@@ -78,34 +91,44 @@ jobs:
         if: steps.marker.outputs.exists == 'true'
         continue-on-error: true
         env:
-          FLASHSCORE_REQUEST_DELAY_MS: "500"
-          FLASHSCORE_CONCURRENCY: "2"
+          FLASHSCORE_REQUEST_DELAY_MS: "2000"
+          FLASHSCORE_CONCURRENCY: "1"
+          BACKFILL_CHECKPOINT_BRANCH: fix/flashscore-period-corners-checkpoint
         run: node scripts/backfill-flashscore-period-corners.mjs --start-date="${{ steps.dates.outputs.start_date }}" --end-date="${{ steps.dates.outputs.end_date }}"
       - name: Validar histórico e atualizar auditoria
         if: steps.marker.outputs.exists == 'true'
         run: |
           node scripts/validate-flashscore-history.mjs
           node scripts/audit-flashscore-catalog-coverage.mjs
-      - name: Guardar dados válidos e concluir marcador apenas quando completo
+      - name: Guardar checkpoint final e preparar revisão
         if: steps.marker.outputs.exists == 'true'
         env:
           BACKFILL_OUTCOME: ${{ steps.backfill.outcome }}
+          GH_TOKEN: ${{ github.token }}
+          CHECKPOINT_BRANCH: fix/flashscore-period-corners-checkpoint
         run: |
           set -euo pipefail
-          if [ "$BACKFILL_OUTCOME" = "success" ]; then
-            rm data/force-flashscore-period-corners-backfill.once
-          else
-            echo "O marcador fica ativo para a próxima tentativa automática; os valores válidos já recolhidos serão preservados."
-          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/flashscore-statistics.csv data/flashscore-competition-coverage.json
-          git add -u data/force-flashscore-period-corners-backfill.once 2>/dev/null || true
-          if git diff --cached --quiet; then
-            echo "Não havia novos valores HT/ST para guardar."
+          git add data/flashscore-statistics.csv data/flashscore-period-corners-backfill-progress.json
+          if [ "$BACKFILL_OUTCOME" = "success" ]; then
+            rm -f data/force-flashscore-period-corners-backfill.once
+            rm -f data/flashscore-period-corners-backfill-progress.json
+            git add -u data/force-flashscore-period-corners-backfill.once data/flashscore-period-corners-backfill-progress.json 2>/dev/null || true
+            if ! git diff --cached --quiet; then
+              git commit -m "Concluir backfill histórico de cantos HT e ST"
+              git push origin HEAD:"$CHECKPOINT_BRANCH"
+            fi
+            existing_pr="$(gh pr list --head "$CHECKPOINT_BRANCH" --base main --state open --json number --jq '.[0].number // empty')"
+            if [ -z "$existing_pr" ]; then
+              gh pr create --base main --head "$CHECKPOINT_BRANCH" --draft --title "Backfill histórico de cantos HT/ST Flashscore" --body "Checkpoint persistente do backfill HT/ST. Dados recolhidos em lotes e validados antes de integrar na main."
+            fi
           else
-            git commit -m "Backfill histórico de cantos HT e ST"
-            git push origin HEAD:main
+            if ! git diff --cached --quiet; then
+              git commit -m "Guardar progresso parcial do backfill HT/ST"
+              git push origin HEAD:"$CHECKPOINT_BRANCH"
+            fi
+            echo "Progresso parcial guardado na branch $CHECKPOINT_BRANCH; a próxima execução retomará os jogos ainda sem resposta válida."
           fi
       - name: Assinalar falhas depois de guardar os valores válidos
         if: steps.marker.outputs.exists == 'true' && steps.backfill.outcome == 'failure'
