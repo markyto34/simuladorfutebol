@@ -62,3 +62,17 @@ test('reconhece LaLiga como alias de LaLiga EA Sports sem alargar a outras compe
   assert.equal(report.competitions[0].unique_stats_matches,1);
   assert.equal(report.summary.unmatched_stats_competition_labels,0);
 });
+
+
+test('identifica a competição-base de uma fase sem misturar nem atribuir os jogos à competição-base', () => {
+  const report = buildFlashscoreCatalogCoverage(
+    catalog([candidate('Europa','Liga dos Campeões')]),
+    [row('EUROPA','Liga dos Campeões - Fase de Liga','u1'),row('EUROPA','Liga dos Campeões - Fase de Liga','u2')]
+  );
+  assert.equal(report.summary.unmatched_stats_competition_labels,1);
+  assert.equal(report.summary.stats_competitions_matched_to_catalog,0);
+  assert.equal(report.competitions[0].unique_stats_matches,0);
+  assert.equal(report.unmatched_stats_labels[0].reason,'catalog_base_found_stage_kept_separate');
+  assert.equal(report.unmatched_stats_labels[0].related_catalog_competition,'Liga dos Campeões');
+  assert.deepEqual(report.unmatched_stats_labels[0].stage_markers,['Fase de Liga']);
+});
