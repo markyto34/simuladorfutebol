@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T06:18:38.717Z",
+  "generated_at": "2026-11-05T06:24:40.937Z",
   "source": "Flashscore catalog + data/flashscore-statistics.csv",
   "scope": "Correspondência por país e competição com normalização e apenas aliases explicitamente confirmados. Nomes repetidos no mesmo país ficam em revisão e não são considerados cobertura validada.",
   "summary": {
@@ -26,14 +26,26 @@
       "competition_name": "Liga dos Campeões - Fase de Liga",
       "unique_stats_matches": 18,
       "stats_rows": 18,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Fase de Liga"
+      ],
+      "related_catalog_competition": "Liga dos Campeões",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/europa/liga-dos-campeoes/"
     },
     {
       "country_name": "ESCÓCIA",
       "competition_name": "Taça Challenge - Playoffs",
       "unique_stats_matches": 16,
       "stats_rows": 16,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Playoffs"
+      ],
+      "related_catalog_competition": "Taça Challenge",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/escocia/taca-challenge/"
     },
     {
       "country_name": "ARGENTINA",
@@ -47,7 +59,13 @@
       "competition_name": "AFC - Liga dos Campeões - Fase de Liga",
       "unique_stats_matches": 14,
       "stats_rows": 14,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Fase de Liga"
+      ],
+      "related_catalog_competition": "AFC - Liga dos Campeões",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/asia/afc-liga-dos-campeoes/"
     },
     {
       "country_name": "COLÔMBIA",
@@ -96,7 +114,13 @@
       "competition_name": "UEFA Youth League - Fase de Liga",
       "unique_stats_matches": 9,
       "stats_rows": 9,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Fase de Liga"
+      ],
+      "related_catalog_competition": "UEFA Youth League",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/europa/uefa-youth-league/"
     },
     {
       "country_name": "INDONÉSIA",
@@ -117,7 +141,13 @@
       "competition_name": "Liga MX Feminina - Abertura",
       "unique_stats_matches": 9,
       "stats_rows": 9,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Abertura"
+      ],
+      "related_catalog_competition": "Liga MX Feminina",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/mexico/liga-mx-feminino/"
     },
     {
       "country_name": "POLÓNIA",
@@ -187,14 +217,26 @@
       "competition_name": "Campeonato USL - Playoffs",
       "unique_stats_matches": 8,
       "stats_rows": 8,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Playoffs"
+      ],
+      "related_catalog_competition": "Campeonato USL",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/eua/campeonato-usl/"
     },
     {
       "country_name": "MÉXICO",
       "competition_name": "Liga de Expansion MX - Abertura",
       "unique_stats_matches": 8,
       "stats_rows": 8,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Abertura"
+      ],
+      "related_catalog_competition": "Liga de Expansion MX",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/mexico/liga-de-expansion-mx/"
     },
     {
       "country_name": "NORUEGA",
@@ -257,14 +299,27 @@
       "competition_name": "Primeira B - Encerramento - Quadrangular",
       "unique_stats_matches": 7,
       "stats_rows": 7,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Encerramento",
+        "Quadrangular"
+      ],
+      "related_catalog_competition": "Primeira B",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/colombia/primeira-b/"
     },
     {
       "country_name": "COSTA RICA",
       "competition_name": "Liga de Subida - Abertura",
       "unique_stats_matches": 7,
       "stats_rows": 7,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Abertura"
+      ],
+      "related_catalog_competition": "Liga de Subida",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/costa-rica/liga-de-subida/"
     },
     {
       "country_name": "GRÉCIA",
@@ -313,7 +368,13 @@
       "competition_name": "Liga Reservas - Encerramento",
       "unique_stats_matches": 6,
       "stats_rows": 6,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Encerramento"
+      ],
+      "related_catalog_competition": "Liga Reservas",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/argentina/liga-reservas/"
     },
     {
       "country_name": "AUSTRÁLIA",
@@ -565,7 +626,13 @@
       "competition_name": "Liga dos Campeões Feminina - Fase de Liga",
       "unique_stats_matches": 4,
       "stats_rows": 4,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Fase de Liga"
+      ],
+      "related_catalog_competition": "Liga dos Campeões Feminina",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/europa/liga-dos-campeoes-feminina/"
     },
     {
       "country_name": "MALÁSIA",
@@ -579,7 +646,13 @@
       "competition_name": "Campeonato do Mundo Sub17 Feminino - Playoffs",
       "unique_stats_matches": 4,
       "stats_rows": 4,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Playoffs"
+      ],
+      "related_catalog_competition": "Campeonato do Mundo Sub17 Feminino",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/mundo/finais-campeonato-do-mundo-de-sub17-senhoras/"
     },
     {
       "country_name": "NIGÉRIA",
@@ -663,7 +736,13 @@
       "competition_name": "Taça Feminina SWPL - Playoffs",
       "unique_stats_matches": 3,
       "stats_rows": 3,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Playoffs"
+      ],
+      "related_catalog_competition": "Taça Feminina SWPL",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/escocia/taca-feminina-swpl/"
     },
     {
       "country_name": "EUROPA",
@@ -733,21 +812,39 @@
       "competition_name": "Taça da Liga - Playoffs",
       "unique_stats_matches": 2,
       "stats_rows": 2,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Playoffs"
+      ],
+      "related_catalog_competition": "Taça da Liga",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/escocia/taca-da-liga/"
     },
     {
       "country_name": "EUA",
       "competition_name": "MLS Next Pro - Playoffs",
       "unique_stats_matches": 2,
       "stats_rows": 2,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Playoffs"
+      ],
+      "related_catalog_competition": "MLS Next Pro",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/eua/mls-next-pro/"
     },
     {
       "country_name": "EUA",
       "competition_name": "USL Liga 1 - Playoffs",
       "unique_stats_matches": 2,
       "stats_rows": 2,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Playoffs"
+      ],
+      "related_catalog_competition": "USL Liga 1",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/eua/liga-1/"
     },
     {
       "country_name": "GUATEMALA",
@@ -782,7 +879,13 @@
       "competition_name": "Liga MX U21 - Abertura",
       "unique_stats_matches": 2,
       "stats_rows": 2,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Abertura"
+      ],
+      "related_catalog_competition": "Liga MX U21",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/mexico/liga-mx-u21/"
     },
     {
       "country_name": "MOLDÁVIA",
@@ -824,14 +927,26 @@
       "competition_name": "Taça dos Libertadores - Feminina - Playoffs",
       "unique_stats_matches": 1,
       "stats_rows": 1,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Playoffs"
+      ],
+      "related_catalog_competition": "Taça dos Libertadores - Feminina",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/america-do-sul/taca-dos-libertadores-senhoras/"
     },
     {
       "country_name": "ARGENTINA",
       "competition_name": "Primeira A Feminina - Encerramento",
       "unique_stats_matches": 1,
       "stats_rows": 1,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Encerramento"
+      ],
+      "related_catalog_competition": "Primeira A Feminina",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/argentina/primeira-a-feminina/"
     },
     {
       "country_name": "ARGENTINA",
@@ -845,21 +960,39 @@
       "competition_name": "Taça Pacena - Playoffs",
       "unique_stats_matches": 1,
       "stats_rows": 1,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Playoffs"
+      ],
+      "related_catalog_competition": "Taça Pacena",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/bolivia/taca-pacena/"
     },
     {
       "country_name": "BRASIL",
       "competition_name": "Gaucho 2 - Playoffs",
       "unique_stats_matches": 1,
       "stats_rows": 1,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Playoffs"
+      ],
+      "related_catalog_competition": "Gaucho 2",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/brasil/gaucho-2/"
     },
     {
       "country_name": "CANADÁ",
       "competition_name": "NSL Feminino - Playoffs",
       "unique_stats_matches": 1,
       "stats_rows": 1,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Playoffs"
+      ],
+      "related_catalog_competition": "NSL Feminino",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/canada/nsl-feminino/"
     },
     {
       "country_name": "CHILE",
@@ -880,7 +1013,13 @@
       "competition_name": "Taça Chile - Playoffs",
       "unique_stats_matches": 1,
       "stats_rows": 1,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Playoffs"
+      ],
+      "related_catalog_competition": "Taça Chile",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/chile/taca-chile/"
     },
     {
       "country_name": "COLÔMBIA",
@@ -894,7 +1033,13 @@
       "competition_name": "Liga Europa - Fase de Liga",
       "unique_stats_matches": 1,
       "stats_rows": 1,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Fase de Liga"
+      ],
+      "related_catalog_competition": "Liga Europa",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/europa/liga-europa/"
     },
     {
       "country_name": "EUROPE",
@@ -915,7 +1060,13 @@
       "competition_name": "Divisão 1 - Playoffs",
       "unique_stats_matches": 1,
       "stats_rows": 1,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Playoffs"
+      ],
+      "related_catalog_competition": "Divisão 1",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/irlanda/divisao-1/"
     },
     {
       "country_name": "LITUÂNIA",
