@@ -2,14 +2,14 @@
   "run_id": "42053542737",
   "run_number": "6",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 54,
-  "processed_games": 51,
-  "stats_games": 51,
-  "bwin_odds": 51,
+  "processed_games": 54,
+  "stats_games": 54,
+  "bwin_odds": 54,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/54 · M94CxkZa",
-  "last_result": "Virton - K. Lierse S.K.: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:22:47.977Z"
+  "current_match": "Recolha terminada",
+  "last_result": "Seraing - Sporting Lokeren: 16 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:22:49.526Z"
 }
