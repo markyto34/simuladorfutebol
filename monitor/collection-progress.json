@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 631,
-  "processed_games": 101,
-  "stats_games": 101,
-  "bwin_odds": 95,
+  "processed_games": 125,
+  "stats_games": 125,
+  "bwin_odds": 117,
   "failed_games": 0,
-  "current_match": "A consultar jogo 104/631 · M1JWE33F",
-  "last_result": "Agropecuario - Gimnasia y Tiro: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:01:28.327Z"
+  "current_match": "Último concluído: Almagro - Deportivo Maipu",
+  "last_result": "Almagro - Deportivo Maipu: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:01:34.429Z"
 }
