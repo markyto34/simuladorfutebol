@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 40,
   "processed_games": 40,
   "stats_games": 40,
   "bwin_odds": 40,
   "failed_games": 0,
-  "current_match": "Último concluído: Twente F - Heerenveen F",
+  "current_match": "Recolha terminada",
   "last_result": "Twente F - Heerenveen F: 11 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:27:41.828Z"
+  "updated_at": "2026-11-05T22:27:43.065Z"
 }
