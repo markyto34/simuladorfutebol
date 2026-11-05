@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 48,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
+  "processed_games": 25,
+  "stats_games": 25,
+  "bwin_odds": 25,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-05T23:12:19.335Z"
+  "current_match": "Último concluído: Chonburi - Buriram",
+  "last_result": "Chonburi - Buriram: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T23:12:43.696Z"
 }
