@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
-  "total_games": 20,
-  "processed_games": 20,
-  "stats_games": 20,
-  "bwin_odds": 18,
+  "status": "running",
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
+  "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Churchill Brothers - Punjab: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:45:47.000Z"
+  "current_match": "A descobrir jogos",
+  "last_result": "",
+  "updated_at": "2026-11-05T21:45:56.330Z"
 }
