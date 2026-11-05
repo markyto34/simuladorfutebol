@@ -1,6 +1,13 @@
 name: Backfill histórico de cantos HT/ST Flashscore
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/backfill-flashscore-period-corners.mjs"
+      - ".github/workflows/backfill-flashscore-period-corners.yml"
+      - "data/force-flashscore-period-corners-backfill.once"
+  workflow_dispatch:
   workflow_run:
     workflows: ["Deploy Flashscore proxy"]
     types: [completed]
@@ -78,8 +85,8 @@ jobs:
         if: steps.marker.outputs.exists == 'true'
         continue-on-error: true
         env:
-          FLASHSCORE_REQUEST_DELAY_MS: "500"
-          FLASHSCORE_CONCURRENCY: "2"
+          FLASHSCORE_REQUEST_DELAY_MS: "1000"
+          FLASHSCORE_CONCURRENCY: "1"
         run: node scripts/backfill-flashscore-period-corners.mjs --start-date="${{ steps.dates.outputs.start_date }}" --end-date="${{ steps.dates.outputs.end_date }}"
       - name: Validar histórico e atualizar auditoria
         if: steps.marker.outputs.exists == 'true'
@@ -87,7 +94,7 @@ jobs:
           node scripts/validate-flashscore-history.mjs
           node scripts/audit-flashscore-catalog-coverage.mjs
       - name: Guardar dados válidos e concluir marcador apenas quando completo
-        if: steps.marker.outputs.exists == 'true'
+        if: always() && steps.marker.outputs.exists == 'true'
         env:
           BACKFILL_OUTCOME: ${{ steps.backfill.outcome }}
         run: |
