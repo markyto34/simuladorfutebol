@@ -521,7 +521,9 @@ export default {
     }
 
     const target = new URL(buildMatchTabUrl(matchId, requestedTab), UPSTREAM);
-    const cacheKey = new Request(target.toString(), { method: "GET" });
+    const cacheTarget = new URL(target.toString());
+    if (recordOnly) cacheTarget.searchParams.set("record_schema", "2");
+    const cacheKey = new Request(cacheTarget.toString(), { method: "GET" });
     const cache = caches.default;
     let html = null;
 
