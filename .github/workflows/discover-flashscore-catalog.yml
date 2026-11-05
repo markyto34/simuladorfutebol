@@ -5,6 +5,10 @@ on:
   push:
     branches: [feature/flashscore-full-competition-discovery]
 
+concurrency:
+  group: flashscore-catalog-discovery
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
