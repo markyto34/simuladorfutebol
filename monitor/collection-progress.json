@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 224,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 25,
-  "failed_games": 0,
-  "current_match": "Último concluído: Foshan Nanshi - Guangxi Hengchen",
-  "last_result": "Foshan Nanshi - Guangxi Hengchen: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T11:53:55.713Z"
+  "processed_games": 50,
+  "stats_games": 41,
+  "bwin_odds": 41,
+  "failed_games": 9,
+  "current_match": "Último erro: 0hq9DGUP",
+  "last_result": "Falha em 0hq9DGUP: Falha ao recolher 0hq9DGUP: HTTP 503",
+  "updated_at": "2026-11-05T12:00:42.541Z"
 }
