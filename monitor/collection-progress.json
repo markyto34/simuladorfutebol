@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 205,
-  "processed_games": 200,
-  "stats_games": 200,
-  "bwin_odds": 200,
-  "failed_games": 0,
-  "current_match": "Último concluído: AIK Stockholm - Halmstad",
-  "last_result": "AIK Stockholm - Halmstad: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T23:04:40.665Z"
+  "processed_games": 205,
+  "stats_games": 203,
+  "bwin_odds": 203,
+  "failed_games": 2,
+  "current_match": "Último erro: b7UotNvn",
+  "last_result": "Falha em b7UotNvn: Falha ao recolher b7UotNvn: HTTP 503",
+  "updated_at": "2026-11-05T23:04:57.418Z"
 }
