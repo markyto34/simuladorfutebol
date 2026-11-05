@@ -30,7 +30,10 @@ jobs:
       - name: Verificar se o catálogo permanente já existe
         id: catalog-check
         run: |
-          if [ -s data/flashscore-competition-catalog.json ] && grep -q '"catalog_discovery_version": "2.0"' data/flashscore-competition-catalog.json; then
+          if [ -s data/force-flashscore-catalog-discovery.once ]; then
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+            echo "Pedido de redescoberta única encontrado."
+          elif [ -s data/flashscore-competition-catalog.json ] && grep -q '"catalog_discovery_version": "2.0"' data/flashscore-competition-catalog.json; then
             echo "exists=true" >> "$GITHUB_OUTPUT"
             echo "Catálogo permanente encontrado; saltar descoberta completa."
           else
@@ -41,6 +44,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Testar parser e preparação do catálogo
+        run: node --test tests/discover-flashscore-catalog.test.mjs tests/prepare-flashscore-catalog.test.mjs
       - name: Descobrir competições por país
         if: steps.catalog-check.outputs.exists != 'true'
         run: node scripts/discover-flashscore-catalog.mjs
@@ -55,7 +60,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -s data/force-flashscore-catalog-discovery.once ]; then
+            rm data/force-flashscore-catalog-discovery.once
+          fi
           git add data/flashscore-competition-catalog-raw.json data/flashscore-competition-catalog.json data/flashscore-competition-coverage.json
+          git add -u data/force-flashscore-catalog-discovery.once 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "Catálogo e auditoria já estão atualizados."
           else
