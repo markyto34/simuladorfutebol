@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 73,
-  "processed_games": 26,
-  "stats_games": 26,
-  "bwin_odds": 26,
+  "processed_games": 51,
+  "stats_games": 51,
+  "bwin_odds": 51,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/73 · 4tQ58V2E",
-  "last_result": "Midtjylland - Brondby: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:48:38.641Z"
+  "current_match": "A consultar jogo 54/73 · YZUMwatQ",
+  "last_result": "Sonderjyske - Nordsjaelland: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:48:43.751Z"
 }
