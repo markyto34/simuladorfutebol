@@ -13,6 +13,10 @@ on:
       - "tests/audit-flashscore-catalog-coverage.test.mjs"
       - "data/flashscore-statistics.csv"
       - "data/force-flashscore-catalog-discovery.once"
+  pull_request:
+    branches: [main]
+    paths:
+      - "data/force-flashscore-catalog-discovery.once"
 
 concurrency:
   group: flashscore-catalog-discovery
