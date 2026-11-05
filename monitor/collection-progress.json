@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 143,
-  "processed_games": 125,
-  "stats_games": 125,
-  "bwin_odds": 125,
-  "failed_games": 0,
-  "current_match": "Último concluído: Stockport - Blackpool",
-  "last_result": "Stockport - Blackpool: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:48:56.117Z"
+  "processed_games": 143,
+  "stats_games": 142,
+  "bwin_odds": 142,
+  "failed_games": 1,
+  "current_match": "Último erro: Ag7mcoDb",
+  "last_result": "Falha em Ag7mcoDb: Falha ao recolher Ag7mcoDb: HTTP 503",
+  "updated_at": "2026-11-05T21:49:32.539Z"
 }
