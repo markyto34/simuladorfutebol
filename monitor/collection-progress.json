@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 472,
-  "processed_games": 200,
-  "stats_games": 198,
-  "bwin_odds": 198,
+  "processed_games": 225,
+  "stats_games": 223,
+  "bwin_odds": 222,
   "failed_games": 2,
-  "current_match": "Último concluído: Toronto FC - New England Revolution",
-  "last_result": "Toronto FC - New England Revolution: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T16:01:50.840Z"
+  "current_match": "Último concluído: CF Montreal - Inter Miami",
+  "last_result": "CF Montreal - Inter Miami: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T16:01:59.775Z"
 }
