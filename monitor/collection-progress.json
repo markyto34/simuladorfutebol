@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 110,
   "processed_games": 110,
   "stats_games": 110,
   "bwin_odds": 110,
   "failed_games": 0,
-  "current_match": "Último concluído: Vado - Atalanta U23",
+  "current_match": "Recolha terminada",
   "last_result": "Vado - Atalanta U23: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:05:44.152Z"
+  "updated_at": "2026-11-05T22:05:45.582Z"
 }
