@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed_with_errors",
+  "phase": "completed",
   "total_games": 55,
   "processed_games": 55,
   "stats_games": 52,
   "bwin_odds": 52,
   "failed_games": 3,
-  "current_match": "Último concluído: Kalamata - Aris",
+  "current_match": "Recolha terminada",
   "last_result": "Kalamata - Aris: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:42:30.747Z"
+  "updated_at": "2026-11-05T21:42:32.379Z"
 }
