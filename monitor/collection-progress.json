@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 631,
-  "processed_games": 275,
-  "stats_games": 275,
-  "bwin_odds": 240,
+  "processed_games": 300,
+  "stats_games": 300,
+  "bwin_odds": 263,
   "failed_games": 0,
-  "current_match": "Último concluído: Gimnasia y Tiro - Patronato",
-  "last_result": "Gimnasia y Tiro - Patronato: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T09:31:04.971Z"
+  "current_match": "Último concluído: Deportivo Madryn - Colon",
+  "last_result": "Deportivo Madryn - Colon: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T09:31:34.920Z"
 }
