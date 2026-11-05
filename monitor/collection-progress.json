@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 60,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 29,
+  "processed_games": 60,
+  "stats_games": 60,
+  "bwin_odds": 38,
   "failed_games": 0,
-  "current_match": "Último concluído: Ried - SK Rapid",
-  "last_result": "Ried - SK Rapid: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T09:44:45.039Z"
+  "current_match": "Último concluído: LASK - Grazer",
+  "last_result": "LASK - Grazer: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T09:44:56.961Z"
 }
