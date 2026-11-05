@@ -1,15 +1,15 @@
 {
-  "run_id": "41998841542",
-  "run_number": "2",
+  "run_id": "42049381940",
+  "run_number": "3",
   "target_date": "",
   "status": "running",
-  "phase": "collecting",
-  "total_games": 90,
+  "phase": "discovery",
+  "total_games": 0,
   "processed_games": 0,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
+  "current_match": "A descobrir jogos",
   "last_result": "",
-  "updated_at": "2026-11-05T14:40:09.800Z"
+  "updated_at": "2026-11-05T14:53:34.348Z"
 }
