@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 120,
-  "processed_games": 100,
-  "stats_games": 100,
-  "bwin_odds": 99,
-  "failed_games": 0,
-  "current_match": "Último concluído: Sp. Subotica - Teleoptik",
-  "last_result": "Sp. Subotica - Teleoptik: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:59:46.556Z"
+  "processed_games": 120,
+  "stats_games": 117,
+  "bwin_odds": 116,
+  "failed_games": 3,
+  "current_match": "Último erro: 42R9afNH",
+  "last_result": "Falha em 42R9afNH: Falha ao recolher 42R9afNH: HTTP 503",
+  "updated_at": "2026-11-05T23:00:12.471Z"
 }
