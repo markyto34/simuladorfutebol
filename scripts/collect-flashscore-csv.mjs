@@ -13,7 +13,7 @@ import { mergeRows, mergeLatestRows } from "./csv-merge.mjs";
 import { filterHistoricalMatchIds } from "./historical-fixture-matching.mjs";
 
 const PROXY = (process.env.FLASHSCORE_PROXY_URL || "https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev").replace(/\/$/, "");
-const DELAY_MS = Math.max(250, Number(process.env.FLASHSCORE_REQUEST_DELAY_MS || 300));
+const DELAY_MS = Math.max(100, Number(process.env.FLASHSCORE_REQUEST_DELAY_MS || 300));
 const CONCURRENCY = Math.max(1, Math.min(4, Number.parseInt(process.env.FLASHSCORE_CONCURRENCY || "2", 10) || 2));
 const REQUEST_TIMEOUT_MS = 45_000;
 const DISCOVERY_TIMEOUT_MS = 60_000;

@@ -9,7 +9,7 @@ const FEED_SIGN = process.env.FLASHSCORE_FEED_SIGN || "SW9D1eZo";
 let activeFeedSign = FEED_SIGN;
 const MAX_PAGES = 100;
 const MAX_MATCHES = 2000;
-const DELAY_MS = Math.max(1000, Number(process.env.FLASHSCORE_SEASON_PAGE_DELAY_MS || 1500));
+const DELAY_MS = Math.max(100, Number(process.env.FLASHSCORE_SEASON_PAGE_DELAY_MS || 1500));
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 function jsObject(html, marker) {
