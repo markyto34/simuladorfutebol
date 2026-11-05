@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 200,
-  "processed_games": 125,
-  "stats_games": 125,
-  "bwin_odds": 125,
+  "processed_games": 150,
+  "stats_games": 150,
+  "bwin_odds": 149,
   "failed_games": 0,
-  "current_match": "Último concluído: Cobresal - O'Higgins",
-  "last_result": "Cobresal - O'Higgins: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T11:51:37.545Z"
+  "current_match": "A consultar jogo 151/200 · 2FLZ8Wwp",
+  "last_result": "U. Catolica - Everton: 16 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T11:52:07.913Z"
 }
