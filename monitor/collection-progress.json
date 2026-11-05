@@ -2,14 +2,14 @@
   "run_id": "42053542737",
   "run_number": "6",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed_with_errors",
+  "phase": "completed",
   "total_games": 83,
   "processed_games": 83,
   "stats_games": 79,
   "bwin_odds": 79,
   "failed_games": 4,
-  "current_match": "Último concluído: Lok. Sofia - Levski",
+  "current_match": "Recolha terminada",
   "last_result": "Lok. Sofia - Levski: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:35:54.639Z"
+  "updated_at": "2026-11-05T15:35:56.192Z"
 }
