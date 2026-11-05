@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 54,
-  "processed_games": 26,
-  "stats_games": 26,
-  "bwin_odds": 25,
+  "processed_games": 51,
+  "stats_games": 51,
+  "bwin_odds": 48,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/54 · SpQuCopQ",
-  "last_result": "Zeljeznicar - Sarajevo: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:23:07.510Z"
+  "current_match": "A consultar jogo 54/54 · QLDg72c5",
+  "last_result": "Borac Banja Luka - Velez Mostar: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:23:12.928Z"
 }
