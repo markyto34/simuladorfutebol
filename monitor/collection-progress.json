@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 120,
-  "processed_games": 75,
-  "stats_games": 75,
-  "bwin_odds": 74,
+  "processed_games": 100,
+  "stats_games": 100,
+  "bwin_odds": 99,
   "failed_games": 0,
-  "current_match": "Último concluído: Vrsac - Borac 1926",
-  "last_result": "Vrsac - Borac 1926: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:59:27.967Z"
+  "current_match": "Último concluído: Sp. Subotica - Teleoptik",
+  "last_result": "Sp. Subotica - Teleoptik: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:59:46.556Z"
 }
