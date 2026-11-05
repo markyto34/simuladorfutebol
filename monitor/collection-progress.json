@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 80,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 50,
+  "processed_games": 76,
+  "stats_games": 76,
+  "bwin_odds": 76,
   "failed_games": 0,
-  "current_match": "A consultar jogo 53/80 · GWFwZyMb",
-  "last_result": "Bregenz - Sturm Graz II: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:20:39.698Z"
+  "current_match": "A consultar jogo 79/80 · OvxR2Du3",
+  "last_result": "Áustria (Am) - BW Linz: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:20:48.468Z"
 }
