@@ -2,14 +2,14 @@
   "run_id": "41998841542",
   "run_number": "2",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed_with_errors",
+  "phase": "completed",
   "total_games": 99,
   "processed_games": 99,
   "stats_games": 97,
   "bwin_odds": 96,
   "failed_games": 2,
-  "current_match": "Último concluído: Alaves - Getafe",
+  "current_match": "Recolha terminada",
   "last_result": "Alaves - Getafe: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T13:58:37.813Z"
+  "updated_at": "2026-11-05T13:58:39.595Z"
 }
