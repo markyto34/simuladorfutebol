@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 59,
-  "processed_games": 26,
-  "stats_games": 26,
-  "bwin_odds": 26,
+  "processed_games": 51,
+  "stats_games": 51,
+  "bwin_odds": 51,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/59 · 2gFSxcTj",
-  "last_result": "Morton - Dunfermline: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:49:54.460Z"
+  "current_match": "A consultar jogo 54/59 · dh4d1wBF",
+  "last_result": "Dunfermline - Ayr: 1 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:49:59.483Z"
 }
