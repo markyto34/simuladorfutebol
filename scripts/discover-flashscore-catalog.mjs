@@ -48,7 +48,7 @@ function anchors(html) {
       attributeValue(match[2], 'alt')
     ).trim();
     found.push({ href: decodedHref, name });
-    try { seen.add(new URL(decodedHref, INDEX_URL).pathname); } catch {}
+    try { seen.add(new URL(decodedHref, INDEX_URL).pathname.replace(/\/$/, "")); } catch {}
   }
 
   // Alguns links de competições também vêm embutidos no estado JSON da página,
