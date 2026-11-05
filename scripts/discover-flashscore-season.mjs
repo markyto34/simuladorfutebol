@@ -160,6 +160,13 @@ async function main() {
       "User-Agent": "Mozilla/5.0 (compatible; SimuladorFutebol/1.0)"
     }, "feed " + feedName)
   });
+  let catalogLabel = null;
+  try {
+    const coverage = JSON.parse(await readFile("data/flashscore-competition-coverage.json", "utf8"));
+    catalogLabel = (coverage.competitions || []).find(item => {
+      try { return new URL(item.url).pathname === path; } catch { return false; }
+    }) || null;
+  } catch {}
   let completeIds = new Set();
   try {
     const existing = parseCsv(await readFile("data/flashscore-statistics.csv", "utf8"));
@@ -168,10 +175,18 @@ async function main() {
         .every(key => String(row[key] ?? "").trim() !== "")
     ).map(row => row.match_id));
   } catch {}
-  const fixtures = result.fixtures.map(item => ({
-    match_id: item.match_id, competition: item.competition,
-    stats_status: completeIds.has(item.match_id) ? "already_complete" : "pending"
-  }));
+  const fixtures = result.fixtures.map(item => {
+    const parts = String(item.competition || "").split(":");
+    const competitionName = parts.length > 1
+      ? parts.slice(1).join(":").trim()
+      : (catalogLabel?.competition_name || parts[0].trim());
+    const countryName = catalogLabel?.country_name || (parts.length > 1 ? parts[0].trim() : "");
+    const competition = countryName && competitionName ? countryName + ": " + competitionName : item.competition;
+    return {
+      match_id: item.match_id, competition,
+      stats_status: completeIds.has(item.match_id) ? "already_complete" : "pending"
+    };
+  });
   const manifest = {
     source: "Flashscore tournament season results feed", generated_at: new Date().toISOString(),
     path, season: result.context.season_name, tournament_id: result.context.tournament_id,
