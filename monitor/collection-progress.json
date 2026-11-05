@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 472,
-  "processed_games": 150,
-  "stats_games": 150,
-  "bwin_odds": 150,
+  "processed_games": 175,
+  "stats_games": 175,
+  "bwin_odds": 175,
   "failed_games": 0,
-  "current_match": "Último concluído: Nashville SC - Cincinnati",
-  "last_result": "Nashville SC - Cincinnati: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T14:24:41.081Z"
+  "current_match": "Último concluído: Vancouver Whitecaps - Houston Dynamo",
+  "last_result": "Vancouver Whitecaps - Houston Dynamo: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T14:25:11.003Z"
 }
