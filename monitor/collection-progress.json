@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 75,
-  "processed_games": 26,
-  "stats_games": 22,
+  "processed_games": 51,
+  "stats_games": 43,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Girona B - Espanyol B",
-  "last_result": "Girona B - Espanyol B: 10 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T15:56:06.005Z"
+  "current_match": "A consultar jogo 54/75 · fTcLn7ZP",
+  "last_result": "Tudelano - Manresa: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T15:56:11.180Z"
 }
