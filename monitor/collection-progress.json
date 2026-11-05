@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 322,
-  "processed_games": 300,
-  "stats_games": 300,
-  "bwin_odds": 271,
+  "processed_games": 322,
+  "stats_games": 322,
+  "bwin_odds": 292,
   "failed_games": 0,
-  "current_match": "Último concluído: Atletico-MG - Remo",
-  "last_result": "Atletico-MG - Remo: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T10:09:03.495Z"
+  "current_match": "Último concluído: Vitoria - Remo",
+  "last_result": "Vitoria - Remo: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T10:09:29.935Z"
 }
