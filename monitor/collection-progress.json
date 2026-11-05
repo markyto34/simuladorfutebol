@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 63,
-  "processed_games": 26,
-  "stats_games": 26,
-  "bwin_odds": 26,
+  "processed_games": 51,
+  "stats_games": 51,
+  "bwin_odds": 51,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/63 · 4dYNZG4l",
-  "last_result": "Union Berlin - Elversberg: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T14:55:31.120Z"
+  "current_match": "A consultar jogo 54/63 · zJPxkg9a",
+  "last_result": "Leverkusen - Union Berlin: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T14:55:36.909Z"
 }
