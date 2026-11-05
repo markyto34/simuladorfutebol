@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 66,
   "processed_games": 66,
   "stats_games": 66,
   "bwin_odds": 66,
   "failed_games": 0,
-  "current_match": "Último concluído: Servette - Luzern",
+  "current_match": "Recolha terminada",
   "last_result": "Servette - Luzern: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T23:12:05.439Z"
+  "updated_at": "2026-11-05T23:12:06.798Z"
 }
