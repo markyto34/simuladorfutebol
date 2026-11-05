@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 75,
-  "processed_games": 50,
-  "stats_games": 43,
+  "processed_games": 75,
+  "stats_games": 64,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Osasuna B - Ebro",
-  "last_result": "Osasuna B - Ebro: 9 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T14:11:18.208Z"
+  "current_match": "Último concluído: Calamocha - Terrassa",
+  "last_result": "Calamocha - Terrassa: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T14:11:48.111Z"
 }
