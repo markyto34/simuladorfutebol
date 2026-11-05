@@ -115,6 +115,14 @@ export function validateHistory(stats, odds) {
     competition.matches++;
     if (!blank(row.xg_home) && !blank(row.xg_away)) { withXg++; competition.withXg++; }
     if (!blank(row.corners_home) && !blank(row.corners_away)) withCorners++;
+    for (const key of ["corners_ht", "corners_st"]) {
+      const home = !blank(row[key + "_home"]), away = !blank(row[key + "_away"]);
+      if (home !== away) throw new Error("Cantos por período incompletos (" + key + ") no jogo " + id);
+      if (home) {
+        optionalNumber(row[key + "_home"], key + "_home", id, { integer: true, max: 99 });
+        optionalNumber(row[key + "_away"], key + "_away", id, { integer: true, max: 99 });
+      }
+    }
     if (!blank(row.shots_home) && !blank(row.shots_away)) withShots++;
     if (STAT_CATEGORIES.every(key => !blank(row[key + "_home"]) && !blank(row[key + "_away"]))) all13++;
   }

@@ -32,3 +32,32 @@ test("does not guess identity from team names or unrelated text", () => {
   assert.equal(result.fields.country, null);
   assert.equal(result.fields.competition, null);
 });
+
+
+test("extracts first-half and second-half corners only from explicitly labelled statistics", () => {
+  const html = '<div data-testid="wcl-statistics">' +
+    '<div class="stat-row"><span>Cantos 1.ª Parte</span><span>3</span><span>2</span></div>' +
+    '<div class="stat-row"><span>2ª Parte - Cantos</span><span>4</span><span>5</span></div>' +
+    '<div class="stat-row"><span>Cantos</span><span>7</span><span>7</span></div>' +
+    '</div>';
+  const result = extractPageContext(html);
+  assert.deepEqual(result.statistics.corners_ht, { home: 3, away: 2, unit: null, source_label: "Cantos 1.ª Parte" });
+  assert.deepEqual(result.statistics.corners_st, { home: 4, away: 5, unit: null, source_label: "2ª Parte - Cantos" });
+  assert.deepEqual(result.statistics.corners, { home: 7, away: 7, unit: null, source_label: "Cantos" });
+});
+
+test("does not infer period corners from total corners or score periods", () => {
+  const html = '<div data-testid="wcl-statistics">' +
+    '<div class="stat-row"><span>Cantos</span><span>7</span><span>5</span></div>' +
+    '</div>';
+  const result = extractPageContext(html);
+  assert.equal(result.statistics.corners_ht, undefined);
+  assert.equal(result.statistics.corners_st, undefined);
+});
+
+
+test("extrai árbitro e estádio apenas após rótulos explícitos", () => {
+  const result = extractPageContext("<main>Árbitro: João Silva | Estádio: Dragão</main>");
+  assert.equal(result.fields.referee, "João Silva");
+  assert.equal(result.fields.venue, "Dragão");
+});

@@ -20,7 +20,7 @@ test("extracts competition identity from visible breadcrumbs and structured meta
 });
 
 test("keeps contradictory competition candidates null and reports ambiguity", () => {
-  const html = `<a href="/futebol/portugal/primeira-liga/">Primeira Liga</a>
+  const html = `<meta property="og:competition" content="Primeira Liga">
     <script type="application/json">{"competition":"Taça de Portugal"}</script>`;
   const result = extractPageContext(html);
   assert.equal(result.fields.competition, null);

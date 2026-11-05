@@ -14,7 +14,8 @@ function plain(value) {
     .replace(/\s+/g, " ").trim();
 }
 function getAttr(tag, name) {
-  const m = tag.match(new RegExp("\\b" + name + "\\s*=\\s*(['\"])([\\s\\S]*?)\\1", "i"));
+  const escaped = String(name).replace(/[^a-z0-9_-]/gi, "");
+  const m = tag.match(new RegExp("\\b" + escaped + "\\s*=\\s*(['\"])([\\s\\S]*?)\\1", "i"));
   return m?.[2] ?? null;
 }
 function parseAttrs(raw) {
@@ -109,6 +110,8 @@ function extractVisible(html, out) {
 const STAT_LABELS = [
   ["expected_goals", /^(golos esperados(?: \(xg\))?|expected goals(?: \(xg\))?|xg)$/i],
   ["big_chances", /^(grandes oportunidades|big chances)$/i],
+  ["corners_ht", /^(?:(?:cantos|pontap[eé]s de canto|escanteios|corners)\s*[-:]?\s*(?:1[.ºª°]{0,2}\s*(?:parte|tempo|half)|primeira parte|first half|1st half)|(?:1[.ºª°]{0,2}\s*(?:parte|tempo|half)|primeira parte|first half|1st half)\s*[-:]?\s*(?:cantos|pontap[eé]s de canto|escanteios|corners))$/i],
+  ["corners_st", /^(?:(?:cantos|pontap[eé]s de canto|escanteios|corners)\s*[-:]?\s*(?:2[.ºª°]{0,2}\s*(?:parte|tempo|half)|segunda parte|second half|2nd half)|(?:2[.ºª°]{0,2}\s*(?:parte|tempo|half)|segunda parte|second half|2nd half)\s*[-:]?\s*(?:cantos|pontap[eé]s de canto|escanteios|corners))$/i],
   ["corners", /^(cantos|pontapés de canto|escanteios|corners)$/i],
   ["shots", /^(remates|finalizações|chutes|shots|total remates|total de remates|total shots)$/i],
   ["shots_on_target", /^(remates à baliza|remates enquadrados|finalizações no alvo|chutes no gol|shots on target)$/i],
@@ -189,7 +192,7 @@ function extractWclStatistics(html) {
       collectTextLeaves(scope, leaves);
       const values = leaves.map(plain).filter(Boolean);
       for (let i = 0; i < values.length; i++) {
-        const label = values[i].replace(/\\s+/g, " ").trim();
+        const label = values[i].replace(/\s+/g, " ").trim();
         const found = STAT_LABELS.find(([, re]) => re.test(label));
         if (!found) continue;
         const [key] = found;

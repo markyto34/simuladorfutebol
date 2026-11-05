@@ -1,4 +1,5 @@
 import { extractBwin1x2 } from "./extract-bwin.mjs";
+import { extractPeriodCornersFromFeed } from "./extract-period-corners.mjs";
 import { inspectScoreEvidence } from "./extract-scores.mjs";
 import { extractPeriodScores } from "./extract-period-scores.mjs";
 import { inspectMatchDiscovery, extractExplicitCompetitionForMatch } from "./discover-matches.mjs";
@@ -148,6 +149,50 @@ function inspectHtml(html, matchId, options = {}) {
   };
 }
 
+
+async function fetchPeriodCornerStats(matchId) {
+  const target = new URL("/2/x/feed/df_st_1_" + matchId, "https://2.flashscore.ninja");
+  let response;
+  try {
+    response = await fetch(target.toString(), {
+      method: "GET",
+      redirect: "manual",
+      headers: {
+        "Accept": "*/*",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Referer": "https://www.flashscore.pt/",
+        "Origin": "https://www.flashscore.pt",
+        "x-fsign": "SW9D1eZo",
+        "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36"
+      },
+      signal: AbortSignal.timeout(12_000)
+    });
+  } catch (error) {
+    return { status: "unavailable", reason: "network_error", detail: String(error?.message || "").slice(0, 160), source_url: target.toString() };
+  }
+  if (response.status === 401 || response.status === 403 || response.status === 429) {
+    return { status: "upstream_rejected", upstream_status: response.status, source_url: target.toString() };
+  }
+  if (!response.ok || response.status >= 300) {
+    return { status: "upstream_error", upstream_status: response.status, source_url: target.toString() };
+  }
+  const bytes = await response.arrayBuffer();
+  if (bytes.byteLength > MAX_BODY_BYTES) {
+    return { status: "response_too_large", source_url: target.toString() };
+  }
+  const feed = new TextDecoder("utf-8").decode(bytes);
+  const extracted = extractPeriodCornersFromFeed(feed);
+  const hasHt = Boolean(extracted.corners_ht);
+  const hasSt = Boolean(extracted.corners_st);
+  return {
+    status: hasHt && hasSt ? "available" : hasHt || hasSt ? "partial" : "no_period_corners",
+    source_url: target.toString(),
+    corners_ht: extracted.corners_ht,
+    corners_st: extracted.corners_st,
+    diagnostics: extracted.diagnostics,
+    response_bytes: bytes.byteLength
+  };
+}
 
 function compactDiagnostic(inspection) {
   const summary = summarizeInspection(inspection);
@@ -326,7 +371,7 @@ export default {
         ok: true,
         service: "simuladorfutebol-flashscore-proxy",
         upstream: UPSTREAM,
-        mode: "single-match-html-relay"
+        mode: "single-match-html-and-period-statistics-feed"
       }, 200, headers);
     }
 
@@ -456,8 +501,8 @@ export default {
       }, 404, headers);
     }
 
-    // /record recolhe uma única página de estatísticas e extrai dela estatísticas
-    // e odds Bwin. Não faz descoberta secundária nem pedidos adicionais.
+    // /record recolhe a página de estatísticas e as odds Bwin. Quando há estatísticas,
+    // consulta também o feed de períodos para cantos HT/ST; não faz descoberta secundária.
     const requestedTab = incoming.searchParams.get("tab") || (recordOnly ? "statistics" : "summary");
     if (!inspectOnly && !recordOnly && incoming.searchParams.has("tab")) {
       return json({ error: "tab_only_supported_on_inspect" }, 400, headers);
@@ -476,7 +521,9 @@ export default {
     }
 
     const target = new URL(buildMatchTabUrl(matchId, requestedTab), UPSTREAM);
-    const cacheKey = new Request(target.toString(), { method: "GET" });
+    const cacheTarget = new URL(target.toString());
+    if (recordOnly) cacheTarget.searchParams.set("record_schema", "2");
+    const cacheKey = new Request(cacheTarget.toString(), { method: "GET" });
     const cache = caches.default;
     let html = null;
 
@@ -549,6 +596,38 @@ export default {
         // jogo está terminado e o resultado falta, consultar o Sumário uma vez.
         // A extração continua a exigir decomposição explícita e validação dos parciais.
         const finishedStatus = /^(?:Terminado|Tempo Final|Depois de Prolongamento|Após prolongamento|A\.P\.)$/i.test(String(record?.status || ""));
+        const hasMatchStatistics = Object.keys(record?.statistics || {}).length > 0;
+        if (hasMatchStatistics || finishedStatus) {
+          const periodFeed = await fetchPeriodCornerStats(matchId);
+          record.period_statistics_feed = {
+            status: periodFeed.status,
+            source_url: periodFeed.source_url || null,
+            upstream_status: periodFeed.upstream_status || null,
+            reason: periodFeed.reason || null,
+            diagnostics: periodFeed.diagnostics || null
+          };
+          record.statistics = record.statistics || {};
+          for (const [key, value] of [["corners_ht", periodFeed.corners_ht], ["corners_st", periodFeed.corners_st]]) {
+            if (!value) continue;
+            record.statistics[key] = {
+              home: value.home,
+              away: value.away,
+              unit: null,
+              source_label: value.source_label,
+              source_period: value.source_period
+            };
+            record.source_capture.evidence.push({
+              field: "statistics." + key,
+              source: "Flashscore period statistics feed",
+              period: value.source_period,
+              label: value.source_label,
+              values: { home: value.home, away: value.away }
+            });
+          }
+          if (Object.keys(record.statistics).length > 0) {
+            record.missing_fields = (record.missing_fields || []).filter(field => field !== "statistics");
+          }
+        }
         if (requestedTab === "statistics" && finishedStatus && !record?.score?.full_time) {
           const summaryTarget = new URL(buildMatchTabUrl(matchId, "summary"), UPSTREAM);
           try {

@@ -82,3 +82,16 @@ test("valida cartões vermelhos e resultados HT/ST quando as novas colunas exist
     ...row, red_cards_home:"-1"
   }],[oddsRow()]), /Valor estatístico inválido/);
 });
+
+
+test("valida cantos HT/ST em pares completos e rejeita valores inválidos", () => {
+  assert.doesNotThrow(() => validateHistory([statsRow({
+    corners_ht_home:"3", corners_ht_away:"2", corners_st_home:"4", corners_st_away:"1"
+  })],[oddsRow()]));
+  assert.throws(() => validateHistory([statsRow({
+    corners_ht_home:"3", corners_ht_away:""
+  })],[oddsRow()]), /Cantos por período incompletos/);
+  assert.throws(() => validateHistory([statsRow({
+    corners_st_home:"1.5", corners_st_away:"2"
+  })],[oddsRow()]), /Valor estatístico inválido/);
+});

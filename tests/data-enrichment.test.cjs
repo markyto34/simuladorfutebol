@@ -127,3 +127,21 @@ test("Flashscore does not invent missing red cards or half-time scores", () => {
   assert.equal(matches[0].htHome, null);
   assert.equal(matches[0].homeRed, null);
 });
+
+
+test("Flashscore enriches first-half and second-half corners separately without inventing missing values", () => {
+  const matches = [{
+    date: "2026-11-01", home: "Union Berlin", away: "FC Koln", hg: 1, ag: 1,
+    homeCornersHt: null, awayCornersHt: null, homeCornersSt: null, awayCornersSt: null
+  }];
+  const csv = [
+    "match_id,date_time,home_team,away_team,score_home,score_away,corners_ht_home,corners_ht_away,corners_st_home,corners_st_away",
+    "abc123,2026-11-01T14:30,Union Berlin,FC Koln,1,1,2,1,3,4"
+  ].join("\n");
+  const result = enrichFlashscoreStats(matches, csv);
+  assert.deepEqual(result, { matched: 1, enriched: 1 });
+  assert.deepEqual(
+    [matches[0].homeCornersHt,matches[0].awayCornersHt,matches[0].homeCornersSt,matches[0].awayCornersSt],
+    [2,1,3,4]
+  );
+});

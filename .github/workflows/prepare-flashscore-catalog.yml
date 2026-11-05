@@ -1,0 +1,66 @@
+name: Preparar catálogo Flashscore sem nova descoberta
+
+on:
+  push:
+    branches: [feature/flashscore-full-competition-discovery, main]
+    paths:
+      - ".github/workflows/prepare-flashscore-catalog.yml"
+      - "scripts/prepare-flashscore-catalog.mjs"
+      - "tests/prepare-flashscore-catalog.test.mjs"
+      - "data/flashscore-competition-catalog-raw.json"
+
+concurrency:
+  group: flashscore-catalog-prepare
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  prepare:
+    name: Preparar catálogo a partir da recolha guardada
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Obter código
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Testar preparação do catálogo
+        run: node --test tests/prepare-flashscore-catalog.test.mjs
+      - name: Repreparar catálogo sem consultar o Flashscore
+        run: node scripts/prepare-flashscore-catalog.mjs
+      - name: Atualizar auditoria de cobertura
+        run: node scripts/audit-flashscore-catalog-coverage.mjs
+      - name: Guardar catálogo preparado sem perder commits concorrentes
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          pushed=false
+          for attempt in 1 2 3; do
+            git fetch origin "$GITHUB_REF_NAME"
+            git reset --hard "origin/$GITHUB_REF_NAME"
+            node scripts/prepare-flashscore-catalog.mjs
+            node scripts/audit-flashscore-catalog-coverage.mjs
+            git add data/flashscore-competition-catalog.json data/flashscore-competition-coverage.json
+            if git diff --cached --quiet; then
+              echo "O catálogo preparado já está atualizado."
+              pushed=true
+              break
+            fi
+            git commit -m "Atualizar preparação do catálogo Flashscore"
+            if git push origin "HEAD:$GITHUB_REF_NAME"; then
+              pushed=true
+              break
+            fi
+            echo "Push concorrente recusado (tentativa ${attempt}/3); vou recalcular sobre a versão remota."
+          done
+          if [ "$pushed" != "true" ]; then
+            echo "Não foi possível guardar o catálogo após 3 tentativas."
+            exit 1
+          fi

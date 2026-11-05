@@ -1,0 +1,85 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import { parseCountryLinks, parseCompetitionLinks, discoverFlashscoreCatalog } from "../scripts/discover-flashscore-catalog.mjs";
+
+test("descobre páginas de países e regiões apenas no caminho de futebol", () => {
+  const html = `
+    <a href="/futebol/portugal/">Portugal</a>
+    <a href="https://www.flashscore.pt/futebol/alemanha/">Alemanha</a>
+    <a href="/futebol/europa/">Europa</a>
+    <a href="/tenis/portugal/">Ténis Portugal</a>
+    <a href="https://example.com/futebol/italia/">Site externo</a>
+    <a href="/futebol/portugal/liga-portugal/">Liga Portugal</a>
+  `;
+  const result = parseCountryLinks(html);
+  assert.deepEqual(result.map(item => item.country_slug).sort(), ["alemanha", "europa", "portugal"]);
+});
+
+test("extrai todas as competições da página de país sem fundir fases e divisões", () => {
+  const country = { country_name: "Portugal", country_slug: "portugal", url: "https://www.flashscore.pt/futebol/portugal/" };
+  const html = `
+    <a href="/futebol/portugal/liga-portugal/">Liga Portugal Betclic</a>
+    <a href="/futebol/portugal/campeonato-portugal-serie-a/">Campeonato de Portugal - Série A</a>
+    <a href="/futebol/portugal/campeonato-portugal-serie-b/">Campeonato de Portugal - Série B</a>
+    <a href="/futebol/portugal/campeonato-portugal-playoffs/">Campeonato de Portugal - Playoffs</a>
+    <a href="/futebol/portugal/liga-futebol-feminino/">Liga de Futebol Feminino</a>
+    <a href="/futebol/portugal/liga-portugal/">Liga Portugal (2026/27)</a>
+    <a href="/futebol/espanha/laliga/">LaLiga</a>
+  `;
+  const result = parseCompetitionLinks(html, country);
+  assert.equal(result.length, 5);
+  assert.equal(result.find(item => item.competition_slug === "campeonato-portugal-serie-a").competition_name, "Campeonato de Portugal - Série A");
+  assert.equal(result.find(item => item.competition_slug === "campeonato-portugal-playoffs").status, "candidate_not_yet_validated");
+});
+
+test("recupera o nome da competição do alt de imagem em links sem texto", () => {
+  const country = { country_name: "Suécia", country_slug: "suecia", url: "https://www.flashscore.pt/futebol/suecia/" };
+  const html = '<a href="/futebol/suecia/allsvenskan/"><img src="/logo.png" alt="Allsvenskan"></a>';
+  const result = parseCompetitionLinks(html, country);
+  assert.equal(result.length, 1);
+  assert.equal(result[0].competition_name, "Allsvenskan");
+  assert.equal(result[0].url, "https://www.flashscore.pt/futebol/suecia/allsvenskan/");
+});
+
+
+test("recupera links de competições embutidos no estado JSON da página", () => {
+  const country = { country_name: "Suécia", country_slug: "suecia", url: "https://www.flashscore.pt/futebol/suecia/" };
+  const html = String.raw`{"competitionUrl":"\/futebol\/suecia\/allsvenskan\/"}`;
+  const result = parseCompetitionLinks(html, country);
+  assert.equal(result.length, 1);
+  assert.equal(result[0].competition_slug, "allsvenskan");
+  assert.equal(result[0].competition_name, "Allsvenskan");
+});
+
+test("o crawler regista erros por país e preserva páginas que responderam", async () => {
+  const pages = new Map([
+    ["https://www.flashscore.pt/futebol/", '<a href="/futebol/portugal/">Portugal</a><a href="/futebol/alemanha/">Alemanha</a>'],
+    ["https://www.flashscore.pt/futebol/mundo/", '<a href="/futebol/portugal/taca-de-portugal/">Taça de Portugal</a>'],
+    ["https://www.flashscore.pt/futebol/portugal/", '<a href="/futebol/portugal/liga-portugal/">Liga Portugal</a>']
+  ]);
+  const report = await discoverFlashscoreCatalog({
+    fetchPage: async url => {
+      if (url.endsWith("/alemanha/")) throw new Error("HTTP 403");
+      if (!pages.has(url)) throw new Error("unexpected URL " + url);
+      return pages.get(url);
+    },
+    waitMs: 0
+  });
+  assert.equal(report.country_page_count, 2);
+  assert.equal(report.country_pages_successful, 1);
+  assert.equal(report.country_pages_failed, 1);
+  assert.equal(report.competition_candidate_count, 2);
+  assert.ok(report.competitions.some(item => item.competition_slug === "taca-de-portugal"));
+  assert.ok(report.errors.some(item => item.country === "Alemanha"));
+});
+
+
+test("recupera o nome da competição de aria-label ou title quando o link não tem texto visível", () => {
+  const country = { country_name: "Argentina", country_slug: "argentina", url: "https://www.flashscore.pt/futebol/argentina/" };
+  const html = `
+    <a href="/futebol/argentina/liga-profesional/" aria-label="Liga Profesional"><img src="/logo.png"></a>
+    <a href="/futebol/argentina/primera-b/" title="Primeira B"><svg></svg></a>
+  `;
+  const result = parseCompetitionLinks(html, country);
+  assert.deepEqual(result.map(item => item.competition_name).sort(), ["Liga Profesional", "Primeira B"]);
+});

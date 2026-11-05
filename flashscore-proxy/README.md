@@ -7,7 +7,7 @@ individual de jogo do domínio móvel público `m.flashscore.pt`.
 
 - `GET /health` — estado do Worker.
 - `GET /match?id=<match-id>` — obtém a página HTML de uma partida.\n- `GET /inspect?id=<match-id>` — inspeciona o sumário do jogo.
-- `GET /inspect?id=<match-id>&tab=statistics|lineups|standings|commentary|h2h` — inspeciona um separador autorizado do mesmo jogo. `summary` é o separador predefinido.\n- `GET /record?id=<match-id>` — recolhe uma única página do separador de estatísticas e devolve um registo JSON com estatísticas e, quando identificadas sem ambiguidade, odds 1X2 da Bwin.
+- `GET /inspect?id=<match-id>&tab=statistics|lineups|standings|commentary|h2h` — inspeciona um separador autorizado do mesmo jogo. `summary` é o separador predefinido.\n- `GET /record?id=<match-id>` — recolhe a página de estatísticas e, quando há estatísticas disponíveis, consulta também o feed de períodos para obter cantos totais, HT e ST. Devolve ainda, quando identificadas sem ambiguidade, odds 1X2 da Bwin.
 
 O identificador e o separador são validados. O destino é sempre construído internamente no domínio `https://m.flashscore.pt`, sem aceitar URLs arbitrários. Os separadores autorizados são mapeados para os caminhos observados nos links internos do HTML.
 

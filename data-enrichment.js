@@ -112,6 +112,8 @@
     const index = indexMatches(matches), matched = new Set(), enriched = new Set();
     const fields = [
       ["hc", ["corners_home"]], ["ac", ["corners_away"]],
+      ["homeCornersHt", ["corners_ht_home"]], ["awayCornersHt", ["corners_ht_away"]],
+      ["homeCornersSt", ["corners_st_home"]], ["awayCornersSt", ["corners_st_away"]],
       ["homeShots", ["shots_home"]], ["awayShots", ["shots_away"]],
       ["homeTarget", ["shots_on_target_home"]], ["awayTarget", ["shots_on_target_away"]],
       ["homeFouls", ["fouls_home"]], ["awayFouls", ["fouls_away"]],
