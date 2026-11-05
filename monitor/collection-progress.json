@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 42,
   "processed_games": 42,
   "stats_games": 42,
   "bwin_odds": 30,
   "failed_games": 0,
-  "current_match": "Último concluído: Oliveira Hospital - SB Castelo Branco",
+  "current_match": "Recolha terminada",
   "last_result": "Oliveira Hospital - SB Castelo Branco: 7 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:36:50.407Z"
+  "updated_at": "2026-11-05T22:36:51.637Z"
 }
