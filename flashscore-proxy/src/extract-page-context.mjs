@@ -103,7 +103,7 @@ function extractVisible(html, out) {
   for (const m of p.matchAll(/\b(?:jornada|round|matchday|rodada)\s*#?\s*(\d{1,3})\b/gi)) add(out, "round", m[1], "visible-page-text");
   for (const m of p.matchAll(/\b(oitavos de final|quartos de final|meias?-finais|final|playoffs?|group stage|fase de grupos)\b/gi)) add(out, "stage", m[1], "visible-page-text");
   for (const [label, field] of [["Árbitro", "referee"], ["Referee", "referee"], ["Estádio", "venue"], ["Stadium", "venue"], ["Assistência", "attendance"], ["Attendance", "attendance"]]) {
-    const m = p.match(new RegExp(label + "\s*:?\s*([^|]{2,90})", "i"));
+    const m = p.match(new RegExp(label + "\\s*:?\\s*([^|]{2,90})", "i"));
     if (m) add(out, field, m[1].split(/\s{2,}/)[0], "visible-label:" + label);
   }
 }
