@@ -4,6 +4,8 @@ run-name: Recolha Flashscore + Bwin · ${{ inputs.target_date || 'ontem (Portuga
 on:
   schedule:
     - cron: "30 5 * * *"
+    # Segunda oportunidade se o GitHub não iniciar o primeiro agendamento.
+    - cron: "30 6 * * *"
   workflow_dispatch:
     inputs:
       target_date:
