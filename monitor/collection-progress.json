@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 37,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 25,
-  "failed_games": 0,
-  "current_match": "Último concluído: Tanger - Moghreb Tetouan",
-  "last_result": "Tanger - Moghreb Tetouan: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:14:12.735Z"
+  "processed_games": 37,
+  "stats_games": 36,
+  "bwin_odds": 36,
+  "failed_games": 1,
+  "current_match": "Último erro: d4dcBm65",
+  "last_result": "Falha em d4dcBm65: Falha ao recolher d4dcBm65: HTTP 503",
+  "updated_at": "2026-11-05T22:15:14.556Z"
 }
