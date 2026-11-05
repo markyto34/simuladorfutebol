@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed_with_errors",
+  "phase": "completed",
   "total_games": 74,
   "processed_games": 74,
   "stats_games": 38,
   "bwin_odds": 0,
   "failed_games": 7,
-  "current_match": "Último concluído: Lovcen - Jedinstvo",
+  "current_match": "Recolha terminada",
   "last_result": "Lovcen - Jedinstvo: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T22:19:21.757Z"
+  "updated_at": "2026-11-05T22:19:23.186Z"
 }
