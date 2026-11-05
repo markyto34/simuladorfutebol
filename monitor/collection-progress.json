@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 224,
-  "processed_games": 150,
-  "stats_games": 150,
-  "bwin_odds": 150,
+  "processed_games": 176,
+  "stats_games": 176,
+  "bwin_odds": 176,
   "failed_games": 0,
-  "current_match": "Último concluído: Raufoss - Haugesund",
-  "last_result": "Raufoss - Haugesund: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:24:25.132Z"
+  "current_match": "A consultar jogo 179/224 · xCl3Vqsh",
+  "last_result": "Strömsgodset - Ranheim: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:24:30.259Z"
 }
