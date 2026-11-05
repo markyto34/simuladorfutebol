@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 208,
-  "processed_games": 176,
-  "stats_games": 176,
-  "bwin_odds": 176,
+  "processed_games": 201,
+  "stats_games": 201,
+  "bwin_odds": 199,
   "failed_games": 0,
-  "current_match": "A consultar jogo 179/208 · WnheDm4s",
-  "last_result": "Slavia Mozyr - Neman: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:21:44.280Z"
+  "current_match": "A consultar jogo 204/208 · 003SvZtI",
+  "last_result": "Naftan - Dnepr Mogilev: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:21:49.566Z"
 }
