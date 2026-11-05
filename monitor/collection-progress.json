@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 120,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 25,
-  "failed_games": 0,
-  "current_match": "Último concluído: Batman Petrolspor - Istanbulspor",
-  "last_result": "Batman Petrolspor - Istanbulspor: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T23:15:03.876Z"
+  "processed_games": 50,
+  "stats_games": 49,
+  "bwin_odds": 49,
+  "failed_games": 1,
+  "current_match": "Último erro: Cth6J6zG",
+  "last_result": "Falha em Cth6J6zG: Falha ao recolher Cth6J6zG: HTTP 503",
+  "updated_at": "2026-11-05T23:16:07.645Z"
 }
