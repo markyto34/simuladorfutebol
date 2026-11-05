@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 88,
-  "processed_games": 50,
-  "stats_games": 42,
-  "bwin_odds": 46,
-  "failed_games": 0,
-  "current_match": "Último concluído: Nagykanizsa - Tiszakecske",
-  "last_result": "Nagykanizsa - Tiszakecske: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:43:48.167Z"
+  "processed_games": 75,
+  "stats_games": 62,
+  "bwin_odds": 68,
+  "failed_games": 3,
+  "current_match": "Último concluído: Gyirmot - Kozarmisleny",
+  "last_result": "Gyirmot - Kozarmisleny: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T21:45:17.385Z"
 }
