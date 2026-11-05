@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 472,
-  "processed_games": 400,
-  "stats_games": 400,
-  "bwin_odds": 399,
+  "processed_games": 425,
+  "stats_games": 425,
+  "bwin_odds": 424,
   "failed_games": 0,
-  "current_match": "Último concluído: Portland Timbers - Los Angeles Galaxy",
-  "last_result": "Portland Timbers - Los Angeles Galaxy: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T14:29:46.172Z"
+  "current_match": "Último concluído: Orlando City - CF Montreal",
+  "last_result": "Orlando City - CF Montreal: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T14:30:16.183Z"
 }
