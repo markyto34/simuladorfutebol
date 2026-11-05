@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 103,
   "processed_games": 103,
   "stats_games": 77,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Enyimba - Warri Wolves",
+  "current_match": "Recolha terminada",
   "last_result": "Enyimba - Warri Wolves: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T22:21:43.197Z"
+  "updated_at": "2026-11-05T22:21:44.541Z"
 }
