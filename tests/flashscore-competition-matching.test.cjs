@@ -12,7 +12,7 @@ assert.ok(countryStart >= 0 && countryEnd > countryStart, "A normalização dos 
 assert.ok(start >= 0 && end > start, "A normalização dos nomes das competições Flashscore deve existir.");
 const context = {};
 vm.createContext(context);
-vm.runInContext(source.slice(countryStart, countryEnd) + "\\n" + source.slice(start, end) + ";this.normalizeLabel=normalizeFlashscoreSourceLabel;", context);
+vm.runInContext(source.slice(countryStart, countryEnd) + "\n" + source.slice(start, end) + ";this.normalizeLabel=normalizeFlashscoreSourceLabel;", context);
 
 test("Associa Portugal e PORTUGAL à mesma competição", () => {
   assert.equal(context.normalizeLabel("PORTUGAL / Liga Portugal 2"), context.normalizeLabel("Portugal / Liga Portugal 2"));
