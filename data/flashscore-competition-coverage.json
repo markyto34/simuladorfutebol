@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T07:46:48.808Z",
+  "generated_at": "2026-11-05T08:24:34.000Z",
   "source": "Flashscore catalog + data/flashscore-statistics.csv",
   "scope": "Correspondência por país e competição com normalização e apenas aliases explicitamente confirmados. Nomes repetidos no mesmo país ficam em revisão e não são considerados cobertura validada.",
   "summary": {
@@ -34,12 +34,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 17,
-          "coverage_pct": 85
+          "complete_matches": 20,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 17,
-          "coverage_pct": 85
+          "complete_matches": 20,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 20,
@@ -85,12 +85,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 9,
-          "coverage_pct": 50
+          "complete_matches": 18,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 9,
-          "coverage_pct": 50
+          "complete_matches": 18,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 18,
@@ -136,12 +136,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 9,
-          "coverage_pct": 50
+          "complete_matches": 18,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 9,
-          "coverage_pct": 50
+          "complete_matches": 18,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 18,
@@ -187,12 +187,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 2,
-          "coverage_pct": 12.5
+          "complete_matches": 16,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 2,
-          "coverage_pct": 12.5
+          "complete_matches": 16,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 16,
@@ -238,12 +238,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 16,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 16,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 16,
@@ -289,12 +289,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 15,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 15,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 15,
@@ -340,12 +340,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 2,
-          "coverage_pct": 15.4
+          "complete_matches": 13,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 2,
-          "coverage_pct": 15.4
+          "complete_matches": 13,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 13,
@@ -391,12 +391,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 1,
-          "coverage_pct": 7.7
+          "complete_matches": 13,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 1,
-          "coverage_pct": 7.7
+          "complete_matches": 13,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 13,
@@ -442,12 +442,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 6,
-          "coverage_pct": 50
+          "complete_matches": 12,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 6,
-          "coverage_pct": 50
+          "complete_matches": 12,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 12,
@@ -493,12 +493,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 3,
-          "coverage_pct": 27.3
+          "complete_matches": 11,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 3,
-          "coverage_pct": 27.3
+          "complete_matches": 11,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 11,
@@ -544,12 +544,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 10,
@@ -595,12 +595,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 9,
@@ -646,12 +646,12 @@
           "coverage_pct": 87.5
         },
         "corners_ht": {
-          "complete_matches": 1,
-          "coverage_pct": 12.5
+          "complete_matches": 7,
+          "coverage_pct": 87.5
         },
         "corners_st": {
-          "complete_matches": 1,
-          "coverage_pct": 12.5
+          "complete_matches": 7,
+          "coverage_pct": 87.5
         },
         "shots": {
           "complete_matches": 8,
@@ -698,12 +698,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -749,12 +749,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 2,
-          "coverage_pct": 25
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 2,
-          "coverage_pct": 25
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -800,12 +800,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -851,12 +851,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -902,12 +902,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 7,
@@ -953,12 +953,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 3,
-          "coverage_pct": 42.9
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 3,
-          "coverage_pct": 42.9
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 7,
@@ -1005,12 +1005,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 2,
-          "coverage_pct": 33.3
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 2,
-          "coverage_pct": 33.3
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 6,
@@ -1056,12 +1056,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 2,
-          "coverage_pct": 33.3
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 2,
-          "coverage_pct": 33.3
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 6,
@@ -1107,12 +1107,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -1158,12 +1158,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -1209,12 +1209,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -1260,12 +1260,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 4,
@@ -1311,12 +1311,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 4,
@@ -1362,12 +1362,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 4,
@@ -1464,12 +1464,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -1515,12 +1515,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -1566,12 +1566,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -1617,12 +1617,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -1668,12 +1668,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -1719,12 +1719,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 2,
-          "coverage_pct": 66.7
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 2,
-          "coverage_pct": 66.7
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -1770,12 +1770,12 @@
           "coverage_pct": 66.7
         },
         "corners_ht": {
-          "complete_matches": 1,
-          "coverage_pct": 33.3
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 1,
-          "coverage_pct": 33.3
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -1821,12 +1821,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -1872,12 +1872,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -1923,12 +1923,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 1,
-          "coverage_pct": 50
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 1,
-          "coverage_pct": 50
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -1974,12 +1974,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -2025,12 +2025,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -2076,12 +2076,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -2127,12 +2127,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -2178,12 +2178,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -2229,12 +2229,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -2280,12 +2280,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -2331,12 +2331,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -2382,12 +2382,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -2484,12 +2484,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -2535,12 +2535,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -2586,12 +2586,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -2637,12 +2637,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -2688,12 +2688,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -2739,12 +2739,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -2790,12 +2790,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -2841,12 +2841,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -2943,12 +2943,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -2994,12 +2994,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -3119,12 +3119,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 24,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 24,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 24,
@@ -3183,12 +3183,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 3,
-          "coverage_pct": 12.5
+          "complete_matches": 24,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 3,
-          "coverage_pct": 12.5
+          "complete_matches": 24,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 24,
@@ -3247,12 +3247,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 20,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 20,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 20,
@@ -3311,12 +3311,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 20,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 20,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 20,
@@ -3375,12 +3375,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 17,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 17,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 17,
@@ -3439,12 +3439,12 @@
           "coverage_pct": 93.8
         },
         "corners_ht": {
-          "complete_matches": 8,
-          "coverage_pct": 50
+          "complete_matches": 16,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 8,
-          "coverage_pct": 50
+          "complete_matches": 16,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 15,
@@ -3503,12 +3503,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 53.3
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 53.3
         },
         "shots": {
           "complete_matches": 15,
@@ -3567,12 +3567,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 1,
-          "coverage_pct": 6.7
+          "complete_matches": 15,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 1,
-          "coverage_pct": 6.7
+          "complete_matches": 15,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 15,
@@ -3631,12 +3631,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 5,
-          "coverage_pct": 35.7
+          "complete_matches": 14,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 5,
-          "coverage_pct": 35.7
+          "complete_matches": 14,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 14,
@@ -3695,12 +3695,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 14,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 14,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 14,
@@ -3759,12 +3759,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 6,
-          "coverage_pct": 50
+          "complete_matches": 12,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 6,
-          "coverage_pct": 50
+          "complete_matches": 12,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 12,
@@ -3823,12 +3823,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 6,
-          "coverage_pct": 50
+          "complete_matches": 12,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 6,
-          "coverage_pct": 50
+          "complete_matches": 12,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 12,
@@ -3887,12 +3887,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 12,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 12,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 12,
@@ -3951,12 +3951,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 11,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 11,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 11,
@@ -4015,12 +4015,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 11,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 11,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 11,
@@ -4079,12 +4079,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 11,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 11,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 11,
@@ -4143,12 +4143,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 11,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 11,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 11,
@@ -4207,12 +4207,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 1,
-          "coverage_pct": 10
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 1,
-          "coverage_pct": 10
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 10,
@@ -4271,12 +4271,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 10,
@@ -4335,12 +4335,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 10,
@@ -4399,12 +4399,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 10,
@@ -4463,12 +4463,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 10,
@@ -4527,12 +4527,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 10,
@@ -4591,12 +4591,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 10,
@@ -4655,12 +4655,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 10,
@@ -4719,12 +4719,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 10,
@@ -4783,12 +4783,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 10,
@@ -4847,12 +4847,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 1,
-          "coverage_pct": 10
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 1,
-          "coverage_pct": 10
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 10,
@@ -4911,12 +4911,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 1,
-          "coverage_pct": 10
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 1,
-          "coverage_pct": 10
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 10,
@@ -4975,12 +4975,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 10,
@@ -5039,12 +5039,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 10,
@@ -5107,12 +5107,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 10,
@@ -5175,12 +5175,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 10,
@@ -5239,12 +5239,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 5,
-          "coverage_pct": 50
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 5,
-          "coverage_pct": 50
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 10,
@@ -5303,12 +5303,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 10,
@@ -5367,12 +5367,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 9,
@@ -5431,12 +5431,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 9,
@@ -5495,12 +5495,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 9,
@@ -5559,12 +5559,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 2,
-          "coverage_pct": 22.2
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 2,
-          "coverage_pct": 22.2
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 9,
@@ -5623,12 +5623,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 9,
@@ -5687,12 +5687,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 9,
@@ -5751,12 +5751,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 9,
@@ -5815,12 +5815,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 9,
@@ -5879,12 +5879,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 9,
@@ -5943,12 +5943,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 9,
@@ -6007,12 +6007,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 9,
@@ -6071,12 +6071,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 9,
@@ -6135,12 +6135,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 9,
@@ -6199,12 +6199,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 1,
-          "coverage_pct": 11.1
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 1,
-          "coverage_pct": 11.1
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 9,
@@ -6263,12 +6263,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 9,
@@ -6327,12 +6327,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -6391,12 +6391,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -6455,12 +6455,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 1,
-          "coverage_pct": 12.5
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 1,
-          "coverage_pct": 12.5
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -6519,12 +6519,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -6583,12 +6583,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -6647,12 +6647,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 2,
-          "coverage_pct": 25
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 2,
-          "coverage_pct": 25
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -6711,12 +6711,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -6775,12 +6775,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -6839,12 +6839,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -6903,12 +6903,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -6967,12 +6967,12 @@
           "coverage_pct": 87.5
         },
         "corners_ht": {
-          "complete_matches": 1,
-          "coverage_pct": 12.5
+          "complete_matches": 7,
+          "coverage_pct": 87.5
         },
         "corners_st": {
-          "complete_matches": 2,
-          "coverage_pct": 25
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 7,
@@ -7031,12 +7031,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -7095,12 +7095,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -7159,12 +7159,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -7223,12 +7223,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -7287,12 +7287,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 1,
-          "coverage_pct": 12.5
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 1,
-          "coverage_pct": 12.5
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -7351,12 +7351,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -7415,12 +7415,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -7479,12 +7479,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -7543,12 +7543,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -7607,12 +7607,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -7671,12 +7671,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -7735,12 +7735,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 2,
-          "coverage_pct": 25
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 2,
-          "coverage_pct": 25
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -7799,12 +7799,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -7863,12 +7863,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -7927,12 +7927,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -7991,12 +7991,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 62.5
         },
         "shots": {
           "complete_matches": 8,
@@ -8055,12 +8055,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 7,
@@ -8119,12 +8119,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 7,
@@ -8183,12 +8183,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 7,
@@ -8247,12 +8247,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 7,
@@ -8311,12 +8311,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 7,
@@ -8375,12 +8375,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 7,
@@ -8439,12 +8439,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 7,
@@ -8503,12 +8503,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 7,
@@ -8567,12 +8567,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 7,
@@ -8631,12 +8631,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 7,
@@ -8695,12 +8695,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 85.7
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 85.7
         },
         "shots": {
           "complete_matches": 7,
@@ -8759,12 +8759,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 7,
@@ -8823,12 +8823,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 7,
@@ -8887,12 +8887,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 7,
@@ -8951,12 +8951,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 7,
@@ -9015,12 +9015,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 2,
-          "coverage_pct": 33.3
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 2,
-          "coverage_pct": 33.3
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 6,
@@ -9079,12 +9079,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 3,
-          "coverage_pct": 50
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 3,
-          "coverage_pct": 50
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 6,
@@ -9143,12 +9143,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 6,
@@ -9207,12 +9207,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 6,
@@ -9271,12 +9271,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 6,
@@ -9335,12 +9335,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 6,
@@ -9399,12 +9399,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 6,
@@ -9465,12 +9465,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 6,
@@ -9529,12 +9529,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 6,
@@ -9593,12 +9593,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 6,
@@ -9657,12 +9657,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 6,
@@ -9721,12 +9721,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 6,
@@ -9785,12 +9785,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 6,
@@ -9849,12 +9849,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 6,
@@ -9913,12 +9913,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 6,
@@ -9977,12 +9977,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 6,
@@ -10041,12 +10041,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 6,
@@ -10105,12 +10105,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 6,
@@ -10169,12 +10169,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 6,
@@ -10233,12 +10233,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 6,
@@ -10297,12 +10297,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 6,
@@ -10361,12 +10361,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 2,
-          "coverage_pct": 33.3
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 2,
-          "coverage_pct": 33.3
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 6,
@@ -10425,12 +10425,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 6,
@@ -10489,12 +10489,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -10553,12 +10553,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -10617,12 +10617,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -10681,12 +10681,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -10745,12 +10745,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -10809,12 +10809,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -10873,12 +10873,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -10937,12 +10937,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -11001,12 +11001,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -11065,12 +11065,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -11129,12 +11129,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -11193,12 +11193,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -11257,12 +11257,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -11321,12 +11321,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -11385,12 +11385,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -11449,12 +11449,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -11513,12 +11513,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -11577,12 +11577,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -11641,12 +11641,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -11705,12 +11705,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -11769,12 +11769,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -11834,12 +11834,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 2,
-          "coverage_pct": 40
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 2,
-          "coverage_pct": 40
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -11962,12 +11962,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 1,
-          "coverage_pct": 20
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 1,
-          "coverage_pct": 20
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -12026,12 +12026,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -12090,12 +12090,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -12154,12 +12154,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 1,
-          "coverage_pct": 20
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 1,
-          "coverage_pct": 20
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -12218,12 +12218,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -12282,12 +12282,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -12346,12 +12346,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -12410,12 +12410,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 4,
@@ -12474,12 +12474,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 4,
@@ -12538,12 +12538,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 4,
@@ -12602,12 +12602,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 4,
@@ -12666,12 +12666,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 4,
@@ -12730,12 +12730,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 4,
@@ -12794,12 +12794,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 4,
@@ -12858,12 +12858,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 4,
@@ -12922,12 +12922,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 4,
@@ -12986,12 +12986,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 4,
@@ -13050,12 +13050,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 4,
@@ -13114,12 +13114,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 4,
@@ -13178,12 +13178,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 4,
@@ -13242,12 +13242,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 4,
@@ -13306,12 +13306,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 4,
@@ -13370,12 +13370,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 4,
@@ -13434,12 +13434,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 4,
@@ -13498,12 +13498,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -13562,12 +13562,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -13690,12 +13690,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 1,
-          "coverage_pct": 33.3
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 1,
-          "coverage_pct": 33.3
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -13754,12 +13754,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -13818,12 +13818,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -13882,12 +13882,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -14010,12 +14010,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -14074,12 +14074,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 1,
-          "coverage_pct": 33.3
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 1,
-          "coverage_pct": 33.3
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -14138,12 +14138,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -14202,12 +14202,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -14266,12 +14266,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -14330,12 +14330,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -14394,12 +14394,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -14458,12 +14458,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 1,
-          "coverage_pct": 33.3
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 1,
-          "coverage_pct": 33.3
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -14522,12 +14522,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -14586,12 +14586,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -14650,12 +14650,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -14714,12 +14714,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -14778,12 +14778,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -14842,12 +14842,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -14906,12 +14906,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -14970,12 +14970,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -15034,12 +15034,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -15098,12 +15098,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -15162,12 +15162,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -15226,12 +15226,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -15290,12 +15290,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 1,
-          "coverage_pct": 50
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 1,
-          "coverage_pct": 50
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -15354,12 +15354,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -15418,12 +15418,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 1,
-          "coverage_pct": 50
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 1,
-          "coverage_pct": 50
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -15482,12 +15482,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -15546,12 +15546,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -15610,12 +15610,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -15866,12 +15866,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -15930,12 +15930,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -15994,12 +15994,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -16059,12 +16059,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -16123,12 +16123,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -16187,12 +16187,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -16251,12 +16251,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -16315,12 +16315,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -16379,12 +16379,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -16443,12 +16443,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -16507,12 +16507,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -16571,12 +16571,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -16635,12 +16635,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -16699,12 +16699,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -16763,12 +16763,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -16891,12 +16891,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -16955,12 +16955,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -17019,12 +17019,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -17083,12 +17083,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -17147,12 +17147,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -17211,12 +17211,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -17275,12 +17275,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -17339,12 +17339,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -17403,12 +17403,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -17469,12 +17469,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -17533,12 +17533,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -17661,12 +17661,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -17725,12 +17725,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -84128,12 +84128,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 17,
-          "coverage_pct": 85
+          "complete_matches": 20,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 17,
-          "coverage_pct": 85
+          "complete_matches": 20,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 20,
@@ -84174,12 +84174,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 9,
-          "coverage_pct": 47.4
+          "complete_matches": 19,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 9,
-          "coverage_pct": 47.4
+          "complete_matches": 19,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 19,
@@ -84219,12 +84219,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 9,
-          "coverage_pct": 50
+          "complete_matches": 18,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 9,
-          "coverage_pct": 50
+          "complete_matches": 18,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 18,
@@ -84264,12 +84264,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 2,
-          "coverage_pct": 12.5
+          "complete_matches": 16,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 2,
-          "coverage_pct": 12.5
+          "complete_matches": 16,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 16,
@@ -84309,12 +84309,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 16,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 16,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 16,
@@ -84354,12 +84354,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 15,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 15,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 15,
@@ -84399,12 +84399,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 2,
-          "coverage_pct": 15.4
+          "complete_matches": 13,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 2,
-          "coverage_pct": 15.4
+          "complete_matches": 13,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 13,
@@ -84444,12 +84444,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 1,
-          "coverage_pct": 7.7
+          "complete_matches": 13,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 1,
-          "coverage_pct": 7.7
+          "complete_matches": 13,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 13,
@@ -84489,12 +84489,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 6,
-          "coverage_pct": 50
+          "complete_matches": 12,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 6,
-          "coverage_pct": 50
+          "complete_matches": 12,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 12,
@@ -84534,12 +84534,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 3,
-          "coverage_pct": 27.3
+          "complete_matches": 11,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 3,
-          "coverage_pct": 27.3
+          "complete_matches": 11,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 11,
@@ -84579,12 +84579,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 10,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 10,
@@ -84624,12 +84624,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 9,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 9,
@@ -84669,12 +84669,12 @@
           "coverage_pct": 87.5
         },
         "corners_ht": {
-          "complete_matches": 1,
-          "coverage_pct": 12.5
+          "complete_matches": 7,
+          "coverage_pct": 87.5
         },
         "corners_st": {
-          "complete_matches": 1,
-          "coverage_pct": 12.5
+          "complete_matches": 7,
+          "coverage_pct": 87.5
         },
         "shots": {
           "complete_matches": 8,
@@ -84714,12 +84714,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -84759,12 +84759,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 2,
-          "coverage_pct": 25
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 2,
-          "coverage_pct": 25
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -84804,12 +84804,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -84849,12 +84849,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 8,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 8,
@@ -84894,12 +84894,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 7,
@@ -84939,12 +84939,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 3,
-          "coverage_pct": 42.9
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 3,
-          "coverage_pct": 42.9
+          "complete_matches": 7,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 7,
@@ -84984,12 +84984,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 2,
-          "coverage_pct": 33.3
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 2,
-          "coverage_pct": 33.3
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 6,
@@ -85029,12 +85029,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 2,
-          "coverage_pct": 33.3
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 2,
-          "coverage_pct": 33.3
+          "complete_matches": 6,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 6,
@@ -85074,12 +85074,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -85119,12 +85119,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -85164,12 +85164,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 5,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 5,
@@ -85209,12 +85209,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 4,
@@ -85254,12 +85254,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 4,
@@ -85299,12 +85299,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 4,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 4,
@@ -85344,12 +85344,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -85389,12 +85389,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -85434,12 +85434,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -85479,12 +85479,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -85524,12 +85524,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -85614,12 +85614,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 2,
-          "coverage_pct": 66.7
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 2,
-          "coverage_pct": 66.7
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 3,
@@ -85659,12 +85659,12 @@
           "coverage_pct": 66.7
         },
         "corners_ht": {
-          "complete_matches": 1,
-          "coverage_pct": 33.3
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 1,
-          "coverage_pct": 33.3
+          "complete_matches": 3,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -85704,12 +85704,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -85749,12 +85749,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -85794,12 +85794,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -85839,12 +85839,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -85884,12 +85884,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -85929,12 +85929,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -85974,12 +85974,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -86019,12 +86019,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -86064,12 +86064,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -86109,12 +86109,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -86154,12 +86154,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 1,
-          "coverage_pct": 50
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 1,
-          "coverage_pct": 50
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -86199,12 +86199,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 2,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 2,
@@ -86289,12 +86289,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -86334,12 +86334,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -86379,12 +86379,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -86424,12 +86424,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -86469,12 +86469,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -86514,12 +86514,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -86559,12 +86559,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -86604,12 +86604,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
@@ -86649,12 +86649,12 @@
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 100
         },
         "shots": {
           "complete_matches": 1,
