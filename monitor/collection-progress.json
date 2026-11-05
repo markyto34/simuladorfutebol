@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 150,
-  "processed_games": 125,
-  "stats_games": 125,
-  "bwin_odds": 125,
+  "processed_games": 150,
+  "stats_games": 150,
+  "bwin_odds": 150,
   "failed_games": 0,
-  "current_match": "Último concluído: Iberia 1999 - Samgurali",
-  "last_result": "Iberia 1999 - Samgurali: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:39:19.619Z"
+  "current_match": "Último concluído: Torpedo Kutaisi - Spaeri",
+  "last_result": "Torpedo Kutaisi - Spaeri: 2 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T21:39:24.850Z"
 }
