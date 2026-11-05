@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 200,
-  "processed_games": 100,
-  "stats_games": 97,
-  "bwin_odds": 97,
-  "failed_games": 3,
-  "current_match": "Último concluído: A. Italiano - Cobresal",
-  "last_result": "A. Italiano - Cobresal: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:38:50.458Z"
+  "processed_games": 125,
+  "stats_games": 121,
+  "bwin_odds": 121,
+  "failed_games": 4,
+  "current_match": "Último concluído: Everton - U. De Chile",
+  "last_result": "Everton - U. De Chile: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:39:12.707Z"
 }
