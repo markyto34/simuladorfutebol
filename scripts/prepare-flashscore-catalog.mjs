@@ -5,6 +5,12 @@ const INPUT = process.env.FLASHSCORE_RAW_CATALOG || 'data/flashscore-competition
 const OUTPUT = process.env.FLASHSCORE_PREPARED_CATALOG || 'data/flashscore-competition-catalog.json';
 const EXCLUDED_NAVIGATION = new Set(['odds', 'futebol ontem', 'futebol amanha']);
 
+// O texto do link lateral nem sempre corresponde ao título real da página.
+const VERIFIED_NAME_OVERRIDES = new Map([
+  ['qatar|primeira-liga', 'Primeira Liga'],
+  ['lituania|primeira-liga', 'Primeira Liga']
+]);
+
 export function normalizeLabel(value) {
   return String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
     .replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
@@ -52,17 +58,23 @@ export function prepareFlashscoreCatalog(raw) {
       excluded.push({ country_name: item.country_name, competition_name: item.competition_name, url: item.url, reason: 'navigation_or_odds_link' });
       continue;
     }
+    const overrideKey = String(item.country_slug || '').toLowerCase() + '|' + String(item.competition_slug || '').toLowerCase();
+    const competitionName = VERIFIED_NAME_OVERRIDES.get(overrideKey) || item.competition_name;
     candidates.push({
       country_name: item.country_name,
       country_slug: item.country_slug,
-      competition_name: item.competition_name,
+      competition_name: competitionName,
+      ...(competitionName !== item.competition_name ? {
+        source_competition_name: item.competition_name,
+        name_override_reason: 'official_flashscore_page_title_verified'
+      } : {}),
       competition_slug: item.competition_slug,
       url: item.url,
       source_country_url: item.source_country_url,
       source_status: item.status || 'candidate_not_yet_validated',
       validation_status: 'discovered_not_yet_validated',
-      competition_family_candidate: familyName(item.competition_name),
-      ...classify(item.competition_name, item.country_name)
+      competition_family_candidate: familyName(competitionName),
+      ...classify(competitionName, item.country_name)
     });
   }
 
