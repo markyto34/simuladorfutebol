@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 65,
   "processed_games": 65,
   "stats_games": 65,
   "bwin_odds": 65,
   "failed_games": 0,
-  "current_match": "Último concluído: Nyiregyhaza - Ujpest",
+  "current_match": "Recolha terminada",
   "last_result": "Nyiregyhaza - Ujpest: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:43:07.402Z"
+  "updated_at": "2026-11-05T21:43:08.611Z"
 }
