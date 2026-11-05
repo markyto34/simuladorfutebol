@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 631,
-  "processed_games": 150,
-  "stats_games": 150,
-  "bwin_odds": 140,
+  "processed_games": 176,
+  "stats_games": 176,
+  "bwin_odds": 165,
   "failed_games": 0,
-  "current_match": "Último concluído: Los Andes - Acassuso",
-  "last_result": "Los Andes - Acassuso: 9 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T15:01:40.864Z"
+  "current_match": "A consultar jogo 179/631 · 2Fi1K1Pp",
+  "last_result": "Ciudad Bolivar - Racing Cordoba: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:01:47.059Z"
 }
