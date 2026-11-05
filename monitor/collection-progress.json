@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 90,
-  "processed_games": 76,
-  "stats_games": 76,
-  "bwin_odds": 75,
+  "processed_games": 90,
+  "stats_games": 90,
+  "bwin_odds": 89,
   "failed_games": 0,
-  "current_match": "A consultar jogo 79/90 · nVzJCe8d",
-  "last_result": "Guingamp - Boulogne: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:36:15.288Z"
+  "current_match": "Último concluído: Sochaux - St. Etienne",
+  "last_result": "Sochaux - St. Etienne: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T21:36:18.759Z"
 }
