@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 42,
-  "processed_games": 25,
-  "stats_games": 23,
-  "bwin_odds": 24,
+  "processed_games": 42,
+  "stats_games": 40,
+  "bwin_odds": 34,
   "failed_games": 0,
-  "current_match": "A consultar jogo 28/42 · jwQVzvlo",
-  "last_result": "Portel - Aljustrelense: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:37:10.367Z"
+  "current_match": "Último concluído: Juventude SC - GD Alcochetense",
+  "last_result": "Juventude SC - GD Alcochetense: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:37:19.244Z"
 }
