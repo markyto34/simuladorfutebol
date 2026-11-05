@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 232,
-  "processed_games": 175,
-  "stats_games": 175,
-  "bwin_odds": 175,
+  "processed_games": 201,
+  "stats_games": 201,
+  "bwin_odds": 201,
   "failed_games": 0,
-  "current_match": "Último concluído: Utah Royals F - Houston Dash F",
-  "last_result": "Utah Royals F - Houston Dash F: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:34:44.664Z"
+  "current_match": "Último concluído: Houston Dash F - Racing Louisville F",
+  "last_result": "Houston Dash F - Racing Louisville F: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T21:34:49.804Z"
 }
