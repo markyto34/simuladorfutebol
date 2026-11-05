@@ -424,7 +424,7 @@ function parseSourceCSV(text){
 }
 function sourceVal(row,names){for(const n of names){const key=Object.keys(row).find(k=>k.toLowerCase()===n.toLowerCase());if(key&&row[key]!=="")return row[key];}return "";}
 function normalizeFlashscoreSourceLabel(label){
- const parts=String(label||"").split(/\\s+\\/\\s+/);
+ const parts=String(label||"").split(/\s+\/\s+/);
  if(parts.length<2)return normalizeCompetitionCountry(label);
  const country=parts.shift(),competition=parts.join(" / ");
  return normalizeCompetitionCountry(country)+" / "+normalizeCompetitionCountry(competition);
