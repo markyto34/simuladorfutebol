@@ -6,6 +6,7 @@ on:
     paths:
       - ".github/workflows/discover-flashscore-catalog.yml"
       - "scripts/discover-flashscore-catalog.mjs"
+      - "scripts/merge-flashscore-catalog-groups.mjs"
       - "scripts/prepare-flashscore-catalog.mjs"
       - "scripts/audit-flashscore-catalog-coverage.mjs"
       - "tests/discover-flashscore-catalog.test.mjs"
@@ -22,44 +23,69 @@ permissions:
   contents: write
 
 jobs:
-  discover:
+  discover-groups:
+    name: Descoberta grupo ${{ matrix.group_index }}
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        group_index: [0, 1, 2, 3, 4, 5]
     steps:
       - name: Obter código
         uses: actions/checkout@v4
         with:
           ref: ${{ github.ref }}
-      - name: Verificar se o catálogo permanente já existe
-        id: catalog-check
-        run: |
-          if [ -s data/force-flashscore-catalog-discovery.once ]; then
-            echo "exists=false" >> "$GITHUB_OUTPUT"
-            echo "Pedido de redescoberta única encontrado."
-          elif [ -s data/flashscore-competition-catalog.json ] && grep -q '"catalog_discovery_version": "2.0"' data/flashscore-competition-catalog.json; then
-            echo "exists=true" >> "$GITHUB_OUTPUT"
-            echo "Catálogo permanente encontrado; saltar descoberta completa."
-          else
-            echo "exists=false" >> "$GITHUB_OUTPUT"
-            echo "Catálogo ainda não existe; executar descoberta inicial."
-          fi
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
       - name: Testar parser e preparação do catálogo
         run: node --test tests/discover-flashscore-catalog.test.mjs tests/prepare-flashscore-catalog.test.mjs
-      - name: Descobrir competições por país
-        if: steps.catalog-check.outputs.exists != 'true'
-        run: node scripts/discover-flashscore-catalog.mjs
+      - name: Descobrir competições do grupo
+        run: |
+          mkdir -p data/flashscore-catalog-groups
+          node scripts/discover-flashscore-catalog.mjs
         env:
-          FLASHSCORE_CATALOG_WAIT_MS: "700"
-      - name: Preparar catálogo e excluir ligações de navegação
-        if: steps.catalog-check.outputs.exists != 'true'
-        run: node scripts/prepare-flashscore-catalog.mjs
-      - name: Cruzar catálogo com estatísticas existentes
-        run: node scripts/audit-flashscore-catalog-coverage.mjs
-      - name: Guardar catálogo e auditoria permanentemente no repositório
+          FLASHSCORE_CATALOG_WAIT_MS: "350"
+          FLASHSCORE_CATALOG_GROUP_INDEX: ${{ matrix.group_index }}
+          FLASHSCORE_CATALOG_GROUP_SIZE: "30"
+          FLASHSCORE_CATALOG_OUTPUT: data/flashscore-catalog-groups/group-${{ matrix.group_index }}.json
+      - name: Guardar resultado do grupo
+        uses: actions/upload-artifact@v4
+        with:
+          name: flashscore-catalog-group-${{ matrix.group_index }}
+          path: data/flashscore-catalog-groups/group-${{ matrix.group_index }}.json
+          if-no-files-found: error
+          retention-days: 7
+
+  merge-and-publish:
+    name: Consolidar e guardar catálogo
+    needs: discover-groups
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Obter código
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Descarregar todos os grupos
+        uses: actions/download-artifact@v4
+        with:
+          pattern: flashscore-catalog-group-*
+          path: data/flashscore-catalog-groups
+          merge-multiple: true
+      - name: Consolidar grupos e validar cobertura
+        run: |
+          node scripts/merge-flashscore-catalog-groups.mjs
+          node scripts/prepare-flashscore-catalog.mjs
+          node scripts/audit-flashscore-catalog-coverage.mjs
+      - name: Guardar catálogo e auditoria permanentemente
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -71,10 +97,10 @@ jobs:
           if git diff --cached --quiet; then
             echo "Catálogo e auditoria já estão atualizados."
           else
-            git commit -m "Atualizar auditoria de cobertura Flashscore"
+            git commit -m "Guardar catálogo Flashscore descoberto por grupos"
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
-      - name: Publicar catálogos e auditoria de cobertura
+      - name: Publicar catálogos e auditoria
         uses: actions/upload-artifact@v4
         with:
           name: flashscore-competition-catalogs
