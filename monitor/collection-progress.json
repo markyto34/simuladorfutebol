@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 76,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 50,
+  "processed_games": 75,
+  "stats_games": 74,
+  "bwin_odds": 75,
   "failed_games": 0,
-  "current_match": "Último concluído: Coleraine - Crusaders",
-  "last_result": "Coleraine - Crusaders: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:53:39.930Z"
+  "current_match": "Último concluído: Linfield - Ballymena",
+  "last_result": "Linfield - Ballymena: 7 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T21:53:45.133Z"
 }
