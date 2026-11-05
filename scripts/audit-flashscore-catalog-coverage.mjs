@@ -92,9 +92,41 @@ export function buildFlashscoreCatalogCoverage(catalog, statsRows) {
     label.rows++;
     if (row.match_id) label.ids.add(String(row.match_id));
   }
+  const stageSuffix = /\\s*(?:-\\s*)?(fase de liga|playoffs?|abertura|encerramento|apertura|clausura|quadrangular|octogonal|hexagonal|grupo campeonato|grupo rebaixamento)\\s*$/i;
+  function findStageRelatedCandidate(label) {
+    let base = label.competition_name;
+    const stages = [];
+    while (stageSuffix.test(base)) {
+      const match = base.match(stageSuffix);
+      stages.unshift(match[1]);
+      base = base.replace(stageSuffix, '').trim().replace(/[-–—\\s]+$/, '').trim();
+    }
+    if (!stages.length || !base) return null;
+    const matches = catalog.competitions.filter(candidate =>
+      countryKey(candidate.country_name) === countryKey(label.country_name) &&
+      normalize(candidate.competition_name) === normalize(base)
+    );
+    if (matches.length !== 1) return null;
+    return {
+      relationship: 'same_base_competition_distinct_stage_not_merged',
+      stage_markers: stages,
+      related_catalog_competition: matches[0].competition_name,
+      related_catalog_url: matches[0].url
+    };
+  }
   const unmatchedStatsLabels = [...rawStatsLabels.values()]
     .filter(label => !catalogKeys.has(label.stats_match_key))
-    .map(label => ({ country_name: label.country_name, competition_name: label.competition_name, unique_stats_matches: label.ids.size || label.rows, stats_rows: label.rows, reason: 'no_exact_catalog_match_review_alias_or_missing_competition' }))
+    .map(label => {
+      const stageRelation = findStageRelatedCandidate(label);
+      return {
+        country_name: label.country_name,
+        competition_name: label.competition_name,
+        unique_stats_matches: label.ids.size || label.rows,
+        stats_rows: label.rows,
+        reason: stageRelation ? 'catalog_base_found_stage_kept_separate' : 'no_exact_catalog_match_review_alias_or_missing_competition',
+        ...(stageRelation || {})
+      };
+    })
     .sort((a, b) => b.unique_stats_matches - a.unique_stats_matches || a.country_name.localeCompare(b.country_name) || a.competition_name.localeCompare(b.competition_name));
   const matchedStatsLabelCount = rawStatsLabels.size - unmatchedStatsLabels.length;
 
