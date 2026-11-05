@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 200,
-  "processed_games": 175,
-  "stats_games": 169,
-  "bwin_odds": 168,
-  "failed_games": 6,
-  "current_match": "Último concluído: Nublense - A. Italiano",
-  "last_result": "Nublense - A. Italiano: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:39:59.018Z"
+  "processed_games": 200,
+  "stats_games": 192,
+  "bwin_odds": 191,
+  "failed_games": 8,
+  "current_match": "Último concluído: Cobresal - U. Catolica",
+  "last_result": "Cobresal - U. Catolica: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:41:19.500Z"
 }
