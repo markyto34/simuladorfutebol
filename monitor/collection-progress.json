@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 64,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 24,
+  "processed_games": 50,
+  "stats_games": 50,
+  "bwin_odds": 49,
   "failed_games": 0,
-  "current_match": "Último concluído: Deportivo A Coruña F - Espanyol F",
-  "last_result": "Deportivo A Coruña F - Espanyol F: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:52:37.074Z"
+  "current_match": "Último concluído: Real Madrid F - Eibar F",
+  "last_result": "Real Madrid F - Eibar F: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:52:42.313Z"
 }
