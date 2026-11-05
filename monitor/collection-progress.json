@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 192,
-  "processed_games": 175,
-  "stats_games": 175,
-  "bwin_odds": 174,
+  "processed_games": 192,
+  "stats_games": 192,
+  "bwin_odds": 191,
   "failed_games": 0,
-  "current_match": "Último concluído: HamKam - Brann",
-  "last_result": "HamKam - Brann: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:22:41.243Z"
+  "current_match": "Último concluído: Sandefjord - Sarpsborg 08",
+  "last_result": "Sandefjord - Sarpsborg 08: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:23:19.347Z"
 }
