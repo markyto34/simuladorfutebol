@@ -104,11 +104,24 @@ export function buildFlashscoreCatalogCoverage(catalog, statsRows) {
     const labelKey = normalize(country) + '|' + normalize(competition);
     let label = rawStatsLabels.get(labelKey);
     if (!label) {
-      label = { country_name: country, competition_name: competition, stats_match_key: key(country, competition), ids: new Set(), rows: 0 };
+      label = {
+        country_name: country,
+        competition_name: competition,
+        stats_match_key: key(country, competition),
+        ids: new Set(),
+        rows: 0,
+        metricIds: Object.fromEntries(METRICS.map(metric => [metric, new Set()]))
+      };
       rawStatsLabels.set(labelKey, label);
     }
     label.rows++;
     if (row.match_id) label.ids.add(String(row.match_id));
+    const labelRowId = String(row.match_id || 'row-' + label.rows);
+    for (const metric of METRICS) {
+      if (String(row[metric + '_home'] ?? '').trim() !== '' && String(row[metric + '_away'] ?? '').trim() !== '') {
+        label.metricIds[metric].add(labelRowId);
+      }
+    }
   }
   const stageSuffix = /\s*(?:-\s*)?(fase de liga|league phase|playoffs?(?: de promoção| vencedores)?|abertura|encerramento|apertura|clausura|qualificação|qualification|caminho das regiões|segundo nível|primeira fase(?:\s*-\s*principal)?|quadrangular|octogonal|hexagonal|grupo campeonato|grupo de campeonato|grupo rebaixamento|grupo de rebaixamento|grupo de promoção|grupo de despromoção|grupo de colocação)\s*$/i;
   function findStageRelatedCandidate(label) {
@@ -141,6 +154,10 @@ export function buildFlashscoreCatalogCoverage(catalog, statsRows) {
         competition_name: label.competition_name,
         unique_stats_matches: label.ids.size || label.rows,
         stats_rows: label.rows,
+        metrics: Object.fromEntries(METRICS.map(metric => [metric, {
+          complete_matches: label.metricIds[metric].size,
+          coverage_pct: (label.ids.size || label.rows) ? Math.round(label.metricIds[metric].size / (label.ids.size || label.rows) * 1000) / 10 : 0
+        }])),
         reason: stageRelation ? 'catalog_base_found_stage_kept_separate' : 'no_exact_catalog_match_review_alias_or_missing_competition',
         ...(stageRelation || {})
       };
@@ -202,7 +219,9 @@ export function buildFlashscoreCatalogCoverage(catalog, statsRows) {
       stats_unique_match_ids: new Set(statsRows.map(x => String(x.match_id || '').trim()).filter(Boolean)).size,
       stats_competition_labels: rawStatsLabels.size,
       matched_stats_competition_labels: matchedStatsLabelCount,
-      unmatched_stats_competition_labels: unmatchedStatsLabels.length
+      unmatched_stats_competition_labels: unmatchedStatsLabels.length,
+      unmatched_stage_labels_kept_separate: unmatchedStatsLabels.filter(item => item.reason === 'catalog_base_found_stage_kept_separate').length,
+      unmatched_labels_without_catalog_base: unmatchedStatsLabels.filter(item => item.reason !== 'catalog_base_found_stage_kept_separate').length
     },
     unmatched_stats_labels: unmatchedStatsLabels,
     competitions: competitions.sort((a, b) => b.unique_stats_matches - a.unique_stats_matches || a.country_name.localeCompare(b.country_name) || a.competition_name.localeCompare(b.competition_name)),
