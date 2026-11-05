@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 99,
-  "processed_games": 75,
-  "stats_games": 73,
-  "bwin_odds": 73,
+  "processed_games": 99,
+  "stats_games": 97,
+  "bwin_odds": 96,
   "failed_games": 2,
-  "current_match": "A consultar jogo 76/99 · nFKoy1k3",
-  "last_result": "Sevilla - Atl. Madrid: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T13:58:09.413Z"
+  "current_match": "Último concluído: Alaves - Getafe",
+  "last_result": "Alaves - Getafe: 16 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T13:58:37.813Z"
 }
