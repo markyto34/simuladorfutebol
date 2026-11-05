@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 83,
-  "processed_games": 25,
-  "stats_games": 23,
-  "bwin_odds": 23,
-  "failed_games": 2,
-  "current_match": "Último concluído: Cherno More - Lok. Sofia",
-  "last_result": "Cherno More - Lok. Sofia: 11 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:34:42.418Z"
+  "processed_games": 50,
+  "stats_games": 47,
+  "bwin_odds": 47,
+  "failed_games": 3,
+  "current_match": "Último concluído: CSKA Sofia - Botev Vratsa",
+  "last_result": "CSKA Sofia - Botev Vratsa: 11 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:35:01.674Z"
 }
