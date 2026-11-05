@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 472,
-  "processed_games": 376,
-  "stats_games": 376,
-  "bwin_odds": 375,
+  "processed_games": 400,
+  "stats_games": 400,
+  "bwin_odds": 399,
   "failed_games": 0,
-  "current_match": "A consultar jogo 379/472 · IewzwU9T",
-  "last_result": "Inter Miami - New York Red Bulls: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:33:23.754Z"
+  "current_match": "Último concluído: Minnesota - Seattle Sounders",
+  "last_result": "Minnesota - Seattle Sounders: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T21:33:30.488Z"
 }
