@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
-  "total_games": 50,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 42,
+  "status": "running",
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
+  "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "London City Lionesses F - Manchester Utd F: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:53:16.449Z"
+  "current_match": "A descobrir jogos",
+  "last_result": "",
+  "updated_at": "2026-11-05T21:53:25.196Z"
 }
