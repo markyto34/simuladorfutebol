@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 56,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 50,
-  "failed_games": 0,
-  "current_match": "Último concluído: Netanya - Sakhnin",
-  "last_result": "Netanya - Sakhnin: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:00:28.912Z"
+  "processed_games": 56,
+  "stats_games": 55,
+  "bwin_odds": 55,
+  "failed_games": 1,
+  "current_match": "Último erro: xCoB9kI7",
+  "last_result": "Falha em xCoB9kI7: Falha ao recolher xCoB9kI7: HTTP 503",
+  "updated_at": "2026-11-05T22:01:07.365Z"
 }
