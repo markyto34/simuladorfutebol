@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 240,
-  "processed_games": 200,
-  "stats_games": 200,
-  "bwin_odds": 198,
+  "processed_games": 226,
+  "stats_games": 226,
+  "bwin_odds": 224,
   "failed_games": 0,
-  "current_match": "Último concluído: Cheongju Jikji - Busan",
-  "last_result": "Cheongju Jikji - Busan: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:45:57.838Z"
+  "current_match": "A consultar jogo 229/240 · trnS0HDF",
+  "last_result": "Ansan Greeners - Busan: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:46:04.300Z"
 }
