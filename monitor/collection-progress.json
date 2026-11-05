@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 40,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 25,
+  "processed_games": 40,
+  "stats_games": 40,
+  "bwin_odds": 40,
   "failed_games": 0,
-  "current_match": "Último concluído: PEC Zwolle F - Den Haag F",
-  "last_result": "PEC Zwolle F - Den Haag F: 11 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:27:34.893Z"
+  "current_match": "Último concluído: Twente F - Heerenveen F",
+  "last_result": "Twente F - Heerenveen F: 11 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:27:41.828Z"
 }
