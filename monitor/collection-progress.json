@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 110,
-  "processed_games": 100,
-  "stats_games": 100,
-  "bwin_odds": 97,
+  "processed_games": 110,
+  "stats_games": 110,
+  "bwin_odds": 106,
   "failed_games": 0,
-  "current_match": "Último concluído: Crotone - Foggia",
-  "last_result": "Crotone - Foggia: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T22:06:23.362Z"
+  "current_match": "Último concluído: Bari - Cavese",
+  "last_result": "Bari - Cavese: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:07:44.366Z"
 }
