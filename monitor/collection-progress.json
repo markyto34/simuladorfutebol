@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 200,
-  "processed_games": 75,
-  "stats_games": 75,
-  "bwin_odds": 75,
+  "processed_games": 100,
+  "stats_games": 100,
+  "bwin_odds": 100,
   "failed_games": 0,
-  "current_match": "A consultar jogo 76/200 · pS6NdcP0",
-  "last_result": "Dep. Concepcion - O'Higgins: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T11:50:37.904Z"
+  "current_match": "A consultar jogo 101/200 · zgufisWN",
+  "last_result": "Dep. Concepcion - Huachipato: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T11:51:07.925Z"
 }
