@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 208,
-  "processed_games": 201,
-  "stats_games": 201,
-  "bwin_odds": 199,
+  "processed_games": 208,
+  "stats_games": 208,
+  "bwin_odds": 206,
   "failed_games": 0,
-  "current_match": "A consultar jogo 204/208 · 003SvZtI",
-  "last_result": "Naftan - Dnepr Mogilev: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:21:49.566Z"
+  "current_match": "Último concluído: Vitebsk - Gomel",
+  "last_result": "Vitebsk - Gomel: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:21:51.500Z"
 }
