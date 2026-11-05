@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 72,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 24,
+  "processed_games": 50,
+  "stats_games": 50,
+  "bwin_odds": 49,
   "failed_games": 0,
-  "current_match": "Último concluído: Ghazl El Mahallah - Zamalek",
-  "last_result": "Ghazl El Mahallah - Zamalek: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T13:45:41.842Z"
+  "current_match": "Último concluído: Al Masry - Pyramids",
+  "last_result": "Al Masry - Pyramids: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T13:46:26.701Z"
 }
