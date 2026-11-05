@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed_with_errors",
+  "phase": "completed",
   "total_games": 80,
   "processed_games": 80,
   "stats_games": 79,
   "bwin_odds": 79,
   "failed_games": 1,
-  "current_match": "Último concluído: Chelsea - Tottenham",
+  "current_match": "Recolha terminada",
   "last_result": "Chelsea - Tottenham: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:51:04.531Z"
+  "updated_at": "2026-11-05T21:51:05.889Z"
 }
