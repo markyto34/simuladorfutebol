@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 322,
-  "processed_games": 226,
-  "stats_games": 226,
-  "bwin_odds": 226,
+  "processed_games": 251,
+  "stats_games": 251,
+  "bwin_odds": 251,
   "failed_games": 0,
-  "current_match": "A consultar jogo 229/322 · 2oxgQIUh",
-  "last_result": "Gremio - Remo: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:25:07.323Z"
+  "current_match": "A consultar jogo 254/322 · IwGUHFQc",
+  "last_result": "Cruzeiro - Santos: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:25:12.679Z"
 }
