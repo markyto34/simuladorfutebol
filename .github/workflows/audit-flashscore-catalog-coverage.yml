@@ -34,14 +34,30 @@ jobs:
         run: node --test tests/audit-flashscore-catalog-coverage.test.mjs
       - name: Gerar auditoria atualizada
         run: node scripts/audit-flashscore-catalog-coverage.mjs
-      - name: Guardar auditoria permanentemente
+      - name: Guardar auditoria permanentemente sem perder commits concorrentes
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/flashscore-competition-coverage.json
-          if git diff --cached --quiet; then
-            echo "A auditoria de cobertura já está atualizada."
-          else
+          pushed=false
+          for attempt in 1 2 3; do
+            git fetch origin "$GITHUB_REF_NAME"
+            git reset --hard "origin/$GITHUB_REF_NAME"
+            node scripts/audit-flashscore-catalog-coverage.mjs
+            git add data/flashscore-competition-coverage.json
+            if git diff --cached --quiet; then
+              echo "A auditoria de cobertura já está atualizada."
+              pushed=true
+              break
+            fi
             git commit -m "Atualizar auditoria de cobertura Flashscore"
-            git push origin "HEAD:${GITHUB_REF_NAME}"
+            if git push origin "HEAD:$GITHUB_REF_NAME"; then
+              pushed=true
+              break
+            fi
+            echo "Push concorrente recusado (tentativa ${attempt}/3); vou recalcular sobre a versão remota."
+          done
+          if [ "$pushed" != "true" ]; then
+            echo "Não foi possível guardar a auditoria após 3 tentativas."
+            exit 1
           fi
