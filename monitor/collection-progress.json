@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 67,
-  "processed_games": 25,
-  "stats_games": 25,
+  "processed_games": 51,
+  "stats_games": 50,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Athens Kallithea - Panthrakikos",
-  "last_result": "Athens Kallithea - Panthrakikos: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T21:40:00.065Z"
+  "current_match": "A consultar jogo 54/67 · bmJt5sdl",
+  "last_result": "Panionios - Kalamaria: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T21:40:08.355Z"
 }
