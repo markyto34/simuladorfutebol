@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 90,
-  "processed_games": 75,
-  "stats_games": 75,
-  "bwin_odds": 75,
+  "processed_games": 90,
+  "stats_games": 90,
+  "bwin_odds": 90,
   "failed_games": 0,
-  "current_match": "A consultar jogo 76/90 · I76zODLM",
-  "last_result": "Dep. Fabril - Cacereno: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T14:05:55.901Z"
+  "current_match": "Último concluído: Real Aviles - Pontevedra",
+  "last_result": "Real Aviles - Pontevedra: 16 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T14:06:13.513Z"
 }
