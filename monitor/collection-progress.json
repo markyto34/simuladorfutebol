@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 354,
-  "processed_games": 225,
-  "stats_games": 155,
+  "processed_games": 250,
+  "stats_games": 180,
   "bwin_odds": 0,
   "failed_games": 69,
-  "current_match": "Último concluído: Fortaleza - America MG",
-  "last_result": "Fortaleza - America MG: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T11:03:42.361Z"
+  "current_match": "Último concluído: Sport Recife - Nautico",
+  "last_result": "Sport Recife - Nautico: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T11:04:12.395Z"
 }
