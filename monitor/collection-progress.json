@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 99,
-  "processed_games": 26,
-  "stats_games": 26,
-  "bwin_odds": 26,
+  "processed_games": 52,
+  "stats_games": 52,
+  "bwin_odds": 52,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/99 · 6cE9Ndwf",
-  "last_result": "Elche - Celta Vigo: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:51:19.879Z"
+  "current_match": "Último concluído: Levante - Barcelona",
+  "last_result": "Levante - Barcelona: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:51:25.851Z"
 }
