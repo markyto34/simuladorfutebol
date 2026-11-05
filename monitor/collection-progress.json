@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 631,
-  "processed_games": 375,
-  "stats_games": 374,
-  "bwin_odds": 317,
+  "processed_games": 400,
+  "stats_games": 399,
+  "bwin_odds": 335,
   "failed_games": 0,
-  "current_match": "Último concluído: Almirante Brown - Colon",
-  "last_result": "Almirante Brown - Colon: 7 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T09:33:38.268Z"
+  "current_match": "Último concluído: Deportivo Maipu - Nueva Chicago",
+  "last_result": "Deportivo Maipu - Nueva Chicago: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T09:34:17.153Z"
 }
