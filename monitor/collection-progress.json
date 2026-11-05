@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 472,
-  "processed_games": 200,
-  "stats_games": 200,
-  "bwin_odds": 200,
+  "processed_games": 225,
+  "stats_games": 225,
+  "bwin_odds": 224,
   "failed_games": 0,
-  "current_match": "Último concluído: Charlotte - Columbus Crew",
-  "last_result": "Charlotte - Columbus Crew: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T14:25:41.044Z"
+  "current_match": "Último concluído: Minnesota - Vancouver Whitecaps",
+  "last_result": "Minnesota - Vancouver Whitecaps: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T14:26:11.009Z"
 }
