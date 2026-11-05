@@ -1,0 +1,47 @@
+name: Preparar catálogo Flashscore sem nova descoberta
+
+on:
+  push:
+    branches: [feature/flashscore-full-competition-discovery, main]
+    paths:
+      - ".github/workflows/prepare-flashscore-catalog.yml"
+      - "scripts/prepare-flashscore-catalog.mjs"
+      - "tests/prepare-flashscore-catalog.test.mjs"
+      - "data/flashscore-competition-catalog-raw.json"
+
+concurrency:
+  group: flashscore-catalog-prepare
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  prepare:
+    name: Preparar catálogo a partir da recolha guardada
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Obter código
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Testar preparação do catálogo
+        run: node --test tests/prepare-flashscore-catalog.test.mjs
+      - name: Repreparar catálogo sem consultar o Flashscore
+        run: node scripts/prepare-flashscore-catalog.mjs
+      - name: Guardar catálogo preparado
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/flashscore-competition-catalog.json
+          if git diff --cached --quiet; then
+            echo "O catálogo preparado já está atualizado."
+          else
+            git commit -m "Atualizar preparação do catálogo Flashscore"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
