@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 303,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
+  "processed_games": 26,
+  "stats_games": 23,
+  "bwin_odds": 11,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-05T06:30:11.595Z"
+  "current_match": "Último concluído: Aldosivi 2 - Barracas Central 2",
+  "last_result": "Aldosivi 2 - Barracas Central 2: 6 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T06:30:20.370Z"
 }
