@@ -423,6 +423,12 @@ function parseSourceCSV(text){
  return rows.filter(r=>r.some(v=>String(v).trim())).map(r=>Object.fromEntries(headers.map((h,i)=>[h,(r[i]||"").trim()])));
 }
 function sourceVal(row,names){for(const n of names){const key=Object.keys(row).find(k=>k.toLowerCase()===n.toLowerCase());if(key&&row[key]!=="")return row[key];}return "";}
+function normalizeFlashscoreSourceLabel(label){
+ const parts=String(label||"").split(/\\s+\\/\\s+/);
+ if(parts.length<2)return normalizeCompetitionCountry(label);
+ const country=parts.shift(),competition=parts.join(" / ");
+ return normalizeCompetitionCountry(country)+" / "+normalizeCompetitionCountry(competition);
+}
 function sourceNum(row,names){const raw=String(sourceVal(row,names)).trim().replace(/\s/g,"").replace(",",".");if(!raw)return null;const n=Number(raw);return Number.isFinite(n)&&n>=0?n:null;}
 function sourceDate(raw){const s=String(raw||"").trim();let m=s.match(/^(\d{4})[-/.](\d{1,2})[-/.](\d{1,2})/);if(m)return m[1]+"-"+m[2].padStart(2,"0")+"-"+m[3].padStart(2,"0");m=s.match(/^(\d{1,2})[-/.](\d{1,2})[-/.](\d{4})/);if(m)return m[3]+"-"+m[2].padStart(2,"0")+"-"+m[1].padStart(2,"0");const d=new Date(s);return Number.isNaN(d.getTime())?"":d.toISOString().slice(0,10);}
 function normalizeFlashscoreMatch(r){
@@ -480,7 +486,7 @@ async function populateFlashscoreCompetitions(){
   rows.forEach((row,index)=>{
    const country=sourceVal(row,["country"]),competition=sourceVal(row,["competition"]);
    if(!country||!competition)return;
-   const label=country+" / "+competition;
+   const label=normalizeFlashscoreSourceLabel(country+" / "+competition);
    if(!statsByLabel.has(label))statsByLabel.set(label,new Set());
    statsByLabel.get(label).add(sourceVal(row,["match_id"])||"row-"+index);
   });
@@ -496,7 +502,7 @@ async function populateFlashscoreCompetitions(){
    const labels=Array.isArray(item.stats_source_labels)&&item.stats_source_labels.length
     ?item.stats_source_labels:[item.country_name+" / "+item.competition_name];
    const matchIds=new Set();
-   labels.forEach(label=>(statsByLabel.get(label)||new Set()).forEach(id=>matchIds.add(id)));
+   labels.forEach(label=>(statsByLabel.get(normalizeFlashscoreSourceLabel(label))||new Set()).forEach(id=>matchIds.add(id)));
    const country=item.country_name,competition=item.competition_name;
    return {
     value:flashscoreCompetitionValue(country,competition),
@@ -604,10 +610,10 @@ async function loadHistoricalData(){
    const [,countryEncoded,competitionEncoded]=league.split("|");
    const country=decodeURIComponent(countryEncoded||""),competition=decodeURIComponent(competitionEncoded||"");
    const selectedFlashCompetition=flashscoreCompetitionState.items.find(item=>item.value===league);
-   const acceptedLabels=new Set([country+" / "+competition,...(selectedFlashCompetition?.statsSourceLabels||[])]);
+   const acceptedLabels=new Set([country+" / "+competition,...(selectedFlashCompetition?.statsSourceLabels||[])].map(normalizeFlashscoreSourceLabel));
    status.textContent="A carregar os dados de "+country+" — "+competition+"…";
    const csv=await fetchSourceCSV(FLASHSCORE_STATS_CSV_URL);
-   matches=parseSourceCSV(csv).filter(row=>acceptedLabels.has(sourceVal(row,["country"])+" / "+sourceVal(row,["competition"])))
+   matches=parseSourceCSV(csv).filter(row=>acceptedLabels.has(normalizeFlashscoreSourceLabel(sourceVal(row,["country"])+" / "+sourceVal(row,["competition"]))))
     .map(normalizeFlashscoreMatch).filter(Boolean).sort((a,b)=>b.date.localeCompare(a.date));
    if(!matches.length)throw new Error("A competição não tem jogos concluídos com resultados FT e equipas identificadas.");
    
