@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 232,
-  "processed_games": 225,
-  "stats_games": 225,
-  "bwin_odds": 224,
+  "processed_games": 232,
+  "stats_games": 232,
+  "bwin_odds": 231,
   "failed_games": 0,
-  "current_match": "Último concluído: Angel City F - Chicago F",
-  "last_result": "Angel City F - Chicago F: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T14:36:14.556Z"
+  "current_match": "Último concluído: Washington F - Portland Thorns F",
+  "last_result": "Washington F - Portland Thorns F: 14 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T14:36:23.014Z"
 }
