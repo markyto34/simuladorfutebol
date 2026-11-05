@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 224,
-  "processed_games": 75,
-  "stats_games": 49,
-  "bwin_odds": 49,
-  "failed_games": 26,
-  "current_match": "Último erro: hjMlup1n",
-  "last_result": "Falha em hjMlup1n: Falha ao recolher hjMlup1n: HTTP 503",
-  "updated_at": "2026-11-05T12:12:23.179Z"
+  "processed_games": 100,
+  "stats_games": 61,
+  "bwin_odds": 61,
+  "failed_games": 39,
+  "current_match": "Último erro: G6GBh0zA",
+  "last_result": "Falha em G6GBh0zA: Falha ao recolher G6GBh0zA: HTTP 503",
+  "updated_at": "2026-11-05T12:21:32.183Z"
 }
