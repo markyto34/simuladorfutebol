@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 472,
-  "processed_games": 125,
-  "stats_games": 125,
-  "bwin_odds": 125,
+  "processed_games": 150,
+  "stats_games": 150,
+  "bwin_odds": 150,
   "failed_games": 0,
-  "current_match": "Último concluído: Atlanta Utd - Orlando City",
-  "last_result": "Atlanta Utd - Orlando City: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T14:24:11.034Z"
+  "current_match": "Último concluído: Nashville SC - Cincinnati",
+  "last_result": "Nashville SC - Cincinnati: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T14:24:41.081Z"
 }
