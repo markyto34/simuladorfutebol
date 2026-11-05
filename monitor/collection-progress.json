@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 205,
-  "processed_games": 125,
-  "stats_games": 125,
-  "bwin_odds": 125,
+  "processed_games": 150,
+  "stats_games": 150,
+  "bwin_odds": 150,
   "failed_games": 0,
-  "current_match": "Último concluído: AIK Stockholm - Sirius",
-  "last_result": "AIK Stockholm - Sirius: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T23:04:13.596Z"
+  "current_match": "Último concluído: AIK Stockholm - Djurgarden",
+  "last_result": "AIK Stockholm - Djurgarden: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T23:04:23.384Z"
 }
