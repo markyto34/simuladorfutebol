@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 200,
-  "processed_games": 125,
-  "stats_games": 121,
-  "bwin_odds": 121,
-  "failed_games": 4,
-  "current_match": "Último concluído: Everton - U. De Chile",
-  "last_result": "Everton - U. De Chile: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:39:12.707Z"
+  "processed_games": 150,
+  "stats_games": 145,
+  "bwin_odds": 144,
+  "failed_games": 5,
+  "current_match": "Último concluído: U. De Chile - U. De Concepcion",
+  "last_result": "U. De Chile - U. De Concepcion: 16 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:39:35.924Z"
 }
