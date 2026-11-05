@@ -88,7 +88,7 @@ test("valida cartões vermelhos e resultados HT/ST quando as novas colunas exist
 
 test("valida cantos HT/ST em pares completos e rejeita valores inválidos", () => {
   assert.doesNotThrow(() => validateHistory([statsRow({
-    corners_ht_home:"3", corners_ht_away:"2", corners_st_home:"4", corners_st_away:"1"
+    corners_home:"7", corners_away:"3", corners_ht_home:"3", corners_ht_away:"2", corners_st_home:"4", corners_st_away:"1"
   })],[oddsRow()]));
   assert.throws(() => validateHistory([statsRow({
     corners_ht_home:"3", corners_ht_away:""
