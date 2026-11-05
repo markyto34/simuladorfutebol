@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 110,
-  "processed_games": 101,
-  "stats_games": 101,
-  "bwin_odds": 101,
+  "processed_games": 110,
+  "stats_games": 110,
+  "bwin_odds": 110,
   "failed_games": 0,
-  "current_match": "A consultar jogo 104/110 · Aelu6L7s",
-  "last_result": "Folgore Caratese - Dolomiti Bellunesi: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:04:46.277Z"
+  "current_match": "Último concluído: Brescia - Carpi",
+  "last_result": "Brescia - Carpi: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:04:48.457Z"
 }
