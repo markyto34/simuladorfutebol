@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 59,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
+  "processed_games": 25,
+  "stats_games": 25,
+  "bwin_odds": 25,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-05T13:50:05.684Z"
+  "current_match": "Último concluído: Livingston - Inverness",
+  "last_result": "Livingston - Inverness: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T13:50:51.611Z"
 }
