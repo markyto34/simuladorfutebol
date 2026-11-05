@@ -147,7 +147,7 @@ export async function backfillPeriodCorners(rows, options = {}) {
     }
   }
   await Promise.all(Array.from({ length: 1 }, () => worker()));
-  summary.remaining = Math.max(0, selected.length - summary.processed);
+  summary.remaining = Math.max(0, selected.length - (summary.processed - summary.failed));
   const merged = rows.map(row => {
     const patch = updated.get(row.match_id);
     if (!patch) return row;
