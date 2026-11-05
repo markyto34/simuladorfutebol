@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 54,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 50,
+  "processed_games": 54,
+  "stats_games": 54,
+  "bwin_odds": 54,
   "failed_games": 0,
-  "current_match": "Último concluído: Gorica - Osijek",
-  "last_result": "Gorica - Osijek: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:46:59.123Z"
+  "current_match": "Último concluído: Gorica - Varazdin",
+  "last_result": "Gorica - Varazdin: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:47:15.986Z"
 }
