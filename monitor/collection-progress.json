@@ -2,14 +2,14 @@
   "run_id": "42053542737",
   "run_number": "6",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed_with_errors",
+  "phase": "completed",
   "total_games": 322,
   "processed_games": 322,
   "stats_games": 321,
   "bwin_odds": 320,
   "failed_games": 1,
-  "current_match": "Último erro: ttBjgHV6",
+  "current_match": "Recolha terminada",
   "last_result": "Falha em ttBjgHV6: Falha ao recolher ttBjgHV6: HTTP 503",
-  "updated_at": "2026-11-05T15:26:38.922Z"
+  "updated_at": "2026-11-05T15:26:40.187Z"
 }
