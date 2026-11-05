@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 45,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
+  "processed_games": 25,
+  "stats_games": 25,
+  "bwin_odds": 21,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-05T09:39:45.746Z"
+  "current_match": "A consultar jogo 26/45 · 2Tqin5V6",
+  "last_result": "Al Seeb (Oma) - Al Hussein (Jor): 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T09:40:16.645Z"
 }
