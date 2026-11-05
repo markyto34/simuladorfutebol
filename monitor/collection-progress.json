@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 192,
-  "processed_games": 125,
-  "stats_games": 125,
-  "bwin_odds": 125,
+  "processed_games": 151,
+  "stats_games": 151,
+  "bwin_odds": 151,
   "failed_games": 0,
-  "current_match": "Último concluído: Lilleström - Sandefjord",
-  "last_result": "Lilleström - Sandefjord: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:22:30.924Z"
+  "current_match": "A consultar jogo 154/192 · GprqV2I5",
+  "last_result": "Molde - Vålerenga: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:22:36.122Z"
 }
