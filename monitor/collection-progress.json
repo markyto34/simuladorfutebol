@@ -2,14 +2,14 @@
   "run_id": "41989409695",
   "run_number": "12",
   "target_date": "2026-11-04",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 303,
-  "processed_games": 300,
+  "processed_games": 303,
   "stats_games": 159,
   "bwin_odds": 64,
   "failed_games": 0,
-  "current_match": "A consultar jogo 302/303 · vksozyno",
-  "last_result": "Nkana - Kansanshi: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T07:46:46.255Z"
+  "current_match": "Recolha terminada",
+  "last_result": "Scottland - Chicken Inn: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T07:46:47.652Z"
 }
