@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 472,
-  "processed_games": 375,
-  "stats_games": 375,
-  "bwin_odds": 374,
+  "processed_games": 400,
+  "stats_games": 400,
+  "bwin_odds": 399,
   "failed_games": 0,
-  "current_match": "Último concluído: Sporting Kansas City - San Jose Earthquakes",
-  "last_result": "Sporting Kansas City - San Jose Earthquakes: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T14:29:16.248Z"
+  "current_match": "Último concluído: Portland Timbers - Los Angeles Galaxy",
+  "last_result": "Portland Timbers - Los Angeles Galaxy: 16 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T14:29:46.172Z"
 }
