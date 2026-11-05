@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 1,
+  "stats_games": 1,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-05T14:54:09.434Z"
+  "current_match": "Último concluído: FAR Rabat F (Mar) - USFAS Bamako F (Mli)",
+  "last_result": "FAR Rabat F (Mar) - USFAS Bamako F (Mli): 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T14:54:12.703Z"
 }
