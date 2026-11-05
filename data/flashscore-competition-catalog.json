@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-11-05T06:39:01.751Z",
+  "generated_at": "2026-11-05T07:04:13.067Z",
   "catalog_discovery_version": "2.0",
   "source": "Flashscore.pt",
-  "source_catalog_generated_at": "2026-11-05T06:39:01.671Z",
+  "source_catalog_generated_at": "2026-11-05T07:04:13.001Z",
   "scope": "Catálogo descoberto nas páginas públicas de futebol por país/região. As entradas são candidatas; a presença no índice não confirma histórico estatístico, odds ou disponibilidade atual.",
   "summary": {
     "country_pages": 179,
     "country_pages_successful": 179,
     "country_pages_failed": 0,
-    "raw_links": 1677,
-    "excluded_navigation_or_odds_links": 528,
-    "competition_candidates": 1149,
+    "raw_links": 1838,
+    "excluded_navigation_or_odds_links": 535,
+    "competition_candidates": 1303,
     "local_duplicate_name_groups_for_review": 3
   },
   "countries": [
@@ -33,7 +33,7 @@
       "country_slug": "albania",
       "url": "https://www.flashscore.pt/futebol/albania/",
       "fetch_status": "success",
-      "competition_count_raw": 6
+      "competition_count_raw": 7
     },
     {
       "country_name": "Alemanha",
@@ -61,7 +61,7 @@
       "country_slug": "andorra",
       "url": "https://www.flashscore.pt/futebol/andorra/",
       "fetch_status": "success",
-      "competition_count_raw": 5
+      "competition_count_raw": 6
     },
     {
       "country_name": "Angola",
@@ -75,42 +75,42 @@
       "country_slug": "antigua-barbuda",
       "url": "https://www.flashscore.pt/futebol/antigua-barbuda/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Arábia Saudita",
       "country_slug": "arabia-saudita",
       "url": "https://www.flashscore.pt/futebol/arabia-saudita/",
       "fetch_status": "success",
-      "competition_count_raw": 9
+      "competition_count_raw": 10
     },
     {
       "country_name": "Argélia",
       "country_slug": "argelia",
       "url": "https://www.flashscore.pt/futebol/argelia/",
       "fetch_status": "success",
-      "competition_count_raw": 6
+      "competition_count_raw": 7
     },
     {
       "country_name": "Argentina",
       "country_slug": "argentina",
       "url": "https://www.flashscore.pt/futebol/argentina/",
       "fetch_status": "success",
-      "competition_count_raw": 16
+      "competition_count_raw": 17
     },
     {
       "country_name": "Arménia",
       "country_slug": "armenia",
       "url": "https://www.flashscore.pt/futebol/armenia/",
       "fetch_status": "success",
-      "competition_count_raw": 6
+      "competition_count_raw": 7
     },
     {
       "country_name": "Aruba",
       "country_slug": "aruba",
       "url": "https://www.flashscore.pt/futebol/aruba/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Ásia",
@@ -124,14 +124,14 @@
       "country_slug": "australia",
       "url": "https://www.flashscore.pt/futebol/australia/",
       "fetch_status": "success",
-      "competition_count_raw": 29
+      "competition_count_raw": 30
     },
     {
       "country_name": "Austrália e Oceania",
       "country_slug": "australia-e-oceania",
       "url": "https://www.flashscore.pt/futebol/australia-e-oceania/",
       "fetch_status": "success",
-      "competition_count_raw": 14
+      "competition_count_raw": 15
     },
     {
       "country_name": "Áustria",
@@ -145,28 +145,28 @@
       "country_slug": "azerbaijao",
       "url": "https://www.flashscore.pt/futebol/azerbaijao/",
       "fetch_status": "success",
-      "competition_count_raw": 5
+      "competition_count_raw": 6
     },
     {
       "country_name": "Bahrain",
       "country_slug": "bahrain",
       "url": "https://www.flashscore.pt/futebol/bahrain/",
       "fetch_status": "success",
-      "competition_count_raw": 5
+      "competition_count_raw": 6
     },
     {
       "country_name": "Bangladesh",
       "country_slug": "bangladesh",
       "url": "https://www.flashscore.pt/futebol/bangladesh/",
       "fetch_status": "success",
-      "competition_count_raw": 4
+      "competition_count_raw": 5
     },
     {
       "country_name": "Barbados",
       "country_slug": "barbados",
       "url": "https://www.flashscore.pt/futebol/barbados/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Bélgica",
@@ -180,42 +180,42 @@
       "country_slug": "benim",
       "url": "https://www.flashscore.pt/futebol/benim/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Bermuda",
       "country_slug": "bermuda",
       "url": "https://www.flashscore.pt/futebol/bermuda/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Bielorrússia",
       "country_slug": "belarus",
       "url": "https://www.flashscore.pt/futebol/belarus/",
       "fetch_status": "success",
-      "competition_count_raw": 7
+      "competition_count_raw": 8
     },
     {
       "country_name": "Bolívia",
       "country_slug": "bolivia",
       "url": "https://www.flashscore.pt/futebol/bolivia/",
       "fetch_status": "success",
-      "competition_count_raw": 6
+      "competition_count_raw": 7
     },
     {
       "country_name": "Bósnia e Herzegovina",
       "country_slug": "bosnia-e-herzegovina",
       "url": "https://www.flashscore.pt/futebol/bosnia-e-herzegovina/",
       "fetch_status": "success",
-      "competition_count_raw": 7
+      "competition_count_raw": 8
     },
     {
       "country_name": "Botswana",
       "country_slug": "botswana",
       "url": "https://www.flashscore.pt/futebol/botswana/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Brasil",
@@ -229,28 +229,28 @@
       "country_slug": "bulgaria",
       "url": "https://www.flashscore.pt/futebol/bulgaria/",
       "fetch_status": "success",
-      "competition_count_raw": 11
+      "competition_count_raw": 12
     },
     {
       "country_name": "Burkina Faso",
       "country_slug": "burkina-faso",
       "url": "https://www.flashscore.pt/futebol/burkina-faso/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Burundi",
       "country_slug": "burundi",
       "url": "https://www.flashscore.pt/futebol/burundi/",
       "fetch_status": "success",
-      "competition_count_raw": 5
+      "competition_count_raw": 6
     },
     {
       "country_name": "Butão",
       "country_slug": "bhutan",
       "url": "https://www.flashscore.pt/futebol/bhutan/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Cabo Verde",
@@ -264,21 +264,21 @@
       "country_slug": "camaroes",
       "url": "https://www.flashscore.pt/futebol/camaroes/",
       "fetch_status": "success",
-      "competition_count_raw": 5
+      "competition_count_raw": 6
     },
     {
       "country_name": "Camboja",
       "country_slug": "cambodia",
       "url": "https://www.flashscore.pt/futebol/cambodia/",
       "fetch_status": "success",
-      "competition_count_raw": 5
+      "competition_count_raw": 6
     },
     {
       "country_name": "Canadá",
       "country_slug": "canada",
       "url": "https://www.flashscore.pt/futebol/canada/",
       "fetch_status": "success",
-      "competition_count_raw": 6
+      "competition_count_raw": 7
     },
     {
       "country_name": "Catar",
@@ -292,133 +292,133 @@
       "country_slug": "cazaquistao",
       "url": "https://www.flashscore.pt/futebol/cazaquistao/",
       "fetch_status": "success",
-      "competition_count_raw": 8
+      "competition_count_raw": 9
     },
     {
       "country_name": "Chade",
       "country_slug": "chad",
       "url": "https://www.flashscore.pt/futebol/chad/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Chile",
       "country_slug": "chile",
       "url": "https://www.flashscore.pt/futebol/chile/",
       "fetch_status": "success",
-      "competition_count_raw": 9
+      "competition_count_raw": 10
     },
     {
       "country_name": "China",
       "country_slug": "china",
       "url": "https://www.flashscore.pt/futebol/china/",
       "fetch_status": "success",
-      "competition_count_raw": 9
+      "competition_count_raw": 10
     },
     {
       "country_name": "Chipre",
       "country_slug": "chipre",
       "url": "https://www.flashscore.pt/futebol/chipre/",
       "fetch_status": "success",
-      "competition_count_raw": 6
+      "competition_count_raw": 7
     },
     {
       "country_name": "Colômbia",
       "country_slug": "colombia",
       "url": "https://www.flashscore.pt/futebol/colombia/",
       "fetch_status": "success",
-      "competition_count_raw": 7
+      "competition_count_raw": 8
     },
     {
       "country_name": "Congo",
       "country_slug": "congo",
       "url": "https://www.flashscore.pt/futebol/congo/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Coreia do Sul",
       "country_slug": "coreia-do-sul",
       "url": "https://www.flashscore.pt/futebol/coreia-do-sul/",
       "fetch_status": "success",
-      "competition_count_raw": 10
+      "competition_count_raw": 11
     },
     {
       "country_name": "Costa do Marfim",
       "country_slug": "costa-do-marfim",
       "url": "https://www.flashscore.pt/futebol/costa-do-marfim/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Costa Rica",
       "country_slug": "costa-rica",
       "url": "https://www.flashscore.pt/futebol/costa-rica/",
       "fetch_status": "success",
-      "competition_count_raw": 7
+      "competition_count_raw": 8
     },
     {
       "country_name": "Croácia",
       "country_slug": "croacia",
       "url": "https://www.flashscore.pt/futebol/croacia/",
       "fetch_status": "success",
-      "competition_count_raw": 8
+      "competition_count_raw": 9
     },
     {
       "country_name": "Dinamarca",
       "country_slug": "dinamarca",
       "url": "https://www.flashscore.pt/futebol/dinamarca/",
       "fetch_status": "success",
-      "competition_count_raw": 10
+      "competition_count_raw": 11
     },
     {
       "country_name": "Egipto",
       "country_slug": "egipto",
       "url": "https://www.flashscore.pt/futebol/egipto/",
       "fetch_status": "success",
-      "competition_count_raw": 7
+      "competition_count_raw": 8
     },
     {
       "country_name": "El Salvador",
       "country_slug": "el-salvador",
       "url": "https://www.flashscore.pt/futebol/el-salvador/",
       "fetch_status": "success",
-      "competition_count_raw": 4
+      "competition_count_raw": 5
     },
     {
       "country_name": "Emirados Árabes Unidos",
       "country_slug": "emirados-arabes-unidos",
       "url": "https://www.flashscore.pt/futebol/emirados-arabes-unidos/",
       "fetch_status": "success",
-      "competition_count_raw": 8
+      "competition_count_raw": 9
     },
     {
       "country_name": "Equador",
       "country_slug": "equador",
       "url": "https://www.flashscore.pt/futebol/equador/",
       "fetch_status": "success",
-      "competition_count_raw": 6
+      "competition_count_raw": 7
     },
     {
       "country_name": "Escócia",
       "country_slug": "escocia",
       "url": "https://www.flashscore.pt/futebol/escocia/",
       "fetch_status": "success",
-      "competition_count_raw": 14
+      "competition_count_raw": 15
     },
     {
       "country_name": "Eslováquia",
       "country_slug": "eslovaquia",
       "url": "https://www.flashscore.pt/futebol/eslovaquia/",
       "fetch_status": "success",
-      "competition_count_raw": 14
+      "competition_count_raw": 15
     },
     {
       "country_name": "Eslovénia",
       "country_slug": "eslovenia",
       "url": "https://www.flashscore.pt/futebol/eslovenia/",
       "fetch_status": "success",
-      "competition_count_raw": 8
+      "competition_count_raw": 9
     },
     {
       "country_name": "Espanha",
@@ -432,21 +432,21 @@
       "country_slug": "estonia",
       "url": "https://www.flashscore.pt/futebol/estonia/",
       "fetch_status": "success",
-      "competition_count_raw": 8
+      "competition_count_raw": 9
     },
     {
       "country_name": "Eswatini",
       "country_slug": "eswatini",
       "url": "https://www.flashscore.pt/futebol/eswatini/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Etiópia",
       "country_slug": "etiopia",
       "url": "https://www.flashscore.pt/futebol/etiopia/",
       "fetch_status": "success",
-      "competition_count_raw": 4
+      "competition_count_raw": 5
     },
     {
       "country_name": "EUA",
@@ -467,14 +467,14 @@
       "country_slug": "filipinas",
       "url": "https://www.flashscore.pt/futebol/filipinas/",
       "fetch_status": "success",
-      "competition_count_raw": 4
+      "competition_count_raw": 5
     },
     {
       "country_name": "Finlândia",
       "country_slug": "finlandia",
       "url": "https://www.flashscore.pt/futebol/finlandia/",
       "fetch_status": "success",
-      "competition_count_raw": 15
+      "competition_count_raw": 16
     },
     {
       "country_name": "França",
@@ -502,119 +502,119 @@
       "country_slug": "gabao",
       "url": "https://www.flashscore.pt/futebol/gabao/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Gâmbia",
       "country_slug": "gambia",
       "url": "https://www.flashscore.pt/futebol/gambia/",
       "fetch_status": "success",
-      "competition_count_raw": 4
+      "competition_count_raw": 5
     },
     {
       "country_name": "Gana",
       "country_slug": "gana",
       "url": "https://www.flashscore.pt/futebol/gana/",
       "fetch_status": "success",
-      "competition_count_raw": 6
+      "competition_count_raw": 7
     },
     {
       "country_name": "Geórgia",
       "country_slug": "georgia",
       "url": "https://www.flashscore.pt/futebol/georgia/",
       "fetch_status": "success",
-      "competition_count_raw": 7
+      "competition_count_raw": 8
     },
     {
       "country_name": "Gibraltar",
       "country_slug": "gibraltar",
       "url": "https://www.flashscore.pt/futebol/gibraltar/",
       "fetch_status": "success",
-      "competition_count_raw": 5
+      "competition_count_raw": 6
     },
     {
       "country_name": "Grécia",
       "country_slug": "grecia",
       "url": "https://www.flashscore.pt/futebol/grecia/",
       "fetch_status": "success",
-      "competition_count_raw": 19
+      "competition_count_raw": 20
     },
     {
       "country_name": "Guatemala",
       "country_slug": "guatemala",
       "url": "https://www.flashscore.pt/futebol/guatemala/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Guiné",
       "country_slug": "guine",
       "url": "https://www.flashscore.pt/futebol/guine/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Haiti",
       "country_slug": "haiti",
       "url": "https://www.flashscore.pt/futebol/haiti/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Honduras",
       "country_slug": "honduras",
       "url": "https://www.flashscore.pt/futebol/honduras/",
       "fetch_status": "success",
-      "competition_count_raw": 4
+      "competition_count_raw": 5
     },
     {
       "country_name": "Hong Kong",
       "country_slug": "hong-kong",
       "url": "https://www.flashscore.pt/futebol/hong-kong/",
       "fetch_status": "success",
-      "competition_count_raw": 7
+      "competition_count_raw": 8
     },
     {
       "country_name": "Hungria",
       "country_slug": "hungria",
       "url": "https://www.flashscore.pt/futebol/hungria/",
       "fetch_status": "success",
-      "competition_count_raw": 12
+      "competition_count_raw": 13
     },
     {
       "country_name": "Iémen",
       "country_slug": "iemen",
       "url": "https://www.flashscore.pt/futebol/iemen/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Ilhas Faroé",
       "country_slug": "ilhas-faroe",
       "url": "https://www.flashscore.pt/futebol/ilhas-faroe/",
       "fetch_status": "success",
-      "competition_count_raw": 6
+      "competition_count_raw": 7
     },
     {
       "country_name": "Ilhas Fiji",
       "country_slug": "ilhas-fiji",
       "url": "https://www.flashscore.pt/futebol/ilhas-fiji/",
       "fetch_status": "success",
-      "competition_count_raw": 4
+      "competition_count_raw": 5
     },
     {
       "country_name": "Índia",
       "country_slug": "india",
       "url": "https://www.flashscore.pt/futebol/india/",
       "fetch_status": "success",
-      "competition_count_raw": 12
+      "competition_count_raw": 13
     },
     {
       "country_name": "Indonésia",
       "country_slug": "indonesia",
       "url": "https://www.flashscore.pt/futebol/indonesia/",
       "fetch_status": "success",
-      "competition_count_raw": 7
+      "competition_count_raw": 8
     },
     {
       "country_name": "Inglaterra",
@@ -628,42 +628,42 @@
       "country_slug": "irao",
       "url": "https://www.flashscore.pt/futebol/irao/",
       "fetch_status": "success",
-      "competition_count_raw": 6
+      "competition_count_raw": 7
     },
     {
       "country_name": "Iraque",
       "country_slug": "iraque",
       "url": "https://www.flashscore.pt/futebol/iraque/",
       "fetch_status": "success",
-      "competition_count_raw": 4
+      "competition_count_raw": 5
     },
     {
       "country_name": "Irlanda",
       "country_slug": "irlanda",
       "url": "https://www.flashscore.pt/futebol/irlanda/",
       "fetch_status": "success",
-      "competition_count_raw": 10
+      "competition_count_raw": 11
     },
     {
       "country_name": "Irlanda do Norte",
       "country_slug": "irlanda-do-norte",
       "url": "https://www.flashscore.pt/futebol/irlanda-do-norte/",
       "fetch_status": "success",
-      "competition_count_raw": 8
+      "competition_count_raw": 9
     },
     {
       "country_name": "Islândia",
       "country_slug": "islandia",
       "url": "https://www.flashscore.pt/futebol/islandia/",
       "fetch_status": "success",
-      "competition_count_raw": 14
+      "competition_count_raw": 15
     },
     {
       "country_name": "Israel",
       "country_slug": "israel",
       "url": "https://www.flashscore.pt/futebol/israel/",
       "fetch_status": "success",
-      "competition_count_raw": 11
+      "competition_count_raw": 12
     },
     {
       "country_name": "Itália",
@@ -677,84 +677,84 @@
       "country_slug": "jamaica",
       "url": "https://www.flashscore.pt/futebol/jamaica/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Japão",
       "country_slug": "japao",
       "url": "https://www.flashscore.pt/futebol/japao/",
       "fetch_status": "success",
-      "competition_count_raw": 13
+      "competition_count_raw": 14
     },
     {
       "country_name": "Jordânia",
       "country_slug": "jordania",
       "url": "https://www.flashscore.pt/futebol/jordania/",
       "fetch_status": "success",
-      "competition_count_raw": 5
+      "competition_count_raw": 6
     },
     {
       "country_name": "Kosovo",
       "country_slug": "cossovo",
       "url": "https://www.flashscore.pt/futebol/cossovo/",
       "fetch_status": "success",
-      "competition_count_raw": 6
+      "competition_count_raw": 7
     },
     {
       "country_name": "Kuwait",
       "country_slug": "kuwait",
       "url": "https://www.flashscore.pt/futebol/kuwait/",
       "fetch_status": "success",
-      "competition_count_raw": 7
+      "competition_count_raw": 8
     },
     {
       "country_name": "Laos",
       "country_slug": "laos",
       "url": "https://www.flashscore.pt/futebol/laos/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Lesoto",
       "country_slug": "lesotho",
       "url": "https://www.flashscore.pt/futebol/lesotho/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Letónia",
       "country_slug": "letonia",
       "url": "https://www.flashscore.pt/futebol/letonia/",
       "fetch_status": "success",
-      "competition_count_raw": 8
+      "competition_count_raw": 9
     },
     {
       "country_name": "Libano",
       "country_slug": "libano",
       "url": "https://www.flashscore.pt/futebol/libano/",
       "fetch_status": "success",
-      "competition_count_raw": 6
+      "competition_count_raw": 7
     },
     {
       "country_name": "Libéria",
       "country_slug": "liberia",
       "url": "https://www.flashscore.pt/futebol/liberia/",
       "fetch_status": "success",
-      "competition_count_raw": 4
+      "competition_count_raw": 5
     },
     {
       "country_name": "Líbia",
       "country_slug": "libia",
       "url": "https://www.flashscore.pt/futebol/libia/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Liechtenstein",
       "country_slug": "liechtenstein",
       "url": "https://www.flashscore.pt/futebol/liechtenstein/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Lituânia",
@@ -768,84 +768,84 @@
       "country_slug": "luxemburgo",
       "url": "https://www.flashscore.pt/futebol/luxemburgo/",
       "fetch_status": "success",
-      "competition_count_raw": 5
+      "competition_count_raw": 6
     },
     {
       "country_name": "Macau",
       "country_slug": "macau",
       "url": "https://www.flashscore.pt/futebol/macau/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Macedónia do Norte",
       "country_slug": "macedonia-do-norte",
       "url": "https://www.flashscore.pt/futebol/macedonia-do-norte/",
       "fetch_status": "success",
-      "competition_count_raw": 6
+      "competition_count_raw": 7
     },
     {
       "country_name": "Malásia",
       "country_slug": "malasia",
       "url": "https://www.flashscore.pt/futebol/malasia/",
       "fetch_status": "success",
-      "competition_count_raw": 7
+      "competition_count_raw": 8
     },
     {
       "country_name": "Malawi",
       "country_slug": "malawi",
       "url": "https://www.flashscore.pt/futebol/malawi/",
       "fetch_status": "success",
-      "competition_count_raw": 5
+      "competition_count_raw": 6
     },
     {
       "country_name": "Mali",
       "country_slug": "mali",
       "url": "https://www.flashscore.pt/futebol/mali/",
       "fetch_status": "success",
-      "competition_count_raw": 4
+      "competition_count_raw": 5
     },
     {
       "country_name": "Malta",
       "country_slug": "malta",
       "url": "https://www.flashscore.pt/futebol/malta/",
       "fetch_status": "success",
-      "competition_count_raw": 7
+      "competition_count_raw": 8
     },
     {
       "country_name": "Marrocos",
       "country_slug": "marrocos",
       "url": "https://www.flashscore.pt/futebol/marrocos/",
       "fetch_status": "success",
-      "competition_count_raw": 6
+      "competition_count_raw": 7
     },
     {
       "country_name": "Martinica",
       "country_slug": "martinica",
       "url": "https://www.flashscore.pt/futebol/martinica/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Maurícia",
       "country_slug": "mauricia",
       "url": "https://www.flashscore.pt/futebol/mauricia/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Mauritânia",
       "country_slug": "mauritania",
       "url": "https://www.flashscore.pt/futebol/mauritania/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "México",
       "country_slug": "mexico",
       "url": "https://www.flashscore.pt/futebol/mexico/",
       "fetch_status": "success",
-      "competition_count_raw": 13
+      "competition_count_raw": 14
     },
     {
       "country_name": "Moçambique",
@@ -859,70 +859,70 @@
       "country_slug": "moldavia",
       "url": "https://www.flashscore.pt/futebol/moldavia/",
       "fetch_status": "success",
-      "competition_count_raw": 5
+      "competition_count_raw": 6
     },
     {
       "country_name": "Mongolia",
       "country_slug": "mongolia",
       "url": "https://www.flashscore.pt/futebol/mongolia/",
       "fetch_status": "success",
-      "competition_count_raw": 4
+      "competition_count_raw": 5
     },
     {
       "country_name": "Montenegro",
       "country_slug": "montenegro",
       "url": "https://www.flashscore.pt/futebol/montenegro/",
       "fetch_status": "success",
-      "competition_count_raw": 5
+      "competition_count_raw": 6
     },
     {
       "country_name": "Mundo",
       "country_slug": "mundo",
       "url": "https://www.flashscore.pt/futebol/mundo/",
       "fetch_status": "success",
-      "competition_count_raw": 45
+      "competition_count_raw": 46
     },
     {
       "country_name": "Myanmar",
       "country_slug": "myanmar",
       "url": "https://www.flashscore.pt/futebol/myanmar/",
       "fetch_status": "success",
-      "competition_count_raw": 4
+      "competition_count_raw": 5
     },
     {
       "country_name": "Nicarágua",
       "country_slug": "nicaragua",
       "url": "https://www.flashscore.pt/futebol/nicaragua/",
       "fetch_status": "success",
-      "competition_count_raw": 4
+      "competition_count_raw": 5
     },
     {
       "country_name": "Níger",
       "country_slug": "niger",
       "url": "https://www.flashscore.pt/futebol/niger/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Nigéria",
       "country_slug": "nigeria",
       "url": "https://www.flashscore.pt/futebol/nigeria/",
       "fetch_status": "success",
-      "competition_count_raw": 5
+      "competition_count_raw": 6
     },
     {
       "country_name": "Noruega",
       "country_slug": "noruega",
       "url": "https://www.flashscore.pt/futebol/noruega/",
       "fetch_status": "success",
-      "competition_count_raw": 19
+      "competition_count_raw": 20
     },
     {
       "country_name": "Nova Zelândia",
       "country_slug": "nova-zelandia",
       "url": "https://www.flashscore.pt/futebol/nova-zelandia/",
       "fetch_status": "success",
-      "competition_count_raw": 6
+      "competition_count_raw": 7
     },
     {
       "country_name": "Odds",
@@ -936,14 +936,14 @@
       "country_slug": "oman",
       "url": "https://www.flashscore.pt/futebol/oman/",
       "fetch_status": "success",
-      "competition_count_raw": 6
+      "competition_count_raw": 7
     },
     {
       "country_name": "País de Gales",
       "country_slug": "pais-de-gales",
       "url": "https://www.flashscore.pt/futebol/pais-de-gales/",
       "fetch_status": "success",
-      "competition_count_raw": 8
+      "competition_count_raw": 9
     },
     {
       "country_name": "Países Baixos",
@@ -957,42 +957,42 @@
       "country_slug": "palestina",
       "url": "https://www.flashscore.pt/futebol/palestina/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Panamá",
       "country_slug": "panama",
       "url": "https://www.flashscore.pt/futebol/panama/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Paquistão",
       "country_slug": "paquistao",
       "url": "https://www.flashscore.pt/futebol/paquistao/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Paraguai",
       "country_slug": "paraguai",
       "url": "https://www.flashscore.pt/futebol/paraguai/",
       "fetch_status": "success",
-      "competition_count_raw": 6
+      "competition_count_raw": 7
     },
     {
       "country_name": "Peru",
       "country_slug": "peru",
       "url": "https://www.flashscore.pt/futebol/peru/",
       "fetch_status": "success",
-      "competition_count_raw": 8
+      "competition_count_raw": 9
     },
     {
       "country_name": "Polónia",
       "country_slug": "polonia",
       "url": "https://www.flashscore.pt/futebol/polonia/",
       "fetch_status": "success",
-      "competition_count_raw": 14
+      "competition_count_raw": 15
     },
     {
       "country_name": "Portugal",
@@ -1006,266 +1006,266 @@
       "country_slug": "quenia",
       "url": "https://www.flashscore.pt/futebol/quenia/",
       "fetch_status": "success",
-      "competition_count_raw": 6
+      "competition_count_raw": 7
     },
     {
       "country_name": "Quirguistão",
       "country_slug": "kyrgyzstan",
       "url": "https://www.flashscore.pt/futebol/kyrgyzstan/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "RD Congo",
       "country_slug": "congo-dr",
       "url": "https://www.flashscore.pt/futebol/congo-dr/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "República Checa",
       "country_slug": "republica-checa",
       "url": "https://www.flashscore.pt/futebol/republica-checa/",
       "fetch_status": "success",
-      "competition_count_raw": 34
+      "competition_count_raw": 35
     },
     {
       "country_name": "República Dominicana",
       "country_slug": "republica-dominicana",
       "url": "https://www.flashscore.pt/futebol/republica-dominicana/",
       "fetch_status": "success",
-      "competition_count_raw": 4
+      "competition_count_raw": 5
     },
     {
       "country_name": "Roménia",
       "country_slug": "romenia",
       "url": "https://www.flashscore.pt/futebol/romenia/",
       "fetch_status": "success",
-      "competition_count_raw": 18
+      "competition_count_raw": 19
     },
     {
       "country_name": "Ruanda",
       "country_slug": "ruanda",
       "url": "https://www.flashscore.pt/futebol/ruanda/",
       "fetch_status": "success",
-      "competition_count_raw": 5
+      "competition_count_raw": 6
     },
     {
       "country_name": "Rússia",
       "country_slug": "russia",
       "url": "https://www.flashscore.pt/futebol/russia/",
       "fetch_status": "success",
-      "competition_count_raw": 18
+      "competition_count_raw": 19
     },
     {
       "country_name": "San Marino",
       "country_slug": "san-marino",
       "url": "https://www.flashscore.pt/futebol/san-marino/",
       "fetch_status": "success",
-      "competition_count_raw": 5
+      "competition_count_raw": 6
     },
     {
       "country_name": "Seicheles",
       "country_slug": "seicheles",
       "url": "https://www.flashscore.pt/futebol/seicheles/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Senegal",
       "country_slug": "senegal",
       "url": "https://www.flashscore.pt/futebol/senegal/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Serra Leoa",
       "country_slug": "serra-leoa",
       "url": "https://www.flashscore.pt/futebol/serra-leoa/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Sérvia",
       "country_slug": "servia",
       "url": "https://www.flashscore.pt/futebol/servia/",
       "fetch_status": "success",
-      "competition_count_raw": 10
+      "competition_count_raw": 11
     },
     {
       "country_name": "Singapura",
       "country_slug": "singapura",
       "url": "https://www.flashscore.pt/futebol/singapura/",
       "fetch_status": "success",
-      "competition_count_raw": 6
+      "competition_count_raw": 7
     },
     {
       "country_name": "Síria",
       "country_slug": "siria",
       "url": "https://www.flashscore.pt/futebol/siria/",
       "fetch_status": "success",
-      "competition_count_raw": 4
+      "competition_count_raw": 5
     },
     {
       "country_name": "Somália",
       "country_slug": "somalia",
       "url": "https://www.flashscore.pt/futebol/somalia/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Sri Lanka",
       "country_slug": "sri-lanka",
       "url": "https://www.flashscore.pt/futebol/sri-lanka/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Sudão",
       "country_slug": "sudao",
       "url": "https://www.flashscore.pt/futebol/sudao/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Suécia",
       "country_slug": "suecia",
       "url": "https://www.flashscore.pt/futebol/suecia/",
       "fetch_status": "success",
-      "competition_count_raw": 18
+      "competition_count_raw": 19
     },
     {
       "country_name": "Suiça",
       "country_slug": "suica",
       "url": "https://www.flashscore.pt/futebol/suica/",
       "fetch_status": "success",
-      "competition_count_raw": 13
+      "competition_count_raw": 14
     },
     {
       "country_name": "Suriname",
       "country_slug": "suriname",
       "url": "https://www.flashscore.pt/futebol/suriname/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Tailândia",
       "country_slug": "tailandia",
       "url": "https://www.flashscore.pt/futebol/tailandia/",
       "fetch_status": "success",
-      "competition_count_raw": 7
+      "competition_count_raw": 8
     },
     {
       "country_name": "Taiwan",
       "country_slug": "taiwan",
       "url": "https://www.flashscore.pt/futebol/taiwan/",
       "fetch_status": "success",
-      "competition_count_raw": 4
+      "competition_count_raw": 5
     },
     {
       "country_name": "Tajiquistão",
       "country_slug": "tajikistan",
       "url": "https://www.flashscore.pt/futebol/tajikistan/",
       "fetch_status": "success",
-      "competition_count_raw": 4
+      "competition_count_raw": 5
     },
     {
       "country_name": "Tânzania",
       "country_slug": "tanzania",
       "url": "https://www.flashscore.pt/futebol/tanzania/",
       "fetch_status": "success",
-      "competition_count_raw": 5
+      "competition_count_raw": 6
     },
     {
       "country_name": "Togo",
       "country_slug": "togo",
       "url": "https://www.flashscore.pt/futebol/togo/",
       "fetch_status": "success",
-      "competition_count_raw": 4
+      "competition_count_raw": 5
     },
     {
       "country_name": "Trindad e Tobago",
       "country_slug": "trindad-e-tobago",
       "url": "https://www.flashscore.pt/futebol/trindad-e-tobago/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Tunísia",
       "country_slug": "tunisia",
       "url": "https://www.flashscore.pt/futebol/tunisia/",
       "fetch_status": "success",
-      "competition_count_raw": 6
+      "competition_count_raw": 7
     },
     {
       "country_name": "Turquemenistão",
       "country_slug": "turkmenistan",
       "url": "https://www.flashscore.pt/futebol/turkmenistan/",
       "fetch_status": "success",
-      "competition_count_raw": 3
+      "competition_count_raw": 4
     },
     {
       "country_name": "Turquia",
       "country_slug": "turquia",
       "url": "https://www.flashscore.pt/futebol/turquia/",
       "fetch_status": "success",
-      "competition_count_raw": 15
+      "competition_count_raw": 16
     },
     {
       "country_name": "Ucrânia",
       "country_slug": "ucrania",
       "url": "https://www.flashscore.pt/futebol/ucrania/",
       "fetch_status": "success",
-      "competition_count_raw": 9
+      "competition_count_raw": 10
     },
     {
       "country_name": "Uganda",
       "country_slug": "uganda",
       "url": "https://www.flashscore.pt/futebol/uganda/",
       "fetch_status": "success",
-      "competition_count_raw": 5
+      "competition_count_raw": 6
     },
     {
       "country_name": "Uruguai",
       "country_slug": "uruguai",
       "url": "https://www.flashscore.pt/futebol/uruguai/",
       "fetch_status": "success",
-      "competition_count_raw": 7
+      "competition_count_raw": 8
     },
     {
       "country_name": "Uzbequistão",
       "country_slug": "uzbequistao",
       "url": "https://www.flashscore.pt/futebol/uzbequistao/",
       "fetch_status": "success",
-      "competition_count_raw": 6
+      "competition_count_raw": 7
     },
     {
       "country_name": "Venezuela",
       "country_slug": "venezuela",
       "url": "https://www.flashscore.pt/futebol/venezuela/",
       "fetch_status": "success",
-      "competition_count_raw": 6
+      "competition_count_raw": 7
     },
     {
       "country_name": "Vietname",
       "country_slug": "vietname",
       "url": "https://www.flashscore.pt/futebol/vietname/",
       "fetch_status": "success",
-      "competition_count_raw": 8
+      "competition_count_raw": 9
     },
     {
       "country_name": "Zâmbia",
       "country_slug": "zambia",
       "url": "https://www.flashscore.pt/futebol/zambia/",
       "fetch_status": "success",
-      "competition_count_raw": 5
+      "competition_count_raw": 6
     },
     {
       "country_name": "Zimbabwe",
       "country_slug": "zimbabwe",
       "url": "https://www.flashscore.pt/futebol/zimbabwe/",
       "fetch_status": "success",
-      "competition_count_raw": 5
+      "competition_count_raw": 6
     }
   ],
   "competitions": [
@@ -1801,6 +1801,24 @@
       "source_status": "candidate_not_yet_validated",
       "validation_status": "discovered_not_yet_validated",
       "competition_family_candidate": "Segunda Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Albânia",
+      "country_slug": "albania",
+      "competition_name": "Super Liga",
+      "competition_slug": "super-liga",
+      "url": "https://www.flashscore.pt/futebol/albania/super-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/albania/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Super Liga",
       "gender": "masculino_misto",
       "age_category": "senior",
       "category": "masculino_misto",
@@ -3198,6 +3216,24 @@
     {
       "country_name": "Andorra",
       "country_slug": "andorra",
+      "competition_name": "Primeira Divisao",
+      "competition_slug": "primeira-divisao",
+      "url": "https://www.flashscore.pt/futebol/andorra/primeira-divisao/",
+      "source_country_url": "https://www.flashscore.pt/futebol/andorra/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Divisao",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Andorra",
+      "country_slug": "andorra",
       "competition_name": "Supertaça",
       "competition_slug": "super-taca",
       "url": "https://www.flashscore.pt/futebol/andorra/super-taca/",
@@ -3268,6 +3304,24 @@
       "geographic_scope": "pais_ou_regiao"
     },
     {
+      "country_name": "Antigua e Barbuda",
+      "country_slug": "antigua-barbuda",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/antigua-barbuda/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/antigua-barbuda/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
       "country_name": "Arábia Saudita",
       "country_slug": "arabia-saudita",
       "competition_name": "Division 2",
@@ -3277,6 +3331,24 @@
       "source_status": "candidate_not_yet_validated",
       "validation_status": "discovered_not_yet_validated",
       "competition_family_candidate": "Division 2",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Arábia Saudita",
+      "country_slug": "arabia-saudita",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/arabia-saudita/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/arabia-saudita/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
       "gender": "masculino_misto",
       "age_category": "senior",
       "category": "masculino_misto",
@@ -3378,6 +3450,24 @@
     {
       "country_name": "Argélia",
       "country_slug": "argelia",
+      "competition_name": "1 Divisao",
+      "competition_slug": "1-divisao",
+      "url": "https://www.flashscore.pt/futebol/argelia/1-divisao/",
+      "source_country_url": "https://www.flashscore.pt/futebol/argelia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "1 Divisao",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Argélia",
+      "country_slug": "argelia",
       "competition_name": "Liga2",
       "competition_slug": "liga2",
       "url": "https://www.flashscore.pt/futebol/argelia/liga2/",
@@ -3425,6 +3515,24 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Argentina",
+      "country_slug": "argentina",
+      "competition_name": "Liga Profesional",
+      "competition_slug": "liga-profesional",
+      "url": "https://www.flashscore.pt/futebol/argentina/liga-profesional/",
+      "source_country_url": "https://www.flashscore.pt/futebol/argentina/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Profesional",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -3666,6 +3774,24 @@
     {
       "country_name": "Arménia",
       "country_slug": "armenia",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/armenia/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/armenia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Arménia",
+      "country_slug": "armenia",
       "competition_name": "Segunda Liga",
       "competition_slug": "segunda-liga",
       "url": "https://www.flashscore.pt/futebol/armenia/segunda-liga/",
@@ -3713,6 +3839,24 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Aruba",
+      "country_slug": "aruba",
+      "competition_name": "Divisao De Honra",
+      "competition_slug": "divisao-de-honra",
+      "url": "https://www.flashscore.pt/futebol/aruba/divisao-de-honra/",
+      "source_country_url": "https://www.flashscore.pt/futebol/aruba/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Divisao De Honra",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -4530,6 +4674,24 @@
     {
       "country_name": "Austrália",
       "country_slug": "australia",
+      "competition_name": "Liga A",
+      "competition_slug": "liga-a",
+      "url": "https://www.flashscore.pt/futebol/australia/liga-a/",
+      "source_country_url": "https://www.flashscore.pt/futebol/australia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga A",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Austrália",
+      "country_slug": "australia",
       "competition_name": "Liga A Feminina",
       "competition_slug": "liga-a-feminina",
       "url": "https://www.flashscore.pt/futebol/australia/liga-a-feminina/",
@@ -5088,6 +5250,24 @@
     {
       "country_name": "Austrália e Oceania",
       "country_slug": "australia-e-oceania",
+      "competition_name": "Taca Das Nacoes Ofc",
+      "competition_slug": "taca-das-nacoes-ofc",
+      "url": "https://www.flashscore.pt/futebol/australia-e-oceania/taca-das-nacoes-ofc/",
+      "source_country_url": "https://www.flashscore.pt/futebol/australia-e-oceania/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Taca Das Nacoes Ofc",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Austrália e Oceania",
+      "country_slug": "australia-e-oceania",
       "competition_name": "Taça das Nações OFC Feminina",
       "competition_slug": "taca-das-nacoes-ofc-feminina",
       "url": "https://www.flashscore.pt/futebol/australia-e-oceania/taca-das-nacoes-ofc-feminina/",
@@ -5448,6 +5628,24 @@
     {
       "country_name": "Azerbaijão",
       "country_slug": "azerbaijao",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/azerbaijao/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/azerbaijao/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Azerbaijão",
+      "country_slug": "azerbaijao",
       "competition_name": "Segunda Liga",
       "competition_slug": "segunda-liga",
       "url": "https://www.flashscore.pt/futebol/azerbaijao/segunda-liga/",
@@ -5477,6 +5675,24 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Bahrain",
+      "country_slug": "bahrain",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/bahrain/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/bahrain/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -5520,6 +5736,24 @@
     {
       "country_name": "Bangladesh",
       "country_slug": "bangladesh",
+      "competition_name": "Bfl",
+      "competition_slug": "bfl",
+      "url": "https://www.flashscore.pt/futebol/bangladesh/bfl/",
+      "source_country_url": "https://www.flashscore.pt/futebol/bangladesh/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Bfl",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Bangladesh",
+      "country_slug": "bangladesh",
       "competition_name": "Taça Federação",
       "competition_slug": "taca-federacao",
       "url": "https://www.flashscore.pt/futebol/bangladesh/taca-federacao/",
@@ -5531,6 +5765,24 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Barbados",
+      "country_slug": "barbados",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/barbados/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/barbados/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -5788,6 +6040,42 @@
       "geographic_scope": "pais_ou_regiao"
     },
     {
+      "country_name": "Benim",
+      "country_slug": "benim",
+      "competition_name": "Liga 1",
+      "competition_slug": "liga-1",
+      "url": "https://www.flashscore.pt/futebol/benim/liga-1/",
+      "source_country_url": "https://www.flashscore.pt/futebol/benim/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga 1",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Bermuda",
+      "country_slug": "bermuda",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/bermuda/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/bermuda/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
       "country_name": "Bielorrússia",
       "country_slug": "belarus",
       "competition_name": "Divisão 1",
@@ -5826,6 +6114,24 @@
     {
       "country_name": "Bielorrússia",
       "country_slug": "belarus",
+      "competition_name": "Liga Vysshaya",
+      "competition_slug": "liga-vysshaya",
+      "url": "https://www.flashscore.pt/futebol/belarus/liga-vysshaya/",
+      "source_country_url": "https://www.flashscore.pt/futebol/belarus/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Vysshaya",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Bielorrússia",
+      "country_slug": "belarus",
       "competition_name": "Supertaça",
       "competition_slug": "super-taca",
       "url": "https://www.flashscore.pt/futebol/belarus/super-taca/",
@@ -5855,6 +6161,24 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Bolívia",
+      "country_slug": "bolivia",
+      "competition_name": "Divisao Profissional",
+      "competition_slug": "divisao-profissional",
+      "url": "https://www.flashscore.pt/futebol/bolivia/divisao-profissional/",
+      "source_country_url": "https://www.flashscore.pt/futebol/bolivia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Divisao Profissional",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -5981,6 +6305,42 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Bósnia e Herzegovina",
+      "country_slug": "bosnia-e-herzegovina",
+      "competition_name": "Wwin Liga Bih",
+      "competition_slug": "wwin-liga-bih",
+      "url": "https://www.flashscore.pt/futebol/bosnia-e-herzegovina/wwin-liga-bih/",
+      "source_country_url": "https://www.flashscore.pt/futebol/bosnia-e-herzegovina/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Wwin Liga Bih",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Botswana",
+      "country_slug": "botswana",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/botswana/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/botswana/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -8832,6 +9192,24 @@
     {
       "country_name": "Bulgária",
       "country_slug": "bulgaria",
+      "competition_name": "Liga Parva",
+      "competition_slug": "liga-parva",
+      "url": "https://www.flashscore.pt/futebol/bulgaria/liga-parva/",
+      "source_country_url": "https://www.flashscore.pt/futebol/bulgaria/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Parva",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Bulgária",
+      "country_slug": "bulgaria",
       "competition_name": "Liga Vtora",
       "competition_slug": "liga-vtora",
       "url": "https://www.flashscore.pt/futebol/bulgaria/liga-vtora/",
@@ -8974,6 +9352,42 @@
       "geographic_scope": "pais_ou_regiao"
     },
     {
+      "country_name": "Burkina Faso",
+      "country_slug": "burkina-faso",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/burkina-faso/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/burkina-faso/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Burundi",
+      "country_slug": "burundi",
+      "competition_name": "Liga Primus",
+      "competition_slug": "liga-primus",
+      "url": "https://www.flashscore.pt/futebol/burundi/liga-primus/",
+      "source_country_url": "https://www.flashscore.pt/futebol/burundi/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Primus",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
       "country_name": "Burundi",
       "country_slug": "burundi",
       "competition_name": "Supertaça",
@@ -9010,6 +9424,24 @@
       "geographic_scope": "pais_ou_regiao"
     },
     {
+      "country_name": "Butão",
+      "country_slug": "bhutan",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/bhutan/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/bhutan/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
       "country_name": "Cabo Verde",
       "country_slug": "cabo-verde",
       "competition_name": "Campeonato de Cabo Verde",
@@ -9019,6 +9451,24 @@
       "source_status": "candidate_not_yet_validated",
       "validation_status": "discovered_not_yet_validated",
       "competition_family_candidate": "Campeonato de Cabo Verde",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Camarões",
+      "country_slug": "camaroes",
+      "competition_name": "Campeonato De Elite",
+      "competition_slug": "campeonato-de-elite",
+      "url": "https://www.flashscore.pt/futebol/camaroes/campeonato-de-elite/",
+      "source_country_url": "https://www.flashscore.pt/futebol/camaroes/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Campeonato De Elite",
       "gender": "masculino_misto",
       "age_category": "senior",
       "category": "masculino_misto",
@@ -9055,6 +9505,24 @@
       "source_status": "candidate_not_yet_validated",
       "validation_status": "discovered_not_yet_validated",
       "competition_family_candidate": "Supertaça",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Camboja",
+      "country_slug": "cambodia",
+      "competition_name": "Cpl",
+      "competition_slug": "cpl",
+      "url": "https://www.flashscore.pt/futebol/cambodia/cpl/",
+      "source_country_url": "https://www.flashscore.pt/futebol/cambodia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Cpl",
       "gender": "masculino_misto",
       "age_category": "senior",
       "category": "masculino_misto",
@@ -9130,6 +9598,24 @@
       "gender": "feminino",
       "age_category": "senior",
       "category": "feminino",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Canadá",
+      "country_slug": "canada",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/canada/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/canada/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
       "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
@@ -9264,6 +9750,24 @@
     {
       "country_name": "Cazaquistão",
       "country_slug": "cazaquistao",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/cazaquistao/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/cazaquistao/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Cazaquistão",
+      "country_slug": "cazaquistao",
       "competition_name": "Primeira Liga Feminina",
       "competition_slug": "primeira-liga-feminina",
       "url": "https://www.flashscore.pt/futebol/cazaquistao/primeira-liga-feminina/",
@@ -9329,6 +9833,42 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Chade",
+      "country_slug": "chad",
+      "competition_name": "Primeira Divisao",
+      "competition_slug": "primeira-divisao",
+      "url": "https://www.flashscore.pt/futebol/chad/primeira-divisao/",
+      "source_country_url": "https://www.flashscore.pt/futebol/chad/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Divisao",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Chile",
+      "country_slug": "chile",
+      "competition_name": "Liga De Primera",
+      "competition_slug": "liga-de-primera",
+      "url": "https://www.flashscore.pt/futebol/chile/liga-de-primera/",
+      "source_country_url": "https://www.flashscore.pt/futebol/chile/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga De Primera",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -9498,6 +10038,24 @@
     {
       "country_name": "China",
       "country_slug": "china",
+      "competition_name": "Superliga",
+      "competition_slug": "superliga",
+      "url": "https://www.flashscore.pt/futebol/china/superliga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/china/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Superliga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "China",
+      "country_slug": "china",
       "competition_name": "Superliga Feminina",
       "competition_slug": "super-liga-feminina",
       "url": "https://www.flashscore.pt/futebol/china/super-liga-feminina/",
@@ -9545,6 +10103,24 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Chipre",
+      "country_slug": "chipre",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/chipre/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/chipre/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -9624,6 +10200,24 @@
     {
       "country_name": "Colômbia",
       "country_slug": "colombia",
+      "competition_name": "Primeira A",
+      "competition_slug": "primeira-a",
+      "url": "https://www.flashscore.pt/futebol/colombia/primeira-a/",
+      "source_country_url": "https://www.flashscore.pt/futebol/colombia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira A",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Colômbia",
+      "country_slug": "colombia",
       "competition_name": "Primeira B",
       "competition_slug": "primeira-b",
       "url": "https://www.flashscore.pt/futebol/colombia/primeira-b/",
@@ -9671,6 +10265,24 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Congo",
+      "country_slug": "congo",
+      "competition_name": "Liga 1",
+      "competition_slug": "liga-1",
+      "url": "https://www.flashscore.pt/futebol/congo/liga-1/",
+      "source_country_url": "https://www.flashscore.pt/futebol/congo/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga 1",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -9724,6 +10336,24 @@
       "gender": "feminino",
       "age_category": "senior",
       "category": "feminino",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Coreia do Sul",
+      "country_slug": "coreia-do-sul",
+      "competition_name": "Liga K1",
+      "competition_slug": "liga-k1",
+      "url": "https://www.flashscore.pt/futebol/coreia-do-sul/liga-k1/",
+      "source_country_url": "https://www.flashscore.pt/futebol/coreia-do-sul/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga K1",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
       "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
@@ -9802,6 +10432,24 @@
       "geographic_scope": "pais_ou_regiao"
     },
     {
+      "country_name": "Costa do Marfim",
+      "country_slug": "costa-do-marfim",
+      "competition_name": "Liga 1",
+      "competition_slug": "liga-1",
+      "url": "https://www.flashscore.pt/futebol/costa-do-marfim/liga-1/",
+      "source_country_url": "https://www.flashscore.pt/futebol/costa-do-marfim/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga 1",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
       "country_name": "Costa Rica",
       "country_slug": "costa-rica",
       "competition_name": "Liga de Subida",
@@ -9811,6 +10459,24 @@
       "source_status": "candidate_not_yet_validated",
       "validation_status": "discovered_not_yet_validated",
       "competition_family_candidate": "Liga de Subida",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Costa Rica",
+      "country_slug": "costa-rica",
+      "competition_name": "Primeira Divisao",
+      "competition_slug": "primeira-divisao",
+      "url": "https://www.flashscore.pt/futebol/costa-rica/primeira-divisao/",
+      "source_country_url": "https://www.flashscore.pt/futebol/costa-rica/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Divisao",
       "gender": "masculino_misto",
       "age_category": "senior",
       "category": "masculino_misto",
@@ -9883,6 +10549,24 @@
       "source_status": "candidate_not_yet_validated",
       "validation_status": "discovered_not_yet_validated",
       "competition_family_candidate": "Druga NL",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Croácia",
+      "country_slug": "croacia",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/croacia/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/croacia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
       "gender": "masculino_misto",
       "age_category": "senior",
       "category": "masculino_misto",
@@ -10056,6 +10740,24 @@
     {
       "country_name": "Dinamarca",
       "country_slug": "dinamarca",
+      "competition_name": "Super Liga",
+      "competition_slug": "super-liga",
+      "url": "https://www.flashscore.pt/futebol/dinamarca/super-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/dinamarca/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Super Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Dinamarca",
+      "country_slug": "dinamarca",
       "competition_name": "Taça Feminina",
       "competition_slug": "taca-feminina",
       "url": "https://www.flashscore.pt/futebol/dinamarca/taca-feminina/",
@@ -10099,6 +10801,24 @@
       "source_status": "candidate_not_yet_validated",
       "validation_status": "discovered_not_yet_validated",
       "competition_family_candidate": "Divisão 2 A",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Egipto",
+      "country_slug": "egipto",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/egipto/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/egipto/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
       "gender": "masculino_misto",
       "age_category": "senior",
       "category": "masculino_misto",
@@ -10175,6 +10895,42 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "El Salvador",
+      "country_slug": "el-salvador",
+      "competition_name": "Primeira Divisao",
+      "competition_slug": "primeira-divisao",
+      "url": "https://www.flashscore.pt/futebol/el-salvador/primeira-divisao/",
+      "source_country_url": "https://www.flashscore.pt/futebol/el-salvador/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Divisao",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Emirados Árabes Unidos",
+      "country_slug": "emirados-arabes-unidos",
+      "competition_name": "Liga Uae",
+      "competition_slug": "liga-uae",
+      "url": "https://www.flashscore.pt/futebol/emirados-arabes-unidos/liga-uae/",
+      "source_country_url": "https://www.flashscore.pt/futebol/emirados-arabes-unidos/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Uae",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -10265,6 +11021,24 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Equador",
+      "country_slug": "equador",
+      "competition_name": "Liga Pro",
+      "competition_slug": "liga-pro",
+      "url": "https://www.flashscore.pt/futebol/equador/liga-pro/",
+      "source_country_url": "https://www.flashscore.pt/futebol/equador/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Pro",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -10405,6 +11179,24 @@
       "source_status": "candidate_not_yet_validated",
       "validation_status": "discovered_not_yet_validated",
       "competition_family_candidate": "Liga Terras Altas",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Escócia",
+      "country_slug": "escocia",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/escocia/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/escocia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
       "gender": "masculino_misto",
       "age_category": "senior",
       "category": "masculino_misto",
@@ -10578,6 +11370,24 @@
     {
       "country_name": "Eslováquia",
       "country_slug": "eslovaquia",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/eslovaquia/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/eslovaquia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Eslováquia",
+      "country_slug": "eslovaquia",
       "competition_name": "Quarta Liga - Bratislava",
       "competition_slug": "quarta-liga-bratislava",
       "url": "https://www.flashscore.pt/futebol/eslovaquia/quarta-liga-bratislava/",
@@ -10717,6 +11527,24 @@
       "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": true,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Eslovénia",
+      "country_slug": "eslovenia",
+      "competition_name": "Liga Prva",
+      "competition_slug": "liga-prva",
+      "url": "https://www.flashscore.pt/futebol/eslovenia/liga-prva/",
+      "source_country_url": "https://www.flashscore.pt/futebol/eslovenia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Prva",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
     },
     {
@@ -11532,6 +12360,24 @@
     {
       "country_name": "Estónia",
       "country_slug": "estonia",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/estonia/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/estonia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Estónia",
+      "country_slug": "estonia",
       "competition_name": "Primeira Liga Feminina",
       "competition_slug": "primeira-liga-feminina",
       "url": "https://www.flashscore.pt/futebol/estonia/primeira-liga-feminina/",
@@ -11620,6 +12466,24 @@
       "geographic_scope": "pais_ou_regiao"
     },
     {
+      "country_name": "Eswatini",
+      "country_slug": "eswatini",
+      "competition_name": "Primeira Liga Mtn",
+      "competition_slug": "primeira-liga-mtn",
+      "url": "https://www.flashscore.pt/futebol/eswatini/primeira-liga-mtn/",
+      "source_country_url": "https://www.flashscore.pt/futebol/eswatini/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga Mtn",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
       "country_name": "Etiópia",
       "country_slug": "etiopia",
       "competition_name": "Ethiopia Cup",
@@ -11633,6 +12497,24 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Etiópia",
+      "country_slug": "etiopia",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/etiopia/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/etiopia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -12378,6 +13260,24 @@
     {
       "country_name": "Filipinas",
       "country_slug": "filipinas",
+      "competition_name": "Pfl",
+      "competition_slug": "pfl",
+      "url": "https://www.flashscore.pt/futebol/filipinas/pfl/",
+      "source_country_url": "https://www.flashscore.pt/futebol/filipinas/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Pfl",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Filipinas",
+      "country_slug": "filipinas",
       "competition_name": "Taça Paulino Alcantara",
       "competition_slug": "taca-paulino-alcantara",
       "url": "https://www.flashscore.pt/futebol/filipinas/taca-paulino-alcantara/",
@@ -12480,6 +13380,24 @@
       "category": "masculino_misto",
       "competition_type": "fase_especial",
       "has_stage_or_playoff_marker": true,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Finlândia",
+      "country_slug": "finlandia",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/finlandia/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/finlandia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
     },
@@ -12862,6 +13780,24 @@
       "geographic_scope": "pais_ou_regiao"
     },
     {
+      "country_name": "Gabão",
+      "country_slug": "gabao",
+      "competition_name": "Campeonato D1",
+      "competition_slug": "campeonato-d1",
+      "url": "https://www.flashscore.pt/futebol/gabao/campeonato-d1/",
+      "source_country_url": "https://www.flashscore.pt/futebol/gabao/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Campeonato D1",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
       "country_name": "Gâmbia",
       "country_slug": "gambia",
       "competition_name": "FF Cup",
@@ -12875,6 +13811,42 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Gâmbia",
+      "country_slug": "gambia",
+      "competition_name": "Liga Gfa",
+      "competition_slug": "liga-gfa",
+      "url": "https://www.flashscore.pt/futebol/gambia/liga-gfa/",
+      "source_country_url": "https://www.flashscore.pt/futebol/gambia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Gfa",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Gana",
+      "country_slug": "gana",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/gana/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/gana/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -12954,6 +13926,24 @@
     {
       "country_name": "Geórgia",
       "country_slug": "georgia",
+      "competition_name": "Liga Crystalbet Erovnuli",
+      "competition_slug": "liga-crystalbet-erovnuli",
+      "url": "https://www.flashscore.pt/futebol/georgia/liga-crystalbet-erovnuli/",
+      "source_country_url": "https://www.flashscore.pt/futebol/georgia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Crystalbet Erovnuli",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Geórgia",
+      "country_slug": "georgia",
       "competition_name": "Segunda Liga",
       "competition_slug": "segunda-liga",
       "url": "https://www.flashscore.pt/futebol/georgia/segunda-liga/",
@@ -13001,6 +13991,24 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Gibraltar",
+      "country_slug": "gibraltar",
+      "competition_name": "Liga Nacional",
+      "competition_slug": "liga-nacional",
+      "url": "https://www.flashscore.pt/futebol/gibraltar/liga-nacional/",
+      "source_country_url": "https://www.flashscore.pt/futebol/gibraltar/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Nacional",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -13278,6 +14286,24 @@
     {
       "country_name": "Grécia",
       "country_slug": "grecia",
+      "competition_name": "Superliga",
+      "competition_slug": "superliga",
+      "url": "https://www.flashscore.pt/futebol/grecia/superliga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/grecia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Superliga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Grécia",
+      "country_slug": "grecia",
       "competition_name": "Superliga 2",
       "competition_slug": "super-liga-2",
       "url": "https://www.flashscore.pt/futebol/grecia/super-liga-2/",
@@ -13330,6 +14356,78 @@
       "geographic_scope": "pais_ou_regiao"
     },
     {
+      "country_name": "Guatemala",
+      "country_slug": "guatemala",
+      "competition_name": "Liga Nacional",
+      "competition_slug": "liga-nacional",
+      "url": "https://www.flashscore.pt/futebol/guatemala/liga-nacional/",
+      "source_country_url": "https://www.flashscore.pt/futebol/guatemala/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Nacional",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Guiné",
+      "country_slug": "guine",
+      "competition_name": "Liga 1",
+      "competition_slug": "liga-1",
+      "url": "https://www.flashscore.pt/futebol/guine/liga-1/",
+      "source_country_url": "https://www.flashscore.pt/futebol/guine/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga 1",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Haiti",
+      "country_slug": "haiti",
+      "competition_name": "Campeonato Nacional",
+      "competition_slug": "campeonato-nacional",
+      "url": "https://www.flashscore.pt/futebol/haiti/campeonato-nacional/",
+      "source_country_url": "https://www.flashscore.pt/futebol/haiti/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Campeonato Nacional",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Honduras",
+      "country_slug": "honduras",
+      "competition_name": "Liga Nacional",
+      "competition_slug": "liga-nacional",
+      "url": "https://www.flashscore.pt/futebol/honduras/liga-nacional/",
+      "source_country_url": "https://www.flashscore.pt/futebol/honduras/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Nacional",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
       "country_name": "Honduras",
       "country_slug": "honduras",
       "competition_name": "Supertaça",
@@ -13339,6 +14437,24 @@
       "source_status": "candidate_not_yet_validated",
       "validation_status": "discovered_not_yet_validated",
       "competition_family_candidate": "Supertaça",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Hong Kong",
+      "country_slug": "hong-kong",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/hong-kong/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/hong-kong/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
       "gender": "masculino_misto",
       "age_category": "senior",
       "category": "masculino_misto",
@@ -13415,6 +14531,24 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Hungria",
+      "country_slug": "hungria",
+      "competition_name": "Nb I",
+      "competition_slug": "nb-i",
+      "url": "https://www.flashscore.pt/futebol/hungria/nb-i/",
+      "source_country_url": "https://www.flashscore.pt/futebol/hungria/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Nb I",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -13582,6 +14716,24 @@
       "geographic_scope": "pais_ou_regiao"
     },
     {
+      "country_name": "Iémen",
+      "country_slug": "iemen",
+      "competition_name": "Divisao 1",
+      "competition_slug": "divisao-1",
+      "url": "https://www.flashscore.pt/futebol/iemen/divisao-1/",
+      "source_country_url": "https://www.flashscore.pt/futebol/iemen/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Divisao 1",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
       "country_name": "Ilhas Faroé",
       "country_slug": "ilhas-faroe",
       "competition_name": "Faroe Islands Cup",
@@ -13595,6 +14747,24 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Ilhas Faroé",
+      "country_slug": "ilhas-faroe",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/ilhas-faroe/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/ilhas-faroe/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -13645,6 +14815,24 @@
       "source_status": "candidate_not_yet_validated",
       "validation_status": "discovered_not_yet_validated",
       "competition_family_candidate": "Campeão vs Campeão",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Ilhas Fiji",
+      "country_slug": "ilhas-fiji",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/ilhas-fiji/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/ilhas-fiji/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
       "gender": "masculino_misto",
       "age_category": "senior",
       "category": "masculino_misto",
@@ -13717,6 +14905,24 @@
       "source_status": "candidate_not_yet_validated",
       "validation_status": "discovered_not_yet_validated",
       "competition_family_candidate": "Segunda Liga Indiana",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Índia",
+      "country_slug": "india",
+      "competition_name": "Super Liga",
+      "competition_slug": "super-liga",
+      "url": "https://www.flashscore.pt/futebol/india/super-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/india/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Super Liga",
       "gender": "masculino_misto",
       "age_category": "senior",
       "category": "masculino_misto",
@@ -13861,6 +15067,24 @@
       "source_status": "candidate_not_yet_validated",
       "validation_status": "discovered_not_yet_validated",
       "competition_family_candidate": "Liga Nusantara",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Indonésia",
+      "country_slug": "indonesia",
+      "competition_name": "Super League",
+      "competition_slug": "super-league",
+      "url": "https://www.flashscore.pt/futebol/indonesia/super-league/",
+      "source_country_url": "https://www.flashscore.pt/futebol/indonesia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Super League",
       "gender": "masculino_misto",
       "age_category": "senior",
       "category": "masculino_misto",
@@ -14430,6 +15654,24 @@
     {
       "country_name": "Irão",
       "country_slug": "irao",
+      "competition_name": "Pro Liga",
+      "competition_slug": "pro-liga",
+      "url": "https://www.flashscore.pt/futebol/irao/pro-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/irao/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Pro Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Irão",
+      "country_slug": "irao",
       "competition_name": "Segunda Liga",
       "competition_slug": "segunda-liga",
       "url": "https://www.flashscore.pt/futebol/irao/segunda-liga/",
@@ -14500,6 +15742,24 @@
       "geographic_scope": "pais_ou_regiao"
     },
     {
+      "country_name": "Iraque",
+      "country_slug": "iraque",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/iraque/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/iraque/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
       "country_name": "Irlanda",
       "country_slug": "irlanda",
       "competition_name": "Divisão 1",
@@ -14545,6 +15805,24 @@
       "source_status": "candidate_not_yet_validated",
       "validation_status": "discovered_not_yet_validated",
       "competition_family_candidate": "National League",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Irlanda",
+      "country_slug": "irlanda",
+      "competition_name": "Primeira Divisao",
+      "competition_slug": "primeira-divisao",
+      "url": "https://www.flashscore.pt/futebol/irlanda/primeira-divisao/",
+      "source_country_url": "https://www.flashscore.pt/futebol/irlanda/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Divisao",
       "gender": "masculino_misto",
       "age_category": "senior",
       "category": "masculino_misto",
@@ -14664,6 +15942,24 @@
     {
       "country_name": "Irlanda do Norte",
       "country_slug": "irlanda-do-norte",
+      "competition_name": "Primeira Liga Nifl",
+      "competition_slug": "primeira-liga-nifl",
+      "url": "https://www.flashscore.pt/futebol/irlanda-do-norte/primeira-liga-nifl/",
+      "source_country_url": "https://www.flashscore.pt/futebol/irlanda-do-norte/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga Nifl",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Irlanda do Norte",
+      "country_slug": "irlanda-do-norte",
       "competition_name": "Supertaça",
       "competition_slug": "supertaca",
       "url": "https://www.flashscore.pt/futebol/irlanda-do-norte/supertaca/",
@@ -14711,6 +16007,24 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Islândia",
+      "country_slug": "islandia",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/islandia/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/islandia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -14946,6 +16260,24 @@
       "category": "masculino_misto",
       "competition_type": "fase_especial",
       "has_stage_or_playoff_marker": true,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Israel",
+      "country_slug": "israel",
+      "competition_name": "Liga Ha Al",
+      "competition_slug": "liga-ha-al",
+      "url": "https://www.flashscore.pt/futebol/israel/liga-ha-al/",
+      "source_country_url": "https://www.flashscore.pt/futebol/israel/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Ha Al",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
     },
@@ -15652,6 +16984,24 @@
       "geographic_scope": "pais_ou_regiao"
     },
     {
+      "country_name": "Jamaica",
+      "country_slug": "jamaica",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/jamaica/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/jamaica/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
       "country_name": "Japão",
       "country_slug": "japao",
       "competition_name": "J.League Cup",
@@ -15718,6 +17068,24 @@
       "gender": "feminino",
       "age_category": "senior",
       "category": "feminino",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Japão",
+      "country_slug": "japao",
+      "competition_name": "Liga J1",
+      "competition_slug": "liga-j1",
+      "url": "https://www.flashscore.pt/futebol/japao/liga-j1/",
+      "source_country_url": "https://www.flashscore.pt/futebol/japao/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga J1",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
       "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
@@ -15834,6 +17202,24 @@
     {
       "country_name": "Jordânia",
       "country_slug": "jordania",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/jordania/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/jordania/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Jordânia",
+      "country_slug": "jordania",
       "competition_name": "Supertaça",
       "competition_slug": "super-taca",
       "url": "https://www.flashscore.pt/futebol/jordania/super-taca/",
@@ -15888,6 +17274,24 @@
     {
       "country_name": "Kosovo",
       "country_slug": "cossovo",
+      "competition_name": "Superliga",
+      "competition_slug": "superliga",
+      "url": "https://www.flashscore.pt/futebol/cossovo/superliga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/cossovo/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Superliga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Kosovo",
+      "country_slug": "cossovo",
       "competition_name": "Supertaça",
       "competition_slug": "super-taca",
       "url": "https://www.flashscore.pt/futebol/cossovo/super-taca/",
@@ -15917,6 +17321,24 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Kuwait",
+      "country_slug": "kuwait",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/kuwait/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/kuwait/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -15994,6 +17416,42 @@
       "geographic_scope": "pais_ou_regiao"
     },
     {
+      "country_name": "Laos",
+      "country_slug": "laos",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/laos/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/laos/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Lesoto",
+      "country_slug": "lesotho",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/lesotho/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/lesotho/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
       "country_name": "Letónia",
       "country_slug": "letonia",
       "competition_name": "1. Liga",
@@ -16003,6 +17461,24 @@
       "source_status": "candidate_not_yet_validated",
       "validation_status": "discovered_not_yet_validated",
       "competition_family_candidate": "1. Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Letónia",
+      "country_slug": "letonia",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/letonia/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/letonia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
       "gender": "masculino_misto",
       "age_category": "senior",
       "category": "masculino_misto",
@@ -16122,6 +17598,24 @@
     {
       "country_name": "Libano",
       "country_slug": "libano",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/libano/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/libano/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Libano",
+      "country_slug": "libano",
       "competition_name": "Supertaça",
       "competition_slug": "super-taca",
       "url": "https://www.flashscore.pt/futebol/libano/super-taca/",
@@ -16140,6 +17634,24 @@
     {
       "country_name": "Libéria",
       "country_slug": "liberia",
+      "competition_name": "Primeira Divisao Lfa",
+      "competition_slug": "primeira-divisao-lfa",
+      "url": "https://www.flashscore.pt/futebol/liberia/primeira-divisao-lfa/",
+      "source_country_url": "https://www.flashscore.pt/futebol/liberia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Divisao Lfa",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Libéria",
+      "country_slug": "liberia",
       "competition_name": "Taça",
       "competition_slug": "taca",
       "url": "https://www.flashscore.pt/futebol/liberia/taca/",
@@ -16147,6 +17659,42 @@
       "source_status": "candidate_not_yet_validated",
       "validation_status": "discovered_not_yet_validated",
       "competition_family_candidate": "Taça",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Líbia",
+      "country_slug": "libia",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/libia/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/libia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Liechtenstein",
+      "country_slug": "liechtenstein",
+      "competition_name": "Taca Do Liechtenstein",
+      "competition_slug": "taca-do-liechtenstein",
+      "url": "https://www.flashscore.pt/futebol/liechtenstein/taca-do-liechtenstein/",
+      "source_country_url": "https://www.flashscore.pt/futebol/liechtenstein/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Taca Do Liechtenstein",
       "gender": "masculino_misto",
       "age_category": "senior",
       "category": "masculino_misto",
@@ -16212,6 +17760,24 @@
     {
       "country_name": "Luxemburgo",
       "country_slug": "luxemburgo",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/luxemburgo/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/luxemburgo/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Luxemburgo",
+      "country_slug": "luxemburgo",
       "competition_name": "Super Cup",
       "competition_slug": "super-cup",
       "url": "https://www.flashscore.pt/futebol/luxemburgo/super-cup/",
@@ -16241,6 +17807,42 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Macau",
+      "country_slug": "macau",
+      "competition_name": "Liga De Elite",
+      "competition_slug": "liga-de-elite",
+      "url": "https://www.flashscore.pt/futebol/macau/liga-de-elite/",
+      "source_country_url": "https://www.flashscore.pt/futebol/macau/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga De Elite",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Macedónia do Norte",
+      "country_slug": "macedonia-do-norte",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/macedonia-do-norte/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/macedonia-do-norte/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -16309,6 +17911,24 @@
       "source_status": "candidate_not_yet_validated",
       "validation_status": "discovered_not_yet_validated",
       "competition_family_candidate": "Piala Sumbangsih",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Malásia",
+      "country_slug": "malasia",
+      "competition_name": "Super Liga",
+      "competition_slug": "super-liga",
+      "url": "https://www.flashscore.pt/futebol/malasia/super-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/malasia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Super Liga",
       "gender": "masculino_misto",
       "age_category": "senior",
       "category": "masculino_misto",
@@ -16414,6 +18034,42 @@
       "geographic_scope": "pais_ou_regiao"
     },
     {
+      "country_name": "Malawi",
+      "country_slug": "malawi",
+      "competition_name": "Super Liga",
+      "competition_slug": "super-liga",
+      "url": "https://www.flashscore.pt/futebol/malawi/super-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/malawi/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Super Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Mali",
+      "country_slug": "mali",
+      "competition_name": "Primeira Divisao",
+      "competition_slug": "primeira-divisao",
+      "url": "https://www.flashscore.pt/futebol/mali/primeira-divisao/",
+      "source_country_url": "https://www.flashscore.pt/futebol/mali/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Divisao",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
       "country_name": "Mali",
       "country_slug": "mali",
       "competition_name": "Taça do Mali",
@@ -16445,6 +18101,24 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Malta",
+      "country_slug": "malta",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/malta/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/malta/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -16524,6 +18198,24 @@
     {
       "country_name": "Marrocos",
       "country_slug": "marrocos",
+      "competition_name": "Botola Pro",
+      "competition_slug": "botola-pro",
+      "url": "https://www.flashscore.pt/futebol/marrocos/botola-pro/",
+      "source_country_url": "https://www.flashscore.pt/futebol/marrocos/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Botola Pro",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Marrocos",
+      "country_slug": "marrocos",
       "competition_name": "Excellence Cup",
       "competition_slug": "excellence-cup",
       "url": "https://www.flashscore.pt/futebol/marrocos/excellence-cup/",
@@ -16553,6 +18245,60 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Martinica",
+      "country_slug": "martinica",
+      "competition_name": "Trofeu Gerard Janvion",
+      "competition_slug": "trofeu-gerard-janvion",
+      "url": "https://www.flashscore.pt/futebol/martinica/trofeu-gerard-janvion/",
+      "source_country_url": "https://www.flashscore.pt/futebol/martinica/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Trofeu Gerard Janvion",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Maurícia",
+      "country_slug": "mauricia",
+      "competition_name": "Super Liga",
+      "competition_slug": "super-liga",
+      "url": "https://www.flashscore.pt/futebol/mauricia/super-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/mauricia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Super Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Mauritânia",
+      "country_slug": "mauritania",
+      "competition_name": "Liga 1",
+      "competition_slug": "liga-1",
+      "url": "https://www.flashscore.pt/futebol/mauritania/liga-1/",
+      "source_country_url": "https://www.flashscore.pt/futebol/mauritania/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga 1",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -16621,6 +18367,24 @@
       "source_status": "candidate_not_yet_validated",
       "validation_status": "discovered_not_yet_validated",
       "competition_family_candidate": "Liga de Expansion MX",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "México",
+      "country_slug": "mexico",
+      "competition_name": "Liga Mx",
+      "competition_slug": "liga-mx",
+      "url": "https://www.flashscore.pt/futebol/mexico/liga-mx/",
+      "source_country_url": "https://www.flashscore.pt/futebol/mexico/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Mx",
       "gender": "masculino_misto",
       "age_category": "senior",
       "category": "masculino_misto",
@@ -16794,6 +18558,24 @@
     {
       "country_name": "Moldávia",
       "country_slug": "moldavia",
+      "competition_name": "Super Liga",
+      "competition_slug": "super-liga",
+      "url": "https://www.flashscore.pt/futebol/moldavia/super-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/moldavia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Super Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Moldávia",
+      "country_slug": "moldavia",
       "competition_name": "Taça da Moldávia",
       "competition_slug": "taca-da-moldavia",
       "url": "https://www.flashscore.pt/futebol/moldavia/taca-da-moldavia/",
@@ -16812,6 +18594,24 @@
     {
       "country_name": "Mongolia",
       "country_slug": "mongolia",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/mongolia/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/mongolia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Mongolia",
+      "country_slug": "mongolia",
       "competition_name": "Supertaça",
       "competition_slug": "supertaca",
       "url": "https://www.flashscore.pt/futebol/mongolia/supertaca/",
@@ -16819,6 +18619,24 @@
       "source_status": "candidate_not_yet_validated",
       "validation_status": "discovered_not_yet_validated",
       "competition_family_candidate": "Supertaça",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Montenegro",
+      "country_slug": "montenegro",
+      "competition_name": "Liga Prva Crnogorska",
+      "competition_slug": "liga-prva-crnogorska",
+      "url": "https://www.flashscore.pt/futebol/montenegro/liga-prva-crnogorska/",
+      "source_country_url": "https://www.flashscore.pt/futebol/montenegro/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Prva Crnogorska",
       "gender": "masculino_misto",
       "age_category": "senior",
       "category": "masculino_misto",
@@ -17334,6 +19152,24 @@
     {
       "country_name": "Mundo",
       "country_slug": "mundo",
+      "competition_name": "Taca Como",
+      "competition_slug": "taca-como",
+      "url": "https://www.flashscore.pt/futebol/mundo/taca-como/",
+      "source_country_url": "https://www.flashscore.pt/futebol/mundo/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Taca Como",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "regional_ou_global"
+    },
+    {
+      "country_name": "Mundo",
+      "country_slug": "mundo",
       "competition_name": "Taça do Rei - Tailândia",
       "competition_slug": "taca-do-rei-tailandia",
       "url": "https://www.flashscore.pt/futebol/mundo/taca-do-rei-tailandia/",
@@ -17622,6 +19458,24 @@
     {
       "country_name": "Myanmar",
       "country_slug": "myanmar",
+      "competition_name": "M League",
+      "competition_slug": "m-league",
+      "url": "https://www.flashscore.pt/futebol/myanmar/m-league/",
+      "source_country_url": "https://www.flashscore.pt/futebol/myanmar/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "M League",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Myanmar",
+      "country_slug": "myanmar",
       "competition_name": "MNL League Cup",
       "competition_slug": "mnl-league-cup",
       "url": "https://www.flashscore.pt/futebol/myanmar/mnl-league-cup/",
@@ -17640,6 +19494,24 @@
     {
       "country_name": "Nicarágua",
       "country_slug": "nicaragua",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/nicaragua/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/nicaragua/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Nicarágua",
+      "country_slug": "nicaragua",
       "competition_name": "Taça da Nicarágua",
       "competition_slug": "taca-da-nicaragua",
       "url": "https://www.flashscore.pt/futebol/nicaragua/taca-da-nicaragua/",
@@ -17651,6 +19523,24 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Níger",
+      "country_slug": "niger",
+      "competition_name": "Superliga",
+      "competition_slug": "superliga",
+      "url": "https://www.flashscore.pt/futebol/niger/superliga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/niger/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Superliga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -17676,6 +19566,24 @@
     {
       "country_name": "Nigéria",
       "country_slug": "nigeria",
+      "competition_name": "Npfl",
+      "competition_slug": "npfl",
+      "url": "https://www.flashscore.pt/futebol/nigeria/npfl/",
+      "source_country_url": "https://www.flashscore.pt/futebol/nigeria/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Npfl",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Nigéria",
+      "country_slug": "nigeria",
       "competition_name": "Segunda Liga",
       "competition_slug": "segunda-liga",
       "url": "https://www.flashscore.pt/futebol/nigeria/segunda-liga/",
@@ -17683,6 +19591,24 @@
       "source_status": "candidate_not_yet_validated",
       "validation_status": "discovered_not_yet_validated",
       "competition_family_candidate": "Segunda Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Noruega",
+      "country_slug": "noruega",
+      "competition_name": "Liga De Elite",
+      "competition_slug": "liga-de-elite",
+      "url": "https://www.flashscore.pt/futebol/noruega/liga-de-elite/",
+      "source_country_url": "https://www.flashscore.pt/futebol/noruega/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga De Elite",
       "gender": "masculino_misto",
       "age_category": "senior",
       "category": "masculino_misto",
@@ -17988,6 +19914,24 @@
     {
       "country_name": "Nova Zelândia",
       "country_slug": "nova-zelandia",
+      "competition_name": "Liga Nacional",
+      "competition_slug": "liga-nacional",
+      "url": "https://www.flashscore.pt/futebol/nova-zelandia/liga-nacional/",
+      "source_country_url": "https://www.flashscore.pt/futebol/nova-zelandia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Nacional",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Nova Zelândia",
+      "country_slug": "nova-zelandia",
       "competition_name": "Liga Nacional Feminina",
       "competition_slug": "liga-nacional-feminino",
       "url": "https://www.flashscore.pt/futebol/nova-zelandia/liga-nacional-feminino/",
@@ -18067,6 +20011,24 @@
       "source_status": "candidate_not_yet_validated",
       "validation_status": "discovered_not_yet_validated",
       "competition_family_candidate": "Odds Futebol ontem",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Oman",
+      "country_slug": "oman",
+      "competition_name": "Liga Profissional",
+      "competition_slug": "liga-profissional",
+      "url": "https://www.flashscore.pt/futebol/oman/liga-profissional/",
+      "source_country_url": "https://www.flashscore.pt/futebol/oman/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Profissional",
       "gender": "masculino_misto",
       "age_category": "senior",
       "category": "masculino_misto",
@@ -18179,6 +20141,24 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "País de Gales",
+      "country_slug": "pais-de-gales",
+      "competition_name": "Primeira Liga Cymru",
+      "competition_slug": "primeira-liga-cymru",
+      "url": "https://www.flashscore.pt/futebol/pais-de-gales/primeira-liga-cymru/",
+      "source_country_url": "https://www.flashscore.pt/futebol/pais-de-gales/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga Cymru",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -18436,6 +20416,60 @@
       "geographic_scope": "pais_ou_regiao"
     },
     {
+      "country_name": "Palestina",
+      "country_slug": "palestina",
+      "competition_name": "Liga Da Cisjordania",
+      "competition_slug": "liga-da-cisjordania",
+      "url": "https://www.flashscore.pt/futebol/palestina/liga-da-cisjordania/",
+      "source_country_url": "https://www.flashscore.pt/futebol/palestina/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Da Cisjordania",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Panamá",
+      "country_slug": "panama",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/panama/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/panama/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Paquistão",
+      "country_slug": "paquistao",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/paquistao/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/paquistao/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
       "country_name": "Paraguai",
       "country_slug": "paraguai",
       "competition_name": "Divisão Intermédia",
@@ -18474,6 +20508,24 @@
     {
       "country_name": "Paraguai",
       "country_slug": "paraguai",
+      "competition_name": "Taca Da Primeira",
+      "competition_slug": "taca-da-primeira",
+      "url": "https://www.flashscore.pt/futebol/paraguai/taca-da-primeira/",
+      "source_country_url": "https://www.flashscore.pt/futebol/paraguai/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Taca Da Primeira",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Paraguai",
+      "country_slug": "paraguai",
       "competition_name": "Taça Paraguai",
       "competition_slug": "taca-paraguai",
       "url": "https://www.flashscore.pt/futebol/paraguai/taca-paraguai/",
@@ -18503,6 +20555,24 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Peru",
+      "country_slug": "peru",
+      "competition_name": "Liga 1",
+      "competition_slug": "liga-1",
+      "url": "https://www.flashscore.pt/futebol/peru/liga-1/",
+      "source_country_url": "https://www.flashscore.pt/futebol/peru/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga 1",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -18697,6 +20767,24 @@
       "source_status": "candidate_not_yet_validated",
       "validation_status": "discovered_not_yet_validated",
       "competition_family_candidate": "Liga Jovem Central",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Polónia",
+      "country_slug": "polonia",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/polonia/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/polonia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
       "gender": "masculino_misto",
       "age_category": "senior",
       "category": "masculino_misto",
@@ -19164,6 +21252,24 @@
     {
       "country_name": "Quénia",
       "country_slug": "quenia",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/quenia/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/quenia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Quénia",
+      "country_slug": "quenia",
       "competition_name": "Segunda Liga",
       "competition_slug": "segunda-liga",
       "url": "https://www.flashscore.pt/futebol/quenia/segunda-liga/",
@@ -19211,6 +21317,42 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Quirguistão",
+      "country_slug": "kyrgyzstan",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/kyrgyzstan/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/kyrgyzstan/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "RD Congo",
+      "country_slug": "congo-dr",
+      "competition_name": "Liga 1",
+      "competition_slug": "liga-1",
+      "url": "https://www.flashscore.pt/futebol/congo-dr/liga-1/",
+      "source_country_url": "https://www.flashscore.pt/futebol/congo-dr/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga 1",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -19686,6 +21828,24 @@
     {
       "country_name": "República Checa",
       "country_slug": "republica-checa",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/republica-checa/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/republica-checa/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "República Checa",
+      "country_slug": "republica-checa",
       "competition_name": "Primeira Liga Feminina",
       "competition_slug": "primeira-liga-feminino",
       "url": "https://www.flashscore.pt/futebol/republica-checa/primeira-liga-feminino/",
@@ -19769,6 +21929,24 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "República Dominicana",
+      "country_slug": "republica-dominicana",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/republica-dominicana/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/republica-dominicana/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -19992,6 +22170,24 @@
     {
       "country_name": "Roménia",
       "country_slug": "romenia",
+      "competition_name": "Superliga",
+      "competition_slug": "superliga",
+      "url": "https://www.flashscore.pt/futebol/romenia/superliga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/romenia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Superliga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Roménia",
+      "country_slug": "romenia",
       "competition_name": "Superliga Feminina",
       "competition_slug": "superliga-feminina",
       "url": "https://www.flashscore.pt/futebol/romenia/superliga-feminina/",
@@ -20075,6 +22271,24 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Ruanda",
+      "country_slug": "ruanda",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/ruanda/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/ruanda/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -20244,6 +22458,24 @@
     {
       "country_name": "Rússia",
       "country_slug": "russia",
+      "competition_name": "Fnl 2 Division B Final Four",
+      "competition_slug": "fnl-2-division-b-final-four",
+      "url": "https://www.flashscore.pt/futebol/russia/fnl-2-division-b-final-four/",
+      "source_country_url": "https://www.flashscore.pt/futebol/russia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Fnl 2 Division B Final Four",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Rússia",
+      "country_slug": "russia",
       "competition_name": "Liga Jovem",
       "competition_slug": "liga-jovem-central",
       "url": "https://www.flashscore.pt/futebol/russia/liga-jovem-central/",
@@ -20370,6 +22602,24 @@
     {
       "country_name": "San Marino",
       "country_slug": "san-marino",
+      "competition_name": "Campeonato Sanmarinense",
+      "competition_slug": "campeonato-sanmarinense",
+      "url": "https://www.flashscore.pt/futebol/san-marino/campeonato-sanmarinense/",
+      "source_country_url": "https://www.flashscore.pt/futebol/san-marino/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Campeonato Sanmarinense",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "San Marino",
+      "country_slug": "san-marino",
       "competition_name": "Coppa Titano",
       "competition_slug": "coppa-titano",
       "url": "https://www.flashscore.pt/futebol/san-marino/coppa-titano/",
@@ -20395,6 +22645,60 @@
       "source_status": "candidate_not_yet_validated",
       "validation_status": "discovered_not_yet_validated",
       "competition_family_candidate": "Supertaça",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Seicheles",
+      "country_slug": "seicheles",
+      "competition_name": "Premier League",
+      "competition_slug": "premier-league",
+      "url": "https://www.flashscore.pt/futebol/seicheles/premier-league/",
+      "source_country_url": "https://www.flashscore.pt/futebol/seicheles/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Premier League",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Senegal",
+      "country_slug": "senegal",
+      "competition_name": "Liga 1",
+      "competition_slug": "liga-1",
+      "url": "https://www.flashscore.pt/futebol/senegal/liga-1/",
+      "source_country_url": "https://www.flashscore.pt/futebol/senegal/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga 1",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Serra Leoa",
+      "country_slug": "serra-leoa",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/serra-leoa/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/serra-leoa/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
       "gender": "masculino_misto",
       "age_category": "senior",
       "category": "masculino_misto",
@@ -20496,6 +22800,24 @@
     {
       "country_name": "Sérvia",
       "country_slug": "servia",
+      "competition_name": "Superliga",
+      "competition_slug": "superliga",
+      "url": "https://www.flashscore.pt/futebol/servia/superliga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/servia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Superliga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Sérvia",
+      "country_slug": "servia",
       "competition_name": "Taça da Sérvia",
       "competition_slug": "taca",
       "url": "https://www.flashscore.pt/futebol/servia/taca/",
@@ -20550,6 +22872,24 @@
     {
       "country_name": "Singapura",
       "country_slug": "singapura",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/singapura/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/singapura/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Singapura",
+      "country_slug": "singapura",
       "competition_name": "Supertaça",
       "competition_slug": "super-taca",
       "url": "https://www.flashscore.pt/futebol/singapura/super-taca/",
@@ -20586,6 +22926,24 @@
     {
       "country_name": "Síria",
       "country_slug": "siria",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/siria/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/siria/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Síria",
+      "country_slug": "siria",
       "competition_name": "Taça",
       "competition_slug": "taca",
       "url": "https://www.flashscore.pt/futebol/siria/taca/",
@@ -20597,6 +22955,78 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Somália",
+      "country_slug": "somalia",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/somalia/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/somalia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Sri Lanka",
+      "country_slug": "sri-lanka",
+      "competition_name": "Super Liga",
+      "competition_slug": "super-liga",
+      "url": "https://www.flashscore.pt/futebol/sri-lanka/super-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/sri-lanka/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Super Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Sudão",
+      "country_slug": "sudao",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/sudao/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/sudao/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Suécia",
+      "country_slug": "suecia",
+      "competition_name": "Allsvenskan",
+      "competition_slug": "allsvenskan",
+      "url": "https://www.flashscore.pt/futebol/suecia/allsvenskan/",
+      "source_country_url": "https://www.flashscore.pt/futebol/suecia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Allsvenskan",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -21000,6 +23430,24 @@
     {
       "country_name": "Suiça",
       "country_slug": "suica",
+      "competition_name": "Superliga",
+      "competition_slug": "superliga",
+      "url": "https://www.flashscore.pt/futebol/suica/superliga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/suica/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Superliga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Suiça",
+      "country_slug": "suica",
       "competition_name": "Superliga Feminina",
       "competition_slug": "super-liga-feminina",
       "url": "https://www.flashscore.pt/futebol/suica/super-liga-feminina/",
@@ -21052,6 +23500,24 @@
       "geographic_scope": "pais_ou_regiao"
     },
     {
+      "country_name": "Suriname",
+      "country_slug": "suriname",
+      "competition_name": "Sml",
+      "competition_slug": "sml",
+      "url": "https://www.flashscore.pt/futebol/suriname/sml/",
+      "source_country_url": "https://www.flashscore.pt/futebol/suriname/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Sml",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
       "country_name": "Tailândia",
       "country_slug": "tailandia",
       "competition_name": "Champions Cup",
@@ -21083,6 +23549,24 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Tailândia",
+      "country_slug": "tailandia",
+      "competition_name": "Liga 1",
+      "competition_slug": "liga-1",
+      "url": "https://www.flashscore.pt/futebol/tailandia/liga-1/",
+      "source_country_url": "https://www.flashscore.pt/futebol/tailandia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga 1",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -21142,6 +23626,42 @@
       "geographic_scope": "pais_ou_regiao"
     },
     {
+      "country_name": "Taiwan",
+      "country_slug": "taiwan",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/taiwan/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/taiwan/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Tajiquistão",
+      "country_slug": "tajikistan",
+      "competition_name": "Liga Vysshaya",
+      "competition_slug": "liga-vysshaya",
+      "url": "https://www.flashscore.pt/futebol/tajikistan/liga-vysshaya/",
+      "source_country_url": "https://www.flashscore.pt/futebol/tajikistan/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Vysshaya",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
       "country_name": "Tajiquistão",
       "country_slug": "tajikistan",
       "competition_name": "Supertaça",
@@ -21180,6 +23700,24 @@
     {
       "country_name": "Tânzania",
       "country_slug": "tanzania",
+      "competition_name": "Liga Kuu Bara",
+      "competition_slug": "liga-kuu-bara",
+      "url": "https://www.flashscore.pt/futebol/tanzania/liga-kuu-bara/",
+      "source_country_url": "https://www.flashscore.pt/futebol/tanzania/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Kuu Bara",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Tânzania",
+      "country_slug": "tanzania",
       "competition_name": "Supertaça",
       "competition_slug": "super-taca",
       "url": "https://www.flashscore.pt/futebol/tanzania/super-taca/",
@@ -21198,6 +23736,24 @@
     {
       "country_name": "Togo",
       "country_slug": "togo",
+      "competition_name": "Campeonato Nacional",
+      "competition_slug": "campeonato-nacional",
+      "url": "https://www.flashscore.pt/futebol/togo/campeonato-nacional/",
+      "source_country_url": "https://www.flashscore.pt/futebol/togo/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Campeonato Nacional",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Togo",
+      "country_slug": "togo",
       "competition_name": "Supertaça",
       "competition_slug": "supertaca",
       "url": "https://www.flashscore.pt/futebol/togo/supertaca/",
@@ -21205,6 +23761,42 @@
       "source_status": "candidate_not_yet_validated",
       "validation_status": "discovered_not_yet_validated",
       "competition_family_candidate": "Supertaça",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Trindad e Tobago",
+      "country_slug": "trindad-e-tobago",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/trindad-e-tobago/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/trindad-e-tobago/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Tunísia",
+      "country_slug": "tunisia",
+      "competition_name": "Liga Profissional 1",
+      "competition_slug": "liga-profissional-1",
+      "url": "https://www.flashscore.pt/futebol/tunisia/liga-profissional-1/",
+      "source_country_url": "https://www.flashscore.pt/futebol/tunisia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Profissional 1",
       "gender": "masculino_misto",
       "age_category": "senior",
       "category": "masculino_misto",
@@ -21263,6 +23855,24 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Turquemenistão",
+      "country_slug": "turkmenistan",
+      "competition_name": "Liga Yokary",
+      "competition_slug": "liga-yokary",
+      "url": "https://www.flashscore.pt/futebol/turkmenistan/liga-yokary/",
+      "source_country_url": "https://www.flashscore.pt/futebol/turkmenistan/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Yokary",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -21349,6 +23959,24 @@
       "source_status": "candidate_not_yet_validated",
       "validation_status": "discovered_not_yet_validated",
       "competition_family_candidate": "Liga 1",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Turquia",
+      "country_slug": "turquia",
+      "competition_name": "Super Liga",
+      "competition_slug": "super-liga",
+      "url": "https://www.flashscore.pt/futebol/turquia/super-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/turquia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Super Liga",
       "gender": "masculino_misto",
       "age_category": "senior",
       "category": "masculino_misto",
@@ -21558,6 +24186,24 @@
     {
       "country_name": "Ucrânia",
       "country_slug": "ucrania",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/ucrania/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/ucrania/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Ucrânia",
+      "country_slug": "ucrania",
       "competition_name": "Taça da Ucrânia",
       "competition_slug": "taca-da-ucrania",
       "url": "https://www.flashscore.pt/futebol/ucrania/taca-da-ucrania/",
@@ -21586,6 +24232,24 @@
       "gender": "masculino_misto",
       "age_category": "u19",
       "category": "formacao",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Uganda",
+      "country_slug": "uganda",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/uganda/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/uganda/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
       "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
@@ -21623,6 +24287,24 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Uruguai",
+      "country_slug": "uruguai",
+      "competition_name": "Liga Auf Uruguaia",
+      "competition_slug": "liga-auf-uruguaia",
+      "url": "https://www.flashscore.pt/futebol/uruguai/liga-auf-uruguaia/",
+      "source_country_url": "https://www.flashscore.pt/futebol/uruguai/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Auf Uruguaia",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -21720,6 +24402,24 @@
     {
       "country_name": "Uzbequistão",
       "country_slug": "uzbequistao",
+      "competition_name": "Super Liga",
+      "competition_slug": "super-liga",
+      "url": "https://www.flashscore.pt/futebol/uzbequistao/super-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/uzbequistao/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Super Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Uzbequistão",
+      "country_slug": "uzbequistao",
       "competition_name": "Supertaça",
       "competition_slug": "supertaca",
       "url": "https://www.flashscore.pt/futebol/uzbequistao/supertaca/",
@@ -21749,6 +24449,24 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Venezuela",
+      "country_slug": "venezuela",
+      "competition_name": "Liga Futve",
+      "competition_slug": "liga-futve",
+      "url": "https://www.flashscore.pt/futebol/venezuela/liga-futve/",
+      "source_country_url": "https://www.flashscore.pt/futebol/venezuela/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga Futve",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -21846,6 +24564,24 @@
     {
       "country_name": "Vietname",
       "country_slug": "vietname",
+      "competition_name": "Liga V",
+      "competition_slug": "liga-v",
+      "url": "https://www.flashscore.pt/futebol/vietname/liga-v/",
+      "source_country_url": "https://www.flashscore.pt/futebol/vietname/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga V",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Vietname",
+      "country_slug": "vietname",
       "competition_name": "Supertaça",
       "competition_slug": "supertaca",
       "url": "https://www.flashscore.pt/futebol/vietname/supertaca/",
@@ -21918,6 +24654,24 @@
     {
       "country_name": "Zâmbia",
       "country_slug": "zambia",
+      "competition_name": "Super Liga",
+      "competition_slug": "super-liga",
+      "url": "https://www.flashscore.pt/futebol/zambia/super-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/zambia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Super Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Zâmbia",
+      "country_slug": "zambia",
       "competition_name": "Supertaça",
       "competition_slug": "supertaca",
       "url": "https://www.flashscore.pt/futebol/zambia/supertaca/",
@@ -21947,6 +24701,24 @@
       "age_category": "senior",
       "category": "masculino_misto",
       "competition_type": "taca",
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao"
+    },
+    {
+      "country_name": "Zimbabwe",
+      "country_slug": "zimbabwe",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/zimbabwe/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/zimbabwe/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
       "has_stage_or_playoff_marker": false,
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao"
@@ -23178,6 +25950,42 @@
       "reason": "navigation_or_odds_link"
     },
     {
+      "country_name": "Futebol amanhã",
+      "competition_name": "Futebol amanhã",
+      "url": "https://www.flashscore.pt/futebol/amanha/amanha/",
+      "reason": "navigation_or_odds_link"
+    },
+    {
+      "country_name": "Futebol amanhã",
+      "competition_name": "Futebol ontem",
+      "url": "https://www.flashscore.pt/futebol/amanha/ontem/",
+      "reason": "navigation_or_odds_link"
+    },
+    {
+      "country_name": "Futebol amanhã",
+      "competition_name": "Odds",
+      "url": "https://www.flashscore.pt/futebol/amanha/odds/",
+      "reason": "navigation_or_odds_link"
+    },
+    {
+      "country_name": "Futebol ontem",
+      "competition_name": "Futebol amanhã",
+      "url": "https://www.flashscore.pt/futebol/ontem/amanha/",
+      "reason": "navigation_or_odds_link"
+    },
+    {
+      "country_name": "Futebol ontem",
+      "competition_name": "Futebol ontem",
+      "url": "https://www.flashscore.pt/futebol/ontem/ontem/",
+      "reason": "navigation_or_odds_link"
+    },
+    {
+      "country_name": "Futebol ontem",
+      "competition_name": "Odds",
+      "url": "https://www.flashscore.pt/futebol/ontem/odds/",
+      "reason": "navigation_or_odds_link"
+    },
+    {
       "country_name": "Gabão",
       "competition_name": "Futebol amanhã",
       "url": "https://www.flashscore.pt/futebol/gabao/amanha/",
@@ -24273,6 +27081,12 @@
       "country_name": "Nova Zelândia",
       "competition_name": "Odds",
       "url": "https://www.flashscore.pt/futebol/nova-zelandia/odds/",
+      "reason": "navigation_or_odds_link"
+    },
+    {
+      "country_name": "Odds",
+      "competition_name": "Odds",
+      "url": "https://www.flashscore.pt/futebol/odds/odds/",
       "reason": "navigation_or_odds_link"
     },
     {
