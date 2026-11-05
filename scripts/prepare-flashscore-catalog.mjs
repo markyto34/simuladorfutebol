@@ -34,19 +34,22 @@ function classify(name, country) {
   const n = normalizeLabel(name);
   const c = normalizeLabel(country);
   const female = /\b(feminina|feminino|women|ladies|senhoras)\b/.test(n);
-  const age = n.match(/\b(?:u\s?\d{2}|sub\s?\d{1,2}|under\s?\d{1,2}|juniores?|youth|junior)\b/);
+  const age = n.match(/\b(?:u|sub|under)\s?(\d{1,2})\b/);
+  const youth = n.match(/\b(juniores?|youth|junior)\b/);
+  const specialFormat = /\bkings (?:league|liga|cup)\b/.test(n);
   const stage = /\b(playoffs?|play offs?|promocao|despromocao|relegation|promotion|fase de grupos|group stage|league phase|fase de liga|final round|championship round|abertura|encerramento|apertura|clausura|quadrangular|octogonal|hexagonal)\b/.test(n);
   const group = /\b(serie|grupo|group|north|south|east|west|norte|sul|este|oeste|nordeste|noroeste|sudeste|sudoeste)\b/.test(n);
   const friendly = /\b(amigavel|friendly)\b/.test(n);
   const cup = /\b(taca|cup|copa|pokal|coppa|coupe|knockout)\b/.test(n);
   const globalRegion = /^(mundo|europa|asia|africa|america do sul|america do norte e central|oceania)$/.test(c);
   const category = female ? 'feminino' : age ? 'formacao' : 'masculino_misto';
-  const competitionType = friendly ? 'amigavel' : cup ? 'taca' : stage ? 'fase_especial' : 'liga_ou_torneio';
+  const competitionType = friendly ? 'amigavel' : specialFormat ? 'formato_especial' : cup ? 'taca' : stage ? 'fase_especial' : 'liga_ou_torneio';
   return {
     gender: female ? 'feminino' : 'masculino_misto',
-    age_category: age ? age[0].replace(/\s+/g, ' ') : 'senior',
+    age_category: age ? 'sub ' + String(Number(age[1])) : youth ? youth[1] : 'senior',
     category,
     competition_type: competitionType,
+    non_standard_format: specialFormat,
     has_stage_or_playoff_marker: stage,
     has_division_or_group_marker: group,
     geographic_scope: globalRegion ? 'regional_ou_global' : 'pais_ou_regiao'
