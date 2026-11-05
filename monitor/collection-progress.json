@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 55,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 50,
-  "failed_games": 0,
-  "current_match": "Último concluído: Winterthur - Yverdon",
-  "last_result": "Winterthur - Yverdon: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T23:10:16.949Z"
+  "processed_games": 55,
+  "stats_games": 54,
+  "bwin_odds": 54,
+  "failed_games": 1,
+  "current_match": "Último concluído: Wil - Rapperswil-Jona",
+  "last_result": "Wil - Rapperswil-Jona: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T23:10:54.633Z"
 }
