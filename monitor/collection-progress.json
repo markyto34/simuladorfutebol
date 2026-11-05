@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 303,
-  "processed_games": 250,
-  "stats_games": 135,
-  "bwin_odds": 57,
+  "processed_games": 275,
+  "stats_games": 151,
+  "bwin_odds": 63,
   "failed_games": 0,
-  "current_match": "Último concluído: Ameliano - Guarani",
-  "last_result": "Ameliano - Guarani: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T07:46:31.440Z"
+  "current_match": "A consultar jogo 277/303 · WQzM4yeL",
+  "last_result": "Buducnost Krusik - Partizan: 10 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T07:46:38.875Z"
 }
