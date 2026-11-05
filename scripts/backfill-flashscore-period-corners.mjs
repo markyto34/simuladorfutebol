@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-import { readFile, writeFile, appendFile } from "node:fs/promises";
+import { readFile, writeFile, appendFile, rename } from "node:fs/promises";
 import { resolve } from "node:path";
 
 const STATS_FILE = resolve(process.env.FLASHSCORE_STATS_FILE || "data/flashscore-statistics.csv");
 const PROXY = (process.env.FLASHSCORE_PROXY_URL || "https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev").replace(/\/$/, "");
-const DELAY_MS = Math.max(250, Number(process.env.FLASHSCORE_REQUEST_DELAY_MS || 500));
+const DELAY_MS = Math.max(500, Number(process.env.FLASHSCORE_REQUEST_DELAY_MS || 900));
 const CONCURRENCY = Math.max(1, Math.min(4, Number.parseInt(process.env.FLASHSCORE_CONCURRENCY || "2", 10) || 2));
 const PERIOD_FIELDS = ["corners_ht_home", "corners_ht_away", "corners_st_home", "corners_st_away"];
 
@@ -72,7 +72,7 @@ function numericPair(value) {
 async function fetchRecord(matchId) {
   const url = PROXY + "/record?id=" + encodeURIComponent(matchId) + "&tab=statistics";
   let lastError;
-  for (let attempt = 1; attempt <= 3; attempt++) {
+  for (let attempt = 1; attempt <= 5; attempt++) {
     try {
       const response = await fetch(url, { headers: { Accept: "application/json" }, signal: AbortSignal.timeout(45_000) });
       if (response.status === 403 || response.status === 429) {
@@ -80,14 +80,14 @@ async function fetchRecord(matchId) {
         error.blocked = true;
         throw error;
       }
-      if (!response.ok) throw new Error("Proxy respondeu HTTP " + response.status + ".");
+      if (!response.ok) {\n        const error = new Error("Proxy respondeu HTTP " + response.status + ".");\n        error.transient = [500, 502, 503, 504].includes(response.status);\n        throw error;\n      }
       const payload = await response.json();
       if (!payload?.ok || !payload?.record) throw new Error("Resposta do proxy sem registo válido.");
       return payload.record;
     } catch (error) {
       lastError = error;
       if (error.blocked) throw error;
-      if (attempt < 3) await new Promise(resolveSleep => setTimeout(resolveSleep, 500 * attempt));
+      if (attempt < 5) await new Promise(resolveSleep => setTimeout(resolveSleep, error?.transient ? 1000 * (2 ** (attempt - 1)) : 500 * attempt));
     }
   }
   throw lastError || new Error("Falha desconhecida ao consultar jogo.");
@@ -96,7 +96,7 @@ export async function backfillPeriodCorners(rows, options = {}) {
   const selected = selectRowsNeedingPeriodCorners(rows, options.startDate, options.endDate, options.limit || 0);
   const updated = new Map();
   const summary = { selected: selected.length, processed: 0, ht_available: 0, st_available: 0, both_available: 0, no_period_data: 0, failed: 0, blocked: false };
-  let nextIndex = 0, nextStartAt = 0;
+  let nextIndex = 0, nextStartAt = 0;\n  let checkpointChain = Promise.resolve();\n  let lastCheckpoint = 0;\n  const checkpointEvery = Math.max(1, Number(options.checkpointEvery || 25));\n  const mergeUpdatedRows = () => rows.map(row => {\n    const patch = updated.get(row.match_id);\n    if (!patch) return row;\n    const next = { ...row };\n    for (const field of PERIOD_FIELDS) {\n      if (String(next[field] ?? "").trim() === "" && patch[field] !== undefined) next[field] = patch[field];\n    }\n    return next;\n  });
   async function takeNext() {
     if (summary.blocked || nextIndex >= selected.length) return null;
     const index = nextIndex++;
@@ -126,19 +126,15 @@ export async function backfillPeriodCorners(rows, options = {}) {
         console.error("[PERIOD CORNERS] " + job.row.match_id + ": " + String(error?.message || error));
       }
       summary.processed++;
-      if (options.onProgress) options.onProgress({ ...summary, current: job.index + 1, match_id: job.row.match_id });
+      if (options.onProgress) await options.onProgress({ ...summary, current: job.index + 1, match_id: job.row.match_id });\n      if (options.onCheckpoint && (summary.processed % checkpointEvery === 0 || summary.processed === summary.selected)) {\n        const snapshot = mergeUpdatedRows();\n        const snapshotSummary = { ...summary };\n        checkpointChain = checkpointChain.then(() => options.onCheckpoint(snapshot, snapshotSummary));\n        await checkpointChain;\n        lastCheckpoint = summary.processed;\n      }
     }
   }
   await Promise.all(Array.from({ length: Math.min(options.concurrency ?? CONCURRENCY, Math.max(1, selected.length)) }, () => worker()));
-  const merged = rows.map(row => {
-    const patch = updated.get(row.match_id);
-    if (!patch) return row;
-    const next = { ...row };
-    for (const field of PERIOD_FIELDS) {
-      if (String(next[field] ?? "").trim() === "" && patch[field] !== undefined) next[field] = patch[field];
-    }
-    return next;
-  });
+  const merged = mergeUpdatedRows();
+  if (options.onCheckpoint && lastCheckpoint !== summary.processed) {
+    checkpointChain = checkpointChain.then(() => options.onCheckpoint(merged, { ...summary }));
+    await checkpointChain;
+  }
   return { rows: merged, summary };
 }
 
@@ -150,14 +146,25 @@ async function main() {
   if (!startDate || !endDate) throw new Error("Uso: node scripts/backfill-flashscore-period-corners.mjs --start-date=YYYY-MM-DD --end-date=YYYY-MM-DD [--limit=N]");
   const parsed = parseCsv(await readFile(STATS_FILE, "utf8"));
   if (!parsed.rows.length) throw new Error("CSV de estatísticas vazio.");
-  const result = await backfillPeriodCorners(parsed.rows, { startDate, endDate, limit, onProgress: item => {
-    if (item.current % 25 === 0 || item.current === item.selected) {
-      console.log("[PERIOD CORNERS] " + item.current + "/" + item.selected + " | HT=" + item.ht_available + " | ST=" + item.st_available + " | falhas=" + item.failed + " | " + item.match_id);
-    }
-  } });
   const headers = [...parsed.headers];
   for (const field of PERIOD_FIELDS) if (!headers.includes(field)) headers.push(field);
-  await writeFile(STATS_FILE, toCsv(headers, result.rows), "utf8");
+  let lastSaved = 0;
+  const saveCheckpoint = async (rows, summary) => {
+    const temporary = STATS_FILE + ".checkpoint.tmp";
+    await writeFile(temporary, toCsv(headers, rows), "utf8");
+    await rename(temporary, STATS_FILE);
+    lastSaved = summary.processed;
+    console.log("[PERIOD CORNERS CHECKPOINT] guardados " + lastSaved + "/" + summary.selected + " jogos; HT=" + summary.ht_available + "; ST=" + summary.st_available + "; falhas=" + summary.failed);
+  };
+  const result = await backfillPeriodCorners(parsed.rows, {
+    startDate, endDate, limit, checkpointEvery: 25, onCheckpoint: saveCheckpoint,
+    onProgress: item => {
+      if (item.current % 25 === 0 || item.current === item.selected) {
+        console.log("[PERIOD CORNERS] " + item.current + "/" + item.selected + " | HT=" + item.ht_available + " | ST=" + item.st_available + " | falhas=" + item.failed + " | " + item.match_id);
+      }
+    }
+  });
+  if (lastSaved !== result.summary.processed) await saveCheckpoint(result.rows, result.summary);
   console.log("[PERIOD CORNERS SUMMARY] " + JSON.stringify(result.summary));
   if (process.env.GITHUB_STEP_SUMMARY) {
     await appendFile(process.env.GITHUB_STEP_SUMMARY,
