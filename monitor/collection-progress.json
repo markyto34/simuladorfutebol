@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 108,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 50,
+  "processed_games": 78,
+  "stats_games": 78,
+  "bwin_odds": 78,
   "failed_games": 0,
-  "current_match": "Último concluído: Stal Mielec - Odra Opole",
-  "last_result": "Stal Mielec - Odra Opole: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:33:29.975Z"
+  "current_match": "A consultar jogo 80/108 · biyZhfqC",
+  "last_result": "Odra Opole - Warta Poznan: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:33:38.377Z"
 }
