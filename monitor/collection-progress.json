@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 77,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 26,
+  "stats_games": 26,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-05T14:56:12.340Z"
+  "current_match": "A consultar jogo 29/77 · 8KB0O6bn",
+  "last_result": "Al-Jabalain - Al-Orubah: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T14:56:20.617Z"
 }
