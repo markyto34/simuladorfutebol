@@ -20,13 +20,28 @@ function plainText(value) {
     .replace(/\s+/g, " ").trim();
 }
 
+function attributeValue(attributes, name) {
+  const patterns = {
+    href: /\bhref\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i,
+    'aria-label': /\baria-label\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i,
+    title: /\btitle\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i,
+    'data-competition-name': /\bdata-competition-name\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i
+  };
+  return patterns[name]?.exec(attributes || '')?.slice(1).find(Boolean) || '';
+}
+
 function anchors(html) {
   const found = [];
   const pattern = /<a\b([^>]*)>([\s\S]*?)<\/a\s*>/gi;
   for (const match of String(html || "").matchAll(pattern)) {
-    const href = match[1].match(/\bhref\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i)?.slice(1).find(Boolean);
+    const href = attributeValue(match[1], 'href');
     if (!href) continue;
-    found.push({ href: decodeHtml(href), name: plainText(match[2]) });
+    const name = plainText(match[2]) || decodeHtml(
+      attributeValue(match[1], 'aria-label') ||
+      attributeValue(match[1], 'title') ||
+      attributeValue(match[1], 'data-competition-name')
+    ).trim();
+    found.push({ href: decodeHtml(href), name });
   }
   return found;
 }
