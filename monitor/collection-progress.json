@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 42,
-  "processed_games": 26,
-  "stats_games": 8,
+  "processed_games": 42,
+  "stats_games": 17,
   "bwin_odds": 1,
   "failed_games": 0,
-  "current_match": "Último concluído: Santa Fe PE - Centro Limoeirense",
-  "last_result": "Santa Fe PE - Centro Limoeirense: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-05T15:23:58.443Z"
+  "current_match": "Último concluído: Petrolina - Afogados da Ingazeira",
+  "last_result": "Petrolina - Afogados da Ingazeira: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-05T15:24:02.126Z"
 }
