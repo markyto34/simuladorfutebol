@@ -441,29 +441,43 @@ function normalizeFlashscoreMatch(r){
   homeXg:sourceNum(r,["xg_home"]),awayXg:sourceNum(r,["xg_away"])};
 }
 function flashscoreCompetitionValue(country,competition){return "FS|"+encodeURIComponent(country)+"|"+encodeURIComponent(competition);}
+function normalizeCompetitionCountry(value){
+ return String(value||"").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toLocaleLowerCase().replace(/[^a-z0-9]+/g," ").trim().replace(/\\s+/g," ");
+}
+function flashscoreCountryCode(country){
+ const normalized=normalizeCompetitionCountry(country);
+ const aliases={"eua":"USA","estados unidos":"USA","europa":"UEFA","europe":"UEFA"};
+ if(aliases[normalized])return aliases[normalized];
+ for(const [code,name] of Object.entries(COUNTRY_NAMES)){
+  if(normalizeCompetitionCountry(name)===normalized)return code;
+ }
+ return null;
+}
+const flashscoreCompetitionState={items:[],loaded:false};
 async function populateFlashscoreCompetitions(){
- const select=$("league");
- if(!select||select.dataset.flashscoreOptions==="loaded")return;
+ if(flashscoreCompetitionState.loaded)return;
  try{
-  const csv=await fetchSourceCSV(FLASHSCORE_STATS_CSV_URL),rows=parseSourceCSV(csv);
-  const competitions=new Map();
-  rows.forEach(row=>{
+  const csv=await fetchSourceCSV(FLASHSCORE_STATS_CSV_URL),rows=parseSourceCSV(csv),competitions=new Map();
+  rows.forEach((row,index)=>{
    const country=sourceVal(row,["country"]),competition=sourceVal(row,["competition"]);
    if(!country||!competition)return;
-   const key=flashscoreCompetitionValue(country,competition);
-   if(!competitions.has(key))competitions.set(key,{country,competition,count:0});
-   competitions.get(key).count++;
+   const value=flashscoreCompetitionValue(country,competition);
+   if(!competitions.has(value))competitions.set(value,{value,country,competition,matchIds:new Set()});
+   competitions.get(value).matchIds.add(sourceVal(row,["match_id"])||"row-"+index);
   });
-  if(!competitions.size)return;
-  let group=select.querySelector('optgroup[data-source="flashscore"]');
-  if(!group){group=document.createElement("optgroup");group.label="Flashscore · competições com histórico próprio";group.dataset.source="flashscore";select.appendChild(group);}
-  [...competitions.entries()].sort((a,b)=>(a[1].country+"/"+a[1].competition).localeCompare(b[1].country+"/"+b[1].competition,"pt")).forEach(([value,item])=>{
-   const option=document.createElement("option");option.value=value;
-   option.textContent=item.country+" — "+item.competition+" ("+item.count+" jogos)";
-   group.appendChild(option);
-  });
-  select.dataset.flashscoreOptions="loaded";
- }catch(error){console.warn("Não foi possível carregar o catálogo de competições Flashscore:",error);}
+  flashscoreCompetitionState.items=[...competitions.values()].map(item=>({
+   ...item,countryCode:flashscoreCountryCode(item.country),count:item.matchIds.size
+  })).sort((a,b)=>(a.country+"/"+a.competition).localeCompare(b.country+"/"+b.competition,"pt"));
+  flashscoreCompetitionState.loaded=true;
+  const currentCountry=countrySelect.value;
+  const flashCountries=[...new Set(flashscoreCompetitionState.items.filter(item=>!item.countryCode).map(item=>item.country))]
+   .sort((a,b)=>a.localeCompare(b,"pt"));
+  countrySelect.innerHTML=countryCodes.map(code=>'<option value="'+code+'">'+(COUNTRY_NAMES[code]||code)+'</option>').join("")+
+   flashCountries.map(country=>'<option value="FSCOUNTRY|'+encodeURIComponent(country)+'">'+country+'</option>').join("");
+  countrySelect.value=countryCodes.includes(currentCountry)?currentCountry:
+   (flashCountries.some(country=>"FSCOUNTRY|"+encodeURIComponent(country)===currentCountry)?currentCountry:initialLeague.split("_")[0]);
+  setCountryCompetitions(initialLeague);
+ }catch(error){console.warn("Não foi possível carregar as competições com histórico Flashscore:",error);}
 }
 function normalizeSourceMatch(r){const home=sourceVal(r,["home","home_team","HomeTeam"]),away=sourceVal(r,["away","away_team","AwayTeam"]);const hg=sourceNum(r,["ft_home","home_score","home_goals","FTHG"]),ag=sourceNum(r,["ft_away","away_score","away_goals","FTAG"]);if(!home||!away||hg===null||ag===null)return null;return {date:sourceDate(sourceVal(r,["date","match_date","Date"])),home,away,hg,ag,htHome:sourceNum(r,["ht_home"]),htAway:sourceNum(r,["ht_away"]),hc:sourceNum(r,["home_corners","HomeCorners","HC","home_corner"]),ac:sourceNum(r,["away_corners","AwayCorners","AC","away_corner"]),homeShots:sourceNum(r,["home_shots"]),awayShots:sourceNum(r,["away_shots"]),homeTarget:sourceNum(r,["home_target"]),awayTarget:sourceNum(r,["away_target"]),homeFouls:sourceNum(r,["home_fouls"]),awayFouls:sourceNum(r,["away_fouls"]),homeYellow:sourceNum(r,["home_yellow"]),awayYellow:sourceNum(r,["away_yellow"]),homeRed:sourceNum(r,["home_red"]),awayRed:sourceNum(r,["away_red"])};}
 const DATA_CACHE_DB="simulador-futebol-cache";
@@ -829,20 +843,42 @@ const COUNTRY_NAMES={
 const countrySelect=$("country"),leagueSelect=$("league");
 const competitionOptions=[...leagueSelect.options].map(option=>option.cloneNode(true));
 const countryCodes=[...new Set(competitionOptions.map(option=>option.value.split("_")[0]))];
-countrySelect.innerHTML=countryCodes.map(code=>'<option value="'+code+'">'+(COUNTRY_NAMES[code]||code)+'</option>').join("");
-function setCountryCompetitions(preferred){
- const code=countrySelect.value;
- const available=competitionOptions.filter(option=>option.value.startsWith(code+"_"));
- leagueSelect.innerHTML="";
- for(const option of available){
-  const copy=option.cloneNode(true);
-  copy.textContent=copy.textContent.replace(/^[^—]+—\s*/,"");
-  leagueSelect.appendChild(copy);
- }
- if(preferred&&available.some(option=>option.value===preferred))leagueSelect.value=preferred;
- else if(leagueSelect.options.length)leagueSelect.selectedIndex=0;
-}
 const initialLeague=leagueSelect.value;
+function setCountryCompetitions(preferred){
+ const selectedCountry=countrySelect.value;
+ const staticAvailable=competitionOptions.filter(option=>option.value.startsWith(selectedCountry+"_"));
+ const flashAvailable=flashscoreCompetitionState.items.filter(item=>
+  selectedCountry.startsWith("FSCOUNTRY|")
+   ? item.country===decodeURIComponent(selectedCountry.slice("FSCOUNTRY|".length))
+   : item.countryCode===selectedCountry
+ );
+ leagueSelect.innerHTML="";
+ if(staticAvailable.length){
+  const group=document.createElement("optgroup");
+  group.label="Competições WinDrawWin / base";
+  staticAvailable.forEach(option=>{
+   const copy=option.cloneNode(true);
+   copy.textContent=copy.textContent.replace(/^[^—]+—\\s*/,"");
+   group.appendChild(copy);
+  });
+  leagueSelect.appendChild(group);
+ }
+ if(flashAvailable.length){
+  const group=document.createElement("optgroup");
+  group.label="Flashscore · histórico próprio";
+  flashAvailable.forEach(item=>{
+   const option=document.createElement("option");
+   option.value=item.value;
+   option.textContent=item.competition+" ("+item.count+" jogos)";
+   group.appendChild(option);
+  });
+  leagueSelect.appendChild(group);
+ }
+ const allOptions=[...leagueSelect.querySelectorAll("option")];
+ if(preferred&&allOptions.some(option=>option.value===preferred))leagueSelect.value=preferred;
+ else if(allOptions.length)leagueSelect.value=allOptions[0].value;
+}
+countrySelect.innerHTML=countryCodes.map(code=>'<option value="'+code+'">'+(COUNTRY_NAMES[code]||code)+'</option>').join("");
 countrySelect.value=initialLeague.split("_")[0];
 setCountryCompetitions(initialLeague);
 countrySelect.addEventListener("change",()=>setCountryCompetitions());
