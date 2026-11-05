@@ -89,6 +89,7 @@ export function prepareFlashscoreCatalog(raw) {
   }));
   return {
     generated_at: new Date().toISOString(),
+    catalog_discovery_version: '2.0',
     source: 'Flashscore.pt',
     source_catalog_generated_at: raw.generated_at,
     scope: 'Catálogo descoberto nas páginas públicas de futebol por país/região. As entradas são candidatas; a presença no índice não confirma histórico estatístico, odds ou disponibilidade atual.',
