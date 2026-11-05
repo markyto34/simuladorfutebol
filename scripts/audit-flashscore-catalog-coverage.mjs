@@ -42,7 +42,8 @@ const COMPETITION_ALIASES = new Map([
   ['portugal|league cup', 'taca da liga'],
   ['portugal|taca da liga', 'taca da liga'],
   ['europa|champions league league phase', 'liga dos campeoes fase de liga'],
-  ['europa|liga dos campeoes fase de liga', 'liga dos campeoes fase de liga']
+  ['europa|liga dos campeoes fase de liga', 'liga dos campeoes fase de liga'],
+  ['espanha|laliga', 'laliga ea sports']
 ]);
 
 function countryKey(value) { return COUNTRY_ALIASES.get(normalize(value)) || normalize(value); }
