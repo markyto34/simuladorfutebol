@@ -2,14 +2,14 @@
   "run_id": "42053542737",
   "run_number": "6",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 80,
-  "processed_games": 76,
-  "stats_games": 76,
-  "bwin_odds": 76,
+  "processed_games": 80,
+  "stats_games": 80,
+  "bwin_odds": 80,
   "failed_games": 0,
-  "current_match": "A consultar jogo 79/80 · OvxR2Du3",
-  "last_result": "Áustria (Am) - BW Linz: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:20:48.468Z"
+  "current_match": "Recolha terminada",
+  "last_result": "Voitsberg - Amstetten: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:20:51.577Z"
 }
