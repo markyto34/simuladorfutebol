@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 472,
-  "processed_games": 51,
-  "stats_games": 51,
-  "bwin_odds": 51,
+  "processed_games": 75,
+  "stats_games": 75,
+  "bwin_odds": 75,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/472 · APOmrKEL",
-  "last_result": "Toronto FC - Orlando City: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:31:58.531Z"
+  "current_match": "Último concluído: Austin FC - San Diego FC",
+  "last_result": "Austin FC - San Diego FC: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T21:32:04.022Z"
 }
