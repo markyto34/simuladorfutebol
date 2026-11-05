@@ -114,7 +114,8 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/flashscore-statistics.csv data/flashscore-period-corners-backfill-progress.json
+          git add data/flashscore-statistics.csv
+          if [ -f data/flashscore-period-corners-backfill-progress.json ]; then git add data/flashscore-period-corners-backfill-progress.json; fi
           if [ "$BACKFILL_OUTCOME" = "success" ] && [ "$VALIDATION_OUTCOME" = "success" ]; then
             rm -f data/force-flashscore-period-corners-backfill.once
             rm -f data/flashscore-period-corners-backfill-progress.json
