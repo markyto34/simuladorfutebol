@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 54,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 50,
+  "processed_games": 54,
+  "stats_games": 54,
+  "bwin_odds": 54,
   "failed_games": 0,
-  "current_match": "Último concluído: Rijeka - Rudes",
-  "last_result": "Rijeka - Rudes: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T13:38:34.154Z"
+  "current_match": "Último concluído: Din. Zagreb - Slaven Belupo",
+  "last_result": "Din. Zagreb - Slaven Belupo: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T13:38:39.296Z"
 }
