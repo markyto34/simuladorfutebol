@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 111,
-  "processed_games": 102,
-  "stats_games": 101,
-  "bwin_odds": 101,
+  "processed_games": 111,
+  "stats_games": 110,
+  "bwin_odds": 110,
   "failed_games": 0,
-  "current_match": "Último concluído: Trefelin - Llandudno",
-  "last_result": "Trefelin - Llandudno: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T22:27:03.937Z"
+  "current_match": "Último concluído: Colwyn Bay - Trefelin",
+  "last_result": "Colwyn Bay - Trefelin: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T22:27:12.005Z"
 }
