@@ -14,7 +14,7 @@ function plain(value) {
     .replace(/\s+/g, " ").trim();
 }
 function getAttr(tag, name) {
-  const m = tag.match(new RegExp("\\b" + name + "\s*=\s*(['\"])([\s\\S]*?)\\1", "i"));
+  const m = tag.match(new RegExp("\\\\b" + name + "\\\\s*=\\\\s*(['\\\"])([\\\\s\\\\S]*?)\\\\1", "i"));
   return m?.[2] ?? null;
 }
 function parseAttrs(raw) {
