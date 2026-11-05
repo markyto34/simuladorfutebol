@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed_with_errors",
+  "phase": "completed",
   "total_games": 48,
   "processed_games": 48,
   "stats_games": 44,
   "bwin_odds": 0,
   "failed_games": 4,
-  "current_match": "Último erro: bPAYDuBs",
+  "current_match": "Recolha terminada",
   "last_result": "Falha em bPAYDuBs: Falha ao recolher bPAYDuBs: HTTP 503",
-  "updated_at": "2026-11-05T22:55:35.761Z"
+  "updated_at": "2026-11-05T22:55:37.145Z"
 }
