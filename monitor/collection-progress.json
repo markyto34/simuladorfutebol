@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 631,
-  "processed_games": 200,
-  "stats_games": 200,
-  "bwin_odds": 174,
+  "processed_games": 225,
+  "stats_games": 225,
+  "bwin_odds": 193,
   "failed_games": 0,
-  "current_match": "Último concluído: Godoy Cruz - Deportivo Maipu",
-  "last_result": "Godoy Cruz - Deportivo Maipu: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T09:29:14.698Z"
+  "current_match": "Último concluído: Almirante Brown - Ciudad Bolivar",
+  "last_result": "Almirante Brown - Ciudad Bolivar: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T09:30:05.445Z"
 }
