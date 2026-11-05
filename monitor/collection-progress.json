@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 322,
-  "processed_games": 76,
-  "stats_games": 76,
-  "bwin_odds": 76,
+  "processed_games": 101,
+  "stats_games": 101,
+  "bwin_odds": 101,
   "failed_games": 0,
-  "current_match": "A consultar jogo 79/322 · fBuuEhZh",
-  "last_result": "RB Bragantino - Bahia: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T15:24:35.170Z"
+  "current_match": "A consultar jogo 104/322 · tps7Na7r",
+  "last_result": "Vitoria - Botafogo RJ: 16 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T15:24:40.428Z"
 }
