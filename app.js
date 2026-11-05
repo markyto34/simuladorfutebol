@@ -442,16 +442,16 @@ function normalizeFlashscoreMatch(r){
 }
 function flashscoreCompetitionValue(country,competition){return "FS|"+encodeURIComponent(country)+"|"+encodeURIComponent(competition);}
 function flashscoreCompetitionSortRank(item){
- const name=String(item.competition||"").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toLowerCase();
+ const name=String(item.competition||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
  const type=String(item.competitionType||"").toLowerCase();
- if(type==="taca"||/\\b(cup|copa|coupe|pokal|coppa|taça|taca)\\b/.test(name))return 1000;
- const explicit=name.match(/\\b(\\d+)\\s*(?:ª|a|o)?\\s*(?:divisao|division|liga|league)\\b|\\b(?:liga|league|division)\\s*(\\d+)\\b/);
+ if(type==="taca"||/\b(cup|copa|coupe|pokal|coppa|taça|taca)\b/.test(name))return 1000;
+ const explicit=name.match(/\b(\d+)\s*(?:ª|a|o)?\s*(?:divisao|division|liga|league)\b|\b(?:liga|league|division)\s*(\d+)\b/);
  if(explicit)return Number(explicit[1]||explicit[2]);
- if(/\\b(championship|segunda|second division|segunda division|ligue 2|serie b|2\\. bundesliga|2. bundesliga|segunda liga)\\b/.test(name))return 2;
- if(/\\b(league one|primera federacion|terceira|third division|serie c|3. liga)\\b/.test(name))return 3;
- if(/\\b(league two|quarta|fourth division|serie d|4. liga)\\b/.test(name))return 4;
- if(/\\b(national league|quinta|fifth division)\\b/.test(name))return 5;
- if(type==="liga_ou_torneio"||/\\b(premier|primeira|first division|primera division|ligue 1|serie a|bundesliga|eredivisie|super liga|super league|super-league|liga mx|major league soccer|mls)\\b/.test(name))return 1;
+ if(/\b(championship|segunda|second division|segunda division|ligue 2|serie b|2\. bundesliga|2. bundesliga|segunda liga)\b/.test(name))return 2;
+ if(/\b(league one|primera federacion|terceira|third division|serie c|3. liga)\b/.test(name))return 3;
+ if(/\b(league two|quarta|fourth division|serie d|4. liga)\b/.test(name))return 4;
+ if(/\b(national league|quinta|fifth division)\b/.test(name))return 5;
+ if(type==="liga_ou_torneio"||/\b(premier|primeira|first division|primera division|ligue 1|serie a|bundesliga|eredivisie|super liga|super league|super-league|liga mx|major league soccer|mls)\b/.test(name))return 1;
  return 500;
 }
 function normalizeCompetitionCountry(value){
