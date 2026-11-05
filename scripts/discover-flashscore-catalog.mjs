@@ -3,6 +3,7 @@ import { writeFile } from "node:fs/promises";
 
 const BASE = "https://www.flashscore.pt";
 const INDEX_URL = BASE + "/futebol/";
+const WORLD_INDEX_URL = BASE + "/futebol/mundo/";
 const OUTPUT = process.env.FLASHSCORE_CATALOG_OUTPUT || "data/flashscore-competition-catalog-raw.json";
 const USER_AGENT = "Mozilla/5.0 (compatible; SimuladorFutebolCatalog/1.0)";
 const WAIT_MS = Number(process.env.FLASHSCORE_CATALOG_WAIT_MS || 700);
@@ -34,16 +35,39 @@ function attributeValue(attributes, name) {
 function anchors(html) {
   const found = [];
   const pattern = /<a\b([^>]*)>([\s\S]*?)<\/a\s*>/gi;
-  for (const match of String(html || "").matchAll(pattern)) {
+  const source = String(html || "");
+  const seen = new Set();
+  for (const match of source.matchAll(pattern)) {
     const href = attributeValue(match[1], 'href');
     if (!href) continue;
+    const decodedHref = decodeHtml(href);
     const name = plainText(match[2]) || decodeHtml(
       attributeValue(match[1], 'aria-label') ||
       attributeValue(match[1], 'title') ||
       attributeValue(match[1], 'data-competition-name') ||
       attributeValue(match[2], 'alt')
     ).trim();
-    found.push({ href: decodeHtml(href), name });
+    found.push({ href: decodedHref, name });
+    try { seen.add(new URL(decodedHref, INDEX_URL).pathname); } catch {}
+  }
+
+  // Alguns links de competições também vêm embutidos no estado JSON da página,
+  // fora de elementos <a>. Recuperá-los evita perder ligas carregadas pelo frontend.
+  const embedded = source
+    .replace(/\\\\u002[fF]/g, "/")
+    .replace(/\\\\\//g, "/")
+    .replace(/\\u002[fF]/g, "/")
+    .replace(/\\\//g, "/");
+  const pathPattern = /(?:https?:\\/\\/(?:www\\.)?flashscore\\.pt)?(\\/futebol\\/[^\\s"'<>\\\\?]+\\/[^\\s"'<>\\\\?]+\\/?)/g;
+  for (const match of embedded.matchAll(pathPattern)) {
+    const href = match[1].replace(/\\/$/, "") + "/";
+    if (seen.has(href.replace(/\\/$/, ""))) continue;
+    const parts = href.split("/").filter(Boolean);
+    const slug = parts[2] || "";
+    if (!slug) continue;
+    const name = decodeURIComponent(slug).replace(/[-_]+/g, " ").replace(/\\b\\w/g, letter => letter.toUpperCase());
+    found.push({ href, name });
+    seen.add(href.replace(/\\/$/, ""));
   }
   return found;
 }
@@ -119,6 +143,17 @@ export async function discoverFlashscoreCatalog({ fetchPage = fetchHtml, waitMs 
   if (!countries.length) throw new Error("Não foram encontradas páginas de países no índice Flashscore.");
   const competitions = [];
   const errors = [];
+
+  // O índice Mundo expõe competições internacionais e alguns links diretos
+  // para ligas nacionais. É uma fonte complementar, não substitui as páginas
+  // individuais de cada país.
+  try {
+    const worldHtml = await fetchPage(WORLD_INDEX_URL);
+    for (const country of countries) competitions.push(...parseCompetitionLinks(worldHtml, country));
+  } catch (error) {
+    errors.push({ country: "Mundo (índice complementar)", url: WORLD_INDEX_URL, error: String(error?.message || error).slice(0, 180) });
+  }
+
   for (const country of countries) {
     try {
       const html = await fetchPage(country.url);
@@ -140,6 +175,7 @@ export async function discoverFlashscoreCatalog({ fetchPage = fetchHtml, waitMs 
     generated_at: new Date().toISOString(),
     source: "Flashscore.pt",
     source_index: INDEX_URL,
+    supplemental_index: WORLD_INDEX_URL,
     scope: "Catálogo bruto das páginas públicas de futebol por país/região. Não confirma que todas as competições têm histórico estatístico ou odds.",
     country_page_count: countries.length,
     country_pages_successful: countries.filter(item => item.fetch_status === "success").length,
