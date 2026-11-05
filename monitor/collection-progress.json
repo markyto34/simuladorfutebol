@@ -2,14 +2,14 @@
   "run_id": "42049381940",
   "run_number": "3",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 96,
   "processed_games": 96,
   "stats_games": 96,
   "bwin_odds": 85,
   "failed_games": 0,
-  "current_match": "Último concluído: Abha - Al Hazem",
+  "current_match": "Recolha terminada",
   "last_result": "Abha - Al Hazem: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T14:57:15.297Z"
+  "updated_at": "2026-11-05T14:57:16.539Z"
 }
