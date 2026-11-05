@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T07:13:04.570Z",
+  "generated_at": "2026-11-05T07:17:36.383Z",
   "source": "Flashscore catalog + data/flashscore-statistics.csv",
   "scope": "Correspondência por país e competição com normalização e apenas aliases explicitamente confirmados. Nomes repetidos no mesmo país ficam em revisão e não são considerados cobertura validada.",
   "summary": {
@@ -308,7 +308,13 @@
       "competition_name": "Liga 2 - Grupo de Promoção",
       "unique_stats_matches": 4,
       "stats_rows": 4,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Grupo de Promoção"
+      ],
+      "related_catalog_competition": "Liga 2",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/china/liga-2/"
     },
     {
       "country_name": "COSTA RICA",
@@ -380,7 +386,13 @@
       "competition_name": "Liga K1 - Grupo de Despromoção",
       "unique_stats_matches": 3,
       "stats_rows": 3,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Grupo de Despromoção"
+      ],
+      "related_catalog_competition": "Liga K1",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/coreia-do-sul/liga-k1/"
     },
     {
       "country_name": "EQUADOR",
@@ -400,7 +412,13 @@
       "competition_name": "Liga Pro - Grupo de Despromoção",
       "unique_stats_matches": 3,
       "stats_rows": 3,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Grupo de Despromoção"
+      ],
+      "related_catalog_competition": "Liga Pro",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/equador/liga-pro/"
     },
     {
       "country_name": "ESCÓCIA",
@@ -420,14 +438,26 @@
       "competition_name": "UEFA Youth League - PlayOffs Vencedores",
       "unique_stats_matches": 3,
       "stats_rows": 3,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "PlayOffs Vencedores"
+      ],
+      "related_catalog_competition": "UEFA Youth League",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/europa/uefa-youth-league/"
     },
     {
       "country_name": "ARGENTINA",
       "competition_name": "Torneio Federal - Playoffs de Promoção",
       "unique_stats_matches": 2,
       "stats_rows": 2,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Playoffs de Promoção"
+      ],
+      "related_catalog_competition": "Torneio Federal",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/argentina/torneio-federal/"
     },
     {
       "country_name": "CANADÁ",
@@ -447,7 +477,13 @@
       "competition_name": "Liga Pro - Grupo de Colocação",
       "unique_stats_matches": 2,
       "stats_rows": 2,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Grupo de Colocação"
+      ],
+      "related_catalog_competition": "Liga Pro",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/equador/liga-pro/"
     },
     {
       "country_name": "ESCÓCIA",
@@ -506,7 +542,13 @@
       "competition_name": "Primeira Liga - Primeira Fase - Principal",
       "unique_stats_matches": 2,
       "stats_rows": 2,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Primeira Fase - Principal"
+      ],
+      "related_catalog_competition": "Primeira Liga",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/malta/primeira-liga/"
     },
     {
       "country_name": "MÉXICO",
@@ -552,7 +594,13 @@
       "competition_name": "Taça da Turquia - Qualificação",
       "unique_stats_matches": 2,
       "stats_rows": 2,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Qualificação"
+      ],
+      "related_catalog_competition": "Taça da Turquia",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/turquia/taca/"
     },
     {
       "country_name": "AMÉRICA DO SUL",
@@ -585,7 +633,13 @@
       "competition_name": "Primeira C - Playoffs de Promoção",
       "unique_stats_matches": 1,
       "stats_rows": 1,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Playoffs de Promoção"
+      ],
+      "related_catalog_competition": "Primeira C",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/argentina/primeira-c/"
     },
     {
       "country_name": "BOLÍVIA",
@@ -631,14 +685,26 @@
       "competition_name": "Segunda Divisão - Grupo de Despromoção",
       "unique_stats_matches": 1,
       "stats_rows": 1,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Grupo de Despromoção"
+      ],
+      "related_catalog_competition": "Segunda Divisão",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/chile/segunda-divisao/"
     },
     {
       "country_name": "CHILE",
       "competition_name": "Segunda Divisão - Grupo de Promoção",
       "unique_stats_matches": 1,
       "stats_rows": 1,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Grupo de Promoção"
+      ],
+      "related_catalog_competition": "Segunda Divisão",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/chile/segunda-divisao/"
     },
     {
       "country_name": "CHILE",
@@ -658,7 +724,13 @@
       "competition_name": "Taça da Colômbia - Segundo nível",
       "unique_stats_matches": 1,
       "stats_rows": 1,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Segundo nível"
+      ],
+      "related_catalog_competition": "Taça da Colômbia",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/colombia/taca-da-colombia/"
     },
     {
       "country_name": "EUROPA",
@@ -678,7 +750,13 @@
       "competition_name": "Champions League - League phase",
       "unique_stats_matches": 1,
       "stats_rows": 1,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "League phase"
+      ],
+      "related_catalog_competition": "Liga dos Campeões",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/europa/liga-dos-campeoes/"
     },
     {
       "country_name": "IRLANDA",
@@ -705,7 +783,13 @@
       "competition_name": "Taça da Rússia - Caminho das Regiões",
       "unique_stats_matches": 1,
       "stats_rows": 1,
-      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+      "reason": "catalog_base_found_stage_kept_separate",
+      "relationship": "same_base_competition_distinct_stage_not_merged",
+      "stage_markers": [
+        "Caminho das Regiões"
+      ],
+      "related_catalog_competition": "Taça da Rússia",
+      "related_catalog_url": "https://www.flashscore.pt/futebol/russia/taca/"
     }
   ],
   "competitions": [
