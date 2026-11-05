@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 232,
-  "processed_games": 101,
-  "stats_games": 101,
-  "bwin_odds": 101,
+  "processed_games": 125,
+  "stats_games": 125,
+  "bwin_odds": 125,
   "failed_games": 0,
-  "current_match": "A consultar jogo 104/232 · ry8FNdCM",
-  "last_result": "Racing Louisville F - Chicago F: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-05T21:34:29.447Z"
+  "current_match": "Último concluído: Seattle Reign F - Portland Thorns F",
+  "last_result": "Seattle Reign F - Portland Thorns F: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-05T21:34:34.504Z"
 }
