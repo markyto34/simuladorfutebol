@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 502,
-  "processed_games": 52,
-  "stats_games": 52,
+  "processed_games": 76,
+  "stats_games": 75,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Villa Mitre - Douglas Haig",
-  "last_result": "Villa Mitre - Douglas Haig: 10 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T09:32:57.575Z"
+  "current_match": "A consultar jogo 79/502 · EXz6MyIF",
+  "last_result": "Defensores de Vilelas - Independiente Chivilcoy: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T09:33:02.839Z"
 }
