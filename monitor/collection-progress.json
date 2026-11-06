@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 29,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 25,
+  "stats_games": 25,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T10:36:33.811Z"
+  "current_match": "Último concluído: Bangladesh Police - Rahmatgonj MFS",
+  "last_result": "Bangladesh Police - Rahmatgonj MFS: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:36:41.583Z"
 }
