@@ -6,6 +6,7 @@ on:
       - app.js
       - metric-coverage.js
       - data/flashscore-statistics.csv
+      - data/simulator-complete-competitions.json
       - scripts/backtest-flashscore-simulator.cjs
       - tests/backtest-flashscore-simulator.test.cjs
       - .github/workflows/backtesting.yml
@@ -48,7 +49,7 @@ jobs:
           node -c scripts/backtest-flashscore-simulator.cjs
           node --test tests/backtest*.test.cjs
       - name: Executar walk-forward sobre o histórico Flashscore
-        run: node scripts/backtest-flashscore-simulator.cjs data/flashscore-statistics.csv "$SAMPLE_SIZE" backtest-flashscore-report.json
+        run: node scripts/backtest-flashscore-simulator.cjs data/flashscore-statistics.csv "$SAMPLE_SIZE" data/simulator-complete-competitions.json backtest-flashscore-report.json
       - name: Publicar relatório
         uses: actions/upload-artifact@v6
         with:
