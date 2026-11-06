@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 203,
-  "processed_games": 27,
-  "stats_games": 27,
-  "bwin_odds": 27,
+  "processed_games": 51,
+  "stats_games": 51,
+  "bwin_odds": 51,
   "failed_games": 0,
-  "current_match": "A consultar jogo 30/203 · OpWjLtQi",
-  "last_result": "Racing Club - Lanus: 12 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T09:31:35.984Z"
+  "current_match": "A consultar jogo 54/203 · nmXFl9kD",
+  "last_result": "San Lorenzo - Godoy Cruz: 12 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T09:31:41.701Z"
 }
