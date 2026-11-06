@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 142,
-  "processed_games": 51,
+  "processed_games": 76,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/142 · URqHXx4F",
-  "last_result": "Everton La Plata - Las Mandarinas: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T09:35:03.782Z"
+  "current_match": "Último concluído: Everton La Plata - Barrancas",
+  "last_result": "Everton La Plata - Barrancas: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T09:35:08.752Z"
 }
