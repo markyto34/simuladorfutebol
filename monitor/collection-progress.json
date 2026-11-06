@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 107,
-  "processed_games": 101,
+  "processed_games": 107,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 104/107 · QsTbHMlT",
-  "last_result": "Eintracht Rheine - Clarholz: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T08:55:14.799Z"
+  "current_match": "Último concluído: SpVgg Herne Horsthausen - Verl II",
+  "last_result": "SpVgg Herne Horsthausen - Verl II: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T08:55:16.058Z"
 }
