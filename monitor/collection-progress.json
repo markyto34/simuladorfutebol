@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 73,
-  "processed_games": 51,
+  "processed_games": 73,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/73 · xpVRplUI",
-  "last_result": "Ararat 2 - Shirak 2: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T09:37:01.058Z"
+  "current_match": "Último concluído: Shirak 2 - Sardarapat 2",
+  "last_result": "Shirak 2 - Sardarapat 2: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T09:37:05.692Z"
 }
