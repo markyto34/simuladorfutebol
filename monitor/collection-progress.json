@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 108,
-  "processed_games": 0,
+  "processed_games": 25,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T10:29:21.344Z"
+  "current_match": "A consultar jogo 28/108 · Iere7r8b",
+  "last_result": "Donau Klagenfurt - Volkermarkt: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:29:28.280Z"
 }
