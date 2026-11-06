@@ -2,14 +2,14 @@
   "run_id": "42279171908",
   "run_number": "6",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 6,
   "processed_games": 6,
   "stats_games": 6,
   "bwin_odds": 6,
   "failed_games": 0,
-  "current_match": "Último concluído: Limache - Colo Colo",
+  "current_match": "Recolha terminada",
   "last_result": "Limache - Colo Colo: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T19:32:20.085Z"
+  "updated_at": "2026-11-06T19:32:21.764Z"
 }
