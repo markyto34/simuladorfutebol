@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 72,
-  "processed_games": 51,
-  "stats_games": 51,
-  "bwin_odds": 51,
+  "processed_games": 72,
+  "stats_games": 72,
+  "bwin_odds": 72,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/72 · bVjiSM3C",
-  "last_result": "Corinthians - Sao Paulo: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T11:42:34.284Z"
+  "current_match": "Último concluído: Sao Bernardo - Capivariano",
+  "last_result": "Sao Bernardo - Capivariano: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T11:42:38.853Z"
 }
