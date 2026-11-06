@@ -2,14 +2,14 @@
   "run_id": "42297490545",
   "run_number": "10",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 7,
   "processed_games": 7,
   "stats_games": 7,
   "bwin_odds": 6,
   "failed_games": 0,
-  "current_match": "Último concluído: Adelaide United (Aus) - Cong An Ha Noi (Vie)",
+  "current_match": "Recolha terminada",
   "last_result": "Adelaide United (Aus) - Cong An Ha Noi (Vie): 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T21:33:51.044Z"
+  "updated_at": "2026-11-06T21:33:53.000Z"
 }
