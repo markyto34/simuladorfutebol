@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-06T06:31:13.587Z",
+  "generated_at": "2026-11-06T07:43:18.109Z",
   "source": "Flashscore catalog + data/flashscore-statistics.csv",
   "scope": "Correspondência por país e competição com normalização e apenas aliases explicitamente confirmados. Nomes repetidos no mesmo país ficam em revisão e não são considerados cobertura validada.",
   "summary": {
@@ -14,8 +14,8 @@
     "stats_competitions": 323,
     "stats_competitions_matched_to_catalog": 233,
     "stats_competitions_not_in_catalog": 90,
-    "stats_rows": 14577,
-    "stats_unique_match_ids": 14577,
+    "stats_rows": 14584,
+    "stats_unique_match_ids": 14584,
     "stats_competition_labels": 326,
     "matched_stats_competition_labels": 235,
     "unmatched_stats_competition_labels": 91,
@@ -4909,45 +4909,45 @@
         "INGLATERRA / Championship",
         "Inglaterra / Championship"
       ],
-      "unique_stats_matches": 167,
-      "stats_rows": 167,
+      "unique_stats_matches": 168,
+      "stats_rows": 168,
       "sample_status": "amostra_20_plus",
       "metrics": {
         "corners": {
-          "complete_matches": 167,
+          "complete_matches": 168,
           "coverage_pct": 100
         },
         "corners_ht": {
-          "complete_matches": 167,
+          "complete_matches": 168,
           "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 167,
+          "complete_matches": 168,
           "coverage_pct": 100
         },
         "shots": {
-          "complete_matches": 167,
+          "complete_matches": 168,
           "coverage_pct": 100
         },
         "shots_on_target": {
-          "complete_matches": 167,
+          "complete_matches": 168,
           "coverage_pct": 100
         },
         "xg": {
-          "complete_matches": 167,
+          "complete_matches": 168,
           "coverage_pct": 100
         },
         "fouls": {
-          "complete_matches": 167,
+          "complete_matches": 168,
           "coverage_pct": 100
         },
         "yellow_cards": {
-          "complete_matches": 163,
+          "complete_matches": 164,
           "coverage_pct": 97.6
         },
         "red_cards": {
           "complete_matches": 18,
-          "coverage_pct": 10.8
+          "coverage_pct": 10.7
         }
       }
     },
@@ -8491,45 +8491,45 @@
         "HUNGRIA / NB II.",
         "Hungria / NB II."
       ],
-      "unique_stats_matches": 83,
-      "stats_rows": 83,
+      "unique_stats_matches": 86,
+      "stats_rows": 86,
       "sample_status": "amostra_20_plus",
       "metrics": {
         "corners": {
-          "complete_matches": 81,
-          "coverage_pct": 97.6
+          "complete_matches": 84,
+          "coverage_pct": 97.7
         },
         "corners_ht": {
-          "complete_matches": 83,
+          "complete_matches": 86,
           "coverage_pct": 100
         },
         "corners_st": {
-          "complete_matches": 81,
-          "coverage_pct": 97.6
+          "complete_matches": 84,
+          "coverage_pct": 97.7
         },
         "shots": {
-          "complete_matches": 81,
-          "coverage_pct": 97.6
+          "complete_matches": 84,
+          "coverage_pct": 97.7
         },
         "shots_on_target": {
-          "complete_matches": 81,
-          "coverage_pct": 97.6
+          "complete_matches": 84,
+          "coverage_pct": 97.7
         },
         "xg": {
           "complete_matches": 0,
           "coverage_pct": 0
         },
         "fouls": {
-          "complete_matches": 41,
-          "coverage_pct": 49.4
+          "complete_matches": 42,
+          "coverage_pct": 48.8
         },
         "yellow_cards": {
-          "complete_matches": 79,
-          "coverage_pct": 95.2
+          "complete_matches": 82,
+          "coverage_pct": 95.3
         },
         "red_cards": {
-          "complete_matches": 18,
-          "coverage_pct": 21.7
+          "complete_matches": 19,
+          "coverage_pct": 22.1
         }
       }
     },
@@ -10484,6 +10484,71 @@
       }
     },
     {
+      "country_name": "Grécia",
+      "country_slug": "grecia",
+      "competition_name": "Superliga",
+      "competition_slug": "superliga",
+      "url": "https://www.flashscore.pt/futebol/grecia/superliga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/grecia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Superliga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "non_standard_format": false,
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao",
+      "stats_match_key": "grecia|superliga",
+      "stats_source_labels": [
+        "GRÉCIA / Superliga",
+        "Grécia / Superliga"
+      ],
+      "unique_stats_matches": 62,
+      "stats_rows": 62,
+      "sample_status": "amostra_20_plus",
+      "metrics": {
+        "corners": {
+          "complete_matches": 62,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 62,
+          "coverage_pct": 100
+        },
+        "corners_st": {
+          "complete_matches": 62,
+          "coverage_pct": 100
+        },
+        "shots": {
+          "complete_matches": 62,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 62,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 62,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 62,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 59,
+          "coverage_pct": 95.2
+        },
+        "red_cards": {
+          "complete_matches": 14,
+          "coverage_pct": 22.6
+        }
+      }
+    },
+    {
       "country_name": "Inglaterra",
       "country_slug": "inglaterra",
       "competition_name": "Taça da Liga Nacional",
@@ -10740,71 +10805,6 @@
         "red_cards": {
           "complete_matches": 13,
           "coverage_pct": 22
-        }
-      }
-    },
-    {
-      "country_name": "Grécia",
-      "country_slug": "grecia",
-      "competition_name": "Superliga",
-      "competition_slug": "superliga",
-      "url": "https://www.flashscore.pt/futebol/grecia/superliga/",
-      "source_country_url": "https://www.flashscore.pt/futebol/grecia/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Superliga",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "liga_ou_torneio",
-      "non_standard_format": false,
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "pais_ou_regiao",
-      "stats_match_key": "grecia|superliga",
-      "stats_source_labels": [
-        "GRÉCIA / Superliga",
-        "Grécia / Superliga"
-      ],
-      "unique_stats_matches": 59,
-      "stats_rows": 59,
-      "sample_status": "amostra_20_plus",
-      "metrics": {
-        "corners": {
-          "complete_matches": 59,
-          "coverage_pct": 100
-        },
-        "corners_ht": {
-          "complete_matches": 59,
-          "coverage_pct": 100
-        },
-        "corners_st": {
-          "complete_matches": 59,
-          "coverage_pct": 100
-        },
-        "shots": {
-          "complete_matches": 59,
-          "coverage_pct": 100
-        },
-        "shots_on_target": {
-          "complete_matches": 59,
-          "coverage_pct": 100
-        },
-        "xg": {
-          "complete_matches": 59,
-          "coverage_pct": 100
-        },
-        "fouls": {
-          "complete_matches": 59,
-          "coverage_pct": 100
-        },
-        "yellow_cards": {
-          "complete_matches": 56,
-          "coverage_pct": 94.9
-        },
-        "red_cards": {
-          "complete_matches": 14,
-          "coverage_pct": 23.7
         }
       }
     },
