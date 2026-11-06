@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 150,
-  "processed_games": 126,
+  "processed_games": 150,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 129/150 · 0SIBARCj",
-  "last_result": "Juventus-SP - Taubate: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:37:47.366Z"
+  "current_match": "Último concluído: Osasco Sporting - Ferroviaria",
+  "last_result": "Osasco Sporting - Ferroviaria: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:37:52.411Z"
 }
