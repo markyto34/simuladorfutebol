@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 88,
   "processed_games": 88,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: TWL Elektra - Slovan HAC",
+  "current_match": "Recolha terminada",
   "last_result": "TWL Elektra - Slovan HAC: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:34:02.579Z"
+  "updated_at": "2026-11-06T10:34:04.164Z"
 }
