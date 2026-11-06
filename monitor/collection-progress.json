@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 120,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 50,
+  "processed_games": 75,
+  "stats_games": 75,
+  "bwin_odds": 75,
   "failed_games": 0,
-  "current_match": "Último concluído: Bandirmaspor - Umraniyespor",
-  "last_result": "Bandirmaspor - Umraniyespor: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T07:50:00.982Z"
+  "current_match": "Último concluído: Sivasspor - Mardin 1969",
+  "last_result": "Sivasspor - Mardin 1969: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T07:50:06.887Z"
 }
