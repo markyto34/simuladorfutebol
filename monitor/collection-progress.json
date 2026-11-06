@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 12,
-  "processed_games": 0,
+  "processed_games": 12,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T09:50:53.278Z"
+  "current_match": "Último concluído: Bhutan U20 - Nepal U20",
+  "last_result": "Bhutan U20 - Nepal U20: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T09:50:57.655Z"
 }
