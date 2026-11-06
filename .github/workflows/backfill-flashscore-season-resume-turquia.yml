@@ -1,5 +1,10 @@
 name: Backfill Flashscore — continuar desde Turquia
 on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/backfill-flashscore-season-resume-turquia.yml"
+      - "data/flashscore-competition-catalog.json"
   workflow_dispatch:
     inputs:
       competition_path:
@@ -7,9 +12,9 @@ on:
         required: false
         type: string
       resume_from_path:
-        description: "Retomar a partir desta competição e continuar pelas seguintes na ordem do catálogo."
+        description: "Opcional: começar a partir desta competição. Vazio = todas as ainda não concluídas."
         required: false
-        default: "/futebol/turquia/1-lig/"
+        default: ""
         type: string
       competition_offset:
         description: "Competições adicionais a saltar depois do ponto de retoma. Manter 0 para começar exatamente na competição indicada."
@@ -69,44 +74,47 @@ jobs:
           node --input-type=module <<'NODE'
           import fs from "node:fs";
           const requested = process.env.COMPETITION_PATH || "";
-          const resumeFrom = process.env.RESUME_FROM_PATH || "/futebol/turquia/1-lig/";
-          let paths;
+          const resumeFrom = process.env.RESUME_FROM_PATH || "";
+          const checkpointFile = "data/flashscore-season-backfill-checkpoint.json";
+          const checkpoint = JSON.parse(fs.readFileSync(checkpointFile, "utf8"));
+          const completedPaths = new Set(checkpoint.completed_paths || []);
+          let allPaths;
           if (requested) {
-            paths = [requested];
+            allPaths = [requested];
           } else {
-            const report = JSON.parse(fs.readFileSync("data/flashscore-competition-coverage.json", "utf8"));
-            const selected = (report.competitions || []).filter(item =>
-              Number(item.unique_stats_matches || 0) >= 5 &&
-              item.age_category === "senior" &&
-              ["masculino_misto", "feminino"].includes(item.gender) &&
-              ["liga_ou_torneio", "taca"].includes(item.competition_type) &&
-              !/friendly|friendlies|amig[aá]v|amistos/i.test((item.competition_name || "") + " " + (item.url || ""))
-            );
-            paths = [...new Set(selected.map(item => {
+            const catalog = JSON.parse(fs.readFileSync("data/flashscore-competition-catalog.json", "utf8"));
+            allPaths = [...new Set((catalog.competitions || []).map(item => {
               try { return new URL(item.url).pathname; } catch { return ""; }
-            }).filter(Boolean))].sort();
-            if (resumeFrom) {
-              const start = paths.indexOf(resumeFrom);
-              if (start < 0) throw new Error("A competição de retoma não existe no catálogo elegível: " + resumeFrom);
-              paths = paths.slice(start);
-            }
+            }).filter(path =>
+              /^\/futebol\/[a-z0-9-]+\/[a-z0-9-]+\/$/.test(path) &&
+              !/friendly|friendlies|amig[aá]v|amistos/i.test(path)
+            ))].sort();
           }
-          if (!paths.length) throw new Error("O filtro não encontrou competições elegíveis.");
-          const offset = resumeFrom ? 0 : Number(process.env.COMPETITION_OFFSET || 0);
+          if (!allPaths.length) throw new Error("O catálogo completo não devolveu caminhos de competições válidos.");
+          if (resumeFrom) {
+            const start = allPaths.indexOf(resumeFrom);
+            if (start < 0) throw new Error("A competição indicada para retoma não existe no catálogo completo: " + resumeFrom);
+            allPaths = allPaths.slice(start);
+          }
+          const alreadyCompleted = allPaths.filter(path => completedPaths.has(path)).length;
+          let paths = requested ? allPaths : allPaths.filter(path => !completedPaths.has(path));
+          const offset = Number(process.env.COMPETITION_OFFSET || 0);
           const limit = Number(process.env.COMPETITION_LIMIT || 0);
           if (!Number.isInteger(offset) || offset < 0 || !Number.isInteger(limit) || limit < 0) {
             throw new Error("competition_offset e competition_limit têm de ser inteiros não negativos.");
           }
-          const total = paths.length;
+          const remaining = paths.length;
           paths = paths.slice(offset, limit > 0 ? offset + limit : undefined);
-          if (!paths.length) throw new Error("O grupo pedido não contém competições; total=" + total + ", offset=" + offset + ".");
+          if (!paths.length) throw new Error("Não há competições pendentes no grupo pedido; catálogo=" + allPaths.length + ", concluídas=" + alreadyCompleted + ".");
           fs.writeFileSync("/tmp/flashscore-season-paths.txt", paths.join("\n") + "\n");
-          console.log("Competições elegíveis no catálogo: " + total);
-          console.log("Retoma a partir de: " + (requested || resumeFrom || "início do catálogo"));
+          console.log("Competições descobertas no catálogo completo: " + allPaths.length);
+          console.log("Competições já concluídas e preservadas: " + alreadyCompleted);
+          console.log("Competições ainda pendentes antes do offset: " + remaining);
+          console.log("Retoma a partir de: " + (requested || resumeFrom || "primeira competição ainda não concluída"));
           console.log("Grupo selecionado: offset=" + offset + ", limite=" + (limit || "todas") + ", selecionadas=" + paths.length);
           console.log("Primeira competição selecionada: " + paths[0]);
           console.log("Última competição selecionada: " + paths[paths.length - 1]);
-          console.log("Critério: sénior, liga/torneio ou taça, pelo menos 5 jogos estatísticos históricos, sem amigáveis.");
+          console.log("Âmbito: todas as competições presentes no catálogo Flashscore, sem filtro por número de jogos ou indicadores históricos; amigáveis excluídos.");
           NODE
       - name: Descobrir épocas e recolher estatísticas + odds Bwin
         env:
@@ -167,7 +175,7 @@ jobs:
           checkpoint() {
             node scripts/validate-flashscore-history.mjs || return 1
             node scripts/integrate-flashscore-odds-history.mjs || return 1
-            git add data/flashscore-statistics.csv data/bwin-odds-flashscore.csv
+            git add data/flashscore-statistics.csv data/bwin-odds-flashscore.csv data/flashscore-season-backfill-checkpoint.json
             if ! git diff --cached --quiet; then
               git commit -m "Checkpoint Flashscore: competição $index" || return 1
               push_with_retry || return 1
@@ -199,6 +207,15 @@ jobs:
             if node scripts/collect-flashscore-csv.mjs --team-last-five="$manifest" >>"$log" 2>&1; then
               cat "$log"
               completed=$((completed + 1))
+              node --input-type=module - "$competition_path" <<'NODE'
+          import fs from "node:fs";
+          const file = "data/flashscore-season-backfill-checkpoint.json";
+          const state = JSON.parse(fs.readFileSync(file, "utf8"));
+          const path = process.argv[2];
+          state.completed_paths = [...new Set([...(state.completed_paths || []), path])].sort();
+          state.updated_at = new Date().toISOString();
+          fs.writeFileSync(file, JSON.stringify(state, null, 2) + "\n");
+          NODE
             else
               code=$?
               cat "$log"
@@ -226,7 +243,7 @@ jobs:
           echo "Interrompido por bloqueio: $blocked"
           node scripts/validate-flashscore-history.mjs || exit 1
           node scripts/integrate-flashscore-odds-history.mjs || exit 1
-          git add data/flashscore-statistics.csv data/bwin-odds-flashscore.csv
+          git add data/flashscore-statistics.csv data/bwin-odds-flashscore.csv data/flashscore-season-backfill-checkpoint.json
           if ! git diff --cached --quiet; then
             git commit -m "Backfill Flashscore das épocas atuais" || exit 1
             push_with_retry || exit 1
