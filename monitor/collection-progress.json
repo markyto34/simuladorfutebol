@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 90,
-  "processed_games": 27,
-  "stats_games": 20,
+  "processed_games": 52,
+  "stats_games": 36,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Mineiros - Gremio Anapolis",
-  "last_result": "Mineiros - Gremio Anapolis: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:22:49.510Z"
+  "current_match": "Último concluído: Mineiros - Sao Luis",
+  "last_result": "Mineiros - Sao Luis: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:22:54.485Z"
 }
