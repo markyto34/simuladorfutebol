@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 115,
-  "processed_games": 101,
-  "stats_games": 100,
+  "processed_games": 115,
+  "stats_games": 114,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 104/115 · dWMPfAx9",
-  "last_result": "Queanbeyan City - Tigers FC: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:11:03.345Z"
+  "current_match": "Último concluído: Canberra White Eagles - Belconnen Utd.",
+  "last_result": "Canberra White Eagles - Belconnen Utd.: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:11:06.549Z"
 }
