@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 70,
-  "processed_games": 51,
-  "stats_games": 51,
-  "bwin_odds": 50,
+  "processed_games": 70,
+  "stats_games": 70,
+  "bwin_odds": 69,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/70 · 6oPaZUoA",
-  "last_result": "Ouvidorense - Goiatuba: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:24:46.587Z"
+  "current_match": "Último concluído: Ouvidorense - Vila Nova",
+  "last_result": "Ouvidorense - Vila Nova: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T11:24:50.741Z"
 }
