@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 90,
-  "processed_games": 76,
-  "stats_games": 55,
+  "processed_games": 90,
+  "stats_games": 68,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Rio Verde - Gremio Anapolis",
-  "last_result": "Rio Verde - Gremio Anapolis: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:22:59.409Z"
+  "current_match": "Último concluído: Tupy FC - Trindade",
+  "last_result": "Tupy FC - Trindade: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:23:02.460Z"
 }
