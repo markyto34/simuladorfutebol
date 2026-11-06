@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 128,
-  "processed_games": 0,
+  "processed_games": 26,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T12:11:59.186Z"
+  "current_match": "A consultar jogo 29/128 · h6I1Oc4F",
+  "last_result": "Slivnishki Geroy - Minyor Pernik: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T12:12:06.383Z"
 }
