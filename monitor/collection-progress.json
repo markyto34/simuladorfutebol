@@ -2,14 +2,14 @@
   "run_id": "42297490545",
   "run_number": "10",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 10,
   "processed_games": 10,
   "stats_games": 10,
   "bwin_odds": 10,
   "failed_games": 0,
-  "current_match": "Último concluído: Kyoto (Jpn) - Newcastle Jets (Aus)",
+  "current_match": "Recolha terminada",
   "last_result": "Kyoto (Jpn) - Newcastle Jets (Aus): 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T21:32:41.228Z"
+  "updated_at": "2026-11-06T21:32:42.817Z"
 }
