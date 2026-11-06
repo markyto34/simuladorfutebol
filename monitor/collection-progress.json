@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 502,
-  "processed_games": 326,
-  "stats_games": 317,
+  "processed_games": 352,
+  "stats_games": 343,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 329/502 · bR1tdWPp",
-  "last_result": "Tucuman Central - Defensores de Vilelas: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T09:33:56.596Z"
+  "current_match": "Último concluído: Argentino MM - Huracan Las Heras",
+  "last_result": "Argentino MM - Huracan Las Heras: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T09:34:02.144Z"
 }
