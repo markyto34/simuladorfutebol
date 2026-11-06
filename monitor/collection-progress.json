@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 15,
   "processed_games": 15,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Gremio Santo Antonio U20 - Taveiropolis U20",
+  "current_match": "Recolha terminada",
   "last_result": "Gremio Santo Antonio U20 - Taveiropolis U20: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:55:42.055Z"
+  "updated_at": "2026-11-06T11:55:43.726Z"
 }
