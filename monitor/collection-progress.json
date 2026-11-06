@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 152,
-  "processed_games": 102,
+  "processed_games": 126,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Burghausen - Vilzing",
-  "last_result": "Burghausen - Vilzing: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T08:50:27.290Z"
+  "current_match": "Último concluído: Bayern II - Schweinfurt",
+  "last_result": "Bayern II - Schweinfurt: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T08:50:32.155Z"
 }
