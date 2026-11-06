@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 15,
   "processed_games": 15,
   "stats_games": 15,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Bahrain - Emirados Árabes Unidos",
+  "current_match": "Recolha terminada",
   "last_result": "Bahrain - Emirados Árabes Unidos: 14 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T09:57:59.876Z"
+  "updated_at": "2026-11-06T09:58:01.693Z"
 }
