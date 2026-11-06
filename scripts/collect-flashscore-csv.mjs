@@ -323,6 +323,9 @@ async function main() {
   progressSnapshot = {
     run_id: process.env.GITHUB_RUN_ID || "local",
     run_number: process.env.GITHUB_RUN_NUMBER || "",
+    competition_path: process.env.FLASHSCORE_COMPETITION_PATH || "",
+    competition_index: Number(process.env.FLASHSCORE_COMPETITION_INDEX || 0),
+    competition_total: Number(process.env.FLASHSCORE_COMPETITION_TOTAL || 0),
     target_date: "",
     status: "running",
     phase: "discovery",
@@ -430,6 +433,8 @@ async function main() {
   let competitionIdentified = 0, competitionMissing = 0;
   let nextIndex = 0, nextStartAt = 0;
   const collectionStartedAt = Date.now();
+  // Blocos do backfill têm no máximo 10 jogos: publicar também a meio do bloco.
+  const progressInterval = teamLastFiveOption ? 5 : 25;
   await setProgress({ total_games: matchIds.length, phase: "collecting", current_match: "A iniciar recolha" });
   console.log("[COLLECT] A iniciar " + matchIds.length + " jogos; concorrência máxima: " + CONCURRENCY + "; intervalo global entre inícios: " + DELAY_MS + " ms; timeout por jogo: " + (REQUEST_TIMEOUT_MS / 1000) + " s.");
 
@@ -487,7 +492,7 @@ async function main() {
         processed++;
         progressSnapshot.processed_games = processed;
       }
-      if (processed % 25 === 0 || processed === matchIds.length || stoppedByUpstream) {
+      if (processed % progressInterval === 0 || processed === matchIds.length || stoppedByUpstream) {
         await setProgress({
           phase: stoppedByUpstream ? "stopped" : "collecting",
           status: stoppedByUpstream ? "blocked" : "running",
