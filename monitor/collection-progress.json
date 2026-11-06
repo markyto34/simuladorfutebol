@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 60,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 24,
+  "processed_games": 50,
+  "stats_games": 50,
+  "bwin_odds": 46,
   "failed_games": 0,
-  "current_match": "Último concluído: Nicarágua - Costa Rica",
-  "last_result": "Nicarágua - Costa Rica: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T23:19:55.942Z"
+  "current_match": "Último concluído: Honduras - Suriname",
+  "last_result": "Honduras - Suriname: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T23:20:20.944Z"
 }
