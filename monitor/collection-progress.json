@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 115,
   "processed_games": 115,
   "stats_games": 114,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Canberra White Eagles - Belconnen Utd.",
+  "current_match": "Recolha terminada",
   "last_result": "Canberra White Eagles - Belconnen Utd.: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:11:06.549Z"
+  "updated_at": "2026-11-06T10:11:08.131Z"
 }
