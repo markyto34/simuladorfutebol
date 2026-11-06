@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 245,
-  "processed_games": 226,
+  "processed_games": 245,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 229/245 · hnhWSAve",
-  "last_result": "Sutherland U20 - St George Saints U20: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:15:27.588Z"
+  "current_match": "Último concluído: Manly Utd U20 - St. George City U20",
+  "last_result": "Manly Utd U20 - St. George City U20: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:15:31.592Z"
 }
