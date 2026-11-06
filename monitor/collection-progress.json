@@ -2,14 +2,14 @@
   "run_id": "42309459310",
   "run_number": "10",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 177,
   "processed_games": 177,
   "stats_games": 112,
   "bwin_odds": 177,
   "failed_games": 0,
-  "current_match": "Último concluído: Paraguai - Peru",
+  "current_match": "Recolha terminada",
   "last_result": "Paraguai - Peru: 0 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T23:19:11.546Z"
+  "updated_at": "2026-11-06T23:19:13.027Z"
 }
