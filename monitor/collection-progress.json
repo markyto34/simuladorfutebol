@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 33,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 26,
+  "stats_games": 25,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T10:57:48.478Z"
+  "current_match": "A consultar jogo 29/33 · xO468rWA",
+  "last_result": "Sao Jose - Trem: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:57:55.797Z"
 }
