@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 198,
-  "processed_games": 176,
+  "processed_games": 198,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 179/198 · vJ0cZ9d3",
-  "last_result": "Barcelona U20 - Porto-BA U20: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:01:19.479Z"
+  "current_match": "Último concluído: Estrela De Marco U20 - Vitoria U20",
+  "last_result": "Estrela De Marco U20 - Vitoria U20: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:01:23.999Z"
 }
