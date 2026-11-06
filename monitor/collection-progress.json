@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 211,
-  "processed_games": 100,
-  "stats_games": 97,
-  "bwin_odds": 99,
+  "processed_games": 125,
+  "stats_games": 122,
+  "bwin_odds": 124,
   "failed_games": 0,
-  "current_match": "Último concluído: La Luz - Tacuarembo",
-  "last_result": "La Luz - Tacuarembo: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T07:52:44.506Z"
+  "current_match": "A consultar jogo 128/211 · KfXXg4Gq",
+  "last_result": "Colon - River Plate: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T07:52:49.541Z"
 }
