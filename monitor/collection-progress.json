@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 240,
-  "processed_games": 75,
-  "stats_games": 74,
-  "bwin_odds": 59,
+  "processed_games": 101,
+  "stats_games": 100,
+  "bwin_odds": 85,
   "failed_games": 0,
-  "current_match": "Último concluído: Kairat Almaty - Ulytau",
-  "last_result": "Kairat Almaty - Ulytau: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T12:21:59.299Z"
+  "current_match": "A consultar jogo 104/240 · dMslou16",
+  "last_result": "Kaisar - Kaspij Aktau: 12 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T12:22:04.608Z"
 }
