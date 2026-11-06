@@ -149,11 +149,23 @@ jobs:
             log="/tmp/flashscore-season-$index.log"
             manifest="/tmp/flashscore-season-$index.json"
             echo "::group::Competição $index · $competition_path"
-            if node scripts/discover-flashscore-season.mjs --path="$competition_path" --out="$manifest" >"$log" 2>&1; then
-              cat "$log"
+            set +e
+            node scripts/discover-flashscore-season.mjs --path="$competition_path" --out="$manifest" 2>&1 | tee "$log" | awk '/^\\[SEASON/ { print; fflush() }'
+            code=${PIPESTATUS[0]}
+            set -e
+            if (( code == 0 )); then
+              read -r discovered pending already_complete expected < <(node -e 'const m=JSON.parse(require("fs").readFileSync(process.argv[1],"utf8")); const f=m.fixtures||[]; console.log([f.length,f.filter(x=>x.stats_status!=="already_complete").length,f.filter(x=>x.stats_status==="already_complete").length,m.expected_events||0].join(" "))' "$manifest")
+              echo "[COMPETITION] jogos_concluidos=$discovered pendentes=$pending ja_completos=$already_complete eventos_flashscore=$expected"
+              if [[ -n "${GITHUB_STEP_SUMMARY:-}" ]]; then
+                printf '\n### Competição %s\n\n- Jogos concluídos descobertos: **%s**\n- Pendentes para recolha: **%s**\n- Já completos e ignorados: **%s**\n- Eventos indicados pelo Flashscore: **%s**\n' "$competition_path" "$discovered" "$pending" "$already_complete" "$expected" >> "$GITHUB_STEP_SUMMARY"
+              fi
             else
-              code=$?
-              cat "$log"
+              echo "::error::Falha ao descobrir a época de $competition_path (código $code)."
+              tail -n 20 "$log"
+              if [[ -n "${GITHUB_STEP_SUMMARY:-}" ]]; then
+                printf '\n### Competição %s — falha na descoberta\n\n' "$competition_path" >> "$GITHUB_STEP_SUMMARY"
+                grep -Ei 'error|falha|HTTP [0-9]{3}|bloqueou|timeout' "$log" | tail -n 8 >> "$GITHUB_STEP_SUMMARY" || true
+              fi
               if grep -Eiq 'HTTP (401|403|429)|bloqueou/limitou|Flashscore bloqueou' "$log"; then
                 blocked=1
                 echo "Flashscore limitou o acesso; parar o lote para proteger a recolha."
@@ -181,11 +193,18 @@ jobs:
               chunk_index=$((chunk_index + 1))
               chunk_log="$chunk_dir/chunk-$chunk_index.log"
               echo "[CHECKPOINT BLOCO] $competition_path · bloco $chunk_index/${#chunks[@]} · até 10 jogos"
-              if node scripts/collect-flashscore-csv.mjs --team-last-five="$chunk" >"$chunk_log" 2>&1; then
-                cat "$chunk_log"
-              else
-                code=$?
-                cat "$chunk_log"
+              set +e
+              node scripts/collect-flashscore-csv.mjs --team-last-five="$chunk" 2>&1 | tee "$chunk_log" | awk '/^\\[COLLECT\\]/ || /^\\[PROGRESS\\].*\\| (OK|ERROR) \\|/ || /^\\[RETRY\\]/ || /^\\[SUMMARY\\]/ || /^\\[MONITOR\\]/ { print; fflush() }'
+              code=${PIPESTATUS[0]}
+              set -e
+              ok_count=$(grep -cE '^\\[PROGRESS\\].*\\| OK \\|' "$chunk_log" || true)
+              error_count=$(grep -cE '^\\[PROGRESS\\].*\\| ERROR \\|' "$chunk_log" || true)
+              echo "[CHUNK SUMMARY] $competition_path · bloco $chunk_index/\${#chunks[@]} · sucesso=$ok_count · falhas=$error_count · exit=$code"
+              if [[ -n "${GITHUB_STEP_SUMMARY:-}" ]]; then
+                printf '\n- Bloco %s/%s: **%s sucessos**, **%s falhas** (exit %s)\n' "$chunk_index" "${#chunks[@]}" "$ok_count" "$error_count" "$code" >> "$GITHUB_STEP_SUMMARY"
+              fi
+              if (( code != 0 )); then
+                tail -n 12 "$chunk_log"
                 competition_failed=1
                 failures=$((failures + 1))
                 if grep -Eiq 'HTTP (401|403|429)|bloqueou/limitou|Flashscore bloqueou' "$chunk_log"; then
@@ -193,6 +212,9 @@ jobs:
                   echo "Flashscore limitou a recolha; guardar o bloco válido e parar."
                 else
                   echo "Bloco com falhas: jogos bem recolhidos serão guardados; os restantes serão tentados na próxima execução."
+                  if [[ -n "${GITHUB_STEP_SUMMARY:-}" ]]; then
+                    grep -Ei 'ERROR|RETRY|HTTP [0-9]{3}|timeout|falha' "$chunk_log" | tail -n 10 >> "$GITHUB_STEP_SUMMARY" || true
+                  fi
                 fi
               fi
               if ! checkpoint; then
@@ -231,7 +253,20 @@ jobs:
             git commit -m "Backfill Flashscore das épocas atuais" || exit 1
             push_with_retry || exit 1
           fi
+          if [[ -n "${GITHUB_STEP_SUMMARY:-}" ]]; then
+            printf '\n## Resultado final do backfill\n\n- Competições concluídas: **%s**\n- Competições com erros: **%s**\n- Interrompido por bloqueio: **%s**\n' "$completed" "$failures" "$blocked" >> "$GITHUB_STEP_SUMMARY"
+          fi
           if (( blocked == 1 || failures > 0 )); then
             echo "::error::O lote preservou os dados válidos, mas terminou com $failures falhas e bloqueio=$blocked."
             exit 1
           fi
+      - name: Guardar logs completos do backfill
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: flashscore-backfill-logs-${{ github.run_id }}
+          path: |
+            /tmp/flashscore-season-*.log
+            /tmp/flashscore-season-chunks-*/*.log
+          if-no-files-found: warn
+          retention-days: 14
