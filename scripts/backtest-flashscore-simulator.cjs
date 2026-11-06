@@ -82,18 +82,40 @@ function backtest(matches,{sampleSize=5}={}){
  const markets={};for(const [k,rows] of Object.entries(marketRows)){markets[k]={};for(const line of SPECS[k].lines){const key="p"+line;markets[k]["over"+line]=evaluate(rows.map(r=>({p:{p:r.probs[key]},a:{total:r.actual}})),"p","total",Math.floor(line)+1);}}
  return {matches:matches.length,sampleSize,evaluatedGoals,skippedGoals,xgBlendUsed,goalMetrics:{oneXTwo:goal1x2,binary:goalBinary},periodMetrics:periods,metricErrors:Object.fromEntries(Object.entries(errors).map(([k,v])=>[k,summary(v)])),metricCoverage:coverage,extraMarkets:markets};
 }
-function run(text,options={}){
- const matches=normalize(parseCSV(text)),groups=new Map();for(const m of matches){const key=m.country+" | "+m.competition;if(!groups.has(key))groups.set(key,[]);groups.get(key).push(m);}
- const reports=[];const byCompetition={};for(const [key,fixtures] of groups){const r=backtest(fixtures,options);reports.push(r);byCompetition[key]=r;}
+function normalizeCompetitionLabel(label){
+ const parts=String(label||"").split(/\\s+\\/\\s+/);
+ const norm=value=>String(value||"").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim().replace(/\\s+/g," ");
+ if(parts.length<2)return norm(label);
+ const country=parts.shift(),competition=parts.join(" / ");
+ return norm(country)+" / "+norm(competition);
+}
+function run(text,indexOrOptions={},maybeOptions={}){
+ const index=typeof indexOrOptions==="string"?JSON.parse(indexOrOptions):null;
+ const options=typeof indexOrOptions==="string"?maybeOptions:indexOrOptions;
+ const allMatches=normalize(parseCSV(text)),labelMap=new Map(),groups=new Map();
+ let eligibleCompetitions=0;
+ if(index){
+  const items=Array.isArray(index.complete_competitions)?index.complete_competitions:[];
+  for(const item of items.filter(x=>x.complete_core===true&&Number(x.unique_stats_matches)>=5)){
+   eligibleCompetitions++;
+   const key=String(item.country_name||"")+" | "+String(item.competition_name||"");
+   const labels=Array.isArray(item.stats_source_labels)&&item.stats_source_labels.length?item.stats_source_labels:[String(item.country_name||"")+" / "+String(item.competition_name||"")];
+   for(const label of labels)labelMap.set(normalizeCompetitionLabel(label),key);
+  }
+ }
+ const matches=index?allMatches.filter(m=>labelMap.has(normalizeCompetitionLabel(m.country+" / "+m.competition))):allMatches;
+ for(const m of matches){const key=index?labelMap.get(normalizeCompetitionLabel(m.country+" / "+m.competition)):m.country+" | "+m.competition;if(!groups.has(key))groups.set(key,[]);groups.get(key).push(m);}
+ if(index&&!groups.size)throw Error("O CSV não contém jogos das competições completas selecionáveis no simulador.");
+ const reports=[],byCompetition={};for(const [key,fixtures] of groups){const r=backtest(fixtures,options);reports.push(r);byCompetition[key]=r;}
  const errorKeys=new Set(reports.flatMap(r=>Object.keys(r.metricErrors))),metricErrors={};for(const k of errorKeys)metricErrors[k]=combineSummary(reports.map(r=>r.metricErrors[k]));
  const metricCoverage={};for(const r of reports)for(const [k,n] of Object.entries(r.metricCoverage))metricCoverage[k]=(metricCoverage[k]||0)+n;
  const binaryKeys=new Set(reports.flatMap(r=>Object.keys(r.goalMetrics.binary))),goalBinary={};for(const k of binaryKeys)goalBinary[k]=combineEval(reports.map(r=>r.goalMetrics.binary[k]));
  const periodMetrics={};for(const p of ["ht","st"]){const keys=new Set(reports.flatMap(r=>Object.keys(r.periodMetrics[p]||{})));periodMetrics[p]={};for(const k of keys)periodMetrics[p][k]=combineEval(reports.map(r=>r.periodMetrics[p]?.[k]));}
  const extraMarkets={};for(const metric of Object.keys(SPECS)){extraMarkets[metric]={};for(const line of SPECS[metric].lines)extraMarkets[metric]["over"+line]=combineEval(reports.map(r=>r.extraMarkets[metric]?.["over"+line]));}
- return {matches:matches.length,competitions:groups.size,sampleSize:options.sampleSize||5,evaluatedGoals:reports.reduce((s,r)=>s+r.evaluatedGoals,0),skippedGoals:reports.reduce((s,r)=>s+r.skippedGoals,0),xgBlendUsed:reports.reduce((s,r)=>s+r.xgBlendUsed,0),
+ return {matches:matches.length,competitions:groups.size,eligibleCompetitions:eligibleCompetitions||groups.size,sampleSize:options.sampleSize||5,evaluatedGoals:reports.reduce((s,r)=>s+r.evaluatedGoals,0),skippedGoals:reports.reduce((s,r)=>s+r.skippedGoals,0),xgBlendUsed:reports.reduce((s,r)=>s+r.xgBlendUsed,0),
   goalMetrics:{oneXTwo:combineEval(reports.map(r=>r.goalMetrics.oneXTwo)),binary:goalBinary},periodMetrics,metricErrors,metricCoverage,extraMarkets,byCompetition,
-  modelScope:"Walk-forward isolado por país/competição; últimos 5 jogos por defeito; mínimo de 3 jogos por indicador e 5 para xG; ponderação 65% golos + 35% xG; Poisson para golos e binomial negativa com as mesmas dispersões do simulador para cantos, remates, faltas e cartões."};
+  modelScope:"Walk-forward isolado nas competições completas que o simulador disponibiliza; últimos 5 jogos por defeito; mínimo de 3 jogos por indicador e 5 para xG; ponderação 65% golos + 35% xG; Poisson para golos e binomial negativa com as mesmas dispersões do simulador para cantos, remates, faltas e cartões."};
 }
 function addError(target,key,value){if(!target[key])target[key]=[];target[key].push(value);}
-if(require.main===module){const input=process.argv[2]||"data/flashscore-statistics.csv",sampleSize=Number(process.argv[3])||5,output=process.argv[4]||"backtest-flashscore-report.json";const report=run(fs.readFileSync(path.resolve(input),"utf8"),{sampleSize});fs.writeFileSync(output,JSON.stringify({generatedAt:new Date().toISOString(),source:input,...report},null,2));console.log(JSON.stringify({source:input,matches:report.matches,competitions:report.competitions,sampleSize:report.sampleSize,evaluatedGoals:report.evaluatedGoals,skippedGoals:report.skippedGoals,xgBlendUsed:report.xgBlendUsed,goalMetrics:report.goalMetrics,periodMetrics:report.periodMetrics,metricErrors:report.metricErrors,metricCoverage:report.metricCoverage,extraMarkets:report.extraMarkets,report:output},null,2));}
+if(require.main===module){const input=process.argv[2]||"data/flashscore-statistics.csv",sampleSize=Number(process.argv[3])||5,indexPath=process.argv[4]||"data/simulator-complete-competitions.json",output=process.argv[5]||"backtest-flashscore-report.json";const report=run(fs.readFileSync(path.resolve(input),"utf8"),fs.readFileSync(path.resolve(indexPath),"utf8"),{sampleSize});fs.writeFileSync(output,JSON.stringify({generatedAt:new Date().toISOString(),source:input,competitionIndex:indexPath,...report},null,2));console.log(JSON.stringify({source:input,competitionIndex:indexPath,matches:report.matches,competitions:report.competitions,eligibleCompetitions:report.eligibleCompetitions,sampleSize:report.sampleSize,evaluatedGoals:report.evaluatedGoals,skippedGoals:report.skippedGoals,xgBlendUsed:report.xgBlendUsed,goalMetrics:report.goalMetrics,periodMetrics:report.periodMetrics,metricErrors:report.metricErrors,metricCoverage:report.metricCoverage,extraMarkets:report.extraMarkets,report:output},null,2));}
 module.exports={parseCSV,normalize,backtest,run,summary,poisson,negBin,goalProb,goalsModel,statModel};
