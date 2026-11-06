@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 49,
-  "processed_games": 26,
-  "stats_games": 26,
-  "bwin_odds": 22,
+  "processed_games": 49,
+  "stats_games": 49,
+  "bwin_odds": 41,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/49 · tIanzua5",
-  "last_result": "Florgrade - Sanjoanense: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T13:49:33.503Z"
+  "current_match": "Último concluído: Machico - Estrela Calheta",
+  "last_result": "Machico - Estrela Calheta: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T13:49:38.337Z"
 }
