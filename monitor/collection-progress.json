@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 156,
-  "processed_games": 126,
-  "stats_games": 126,
-  "bwin_odds": 122,
+  "processed_games": 150,
+  "stats_games": 150,
+  "bwin_odds": 145,
   "failed_games": 0,
-  "current_match": "A consultar jogo 129/156 · K8nlOVuJ",
-  "last_result": "Macara (Ecu) - America De Cali (Col): 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T09:15:22.506Z"
+  "current_match": "Último concluído: Blooming (Bol) - SA Bulo Bulo (Bol)",
+  "last_result": "Blooming (Bol) - SA Bulo Bulo (Bol): 16 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T09:15:29.491Z"
 }
