@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 28,
-  "processed_games": 26,
-  "stats_games": 26,
+  "processed_games": 28,
+  "stats_games": 27,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Ferroviaria F - Santos F",
-  "last_result": "Ferroviaria F - Santos F: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:40:33.870Z"
+  "current_match": "Recolha terminada",
+  "last_result": "Taubate F - RB Bragantino F: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:40:35.941Z"
 }
