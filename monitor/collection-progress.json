@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 16,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 16,
+  "stats_games": 16,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T09:03:13.343Z"
+  "current_match": "Último concluído: Jamaica F - Colômbia F",
+  "last_result": "Jamaica F - Colômbia F: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T09:03:18.703Z"
 }
