@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 30,
-  "processed_games": 26,
+  "processed_games": 30,
   "stats_games": 5,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/30 · zqk24i0K",
-  "last_result": "Ferroviario do Cabo - Facilnet: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:43:38.036Z"
+  "current_match": "Recolha terminada",
+  "last_result": "Vera Cruz - Sete de Setembro: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:43:39.792Z"
 }
