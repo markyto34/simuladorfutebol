@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 56,
-  "processed_games": 51,
-  "stats_games": 51,
+  "processed_games": 56,
+  "stats_games": 56,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/56 · zBNdW4Th",
-  "last_result": "Qarabag - Shamakhi: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:34:30.445Z"
+  "current_match": "Último concluído: Turan - Gabala",
+  "last_result": "Turan - Gabala: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:34:31.670Z"
 }
