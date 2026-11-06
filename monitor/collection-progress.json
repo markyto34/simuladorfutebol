@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 10,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
+  "processed_games": 10,
+  "stats_games": 9,
+  "bwin_odds": 2,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T19:27:22.393Z"
+  "current_match": "Último concluído: Ansat - Tobol",
+  "last_result": "Ansat - Tobol: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T19:27:26.146Z"
 }
