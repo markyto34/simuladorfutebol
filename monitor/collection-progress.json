@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 56,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 26,
+  "stats_games": 26,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T10:34:17.869Z"
+  "current_match": "A consultar jogo 29/56 · YXJMslDf",
+  "last_result": "Turan - Zira: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:34:25.342Z"
 }
