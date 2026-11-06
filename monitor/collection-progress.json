@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 68,
-  "processed_games": 51,
+  "processed_games": 68,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/68 · Ain91AFl",
-  "last_result": "Herk Sport Hasselt F - Mons F: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:41:03.439Z"
+  "current_match": "Último concluído: Olsa Brakel F - Westerlo F",
+  "last_result": "Olsa Brakel F - Westerlo F: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:41:06.926Z"
 }
