@@ -2,26 +2,69 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { buildCompleteCompetitions, CORE_METRICS } from "../scripts/update-simulator-complete-competitions.mjs";
 
+const columns = {
+  goals: ["score_home", "score_away"],
+  goals_conceded: ["score_home", "score_away"],
+  goals_ht: ["ht_home", "ht_away"],
+  goals_st: ["sh_home", "sh_away"],
+  corners: ["corners_home", "corners_away"],
+  corners_ht: ["corners_ht_home", "corners_ht_away"],
+  corners_st: ["corners_st_home", "corners_st_away"],
+  shots: ["shots_home", "shots_away"],
+  shots_on_target: ["shots_on_target_home", "shots_on_target_away"],
+  shots_off_target: ["shots_off_target_home", "shots_off_target_away"],
+  blocked_shots: ["blocked_shots_home", "blocked_shots_away"],
+  shots_inside_box: ["shots_inside_box_home", "shots_inside_box_away"],
+  shots_outside_box: ["shots_outside_box_home", "shots_outside_box_away"],
+  fouls: ["fouls_home", "fouls_away"],
+  yellow_cards: ["yellow_cards_home", "yellow_cards_away"],
+  red_cards: ["red_cards_home", "red_cards_away"]
+};
+
 const makeRow = (id, overrides = {}) => {
   const row = { match_id: id, country: "PORTUGAL", competition: "Liga Portugal" };
-  for (const metric of CORE_METRICS) {
-    row[metric + "_home"] = "5";
-    row[metric + "_away"] = "3";
+  for (const [home, away] of Object.values(columns)) {
+    row[home] = "5";
+    row[away] = "3";
   }
   return { ...row, ...overrides };
 };
 
-test("só publica competições com pelo menos cinco jogos e sete indicadores completos", () => {
+test("usa os 16 indicadores definidos para o simulador", () => {
+  assert.equal(CORE_METRICS.length, 16);
+  assert.deepEqual(new Set(CORE_METRICS), new Set(Object.keys(columns)));
+});
+
+test("publica competição com pelo menos cinco jogos únicos e cobertura dos indicadores", () => {
   const records = Array.from({ length: 5 }, (_, i) => makeRow("m" + i));
   const result = buildCompleteCompetitions(records);
   assert.equal(result.index.complete_competitions.length, 1);
   assert.equal(result.index.complete_competitions[0].unique_stats_matches, 5);
+  assert.equal(result.index.complete_competitions[0].core_metrics.length, 16);
   assert.equal(result.newly_eligible.length, 1);
 });
 
-test("não considera completo quando falta um dos sete indicadores em qualquer jogo", () => {
+test("não exclui a competição quando faltam alguns indicadores em jogos individuais", () => {
   const records = Array.from({ length: 5 }, (_, i) => makeRow("m" + i));
   records[4].corners_st_away = "";
+  records[2].red_cards_home = "";
+  const result = buildCompleteCompetitions(records);
+  assert.equal(result.index.complete_competitions.length, 1);
+  const coverage = result.index.complete_competitions[0].metric_coverage;
+  assert.equal(coverage.corners_st.complete, 4);
+  assert.equal(coverage.corners_st.pct, 80);
+  assert.equal(coverage.red_cards.complete, 4);
+});
+
+test("não publica competição sem qualquer indicador disponível", () => {
+  const records = Array.from({ length: 5 }, (_, i) => {
+    const row = makeRow("m" + i);
+    for (const [home, away] of Object.values(columns)) {
+      row[home] = "";
+      row[away] = "";
+    }
+    return row;
+  });
   const result = buildCompleteCompetitions(records);
   assert.equal(result.index.complete_competitions.length, 0);
 });
