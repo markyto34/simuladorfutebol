@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 112,
-  "processed_games": 51,
+  "processed_games": 76,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Absam - Ebbs",
-  "last_result": "Absam - Ebbs: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:32:40.011Z"
+  "current_match": "Último concluído: Vols - Innsbrucker AC",
+  "last_result": "Vols - Innsbrucker AC: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:32:45.009Z"
 }
