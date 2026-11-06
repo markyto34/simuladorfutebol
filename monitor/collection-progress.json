@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 123,
-  "processed_games": 27,
-  "stats_games": 14,
+  "processed_games": 50,
+  "stats_games": 29,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Nezla - Azazga",
-  "last_result": "Nezla - Azazga: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T09:20:41.509Z"
+  "current_match": "A consultar jogo 53/123 · z1OCRRGP",
+  "last_result": "MO Bejaia - Beni Oulbane: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T09:20:46.494Z"
 }
