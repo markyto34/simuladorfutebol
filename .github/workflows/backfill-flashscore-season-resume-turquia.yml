@@ -69,7 +69,7 @@ jobs:
           node --input-type=module <<'NODE'
           import fs from "node:fs";
           const requested = process.env.COMPETITION_PATH || "";
-          const resumeFrom = process.env.RESUME_FROM_PATH || "";
+          const resumeFrom = process.env.RESUME_FROM_PATH || "/futebol/turquia/1-lig/";
           let paths;
           if (requested) {
             paths = [requested];
@@ -92,7 +92,7 @@ jobs:
             }
           }
           if (!paths.length) throw new Error("O filtro não encontrou competições elegíveis.");
-          const offset = Number(process.env.COMPETITION_OFFSET || 0);
+          const offset = resumeFrom ? 0 : Number(process.env.COMPETITION_OFFSET || 0);
           const limit = Number(process.env.COMPETITION_LIMIT || 0);
           if (!Number.isInteger(offset) || offset < 0 || !Number.isInteger(limit) || limit < 0) {
             throw new Error("competition_offset e competition_limit têm de ser inteiros não negativos.");
