@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 50,
-  "processed_games": 26,
+  "processed_games": 50,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/50 · j55zsyWa",
-  "last_result": "Sport-ES U20 - Pinheiros U20: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:08:59.838Z"
+  "current_match": "Último concluído: Rio Branco ES U20 - Forte U20",
+  "last_result": "Rio Branco ES U20 - Forte U20: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:09:04.788Z"
 }
