@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 114,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 25,
+  "processed_games": 51,
+  "stats_games": 50,
+  "bwin_odds": 41,
   "failed_games": 0,
-  "current_match": "A consultar jogo 28/114 · hbxpsyPi",
-  "last_result": "ACDR Lamelas - Vitória SC: 11 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T13:55:30.052Z"
+  "current_match": "Último concluído: Vila Pouca - Brito SC",
+  "last_result": "Vila Pouca - Brito SC: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T13:55:35.020Z"
 }
