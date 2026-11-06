@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 72,
-  "processed_games": 51,
-  "stats_games": 48,
+  "processed_games": 72,
+  "stats_games": 64,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/72 · YwcMn4tp",
-  "last_result": "Cabofriense - Serrano FC: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:10:04.879Z"
+  "current_match": "Último concluído: Sao Goncalo - Perolas Negras",
+  "last_result": "Sao Goncalo - Perolas Negras: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:10:09.312Z"
 }
