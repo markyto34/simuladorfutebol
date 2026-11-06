@@ -2,14 +2,14 @@
   "run_id": "42174804417",
   "run_number": "13",
   "target_date": "2026-11-05",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 177,
-  "processed_games": 175,
+  "processed_games": 177,
   "stats_games": 126,
   "bwin_odds": 78,
   "failed_games": 0,
-  "current_match": "Último concluído: Mutondo Stars - Mufulira",
-  "last_result": "Mutondo Stars - Mufulira: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T06:31:08.749Z"
+  "current_match": "Recolha terminada",
+  "last_result": "Nchanga Rangers - Makeni All Stars: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T06:31:10.585Z"
 }
