@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 187,
-  "processed_games": 126,
+  "processed_games": 151,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 129/187 · OrdLBu2C",
-  "last_result": "Melbourne Victory U20 F - Essendon Royals SC F: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:20:03.244Z"
+  "current_match": "Último concluído: Melbourne City U20 F - Keilor Park F",
+  "last_result": "Melbourne City U20 F - Keilor Park F: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:20:08.232Z"
 }
