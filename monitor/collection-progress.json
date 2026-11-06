@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 467,
-  "processed_games": 452,
-  "stats_games": 445,
+  "processed_games": 467,
+  "stats_games": 460,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 455/467 · rZbrRtHL",
-  "last_result": "Justo Jose de Urquiza - Lugano: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T09:29:47.743Z"
+  "current_match": "Último concluído: Lugano - Sacachispas",
+  "last_result": "Lugano - Sacachispas: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T09:29:51.162Z"
 }
