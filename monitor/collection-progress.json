@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 55,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 25,
+  "processed_games": 50,
+  "stats_games": 50,
+  "bwin_odds": 50,
   "failed_games": 0,
-  "current_match": "Último concluído: Freiburg F - Leverkusen F",
-  "last_result": "Freiburg F - Leverkusen F: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T23:12:52.702Z"
+  "current_match": "Último concluído: Mainz F - Bremen F",
+  "last_result": "Mainz F - Bremen F: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T23:13:17.702Z"
 }
