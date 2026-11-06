@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 74,
-  "processed_games": 26,
+  "processed_games": 51,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/74 · 6sIwSFOi",
-  "last_result": "Tigres Brasil - Uniao Central: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:11:21.745Z"
+  "current_match": "Último concluído: Barcelona EC - Independente RJ",
+  "last_result": "Barcelona EC - Independente RJ: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:11:26.670Z"
 }
