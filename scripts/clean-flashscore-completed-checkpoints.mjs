@@ -2,8 +2,8 @@
 import fs from "node:fs";
 import { parseCsv } from "./validate-flashscore-history.mjs";
 
-const normalize = value => String(value ?? "").normalize("NFD").replace(/[\\u0300-\\u036f]/g, "")
-  .toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().replace(/\\s+/g, " ");
+const normalize = value => String(value ?? "").normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+  .toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().replace(/\s+/g, " ");
 const pathOf = item => { try { return new URL(item.url).pathname; } catch { return ""; } };
 
 export function cleanCompletedCheckpoints({ catalog, stats, checkpoint }) {
@@ -34,7 +34,7 @@ function main() {
   const stats = parseCsv(fs.readFileSync("data/flashscore-statistics.csv", "utf8"));
   const checkpoint = JSON.parse(fs.readFileSync("data/flashscore-season-backfill-checkpoint.json", "utf8"));
   const result = cleanCompletedCheckpoints({ catalog, stats, checkpoint });
-  fs.writeFileSync("data/flashscore-season-backfill-checkpoint.json", JSON.stringify(result.checkpoint, null, 2) + "\\n");
+  fs.writeFileSync("data/flashscore-season-backfill-checkpoint.json", JSON.stringify(result.checkpoint, null, 2) + "\n");
   console.log(JSON.stringify({ kept: result.kept, removed: result.removed.length, removed_paths: result.removed }, null, 2));
 }
 if (process.argv[1] && import.meta.url === new URL(process.argv[1], "file:").href) {
