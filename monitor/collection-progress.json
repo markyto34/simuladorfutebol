@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 52,
-  "processed_games": 26,
+  "processed_games": 51,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/52 · 63aEKL4t",
-  "last_result": "Cruzeiro-PB - Femar: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:33:29.029Z"
+  "current_match": "Último concluído: Femar - Auto Esporte",
+  "last_result": "Femar - Auto Esporte: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:33:33.982Z"
 }
