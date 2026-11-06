@@ -2,14 +2,14 @@
   "run_id": "42183404135",
   "run_number": "3",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 78,
-  "processed_games": 76,
-  "stats_games": 76,
-  "bwin_odds": 67,
+  "processed_games": 78,
+  "stats_games": 78,
+  "bwin_odds": 69,
   "failed_games": 0,
-  "current_match": "Último concluído: Ch. Odesa - Polissya Zhytomyr",
-  "last_result": "Ch. Odesa - Polissya Zhytomyr: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T07:51:26.728Z"
+  "current_match": "Recolha terminada",
+  "last_result": "Zorya - Kolos Kovalivka: 11 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T07:51:29.910Z"
 }
