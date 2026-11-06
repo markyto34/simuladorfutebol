@@ -12,7 +12,7 @@ export function selectBackfillPaths({catalog, selection, statusReport, competiti
   }
   if (countrySlug && !/^[a-z0-9-]+$/.test(countrySlug)) throw new Error("Identificador de país inválido.");
   const batchLimit = Number(limit);
-  if (!Number.isInteger(batchLimit) || batchLimit < 1 || batchLimit > 25) throw new Error("O limite por execução deve estar entre 1 e 25 competições.");
+  if (!Number.isInteger(batchLimit) || batchLimit < 1 || batchLimit > 100000) throw new Error("O limite por execução deve estar entre 1 e 100000 competições.");
   const selected = new Set(selection.selected_paths);
   const catalogPaths = new Set(catalog.competitions.map(pathOf).filter(Boolean));
   const missing = [...selected].filter(path => !catalogPaths.has(path));
