@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 112,
   "processed_games": 112,
   "stats_games": 112,
   "bwin_odds": 111,
   "failed_games": 0,
-  "current_match": "Último concluído: Cavalry - Atl. Ottawa",
+  "current_match": "Recolha terminada",
   "last_result": "Cavalry - Atl. Ottawa: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T12:18:24.724Z"
+  "updated_at": "2026-11-06T12:18:26.535Z"
 }
