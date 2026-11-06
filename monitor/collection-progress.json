@@ -2,14 +2,14 @@
   "run_id": "42308546603",
   "run_number": "9",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 22,
   "processed_games": 22,
   "stats_games": 22,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: África do Sul - Moçambique",
+  "current_match": "Recolha terminada",
   "last_result": "África do Sul - Moçambique: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T23:02:03.894Z"
+  "updated_at": "2026-11-06T23:02:05.351Z"
 }
