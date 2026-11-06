@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 583,
-  "processed_games": 326,
-  "stats_games": 324,
+  "processed_games": 352,
+  "stats_games": 350,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Banfield 2 - Sarmiento Junin 2",
-  "last_result": "Banfield 2 - Sarmiento Junin 2: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T09:25:33.371Z"
+  "current_match": "A consultar jogo 355/583 · SbzaU2Ls",
+  "last_result": "Estudiantes 2 - Belgrano 2: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T09:25:38.835Z"
 }
