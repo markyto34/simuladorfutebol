@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 22,
   "processed_games": 22,
   "stats_games": 22,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Maurícia U20 - Namíbia U20",
+  "current_match": "Recolha terminada",
   "last_result": "Maurícia U20 - Namíbia U20: 9 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T08:31:22.415Z"
+  "updated_at": "2026-11-06T08:31:23.952Z"
 }
