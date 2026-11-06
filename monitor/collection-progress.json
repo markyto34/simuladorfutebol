@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 36,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 25,
+  "stats_games": 24,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T10:42:42.080Z"
+  "current_match": "A consultar jogo 28/36 · 4nLKYaiJ",
+  "last_result": "Beerschot VA U21 - RAAL La Louviere U21: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:42:49.902Z"
 }
