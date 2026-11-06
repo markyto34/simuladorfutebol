@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 278,
-  "processed_games": 276,
+  "processed_games": 278,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: SKA-1938 - Soligorsk",
-  "last_result": "SKA-1938 - Soligorsk: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:39:48.371Z"
+  "current_match": "Recolha terminada",
+  "last_result": "Lida - Din. Minsk 2: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:39:50.715Z"
 }
