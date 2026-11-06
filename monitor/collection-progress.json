@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 50,
-  "processed_games": 25,
-  "stats_games": 25,
+  "processed_games": 50,
+  "stats_games": 50,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Teuta - Skenderbeu",
-  "last_result": "Teuta - Skenderbeu: 11 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T23:07:25.282Z"
+  "current_match": "Último concluído: Vllaznia - Skenderbeu",
+  "last_result": "Vllaznia - Skenderbeu: 10 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T23:07:50.299Z"
 }
