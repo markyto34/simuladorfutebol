@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 247,
-  "processed_games": 226,
-  "stats_games": 223,
-  "bwin_odds": 226,
+  "processed_games": 247,
+  "stats_games": 244,
+  "bwin_odds": 247,
   "failed_games": 0,
-  "current_match": "A consultar jogo 229/247 · KOy2yqI7",
-  "last_result": "Wollongong Wolves - Marconi: 7 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T10:14:15.549Z"
+  "current_match": "Último concluído: Manly Utd - St. George City",
+  "last_result": "Manly Utd - St. George City: 7 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T10:14:19.984Z"
 }
