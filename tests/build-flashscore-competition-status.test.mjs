@@ -25,7 +25,7 @@ test("classifica estatísticas parciais e mantém a informação do checkpoint",
   const status=result.status_by_path["/futebol/portugal/liga-portugal/"];
   assert.equal(status.status,"partial");
   assert.equal(status.checkpoint_completed,true);
-  assert.equal(status.metric_coverage.red_cards_home.pct,0);
+  assert.equal(status.missing_indicator_count,1);
 });
 test("competições sem registos ficam como novas",()=>{
   const result=buildCompetitionStatus({catalog:{competitions:[item]},stats:[],checkpoint:{completed_paths:[]}});
