@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 34,
   "processed_games": 34,
   "stats_games": 34,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Rio Branco ES - Vila Nova",
+  "current_match": "Recolha terminada",
   "last_result": "Rio Branco ES - Vila Nova: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:58:13.831Z"
+  "updated_at": "2026-11-06T11:58:15.357Z"
 }
