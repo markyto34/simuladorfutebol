@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 49,
-  "processed_games": 26,
-  "stats_games": 26,
-  "bwin_odds": 22,
+  "processed_games": 49,
+  "stats_games": 49,
+  "bwin_odds": 36,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/49 · rimqAXk5",
-  "last_result": "Naval 1893 - Alverca B: 10 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T13:50:01.790Z"
+  "current_match": "Último concluído: Oliveira Hospital - SB Castelo Branco",
+  "last_result": "Oliveira Hospital - SB Castelo Branco: 7 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T13:50:06.540Z"
 }
