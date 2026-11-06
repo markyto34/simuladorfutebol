@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 72,
-  "processed_games": 51,
+  "processed_games": 72,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/72 · xdTtHxU0",
-  "last_result": "Retro U20 - Atletico PE U20: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:43:11.252Z"
+  "current_match": "Último concluído: Jaguar U20 - Sport Recife U20",
+  "last_result": "Jaguar U20 - Sport Recife U20: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:43:15.399Z"
 }
