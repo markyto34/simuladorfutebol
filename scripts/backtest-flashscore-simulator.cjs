@@ -83,8 +83,8 @@ function backtest(matches,{sampleSize=5}={}){
  return {matches:matches.length,sampleSize,evaluatedGoals,skippedGoals,xgBlendUsed,goalMetrics:{oneXTwo:goal1x2,binary:goalBinary},periodMetrics:periods,metricErrors:Object.fromEntries(Object.entries(errors).map(([k,v])=>[k,summary(v)])),metricCoverage:coverage,extraMarkets:markets};
 }
 function normalizeCompetitionLabel(label){
- const parts=String(label||"").split(/\\s+\\/\\s+/);
- const norm=value=>String(value||"").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim().replace(/\\s+/g," ");
+ const parts=String(label||"").split(/\s+\/\s+/);
+ const norm=value=>String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim().replace(/\s+/g," ");
  if(parts.length<2)return norm(label);
  const country=parts.shift(),competition=parts.join(" / ");
  return norm(country)+" / "+norm(competition);
