@@ -65,8 +65,9 @@ jobs:
           node --check scripts/discover-flashscore-season.mjs
           node --check scripts/build-flashscore-competition-status.mjs
           node --check scripts/select-flashscore-backfill-paths.mjs
+          node --check scripts/clean-flashscore-completed-checkpoints.mjs
           node --check scripts/split-flashscore-season-manifest.mjs
-          node --test tests/discover-flashscore-season.test.mjs tests/build-flashscore-competition-status.test.mjs tests/select-flashscore-backfill-paths.test.mjs tests/collect-team-last-five.test.mjs
+          node --test tests/discover-flashscore-season.test.mjs tests/build-flashscore-competition-status.test.mjs tests/select-flashscore-backfill-paths.test.mjs tests/collect-team-last-five.test.mjs tests/clean-flashscore-completed-checkpoints.test.mjs
       - name: Preparar lote seguro de competições selecionadas
         env:
           COMPETITION_PATH: ${{ inputs.competition_path }}
@@ -76,6 +77,7 @@ jobs:
           COMPETITION_LIMIT: ${{ inputs.competition_limit }}
         run: |
           set -euo pipefail
+          node scripts/clean-flashscore-completed-checkpoints.mjs
           node scripts/build-flashscore-competition-status.mjs
           node scripts/select-flashscore-backfill-paths.mjs
       - name: Descobrir épocas e recolher estatísticas + odds Bwin
@@ -144,6 +146,25 @@ jobs:
               discovered=$(node -e "const m=require('./$manifest'); console.log(m.finished_matches_discovered||0)")
               already=$(node -e "const m=require('./$manifest'); console.log(m.already_complete_with_period_corners||0)")
               pending=$((discovered - already))
+              if (( discovered == 0 )); then
+                echo "::warning::A descoberta devolveu zero jogos para $competition_path. A competição NÃO será marcada como concluída."
+                failures=$((failures + 1))
+                comp_status="empty_discovery"
+                printf "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n" "$index" "$competition_path" "" "$discovered" "$already" "$pending" 0 0 "$comp_status" >> "$REPORT"
+                echo "| $index | $competition_path | $discovered | $already | $pending | 0 | 0 | $comp_status |" >> "$GITHUB_STEP_SUMMARY"
+                echo "[COMPETITION SUMMARY] $competition_path | descobertos=0 | estado=empty_discovery | não marcada como concluída"
+                echo "::endgroup::"
+                continue
+              fi
+              if (( already > discovered )); then
+                echo "::error::Manifesto inconsistente em $competition_path: jogos completos ($already) superiores aos descobertos ($discovered)."
+                failures=$((failures + 1))
+                comp_status="invalid_manifest"
+                printf "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n" "$index" "$competition_path" "" "$discovered" "$already" "$pending" 0 1 "$comp_status" >> "$REPORT"
+                echo "| $index | $competition_path | $discovered | $already | $pending | 0 | 1 | $comp_status |" >> "$GITHUB_STEP_SUMMARY"
+                echo "::endgroup::"
+                continue
+              fi
               chunk_dir="$comp_dir/chunks"
               if ! node scripts/split-flashscore-season-manifest.mjs --manifest="$manifest" --out-dir="$chunk_dir" --chunk-size=10 >"$comp_dir/split.log" 2>&1; then
                 cat "$comp_dir/split.log"; echo "::endgroup::"; failures=$((failures + 1)); printf "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n" "$index" "$competition_path" "" "$discovered" "$already" "$pending" 0 1 "split_failed" >> "$REPORT"; continue
