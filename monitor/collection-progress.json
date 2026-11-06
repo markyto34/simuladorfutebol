@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
-  "total_games": 1,
-  "processed_games": 1,
-  "stats_games": 1,
-  "bwin_odds": 1,
+  "status": "running",
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
+  "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Levski - CSKA Sofia: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T12:09:29.083Z"
+  "current_match": "A descobrir jogos",
+  "last_result": "",
+  "updated_at": "2026-11-06T12:09:41.696Z"
 }
