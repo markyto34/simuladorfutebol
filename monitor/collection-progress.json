@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 37,
-  "processed_games": 25,
-  "stats_games": 25,
+  "processed_games": 37,
+  "stats_games": 37,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Khanh Hoa - PVF-CAND",
-  "last_result": "Khanh Hoa - PVF-CAND: 10 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T07:54:42.788Z"
+  "current_match": "Último concluído: Hue - Aurora Saigon United",
+  "last_result": "Hue - Aurora Saigon United: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T07:54:45.294Z"
 }
