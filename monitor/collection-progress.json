@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 55,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 50,
+  "processed_games": 55,
+  "stats_games": 55,
+  "bwin_odds": 55,
   "failed_games": 0,
-  "current_match": "Último concluído: Mainz F - Bremen F",
-  "last_result": "Mainz F - Bremen F: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T23:13:17.702Z"
+  "current_match": "Último concluído: Union Berlin F - Bayern F",
+  "last_result": "Union Berlin F - Bayern F: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T23:13:22.735Z"
 }
