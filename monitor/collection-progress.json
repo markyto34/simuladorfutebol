@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 66,
-  "processed_games": 27,
-  "stats_games": 26,
+  "processed_games": 51,
+  "stats_games": 47,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Sao Joao PI F - Flamengo F",
-  "last_result": "Sao Joao PI F - Flamengo F: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:17:59.252Z"
+  "current_match": "A consultar jogo 54/66 · pUSnxGUr",
+  "last_result": "Paraiso EC F - Ypiranga AP F: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:18:04.107Z"
 }
