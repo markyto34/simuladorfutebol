@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 83,
-  "processed_games": 0,
+  "processed_games": 25,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T10:04:26.057Z"
+  "current_match": "A consultar jogo 28/83 · ri4jYI8m",
+  "last_result": "Ulverstone U21 - Devonport U21: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:04:33.399Z"
 }
