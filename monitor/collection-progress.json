@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 79,
-  "processed_games": 76,
-  "stats_games": 74,
+  "processed_games": 79,
+  "stats_games": 77,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 79/79 · voLvl0wR",
-  "last_result": "Tienen - Dessel: 9 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:42:24.939Z"
+  "current_match": "Recolha terminada",
+  "last_result": "Hoogstraten - Merelbeke: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:42:26.780Z"
 }
