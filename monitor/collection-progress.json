@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 99,
   "processed_games": 99,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: RCS Brainois - Richelle Utd.",
+  "current_match": "Recolha terminada",
   "last_result": "RCS Brainois - Richelle Utd.: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:43:30.492Z"
+  "updated_at": "2026-11-06T10:43:31.975Z"
 }
