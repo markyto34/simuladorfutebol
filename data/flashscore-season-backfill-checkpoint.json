@@ -459,6 +459,7 @@
     "/futebol/cazaquistao/taca-do-cazaquistao/",
     "/futebol/chile/liga-de-primera/",
     "/futebol/chile/liga-de-subida/",
+    "/futebol/chile/super-taca/",
     "/futebol/portugal/campeonato-de-portugal-grupo-promocao/",
     "/futebol/portugal/campeonato-de-portugal-playoffs/",
     "/futebol/portugal/campeonato-de-portugal-serie-a/",
@@ -486,5 +487,5 @@
     "/futebol/vietname/liga-2/",
     "/futebol/vietname/liga-v/"
   ],
-  "updated_at": "2026-11-06T19:38:51.583Z"
+  "updated_at": "2026-11-06T19:39:16.540Z"
 }
