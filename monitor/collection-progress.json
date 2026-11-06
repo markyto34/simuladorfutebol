@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 122,
-  "processed_games": 102,
-  "stats_games": 99,
+  "processed_games": 122,
+  "stats_games": 119,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 105/122 · C8OQISSj",
-  "last_result": "Svoge - Pirin Blagoevgrad: 10 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T12:08:42.527Z"
+  "current_match": "Último concluído: Beroe - Hebar",
+  "last_result": "Beroe - Hebar: 10 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T12:08:47.284Z"
 }
