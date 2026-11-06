@@ -166,8 +166,8 @@ jobs:
             comp_status="discovery_failed"
             if node scripts/discover-flashscore-season.mjs --path="$competition_path" --out="$manifest" >"$log" 2>&1; then
               grep -E '^\[(SEASON|SEASON PAGE|SEASON WARNING|SEASON COMPLETE)' "$log" | tail -n 15 || true
-              discovered=$(node -e "const m=require('./$manifest'); console.log(m.finished_matches_discovered||0)")
-              already=$(node -e "const m=require('./$manifest'); console.log(m.already_complete_with_period_corners||0)")
+              discovered=$(node -e 'const m=JSON.parse(require("node:fs").readFileSync(process.argv[1],"utf8")); console.log(m.finished_matches_discovered||0)' "$manifest")
+              already=$(node -e 'const m=JSON.parse(require("node:fs").readFileSync(process.argv[1],"utf8")); console.log(m.already_complete_with_period_corners||0)' "$manifest")
               pending=$((discovered - already))
               if (( discovered == 0 )); then
                 echo "::warning::A descoberta devolveu zero jogos para $competition_path. A competição NÃO será marcada como concluída."
@@ -235,7 +235,7 @@ jobs:
               if grep -Eiq 'HTTP (401|403|429)|bloqueou/limitou|Flashscore bloqueou' "$log"; then blocked=1; comp_status="blocked"; fi
             fi
             season=""
-            if [[ -f "$manifest" ]]; then season=$(node -e "const m=require('./$manifest'); console.log(m.season||'')"); fi
+            if [[ -f "$manifest" ]]; then season=$(node -e 'const m=JSON.parse(require("node:fs").readFileSync(process.argv[1],"utf8")); console.log(m.season||"")' "$manifest"); fi
             printf "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n" "$index" "$competition_path" "$season" "$discovered" "$already" "$pending" "$chunks_total" "$failed_chunks" "$comp_status" >> "$REPORT"
             echo "| $index | $competition_path | $discovered | $already | $pending | $chunks_total | $failed_chunks | $comp_status |" >> "$GITHUB_STEP_SUMMARY"
             echo "[COMPETITION SUMMARY] $competition_path | descobertos=$discovered | completos_antes=$already | pendentes=$pending | blocos=$chunks_total | blocos_com_erro=$failed_chunks | estado=$comp_status"
