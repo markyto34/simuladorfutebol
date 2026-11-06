@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
-  "total_games": 29,
-  "processed_games": 29,
-  "stats_games": 6,
+  "status": "running",
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Samartex - Karela: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T07:10:18.454Z"
+  "current_match": "A descobrir jogos",
+  "last_result": "",
+  "updated_at": "2026-11-06T07:10:29.149Z"
 }
