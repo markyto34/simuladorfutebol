@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 48,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 24,
+  "processed_games": 48,
+  "stats_games": 48,
+  "bwin_odds": 43,
   "failed_games": 0,
-  "current_match": "A consultar jogo 26/48 · GxshzRaC",
-  "last_result": "RW Essen - St. Pauli: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T23:15:30.261Z"
+  "current_match": "Último concluído: SC St.Tonis - Frankfurt",
+  "last_result": "SC St.Tonis - Frankfurt: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T23:15:53.316Z"
 }
