@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 194,
-  "processed_games": 176,
+  "processed_games": 194,
   "stats_games": 129,
-  "bwin_odds": 176,
+  "bwin_odds": 194,
   "failed_games": 0,
-  "current_match": "A consultar jogo 179/194 · ChXfUw3a",
-  "last_result": "Uruguai - Brasil: 0 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T08:30:56.107Z"
+  "current_match": "Último concluído: Paraguai - Peru",
+  "last_result": "Paraguai - Peru: 0 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T08:30:59.968Z"
 }
