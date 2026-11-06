@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 9,
   "processed_games": 9,
   "stats_games": 9,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Orlando - Durban City",
+  "current_match": "Recolha terminada",
   "last_result": "Orlando - Durban City: 16 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T08:26:18.078Z"
+  "updated_at": "2026-11-06T08:26:20.864Z"
 }
