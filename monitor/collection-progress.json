@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 112,
-  "processed_games": 51,
-  "stats_games": 51,
-  "bwin_odds": 51,
+  "processed_games": 76,
+  "stats_games": 76,
+  "bwin_odds": 76,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/112 · 2ed3NMnf",
-  "last_result": "Supra du Quebec - Cavalry: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T12:18:03.841Z"
+  "current_match": "A consultar jogo 79/112 · QwVAvLMh",
+  "last_result": "Forge - HFX Wanderers: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T12:18:09.884Z"
 }
