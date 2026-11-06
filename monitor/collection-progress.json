@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 51,
-  "processed_games": 50,
+  "processed_games": 51,
   "stats_games": 50,
   "bwin_odds": 49,
-  "failed_games": 0,
-  "current_match": "Último concluído: Adelaide United (Aus) - Cong An Ha Noi (Vie)",
-  "last_result": "Adelaide United (Aus) - Cong An Ha Noi (Vie): 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T09:41:10.250Z"
+  "failed_games": 1,
+  "current_match": "Último erro: n9qPxsYG",
+  "last_result": "Falha em n9qPxsYG: Falha ao recolher n9qPxsYG: HTTP 503",
+  "updated_at": "2026-11-06T09:42:00.063Z"
 }
