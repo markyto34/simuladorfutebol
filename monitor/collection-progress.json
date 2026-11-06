@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 80,
-  "processed_games": 76,
+  "processed_games": 80,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 79/80 · 4xIKDzmm",
-  "last_result": "Schwerin - Makkabi Berlin: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T08:49:16.263Z"
+  "current_match": "Recolha terminada",
+  "last_result": "TB Berlin - Stendal: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T08:49:18.503Z"
 }
