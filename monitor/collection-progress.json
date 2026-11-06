@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 96,
-  "processed_games": 0,
+  "processed_games": 25,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T10:50:26.331Z"
+  "current_match": "A consultar jogo 28/96 · zRHgE7d2",
+  "last_result": "GOSK Gabela - Jedinstvo Bihac: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:50:33.487Z"
 }
