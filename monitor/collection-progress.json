@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 4,
-  "processed_games": 0,
+  "processed_games": 4,
   "stats_games": 0,
-  "bwin_odds": 0,
+  "bwin_odds": 2,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T09:59:09.433Z"
+  "current_match": "Último concluído: Libano - Tajiquistão",
+  "last_result": "Libano - Tajiquistão: 0 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T09:59:12.599Z"
 }
