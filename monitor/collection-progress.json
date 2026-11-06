@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
-  "total_games": 583,
-  "processed_games": 583,
-  "stats_games": 579,
+  "status": "running",
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Union Santa Fe 2 - Aldosivi 2: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T09:26:29.601Z"
+  "current_match": "A descobrir jogos",
+  "last_result": "",
+  "updated_at": "2026-11-06T09:26:41.650Z"
 }
