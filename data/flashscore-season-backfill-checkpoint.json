@@ -396,6 +396,7 @@
     "/futebol/brasil/serie-a/",
     "/futebol/brasil/serie-b/",
     "/futebol/brasil/serie-c/",
+    "/futebol/brasil/serie-d/",
     "/futebol/turquia/1-lig/",
     "/futebol/turquia/super-liga/",
     "/futebol/ucrania/primeira-liga/",
@@ -405,5 +406,5 @@
     "/futebol/vietname/liga-2/",
     "/futebol/vietname/liga-v/"
   ],
-  "updated_at": "2026-11-06T11:52:13.300Z"
+  "updated_at": "2026-11-06T11:54:39.029Z"
 }
