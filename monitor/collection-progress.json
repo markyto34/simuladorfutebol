@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 1,
   "processed_games": 1,
   "stats_games": 1,
   "bwin_odds": 1,
   "failed_games": 0,
-  "current_match": "Último concluído: Lincoln - Burnley",
+  "current_match": "Recolha terminada",
   "last_result": "Lincoln - Burnley: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T06:52:54.982Z"
+  "updated_at": "2026-11-06T06:52:56.459Z"
 }
