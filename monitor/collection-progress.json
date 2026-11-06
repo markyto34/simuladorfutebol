@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 22,
   "processed_games": 22,
   "stats_games": 6,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Senegal - Guiné-Bissau",
+  "current_match": "Recolha terminada",
   "last_result": "Senegal - Guiné-Bissau: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T08:35:57.806Z"
+  "updated_at": "2026-11-06T08:35:59.182Z"
 }
