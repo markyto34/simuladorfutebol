@@ -2,7 +2,7 @@ name: Preparar catálogo Flashscore sem nova descoberta
 
 on:
   push:
-    branches: [feature/flashscore-full-competition-discovery, main]
+    branches: [feature/flashscore-full-competition-discovery, feat/flashscore-catalog-selection-and-dedup, main]
     paths:
       - ".github/workflows/prepare-flashscore-catalog.yml"
       - "scripts/prepare-flashscore-catalog.mjs"
