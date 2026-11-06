@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 68,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 26,
+  "stats_games": 25,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T11:59:41.515Z"
+  "current_match": "A consultar jogo 29/68 · KMDti0bl",
+  "last_result": "Atletico-MG U20 - Athletic Club U20: 10 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:59:48.971Z"
 }
