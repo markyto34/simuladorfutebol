@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 54,
-  "processed_games": 51,
-  "stats_games": 51,
-  "bwin_odds": 47,
+  "processed_games": 54,
+  "stats_games": 54,
+  "bwin_odds": 50,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/54 · S0kNjE0k",
-  "last_result": "Coritiba - Foz do Iguacu: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T11:37:02.896Z"
+  "current_match": "Recolha terminada",
+  "last_result": "Sao Joseense - Galo Maringa: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T11:37:04.570Z"
 }
