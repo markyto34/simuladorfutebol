@@ -12,9 +12,9 @@ on:
         default: "/futebol/turquia/1-lig/"
         type: string
       competition_offset:
-        description: "Posição absoluta no catálogo elegível. 136 retoma na Turquia — 1. Lig, após o último checkpoint publicado."
+        description: "Competições adicionais a saltar depois do ponto de retoma. Manter 0 para começar exatamente na competição indicada."
         required: false
-        default: "136"
+        default: "0"
         type: string
       competition_limit:
         description: "Máximo de competições nesta execução. 0 = todas as restantes; usar 3 para teste."
@@ -44,10 +44,6 @@ jobs:
         run: |
           set -euo pipefail
           if [[ -n "$COMPETITION_PATH" || -n "$RESUME_FROM_PATH" ]]; then
-            [[ "$COMPETITION_PATH" =~ ^/futebol/[a-z0-9-]+/[a-z0-9-]+/$ ]] || {
-              echo "Caminho inválido. Usa /futebol/<pais>/<competicao>/."
-              exit 2
-            }
             for candidate in "$COMPETITION_PATH" "$RESUME_FROM_PATH"; do
               [[ -n "$candidate" ]] || continue
               [[ "$candidate" =~ ^/futebol/[a-z0-9-]+/[a-z0-9-]+/$ ]] || {
