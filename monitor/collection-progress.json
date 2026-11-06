@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 201,
-  "processed_games": 100,
-  "stats_games": 99,
-  "bwin_odds": 100,
+  "processed_games": 125,
+  "stats_games": 124,
+  "bwin_odds": 125,
   "failed_games": 0,
-  "current_match": "Último concluído: Termez Surkhon - Din. Samarkand",
-  "last_result": "Termez Surkhon - Din. Samarkand: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T07:53:54.426Z"
+  "current_match": "Último concluído: Pakhtakor - Nasaf Qarshi",
+  "last_result": "Pakhtakor - Nasaf Qarshi: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T07:54:00.089Z"
 }
