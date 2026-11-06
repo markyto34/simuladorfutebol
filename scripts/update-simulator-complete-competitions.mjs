@@ -104,10 +104,11 @@ export function buildCompleteCompetitions(records, previous = {}) {
   const complete = [...resultByKey.values()].sort((a, b) =>
     a.country_name.localeCompare(b.country_name) || a.competition_name.localeCompare(b.competition_name)
   );
+  const unchanged = JSON.stringify(complete) === JSON.stringify(previousItems);
   return {
     index: {
       generated_from: INPUT,
-      generated_at: new Date().toISOString(),
+      generated_at: unchanged && previous.generated_at ? previous.generated_at : new Date().toISOString(),
       definition: "At least 5 unique matches and 100% paired home/away values for every core metric listed.",
       core_metrics: [...CORE_METRICS],
       complete_competitions: complete
