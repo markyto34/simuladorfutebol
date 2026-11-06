@@ -1,7 +1,26 @@
 {
   "version": 1,
-  "updated_at": null,
+  "updated_at": "2026-11-06T13:41:13.725Z",
   "source": "Flashscore competition catalog",
   "selection_mode": "explicit",
-  "selected_paths": []
+  "selected_paths": [
+    "/futebol/portugal/campeonato-de-portugal-grupo-promocao/",
+    "/futebol/portugal/campeonato-de-portugal-playoffs/",
+    "/futebol/portugal/campeonato-de-portugal-serie-a/",
+    "/futebol/portugal/campeonato-de-portugal-serie-b/",
+    "/futebol/portugal/campeonato-de-portugal-serie-c/",
+    "/futebol/portugal/campeonato-de-portugal-serie-d/",
+    "/futebol/portugal/campeonato-nacional-sub-19/",
+    "/futebol/portugal/liga-3/",
+    "/futebol/portugal/liga-de-futebol-feminino-bpi/",
+    "/futebol/portugal/liga-next-gen-sub-23/",
+    "/futebol/portugal/liga-portugal-2/",
+    "/futebol/portugal/liga-portugal-betclic/",
+    "/futebol/portugal/super-taca-feminino/",
+    "/futebol/portugal/super-taca/",
+    "/futebol/portugal/taca-da-liga-feminina/",
+    "/futebol/portugal/taca-de-portugal-feminino/",
+    "/futebol/portugal/taca-de-portugal/",
+    "/futebol/portugal/taca-next-gen-sub-23/"
+  ]
 }
