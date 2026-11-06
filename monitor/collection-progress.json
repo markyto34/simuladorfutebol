@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 31,
-  "processed_games": 27,
-  "stats_games": 27,
-  "bwin_odds": 26,
+  "processed_games": 31,
+  "stats_games": 31,
+  "bwin_odds": 30,
   "failed_games": 0,
-  "current_match": "Último concluído: Queensland Lions - Perth Glory",
-  "last_result": "Queensland Lions - Perth Glory: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T10:23:21.376Z"
+  "current_match": "Último concluído: Rochedale - SD Raiders",
+  "last_result": "Rochedale - SD Raiders: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T10:23:22.482Z"
 }
