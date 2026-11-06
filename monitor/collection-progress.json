@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 285,
-  "processed_games": 276,
+  "processed_games": 285,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 279/285 · 0ApALczH",
-  "last_result": "Paderborn U19 - Preussen Munster U19: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T08:47:16.900Z"
+  "current_match": "Último concluído: Dresden U19 - Aue U19",
+  "last_result": "Dresden U19 - Aue U19: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T08:47:18.754Z"
 }
