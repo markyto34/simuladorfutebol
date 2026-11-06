@@ -66,7 +66,7 @@ jobs:
           node --check scripts/build-flashscore-competition-status.mjs
           node --check scripts/select-flashscore-backfill-paths.mjs
           node --check scripts/split-flashscore-season-manifest.mjs
-          node --test tests/discover-flashscore-season.test.mjs tests/build-flashscore-competition-status.test.mjs tests/select-flashscore-backfill-paths.test.mjs
+          node --test tests/discover-flashscore-season.test.mjs tests/build-flashscore-competition-status.test.mjs tests/select-flashscore-backfill-paths.test.mjs tests/collect-team-last-five.test.mjs
       - name: Preparar lote seguro de competições selecionadas
         env:
           COMPETITION_PATH: ${{ inputs.competition_path }}
