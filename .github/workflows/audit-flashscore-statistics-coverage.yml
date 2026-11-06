@@ -1,0 +1,62 @@
+name: Auditar cobertura das estatísticas Flashscore
+on:
+  workflow_dispatch:
+    inputs:
+      competition:
+        description: "Filtro opcional pelo nome da competição (ex.: AFC Champions League)"
+        required: false
+        type: string
+        default: ""
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Testar auditoria
+        run: node --test tests/audit-flashscore-statistics-coverage.test.mjs
+      - name: Gerar relatório sem alterar os CSVs
+        run: node scripts/audit-flashscore-statistics-coverage.mjs --out=flashscore-coverage-audit.json
+      - name: Resumo da auditoria
+        env:
+          COMPETITION_FILTER: ${{ inputs.competition }}
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFile } from "node:fs/promises";
+          const report = JSON.parse(await readFile("flashscore-coverage-audit.json", "utf8"));
+          const filter = process.env.COMPETITION_FILTER.trim().toLocaleLowerCase();
+          const rows = report.competitions.filter(row => !filter || row.competition.toLocaleLowerCase().includes(filter));
+          const selectedIds = new Set(rows.flatMap(row => report.matches.filter(match => match.country === row.country && match.competition === row.competition).map(match => match.match_id)));
+          const matches = report.matches.filter(match => selectedIds.has(match.match_id));
+          const summary = {
+            competitions: rows.length,
+            matches: matches.length,
+            all_16_categories_complete: matches.filter(m => m.complete_categories === 16).length,
+            with_missing_or_partial: matches.filter(m => m.missing_categories.length || m.partial_category_names.length).length,
+            valid_bwin_1x2: matches.filter(m => m.bwin_1x2_valid_rows > 0).length,
+            corners_coherent: matches.filter(m => m.corners_sum_status === "coerente").length,
+            corners_mismatch: matches.filter(m => m.corners_sum_status === "divergência").length,
+            corners_unverifiable: matches.filter(m => m.corners_sum_status === "não verificável").length
+          };
+          const fs = await import("node:fs");
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,
+            "## Auditoria de cobertura Flashscore\n\n" +
+            "| Indicador | Resultado |\n|---|---:|\n" +
+            Object.entries(summary).map(([key, value]) => `| ${key} | ${value} |`).join("\n") +
+            "\n\nRelatório completo por jogo disponível no artefacto `flashscore-coverage-audit`.\n");
+          console.log(JSON.stringify(summary, null, 2));
+          NODE
+      - name: Guardar relatório completo
+        uses: actions/upload-artifact@v4
+        with:
+          name: flashscore-coverage-audit
+          path: flashscore-coverage-audit.json
+          if-no-files-found: error
+          retention-days: 14
