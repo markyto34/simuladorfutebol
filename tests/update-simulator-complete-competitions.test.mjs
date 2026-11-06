@@ -49,3 +49,12 @@ test("não publica países desconhecidos sem identificação", () => {
   assert.equal(result.index.complete_competitions.length, 0);
   assert.equal(result.unidentified.length, 1);
 });
+
+test("não altera generated_at quando o índice não mudou", () => {
+  const records = Array.from({ length: 5 }, (_, i) => makeRow("m" + i));
+  const first = buildCompleteCompetitions(records);
+  const previous = { ...first.index, generated_at: "2026-11-06T10:00:00.000Z" };
+  const next = buildCompleteCompetitions(records, previous);
+  assert.equal(next.index.generated_at, previous.generated_at);
+  assert.equal(next.newly_eligible.length, 0);
+});
