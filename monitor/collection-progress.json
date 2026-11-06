@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 211,
-  "processed_games": 200,
-  "stats_games": 196,
-  "bwin_odds": 199,
+  "processed_games": 211,
+  "stats_games": 207,
+  "bwin_odds": 210,
   "failed_games": 0,
-  "current_match": "Último concluído: River Plate - Rentistas",
-  "last_result": "River Plate - Rentistas: 7 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T07:53:04.978Z"
+  "current_match": "Último concluído: Paysandu FC - Colon",
+  "last_result": "Paysandu FC - Colon: 1 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T07:53:07.177Z"
 }
