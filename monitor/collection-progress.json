@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 247,
-  "processed_games": 127,
-  "stats_games": 126,
-  "bwin_odds": 127,
+  "processed_games": 152,
+  "stats_games": 151,
+  "bwin_odds": 152,
   "failed_games": 0,
-  "current_match": "Último concluído: UNSW - Sydney Utd",
-  "last_result": "UNSW - Sydney Utd: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T10:13:54.315Z"
+  "current_match": "Último concluído: APIA Leichhardt - St George Saints",
+  "last_result": "APIA Leichhardt - St George Saints: 7 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T10:13:59.703Z"
 }
