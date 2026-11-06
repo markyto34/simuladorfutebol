@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 41,
-  "processed_games": 26,
-  "stats_games": 0,
+  "processed_games": 41,
+  "stats_games": 1,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/41 · 2au5NTbI",
-  "last_result": "Newcastle Jets U23 - WS Wanderers U23: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:10:20.444Z"
+  "current_match": "Último concluído: Brisbane Roar U23 - Melbourne Victory U23",
+  "last_result": "Brisbane Roar U23 - Melbourne Victory U23: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:10:23.603Z"
 }
