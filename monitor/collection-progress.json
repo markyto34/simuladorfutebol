@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 502,
-  "processed_games": 476,
-  "stats_games": 467,
+  "processed_games": 501,
+  "stats_games": 492,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 479/502 · ENDy1q0D",
-  "last_result": "Sarmiento de La Banda - Sarmiento Resistencia: 6 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T09:34:29.602Z"
+  "current_match": "Último concluído: Olimpo - Alvarado",
+  "last_result": "Olimpo - Alvarado: 6 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T09:34:35.004Z"
 }
