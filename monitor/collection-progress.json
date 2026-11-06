@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 36,
-  "processed_games": 0,
+  "processed_games": 26,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T11:31:49.776Z"
+  "current_match": "A consultar jogo 29/36 · t2PW0kJq",
+  "last_result": "CA Vila Rica - Sport Belem: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:31:56.945Z"
 }
