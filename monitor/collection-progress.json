@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 8,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
+  "processed_games": 8,
+  "stats_games": 5,
+  "bwin_odds": 8,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T07:09:39.132Z"
+  "current_match": "Último concluído: Bastia - Le Puy-en-Velay",
+  "last_result": "Bastia - Le Puy-en-Velay: 1 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T07:09:44.770Z"
 }
