@@ -22,7 +22,7 @@ test("auditoria reconhece cobertura completa, cantos coerentes e odds Bwin", () 
 });
 
 test("auditoria distingue categoria em falta de categoria parcial", () => {
-  const row = fixture({ xg_home: "", possession_away: "" });
+  const row = fixture({ xg_home: "", xg_away: "", possession_away: "" });
   const result = auditCoverage([row], []);
   assert.deepEqual(result.matches[0].missing_categories, ["xg"]);
   assert.deepEqual(result.matches[0].partial_category_names, ["possession"]);
