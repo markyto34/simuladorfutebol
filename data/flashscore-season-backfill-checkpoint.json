@@ -4,9 +4,10 @@
   "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
   "completed_paths": [
     "/futebol/africa-do-sul/primeira-liga/",
+    "/futebol/africa-do-sul/segunda-liga/",
     "/futebol/asia/afc-liga-dos-campeoes/"
   ],
-  "updated_at": "2026-11-06T22:51:08.223Z",
+  "updated_at": "2026-11-06T22:52:39.989Z",
   "completed_paths_reset_version": 1,
-  "last_completed_path": "/futebol/africa-do-sul/primeira-liga/"
+  "last_completed_path": "/futebol/africa-do-sul/segunda-liga/"
 }
