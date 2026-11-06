@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 150,
-  "processed_games": 76,
-  "stats_games": 76,
-  "bwin_odds": 74,
+  "processed_games": 101,
+  "stats_games": 101,
+  "bwin_odds": 99,
   "failed_games": 0,
-  "current_match": "A consultar jogo 79/150 · jRqm3xtC",
-  "last_result": "Sousa - CRB: 1 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T12:00:33.687Z"
+  "current_match": "A consultar jogo 104/150 · hOaNMbbL",
+  "last_result": "Rio Branco ES - Athletic Club: 7 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T12:00:38.801Z"
 }
