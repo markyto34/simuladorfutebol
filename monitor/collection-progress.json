@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 48,
   "processed_games": 48,
   "stats_games": 48,
   "bwin_odds": 43,
   "failed_games": 0,
-  "current_match": "Último concluído: SC St.Tonis - Frankfurt",
+  "current_match": "Recolha terminada",
   "last_result": "SC St.Tonis - Frankfurt: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T08:56:36.551Z"
+  "updated_at": "2026-11-06T08:56:37.967Z"
 }
