@@ -2,14 +2,14 @@
   "run_id": "42309459310",
   "run_number": "10",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 60,
   "processed_games": 60,
   "stats_games": 60,
   "bwin_odds": 56,
   "failed_games": 0,
-  "current_match": "Último concluído: Turcas e Caicos - Montserrat",
+  "current_match": "Recolha terminada",
   "last_result": "Turcas e Caicos - Montserrat: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T23:20:30.938Z"
+  "updated_at": "2026-11-06T23:20:32.487Z"
 }
