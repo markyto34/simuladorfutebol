@@ -11,9 +11,9 @@ on:
         required: false
         type: string
       competition_limit:
-        description: "Máximo de competições nesta execução (1–25). Por defeito, 3."
+        description: "Primeiro lote da recolha automática; aumenta 15 após cada lote concluído."
         required: false
-        default: "3"
+        default: "10"
         type: string
 permissions:
   contents: write
