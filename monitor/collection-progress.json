@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 201,
-  "processed_games": 26,
+  "processed_games": 51,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/201 · nyAZlYhL",
-  "last_result": "America Mineiro U17 - Gremio U17: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:02:46.201Z"
+  "current_match": "Último concluído: Gremio U17 - Palmeiras U17",
+  "last_result": "Gremio U17 - Palmeiras U17: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:02:51.163Z"
 }
