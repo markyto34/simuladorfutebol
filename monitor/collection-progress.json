@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 156,
-  "processed_games": 75,
-  "stats_games": 75,
-  "bwin_odds": 71,
+  "processed_games": 101,
+  "stats_games": 101,
+  "bwin_odds": 97,
   "failed_games": 0,
-  "current_match": "Último concluído: Montevideo City (Uru) - Dep. Riestra (Arg)",
-  "last_result": "Montevideo City (Uru) - Dep. Riestra (Arg): 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T09:15:06.367Z"
+  "current_match": "A consultar jogo 104/156 · fqx471H0",
+  "last_result": "Gremio (Bra) - Montevideo City (Uru): 16 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T09:15:15.663Z"
 }
