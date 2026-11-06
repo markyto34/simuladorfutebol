@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
-  "total_games": 98,
-  "processed_games": 98,
-  "stats_games": 32,
+  "status": "running",
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Japão U23 - Jordânia U23: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T09:44:04.020Z"
+  "current_match": "A descobrir jogos",
+  "last_result": "",
+  "updated_at": "2026-11-06T09:44:16.902Z"
 }
