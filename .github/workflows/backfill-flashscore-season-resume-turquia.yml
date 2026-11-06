@@ -188,7 +188,7 @@ jobs:
               chunk_log="$chunk_dir/chunk-$chunk_index.log"
               echo "[CHECKPOINT BLOCO] $competition_path · bloco $chunk_index/${#chunks[@]} · até 10 jogos"
               if node scripts/collect-flashscore-csv.mjs --team-last-five="$chunk" 2>&1 | tee "$chunk_log" | awk '/^\[COLLECT\]|^\[PROGRESS\].*(START|OK|ERROR)|^\[RETRY\]|^\[MONITOR\]|^\[SUMMARY\]|^CSV de|^CSV exclusivo|^\[SEASON BACKFILL\]/ { print; fflush() }'; then
-                echo "[CHUNK COMPLETE] $competition_path | bloco $chunk_index/\${#chunks[@]}"
+                echo "[CHUNK COMPLETE] $competition_path | bloco $chunk_index/${#chunks[@]}"
               else
                 code=$?
                 competition_failed=1
