@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 95,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 27,
+  "stats_games": 25,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T08:59:49.464Z"
+  "current_match": "A consultar jogo 30/95 · KUxssOml",
+  "last_result": "Haiti U20 - Curacao U20: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T08:59:57.099Z"
 }
