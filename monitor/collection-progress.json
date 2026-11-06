@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 19,
   "processed_games": 19,
   "stats_games": 16,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Atletico Gloriense - Desportiva Aracaju",
+  "current_match": "Recolha terminada",
   "last_result": "Atletico Gloriense - Desportiva Aracaju: 9 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:18:29.617Z"
+  "updated_at": "2026-11-06T11:18:31.536Z"
 }
