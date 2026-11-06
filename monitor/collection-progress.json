@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 150,
-  "processed_games": 101,
+  "processed_games": 126,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 104/150 · bH2iIkJG",
-  "last_result": "Santa Fe SP - Tupa: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:40:01.027Z"
+  "current_match": "Último concluído: Santa Fe SP - Assisense",
+  "last_result": "Santa Fe SP - Assisense: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:40:05.982Z"
 }
