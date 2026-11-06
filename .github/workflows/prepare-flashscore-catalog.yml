@@ -2,11 +2,14 @@ name: Preparar catálogo Flashscore sem nova descoberta
 
 on:
   push:
-    branches: [feature/flashscore-full-competition-discovery, main]
+    branches: [feature/flashscore-full-competition-discovery, feat/flashscore-catalog-selection-and-dedup, main]
     paths:
       - ".github/workflows/prepare-flashscore-catalog.yml"
       - "scripts/prepare-flashscore-catalog.mjs"
       - "tests/prepare-flashscore-catalog.test.mjs"
+      - "scripts/build-flashscore-competition-status.mjs"
+      - "tests/build-flashscore-competition-status.test.mjs"
+      - "competitions.html"
       - "data/flashscore-competition-catalog-raw.json"
 
 concurrency:
@@ -31,9 +34,11 @@ jobs:
         with:
           node-version: 22
       - name: Testar preparação do catálogo
-        run: node --test tests/prepare-flashscore-catalog.test.mjs
+        run: node --test tests/prepare-flashscore-catalog.test.mjs tests/build-flashscore-competition-status.test.mjs
       - name: Repreparar catálogo sem consultar o Flashscore
         run: node scripts/prepare-flashscore-catalog.mjs
+      - name: Calcular cobertura integral dos indicadores por competição
+        run: node scripts/build-flashscore-competition-status.mjs
       - name: Atualizar auditoria de cobertura
         run: node scripts/audit-flashscore-catalog-coverage.mjs
       - name: Guardar catálogo preparado sem perder commits concorrentes
@@ -46,8 +51,9 @@ jobs:
             git fetch origin "$GITHUB_REF_NAME"
             git reset --hard "origin/$GITHUB_REF_NAME"
             node scripts/prepare-flashscore-catalog.mjs
+            node scripts/build-flashscore-competition-status.mjs
             node scripts/audit-flashscore-catalog-coverage.mjs
-            git add data/flashscore-competition-catalog.json data/flashscore-competition-coverage.json
+            git add data/flashscore-competition-catalog.json data/flashscore-competition-coverage.json data/flashscore-competition-status.json
             if git diff --cached --quiet; then
               echo "O catálogo preparado já está atualizado."
               pushed=true
