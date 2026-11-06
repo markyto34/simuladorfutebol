@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 201,
-  "processed_games": 26,
-  "stats_games": 26,
-  "bwin_odds": 26,
+  "processed_games": 51,
+  "stats_games": 51,
+  "bwin_odds": 51,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/201 · xf4KJlw0",
-  "last_result": "Union Santa Fe F - San Luis F: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T09:26:52.284Z"
+  "current_match": "A consultar jogo 54/201 · EqkkgCho",
+  "last_result": "San Luis F - Belgrano F: 7 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T09:26:57.887Z"
 }
