@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 59,
-  "processed_games": 51,
+  "processed_games": 59,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/59 · 4M8yrjfU",
-  "last_result": "Batel - Rio Branco PR: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:35:13.604Z"
+  "current_match": "Último concluído: Parana - Prudentopolis",
+  "last_result": "Parana - Prudentopolis: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:35:15.193Z"
 }
