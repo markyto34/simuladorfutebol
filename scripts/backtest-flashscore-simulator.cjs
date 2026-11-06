@@ -56,8 +56,8 @@ function update(map,m,n){
  const h=getHistory(map,m,m.home,"home"),a=getHistory(map,m,m.away,"away");
  push(h.gf,m.hg,n);push(h.ga,m.ag,n);push(a.gf,m.ag,n);push(a.ga,m.hg,n);
  push(h.xgf,m.xgH,n);push(h.xga,m.xgA,n);push(a.xgf,m.xgA,n);push(a.xga,m.xgH,n);
- push(h.htf,m.htH,n);push(h.hta,m.htA,n);push(a.htf,m.htA,n);push(a.hta,m.htH,n);
- push(h.shf,m.shH,n);push(h.sha,m.shA,n);push(a.shf,m.shA,n);push(a.sha,m.shH,n);
+ if(Number.isFinite(m.htH)&&Number.isFinite(m.htA)){push(h.htf,m.htH,n);push(h.hta,m.htA,n);push(a.htf,m.htA,n);push(a.hta,m.htH,n);}
+ if(Number.isFinite(m.shH)&&Number.isFinite(m.shA)){push(h.shf,m.shH,n);push(h.sha,m.shA,n);push(a.shf,m.shA,n);push(a.sha,m.shH,n);}
  for(const [k,s] of Object.entries(SPECS)){push(h.stats[k].f,m[s.h],n);push(h.stats[k].a,m[s.a],n);push(a.stats[k].f,m[s.a],n);push(a.stats[k].a,m[s.h],n);}
 }
 function backtest(matches,{sampleSize=5}={}){
