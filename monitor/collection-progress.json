@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 39,
-  "processed_games": 26,
+  "processed_games": 39,
   "stats_games": 7,
-  "bwin_odds": 19,
+  "bwin_odds": 23,
   "failed_games": 0,
-  "current_match": "Último concluído: Tshakhuma - Orlando",
-  "last_result": "Tshakhuma - Orlando: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T08:26:41.283Z"
+  "current_match": "Último concluído: Kruger United - Highbury",
+  "last_result": "Kruger United - Highbury: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T08:26:43.951Z"
 }
