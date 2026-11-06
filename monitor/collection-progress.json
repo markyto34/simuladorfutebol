@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 465,
-  "processed_games": 301,
-  "stats_games": 301,
-  "bwin_odds": 300,
+  "processed_games": 327,
+  "stats_games": 327,
+  "bwin_odds": 326,
   "failed_games": 0,
-  "current_match": "A consultar jogo 304/465 · pfc22p7D",
-  "last_result": "Aldosivi - Argentinos Jrs: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T09:23:23.121Z"
+  "current_match": "Último concluído: Union Santa Fe - Boca Juniors",
+  "last_result": "Union Santa Fe - Boca Juniors: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T09:23:28.908Z"
 }
