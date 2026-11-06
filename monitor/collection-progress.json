@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 135,
   "processed_games": 135,
   "stats_games": 1,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Luckenwalde - Lokomotive Leipzig",
+  "current_match": "Recolha terminada",
   "last_result": "Luckenwalde - Lokomotive Leipzig: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T08:51:22.701Z"
+  "updated_at": "2026-11-06T08:51:24.115Z"
 }
