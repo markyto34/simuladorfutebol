@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 68,
-  "processed_games": 51,
-  "stats_games": 50,
+  "processed_games": 68,
+  "stats_games": 66,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/68 · Sz1QsM7E",
-  "last_result": "Botafogo U20 - Estrela De Marco U20: 9 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:59:54.098Z"
+  "current_match": "Último concluído: Gremio U20 - Real SC U20",
+  "last_result": "Gremio U20 - Real SC U20: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:59:57.701Z"
 }
