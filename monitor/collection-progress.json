@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 200,
-  "processed_games": 176,
+  "processed_games": 200,
   "stats_games": 14,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 179/200 · zFmBNll4",
-  "last_result": "America Mineiro U20 - Botafogo U20: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:05:20.047Z"
+  "current_match": "Último concluído: Vitoria U20 - Criciuma U20",
+  "last_result": "Vitoria U20 - Criciuma U20: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:05:25.014Z"
 }
