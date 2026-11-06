@@ -2,14 +2,14 @@
   "run_id": "42228408587",
   "run_number": "5",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 80,
-  "processed_games": 76,
-  "stats_games": 76,
-  "bwin_odds": 75,
+  "processed_games": 80,
+  "stats_games": 80,
+  "bwin_odds": 79,
   "failed_games": 0,
-  "current_match": "A consultar jogo 79/80 · dtxyMgdM",
-  "last_result": "CF Os Belenenses - Caldas: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T13:51:46.607Z"
+  "current_match": "Recolha terminada",
+  "last_result": "Paredes - Vitória SC B: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T13:51:48.393Z"
 }
