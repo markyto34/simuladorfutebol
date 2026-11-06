@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 88,
-  "processed_games": 76,
+  "processed_games": 88,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 79/88 · r3YkqgLl",
-  "last_result": "Ellerton FC - UWI Blackbirds: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:37:34.947Z"
+  "current_match": "Último concluído: Bagatelle SSC - Weymouth Wales",
+  "last_result": "Bagatelle SSC - Weymouth Wales: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:37:37.331Z"
 }
