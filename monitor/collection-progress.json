@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 28,
-  "processed_games": 26,
-  "stats_games": 26,
-  "bwin_odds": 21,
+  "processed_games": 28,
+  "stats_games": 28,
+  "bwin_odds": 23,
   "failed_games": 0,
-  "current_match": "Último concluído: Brunei - Timor Leste",
-  "last_result": "Brunei - Timor Leste: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T09:46:58.146Z"
+  "current_match": "Último concluído: Tailândia - Myanmar",
+  "last_result": "Tailândia - Myanmar: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T09:47:06.611Z"
 }
