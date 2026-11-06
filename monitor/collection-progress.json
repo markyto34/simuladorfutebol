@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 60,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 25,
+  "stats_games": 25,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T09:54:30.233Z"
+  "current_match": "Último concluído: Sri Lanka U20 - Maldivas U20",
+  "last_result": "Sri Lanka U20 - Maldivas U20: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T09:54:44.976Z"
 }
