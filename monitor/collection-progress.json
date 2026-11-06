@@ -2,14 +2,14 @@
   "run_id": "42307576115",
   "run_number": "8",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 64,
   "processed_games": 64,
   "stats_games": 64,
   "bwin_odds": 64,
   "failed_games": 0,
-  "current_match": "Último concluído: Stellenbosch - AmaZulu",
+  "current_match": "Recolha terminada",
   "last_result": "Stellenbosch - AmaZulu: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T22:51:00.391Z"
+  "updated_at": "2026-11-06T22:51:03.057Z"
 }
