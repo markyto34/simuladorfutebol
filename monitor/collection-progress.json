@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 137,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 26,
+  "stats_games": 17,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T10:08:53.755Z"
+  "current_match": "A consultar jogo 29/137 · GGBeXH9d",
+  "last_result": "Joondalup - Cockburn City: 1 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:09:01.080Z"
 }
