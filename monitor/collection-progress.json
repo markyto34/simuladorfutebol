@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 112,
-  "processed_games": 102,
+  "processed_games": 112,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 105/112 · jePPu0nK",
-  "last_result": "Kufstein - Lochau: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:26:32.432Z"
+  "current_match": "Último concluído: SC Imst - Reichenau",
+  "last_result": "SC Imst - Reichenau: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:26:34.650Z"
 }
