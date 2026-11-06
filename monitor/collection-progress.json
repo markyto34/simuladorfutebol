@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 167,
-  "processed_games": 125,
-  "stats_games": 125,
-  "bwin_odds": 124,
+  "processed_games": 151,
+  "stats_games": 151,
+  "bwin_odds": 150,
   "failed_games": 0,
-  "current_match": "Último concluído: America Mineiro F - Mixto F",
-  "last_result": "America Mineiro F - Mixto F: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T11:02:11.962Z"
+  "current_match": "A consultar jogo 154/167 · 6k5b6J4t",
+  "last_result": "Cruzeiro F - Santos F: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T11:02:17.380Z"
 }
