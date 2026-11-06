@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 34,
   "processed_games": 34,
   "stats_games": 31,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Blumenau - Santa Catarina",
+  "current_match": "Recolha terminada",
   "last_result": "Blumenau - Santa Catarina: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T12:05:45.724Z"
+  "updated_at": "2026-11-06T12:05:47.367Z"
 }
