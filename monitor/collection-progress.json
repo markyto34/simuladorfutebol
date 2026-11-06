@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 177,
-  "processed_games": 126,
-  "stats_games": 102,
-  "bwin_odds": 68,
+  "processed_games": 150,
+  "stats_games": 114,
+  "bwin_odds": 77,
   "failed_games": 0,
-  "current_match": "Último concluído: Nahariya - Tzeirey Tamra",
-  "last_result": "Nahariya - Tzeirey Tamra: 10 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T07:42:58.122Z"
+  "current_match": "A consultar jogo 152/177 · bB57ZsEb",
+  "last_result": "Chindia Targoviste - Popesti Leordeni: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T07:43:05.490Z"
 }
