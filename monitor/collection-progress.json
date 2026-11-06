@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 98,
   "processed_games": 98,
   "stats_games": 32,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Japão U23 - Jordânia U23",
+  "current_match": "Recolha terminada",
   "last_result": "Japão U23 - Jordânia U23: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T09:44:01.964Z"
+  "updated_at": "2026-11-06T09:44:04.020Z"
 }
