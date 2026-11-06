@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 35,
-  "processed_games": 26,
-  "stats_games": 26,
+  "processed_games": 35,
+  "stats_games": 35,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/35 · SWkPZdFd",
-  "last_result": "Chile U20 F - Uruguai U20 F: 14 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T09:08:39.487Z"
+  "current_match": "Último concluído: Uruguai U20 F - Venezuela U20 F",
+  "last_result": "Uruguai U20 F - Venezuela U20 F: 14 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T09:08:41.507Z"
 }
