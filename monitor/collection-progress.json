@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 48,
-  "processed_games": 27,
-  "stats_games": 27,
-  "bwin_odds": 26,
+  "processed_games": 48,
+  "stats_games": 48,
+  "bwin_odds": 43,
   "failed_games": 0,
-  "current_match": "Último concluído: Braunschweig - Union Berlin",
-  "last_result": "Braunschweig - Union Berlin: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T08:56:31.463Z"
+  "current_match": "Último concluído: SC St.Tonis - Frankfurt",
+  "last_result": "SC St.Tonis - Frankfurt: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T08:56:36.551Z"
 }
