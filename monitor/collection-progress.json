@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 105,
-  "processed_games": 102,
+  "processed_games": 105,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 105/105 · ze90QxXQ",
-  "last_result": "Kuchl - Saalfelden: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:29:05.109Z"
+  "current_match": "Recolha terminada",
+  "last_result": "Grodig - TSV St. Johann: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:29:06.844Z"
 }
