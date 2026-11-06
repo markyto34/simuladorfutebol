@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 126,
-  "processed_games": 101,
+  "processed_games": 126,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 104/126 · MkEoFS3N",
-  "last_result": "Normannia Gmund - Villingen: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T08:40:33.022Z"
+  "current_match": "Último concluído: Reutlingen - Nottingen",
+  "last_result": "Reutlingen - Nottingen: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T08:40:38.196Z"
 }
