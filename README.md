@@ -38,7 +38,7 @@ O modelo atual é experimental. Os indicadores adicionais usam binomial negativa
 5. Construir histórico de análises e comparação entre equipas.
 
 ## Backtesting
-O workflow principal de backtesting usa agora o histórico próprio do Flashscore em `data/flashscore-statistics.csv`, sem descarregar resultados de outra fonte. O motor `scripts/backtest-flashscore-simulator.cjs` executa walk-forward cronológico e mantém cada país/competição isolado. Para cada jogo, só utiliza partidas de datas anteriores; jogos do mesmo dia só entram no histórico depois de todas as previsões desse dia.
+O workflow principal de backtesting usa agora o histórico próprio do Flashscore em `data/flashscore-statistics.csv`, sem descarregar resultados de outra fonte. O motor `scripts/backtest-flashscore-simulator.cjs` usa também `data/simulator-complete-competitions.json` para avaliar apenas as competições completas que aparecem no seletor do site, incluindo os respetivos aliases de origem. Executa walk-forward cronológico e mantém cada país/competição isolado. Para cada jogo, só utiliza partidas de datas anteriores; jogos do mesmo dia só entram no histórico depois de todas as previsões desse dia.
 
 O modelo reproduz a configuração atual do simulador: amostra predefinida dos últimos 5 jogos por equipa e local (configurável para 10 ou 15), mínimo de 3 observações por indicador e 5 para xG, ponderação de 65% golos históricos + 35% xG quando há cobertura completa, Poisson para golos e binomial negativa com as mesmas dispersões do simulador para cantos, remates, remates à baliza, faltas e cartões.
 
