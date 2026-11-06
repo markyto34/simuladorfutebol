@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 201,
-  "processed_games": 176,
-  "stats_games": 170,
-  "bwin_odds": 175,
+  "processed_games": 201,
+  "stats_games": 195,
+  "bwin_odds": 198,
   "failed_games": 0,
-  "current_match": "A consultar jogo 179/201 · IaXPRdg3",
-  "last_result": "Independiente F - Huracan F: 7 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T09:27:23.850Z"
+  "current_match": "Último concluído: Social Atletico Television F - Belgrano F",
+  "last_result": "Social Atletico Television F - Belgrano F: 7 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T09:27:29.015Z"
 }
