@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 139,
-  "processed_games": 0,
+  "processed_games": 26,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T10:15:48.600Z"
+  "current_match": "A consultar jogo 29/139 · 0EhRQmJF",
+  "last_result": "Queensland Lions F - Capalaba F: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:15:55.570Z"
 }
