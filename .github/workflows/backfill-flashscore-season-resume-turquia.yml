@@ -37,7 +37,8 @@ jobs:
             done
           fi
           node --check scripts/discover-flashscore-season.mjs
-          node --test tests/discover-flashscore-season.test.mjs
+          node --check scripts/build-flashscore-competition-status.mjs
+          node --test tests/discover-flashscore-season.test.mjs tests/build-flashscore-competition-status.test.mjs
       - name: Preparar lista de competições da época atual
         env:
           COMPETITION_PATH: ${{ inputs.competition_path }}
@@ -46,12 +47,15 @@ jobs:
           COMPETITION_LIMIT: ${{ inputs.competition_limit }}
         run: |
           set -euo pipefail
+          node scripts/build-flashscore-competition-status.mjs
           node --input-type=module <<'NODE'
           import fs from "node:fs";
           const requested = process.env.COMPETITION_PATH || "";
           const resumeFrom = process.env.RESUME_FROM_PATH || "";
           const checkpointFile = "data/flashscore-season-backfill-checkpoint.json";
           const checkpoint = JSON.parse(fs.readFileSync(checkpointFile, "utf8"));
+          const statusReport = JSON.parse(fs.readFileSync("data/flashscore-competition-status.json", "utf8"));
+          const statusByPath = statusReport.status_by_path || {};
           const completedPaths = new Set(checkpoint.completed_paths || []);
           const selection = JSON.parse(fs.readFileSync("data/flashscore-competition-selection.json", "utf8"));
           const selectedPaths = new Set(selection.selected_paths || []);
@@ -59,6 +63,7 @@ jobs:
           let allPaths;
           if (requested) {
             if (!selectedPaths.has(requested)) throw new Error("A competição pedida não está na seleção ativa: " + requested);
+            if (statusByPath[requested]?.status === "complete") throw new Error("Esta competição já tem todos os indicadores guardados: " + requested);
             allPaths = [requested];
           } else {
             const catalog = JSON.parse(fs.readFileSync("data/flashscore-competition-catalog.json", "utf8"));
@@ -67,7 +72,8 @@ jobs:
             }).filter(path =>
               /^\\/futebol\\/[a-z0-9-]+\\/[a-z0-9-]+\\/$/.test(path) &&
               !/friendly|friendlies|amig[aá]v|amistos/i.test(path) &&
-              selectedPaths.has(path)
+              selectedPaths.has(path) &&
+              statusByPath[path]?.status !== "complete"
             ))].sort();
           }
           if (!allPaths.length) throw new Error("A seleção não contém caminhos válidos no catálogo atual.");
@@ -76,8 +82,9 @@ jobs:
             if (start < 0) throw new Error("A competição indicada para retoma não existe no catálogo completo: " + resumeFrom);
             allPaths = allPaths.slice(start);
           }
-          const alreadyCompleted = allPaths.filter(path => completedPaths.has(path)).length;
-          let paths = requested ? allPaths : allPaths.filter(path => !completedPaths.has(path));
+          const alreadyCompleted = [...selectedPaths].filter(path => statusByPath[path]?.status === "complete").length;
+          const checkpointPartial = allPaths.filter(path => completedPaths.has(path) && statusByPath[path]?.status === "partial").length;
+          let paths = allPaths;
           const offset = Number(process.env.COMPETITION_OFFSET || 0);
           const limit = Number(process.env.COMPETITION_LIMIT || 0);
           if (!Number.isInteger(offset) || offset < 0 || !Number.isInteger(limit) || limit < 0) {
@@ -87,14 +94,16 @@ jobs:
           paths = paths.slice(offset, limit > 0 ? offset + limit : undefined);
           if (!paths.length) throw new Error("Não há competições pendentes no grupo pedido; catálogo=" + allPaths.length + ", concluídas=" + alreadyCompleted + ".");
           fs.writeFileSync("/tmp/flashscore-season-paths.txt", paths.join("\n") + "\n");
-          console.log("Competições selecionadas pelo utilizador: " + selectedPaths.size);\n          console.log("Competições incluídas neste lote: " + allPaths.length);
+          console.log("Competições selecionadas pelo utilizador: " + selectedPaths.size);\n          console.log("Competições já completas em todos os indicadores e ignoradas: " + alreadyCompleted);
+          console.log("Competições com checkpoint mas indicadores parciais, a completar: " + checkpointPartial);
+          console.log("Competições incluídas neste lote: " + allPaths.length);
           console.log("Competições já concluídas e preservadas: " + alreadyCompleted);
           console.log("Competições ainda pendentes antes do offset: " + remaining);
           console.log("Retoma a partir de: " + (requested || resumeFrom || "primeira competição ainda não concluída"));
           console.log("Grupo selecionado: offset=" + offset + ", limite=" + (limit || "todas") + ", selecionadas=" + paths.length);
           console.log("Primeira competição selecionada: " + paths[0]);
           console.log("Última competição selecionada: " + paths[paths.length - 1]);
-          console.log("Âmbito: apenas competições explicitamente selecionadas; checkpoint e históricos existentes preservados; amigáveis excluídos.");
+          console.log("Âmbito: apenas selecionadas; competições totalmente completas são ignoradas; parciais são reprocessadas apenas nos jogos com indicadores em falta; amigáveis excluídos.");
           NODE
       - name: Descobrir épocas e recolher estatísticas + odds Bwin
         env:
