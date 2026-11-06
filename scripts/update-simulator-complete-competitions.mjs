@@ -34,8 +34,13 @@ export function buildCompleteCompetitions(records, previous = {}) {
   if (!Array.isArray(records) || records.length === 0) throw new Error("O CSV de estatísticas está vazio; índice anterior preservado.");
   const previousItems = Array.isArray(previous.complete_competitions) ? previous.complete_competitions : [];
   const previousByLabel = new Map();
+  const previousCountryNames = new Map();
   for (const item of previousItems) {
-    for (const label of item.stats_source_labels || []) previousByLabel.set(labelKey(label), item);
+    for (const label of item.stats_source_labels || []) {
+      previousByLabel.set(labelKey(label), item);
+      const countryLabel = String(label).split("/")[0].trim();
+      if (countryLabel) previousCountryNames.set(normalize(countryLabel), item.country_name);
+    }
   }
 
   const groups = new Map();
@@ -63,7 +68,7 @@ export function buildCompleteCompetitions(records, previous = {}) {
   const unidentified = [];
   for (const item of groups.values()) {
     const previousItem = [...item.labels].map(label => previousByLabel.get(labelKey(label))).find(Boolean);
-    const countryName = previousItem?.country_name || COUNTRY_NAMES.get(normalize(item.country));
+    const countryName = previousItem?.country_name || previousCountryNames.get(normalize(item.country)) || COUNTRY_NAMES.get(normalize(item.country));
     if (!countryName) {
       unidentified.push({ country: item.country, competition: item.competition, source_labels: [...item.labels].sort() });
       continue;
