@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 42,
-  "processed_games": 26,
-  "stats_games": 26,
+  "processed_games": 42,
+  "stats_games": 42,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/42 · Uq5xSGXO",
-  "last_result": "Cianorte - Operario: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T12:06:09.862Z"
+  "current_match": "Último concluído: SER Caxias - Operario",
+  "last_result": "SER Caxias - Operario: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T12:06:13.334Z"
 }
