@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 82,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 25,
+  "processed_games": 50,
+  "stats_games": 50,
+  "bwin_odds": 50,
   "failed_games": 0,
-  "current_match": "Último concluído: Darmstadt - Cottbus",
-  "last_result": "Darmstadt - Cottbus: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T23:08:33.682Z"
+  "current_match": "Último concluído: Dresden - Bochum",
+  "last_result": "Dresden - Bochum: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T23:08:58.632Z"
 }
