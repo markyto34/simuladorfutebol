@@ -2,14 +2,14 @@
   "run_id": "42113410971",
   "run_number": "7",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 0,
   "processed_games": 0,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A preparar jogos dos últimos cinco por equipa",
+  "current_match": "Sem jogos pendentes",
   "last_result": "",
-  "updated_at": "2026-11-06T06:49:30.699Z"
+  "updated_at": "2026-11-06T06:49:31.879Z"
 }
