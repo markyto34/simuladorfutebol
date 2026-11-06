@@ -1,0 +1,8058 @@
+{
+  "generated_from": "data/flashscore-statistics.csv",
+  "generated_at": "2026-11-06",
+  "definition": "At least 5 unique matches and 100% paired home/away values for every core metric listed.",
+  "core_metrics": [
+    "xg",
+    "possession",
+    "shots",
+    "shots_on_target",
+    "corners",
+    "corners_ht",
+    "corners_st",
+    "yellow_cards",
+    "fouls"
+  ],
+  "complete_competitions": [
+    {
+      "country_name": "África",
+      "competition_name": "Campeonato das Nações Africanas",
+      "stats_source_labels": [
+        "África / Campeonato das Nações Africanas"
+      ],
+      "unique_stats_matches": 36,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "África",
+      "competition_name": "Campeonato das Nações Africanas - Playoffs",
+      "stats_source_labels": [
+        "África / Campeonato das Nações Africanas - Playoffs"
+      ],
+      "unique_stats_matches": 8,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "África",
+      "competition_name": "Liga dos Campeões da CAF Feminina",
+      "stats_source_labels": [
+        "ÁFRICA / Liga dos Campeões da CAF Feminina"
+      ],
+      "unique_stats_matches": 8,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "África",
+      "competition_name": "Taça das Nações Africanas Feminina",
+      "stats_source_labels": [
+        "África / Taça das Nações Africanas Feminina"
+      ],
+      "unique_stats_matches": 24,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "África",
+      "competition_name": "Taça das Nações Africanas Feminina - Playoffs",
+      "stats_source_labels": [
+        "África / Taça das Nações Africanas Feminina - Playoffs"
+      ],
+      "unique_stats_matches": 8,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "África",
+      "competition_name": "Taça das Nações Africanas Sub-17",
+      "stats_source_labels": [
+        "África / Taça das Nações Africanas Sub-17"
+      ],
+      "unique_stats_matches": 24,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "África",
+      "competition_name": "Taça das Nações Africanas Sub-17 - Playoffs",
+      "stats_source_labels": [
+        "África / Taça das Nações Africanas Sub-17 - Playoffs"
+      ],
+      "unique_stats_matches": 8,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "África do Sul",
+      "competition_name": "Carling Knockout",
+      "stats_source_labels": [
+        "África do Sul / Carling Knockout"
+      ],
+      "unique_stats_matches": 8,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "África do Sul",
+      "competition_name": "Taça MTN 8",
+      "stats_source_labels": [
+        "África do Sul / Taça MTN 8"
+      ],
+      "unique_stats_matches": 9,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Alemanha",
+      "competition_name": "2. Bundesliga",
+      "stats_source_labels": [
+        "ALEMANHA / 2. Bundesliga"
+      ],
+      "unique_stats_matches": 9,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Alemanha",
+      "competition_name": "Bundesliga",
+      "stats_source_labels": [
+        "ALEMANHA / Bundesliga"
+      ],
+      "unique_stats_matches": 9,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Alemanha",
+      "competition_name": "Bundesliga",
+      "stats_source_labels": [
+        "Alemanha / Bundesliga"
+      ],
+      "unique_stats_matches": 63,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 63,
+          "total": 63,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 63,
+          "total": 63,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 63,
+          "total": 63,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 63,
+          "total": 63,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 63,
+          "total": 63,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 63,
+          "total": 63,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 63,
+          "total": 63,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 63,
+          "total": 63,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 63,
+          "total": 63,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "América do Norte e Central",
+      "competition_name": "Campeonato Sub 20 CONCACAF",
+      "stats_source_labels": [
+        "América do Norte e Central / Campeonato Sub 20 CONCACAF"
+      ],
+      "unique_stats_matches": 18,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "América do Norte e Central",
+      "competition_name": "Campeonato Sub 20 CONCACAF - Playoffs",
+      "stats_source_labels": [
+        "América do Norte e Central / Campeonato Sub 20 CONCACAF - Playoffs"
+      ],
+      "unique_stats_matches": 7,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "América do Norte e Central",
+      "competition_name": "CONCACAF Taça das Caraíbas",
+      "stats_source_labels": [
+        "América do Norte e Central / CONCACAF Taça das Caraíbas"
+      ],
+      "unique_stats_matches": 20,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "América do Norte e Central",
+      "competition_name": "Taça Centro-Americana da CONCACAF",
+      "stats_source_labels": [
+        "América do Norte e Central / Taça Centro-Americana da CONCACAF"
+      ],
+      "unique_stats_matches": 40,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "América do Norte e Central",
+      "competition_name": "Taça Centro-Americana da CONCACAF - Playoffs",
+      "stats_source_labels": [
+        "América do Norte e Central / Taça Centro-Americana da CONCACAF - Playoffs"
+      ],
+      "unique_stats_matches": 12,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 12,
+          "total": 12,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 12,
+          "total": 12,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 12,
+          "total": 12,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 12,
+          "total": 12,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 12,
+          "total": 12,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 12,
+          "total": 12,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 12,
+          "total": 12,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 12,
+          "total": 12,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 12,
+          "total": 12,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "América do Norte e Central",
+      "competition_name": "Taça das Ligas - Playoffs",
+      "stats_source_labels": [
+        "América do Norte e Central / Taça das Ligas - Playoffs"
+      ],
+      "unique_stats_matches": 8,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "América do Norte e Central",
+      "competition_name": "Taça Ouro - Playoffs",
+      "stats_source_labels": [
+        "América do Norte e Central / Taça Ouro - Playoffs"
+      ],
+      "unique_stats_matches": 7,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "América do Sul",
+      "competition_name": "Campeonato Sul-Americano Sub-20 - Grupo Final",
+      "stats_source_labels": [
+        "América do Sul / Campeonato Sul-Americano Sub-20 - Grupo Final"
+      ],
+      "unique_stats_matches": 15,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 15,
+          "total": 15,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 15,
+          "total": 15,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 15,
+          "total": 15,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 15,
+          "total": 15,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 15,
+          "total": 15,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 15,
+          "total": 15,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 15,
+          "total": 15,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 15,
+          "total": 15,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 15,
+          "total": 15,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "América do Sul",
+      "competition_name": "Copa América - Playoffs",
+      "stats_source_labels": [
+        "América do Sul / Copa América - Playoffs"
+      ],
+      "unique_stats_matches": 8,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "América do Sul",
+      "competition_name": "Copa Libertadores - Qualification",
+      "stats_source_labels": [
+        "América do Sul / Copa Libertadores - Qualification"
+      ],
+      "unique_stats_matches": 30,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "América do Sul",
+      "competition_name": "Copa Sudamericana - Group Stage",
+      "stats_source_labels": [
+        "América do Sul / Copa Sudamericana - Group Stage"
+      ],
+      "unique_stats_matches": 40,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "América do Sul",
+      "competition_name": "Copa Sudamericana - Qualification",
+      "stats_source_labels": [
+        "América do Sul / Copa Sudamericana - Qualification"
+      ],
+      "unique_stats_matches": 16,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 16,
+          "total": 16,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 16,
+          "total": 16,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 16,
+          "total": 16,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 16,
+          "total": 16,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 16,
+          "total": 16,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 16,
+          "total": 16,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 16,
+          "total": 16,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 16,
+          "total": 16,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 16,
+          "total": 16,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "América do Sul",
+      "competition_name": "Taça dos Libertadores - Feminina",
+      "stats_source_labels": [
+        "América do Sul / Taça dos Libertadores - Feminina"
+      ],
+      "unique_stats_matches": 24,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "América do Sul",
+      "competition_name": "Taça dos Libertadores - Playoffs",
+      "stats_source_labels": [
+        "América do Sul / Taça dos Libertadores - Playoffs"
+      ],
+      "unique_stats_matches": 28,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 28,
+          "total": 28,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 28,
+          "total": 28,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 28,
+          "total": 28,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 28,
+          "total": 28,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 28,
+          "total": 28,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 28,
+          "total": 28,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 28,
+          "total": 28,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 28,
+          "total": 28,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 28,
+          "total": 28,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "América do Sul",
+      "competition_name": "Taça Sul-Americana - Fase de Grupos",
+      "stats_source_labels": [
+        "América do Sul / Taça Sul-Americana - Fase de Grupos"
+      ],
+      "unique_stats_matches": 56,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 56,
+          "total": 56,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 56,
+          "total": 56,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 56,
+          "total": 56,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 56,
+          "total": 56,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 56,
+          "total": 56,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 56,
+          "total": 56,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 56,
+          "total": 56,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 56,
+          "total": 56,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 56,
+          "total": 56,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Arábia Saudita",
+      "competition_name": "Segunda Liga",
+      "stats_source_labels": [
+        "ARÁBIA SAUDITA / Segunda Liga"
+      ],
+      "unique_stats_matches": 9,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Argentina",
+      "competition_name": "Liga Profesional - Apertura - Play Offs",
+      "stats_source_labels": [
+        "Argentina / Liga Profesional - Apertura - Play Offs"
+      ],
+      "unique_stats_matches": 15,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 15,
+          "total": 15,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 15,
+          "total": 15,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 15,
+          "total": 15,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 15,
+          "total": 15,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 15,
+          "total": 15,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 15,
+          "total": 15,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 15,
+          "total": 15,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 15,
+          "total": 15,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 15,
+          "total": 15,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Argentina",
+      "competition_name": "Taça da Argentina",
+      "stats_source_labels": [
+        "Argentina / Taça da Argentina"
+      ],
+      "unique_stats_matches": 30,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Argentina",
+      "competition_name": "Taça da Liga Profissional - Playoffs",
+      "stats_source_labels": [
+        "Argentina / Taça da Liga Profissional - Playoffs"
+      ],
+      "unique_stats_matches": 7,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Ásia",
+      "competition_name": "AFC - Liga dos Campeões - Fase de Liga",
+      "stats_source_labels": [
+        "ÁSIA / AFC - Liga dos Campeões - Fase de Liga"
+      ],
+      "unique_stats_matches": 16,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 16,
+          "total": 16,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 16,
+          "total": 16,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 16,
+          "total": 16,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 16,
+          "total": 16,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 16,
+          "total": 16,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 16,
+          "total": 16,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 16,
+          "total": 16,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 16,
+          "total": 16,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 16,
+          "total": 16,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Ásia",
+      "competition_name": "Campeonato ASEAN",
+      "stats_source_labels": [
+        "Ásia / Campeonato ASEAN"
+      ],
+      "unique_stats_matches": 20,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Ásia",
+      "competition_name": "Taça Leste Asiática EAFF",
+      "stats_source_labels": [
+        "Ásia / Taça Leste Asiática EAFF"
+      ],
+      "unique_stats_matches": 6,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Austrália",
+      "competition_name": "Liga A",
+      "stats_source_labels": [
+        "AUSTRÁLIA / Liga A"
+      ],
+      "unique_stats_matches": 6,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Austrália",
+      "competition_name": "Liga A Feminina",
+      "stats_source_labels": [
+        "AUSTRÁLIA / Liga A Feminina"
+      ],
+      "unique_stats_matches": 5,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Austrália",
+      "competition_name": "Taça da Austrália",
+      "stats_source_labels": [
+        "Austrália / Taça da Austrália"
+      ],
+      "unique_stats_matches": 31,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 31,
+          "total": 31,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 31,
+          "total": 31,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 31,
+          "total": 31,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 31,
+          "total": 31,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 31,
+          "total": 31,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 31,
+          "total": 31,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 31,
+          "total": 31,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 31,
+          "total": 31,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 31,
+          "total": 31,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Áustria",
+      "competition_name": "Primeira Liga",
+      "stats_source_labels": [
+        "ÁUSTRIA / Primeira Liga"
+      ],
+      "unique_stats_matches": 6,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Bélgica",
+      "competition_name": "Primeira Liga",
+      "stats_source_labels": [
+        "BÉLGICA / Primeira Liga"
+      ],
+      "unique_stats_matches": 10,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Bélgica",
+      "competition_name": "Segunda Liga",
+      "stats_source_labels": [
+        "BÉLGICA / Segunda Liga"
+      ],
+      "unique_stats_matches": 9,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Bélgica",
+      "competition_name": "Segunda Liga",
+      "stats_source_labels": [
+        "Bélgica / Segunda Liga"
+      ],
+      "unique_stats_matches": 54,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 54,
+          "total": 54,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 54,
+          "total": 54,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 54,
+          "total": 54,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 54,
+          "total": 54,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 54,
+          "total": 54,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 54,
+          "total": 54,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 54,
+          "total": 54,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 54,
+          "total": 54,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 54,
+          "total": 54,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Bolívia",
+      "competition_name": "Division Profesional",
+      "stats_source_labels": [
+        "Bolívia / Division Profesional"
+      ],
+      "unique_stats_matches": 92,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 92,
+          "total": 92,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 92,
+          "total": 92,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 92,
+          "total": 92,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 92,
+          "total": 92,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 92,
+          "total": 92,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 92,
+          "total": 92,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 92,
+          "total": 92,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 92,
+          "total": 92,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 92,
+          "total": 92,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Brasil",
+      "competition_name": "Carioca - Grupo de Despromoção",
+      "stats_source_labels": [
+        "Brasil / Carioca - Grupo de Despromoção"
+      ],
+      "unique_stats_matches": 12,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 12,
+          "total": 12,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 12,
+          "total": 12,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 12,
+          "total": 12,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 12,
+          "total": 12,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 12,
+          "total": 12,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 12,
+          "total": 12,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 12,
+          "total": 12,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 12,
+          "total": 12,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 12,
+          "total": 12,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Brasil",
+      "competition_name": "Carioca - Taça do Rio",
+      "stats_source_labels": [
+        "Brasil / Carioca - Taça do Rio"
+      ],
+      "unique_stats_matches": 5,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Brasil",
+      "competition_name": "Carioca - Taça Guanabara",
+      "stats_source_labels": [
+        "Brasil / Carioca - Taça Guanabara"
+      ],
+      "unique_stats_matches": 36,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Brasil",
+      "competition_name": "Carioca - Taça Guanabara - Playoffs",
+      "stats_source_labels": [
+        "Brasil / Carioca - Taça Guanabara - Playoffs"
+      ],
+      "unique_stats_matches": 9,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Brasil",
+      "competition_name": "Gaucho",
+      "stats_source_labels": [
+        "Brasil / Gaucho"
+      ],
+      "unique_stats_matches": 36,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Brasil",
+      "competition_name": "Gaucho - Despromoção",
+      "stats_source_labels": [
+        "Brasil / Gaucho - Despromoção"
+      ],
+      "unique_stats_matches": 12,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 12,
+          "total": 12,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 12,
+          "total": 12,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 12,
+          "total": 12,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 12,
+          "total": 12,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 12,
+          "total": 12,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 12,
+          "total": 12,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 12,
+          "total": 12,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 12,
+          "total": 12,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 12,
+          "total": 12,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Brasil",
+      "competition_name": "Gaucho - Playoffs",
+      "stats_source_labels": [
+        "Brasil / Gaucho - Playoffs"
+      ],
+      "unique_stats_matches": 10,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Brasil",
+      "competition_name": "Gaucho - Troféu Farroupilha - Play Offs",
+      "stats_source_labels": [
+        "Brasil / Gaucho - Troféu Farroupilha - Play Offs"
+      ],
+      "unique_stats_matches": 6,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Brasil",
+      "competition_name": "Mineiro - 5º-8º lugar",
+      "stats_source_labels": [
+        "Brasil / Mineiro - 5º-8º lugar"
+      ],
+      "unique_stats_matches": 6,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Brasil",
+      "competition_name": "Mineiro - Playoffs",
+      "stats_source_labels": [
+        "Brasil / Mineiro - Playoffs"
+      ],
+      "unique_stats_matches": 5,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Brasil",
+      "competition_name": "Paulista - Playoffs",
+      "stats_source_labels": [
+        "Brasil / Paulista - Playoffs"
+      ],
+      "unique_stats_matches": 8,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Brasil",
+      "competition_name": "Série A",
+      "stats_source_labels": [
+        "BRASIL / Série A"
+      ],
+      "unique_stats_matches": 16,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 16,
+          "total": 16,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 16,
+          "total": 16,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 16,
+          "total": 16,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 16,
+          "total": 16,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 16,
+          "total": 16,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 16,
+          "total": 16,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 16,
+          "total": 16,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 16,
+          "total": 16,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 16,
+          "total": 16,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Brasil",
+      "competition_name": "Série B",
+      "stats_source_labels": [
+        "BRASIL / Série B"
+      ],
+      "unique_stats_matches": 7,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Canadá",
+      "competition_name": "Canadian Premier League",
+      "stats_source_labels": [
+        "Canadá / Canadian Premier League"
+      ],
+      "unique_stats_matches": 14,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 14,
+          "total": 14,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 14,
+          "total": 14,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 14,
+          "total": 14,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 14,
+          "total": 14,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 14,
+          "total": 14,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 14,
+          "total": 14,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 14,
+          "total": 14,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 14,
+          "total": 14,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 14,
+          "total": 14,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Canadá",
+      "competition_name": "Taça Nacional do Canadá",
+      "stats_source_labels": [
+        "Canadá / Taça Nacional do Canadá"
+      ],
+      "unique_stats_matches": 20,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Catar",
+      "competition_name": "Primeira Liga",
+      "stats_source_labels": [
+        "CATAR / Primeira Liga"
+      ],
+      "unique_stats_matches": 6,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Chile",
+      "competition_name": "Liga de Primera",
+      "stats_source_labels": [
+        "CHILE / Liga de Primera"
+      ],
+      "unique_stats_matches": 8,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "China",
+      "competition_name": "Liga 1",
+      "stats_source_labels": [
+        "CHINA / Liga 1"
+      ],
+      "unique_stats_matches": 8,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Colômbia",
+      "competition_name": "Primeira A - Encerramento",
+      "stats_source_labels": [
+        "COLÔMBIA / Primeira A - Encerramento"
+      ],
+      "unique_stats_matches": 14,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 14,
+          "total": 14,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 14,
+          "total": 14,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 14,
+          "total": 14,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 14,
+          "total": 14,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 14,
+          "total": 14,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 14,
+          "total": 14,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 14,
+          "total": 14,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 14,
+          "total": 14,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 14,
+          "total": 14,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Croácia",
+      "competition_name": "Primeira Liga",
+      "stats_source_labels": [
+        "CROÁCIA / Primeira Liga"
+      ],
+      "unique_stats_matches": 5,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Dinamarca",
+      "competition_name": "Primeira Divisão",
+      "stats_source_labels": [
+        "DINAMARCA / Primeira Divisão"
+      ],
+      "unique_stats_matches": 6,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Dinamarca",
+      "competition_name": "Superliga",
+      "stats_source_labels": [
+        "DINAMARCA / Superliga"
+      ],
+      "unique_stats_matches": 5,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "EGIPTO",
+      "competition_name": "Primeira Liga",
+      "stats_source_labels": [
+        "EGIPTO / Primeira Liga"
+      ],
+      "unique_stats_matches": 8,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Eslováquia",
+      "competition_name": "Niké liga",
+      "stats_source_labels": [
+        "ESLOVÁQUIA / Niké liga"
+      ],
+      "unique_stats_matches": 6,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Espanha",
+      "competition_name": "LaLiga",
+      "stats_source_labels": [
+        "Espanha / LaLiga"
+      ],
+      "unique_stats_matches": 99,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 99,
+          "total": 99,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 99,
+          "total": 99,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 99,
+          "total": 99,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 99,
+          "total": 99,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 99,
+          "total": 99,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 99,
+          "total": 99,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 99,
+          "total": 99,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 99,
+          "total": 99,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 99,
+          "total": 99,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Espanha",
+      "competition_name": "LaLiga2",
+      "stats_source_labels": [
+        "ESPANHA / LaLiga2"
+      ],
+      "unique_stats_matches": 11,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 11,
+          "total": 11,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 11,
+          "total": 11,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 11,
+          "total": 11,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 11,
+          "total": 11,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 11,
+          "total": 11,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 11,
+          "total": 11,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 11,
+          "total": 11,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 11,
+          "total": 11,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 11,
+          "total": 11,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Espanha",
+      "competition_name": "LaLiga2",
+      "stats_source_labels": [
+        "Espanha / LaLiga2"
+      ],
+      "unique_stats_matches": 121,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 121,
+          "total": 121,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 121,
+          "total": 121,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 121,
+          "total": 121,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 121,
+          "total": 121,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 121,
+          "total": 121,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 121,
+          "total": 121,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 121,
+          "total": 121,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 121,
+          "total": 121,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 121,
+          "total": 121,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Espanha",
+      "competition_name": "Primeira Liga Feminina",
+      "stats_source_labels": [
+        "ESPANHA / Primeira Liga Feminina"
+      ],
+      "unique_stats_matches": 8,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Espanha",
+      "competition_name": "Primeira RFEF - Grupo 1",
+      "stats_source_labels": [
+        "ESPANHA / Primeira RFEF - Grupo 1"
+      ],
+      "unique_stats_matches": 10,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Espanha",
+      "competition_name": "Primeira RFEF - Grupo 2",
+      "stats_source_labels": [
+        "ESPANHA / Primeira RFEF - Grupo 2"
+      ],
+      "unique_stats_matches": 10,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Espanha",
+      "competition_name": "Primeira RFEF - Grupo 2",
+      "stats_source_labels": [
+        "Espanha / Primeira RFEF - Grupo 2"
+      ],
+      "unique_stats_matches": 89,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 89,
+          "total": 89,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 89,
+          "total": 89,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 89,
+          "total": 89,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 89,
+          "total": 89,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 89,
+          "total": 89,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 89,
+          "total": 89,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 89,
+          "total": 89,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 89,
+          "total": 89,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 89,
+          "total": 89,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Europa",
+      "competition_name": "Liga Conferência - Fase de Liga",
+      "stats_source_labels": [
+        "EUROPA / Liga Conferência - Fase de Liga"
+      ],
+      "unique_stats_matches": 18,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Europa",
+      "competition_name": "Liga dos Campeões - Fase de Liga",
+      "stats_source_labels": [
+        "EUROPA / Liga dos Campeões - Fase de Liga"
+      ],
+      "unique_stats_matches": 18,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Europa",
+      "competition_name": "Liga Europa - Fase de Liga",
+      "stats_source_labels": [
+        "EUROPA / Liga Europa - Fase de Liga"
+      ],
+      "unique_stats_matches": 18,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Finlândia",
+      "competition_name": "Primeira Liga - Grupo Campeonato",
+      "stats_source_labels": [
+        "FINLÂNDIA / Primeira Liga - Grupo Campeonato"
+      ],
+      "unique_stats_matches": 5,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "França",
+      "competition_name": "Liga2",
+      "stats_source_labels": [
+        "FRANÇA / Liga2"
+      ],
+      "unique_stats_matches": 9,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "França",
+      "competition_name": "Primeira Liga Feminina",
+      "stats_source_labels": [
+        "França / Primeira Liga Feminina"
+      ],
+      "unique_stats_matches": 35,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 35,
+          "total": 35,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 35,
+          "total": 35,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 35,
+          "total": 35,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 35,
+          "total": 35,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 35,
+          "total": 35,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 35,
+          "total": 35,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 35,
+          "total": 35,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 35,
+          "total": 35,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 35,
+          "total": 35,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Grécia",
+      "competition_name": "Superliga",
+      "stats_source_labels": [
+        "GRÉCIA / Superliga"
+      ],
+      "unique_stats_matches": 7,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Hungria",
+      "competition_name": "NB I.",
+      "stats_source_labels": [
+        "HUNGRIA / NB I."
+      ],
+      "unique_stats_matches": 6,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Hungria",
+      "competition_name": "NB I.",
+      "stats_source_labels": [
+        "Hungria / NB I."
+      ],
+      "unique_stats_matches": 65,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 65,
+          "total": 65,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 65,
+          "total": 65,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 65,
+          "total": 65,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 65,
+          "total": 65,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 65,
+          "total": 65,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 65,
+          "total": 65,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 65,
+          "total": 65,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 65,
+          "total": 65,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 65,
+          "total": 65,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Índia",
+      "competition_name": "Superliga",
+      "stats_source_labels": [
+        "ÍNDIA / Superliga"
+      ],
+      "unique_stats_matches": 7,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Inglaterra",
+      "competition_name": "Championship",
+      "stats_source_labels": [
+        "INGLATERRA / Championship"
+      ],
+      "unique_stats_matches": 24,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Inglaterra",
+      "competition_name": "Liga 1",
+      "stats_source_labels": [
+        "INGLATERRA / Liga 1"
+      ],
+      "unique_stats_matches": 15,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 15,
+          "total": 15,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 15,
+          "total": 15,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 15,
+          "total": 15,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 15,
+          "total": 15,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 15,
+          "total": 15,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 15,
+          "total": 15,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 15,
+          "total": 15,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 15,
+          "total": 15,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 15,
+          "total": 15,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Inglaterra",
+      "competition_name": "Premier League",
+      "stats_source_labels": [
+        "INGLATERRA / Premier League"
+      ],
+      "unique_stats_matches": 10,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Irlanda",
+      "competition_name": "Premier Division",
+      "stats_source_labels": [
+        "Irlanda / Premier Division"
+      ],
+      "unique_stats_matches": 72,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 72,
+          "total": 72,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 72,
+          "total": 72,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 72,
+          "total": 72,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 72,
+          "total": 72,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 72,
+          "total": 72,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 72,
+          "total": 72,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 72,
+          "total": 72,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 72,
+          "total": 72,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 72,
+          "total": 72,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Israel",
+      "competition_name": "Liga ha'Al",
+      "stats_source_labels": [
+        "ISRAEL / Liga ha'Al"
+      ],
+      "unique_stats_matches": 7,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Israel",
+      "competition_name": "Liga ha'Al",
+      "stats_source_labels": [
+        "Israel / Liga ha'Al"
+      ],
+      "unique_stats_matches": 55,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 55,
+          "total": 55,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 55,
+          "total": 55,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 55,
+          "total": 55,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 55,
+          "total": 55,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 55,
+          "total": 55,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 55,
+          "total": 55,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 55,
+          "total": 55,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 55,
+          "total": 55,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 55,
+          "total": 55,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Itália",
+      "competition_name": "Série B",
+      "stats_source_labels": [
+        "ITÁLIA / Série B"
+      ],
+      "unique_stats_matches": 10,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Itália",
+      "competition_name": "Serie C - Group A",
+      "stats_source_labels": [
+        "Itália / Serie C - Group A"
+      ],
+      "unique_stats_matches": 20,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Itália",
+      "competition_name": "Serie C - Group C",
+      "stats_source_labels": [
+        "Itália / Serie C - Group C"
+      ],
+      "unique_stats_matches": 20,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Itália",
+      "competition_name": "Série C - Grupo A",
+      "stats_source_labels": [
+        "ITÁLIA / Série C - Grupo A"
+      ],
+      "unique_stats_matches": 10,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Itália",
+      "competition_name": "Série C - Grupo B",
+      "stats_source_labels": [
+        "ITÁLIA / Série C - Grupo B"
+      ],
+      "unique_stats_matches": 10,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Itália",
+      "competition_name": "Série C - Grupo C",
+      "stats_source_labels": [
+        "ITÁLIA / Série C - Grupo C"
+      ],
+      "unique_stats_matches": 10,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Itália",
+      "competition_name": "Série C - Grupo C",
+      "stats_source_labels": [
+        "Itália / Série C - Grupo C"
+      ],
+      "unique_stats_matches": 90,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 90,
+          "total": 90,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 90,
+          "total": 90,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 90,
+          "total": 90,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 90,
+          "total": 90,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 90,
+          "total": 90,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 90,
+          "total": 90,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 90,
+          "total": 90,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 90,
+          "total": 90,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 90,
+          "total": 90,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Japão",
+      "competition_name": "Liga J1",
+      "stats_source_labels": [
+        "JAPÃO / Liga J1"
+      ],
+      "unique_stats_matches": 10,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Letónia",
+      "competition_name": "Primeira Liga",
+      "stats_source_labels": [
+        "LETÓNIA / Primeira Liga"
+      ],
+      "unique_stats_matches": 5,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "México",
+      "competition_name": "Liga de Expansion MX - Abertura",
+      "stats_source_labels": [
+        "MÉXICO / Liga de Expansion MX - Abertura"
+      ],
+      "unique_stats_matches": 8,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "México",
+      "competition_name": "Liga MX - Abertura",
+      "stats_source_labels": [
+        "MÉXICO / Liga MX - Abertura"
+      ],
+      "unique_stats_matches": 10,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Mundo",
+      "competition_name": "Campeonato do Mundo Sub17 Feminino - Playoffs",
+      "stats_source_labels": [
+        "MUNDO / Campeonato do Mundo Sub17 Feminino - Playoffs"
+      ],
+      "unique_stats_matches": 6,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Noruega",
+      "competition_name": "Liga de Elite",
+      "stats_source_labels": [
+        "NORUEGA / Liga de Elite"
+      ],
+      "unique_stats_matches": 8,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Países Baixos",
+      "competition_name": "Eerste Divisie",
+      "stats_source_labels": [
+        "Países Baixos / Eerste Divisie"
+      ],
+      "unique_stats_matches": 30,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Países Baixos",
+      "competition_name": "Eredivisie",
+      "stats_source_labels": [
+        "PAÍSES BAIXOS / Eredivisie"
+      ],
+      "unique_stats_matches": 9,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Peru",
+      "competition_name": "Liga 1 - Encerramento",
+      "stats_source_labels": [
+        "PERU / Liga 1 - Encerramento"
+      ],
+      "unique_stats_matches": 14,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 14,
+          "total": 14,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 14,
+          "total": 14,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 14,
+          "total": 14,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 14,
+          "total": 14,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 14,
+          "total": 14,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 14,
+          "total": 14,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 14,
+          "total": 14,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 14,
+          "total": 14,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 14,
+          "total": 14,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Portugal",
+      "competition_name": "Liga Portugal Betclic",
+      "stats_source_labels": [
+        "PORTUGAL / Liga Portugal Betclic"
+      ],
+      "unique_stats_matches": 8,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "REPÚBLICA CHECA",
+      "competition_name": "Chance Liga",
+      "stats_source_labels": [
+        "REPÚBLICA CHECA / Chance Liga"
+      ],
+      "unique_stats_matches": 9,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Roménia",
+      "competition_name": "Superliga",
+      "stats_source_labels": [
+        "ROMÉNIA / Superliga"
+      ],
+      "unique_stats_matches": 8,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 8,
+          "total": 8,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Rússia",
+      "competition_name": "Primeira Liga",
+      "stats_source_labels": [
+        "RÚSSIA / Primeira Liga"
+      ],
+      "unique_stats_matches": 5,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Sérvia",
+      "competition_name": "Superliga",
+      "stats_source_labels": [
+        "Sérvia / Superliga"
+      ],
+      "unique_stats_matches": 88,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 88,
+          "total": 88,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 88,
+          "total": 88,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 88,
+          "total": 88,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 88,
+          "total": 88,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 88,
+          "total": 88,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 88,
+          "total": 88,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 88,
+          "total": 88,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 88,
+          "total": 88,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 88,
+          "total": 88,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Suécia",
+      "competition_name": "Allsvenskan",
+      "stats_source_labels": [
+        "SUÉCIA / Allsvenskan"
+      ],
+      "unique_stats_matches": 11,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 11,
+          "total": 11,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 11,
+          "total": 11,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 11,
+          "total": 11,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 11,
+          "total": 11,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 11,
+          "total": 11,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 11,
+          "total": 11,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 11,
+          "total": 11,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 11,
+          "total": 11,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 11,
+          "total": 11,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Suécia",
+      "competition_name": "Allsvenskan",
+      "stats_source_labels": [
+        "Suécia / Allsvenskan"
+      ],
+      "unique_stats_matches": 203,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 203,
+          "total": 203,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 203,
+          "total": 203,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 203,
+          "total": 203,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 203,
+          "total": 203,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 203,
+          "total": 203,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 203,
+          "total": 203,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 203,
+          "total": 203,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 203,
+          "total": 203,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 203,
+          "total": 203,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Suíça",
+      "competition_name": "Segunda Liga",
+      "stats_source_labels": [
+        "SUIÇA / Segunda Liga"
+      ],
+      "unique_stats_matches": 5,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 5,
+          "total": 5,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Suíça",
+      "competition_name": "Segunda Liga",
+      "stats_source_labels": [
+        "Suiça / Segunda Liga"
+      ],
+      "unique_stats_matches": 54,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 54,
+          "total": 54,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 54,
+          "total": 54,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 54,
+          "total": 54,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 54,
+          "total": 54,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 54,
+          "total": 54,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 54,
+          "total": 54,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 54,
+          "total": 54,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 54,
+          "total": 54,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 54,
+          "total": 54,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Suíça",
+      "competition_name": "Superliga",
+      "stats_source_labels": [
+        "SUIÇA / Superliga"
+      ],
+      "unique_stats_matches": 6,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Tailândia",
+      "competition_name": "Liga 1",
+      "stats_source_labels": [
+        "TAILÂNDIA / Liga 1"
+      ],
+      "unique_stats_matches": 6,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 6,
+          "total": 6,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Tailândia",
+      "competition_name": "Liga 1",
+      "stats_source_labels": [
+        "Tailândia / Liga 1"
+      ],
+      "unique_stats_matches": 47,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 47,
+          "total": 47,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 47,
+          "total": 47,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 47,
+          "total": 47,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 47,
+          "total": 47,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 47,
+          "total": 47,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 47,
+          "total": 47,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 47,
+          "total": 47,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 47,
+          "total": 47,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 47,
+          "total": 47,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "TURQUIA",
+      "competition_name": "Liga 1",
+      "stats_source_labels": [
+        "TURQUIA / Liga 1"
+      ],
+      "unique_stats_matches": 10,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 10,
+          "total": 10,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "TURQUIA",
+      "competition_name": "Superliga",
+      "stats_source_labels": [
+        "TURQUIA / Superliga"
+      ],
+      "unique_stats_matches": 9,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 9,
+          "total": 9,
+          "pct": 100
+        }
+      }
+    },
+    {
+      "country_name": "Venezuela",
+      "competition_name": "Liga FUTVE - Encerramento - Quadrangular",
+      "stats_source_labels": [
+        "VENEZUELA / Liga FUTVE - Encerramento - Quadrangular"
+      ],
+      "unique_stats_matches": 7,
+      "complete_core": true,
+      "core_metrics": [
+        "xg",
+        "possession",
+        "shots",
+        "shots_on_target",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "yellow_cards",
+        "fouls"
+      ],
+      "metric_coverage": {
+        "xg": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "possession": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 7,
+          "total": 7,
+          "pct": 100
+        }
+      }
+    }
+  ]
+}
