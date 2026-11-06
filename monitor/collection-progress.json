@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 90,
-  "processed_games": 0,
+  "processed_games": 25,
   "stats_games": 0,
-  "bwin_odds": 0,
+  "bwin_odds": 22,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T22:52:51.005Z"
+  "current_match": "A consultar jogo 26/90 · nm8U3U1b",
+  "last_result": "Sidama Bunna (Eth) - Al-Hilal Omdurman (Sud): 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T22:53:17.202Z"
 }
