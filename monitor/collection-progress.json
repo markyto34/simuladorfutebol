@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 78,
-  "processed_games": 51,
+  "processed_games": 76,
   "stats_games": 0,
-  "bwin_odds": 31,
+  "bwin_odds": 51,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/78 · 6NCCuzEl",
-  "last_result": "Turquemenistão - Tailândia: 0 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T09:55:58.308Z"
+  "current_match": "Último concluído: Brunei - Macau",
+  "last_result": "Brunei - Macau: 0 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T09:56:03.338Z"
 }
