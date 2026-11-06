@@ -1,0 +1,51 @@
+name: Guardar seleção de competições Flashscore
+on:
+  workflow_dispatch:
+    inputs:
+      selected_paths:
+        description: "Cola aqui o array JSON copiado da página competitions.html."
+        required: true
+        type: string
+permissions:
+  contents: write
+jobs:
+  save-selection:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validar seleção e guardar sem tocar nos históricos
+        env:
+          SELECTED_PATHS: ${{ inputs.selected_paths }}
+        run: |
+          set -euo pipefail
+          node --input-type=module <<'NODE'
+          import fs from "node:fs";
+          const raw = process.env.SELECTED_PATHS || "";
+          let paths;
+          try { paths = JSON.parse(raw); } catch { throw new Error("A seleção tem de ser um array JSON válido."); }
+          if (!Array.isArray(paths)) throw new Error("A seleção JSON tem de ser um array de caminhos.");
+          const catalog = JSON.parse(fs.readFileSync("data/flashscore-competition-catalog.json", "utf8"));
+          const known = new Set((catalog.competitions || []).map(item => {
+            try { return new URL(item.url).pathname; } catch { return ""; }
+          }));
+          const unique = [...new Set(paths)];
+          for (const path of unique) {
+            if (typeof path !== "string" || !/^\/futebol\/[a-z0-9-]+\/[a-z0-9-]+\/$/.test(path)) throw new Error("Caminho inválido: " + path);
+            if (/friendly|friendlies|amig[aá]v|amistos/i.test(path)) throw new Error("Competições amigáveis não fazem parte do backfill: " + path);
+            if (!known.has(path)) throw new Error("Competição não encontrada no catálogo atual: " + path);
+          }
+          const state = { version: 1, updated_at: new Date().toISOString(), source: "Flashscore competition catalog", selection_mode: "explicit", selected_paths: unique.sort() };
+          fs.writeFileSync("data/flashscore-competition-selection.json", JSON.stringify(state, null, 2) + "\n");
+          console.log("Seleção guardada: " + unique.length + " competições.");
+          console.log("Os históricos e checkpoints não foram alterados.");
+          NODE
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/flashscore-competition-selection.json
+          git commit -m "Guardar seleção de competições Flashscore"
+          git push origin main
