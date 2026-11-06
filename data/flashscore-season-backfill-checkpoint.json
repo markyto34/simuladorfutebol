@@ -3,6 +3,7 @@
   "source_run_id": "42183404135",
   "note": "Competições concluídas e com checkpoints publicados na execução de 2026-11-06; não repetir.",
   "completed_paths": [
+    "/futebol/africa-do-sul/campeonato-sub23/",
     "/futebol/turquia/1-lig/",
     "/futebol/turquia/super-liga/",
     "/futebol/ucrania/primeira-liga/",
@@ -11,5 +12,6 @@
     "/futebol/uzbequistao/super-liga/",
     "/futebol/vietname/liga-2/",
     "/futebol/vietname/liga-v/"
-  ]
+  ],
+  "updated_at": "2026-11-06T08:24:14.195Z"
 }
