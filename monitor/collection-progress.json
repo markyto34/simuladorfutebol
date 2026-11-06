@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 29,
-  "processed_games": 26,
+  "processed_games": 29,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/29 · MLE7WwB4",
-  "last_result": "Interporto U20 - Araguaia U20: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T12:07:18.152Z"
+  "current_match": "Recolha terminada",
+  "last_result": "Uniao de Palmas U20 - Interporto U20: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T12:07:20.362Z"
 }
