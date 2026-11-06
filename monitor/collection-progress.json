@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 1,
+  "stats_games": 1,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T13:54:09.590Z"
+  "current_match": "Último concluído: Benfica F - FC Porto F",
+  "last_result": "Benfica F - FC Porto F: 10 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T13:54:11.772Z"
 }
