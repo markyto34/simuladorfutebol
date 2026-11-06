@@ -15,6 +15,7 @@ on:
       - app.js
       - metric-coverage.js
       - data/flashscore-statistics.csv
+      - data/simulator-complete-competitions.json
       - scripts/backtest-flashscore-simulator.cjs
       - tests/backtest-flashscore-simulator.test.cjs
       - .github/workflows/backtesting.yml
