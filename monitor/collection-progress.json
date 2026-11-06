@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 583,
-  "processed_games": 76,
-  "stats_games": 75,
+  "processed_games": 102,
+  "stats_games": 100,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 79/583 · xnrRV5AF",
-  "last_result": "Barracas Central 2 - Gimnasia Mendoza 2: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T09:24:39.800Z"
+  "current_match": "Último concluído: Defensa y Justicia 2 - Tigre 2",
+  "last_result": "Defensa y Justicia 2 - Tigre 2: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T09:24:45.662Z"
 }
