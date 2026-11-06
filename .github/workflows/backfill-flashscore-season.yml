@@ -87,7 +87,7 @@ jobs:
           publish_progress() {
             local phase="$1" status="$2" competition_path="$3" reset_games="${4:-false}" blocked_state="${5:-false}"
             local failed_paths_json patch
-            failed_paths_json="$(printf '%s\n' "${failed_paths[@]}" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>console.log(JSON.stringify(s.split(/\r?\n/).filter(Boolean))))')"
+            failed_paths_json="$(node -e 'console.log(JSON.stringify(process.argv.slice(1)))' "${failed_paths[@]}")"
             patch="$(PHASE="$phase" STATUS="$status" CURRENT_COMPETITION_PATH="$competition_path" RESET_GAMES="$reset_games" BLOCKED_STATE="$blocked_state" SELECTED_PATHS_JSON="$selected_paths_json" FAILED_PATHS_JSON="$failed_paths_json" TOTAL_PATHS="$total_paths" COMPETITION_INDEX="$index" COMPLETED_COUNT="$completed" FAILURE_COUNT="$failures" node -e '
               const reset = process.env.RESET_GAMES === "true";
               const patch = {
@@ -201,7 +201,7 @@ jobs:
               FLASHSCORE_BACKFILL_SELECTED_PATHS_JSON="$selected_paths_json" \
               FLASHSCORE_BACKFILL_COMPLETED="$completed" \
               FLASHSCORE_BACKFILL_FAILURES="$failures" \
-              FLASHSCORE_BACKFILL_FAILED_PATHS_JSON="$(printf '%s\n' "${failed_paths[@]}" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>console.log(JSON.stringify(s.split(/\r?\n/).filter(Boolean))))')" \
+              FLASHSCORE_BACKFILL_FAILED_PATHS_JSON="$(node -e 'console.log(JSON.stringify(process.argv.slice(1)))' "${failed_paths[@]}")" \
               node scripts/collect-flashscore-csv.mjs --team-last-five="$manifest" >>"$log" 2>&1; then
               cat "$log"
               collect_success=true
