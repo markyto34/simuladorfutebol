@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 32,
   "processed_games": 32,
   "stats_games": 32,
   "bwin_odds": 32,
   "failed_games": 0,
-  "current_match": "Último concluído: Argentina - Canadá",
+  "current_match": "Recolha terminada",
   "last_result": "Argentina - Canadá: 12 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T09:10:18.432Z"
+  "updated_at": "2026-11-06T09:10:19.984Z"
 }
