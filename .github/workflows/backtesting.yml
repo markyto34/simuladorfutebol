@@ -4,6 +4,8 @@ on:
     branches: [main]
     paths:
       - app.js
+      - index.html
+      - data-enrichment.js
       - metric-coverage.js
       - data/flashscore-statistics.csv
       - data/simulator-complete-competitions.json
@@ -13,6 +15,8 @@ on:
   pull_request:
     paths:
       - app.js
+      - index.html
+      - data-enrichment.js
       - metric-coverage.js
       - data/flashscore-statistics.csv
       - data/simulator-complete-competitions.json
