@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
-  "total_games": 51,
-  "processed_games": 51,
-  "stats_games": 39,
+  "status": "running",
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Jacobina - Grapiuna: 9 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:00:01.805Z"
+  "current_match": "A descobrir jogos",
+  "last_result": "",
+  "updated_at": "2026-11-06T11:00:13.117Z"
 }
