@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 112,
-  "processed_games": 76,
-  "stats_games": 76,
-  "bwin_odds": 76,
+  "processed_games": 100,
+  "stats_games": 100,
+  "bwin_odds": 100,
   "failed_games": 0,
-  "current_match": "A consultar jogo 79/112 · QwVAvLMh",
-  "last_result": "Forge - HFX Wanderers: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T12:18:09.884Z"
+  "current_match": "Último concluído: Supra du Quebec - HFX Wanderers",
+  "last_result": "Supra du Quebec - HFX Wanderers: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T12:18:16.773Z"
 }
