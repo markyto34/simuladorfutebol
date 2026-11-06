@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 54,
-  "processed_games": 26,
-  "stats_games": 26,
-  "bwin_odds": 25,
+  "processed_games": 51,
+  "stats_games": 51,
+  "bwin_odds": 47,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/54 · hrgvsbYG",
-  "last_result": "Operario - Cascavel: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T11:36:57.631Z"
+  "current_match": "A consultar jogo 54/54 · S0kNjE0k",
+  "last_result": "Coritiba - Foz do Iguacu: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T11:37:02.896Z"
 }
