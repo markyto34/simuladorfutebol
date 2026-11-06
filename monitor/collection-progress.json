@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 8,
   "processed_games": 8,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: 3B da Amazonia F - Amazonas Legis F",
+  "current_match": "Recolha terminada",
   "last_result": "3B da Amazonia F - Amazonas Legis F: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:58:38.255Z"
+  "updated_at": "2026-11-06T10:58:39.722Z"
 }
