@@ -21,7 +21,7 @@ test("classifica como completa apenas quando todos os indicadores estão preench
 });
 test("classifica estatísticas parciais e mantém a informação do checkpoint",()=>{
   const row={...fullRow,red_cards_home:""};
-  const result=buildCompetitionStatus({catalog:{competitions:[item]},stats:[row],checkpoint:{completed_paths:["/futebol/portugal/liga-portugal/"]}});
+  const result=buildCompetitionStatus({catalog:{competitions:[item]},stats:[fullRow,row],checkpoint:{completed_paths:["/futebol/portugal/liga-portugal/"]}});
   const status=result.status_by_path["/futebol/portugal/liga-portugal/"];
   assert.equal(status.status,"partial");
   assert.equal(status.checkpoint_completed,true);
