@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 216,
-  "processed_games": 101,
-  "stats_games": 101,
-  "bwin_odds": 100,
+  "processed_games": 126,
+  "stats_games": 126,
+  "bwin_odds": 125,
   "failed_games": 0,
-  "current_match": "A consultar jogo 104/216 · M1fFs5aM",
-  "last_result": "Ypiranga FC - Confianca: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T11:51:46.270Z"
+  "current_match": "A consultar jogo 129/216 · nRpIbrIN",
+  "last_result": "Guarani - SER Caxias: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T11:51:51.629Z"
 }
