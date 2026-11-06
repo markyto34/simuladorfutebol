@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 134,
-  "processed_games": 51,
+  "processed_games": 76,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/134 · 0xgjRhVq",
-  "last_result": "RW Koblenz - Pirmasens: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T08:43:39.363Z"
+  "current_match": "Último concluído: RW Wittlich - Mechtersheim",
+  "last_result": "RW Wittlich - Mechtersheim: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T08:43:44.324Z"
 }
