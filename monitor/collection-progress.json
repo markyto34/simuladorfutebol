@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 136,
-  "processed_games": 126,
-  "stats_games": 126,
-  "bwin_odds": 126,
+  "processed_games": 136,
+  "stats_games": 136,
+  "bwin_odds": 136,
   "failed_games": 0,
-  "current_match": "A consultar jogo 129/136 · hKhZGDYo",
-  "last_result": "Olympic FC - Wynnum Wolves: 7 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T10:17:47.557Z"
+  "current_match": "Último concluído: Moreton City Excelsior - Gold Coast Knights",
+  "last_result": "Moreton City Excelsior - Gold Coast Knights: 7 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T10:17:49.743Z"
 }
