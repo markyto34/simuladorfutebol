@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 8,
-  "processed_games": 0,
+  "processed_games": 8,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T11:45:47.867Z"
+  "current_match": "Último concluído: Potiguar de Mossoró F - Globo F",
+  "last_result": "Potiguar de Mossoró F - Globo F: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:45:51.178Z"
 }
