@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 49,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
+  "processed_games": 26,
+  "stats_games": 26,
+  "bwin_odds": 25,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T13:48:58.124Z"
+  "current_match": "Último concluído: GD Bragança - Ponte da Barca",
+  "last_result": "GD Bragança - Ponte da Barca: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T13:49:05.110Z"
 }
