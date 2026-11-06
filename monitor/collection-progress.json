@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 56,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
+  "processed_games": 26,
+  "stats_games": 26,
+  "bwin_odds": 3,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T08:58:17.308Z"
+  "current_match": "A consultar jogo 29/56 · fonBNMkS",
+  "last_result": "Antigua & Barbuda F - Guyana F: 14 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T08:58:24.581Z"
 }
