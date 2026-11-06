@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 182,
-  "processed_games": 150,
-  "stats_games": 105,
+  "processed_games": 176,
+  "stats_games": 130,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 153/182 · djPBqAv8",
-  "last_result": "FC Batyr - Aktobe 2: 2 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T12:23:26.677Z"
+  "current_match": "A consultar jogo 179/182 · buDBZyFE",
+  "last_result": "FC Astana 2 - Aktobe 2: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T12:23:31.850Z"
 }
