@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 154,
-  "processed_games": 126,
-  "stats_games": 126,
-  "bwin_odds": 126,
+  "processed_games": 151,
+  "stats_games": 151,
+  "bwin_odds": 150,
   "failed_games": 0,
-  "current_match": "A consultar jogo 129/154 · QmUPPrFN",
-  "last_result": "Tolima (Col) - O'Higgins (Chi): 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T09:14:07.773Z"
+  "current_match": "A consultar jogo 154/154 · vBoYXYld",
+  "last_result": "Dep. Tachira (Ven) - The Strongest (Bol): 16 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T09:14:14.901Z"
 }
