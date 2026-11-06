@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 50,
   "processed_games": 50,
   "stats_games": 50,
   "bwin_odds": 50,
   "failed_games": 0,
-  "current_match": "Último concluído: Paranoa - ARUC",
+  "current_match": "Recolha terminada",
   "last_result": "Paranoa - ARUC: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T11:07:47.816Z"
+  "updated_at": "2026-11-06T11:07:49.398Z"
 }
