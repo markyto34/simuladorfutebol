@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 4,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
+  "processed_games": 4,
+  "stats_games": 4,
+  "bwin_odds": 4,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T12:07:58.096Z"
+  "current_match": "Último concluído: Lok. Sofia - Botev Vratsa",
+  "last_result": "Lok. Sofia - Botev Vratsa: 11 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T12:08:01.208Z"
 }
