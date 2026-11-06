@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 95,
-  "processed_games": 76,
+  "processed_games": 95,
   "stats_games": 25,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 79/95 · StgaVBWo",
-  "last_result": "Suriname U20 - Guiana Francesa U20: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T09:00:06.890Z"
+  "current_match": "Último concluído: Ilhas Virgens Britânicas U20 - Dominica U20",
+  "last_result": "Ilhas Virgens Britânicas U20 - Dominica U20: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T09:00:10.834Z"
 }
