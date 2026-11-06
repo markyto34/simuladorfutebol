@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 120,
   "processed_games": 120,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Minsk FK F - Dnepr Mogilev F",
+  "current_match": "Recolha terminada",
   "last_result": "Minsk FK F - Dnepr Mogilev F: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:38:19.678Z"
+  "updated_at": "2026-11-06T10:38:21.206Z"
 }
