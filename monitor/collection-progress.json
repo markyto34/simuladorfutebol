@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 96,
-  "processed_games": 76,
+  "processed_games": 96,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 79/96 · IHabLyp3",
-  "last_result": "BTS Neustadt - Vatan Bremen: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T08:43:07.642Z"
+  "current_match": "Último concluído: Grohn - Aumund-Vegesack",
+  "last_result": "Grohn - Aumund-Vegesack: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T08:43:11.675Z"
 }
