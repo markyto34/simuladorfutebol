@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 59,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
+  "processed_games": 26,
+  "stats_games": 26,
+  "bwin_odds": 25,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T11:30:52.607Z"
+  "current_match": "A consultar jogo 29/59 · 0hEBcr65",
+  "last_result": "America MG - URT: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T11:31:00.100Z"
 }
