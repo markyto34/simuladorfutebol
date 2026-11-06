@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 116,
-  "processed_games": 76,
-  "stats_games": 76,
-  "bwin_odds": 70,
+  "processed_games": 101,
+  "stats_games": 101,
+  "bwin_odds": 95,
   "failed_games": 0,
-  "current_match": "A consultar jogo 79/116 · hhFAbMsh",
-  "last_result": "Viktoria Koln - Rostock: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T08:38:20.052Z"
+  "current_match": "A consultar jogo 104/116 · SAF0cw2M",
+  "last_result": "Dusseldorf - Hoffenheim II: 11 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T08:38:25.213Z"
 }
