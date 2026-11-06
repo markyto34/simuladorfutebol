@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 156,
-  "processed_games": 101,
-  "stats_games": 101,
-  "bwin_odds": 97,
+  "processed_games": 126,
+  "stats_games": 126,
+  "bwin_odds": 122,
   "failed_games": 0,
-  "current_match": "A consultar jogo 104/156 · fqx471H0",
-  "last_result": "Gremio (Bra) - Montevideo City (Uru): 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T09:15:15.663Z"
+  "current_match": "A consultar jogo 129/156 · K8nlOVuJ",
+  "last_result": "Macara (Ecu) - America De Cali (Col): 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T09:15:22.506Z"
 }
