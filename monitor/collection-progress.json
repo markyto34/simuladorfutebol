@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 48,
-  "processed_games": 0,
+  "processed_games": 25,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T08:23:55.924Z"
+  "current_match": "A consultar jogo 28/48 · Y1F64Ql2",
+  "last_result": "Mamelodi U23 - Kruger United U23: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T08:24:06.095Z"
 }
