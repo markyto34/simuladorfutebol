@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 465,
-  "processed_games": 52,
-  "stats_games": 52,
-  "bwin_odds": 52,
+  "processed_games": 75,
+  "stats_games": 75,
+  "bwin_odds": 75,
   "failed_games": 0,
-  "current_match": "Último concluído: Argentinos Jrs - Tigre",
-  "last_result": "Argentinos Jrs - Tigre: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T09:22:21.580Z"
+  "current_match": "A consultar jogo 78/465 · EXJnmN26",
+  "last_result": "Gimnasia Mendoza - Dep. Riestra: 16 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T09:22:27.355Z"
 }
