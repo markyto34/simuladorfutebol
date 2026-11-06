@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 13,
-  "processed_games": 0,
+  "processed_games": 13,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T12:14:05.999Z"
+  "current_match": "Último concluído: Muzinga - Ngozi City",
+  "last_result": "Muzinga - Ngozi City: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T12:14:10.658Z"
 }
