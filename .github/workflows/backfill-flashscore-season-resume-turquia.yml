@@ -150,7 +150,7 @@ jobs:
             manifest="/tmp/flashscore-season-$index.json"
             echo "::group::Competição $index · $competition_path"
             set +e
-            node scripts/discover-flashscore-season.mjs --path="$competition_path" --out="$manifest" 2>&1 | tee "$log" | awk '/^\\[SEASON/ { print; fflush() }'
+            node scripts/discover-flashscore-season.mjs --path="$competition_path" --out="$manifest" 2>&1 | tee "$log" | awk '/^\[SEASON/ { print; fflush() }'
             code=${PIPESTATUS[0]}
             set -e
             if (( code == 0 )); then
@@ -194,12 +194,12 @@ jobs:
               chunk_log="$chunk_dir/chunk-$chunk_index.log"
               echo "[CHECKPOINT BLOCO] $competition_path · bloco $chunk_index/${#chunks[@]} · até 10 jogos"
               set +e
-              node scripts/collect-flashscore-csv.mjs --team-last-five="$chunk" 2>&1 | tee "$chunk_log" | awk '/^\\[COLLECT\\]/ || /^\\[PROGRESS\\].*\\| (OK|ERROR) \\|/ || /^\\[RETRY\\]/ || /^\\[SUMMARY\\]/ || /^\\[MONITOR\\]/ { print; fflush() }'
+              node scripts/collect-flashscore-csv.mjs --team-last-five="$chunk" 2>&1 | tee "$chunk_log" | awk '/^\[COLLECT\]/ || /^\[PROGRESS\].*\| (OK|ERROR) \|/ || /^\[RETRY\]/ || /^\[SUMMARY\]/ || /^\[MONITOR\]/ { print; fflush() }'
               code=${PIPESTATUS[0]}
               set -e
-              ok_count=$(grep -cE '^\\[PROGRESS\\].*\\| OK \\|' "$chunk_log" || true)
-              error_count=$(grep -cE '^\\[PROGRESS\\].*\\| ERROR \\|' "$chunk_log" || true)
-              echo "[CHUNK SUMMARY] $competition_path · bloco $chunk_index/\${#chunks[@]} · sucesso=$ok_count · falhas=$error_count · exit=$code"
+              ok_count=$(grep -cE '^\[PROGRESS\].*\| OK \|' "$chunk_log" || true)
+              error_count=$(grep -cE '^\[PROGRESS\].*\| ERROR \|' "$chunk_log" || true)
+              echo "[CHUNK SUMMARY] $competition_path · bloco $chunk_index/${#chunks[@]} · sucesso=$ok_count · falhas=$error_count · exit=$code"
               if [[ -n "${GITHUB_STEP_SUMMARY:-}" ]]; then
                 printf '\n- Bloco %s/%s: **%s sucessos**, **%s falhas** (exit %s)\n' "$chunk_index" "${#chunks[@]}" "$ok_count" "$error_count" "$code" >> "$GITHUB_STEP_SUMMARY"
               fi
