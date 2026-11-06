@@ -58,3 +58,22 @@ test("não altera generated_at quando o índice não mudou", () => {
   assert.equal(next.index.generated_at, previous.generated_at);
   assert.equal(next.newly_eligible.length, 0);
 });
+
+test("reutiliza o país já identificado no índice para uma nova competição desse país", () => {
+  const previous = {
+    complete_competitions: [{
+      country_name: "Bósnia e Herzegovina",
+      competition_name: "Liga existente",
+      stats_source_labels: ["BOSNIA / Liga existente"],
+      unique_stats_matches: 5,
+      complete_core: true,
+      core_metrics: [...CORE_METRICS],
+      metric_coverage: {}
+    }]
+  };
+  const records = Array.from({ length: 5 }, (_, i) =>
+    makeRow("b" + i, { country: "BOSNIA", competition: "Nova Liga" })
+  );
+  const result = buildCompleteCompetitions(records, previous);
+  assert.equal(result.newly_eligible[0].country_name, "Bósnia e Herzegovina");
+});
