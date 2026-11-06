@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 70,
-  "processed_games": 51,
-  "stats_games": 48,
+  "processed_games": 70,
+  "stats_games": 67,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/70 · jFmgiX9L",
-  "last_result": "Alashkert - FC Gandzasar: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T09:36:29.036Z"
+  "current_match": "Último concluído: Van - Sardarapat",
+  "last_result": "Van - Sardarapat: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T09:36:33.146Z"
 }
