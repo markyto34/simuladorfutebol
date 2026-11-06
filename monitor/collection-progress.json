@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 467,
-  "processed_games": 225,
-  "stats_games": 222,
+  "processed_games": 250,
+  "stats_games": 247,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Victoriano A. - Deportivo Paraguayo",
-  "last_result": "Victoriano A. - Deportivo Paraguayo: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T09:28:59.409Z"
+  "current_match": "Último concluído: Club Lujan - Yupanqui",
+  "last_result": "Club Lujan - Yupanqui: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T09:29:04.685Z"
 }
