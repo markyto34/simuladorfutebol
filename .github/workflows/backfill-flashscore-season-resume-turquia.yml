@@ -90,50 +90,35 @@ jobs:
           failures=0
           blocked=0
           index=0
+          DIAG_DIR="$RUNNER_TEMP/flashscore-backfill-diagnostics"
+          mkdir -p "$DIAG_DIR/competitions"
+          REPORT="$DIAG_DIR/competitions.tsv"
+          printf "index\tpath\tseason\tdiscovered\talready_complete\tpending\tchunks\tfailed_chunks\tstatus\n" > "$REPORT"
+          echo "## Diagnóstico do backfill Flashscore" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "| # | Competição | Jogos descobertos | Já completos | Pendentes | Blocos | Blocos com erro | Estado |" >> "$GITHUB_STEP_SUMMARY"
+          echo "|---:|---|---:|---:|---:|---:|---:|---|" >> "$GITHUB_STEP_SUMMARY"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # Publicar checkpoints com retries para absorver falhas transitórias do GitHub.
-          # Se outro processo tiver avançado a main, rebasear o checkpoint antes de tentar novamente.
           push_with_retry() {
-            local attempt=1
-            local max_attempts=5
-            local delay=2
+            local attempt=1 max_attempts=5 delay=2
             while (( attempt <= max_attempts )); do
               echo "Publicação na main: tentativa $attempt/$max_attempts."
-              if git push origin HEAD:main; then
-                echo "Checkpoint publicado com sucesso."
-                return 0
-              fi
-
+              if git push origin HEAD:main; then echo "Checkpoint publicado com sucesso."; return 0; fi
               echo "::warning::Push falhou na tentativa $attempt/$max_attempts; a verificar o estado remoto."
               if git fetch origin main; then
-                if git merge-base --is-ancestor HEAD origin/main; then
-                  echo "O checkpoint já está incluído na main remota."
-                  return 0
-                fi
+                if git merge-base --is-ancestor HEAD origin/main; then echo "O checkpoint já está incluído na main remota."; return 0; fi
                 if ! git merge-base --is-ancestor origin/main HEAD; then
                   echo "A main avançou entretanto; a rebasear o checkpoint sobre origin/main."
-                  if ! git rebase origin/main; then
-                    git rebase --abort || true
-                    echo "::error::Não foi possível rebasear o checkpoint sem conflitos."
-                    return 1
-                  fi
+                  if ! git rebase origin/main; then git rebase --abort || true; echo "::error::Não foi possível rebasear o checkpoint sem conflitos."; return 1; fi
                 fi
-              else
-                echo "::warning::Não foi possível consultar a main remota nesta tentativa."
-              fi
-
-              if (( attempt < max_attempts )); then
-                echo "Nova tentativa dentro de ${delay}s."
-                sleep "$delay"
-                delay=$((delay * 2))
-              fi
+              else echo "::warning::Não foi possível consultar a main remota nesta tentativa."; fi
+              if (( attempt < max_attempts )); then sleep "$delay"; delay=$((delay * 2)); fi
               attempt=$((attempt + 1))
             done
-            echo "::error::Push falhou após $max_attempts tentativas."
+            echo "::error::Push falhou após 5 tentativas."
             return 1
           }
-
           checkpoint() {
             node scripts/validate-flashscore-history.mjs || return 1
             node scripts/integrate-flashscore-odds-history.mjs || return 1
@@ -146,64 +131,50 @@ jobs:
           while IFS= read -r competition_path; do
             [[ -n "$competition_path" ]] || continue
             index=$((index + 1))
-            log="/tmp/flashscore-season-$index.log"
-            manifest="/tmp/flashscore-season-$index.json"
+            safe_name=$(printf '%04d' "$index")
+            comp_dir="$DIAG_DIR/competitions/$safe_name"
+            mkdir -p "$comp_dir"
+            log="$comp_dir/discovery.log"
+            manifest="$comp_dir/manifest.json"
             echo "::group::Competição $index · $competition_path"
+            discovered=0; already=0; pending=0; chunks_total=0; failed_chunks=0
+            comp_status="discovery_failed"
             if node scripts/discover-flashscore-season.mjs --path="$competition_path" --out="$manifest" >"$log" 2>&1; then
-              cat "$log"
-            else
-              code=$?
-              cat "$log"
-              if grep -Eiq 'HTTP (401|403|429)|bloqueou/limitou|Flashscore bloqueou' "$log"; then
-                blocked=1
-                echo "Flashscore limitou o acesso; parar o lote para proteger a recolha."
-                echo "::endgroup::"
-                break
+              grep -E '^\[(SEASON|SEASON PAGE|SEASON WARNING|SEASON COMPLETE)' "$log" | tail -n 15 || true
+              discovered=$(node -e "const m=require('./$manifest'); console.log(m.finished_matches_discovered||0)")
+              already=$(node -e "const m=require('./$manifest'); console.log(m.already_complete_with_period_corners||0)")
+              pending=$((discovered - already))
+              chunk_dir="$comp_dir/chunks"
+              if ! node scripts/split-flashscore-season-manifest.mjs --manifest="$manifest" --out-dir="$chunk_dir" --chunk-size=10 >"$comp_dir/split.log" 2>&1; then
+                cat "$comp_dir/split.log"; echo "::endgroup::"; failures=$((failures + 1)); printf "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n" "$index" "$competition_path" "" "$discovered" "$already" "$pending" 0 1 "split_failed" >> "$REPORT"; continue
               fi
-              failures=$((failures + 1))
-              echo "Falha de descoberta nesta competição; avançar para a próxima."
-              sleep 2
-              echo "::endgroup::"
-              continue
-            fi
-            chunk_dir="/tmp/flashscore-season-chunks-$index"
-            if ! node scripts/split-flashscore-season-manifest.mjs --manifest="$manifest" --out-dir="$chunk_dir" --chunk-size=10; then
-              echo "::error::Não foi possível dividir o manifesto em blocos retomáveis."
-              exit 1
-            fi
-            competition_failed=0
-            shopt -s nullglob
-            chunks=("$chunk_dir"/chunk-*.json)
-            shopt -u nullglob
-            if (( ${#chunks[@]} == 0 )); then echo "Não há jogos pendentes nesta época."; fi
-            chunk_index=0
-            for chunk in "${chunks[@]}"; do
-              chunk_index=$((chunk_index + 1))
-              chunk_log="$chunk_dir/chunk-$chunk_index.log"
-              echo "[CHECKPOINT BLOCO] $competition_path · bloco $chunk_index/${#chunks[@]} · até 10 jogos"
-              if node scripts/collect-flashscore-csv.mjs --team-last-five="$chunk" >"$chunk_log" 2>&1; then
-                cat "$chunk_log"
-              else
-                code=$?
-                cat "$chunk_log"
-                competition_failed=1
-                failures=$((failures + 1))
-                if grep -Eiq 'HTTP (401|403|429)|bloqueou/limitou|Flashscore bloqueou' "$chunk_log"; then
-                  blocked=1
-                  echo "Flashscore limitou a recolha; guardar o bloco válido e parar."
+              shopt -s nullglob
+              chunks=("$chunk_dir"/chunk-*.json)
+              shopt -u nullglob
+              chunks_total=${#chunks[@]}
+              comp_status="completed"
+              if (( chunks_total == 0 )); then echo "Sem jogos pendentes: $discovered descobertos; $already já completos."; fi
+              chunk_index=0
+              for chunk in "${chunks[@]}"; do
+                chunk_index=$((chunk_index + 1))
+                chunk_log="$chunk_dir/chunk-$chunk_index.log"
+                echo "[BLOCO] $competition_path · bloco $chunk_index/$chunks_total · até 10 jogos"
+                if node scripts/collect-flashscore-csv.mjs --team-last-five="$chunk" >"$chunk_log" 2>&1; then
+                  grep -E '^\[(COLLECT|PROGRESS|RETRY|SUMMARY|SEASON BACKFILL)' "$chunk_log" | tail -n 18 || tail -n 12 "$chunk_log"
                 else
-                  echo "Bloco com falhas: jogos bem recolhidos serão guardados; os restantes serão tentados na próxima execução."
+                  code=$?
+                  grep -E '^\[(COLLECT|PROGRESS|RETRY|SUMMARY|SEASON BACKFILL)|HTTP [0-9]{3}|Timeout|ERROR|Error' "$chunk_log" | tail -n 30 || tail -n 20 "$chunk_log"
+                  failed_chunks=$((failed_chunks + 1))
+                  failures=$((failures + 1))
+                  comp_status="partial_error"
+                  if grep -Eiq 'HTTP (401|403|429)|bloqueou/limitou|Flashscore bloqueou' "$chunk_log"; then blocked=1; comp_status="blocked"; fi
                 fi
-              fi
-              if ! checkpoint; then
-                echo "::error::Falha ao publicar checkpoint após bloco $chunk_index de $competition_path."
-                exit 1
-              fi
-              if (( blocked == 1 )); then break; fi
-            done
-            if (( competition_failed == 0 && blocked == 0 )); then
-              completed=$((completed + 1))
-              node --input-type=module - "$competition_path" <<'NODE'
+                if ! checkpoint; then echo "::error::Falha ao publicar checkpoint após bloco $chunk_index de $competition_path."; exit 1; fi
+                if (( blocked == 1 )); then break; fi
+              done
+              if (( failed_chunks == 0 && blocked == 0 )); then
+                completed=$((completed + 1))
+                node --input-type=module - "$competition_path" <<'NODE'
           import fs from "node:fs";
           const file = "data/flashscore-season-backfill-checkpoint.json";
           const state = JSON.parse(fs.readFileSync(file, "utf8"));
@@ -212,26 +183,39 @@ jobs:
           state.updated_at = new Date().toISOString();
           fs.writeFileSync(file, JSON.stringify(state, null, 2) + "\n");
           NODE
-              if ! checkpoint; then echo "::error::Falha ao publicar conclusão de $competition_path."; exit 1; fi
+                if ! checkpoint; then echo "::error::Falha ao publicar conclusão de $competition_path."; exit 1; fi
+              fi
+            else
+              grep -E 'HTTP [0-9]{3}|Timeout|ERROR|Error|SEASON ERROR' "$log" | tail -n 20 || tail -n 20 "$log"
+              failures=$((failures + 1))
+              if grep -Eiq 'HTTP (401|403|429)|bloqueou/limitou|Flashscore bloqueou' "$log"; then blocked=1; comp_status="blocked"; fi
             fi
-            if (( blocked == 1 )); then
-              echo "::endgroup::"
-              break
-            fi
+            season=""
+            if [[ -f "$manifest" ]]; then season=$(node -e "const m=require('./$manifest'); console.log(m.season||'')"); fi
+            printf "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n" "$index" "$competition_path" "$season" "$discovered" "$already" "$pending" "$chunks_total" "$failed_chunks" "$comp_status" >> "$REPORT"
+            echo "| $index | $competition_path | $discovered | $already | $pending | $chunks_total | $failed_chunks | $comp_status |" >> "$GITHUB_STEP_SUMMARY"
+            echo "[COMPETITION SUMMARY] $competition_path | descobertos=$discovered | completos_antes=$already | pendentes=$pending | blocos=$chunks_total | blocos_com_erro=$failed_chunks | estado=$comp_status"
+            if (( blocked == 1 )); then echo "::endgroup::"; break; fi
             sleep 2
             echo "::endgroup::"
           done < /tmp/flashscore-season-paths.txt
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Competições concluídas nesta execução: **$completed**" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Competições com falhas: **$failures**" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Interrompido por bloqueio Flashscore: **$blocked**" >> "$GITHUB_STEP_SUMMARY"
           echo "Competições concluídas: $completed"
           echo "Competições com erros: $failures"
           echo "Interrompido por bloqueio: $blocked"
           node scripts/validate-flashscore-history.mjs || exit 1
           node scripts/integrate-flashscore-odds-history.mjs || exit 1
           git add data/flashscore-statistics.csv data/bwin-odds-flashscore.csv data/flashscore-season-backfill-checkpoint.json
-          if ! git diff --cached --quiet; then
-            git commit -m "Backfill Flashscore das épocas atuais" || exit 1
-            push_with_retry || exit 1
-          fi
-          if (( blocked == 1 || failures > 0 )); then
-            echo "::error::O lote preservou os dados válidos, mas terminou com $failures falhas e bloqueio=$blocked."
-            exit 1
-          fi
+          if ! git diff --cached --quiet; then git commit -m "Backfill Flashscore das épocas atuais" || exit 1; push_with_retry || exit 1; fi
+          if (( blocked == 1 || failures > 0 )); then echo "::error::O lote preservou os dados válidos, mas terminou com $failures falhas e bloqueio=$blocked."; exit 1; fi
+      - name: Publicar logs completos e relatório de diagnóstico
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: flashscore-backfill-diagnostics-${{ github.run_id }}
+          path: ${{ runner.temp }}/flashscore-backfill-diagnostics/
+          if-no-files-found: warn
+          retention-days: 14
