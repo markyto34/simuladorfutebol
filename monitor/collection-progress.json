@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 112,
-  "processed_games": 0,
+  "processed_games": 26,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T10:25:29.001Z"
+  "current_match": "A consultar jogo 29/112 · nwadL6ko",
+  "last_result": "Horn - Favoritner: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:25:35.955Z"
 }
