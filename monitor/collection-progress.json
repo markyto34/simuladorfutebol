@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 60,
-  "processed_games": 26,
-  "stats_games": 26,
-  "bwin_odds": 26,
+  "processed_games": 51,
+  "stats_games": 30,
+  "bwin_odds": 49,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/60 · pOU8SzWQ",
-  "last_result": "Velez Sarsfield - Gimnasia y Tiro: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T09:31:02.781Z"
+  "current_match": "A consultar jogo 54/60 · vqau5bId",
+  "last_result": "Central Cordoba - Gimnasia Jujuy: 0 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T09:31:08.455Z"
 }
