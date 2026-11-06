@@ -145,6 +145,7 @@
     "/futebol/asia/afc-challenge-league/",
     "/futebol/asia/afc-liga-dos-campeoes-2/",
     "/futebol/asia/afc-liga-dos-campeoes-feminina/",
+    "/futebol/asia/afc-liga-dos-campeoes/",
     "/futebol/asia/afc-solidarity-cup/",
     "/futebol/asia/afc-taca-asiatica-sub23/",
     "/futebol/asia/arabian-gulf-cup-u23/",
@@ -482,5 +483,5 @@
     "/futebol/vietname/liga-2/",
     "/futebol/vietname/liga-v/"
   ],
-  "updated_at": "2026-11-06T19:24:42.828Z"
+  "updated_at": "2026-11-06T19:26:31.013Z"
 }
