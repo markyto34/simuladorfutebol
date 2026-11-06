@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 93,
-  "processed_games": 26,
+  "processed_games": 52,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/93 · KSOqFFJ7",
-  "last_result": "Fratria II - Ustrem Donchevo: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T12:10:18.287Z"
+  "current_match": "Último concluído: Devnya 2005 - Dorostol",
+  "last_result": "Devnya 2005 - Dorostol: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T12:10:23.237Z"
 }
