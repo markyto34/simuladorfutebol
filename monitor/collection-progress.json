@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 177,
-  "processed_games": 100,
-  "stats_games": 100,
-  "bwin_odds": 100,
+  "processed_games": 125,
+  "stats_games": 112,
+  "bwin_odds": 125,
   "failed_games": 0,
-  "current_match": "Último concluído: Paraguai - Equador",
-  "last_result": "Paraguai - Equador: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T23:17:54.736Z"
+  "current_match": "Último concluído: Equador - Bolivia",
+  "last_result": "Equador - Bolivia: 0 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T23:18:19.649Z"
 }
