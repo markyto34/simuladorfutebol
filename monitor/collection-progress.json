@@ -2,14 +2,14 @@
   "run_id": "42279171908",
   "run_number": "6",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 10,
   "processed_games": 10,
   "stats_games": 10,
   "bwin_odds": 10,
   "failed_games": 0,
-  "current_match": "Último concluído: Deportes Temuco - U. Espanola",
+  "current_match": "Recolha terminada",
   "last_result": "Deportes Temuco - U. Espanola: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T19:36:21.983Z"
+  "updated_at": "2026-11-06T19:36:23.313Z"
 }
