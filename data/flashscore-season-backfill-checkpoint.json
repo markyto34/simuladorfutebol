@@ -461,6 +461,7 @@
     "/futebol/chile/liga-de-subida/",
     "/futebol/chile/super-taca/",
     "/futebol/chile/taca-chile/",
+    "/futebol/chile/taca-da-liga/",
     "/futebol/portugal/campeonato-de-portugal-grupo-promocao/",
     "/futebol/portugal/campeonato-de-portugal-playoffs/",
     "/futebol/portugal/campeonato-de-portugal-serie-a/",
@@ -488,5 +489,5 @@
     "/futebol/vietname/liga-2/",
     "/futebol/vietname/liga-v/"
   ],
-  "updated_at": "2026-11-06T19:42:33.229Z"
+  "updated_at": "2026-11-06T19:44:36.316Z"
 }
