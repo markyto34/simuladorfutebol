@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 50,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 25,
+  "processed_games": 50,
+  "stats_games": 50,
+  "bwin_odds": 50,
   "failed_games": 0,
-  "current_match": "Último concluído: Los Angeles Galaxy - Mount Pleasant",
-  "last_result": "Los Angeles Galaxy - Mount Pleasant: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T23:21:14.933Z"
+  "current_match": "Último concluído: Forge - Tigres",
+  "last_result": "Forge - Tigres: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T23:21:39.900Z"
 }
