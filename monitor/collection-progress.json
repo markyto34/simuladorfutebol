@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 64,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 25,
+  "processed_games": 50,
+  "stats_games": 50,
+  "bwin_odds": 50,
   "failed_games": 0,
-  "current_match": "A consultar jogo 26/64 · zqaZr2xJ",
-  "last_result": "Polokwane - Kaizer Chiefs: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T22:50:21.408Z"
+  "current_match": "A consultar jogo 51/64 · n1HdvsZb",
+  "last_result": "AmaZulu - Siwelele: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T22:50:46.391Z"
 }
