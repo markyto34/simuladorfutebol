@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 32,
-  "processed_games": 0,
+  "processed_games": 26,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T11:19:14.391Z"
+  "current_match": "A consultar jogo 29/32 · fJ2vh9Ug",
+  "last_result": "Londrina B - Sao Joseense: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:19:21.461Z"
 }
