@@ -33,16 +33,15 @@ export function buildCompetitionStatus({ catalog, stats, checkpoint }) {
     const path = pathOf(item);
     const key = normalize(item.country_name) + "|" + normalize(item.competition_name);
     const rows = rowsByCompetition.get(key) || [];
-    const metricCoverage = Object.fromEntries(REQUIRED_FIELDS.map(field => {
-      const complete = rows.filter(row => String(row[field] ?? "").trim() !== "").length;
-      return [field, { complete, total: rows.length, pct: rows.length ? Number((complete / rows.length * 100).toFixed(2)) : 0 }];
-    }));
-    const allFieldsComplete = rows.length > 0 && REQUIRED_FIELDS.every(field => metricCoverage[field].complete === rows.length);
+    const missingFields = rows.length
+      ? REQUIRED_FIELDS.filter(field => rows.some(row => String(row[field] ?? "").trim() === ""))
+      : REQUIRED_FIELDS;
+    const allFieldsComplete = rows.length > 0 && missingFields.length === 0;
     const status = allFieldsComplete ? "complete" : rows.length ? "partial" : "new";
     const result = {
-      path, country_name: item.country_name, competition_name: item.competition_name,
-      status, checkpoint_completed: completedPaths.has(path), matches_with_stats: rows.length,
-      all_indicators_complete: allFieldsComplete, metric_coverage: metricCoverage
+      path, status, checkpoint_completed: completedPaths.has(path),
+      matches_with_stats: rows.length, missing_indicator_count: missingFields.length,
+      all_indicators_complete: allFieldsComplete
     };
     if (path) statusByPath[path] = result;
     return result;
@@ -58,8 +57,7 @@ export function buildCompetitionStatus({ catalog, stats, checkpoint }) {
       new: competitions.filter(x => x.status === "new").length,
       checkpoint_completed: competitions.filter(x => x.checkpoint_completed).length
     },
-    status_by_path: statusByPath,
-    competitions
+    status_by_path: statusByPath
   };
 }
 
