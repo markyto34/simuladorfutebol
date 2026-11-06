@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 154,
-  "processed_games": 101,
-  "stats_games": 101,
-  "bwin_odds": 101,
+  "processed_games": 126,
+  "stats_games": 126,
+  "bwin_odds": 126,
   "failed_games": 0,
-  "current_match": "A consultar jogo 104/154 · b1Eg6oph",
-  "last_result": "Libertad (Par) - Rosario (Arg): 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T09:14:00.620Z"
+  "current_match": "A consultar jogo 129/154 · QmUPPrFN",
+  "last_result": "Tolima (Col) - O'Higgins (Chi): 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T09:14:07.773Z"
 }
