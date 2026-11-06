@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 86,
-  "processed_games": 26,
+  "processed_games": 51,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/86 · QFz7DNhd",
-  "last_result": "Sao Paulo U20 M - Sport Recife U20 F: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:04:14.190Z"
+  "current_match": "Último concluído: Taubate U20 F - Taruma U20 F",
+  "last_result": "Taubate U20 F - Taruma U20 F: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:04:19.148Z"
 }
