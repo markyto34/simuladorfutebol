@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 29,
-  "processed_games": 25,
-  "stats_games": 4,
+  "processed_games": 29,
+  "stats_games": 5,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Aktobe - Kaisar",
-  "last_result": "Aktobe - Kaisar: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T12:20:30.107Z"
+  "current_match": "Recolha terminada",
+  "last_result": "Zhenis - Tobol: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T12:20:31.945Z"
 }
