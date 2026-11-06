@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
+  "processed_games": 1,
+  "stats_games": 1,
+  "bwin_odds": 1,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T11:56:26.079Z"
+  "current_match": "Último concluído: Flamengo - Corinthians",
+  "last_result": "Flamengo - Corinthians: 16 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T11:56:28.558Z"
 }
