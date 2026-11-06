@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 60,
-  "processed_games": 51,
-  "stats_games": 51,
+  "processed_games": 60,
+  "stats_games": 60,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/60 · zDWTmfR0",
-  "last_result": "Vietname U20 - Coreia do Norte U20: 9 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T09:54:53.120Z"
+  "current_match": "Último concluído: Ilhas Marianas do Norte U20 - Mongolia U20",
+  "last_result": "Ilhas Marianas do Norte U20 - Mongolia U20: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T09:54:55.163Z"
 }
