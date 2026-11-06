@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 240,
-  "processed_games": 26,
-  "stats_games": 26,
-  "bwin_odds": 10,
+  "processed_games": 52,
+  "stats_games": 51,
+  "bwin_odds": 36,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/240 · E9xGamZr",
-  "last_result": "Ertis Pavlodar - FC Astana: 11 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T12:21:48.730Z"
+  "current_match": "A consultar jogo 55/240 · IqSxD386",
+  "last_result": "Tobol - Ulytau: 11 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T12:21:54.144Z"
 }
