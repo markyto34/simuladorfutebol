@@ -80,6 +80,29 @@ jobs:
           node scripts/clean-flashscore-completed-checkpoints.mjs
           node scripts/build-flashscore-competition-status.mjs
           node scripts/select-flashscore-backfill-paths.mjs
+      - name: Persistir migração única dos checkpoints
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet -- data/flashscore-season-backfill-checkpoint.json; then
+            echo "Não há migração de checkpoint para publicar."
+          else
+            git add data/flashscore-season-backfill-checkpoint.json
+            git commit -m "Registar migração única dos checkpoints Flashscore"
+            attempt=1
+            until git push origin HEAD:main; do
+              if (( attempt >= 5 )); then
+                echo "::error::Não foi possível publicar a migração do checkpoint após 5 tentativas."
+                exit 1
+              fi
+              git fetch origin main
+              git rebase origin/main
+              attempt=$((attempt + 1))
+              sleep $((attempt * 2))
+            done
+            echo "Migração única publicada na main."
+          fi
       - name: Descobrir épocas e recolher estatísticas + odds Bwin
         env:
           FLASHSCORE_SEASON_PAGE_DELAY_MS: "300"
