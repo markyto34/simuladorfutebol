@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 62,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 50,
+  "processed_games": 62,
+  "stats_games": 62,
+  "bwin_odds": 62,
   "failed_games": 0,
-  "current_match": "Último concluído: Marítimo - Académico Viseu",
-  "last_result": "Marítimo - Académico Viseu: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T13:53:51.886Z"
+  "current_match": "Último concluído: Estoril - Famalicão",
+  "last_result": "Estoril - Famalicão: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T13:53:54.306Z"
 }
