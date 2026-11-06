@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 467,
-  "processed_games": 52,
-  "stats_games": 50,
+  "processed_games": 77,
+  "stats_games": 75,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Atlas - Sportivo Barracas",
-  "last_result": "Atlas - Sportivo Barracas: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T09:28:22.503Z"
+  "current_match": "Último concluído: Fenix - CSR Espanol",
+  "last_result": "Fenix - CSR Espanol: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T09:28:27.722Z"
 }
