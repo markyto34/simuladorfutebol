@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 55,
-  "processed_games": 52,
-  "stats_games": 51,
-  "bwin_odds": 40,
+  "processed_games": 55,
+  "stats_games": 54,
+  "bwin_odds": 42,
   "failed_games": 0,
-  "current_match": "Último concluído: Lauterach - Wolfsberger",
-  "last_result": "Lauterach - Wolfsberger: 1 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:32:09.851Z"
+  "current_match": "Recolha terminada",
+  "last_result": "Wieselburg - Tirol: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:32:11.545Z"
 }
