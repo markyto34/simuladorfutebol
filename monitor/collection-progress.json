@@ -1,15 +1,15 @@
 {
-  "run_id": "42182595412",
-  "run_number": "14",
-  "target_date": "2026-11-05",
-  "status": "completed",
-  "phase": "completed",
-  "total_games": 177,
-  "processed_games": 177,
-  "stats_games": 126,
-  "bwin_odds": 78,
+  "run_id": "42183404135",
+  "run_number": "3",
+  "target_date": "",
+  "status": "running",
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
+  "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Nchanga Rangers - Makeni All Stars: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T07:43:14.779Z"
+  "current_match": "A descobrir jogos",
+  "last_result": "",
+  "updated_at": "2026-11-06T07:49:43.261Z"
 }
