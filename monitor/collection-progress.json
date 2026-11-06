@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 99,
-  "processed_games": 0,
+  "processed_games": 25,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T13:50:51.832Z"
+  "current_match": "Último concluído: Rio Ave U19 - Braga U19",
+  "last_result": "Rio Ave U19 - Braga U19: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T13:50:58.203Z"
 }
