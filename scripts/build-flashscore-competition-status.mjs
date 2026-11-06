@@ -11,10 +11,16 @@ const STAT_KEYS = [
   "yellow_cards", "red_cards", "shots_off_target", "blocked_shots", "shots_inside_box",
   "shots_outside_box", "offsides", "fouls"
 ];
-const REQUIRED_FIELDS = [
-  "score_home", "score_away", "ht_home", "ht_away", "sh_home", "sh_away",
-  ...STAT_KEYS.flatMap(key => [key + "_home", key + "_away"])
+const CORE_FIELDS = [
+  "score_home", "score_away",
+  ...["xg", "possession", "shots", "shots_on_target", "corners", "corners_ht", "corners_st", "yellow_cards", "fouls"]
+    .flatMap(key => [key + "_home", key + "_away"])
 ];
+const ALL_FIELDS = [
+  ...CORE_FIELDS.filter((value, index, array) => array.indexOf(value) === index),
+  "ht_home", "ht_away", "sh_home", "sh_away",
+  ...STAT_KEYS.flatMap(key => [key + "_home", key + "_away"])
+].filter((value, index, array) => array.indexOf(value) === index);
 const normalize = value => String(value ?? "").normalize("NFD").replace(/[\u0300-\u036f]/g, "")
   .toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().replace(/\s+/g, " ");
 const pathOf = item => { try { return new URL(item.url).pathname; } catch { return ""; } };
@@ -33,15 +39,15 @@ export function buildCompetitionStatus({ catalog, stats, checkpoint }) {
     const path = pathOf(item);
     const key = normalize(item.country_name) + "|" + normalize(item.competition_name);
     const rows = rowsByCompetition.get(key) || [];
-    const missingFields = rows.length
-      ? REQUIRED_FIELDS.filter(field => rows.some(row => String(row[field] ?? "").trim() === ""))
-      : REQUIRED_FIELDS;
+    const observedFields = ALL_FIELDS.filter(field => rows.some(row => String(row[field] ?? "").trim() !== ""));
+    const requiredFields = [...new Set([...CORE_FIELDS, ...observedFields])];
+    const missingFields = requiredFields.filter(field => rows.some(row => String(row[field] ?? "").trim() === ""));
     const allFieldsComplete = rows.length > 0 && missingFields.length === 0;
     const status = allFieldsComplete ? "complete" : rows.length ? "partial" : "new";
     const result = {
       path, status, checkpoint_completed: completedPaths.has(path),
-      matches_with_stats: rows.length, missing_indicator_count: missingFields.length,
-      all_indicators_complete: allFieldsComplete
+      matches_with_stats: rows.length, observed_indicator_count: observedFields.length,
+      missing_indicator_count: missingFields.length, all_available_indicators_complete: allFieldsComplete
     };
     if (path) statusByPath[path] = result;
     return result;
@@ -49,7 +55,7 @@ export function buildCompetitionStatus({ catalog, stats, checkpoint }) {
   return {
     generated_at: new Date().toISOString(),
     source: "flashscore-statistics.csv + flashscore-season-backfill-checkpoint.json",
-    indicator_fields: REQUIRED_FIELDS,
+    indicator_fields: ALL_FIELDS,
     summary: {
       competitions: competitions.length,
       complete: competitions.filter(x => x.status === "complete").length,
