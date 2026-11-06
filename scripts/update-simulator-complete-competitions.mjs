@@ -5,7 +5,7 @@ import { parseCsv, normalize } from "./audit-flashscore-odds-matches.mjs";
 const INPUT = "data/flashscore-statistics.csv";
 const OUTPUT = "data/simulator-complete-competitions.json";
 export const CORE_METRICS = [
-  "goals", "goals_ht", "goals_st",
+  "goals", "goals_conceded", "goals_ht", "goals_st",
   "corners", "corners_ht", "corners_st",
   "shots", "shots_on_target", "shots_off_target", "blocked_shots",
   "shots_inside_box", "shots_outside_box",
@@ -13,6 +13,7 @@ export const CORE_METRICS = [
 ];
 const METRIC_COLUMNS = {
   goals: ["score_home", "score_away"],
+  goals_conceded: ["score_home", "score_away"],
   goals_ht: ["ht_home", "ht_away"],
   goals_st: ["sh_home", "sh_away"],
   corners: ["corners_home", "corners_away"],
@@ -105,7 +106,9 @@ export function buildCompleteCompetitions(records, previous = {}) {
       metricCoverage[metric] = { complete, total: matches.length, pct: pct(complete, matches.length) };
     }
     // Missing statistics are normal in individual Flashscore matches. Keep the
-    // competition eligible after five unique matches and expose coverage per metric.
+    // competition eligible after five unique matches when at least one indicator
+    // is actually available; expose coverage for all indicators independently.
+    if (!Object.values(metricCoverage).some(coverage => coverage.complete > 0)) continue;
     const entry = {
       country_name: previousItem?.country_name || countryName,
       competition_name: previousItem?.competition_name || item.competition,
@@ -119,7 +122,7 @@ export function buildCompleteCompetitions(records, previous = {}) {
   }
 
   // Never remove an already-published complete competition because a partial/in-progress
-  // CSV snapshot temporarily lacks rows. Refresh it when the current CSV still proves 100%.
+  // CSV snapshot temporarily lacks rows. Refresh it whenever current data is available.
   const resultByKey = new Map();
   for (const item of previousItems) {
     const key = normalize(item.country_name) + "|" + normalize(item.competition_name);
@@ -137,7 +140,7 @@ export function buildCompleteCompetitions(records, previous = {}) {
     index: {
       generated_from: INPUT,
       generated_at: unchanged && previous.generated_at ? previous.generated_at : new Date().toISOString(),
-      definition: "At least 5 unique matches; missing values are allowed and per-metric paired home/away coverage is reported.",
+      definition: "At least 5 unique matches and at least one available paired indicator; missing values in individual matches or indicators do not disqualify the competition. Per-indicator coverage is reported.",
       core_metrics: [...CORE_METRICS],
       complete_competitions: complete
     },
