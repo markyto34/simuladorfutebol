@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 10,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
+  "processed_games": 10,
+  "stats_games": 10,
+  "bwin_odds": 10,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T19:29:35.225Z"
+  "current_match": "Último concluído: U. Catolica - La Serena",
+  "last_result": "U. Catolica - La Serena: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T19:29:40.077Z"
 }
