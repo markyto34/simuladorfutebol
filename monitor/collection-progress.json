@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 216,
-  "processed_games": 126,
-  "stats_games": 126,
-  "bwin_odds": 125,
+  "processed_games": 151,
+  "stats_games": 151,
+  "bwin_odds": 150,
   "failed_games": 0,
-  "current_match": "A consultar jogo 129/216 · nRpIbrIN",
-  "last_result": "Guarani - SER Caxias: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T11:51:51.629Z"
+  "current_match": "A consultar jogo 154/216 · zg25SJyS",
+  "last_result": "Ferroviaria - Brusque: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T11:51:56.837Z"
 }
