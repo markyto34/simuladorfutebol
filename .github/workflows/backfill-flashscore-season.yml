@@ -80,14 +80,14 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          selected_paths_json="$(node -e 'const fs=require("node:fs"); console.log(JSON.stringify(fs.readFileSync("/tmp/flashscore-season-paths.txt","utf8").split(/\\r?\\n/).filter(Boolean)))')"
-          total_paths="$(node -e 'const fs=require("node:fs"); console.log(fs.readFileSync("/tmp/flashscore-season-paths.txt","utf8").split(/\\r?\\n/).filter(Boolean).length)')"
+          selected_paths_json="$(node -e 'const fs=require("node:fs"); console.log(JSON.stringify(fs.readFileSync("/tmp/flashscore-season-paths.txt","utf8").split(/\r?\n/).filter(Boolean)))')"
+          total_paths="$(node -e 'const fs=require("node:fs"); console.log(fs.readFileSync("/tmp/flashscore-season-paths.txt","utf8").split(/\r?\n/).filter(Boolean).length)')"
           failed_paths=()
 
           publish_progress() {
             local phase="$1" status="$2" competition_path="$3" reset_games="${4:-false}" blocked_state="${5:-false}"
             local failed_paths_json patch
-            failed_paths_json="$(printf '%s\\n' "${failed_paths[@]}" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>console.log(JSON.stringify(s.split(/\\r?\\n/).filter(Boolean))))')"
+            failed_paths_json="$(printf '%s\n' "${failed_paths[@]}" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>console.log(JSON.stringify(s.split(/\r?\n/).filter(Boolean))))')"
             patch="$(PHASE="$phase" STATUS="$status" CURRENT_COMPETITION_PATH="$competition_path" RESET_GAMES="$reset_games" BLOCKED_STATE="$blocked_state" SELECTED_PATHS_JSON="$selected_paths_json" FAILED_PATHS_JSON="$failed_paths_json" TOTAL_PATHS="$total_paths" COMPETITION_INDEX="$index" COMPLETED_COUNT="$completed" FAILURE_COUNT="$failures" node -e '
               const reset = process.env.RESET_GAMES === "true";
               const patch = {
@@ -201,7 +201,7 @@ jobs:
               FLASHSCORE_BACKFILL_SELECTED_PATHS_JSON="$selected_paths_json" \
               FLASHSCORE_BACKFILL_COMPLETED="$completed" \
               FLASHSCORE_BACKFILL_FAILURES="$failures" \
-              FLASHSCORE_BACKFILL_FAILED_PATHS_JSON="$(printf '%s\\n' "${failed_paths[@]}" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>console.log(JSON.stringify(s.split(/\\r?\\n/).filter(Boolean))))')" \
+              FLASHSCORE_BACKFILL_FAILED_PATHS_JSON="$(printf '%s\n' "${failed_paths[@]}" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>console.log(JSON.stringify(s.split(/\r?\n/).filter(Boolean))))')" \
               node scripts/collect-flashscore-csv.mjs --team-last-five="$manifest" >>"$log" 2>&1; then
               cat "$log"
               collect_success=true
@@ -235,7 +235,7 @@ jobs:
           if (( blocked == 1 )); then final_phase="stopped"; final_status="blocked"
           elif (( failures > 0 )); then final_phase="failed"; final_status="failed"
           fi
-          publish_progress "$final_phase" "$final_status" "$competition_path" false "$blocked"
+          publish_progress "$final_phase" "$final_status" "${competition_path:-}" false "$blocked"
           echo "Competições concluídas nesta execução: $completed"
           echo "Competições com erros: $failures"
           echo "Interrompido por bloqueio: $blocked"
