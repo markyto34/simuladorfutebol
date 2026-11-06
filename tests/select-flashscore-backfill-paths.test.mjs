@@ -15,10 +15,11 @@ test("cursor exclusivo mantém retoma estável",()=>{
  const r=selectBackfillPaths({catalog,selection,statusReport,resumeAfterPath:paths[2],limit:10});
  assert.deepEqual(r.paths,[paths[3],paths[1]]);
 });
-test("só ignora competições com checkpoint integral e impõe máximo de 25",()=>{
+test("só ignora competições com checkpoint integral e aceita lotes acima de 25",()=>{
  const r=selectBackfillPaths({catalog,selection,statusReport,limit:25});
  assert.equal(r.paths.includes(paths[0]),false); assert.equal(r.paths.length,4);
- assert.throws(()=>selectBackfillPaths({catalog,selection,statusReport,limit:26}),/entre 1 e 25/);
+ assert.equal(selectBackfillPaths({catalog,selection,statusReport,limit:26}).paths.length,4);
+ assert.throws(()=>selectBackfillPaths({catalog,selection,statusReport,limit:100001}),/entre 1 e 100000/);
 });
 test("deteta seleção que já não existe no catálogo",()=>{
  assert.throws(()=>selectBackfillPaths({catalog:{competitions:[]},selection,statusReport,limit:10}),/já não constam do catálogo/);
