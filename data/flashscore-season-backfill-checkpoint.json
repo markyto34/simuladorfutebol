@@ -18,9 +18,10 @@
     "/futebol/alemanha/taca-da-alemanha/",
     "/futebol/america-do-norte-e-central/campeonato-do-mundo/",
     "/futebol/america-do-norte-e-central/concacaf-liga-das-nacoes/",
+    "/futebol/america-do-norte-e-central/concacaf-liga-dos-campeoes/",
     "/futebol/asia/afc-liga-dos-campeoes/"
   ],
-  "updated_at": "2026-11-06T23:20:37.769Z",
+  "updated_at": "2026-11-06T23:21:46.574Z",
   "completed_paths_reset_version": 1,
-  "last_completed_path": "/futebol/america-do-norte-e-central/concacaf-liga-das-nacoes/"
+  "last_completed_path": "/futebol/america-do-norte-e-central/concacaf-liga-dos-campeoes/"
 }
