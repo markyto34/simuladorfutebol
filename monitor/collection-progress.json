@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 177,
-  "processed_games": 76,
-  "stats_games": 72,
-  "bwin_odds": 49,
+  "processed_games": 100,
+  "stats_games": 85,
+  "bwin_odds": 58,
   "failed_games": 0,
-  "current_match": "A consultar jogo 78/177 · K4deiXhm",
-  "last_result": "Cuiaba - Uniao Rondonopolis: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T07:42:43.142Z"
+  "current_match": "A consultar jogo 102/177 · p0FwFMTi",
+  "last_result": "National Bank Egypt - Bur Fouad: 11 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T07:42:50.426Z"
 }
