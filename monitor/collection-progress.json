@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 36,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 26,
+  "stats_games": 26,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T09:11:32.003Z"
+  "current_match": "A consultar jogo 29/36 · fqed9TaE",
+  "last_result": "Paraguai F - Uruguai F: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T09:11:39.528Z"
 }
