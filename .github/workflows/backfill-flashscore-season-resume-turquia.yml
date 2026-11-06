@@ -7,9 +7,9 @@ on:
         required: false
         type: string
       competition_offset:
-        description: "Número de competições a saltar no catálogo ordenado (para continuar por grupos)."
+        description: "Posição absoluta no catálogo elegível. 136 retoma na Turquia — 1. Lig, após o último checkpoint publicado."
         required: false
-        default: "82"
+        default: "136"
         type: string
       competition_limit:
         description: "Máximo de competições nesta execução. 0 = todas as restantes; usar 3 para teste."
@@ -87,6 +87,8 @@ jobs:
           fs.writeFileSync("/tmp/flashscore-season-paths.txt", paths.join("\n") + "\n");
           console.log("Competições elegíveis no catálogo: " + total);
           console.log("Grupo selecionado: offset=" + offset + ", limite=" + (limit || "todas") + ", selecionadas=" + paths.length);
+          console.log("Primeira competição selecionada: " + paths[0]);
+          console.log("Última competição selecionada: " + paths[paths.length - 1]);
           console.log("Critério: sénior, liga/torneio ou taça, pelo menos 5 jogos estatísticos históricos, sem amigáveis.");
           NODE
       - name: Descobrir épocas e recolher estatísticas + odds Bwin
