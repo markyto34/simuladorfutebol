@@ -3,8 +3,13 @@ on:
   workflow_dispatch:
     inputs:
       competition_path:
-        description: "Opcional: uma competição específica. Vazio = catálogo de competições elegíveis."
+        description: "Opcional: executar apenas uma competição específica."
         required: false
+        type: string
+      resume_from_path:
+        description: "Retomar a partir desta competição e continuar pelas seguintes na ordem do catálogo."
+        required: false
+        default: "/futebol/turquia/1-lig/"
         type: string
       competition_offset:
         description: "Posição absoluta no catálogo elegível. 136 retoma na Turquia — 1. Lig, após o último checkpoint publicado."
@@ -35,23 +40,32 @@ jobs:
       - name: Validar e testar descoberta
         env:
           COMPETITION_PATH: ${{ inputs.competition_path }}
+          RESUME_FROM_PATH: ${{ inputs.resume_from_path }}
         run: |
           set -euo pipefail
-          if [[ -n "$COMPETITION_PATH" ]]; then
+          if [[ -n "$COMPETITION_PATH" || -n "$RESUME_FROM_PATH" ]]; then
             [[ "$COMPETITION_PATH" =~ ^/futebol/[a-z0-9-]+/[a-z0-9-]+/$ ]] || {
               echo "Caminho inválido. Usa /futebol/<pais>/<competicao>/."
               exit 2
             }
-            if [[ "$COMPETITION_PATH" =~ friendly|friendlies|amig[aá]v|amistos ]]; then
-              echo "Competições amigáveis estão excluídas."
-              exit 2
-            fi
+            for candidate in "$COMPETITION_PATH" "$RESUME_FROM_PATH"; do
+              [[ -n "$candidate" ]] || continue
+              [[ "$candidate" =~ ^/futebol/[a-z0-9-]+/[a-z0-9-]+/$ ]] || {
+                echo "Caminho inválido: $candidate. Usa /futebol/<pais>/<competicao>/."
+                exit 2
+              }
+              if [[ "$candidate" =~ friendly|friendlies|amig[aá]v|amistos ]]; then
+                echo "Competições amigáveis estão excluídas."
+                exit 2
+              fi
+            done
           fi
           node --check scripts/discover-flashscore-season.mjs
           node --test tests/discover-flashscore-season.test.mjs
       - name: Preparar lista de competições da época atual
         env:
           COMPETITION_PATH: ${{ inputs.competition_path }}
+          RESUME_FROM_PATH: ${{ inputs.resume_from_path }}
           COMPETITION_OFFSET: ${{ inputs.competition_offset }}
           COMPETITION_LIMIT: ${{ inputs.competition_limit }}
         run: |
@@ -59,6 +73,7 @@ jobs:
           node --input-type=module <<'NODE'
           import fs from "node:fs";
           const requested = process.env.COMPETITION_PATH || "";
+          const resumeFrom = process.env.RESUME_FROM_PATH || "";
           let paths;
           if (requested) {
             paths = [requested];
@@ -74,6 +89,11 @@ jobs:
             paths = [...new Set(selected.map(item => {
               try { return new URL(item.url).pathname; } catch { return ""; }
             }).filter(Boolean))].sort();
+            if (resumeFrom) {
+              const start = paths.indexOf(resumeFrom);
+              if (start < 0) throw new Error("A competição de retoma não existe no catálogo elegível: " + resumeFrom);
+              paths = paths.slice(start);
+            }
           }
           if (!paths.length) throw new Error("O filtro não encontrou competições elegíveis.");
           const offset = Number(process.env.COMPETITION_OFFSET || 0);
@@ -86,6 +106,7 @@ jobs:
           if (!paths.length) throw new Error("O grupo pedido não contém competições; total=" + total + ", offset=" + offset + ".");
           fs.writeFileSync("/tmp/flashscore-season-paths.txt", paths.join("\n") + "\n");
           console.log("Competições elegíveis no catálogo: " + total);
+          console.log("Retoma a partir de: " + (requested || resumeFrom || "início do catálogo"));
           console.log("Grupo selecionado: offset=" + offset + ", limite=" + (limit || "todas") + ", selecionadas=" + paths.length);
           console.log("Primeira competição selecionada: " + paths[0]);
           console.log("Última competição selecionada: " + paths[paths.length - 1]);
