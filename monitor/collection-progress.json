@@ -2,14 +2,14 @@
   "run_id": "42183404135",
   "run_number": "3",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 120,
   "processed_games": 120,
   "stats_games": 120,
   "bwin_odds": 120,
   "failed_games": 0,
-  "current_match": "Último concluído: Boluspor - Manisa FK",
+  "current_match": "Recolha terminada",
   "last_result": "Boluspor - Manisa FK: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T07:50:16.918Z"
+  "updated_at": "2026-11-06T07:50:19.707Z"
 }
