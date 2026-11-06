@@ -2,14 +2,14 @@
   "run_id": "42183404135",
   "run_number": "3",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 36,
   "processed_games": 36,
   "stats_games": 35,
   "bwin_odds": 33,
   "failed_games": 0,
-  "current_match": "Último concluído: Truong Tuoi Dong Nai - Viettel",
+  "current_match": "Recolha terminada",
   "last_result": "Truong Tuoi Dong Nai - Viettel: 11 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T07:55:15.807Z"
+  "updated_at": "2026-11-06T07:55:17.644Z"
 }
