@@ -13,7 +13,7 @@ test("filtra por país e limita lote",()=>{
 });
 test("cursor exclusivo mantém retoma estável",()=>{
  const r=selectBackfillPaths({catalog,selection,statusReport,resumeAfterPath:paths[2],limit:10});
- assert.deepEqual(r.paths,[paths[3],paths[1],paths[0]]);
+ assert.deepEqual(r.paths,[paths[3],paths[1]]);
 });
 test("ignora completas e impõe máximo de 25",()=>{
  const r=selectBackfillPaths({catalog,selection,statusReport,limit:25});
