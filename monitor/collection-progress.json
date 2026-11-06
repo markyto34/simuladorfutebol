@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 116,
-  "processed_games": 101,
-  "stats_games": 101,
-  "bwin_odds": 95,
+  "processed_games": 116,
+  "stats_games": 116,
+  "bwin_odds": 110,
   "failed_games": 0,
-  "current_match": "A consultar jogo 104/116 · SAF0cw2M",
-  "last_result": "Dusseldorf - Hoffenheim II: 11 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T08:38:25.213Z"
+  "current_match": "Último concluído: Mannheim - Dusseldorf",
+  "last_result": "Mannheim - Dusseldorf: 11 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T08:38:28.528Z"
 }
