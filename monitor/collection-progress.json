@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 112,
-  "processed_games": 51,
+  "processed_games": 76,
   "stats_games": 25,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/112 · hYe1pBno",
-  "last_result": "Jamaica F - Panamá F: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T09:06:43.891Z"
+  "current_match": "Último concluído: Bonaire F - Aruba F",
+  "last_result": "Bonaire F - Aruba F: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T09:06:48.842Z"
 }
