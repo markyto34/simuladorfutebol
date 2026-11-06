@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
+  "processed_games": 1,
+  "stats_games": 1,
+  "bwin_odds": 1,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T10:07:35.451Z"
+  "current_match": "Último concluído: Adelaide F - Wellington Phoenix F",
+  "last_result": "Adelaide F - Wellington Phoenix F: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T10:07:37.892Z"
 }
