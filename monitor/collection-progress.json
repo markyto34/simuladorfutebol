@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 123,
-  "processed_games": 26,
+  "processed_games": 51,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/123 · 4jDxQZIr",
-  "last_result": "Norderstedt II - ETSV Hamburg: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T08:44:55.230Z"
+  "current_match": "Último concluído: Suderelbe - Victoria Hamburg",
+  "last_result": "Suderelbe - Victoria Hamburg: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T08:45:00.221Z"
 }
