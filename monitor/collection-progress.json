@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 112,
-  "processed_games": 76,
+  "processed_games": 101,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 79/112 · dlW1lW63",
-  "last_result": "Wienerberger - Favoritner: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:25:45.903Z"
+  "current_match": "Último concluído: Favoritner - Wiener Viktoria",
+  "last_result": "Favoritner - Wiener Viktoria: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:25:50.877Z"
 }
