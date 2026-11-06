@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 34,
-  "processed_games": 26,
+  "processed_games": 34,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/34 · 2Vk8pEpC",
-  "last_result": "Tocantinopolis - Guarai SC: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T12:07:40.971Z"
+  "current_match": "Último concluído: Uniao Carmolandense - Tocantinopolis",
+  "last_result": "Uniao Carmolandense - Tocantinopolis: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T12:07:42.602Z"
 }
