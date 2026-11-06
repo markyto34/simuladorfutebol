@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 74,
   "processed_games": 74,
   "stats_games": 14,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Villa Nova MG - Valeriodoce",
+  "current_match": "Recolha terminada",
   "last_result": "Villa Nova MG - Valeriodoce: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:29:03.723Z"
+  "updated_at": "2026-11-06T11:29:05.238Z"
 }
