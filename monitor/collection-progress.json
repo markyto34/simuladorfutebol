@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 36,
-  "processed_games": 25,
-  "stats_games": 24,
-  "bwin_odds": 24,
+  "processed_games": 36,
+  "stats_games": 35,
+  "bwin_odds": 33,
   "failed_games": 0,
-  "current_match": "Último concluído: Hanoi FC - Song Lam Nghe An",
-  "last_result": "Hanoi FC - Song Lam Nghe An: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T07:55:13.371Z"
+  "current_match": "Último concluído: Truong Tuoi Dong Nai - Viettel",
+  "last_result": "Truong Tuoi Dong Nai - Viettel: 11 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T07:55:15.807Z"
 }
