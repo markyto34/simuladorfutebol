@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 240,
-  "processed_games": 176,
-  "stats_games": 175,
-  "bwin_odds": 160,
+  "processed_games": 201,
+  "stats_games": 200,
+  "bwin_odds": 185,
   "failed_games": 0,
-  "current_match": "A consultar jogo 179/240 · d6kJA4eS",
-  "last_result": "Ordabasy - Aktobe: 11 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T12:22:20.641Z"
+  "current_match": "A consultar jogo 204/240 · 849qSBP9",
+  "last_result": "Aktobe - Kaspij Aktau: 11 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T12:22:26.321Z"
 }
