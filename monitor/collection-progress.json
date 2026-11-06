@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 74,
-  "processed_games": 51,
-  "stats_games": 51,
-  "bwin_odds": 47,
+  "processed_games": 74,
+  "stats_games": 74,
+  "bwin_odds": 69,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/74 · 6grbqH6s",
-  "last_result": "Curaçau - Nicarágua: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T09:00:56.375Z"
+  "current_match": "Último concluído: Turcas e Caicos - Montserrat",
+  "last_result": "Turcas e Caicos - Montserrat: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T09:01:01.508Z"
 }
