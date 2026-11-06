@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 467,
-  "processed_games": 275,
-  "stats_games": 272,
+  "processed_games": 300,
+  "stats_games": 297,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: General Lamadrid - Yupanqui",
-  "last_result": "General Lamadrid - Yupanqui: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T09:29:09.981Z"
+  "current_match": "Último concluído: Deportivo Espanol - Mercedes",
+  "last_result": "Deportivo Espanol - Mercedes: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T09:29:15.321Z"
 }
