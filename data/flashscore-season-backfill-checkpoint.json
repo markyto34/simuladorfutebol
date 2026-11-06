@@ -5,9 +5,10 @@
   "completed_paths": [
     "/futebol/africa-do-sul/primeira-liga/",
     "/futebol/africa-do-sul/segunda-liga/",
+    "/futebol/africa/caf-liga-dos-campeoes/",
     "/futebol/asia/afc-liga-dos-campeoes/"
   ],
-  "updated_at": "2026-11-06T22:52:39.989Z",
+  "updated_at": "2026-11-06T22:54:28.746Z",
   "completed_paths_reset_version": 1,
-  "last_completed_path": "/futebol/africa-do-sul/segunda-liga/"
+  "last_completed_path": "/futebol/africa/caf-liga-dos-campeoes/"
 }
