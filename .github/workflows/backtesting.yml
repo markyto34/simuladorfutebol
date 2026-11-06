@@ -1,17 +1,33 @@
-name: Backtesting
+name: Backtesting do simulador Flashscore
 on:
   push:
     branches: [main]
+    paths:
+      - app.js
+      - metric-coverage.js
+      - data/flashscore-statistics.csv
+      - scripts/backtest-flashscore-simulator.cjs
+      - tests/backtest-flashscore-simulator.test.cjs
+      - .github/workflows/backtesting.yml
+  pull_request:
+    paths:
+      - app.js
+      - metric-coverage.js
+      - data/flashscore-statistics.csv
+      - scripts/backtest-flashscore-simulator.cjs
+      - tests/backtest-flashscore-simulator.test.cjs
+      - .github/workflows/backtesting.yml
   workflow_dispatch:
     inputs:
-      league:
-        description: Open Matchday competition folder
-        required: true
-        default: POR_1_primeira-liga
-      season:
-        description: Season code (e.g. 2526)
-        required: true
-        default: "2627"
+      sample_size:
+        description: Número de jogos anteriores por equipa e indicador
+        required: false
+        default: "5"
+        type: choice
+        options:
+          - "5"
+          - "10"
+          - "15"
   schedule:
     - cron: "30 5 * * 1"
 permissions:
@@ -19,25 +35,23 @@ permissions:
 jobs:
   backtest:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      SAMPLE_SIZE: \${{ inputs.sample_size || '5' }}
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
           node-version: 22
-      - name: Download historical results
-        env:
-          LEAGUE: ${{ inputs.league || 'POR_1_primeira-liga' }}
-          SEASON: ${{ inputs.season || '2627' }}
+      - name: Validar motor de backtesting
         run: |
-          set -euo pipefail
-          mkdir -p data
-          curl --fail --location --silent --show-error "https://raw.githubusercontent.com/oladeeayo/open-matchday/master/data/${LEAGUE}/results_${SEASON}.csv" --output data/results.csv
-      - name: Run unit tests
-        run: node --test tests/backtest.test.cjs
-      - name: Run chronological backtest
-        run: node scripts/backtest.cjs data/results.csv 10 backtest-report.json
-      - name: Upload report
+          node -c scripts/backtest-flashscore-simulator.cjs
+          node --test tests/backtest*.test.cjs
+      - name: Executar walk-forward sobre o histórico Flashscore
+        run: node scripts/backtest-flashscore-simulator.cjs data/flashscore-statistics.csv "$SAMPLE_SIZE" backtest-flashscore-report.json
+      - name: Publicar relatório
         uses: actions/upload-artifact@v6
         with:
-          name: backtest-report
-          path: backtest-report.json
+          name: backtest-flashscore-simulator
+          path: backtest-flashscore-report.json
+          if-no-files-found: error
