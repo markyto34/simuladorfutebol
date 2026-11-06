@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 1,
+  "stats_games": 1,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T08:56:05.979Z"
+  "current_match": "Último concluído: Bayern F - Wolfsburg F",
+  "last_result": "Bayern F - Wolfsburg F: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T08:56:08.480Z"
 }
