@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 150,
-  "processed_games": 26,
+  "processed_games": 50,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Tupa - Independente SP",
-  "last_result": "Tupa - Independente SP: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:39:45.762Z"
+  "current_match": "A consultar jogo 53/150 · niCvc045",
+  "last_result": "Mauaense - Uniao Mogi: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:39:50.793Z"
 }
