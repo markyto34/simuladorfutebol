@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 64,
-  "processed_games": 52,
-  "stats_games": 50,
+  "processed_games": 64,
+  "stats_games": 62,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 55/64 · KCK6spTr",
-  "last_result": "Royal Union SG 2 - Habay La Neuve: 9 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:41:48.064Z"
+  "current_match": "Último concluído: Habay La Neuve - RWDM Brussels",
+  "last_result": "Habay La Neuve - RWDM Brussels: 11 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:41:50.870Z"
 }
