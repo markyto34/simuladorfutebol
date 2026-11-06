@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 201,
-  "processed_games": 125,
-  "stats_games": 124,
-  "bwin_odds": 125,
+  "processed_games": 150,
+  "stats_games": 149,
+  "bwin_odds": 148,
   "failed_games": 0,
-  "current_match": "Último concluído: Pakhtakor - Nasaf Qarshi",
-  "last_result": "Pakhtakor - Nasaf Qarshi: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T07:54:00.089Z"
+  "current_match": "Último concluído: Nasaf Qarshi - Buxoro",
+  "last_result": "Nasaf Qarshi - Buxoro: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T07:54:06.095Z"
 }
