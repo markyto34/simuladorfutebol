@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 6,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 6,
+  "stats_games": 4,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T06:51:16.189Z"
+  "current_match": "Último concluído: Ellas Syrou - Kalamaria",
+  "last_result": "Ellas Syrou - Kalamaria: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T06:51:19.426Z"
 }
