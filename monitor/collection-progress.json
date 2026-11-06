@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 201,
-  "processed_games": 76,
+  "processed_games": 101,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 79/201 · tOAIterB",
-  "last_result": "RB Bragantino U17 - Athletico-PR U17: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:02:56.212Z"
+  "current_match": "Último concluído: Juventude U17 - Atletico-GO U17",
+  "last_result": "Juventude U17 - Atletico-GO U17: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:03:01.168Z"
 }
