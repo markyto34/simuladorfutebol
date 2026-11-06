@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 105,
-  "processed_games": 101,
-  "stats_games": 100,
-  "bwin_odds": 98,
+  "processed_games": 105,
+  "stats_games": 104,
+  "bwin_odds": 101,
   "failed_games": 0,
-  "current_match": "Último concluído: Sporting CP U23 - Leiria U23",
-  "last_result": "Sporting CP U23 - Leiria U23: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T13:52:48.282Z"
+  "current_match": "Último concluído: Académico Viseu U23 - Estrela da Amadora U23",
+  "last_result": "Académico Viseu U23 - Estrela da Amadora U23: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T13:52:49.258Z"
 }
