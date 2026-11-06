@@ -65,6 +65,7 @@ jobs:
           node --check scripts/discover-flashscore-season.mjs
           node --check scripts/build-flashscore-competition-status.mjs
           node --check scripts/select-flashscore-backfill-paths.mjs
+          node --check scripts/clean-flashscore-completed-checkpoints.mjs
           node --check scripts/split-flashscore-season-manifest.mjs
           node --test tests/discover-flashscore-season.test.mjs tests/build-flashscore-competition-status.test.mjs tests/select-flashscore-backfill-paths.test.mjs tests/collect-team-last-five.test.mjs tests/clean-flashscore-completed-checkpoints.test.mjs
       - name: Preparar lote seguro de competições selecionadas
