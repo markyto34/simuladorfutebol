@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 36,
-  "processed_games": 25,
-  "stats_games": 24,
+  "processed_games": 36,
+  "stats_games": 34,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 28/36 · 4nLKYaiJ",
-  "last_result": "Beerschot VA U21 - RAAL La Louviere U21: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:42:49.902Z"
+  "current_match": "Último concluído: RFC Liege U21 - Seraing U21",
+  "last_result": "RFC Liege U21 - Seraing U21: 10 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:42:52.226Z"
 }
