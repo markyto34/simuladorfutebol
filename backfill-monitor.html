@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="Acompanha em direto a recolha histórica de estatísticas Flashscore por competição.">
+  <title>Backfill Flashscore ao vivo · Simulador de Futebol</title>
+  <link rel="stylesheet" href="backfill-monitor.css">
+  <link rel="stylesheet" href="theme.css">
+  <script src="backfill-monitor.js" defer></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="index.html"><span class="brand-mark">SF</span><span>SIMULADOR<span class="brand-muted"> DE FUTEBOL</span></span></a>
+      <nav><a href="monitor.html">Monitor diário</a><a href="index.html">Voltar ao simulador</a></nav>
+    </header>
+
+    <section class="intro">
+      <div>
+        <p class="eyebrow"><span class="live-dot" id="live-dot"></span> CENTRO DE OPERAÇÕES · FLASHScore</p>
+        <h1>Recolha histórica <em>ao vivo</em></h1>
+        <p class="subhead">Acompanha o backfill da época: competição atual, jogos consultados, estatísticas encontradas, odds Bwin e checkpoints publicados.</p>
+      </div>
+      <div class="refresh-box"><span class="refresh-indicator" id="refresh-indicator"></span><span id="refresh-label">A ligar ao GitHub…</span></div>
+    </section>
+
+    <section class="run-panel">
+      <div class="run-heading">
+        <div><span class="section-kicker">EXECUÇÃO MAIS RECENTE</span><h2 id="run-title">A procurar execução…</h2></div>
+        <span class="status-pill status-loading" id="run-status">A carregar</span>
+      </div>
+      <div class="metrics">
+        <article class="metric"><span>Competições concluídas</span><strong id="completed-count">—</strong><small id="batch-count">No lote atual</small></article>
+        <article class="metric"><span>Competição atual</span><strong class="metric-stage" id="current-competition">—</strong><small id="competition-position">À espera do início</small></article>
+        <article class="metric"><span>Jogos processados</span><strong id="games-progress">—</strong><small id="games-detail">Nesta competição</small></article>
+        <article class="metric"><span>Falhas / bloqueios</span><strong id="errors-progress">—</strong><small id="last-update">—</small></article>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="progress-caption"><span id="progress-label">A aguardar dados do coletor</span><span id="progress-percent">—</span></div>
+      <div class="live-details">
+        <div><span>Último jogo / atividade</span><strong id="current-match">A aguardar publicação de progresso.</strong></div>
+        <div><span>Último resultado</span><strong id="last-result">—</strong></div>
+        <div><span>Registos com estatísticas</span><strong id="stats-progress">—</strong></div>
+        <div><span>Jogos com odds Bwin 1X2</span><strong id="bwin-progress">—</strong></div>
+      </div>
+      <div class="run-actions"><a id="github-run-link" class="primary-link" href="https://github.com/markyto34/simuladorfutebol/actions/workflows/backfill-flashscore-season.yml" target="_blank" rel="noreferrer">Abrir execução no GitHub ↗</a><span id="run-id" class="run-id"></span></div>
+    </section>
+
+    <section class="competitions-panel">
+      <div class="panel-heading"><div><span class="section-kicker">LOTE EM CURSO</span><h2>Estado das competições</h2></div><span class="small-tag" id="checkpoint-label">Checkpoint a carregar</span></div>
+      <ol id="competitions-list" class="competitions-list"><li class="empty-state">A carregar a lista do lote…</li></ol>
+    </section>
+
+    <section class="footnote">
+      <strong>Como interpretar o progresso</strong>
+      <p>O contador de jogos atualiza durante a recolha. A conclusão de cada competição só é confirmada depois de validar e publicar os CSV e o checkpoint. Jogos sem odds Bwin podem continuar a contribuir para as estatísticas, mas não são adicionados ao CSV histórico de odds.</p>
+    </section>
+    <footer><span>Simulador de Futebol · Monitor do backfill Flashscore</span><span>Atualização automática a cada 10 segundos</span></footer>
+  </main>
+</body>
+</html>
