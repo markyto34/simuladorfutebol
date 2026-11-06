@@ -2,7 +2,9 @@
   "version": 1,
   "source_run_id": "42183404135",
   "note": "Competições concluídas e com checkpoints publicados na execução de 2026-11-06; não repetir.",
-  "completed_paths": [],
-  "updated_at": "2026-11-06T21:17:08.862Z",
+  "completed_paths": [
+    "/futebol/asia/afc-liga-dos-campeoes/"
+  ],
+  "updated_at": "2026-11-06T21:33:59.745Z",
   "completed_paths_reset_version": 1
 }
