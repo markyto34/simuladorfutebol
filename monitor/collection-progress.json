@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 65,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 50,
+  "processed_games": 65,
+  "stats_games": 65,
+  "bwin_odds": 65,
   "failed_games": 0,
-  "current_match": "Último concluído: Frankfurt - Augsburg",
-  "last_result": "Frankfurt - Augsburg: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T23:14:31.519Z"
+  "current_match": "Último concluído: Bayern - Stuttgart",
+  "last_result": "Bayern - Stuttgart: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T23:14:46.455Z"
 }
