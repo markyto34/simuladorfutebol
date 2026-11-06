@@ -4,7 +4,30 @@ import { parseCsv, normalize } from "./audit-flashscore-odds-matches.mjs";
 
 const INPUT = "data/flashscore-statistics.csv";
 const OUTPUT = "data/simulator-complete-competitions.json";
-export const CORE_METRICS = ["shots", "shots_on_target", "corners", "corners_ht", "corners_st", "yellow_cards", "fouls"];
+export const CORE_METRICS = [
+  "goals", "goals_ht", "goals_st",
+  "corners", "corners_ht", "corners_st",
+  "shots", "shots_on_target", "shots_off_target", "blocked_shots",
+  "shots_inside_box", "shots_outside_box",
+  "fouls", "yellow_cards", "red_cards"
+];
+const METRIC_COLUMNS = {
+  goals: ["score_home", "score_away"],
+  goals_ht: ["ht_home", "ht_away"],
+  goals_st: ["sh_home", "sh_away"],
+  corners: ["corners_home", "corners_away"],
+  corners_ht: ["corners_ht_home", "corners_ht_away"],
+  corners_st: ["corners_st_home", "corners_st_away"],
+  shots: ["shots_home", "shots_away"],
+  shots_on_target: ["shots_on_target_home", "shots_on_target_away"],
+  shots_off_target: ["shots_off_target_home", "shots_off_target_away"],
+  blocked_shots: ["blocked_shots_home", "blocked_shots_away"],
+  shots_inside_box: ["shots_inside_box_home", "shots_inside_box_away"],
+  shots_outside_box: ["shots_outside_box_home", "shots_outside_box_away"],
+  fouls: ["fouls_home", "fouls_away"],
+  yellow_cards: ["yellow_cards_home", "yellow_cards_away"],
+  red_cards: ["red_cards_home", "red_cards_away"]
+};
 const COUNTRY_NAMES = new Map(Object.entries({
   "africa":"África","africa do sul":"África do Sul","alemanha":"Alemanha","argelia":"Argélia","argentina":"Argentina",
   "arabia saudita":"Arábia Saudita","australia":"Austrália","austria":"Áustria","belgica":"Bélgica","bolivia":"Bolívia",
@@ -76,13 +99,13 @@ export function buildCompleteCompetitions(records, previous = {}) {
     const matches = [...item.matches.values()];
     if (matches.length < 5) continue;
     const metricCoverage = {};
-    let allComplete = true;
     for (const metric of CORE_METRICS) {
-      const complete = matches.filter(row => numeric(row[metric + "_home"]) && numeric(row[metric + "_away"])).length;
+      const [homeColumn, awayColumn] = METRIC_COLUMNS[metric];
+      const complete = matches.filter(row => numeric(row[homeColumn]) && numeric(row[awayColumn])).length;
       metricCoverage[metric] = { complete, total: matches.length, pct: pct(complete, matches.length) };
-      if (complete !== matches.length) allComplete = false;
     }
-    if (!allComplete) continue;
+    // Missing statistics are normal in individual Flashscore matches. Keep the
+    // competition eligible after five unique matches and expose coverage per metric.
     const entry = {
       country_name: previousItem?.country_name || countryName,
       competition_name: previousItem?.competition_name || item.competition,
@@ -114,7 +137,7 @@ export function buildCompleteCompetitions(records, previous = {}) {
     index: {
       generated_from: INPUT,
       generated_at: unchanged && previous.generated_at ? previous.generated_at : new Date().toISOString(),
-      definition: "At least 5 unique matches and 100% paired home/away values for every core metric listed.",
+      definition: "At least 5 unique matches; missing values are allowed and per-metric paired home/away coverage is reported.",
       core_metrics: [...CORE_METRICS],
       complete_competitions: complete
     },
