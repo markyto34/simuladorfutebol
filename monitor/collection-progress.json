@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 114,
-  "processed_games": 101,
+  "processed_games": 114,
   "stats_games": 65,
-  "bwin_odds": 68,
+  "bwin_odds": 79,
   "failed_games": 0,
-  "current_match": "Último concluído: SC Vianense - Minas de Argozelo",
-  "last_result": "SC Vianense - Minas de Argozelo: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T13:55:45.223Z"
+  "current_match": "Último concluído: Beira Mar - Uniao Lamas",
+  "last_result": "Beira Mar - Uniao Lamas: 0 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T13:55:47.990Z"
 }
