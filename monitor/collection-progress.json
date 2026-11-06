@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 143,
-  "processed_games": 127,
-  "stats_games": 125,
+  "processed_games": 143,
+  "stats_games": 141,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 130/143 · CdmuaMIl",
-  "last_result": "Weston Bears - Charlestown Azzurri: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:13:05.190Z"
+  "current_match": "Último concluído: Kahibah - Lambton J.",
+  "last_result": "Kahibah - Lambton J.: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:13:09.124Z"
 }
