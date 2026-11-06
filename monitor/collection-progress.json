@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 7,
   "processed_games": 7,
   "stats_games": 6,
   "bwin_odds": 7,
   "failed_games": 0,
-  "current_match": "Último concluído: Atl. Rafaela - Gimnasia y Tiro",
+  "current_match": "Recolha terminada",
   "last_result": "Atl. Rafaela - Gimnasia y Tiro: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T09:30:16.416Z"
+  "updated_at": "2026-11-06T09:30:18.048Z"
 }
