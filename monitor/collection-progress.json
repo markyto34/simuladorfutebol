@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 34,
-  "processed_games": 26,
+  "processed_games": 34,
   "stats_games": 6,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/34 · 4tDZiEZ1",
-  "last_result": "TEC - Oeirense: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:45:09.470Z"
+  "current_match": "Último concluído: Oeirense - Fluminense-PI",
+  "last_result": "Oeirense - Fluminense-PI: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:45:11.133Z"
 }
