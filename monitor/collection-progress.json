@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 78,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
+  "processed_games": 25,
+  "stats_games": 25,
+  "bwin_odds": 22,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T07:51:06.529Z"
+  "current_match": "Último concluído: Veres-Rivne - Shakhtar",
+  "last_result": "Veres-Rivne - Shakhtar: 11 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T07:51:14.653Z"
 }
