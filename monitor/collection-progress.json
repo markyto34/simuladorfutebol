@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 36,
   "processed_games": 36,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: ESMAC U20 - Remo U20",
+  "current_match": "Recolha terminada",
   "last_result": "ESMAC U20 - Remo U20: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:32:40.674Z"
+  "updated_at": "2026-11-06T11:32:42.109Z"
 }
