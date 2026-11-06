@@ -148,7 +148,9 @@ jobs:
               if ! node scripts/split-flashscore-season-manifest.mjs --manifest="$manifest" --out-dir="$chunk_dir" --chunk-size=10 >"$comp_dir/split.log" 2>&1; then
                 cat "$comp_dir/split.log"; echo "::endgroup::"; failures=$((failures + 1)); printf "%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\n" "$index" "$competition_path" "" "$discovered" "$already" "$pending" 0 1 "split_failed" >> "$REPORT"; continue
               fi
+              shopt -s nullglob
               chunks=("$chunk_dir"/chunk-*.json)
+              shopt -u nullglob
               chunks_total=${#chunks[@]}
               comp_status="completed"
               if (( chunks_total == 0 )); then echo "Sem jogos pendentes: $discovered descobertos; $already já completos."; fi
