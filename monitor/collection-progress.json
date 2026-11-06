@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 99,
-  "processed_games": 75,
+  "processed_games": 99,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 78/99 · KvL7B0g3",
-  "last_result": "Eupen 2 - La Calamine: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:43:25.551Z"
+  "current_match": "Último concluído: RCS Brainois - Richelle Utd.",
+  "last_result": "RCS Brainois - Richelle Utd.: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:43:30.492Z"
 }
