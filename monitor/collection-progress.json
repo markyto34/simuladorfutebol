@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 49,
-  "processed_games": 26,
-  "stats_games": 26,
-  "bwin_odds": 25,
+  "processed_games": 49,
+  "stats_games": 49,
+  "bwin_odds": 47,
   "failed_games": 0,
-  "current_match": "Último concluído: GD Bragança - Ponte da Barca",
-  "last_result": "GD Bragança - Ponte da Barca: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T13:49:05.110Z"
+  "current_match": "Último concluído: Braga B - Maia Lidador",
+  "last_result": "Braga B - Maia Lidador: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T13:49:09.960Z"
 }
