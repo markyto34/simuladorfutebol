@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 198,
-  "processed_games": 126,
+  "processed_games": 151,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 129/198 · 02GzINqJ",
-  "last_result": "Camacari U20 - Galicia U20: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:01:09.406Z"
+  "current_match": "Último concluído: Catuense U20 - Barcelona U20",
+  "last_result": "Catuense U20 - Barcelona U20: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:01:14.379Z"
 }
