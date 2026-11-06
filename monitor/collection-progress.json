@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 34,
-  "processed_games": 26,
-  "stats_games": 24,
+  "processed_games": 34,
+  "stats_games": 31,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/34 · 84kVHC7b",
-  "last_result": "Independencia - Nacional-AM: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:18:53.920Z"
+  "current_match": "Último concluído: Paysandu - GAS",
+  "last_result": "Paysandu - GAS: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:18:55.690Z"
 }
