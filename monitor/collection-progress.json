@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 18,
   "processed_games": 18,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: CEAC/Araruama F - Heips F",
+  "current_match": "Recolha terminada",
   "last_result": "CEAC/Araruama F - Heips F: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:11:51.893Z"
+  "updated_at": "2026-11-06T11:11:53.385Z"
 }
