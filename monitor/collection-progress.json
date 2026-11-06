@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 28,
-  "processed_games": 26,
+  "processed_games": 28,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Gremio Sorriso - Sorriso EC",
-  "last_result": "Gremio Sorriso - Sorriso EC: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:27:13.436Z"
+  "current_match": "Recolha terminada",
+  "last_result": "Paulistano FC - Uirapuru: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:27:15.354Z"
 }
