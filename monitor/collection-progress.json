@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 285,
-  "processed_games": 0,
+  "processed_games": 26,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T08:46:19.046Z"
+  "current_match": "A consultar jogo 29/285 · StnwkfzJ",
+  "last_result": "Stuttgart U19 - Bayern U19: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T08:46:26.047Z"
 }
