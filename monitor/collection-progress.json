@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 9,
   "processed_games": 9,
   "stats_games": 8,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: America MG - Botafogo SP",
+  "current_match": "Recolha terminada",
   "last_result": "America MG - Botafogo SP: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:51:05.355Z"
+  "updated_at": "2026-11-06T11:51:06.799Z"
 }
