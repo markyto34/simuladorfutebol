@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 81,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 50,
+  "processed_games": 75,
+  "stats_games": 75,
+  "bwin_odds": 75,
   "failed_games": 0,
-  "current_match": "Último concluído: Amarante - Benfica B",
-  "last_result": "Amarante - Benfica B: 11 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T13:53:17.135Z"
+  "current_match": "Último concluído: AFS - Sporting CP B",
+  "last_result": "AFS - Sporting CP B: 12 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T13:53:22.230Z"
 }
