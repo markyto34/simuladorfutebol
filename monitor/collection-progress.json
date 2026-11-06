@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 198,
-  "processed_games": 76,
+  "processed_games": 102,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 79/198 · vo5xZUx1",
-  "last_result": "Bahia de Feira U20 - Vitoria U20: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:00:59.452Z"
+  "current_match": "Último concluído: Camacari U20 - Feirense U20",
+  "last_result": "Camacari U20 - Feirense U20: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:01:04.541Z"
 }
