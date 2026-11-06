@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 51,
-  "processed_games": 26,
-  "stats_games": 21,
+  "processed_games": 51,
+  "stats_games": 39,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/51 · txKyptuR",
-  "last_result": "Camacari - Vitoria da Conquista: 9 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:59:55.119Z"
+  "current_match": "Último concluído: Jacobina - Grapiuna",
+  "last_result": "Jacobina - Grapiuna: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:00:00.260Z"
 }
