@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 44,
   "processed_games": 44,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Londrinense - Parana S.T.C.",
+  "current_match": "Recolha terminada",
   "last_result": "Londrinense - Parana S.T.C.: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:35:42.809Z"
+  "updated_at": "2026-11-06T11:35:44.284Z"
 }
