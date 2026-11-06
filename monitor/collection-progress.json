@@ -2,14 +2,14 @@
   "run_id": "42309459310",
   "run_number": "10",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 55,
   "processed_games": 55,
   "stats_games": 55,
   "bwin_odds": 55,
   "failed_games": 0,
-  "current_match": "Último concluído: Union Berlin F - Bayern F",
+  "current_match": "Recolha terminada",
   "last_result": "Union Berlin F - Bayern F: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T23:13:22.735Z"
+  "updated_at": "2026-11-06T23:13:24.397Z"
 }
