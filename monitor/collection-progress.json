@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 55,
-  "processed_games": 27,
-  "stats_games": 27,
-  "bwin_odds": 27,
+  "processed_games": 51,
+  "stats_games": 51,
+  "bwin_odds": 51,
   "failed_games": 0,
-  "current_match": "A consultar jogo 30/55 · 25kXD4rp",
-  "last_result": "Mainz F - Eintracht Frankfurt F: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T08:38:52.055Z"
+  "current_match": "A consultar jogo 54/55 · 8AdlB8R9",
+  "last_result": "RB Leipzig F - Leverkusen F: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T08:38:57.434Z"
 }
