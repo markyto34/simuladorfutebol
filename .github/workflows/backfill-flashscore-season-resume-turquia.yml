@@ -106,7 +106,7 @@ jobs:
           const remaining = paths.length;
           paths = paths.slice(offset, limit > 0 ? offset + limit : undefined);
           if (!paths.length) throw new Error("Não há competições pendentes no grupo pedido; catálogo=" + allPaths.length + ", concluídas=" + alreadyCompleted + ".");
-          fs.writeFileSync("/tmp/flashscore-season-paths.txt", paths.join("\\n") + "\\n");
+          fs.writeFileSync("/tmp/flashscore-season-paths.txt", paths.join("\n") + "\n");
           console.log("Competições descobertas no catálogo completo: " + allPaths.length);
           console.log("Competições já concluídas e preservadas: " + alreadyCompleted);
           console.log("Competições ainda pendentes antes do offset: " + remaining);
@@ -214,7 +214,7 @@ jobs:
           const path = process.argv[2];
           state.completed_paths = [...new Set([...(state.completed_paths || []), path])].sort();
           state.updated_at = new Date().toISOString();
-          fs.writeFileSync(file, JSON.stringify(state, null, 2) + "\\n");
+          fs.writeFileSync(file, JSON.stringify(state, null, 2) + "\n");
           NODE
             else
               code=$?
