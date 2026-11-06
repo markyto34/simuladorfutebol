@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 9,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
+  "processed_games": 9,
+  "stats_games": 9,
+  "bwin_odds": 9,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T19:50:31.073Z"
+  "current_match": "Último concluído: Shenzhen Juniors - Shaanxi Union",
+  "last_result": "Shenzhen Juniors - Shaanxi Union: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T19:50:39.404Z"
 }
