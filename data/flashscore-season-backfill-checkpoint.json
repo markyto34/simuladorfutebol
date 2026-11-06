@@ -1,10 +1,12 @@
 {
   "version": 1,
   "source_run_id": "42183404135",
-  "note": "Competições concluídas e com checkpoints publicados na execução de 2026-11-06; não repetir.",
+  "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
   "completed_paths": [
+    "/futebol/africa-do-sul/primeira-liga/",
     "/futebol/asia/afc-liga-dos-campeoes/"
   ],
-  "updated_at": "2026-11-06T21:33:59.745Z",
-  "completed_paths_reset_version": 1
+  "updated_at": "2026-11-06T22:51:08.223Z",
+  "completed_paths_reset_version": 1,
+  "last_completed_path": "/futebol/africa-do-sul/primeira-liga/"
 }
