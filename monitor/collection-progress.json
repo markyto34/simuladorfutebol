@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 38,
   "processed_games": 38,
   "stats_games": 6,
   "bwin_odds": 21,
   "failed_games": 0,
-  "current_match": "Último concluído: Drut Belynichi - Orsha",
+  "current_match": "Recolha terminada",
   "last_result": "Drut Belynichi - Orsha: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:40:34.128Z"
+  "updated_at": "2026-11-06T10:40:35.670Z"
 }
