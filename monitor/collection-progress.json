@@ -2,14 +2,14 @@
   "run_id": "42309459310",
   "run_number": "10",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 50,
   "processed_games": 50,
   "stats_games": 50,
   "bwin_odds": 50,
   "failed_games": 0,
-  "current_match": "Último concluído: Forge - Tigres",
+  "current_match": "Recolha terminada",
   "last_result": "Forge - Tigres: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T23:21:39.900Z"
+  "updated_at": "2026-11-06T23:21:41.406Z"
 }
