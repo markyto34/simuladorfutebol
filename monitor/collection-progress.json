@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 73,
-  "processed_games": 51,
-  "stats_games": 50,
+  "processed_games": 73,
+  "stats_games": 72,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/73 · YPJCXsYR",
-  "last_result": "Mbarara City - NEC FC: 9 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T07:51:57.497Z"
+  "current_match": "Último concluído: Vipers - Entebbe UPPC",
+  "last_result": "Vipers - Entebbe UPPC: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T07:52:02.195Z"
 }
