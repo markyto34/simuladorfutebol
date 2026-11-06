@@ -2,14 +2,14 @@
   "run_id": "42179216198",
   "run_number": "1",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 3,
   "processed_games": 3,
   "stats_games": 2,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: RFS - Super Nova",
+  "current_match": "Recolha terminada",
   "last_result": "RFS - Super Nova: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T07:14:00.734Z"
+  "updated_at": "2026-11-06T07:14:02.021Z"
 }
