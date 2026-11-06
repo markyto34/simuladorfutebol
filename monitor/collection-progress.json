@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 31,
-  "processed_games": 0,
+  "processed_games": 26,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T11:49:43.651Z"
+  "current_match": "A consultar jogo 28/31 · 8rO2LeOO",
+  "last_result": "Guarany SE U20 - Atletico Gloriense U20: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:49:50.872Z"
 }
