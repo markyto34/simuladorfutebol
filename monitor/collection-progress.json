@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 120,
-  "processed_games": 75,
-  "stats_games": 75,
-  "bwin_odds": 75,
+  "processed_games": 100,
+  "stats_games": 100,
+  "bwin_odds": 100,
   "failed_games": 0,
-  "current_match": "Último concluído: Sivasspor - Mardin 1969",
-  "last_result": "Sivasspor - Mardin 1969: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T07:50:06.887Z"
+  "current_match": "Último concluído: Karagumruk - Bursaspor",
+  "last_result": "Karagumruk - Bursaspor: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T07:50:12.402Z"
 }
