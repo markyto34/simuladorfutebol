@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 60,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 46,
+  "processed_games": 60,
+  "stats_games": 60,
+  "bwin_odds": 56,
   "failed_games": 0,
-  "current_match": "Último concluído: Honduras - Suriname",
-  "last_result": "Honduras - Suriname: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T23:20:20.944Z"
+  "current_match": "Último concluído: Turcas e Caicos - Montserrat",
+  "last_result": "Turcas e Caicos - Montserrat: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T23:20:30.938Z"
 }
