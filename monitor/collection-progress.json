@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 102,
-  "processed_games": 76,
+  "processed_games": 101,
   "stats_games": 44,
-  "bwin_odds": 51,
+  "bwin_odds": 52,
   "failed_games": 0,
-  "current_match": "A consultar jogo 79/102 · nLElCe06",
-  "last_result": "Togo - Níger: 0 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T08:29:54.400Z"
+  "current_match": "Último concluído: Burundi - Somália",
+  "last_result": "Burundi - Somália: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T08:29:59.382Z"
 }
