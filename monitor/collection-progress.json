@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 13,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 13,
+  "stats_games": 12,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T08:31:55.507Z"
+  "current_match": "Último concluído: Uganda U20 - Jibuti U20",
+  "last_result": "Uganda U20 - Jibuti U20: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T08:32:00.198Z"
 }
