@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 90,
-  "processed_games": 76,
-  "stats_games": 67,
+  "processed_games": 90,
+  "stats_games": 78,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 79/90 · OCwh5GT6",
-  "last_result": "Fluminense-SC - Hercilio Luz: 1 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:13:30.093Z"
+  "current_match": "Último concluído: Blumenau - Tubarao",
+  "last_result": "Blumenau - Tubarao: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:13:33.141Z"
 }
