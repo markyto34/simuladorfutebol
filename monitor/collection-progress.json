@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
-  "total_games": 64,
-  "processed_games": 64,
-  "stats_games": 62,
+  "status": "running",
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Habay La Neuve - RWDM Brussels: 11 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:41:52.442Z"
+  "current_match": "A descobrir jogos",
+  "last_result": "",
+  "updated_at": "2026-11-06T10:42:04.590Z"
 }
