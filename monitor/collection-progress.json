@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 118,
   "processed_games": 118,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: PSV Neumunster - VfR Neumunster",
+  "current_match": "Recolha terminada",
   "last_result": "PSV Neumunster - VfR Neumunster: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T08:54:36.971Z"
+  "updated_at": "2026-11-06T08:54:38.511Z"
 }
