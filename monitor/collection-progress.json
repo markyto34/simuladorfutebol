@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 167,
-  "processed_games": 76,
-  "stats_games": 76,
-  "bwin_odds": 76,
+  "processed_games": 101,
+  "stats_games": 101,
+  "bwin_odds": 101,
   "failed_games": 0,
-  "current_match": "A consultar jogo 79/167 · YVwFexA4",
-  "last_result": "Gremio F - Mixto F: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T11:02:01.577Z"
+  "current_match": "A consultar jogo 104/167 · hxA1PDT8",
+  "last_result": "Mixto F - Fluminense F: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T11:02:06.835Z"
 }
