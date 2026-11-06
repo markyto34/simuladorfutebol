@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 64,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
+  "processed_games": 26,
+  "stats_games": 26,
+  "bwin_odds": 26,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T11:22:10.277Z"
+  "current_match": "A consultar jogo 29/64 · IZ90wAM8",
+  "last_result": "SER Caxias - Ypiranga FC: 16 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T11:22:17.671Z"
 }
