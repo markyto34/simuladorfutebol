@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 35,
   "processed_games": 35,
   "stats_games": 35,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Uruguai U20 F - Venezuela U20 F",
+  "current_match": "Recolha terminada",
   "last_result": "Uruguai U20 F - Venezuela U20 F: 14 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T09:08:41.507Z"
+  "updated_at": "2026-11-06T09:08:42.974Z"
 }
