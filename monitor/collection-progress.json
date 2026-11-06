@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 42,
-  "processed_games": 26,
+  "processed_games": 42,
   "stats_games": 14,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/42 · lIxs1sAD",
-  "last_result": "Verdes (Blz) - Alianza FC (Sal): 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T09:04:05.115Z"
+  "current_match": "Último concluído: Waterhouse (Jam) - Pacific FC (Can)",
+  "last_result": "Waterhouse (Jam) - Pacific FC (Can): 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T09:04:09.407Z"
 }
