@@ -71,6 +71,8 @@ jobs:
           FLASHSCORE_REQUEST_DELAY_MS: "1000"
           FLASHSCORE_CONCURRENCY: "2"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COMPETITION_LIMIT: ${{ inputs.competition_limit }}
+          INPUT_COMPETITION_PATH: ${{ inputs.competition_path }}
         run: |
           set -uo pipefail
           completed=0
@@ -83,6 +85,9 @@ jobs:
           selected_paths_json="$(node -e 'const fs=require("node:fs"); console.log(JSON.stringify(fs.readFileSync("/tmp/flashscore-season-paths.txt","utf8").split(/\r?\n/).filter(Boolean)))')"
           total_paths="$(node -e 'const fs=require("node:fs"); console.log(fs.readFileSync("/tmp/flashscore-season-paths.txt","utf8").split(/\r?\n/).filter(Boolean).length)')"
           failed_paths=()
+          batch_limit="${COMPETITION_LIMIT:-10}"
+          auto_chain=true
+          if [[ -n "$INPUT_COMPETITION_PATH" ]]; then auto_chain=false; fi
 
           publish_progress() {
             local phase="$1" status="$2" competition_path="$3" reset_games="${4:-false}" blocked_state="${5:-false}"
@@ -167,6 +172,7 @@ jobs:
             fi
           }
 
+          while true; do
           while IFS= read -r competition_path; do
             [[ -n "$competition_path" ]] || continue
             index=$((index + 1))
@@ -229,6 +235,28 @@ jobs:
             if (( blocked == 1 )); then break; fi
             sleep 3
           done < /tmp/flashscore-season-paths.txt
+
+            # Só avança quando o lote inteiro termina sem falhas nem bloqueios.
+            if (( blocked == 1 || failures > 0 )) || [[ "$auto_chain" != "true" ]]; then break; fi
+            batch_limit=$((batch_limit + 15))
+            node scripts/build-flashscore-competition-status.mjs
+            if ! COMPETITION_PATH="" RESUME_AFTER_PATH="" COMPETITION_LIMIT="$batch_limit" node scripts/select-flashscore-backfill-paths.mjs > /tmp/flashscore-next-batch.log 2>&1; then
+              if grep -q "Não existem competições pendentes" /tmp/flashscore-next-batch.log; then
+                echo "Todas as competições selecionadas já estão concluídas."
+                break
+              fi
+              cat /tmp/flashscore-next-batch.log
+              echo "::error::Não foi possível preparar o lote seguinte."
+              failures=$((failures + 1))
+              break
+            fi
+            cat /tmp/flashscore-next-batch.log
+            batch_paths="$(node -e 'const fs=require("node:fs"); console.log(fs.readFileSync("/tmp/flashscore-season-paths.txt","utf8").split(/\r?\n/).filter(Boolean).length)')"
+            if (( batch_paths == 0 )); then echo "Não existem mais competições pendentes."; break; fi
+            selected_paths_json="$(node -e 'const fs=require("node:fs"); console.log(JSON.stringify(fs.readFileSync("/tmp/flashscore-season-paths.txt","utf8").split(/\r?\n/).filter(Boolean)))')"
+            total_paths=$((total_paths + batch_paths))
+            echo "Próximo lote preparado: máximo $batch_limit; competições selecionadas: $batch_paths."
+          done
 
           final_phase="completed"
           final_status="completed"
