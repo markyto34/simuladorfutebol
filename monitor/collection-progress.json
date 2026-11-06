@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 56,
-  "processed_games": 0,
+  "processed_games": 25,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T08:56:51.544Z"
+  "current_match": "A consultar jogo 28/56 · hjp59dN9",
+  "last_result": "Arminia Magdeburg U19 - Jena U19: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T08:56:58.477Z"
 }
