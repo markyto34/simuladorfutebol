@@ -1,15 +1,15 @@
 {
-  "run_id": "42187345426",
-  "run_number": "4",
+  "run_id": "42228408587",
+  "run_number": "5",
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
-  "total_games": 182,
-  "processed_games": 182,
-  "stats_games": 135,
+  "status": "running",
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Khan Tengri - Kaspij Aktau 2: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T12:23:35.049Z"
+  "current_match": "A descobrir jogos",
+  "last_result": "",
+  "updated_at": "2026-11-06T13:48:11.909Z"
 }
