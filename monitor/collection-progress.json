@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 144,
-  "processed_games": 76,
+  "processed_games": 101,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Darmstadt U21 - RW Walldorf",
-  "last_result": "Darmstadt U21 - RW Walldorf: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T08:45:47.740Z"
+  "current_match": "A consultar jogo 104/144 · CzekNFKs",
+  "last_result": "Kassel 2 - Fernwald: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T08:45:52.791Z"
 }
