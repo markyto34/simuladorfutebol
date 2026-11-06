@@ -3,13 +3,13 @@
   "run_number": "4",
   "target_date": "",
   "status": "running",
-  "phase": "discovery",
-  "total_games": 0,
+  "phase": "collecting",
+  "total_games": 7,
   "processed_games": 0,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A descobrir jogos",
+  "current_match": "A preparar jogos dos últimos cinco por equipa",
   "last_result": "",
-  "updated_at": "2026-11-06T12:03:23.983Z"
+  "updated_at": "2026-11-06T12:03:24.955Z"
 }
