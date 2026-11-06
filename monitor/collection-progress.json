@@ -2,14 +2,14 @@
   "run_id": "42183404135",
   "run_number": "3",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 201,
   "processed_games": 201,
   "stats_games": 200,
   "bwin_odds": 195,
   "failed_games": 0,
-  "current_match": "Último concluído: Buxoro - Kokand 1912",
+  "current_match": "Recolha terminada",
   "last_result": "Buxoro - Kokand 1912: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T07:54:17.980Z"
+  "updated_at": "2026-11-06T07:54:19.754Z"
 }
