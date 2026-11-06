@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 583,
-  "processed_games": 302,
-  "stats_games": 300,
+  "processed_games": 326,
+  "stats_games": 324,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 305/583 · KnKttFxp",
-  "last_result": "Velez Sarsfield 2 - Tigre 2: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T09:25:28.336Z"
+  "current_match": "Último concluído: Banfield 2 - Sarmiento Junin 2",
+  "last_result": "Banfield 2 - Sarmiento Junin 2: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T09:25:33.371Z"
 }
