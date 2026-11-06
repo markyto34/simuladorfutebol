@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 136,
-  "processed_games": 127,
-  "stats_games": 126,
+  "processed_games": 136,
+  "stats_games": 135,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Logan Lightning - North Star",
-  "last_result": "Logan Lightning - North Star: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:21:59.337Z"
+  "current_match": "Último concluído: Holland Park Hawks - Logan Lightning",
+  "last_result": "Holland Park Hawks - Logan Lightning: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:22:01.538Z"
 }
