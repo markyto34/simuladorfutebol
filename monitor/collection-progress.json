@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 203,
-  "processed_games": 76,
-  "stats_games": 76,
-  "bwin_odds": 76,
+  "processed_games": 102,
+  "stats_games": 102,
+  "bwin_odds": 102,
   "failed_games": 0,
-  "current_match": "A consultar jogo 79/203 · I9f5jA33",
-  "last_result": "Independiente - River Plate: 13 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T09:31:47.352Z"
+  "current_match": "Último concluído: Tigre - Central Cordoba",
+  "last_result": "Tigre - Central Cordoba: 12 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T09:31:53.281Z"
 }
