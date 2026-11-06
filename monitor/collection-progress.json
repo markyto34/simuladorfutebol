@@ -2,14 +2,14 @@
   "run_id": "42279171908",
   "run_number": "6",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 2,
   "processed_games": 2,
   "stats_games": 2,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Talas - Kaisar",
+  "current_match": "Recolha terminada",
   "last_result": "Talas - Kaisar: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T19:27:39.509Z"
+  "updated_at": "2026-11-06T19:27:40.842Z"
 }
