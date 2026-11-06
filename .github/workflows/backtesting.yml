@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
-      SAMPLE_SIZE: \${{ inputs.sample_size || '5' }}
+      SAMPLE_SIZE: ${{ inputs.sample_size || '5' }}
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
