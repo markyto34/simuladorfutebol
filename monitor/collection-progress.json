@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 33,
-  "processed_games": 26,
+  "processed_games": 33,
   "stats_games": 4,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/33 · h6Qt9plr",
-  "last_result": "Vitoria ES - Audax Sao Mateus: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T12:01:43.596Z"
+  "current_match": "Último concluído: Porto Vitoria - Vitoria ES",
+  "last_result": "Porto Vitoria - Vitoria ES: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T12:01:44.955Z"
 }
