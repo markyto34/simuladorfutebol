@@ -149,11 +149,17 @@ jobs:
             log="/tmp/flashscore-season-$index.log"
             manifest="/tmp/flashscore-season-$index.json"
             echo "::group::Competição $index · $competition_path"
-            if node scripts/discover-flashscore-season.mjs --path="$competition_path" --out="$manifest" >"$log" 2>&1; then
-              cat "$log"
+            echo "[COMPETITION START] $(date -u +%FT%TZ) | $index | $competition_path"
+            if node scripts/discover-flashscore-season.mjs --path="$competition_path" --out="$manifest" 2>&1 | tee "$log" | awk '/^\[SEASON( PAGE| COMPLETE| WARNING| ERROR)/ { print; fflush() }'; then
+              node --input-type=module - "$manifest" <<'NODE'
+          import fs from "node:fs";
+          const manifest = JSON.parse(fs.readFileSync(process.argv[2], "utf8"));
+          const pending = (manifest.fixtures || []).filter(item => item.stats_status !== "already_complete").length;
+          const complete = (manifest.fixtures || []).length - pending;
+          console.log("[COMPETITION DISCOVERED] época=" + (manifest.season || "atual") + " | jogos concluídos=" + (manifest.finished_matches_discovered || 0) + " | já completos=" + complete + " | pendentes=" + pending);
+          NODE
             else
               code=$?
-              cat "$log"
               if grep -Eiq 'HTTP (401|403|429)|bloqueou/limitou|Flashscore bloqueou' "$log"; then
                 blocked=1
                 echo "Flashscore limitou o acesso; parar o lote para proteger a recolha."
@@ -181,11 +187,10 @@ jobs:
               chunk_index=$((chunk_index + 1))
               chunk_log="$chunk_dir/chunk-$chunk_index.log"
               echo "[CHECKPOINT BLOCO] $competition_path · bloco $chunk_index/${#chunks[@]} · até 10 jogos"
-              if node scripts/collect-flashscore-csv.mjs --team-last-five="$chunk" >"$chunk_log" 2>&1; then
-                cat "$chunk_log"
+              if node scripts/collect-flashscore-csv.mjs --team-last-five="$chunk" 2>&1 | tee "$chunk_log" | awk '/^\[COLLECT\]|^\[PROGRESS\].*(START|OK|ERROR)|^\[RETRY\]|^\[MONITOR\]|^\[SUMMARY\]|^CSV de|^CSV exclusivo|^\[SEASON BACKFILL\]/ { print; fflush() }'; then
+                echo "[CHUNK COMPLETE] $competition_path | bloco $chunk_index/\${#chunks[@]}"
               else
                 code=$?
-                cat "$chunk_log"
                 competition_failed=1
                 failures=$((failures + 1))
                 if grep -Eiq 'HTTP (401|403|429)|bloqueou/limitou|Flashscore bloqueou' "$chunk_log"; then
