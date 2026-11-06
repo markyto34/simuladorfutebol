@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 167,
-  "processed_games": 26,
-  "stats_games": 26,
-  "bwin_odds": 26,
+  "processed_games": 51,
+  "stats_games": 51,
+  "bwin_odds": 51,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/167 · 8tMPANXb",
-  "last_result": "Santos F - Flamengo F: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T11:01:51.175Z"
+  "current_match": "A consultar jogo 54/167 · xMes4IFj",
+  "last_result": "Bahia F - Botafogo RJ F: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T11:01:56.376Z"
 }
