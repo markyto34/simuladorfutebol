@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 59,
-  "processed_games": 50,
-  "stats_games": 49,
+  "processed_games": 59,
+  "stats_games": 58,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Forte - Capixaba SC",
-  "last_result": "Forte - Capixaba SC: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:09:33.093Z"
+  "current_match": "Último concluído: Rio Branco ES - Serra",
+  "last_result": "Rio Branco ES - Serra: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:09:35.143Z"
 }
