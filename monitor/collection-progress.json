@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 154,
-  "processed_games": 76,
-  "stats_games": 76,
-  "bwin_odds": 76,
+  "processed_games": 101,
+  "stats_games": 101,
+  "bwin_odds": 101,
   "failed_games": 0,
-  "current_match": "A consultar jogo 79/154 · vu2ietgl",
-  "last_result": "Sporting Cristal (Per) - Palmeiras (Bra): 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T09:13:53.374Z"
+  "current_match": "A consultar jogo 104/154 · b1Eg6oph",
+  "last_result": "Libertad (Par) - Rosario (Arg): 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T09:14:00.620Z"
 }
