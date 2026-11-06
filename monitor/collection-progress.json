@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 201,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 50,
+  "processed_games": 75,
+  "stats_games": 75,
+  "bwin_odds": 75,
   "failed_games": 0,
-  "current_match": "A consultar jogo 53/201 · 8IIIy3jT",
-  "last_result": "Qizilqum - Nasaf Qarshi: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T07:53:42.810Z"
+  "current_match": "Último concluído: Bunyodkor - OKMK",
+  "last_result": "Bunyodkor - OKMK: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T07:53:48.685Z"
 }
