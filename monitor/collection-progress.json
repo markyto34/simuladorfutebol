@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 112,
-  "processed_games": 101,
+  "processed_games": 112,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 104/112 · KGITtQhJ",
-  "last_result": "SV Oberperfuss - Stubai: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:32:50.022Z"
+  "current_match": "Último concluído: Vols - Kolsass Weer",
+  "last_result": "Vols - Kolsass Weer: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:32:52.278Z"
 }
