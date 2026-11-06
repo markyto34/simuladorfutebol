@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 1,
+  "stats_games": 1,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T11:57:21.007Z"
+  "current_match": "Último concluído: Brasil de Pelotas - Internacional",
+  "last_result": "Brasil de Pelotas - Internacional: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:57:23.776Z"
 }
