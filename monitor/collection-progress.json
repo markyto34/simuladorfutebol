@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 247,
-  "processed_games": 101,
-  "stats_games": 100,
-  "bwin_odds": 101,
+  "processed_games": 127,
+  "stats_games": 126,
+  "bwin_odds": 127,
   "failed_games": 0,
-  "current_match": "A consultar jogo 104/247 · U5iDoCYo",
-  "last_result": "UNSW - St George Saints: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T10:13:48.914Z"
+  "current_match": "Último concluído: UNSW - Sydney Utd",
+  "last_result": "UNSW - Sydney Utd: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T10:13:54.315Z"
 }
