@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 134,
-  "processed_games": 51,
+  "processed_games": 76,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/134 · YspOBeLq",
-  "last_result": "XV de Jau - Catanduva: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:38:20.628Z"
+  "current_match": "Último concluído: Rio Branco SP - Catanduva",
+  "last_result": "Rio Branco SP - Catanduva: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:38:25.566Z"
 }
