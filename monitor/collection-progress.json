@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 112,
-  "processed_games": 100,
-  "stats_games": 100,
-  "bwin_odds": 100,
+  "processed_games": 112,
+  "stats_games": 112,
+  "bwin_odds": 111,
   "failed_games": 0,
-  "current_match": "Último concluído: Supra du Quebec - HFX Wanderers",
-  "last_result": "Supra du Quebec - HFX Wanderers: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T12:18:16.773Z"
+  "current_match": "Último concluído: Cavalry - Atl. Ottawa",
+  "last_result": "Cavalry - Atl. Ottawa: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T12:18:24.724Z"
 }
