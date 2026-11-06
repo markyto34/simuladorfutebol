@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 153,
-  "processed_games": 77,
+  "processed_games": 102,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Schwabmunchen - Hankofen-Hailing",
-  "last_result": "Schwabmunchen - Hankofen-Hailing: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T08:42:19.930Z"
+  "current_match": "Último concluído: Kirchanschoring - Erlbach",
+  "last_result": "Kirchanschoring - Erlbach: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T08:42:25.019Z"
 }
