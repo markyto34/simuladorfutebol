@@ -1,0 +1,218 @@
+name: Backfill Flashscore — continuar desde Turquia
+on:
+  workflow_dispatch:
+    inputs:
+      competition_path:
+        description: "Opcional: uma competição específica. Vazio = catálogo de competições elegíveis."
+        required: false
+        type: string
+      competition_offset:
+        description: "Número de competições a saltar no catálogo ordenado (para continuar por grupos)."
+        required: false
+        default: "82"
+        type: string
+      competition_limit:
+        description: "Máximo de competições nesta execução. 0 = todas as restantes; usar 3 para teste."
+        required: false
+        default: "0"
+        type: string
+permissions:
+  contents: write
+concurrency:
+  group: recolha-diaria-flashscore
+  cancel-in-progress: false
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - name: Validar e testar descoberta
+        env:
+          COMPETITION_PATH: ${{ inputs.competition_path }}
+        run: |
+          set -euo pipefail
+          if [[ -n "$COMPETITION_PATH" ]]; then
+            [[ "$COMPETITION_PATH" =~ ^/futebol/[a-z0-9-]+/[a-z0-9-]+/$ ]] || {
+              echo "Caminho inválido. Usa /futebol/<pais>/<competicao>/."
+              exit 2
+            }
+            if [[ "$COMPETITION_PATH" =~ friendly|friendlies|amig[aá]v|amistos ]]; then
+              echo "Competições amigáveis estão excluídas."
+              exit 2
+            fi
+          fi
+          node --check scripts/discover-flashscore-season.mjs
+          node --test tests/discover-flashscore-season.test.mjs
+      - name: Preparar lista de competições da época atual
+        env:
+          COMPETITION_PATH: ${{ inputs.competition_path }}
+          COMPETITION_OFFSET: ${{ inputs.competition_offset }}
+          COMPETITION_LIMIT: ${{ inputs.competition_limit }}
+        run: |
+          set -euo pipefail
+          node --input-type=module <<'NODE'
+          import fs from "node:fs";
+          const requested = process.env.COMPETITION_PATH || "";
+          let paths;
+          if (requested) {
+            paths = [requested];
+          } else {
+            const report = JSON.parse(fs.readFileSync("data/flashscore-competition-coverage.json", "utf8"));
+            const selected = (report.competitions || []).filter(item =>
+              Number(item.unique_stats_matches || 0) >= 5 &&
+              item.age_category === "senior" &&
+              ["masculino_misto", "feminino"].includes(item.gender) &&
+              ["liga_ou_torneio", "taca"].includes(item.competition_type) &&
+              !/friendly|friendlies|amig[aá]v|amistos/i.test((item.competition_name || "") + " " + (item.url || ""))
+            );
+            paths = [...new Set(selected.map(item => {
+              try { return new URL(item.url).pathname; } catch { return ""; }
+            }).filter(Boolean))].sort();
+          }
+          if (!paths.length) throw new Error("O filtro não encontrou competições elegíveis.");
+          const offset = Number(process.env.COMPETITION_OFFSET || 0);
+          const limit = Number(process.env.COMPETITION_LIMIT || 0);
+          if (!Number.isInteger(offset) || offset < 0 || !Number.isInteger(limit) || limit < 0) {
+            throw new Error("competition_offset e competition_limit têm de ser inteiros não negativos.");
+          }
+          const total = paths.length;
+          paths = paths.slice(offset, limit > 0 ? offset + limit : undefined);
+          if (!paths.length) throw new Error("O grupo pedido não contém competições; total=" + total + ", offset=" + offset + ".");
+          fs.writeFileSync("/tmp/flashscore-season-paths.txt", paths.join("\n") + "\n");
+          console.log("Competições elegíveis no catálogo: " + total);
+          console.log("Grupo selecionado: offset=" + offset + ", limite=" + (limit || "todas") + ", selecionadas=" + paths.length);
+          console.log("Critério: sénior, liga/torneio ou taça, pelo menos 5 jogos estatísticos históricos, sem amigáveis.");
+          NODE
+      - name: Descobrir épocas e recolher estatísticas + odds Bwin
+        env:
+          FLASHSCORE_SEASON_PAGE_DELAY_MS: "300"
+          FLASHSCORE_REQUEST_DELAY_MS: "200"
+          FLASHSCORE_CONCURRENCY: "4"
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -uo pipefail
+          completed=0
+          failures=0
+          blocked=0
+          index=0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Publicar checkpoints com retries para absorver falhas transitórias do GitHub.
+          # Se outro processo tiver avançado a main, rebasear o checkpoint antes de tentar novamente.
+          push_with_retry() {
+            local attempt=1
+            local max_attempts=5
+            local delay=2
+            while (( attempt <= max_attempts )); do
+              echo "Publicação na main: tentativa $attempt/$max_attempts."
+              if git push origin HEAD:main; then
+                echo "Checkpoint publicado com sucesso."
+                return 0
+              fi
+
+              echo "::warning::Push falhou na tentativa $attempt/$max_attempts; a verificar o estado remoto."
+              if git fetch origin main; then
+                if git merge-base --is-ancestor HEAD origin/main; then
+                  echo "O checkpoint já está incluído na main remota."
+                  return 0
+                fi
+                if ! git merge-base --is-ancestor origin/main HEAD; then
+                  echo "A main avançou entretanto; a rebasear o checkpoint sobre origin/main."
+                  if ! git rebase origin/main; then
+                    git rebase --abort || true
+                    echo "::error::Não foi possível rebasear o checkpoint sem conflitos."
+                    return 1
+                  fi
+                fi
+              else
+                echo "::warning::Não foi possível consultar a main remota nesta tentativa."
+              fi
+
+              if (( attempt < max_attempts )); then
+                echo "Nova tentativa dentro de ${delay}s."
+                sleep "$delay"
+                delay=$((delay * 2))
+              fi
+              attempt=$((attempt + 1))
+            done
+            echo "::error::Push falhou após $max_attempts tentativas."
+            return 1
+          }
+
+          checkpoint() {
+            node scripts/validate-flashscore-history.mjs || return 1
+            node scripts/integrate-flashscore-odds-history.mjs || return 1
+            git add data/flashscore-statistics.csv data/bwin-odds-flashscore.csv
+            if ! git diff --cached --quiet; then
+              git commit -m "Checkpoint Flashscore: competição $index" || return 1
+              push_with_retry || return 1
+            fi
+          }
+          while IFS= read -r competition_path; do
+            [[ -n "$competition_path" ]] || continue
+            index=$((index + 1))
+            log="/tmp/flashscore-season-$index.log"
+            manifest="/tmp/flashscore-season-$index.json"
+            echo "::group::Competição $index · $competition_path"
+            if node scripts/discover-flashscore-season.mjs --path="$competition_path" --out="$manifest" >"$log" 2>&1; then
+              cat "$log"
+            else
+              code=$?
+              cat "$log"
+              if grep -Eiq 'HTTP (401|403|429)|bloqueou/limitou|Flashscore bloqueou' "$log"; then
+                blocked=1
+                echo "Flashscore limitou o acesso; parar o lote para proteger a recolha."
+                echo "::endgroup::"
+                break
+              fi
+              failures=$((failures + 1))
+              echo "Falha de descoberta nesta competição; avançar para a próxima."
+              sleep 2
+              echo "::endgroup::"
+              continue
+            fi
+            if node scripts/collect-flashscore-csv.mjs --team-last-five="$manifest" >>"$log" 2>&1; then
+              cat "$log"
+              completed=$((completed + 1))
+            else
+              code=$?
+              cat "$log"
+              if grep -Eiq 'HTTP (401|403|429)|bloqueou/limitou|Flashscore bloqueou' "$log"; then
+                blocked=1
+                echo "Flashscore limitou a recolha; guardar o progresso válido e parar o lote."
+              else
+                failures=$((failures + 1))
+                echo "Falha na recolha desta competição; guardar progresso válido e avançar."
+              fi
+            fi
+            if ! checkpoint; then
+              echo "::error::Falha ao validar ou guardar checkpoint após $competition_path."
+              exit 1
+            fi
+            if (( blocked == 1 )); then
+              echo "::endgroup::"
+              break
+            fi
+            sleep 2
+            echo "::endgroup::"
+          done < /tmp/flashscore-season-paths.txt
+          echo "Competições concluídas: $completed"
+          echo "Competições com erros: $failures"
+          echo "Interrompido por bloqueio: $blocked"
+          node scripts/validate-flashscore-history.mjs || exit 1
+          node scripts/integrate-flashscore-odds-history.mjs || exit 1
+          git add data/flashscore-statistics.csv data/bwin-odds-flashscore.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "Backfill Flashscore das épocas atuais" || exit 1
+            push_with_retry || exit 1
+          fi
+          if (( blocked == 1 || failures > 0 )); then
+            echo "::error::O lote preservou os dados válidos, mas terminou com $failures falhas e bloqueio=$blocked."
+            exit 1
+          fi
