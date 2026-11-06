@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 90,
-  "processed_games": 26,
+  "processed_games": 51,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/90 · tnvsHB0k",
-  "last_result": "Wallsend Red Devils - Singleton Strikers: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:09:46.022Z"
+  "current_match": "Último concluído: West Wallsend - Wallsend Red Devils",
+  "last_result": "West Wallsend - Wallsend Red Devils: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:09:50.980Z"
 }
