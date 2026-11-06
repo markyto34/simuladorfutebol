@@ -38,7 +38,13 @@ O modelo atual é experimental. Os indicadores adicionais usam binomial negativa
 5. Construir histórico de análises e comparação entre equipas.
 
 ## Backtesting
-O motor `scripts/backtest.cjs` executa um teste cronológico (walk-forward): para cada jogo, usa apenas partidas anteriores e separa o histórico casa/fora. Mede MAE, RMSE e viés médio (erro com sinal) para golos, cantos, remates, remates à baliza, faltas e cartões, sempre que há cobertura. Cada métrica apresenta o número de jogos efetivamente avaliados. O relatório também estima a dispersão binomial negativa por máxima verosimilhança (grelha de parâmetros), compara-a com Poisson e não emite uma calibração quando existem menos de 30 observações. Os parâmetros calculados são candidatos de validação, não são aplicados automaticamente à interface. O workflow GitHub Actions corre automaticamente em alterações, semanalmente e pode ser iniciado manualmente. O relatório é guardado como artefacto `backtest-report`, incluindo erros, viés, dimensão da amostra e parâmetros de dispersão candidatos.
+O workflow principal de backtesting usa agora o histórico próprio do Flashscore em `data/flashscore-statistics.csv`, sem descarregar resultados de outra fonte. O motor `scripts/backtest-flashscore-simulator.cjs` executa walk-forward cronológico e mantém cada país/competição isolado. Para cada jogo, só utiliza partidas de datas anteriores; jogos do mesmo dia só entram no histórico depois de todas as previsões desse dia.
+
+O modelo reproduz a configuração atual do simulador: amostra predefinida dos últimos 5 jogos por equipa e local (configurável para 10 ou 15), mínimo de 3 observações por indicador e 5 para xG, ponderação de 65% golos históricos + 35% xG quando há cobertura completa, Poisson para golos e binomial negativa com as mesmas dispersões do simulador para cantos, remates, remates à baliza, faltas e cartões.
+
+O relatório mede erro médio absoluto, RMSE e viés para cada indicador; Brier Score, Log Loss e fiabilidade para 1X2 e mercados binários; e apresenta resultados agregados e separados por competição. Inclui Over 1.5/2.5/3.5 e BTTS, mercados HT/ST disponíveis no simulador, cantos, remates, faltas e cartões. Campos ausentes continuam ausentes e os zeros explícitos são preservados. O workflow corre em PRs que alterem o modelo/dados, em alterações relevantes na branch principal, semanalmente e também pode ser iniciado manualmente. O relatório é publicado como artefacto `backtest-flashscore-simulator`.
+
+O motor anterior `scripts/backtest.cjs` mantém-se disponível como benchmark independente, mas não é usado como substituto da validação do simulador Flashscore.
 
 ## Publicação
 O ficheiro `render.yaml` prepara a publicação como site estático no Render. O repositório também pode ser alojado no Cloudflare Pages ou GitHub Pages; a ligação da conta de alojamento é necessária para concluir o primeiro deploy.
