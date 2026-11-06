@@ -1,15 +1,15 @@
 {
-  "run_id": "42279171908",
-  "run_number": "6",
+  "run_id": "42297490545",
+  "run_number": "10",
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
-  "total_games": 9,
-  "processed_games": 9,
-  "stats_games": 9,
-  "bwin_odds": 9,
+  "status": "running",
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
+  "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Shenzhen Juniors - Shaanxi Union: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T19:50:41.102Z"
+  "current_match": "A descobrir jogos",
+  "last_result": "",
+  "updated_at": "2026-11-06T21:32:13.255Z"
 }
