@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 502,
-  "processed_games": 501,
-  "stats_games": 492,
+  "processed_games": 502,
+  "stats_games": 493,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Olimpo - Alvarado",
-  "last_result": "Olimpo - Alvarado: 6 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T09:34:35.004Z"
+  "current_match": "Recolha terminada",
+  "last_result": "Tucuman Central - Bartolome Mitre: 5 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T09:34:36.863Z"
 }
