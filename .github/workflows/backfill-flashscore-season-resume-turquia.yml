@@ -1,6 +1,26 @@
 name: Backfill Flashscore — continuar desde Turquia
 on:
   workflow_dispatch:
+    inputs:
+      competition_path:
+        description: "Opcional: executar apenas uma competição específica, desde que esteja selecionada."
+        required: false
+        type: string
+      resume_from_path:
+        description: "Opcional: retomar a partir de uma competição selecionada com indicadores parciais ou por recolher."
+        required: false
+        default: ""
+        type: string
+      competition_offset:
+        description: "Competições adicionais a saltar depois do ponto de retoma."
+        required: false
+        default: "0"
+        type: string
+      competition_limit:
+        description: "Máximo de competições nesta execução. 0 = todas as selecionadas pendentes."
+        required: false
+        default: "0"
+        type: string
 permissions:
   contents: write
 concurrency:
