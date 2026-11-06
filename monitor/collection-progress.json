@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 56,
   "processed_games": 56,
   "stats_games": 56,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Turan - Gabala",
+  "current_match": "Recolha terminada",
   "last_result": "Turan - Gabala: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:34:31.670Z"
+  "updated_at": "2026-11-06T10:34:33.064Z"
 }
