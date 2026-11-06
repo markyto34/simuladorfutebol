@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 150,
-  "processed_games": 51,
-  "stats_games": 51,
-  "bwin_odds": 49,
+  "processed_games": 76,
+  "stats_games": 76,
+  "bwin_odds": 74,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/150 · GUWeqVYi",
-  "last_result": "Goias - Cruzeiro: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T12:00:28.329Z"
+  "current_match": "A consultar jogo 79/150 · jRqm3xtC",
+  "last_result": "Sousa - CRB: 1 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T12:00:33.687Z"
 }
