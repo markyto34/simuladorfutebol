@@ -2,14 +2,14 @@
   "run_id": "42228408587",
   "run_number": "5",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 24,
   "processed_games": 24,
   "stats_games": 24,
   "bwin_odds": 24,
   "failed_games": 0,
-  "current_match": "Último concluído: Oliveira Hospital - Vitória Sernache",
+  "current_match": "Recolha terminada",
   "last_result": "Oliveira Hospital - Vitória Sernache: 6 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T13:48:22.626Z"
+  "updated_at": "2026-11-06T13:48:24.052Z"
 }
