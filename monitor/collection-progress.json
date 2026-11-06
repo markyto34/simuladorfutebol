@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 34,
-  "processed_games": 26,
+  "processed_games": 34,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/34 · CGt9QZVp",
-  "last_result": "G2 FC - Youniors FC: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T08:39:54.263Z"
+  "current_match": "Último concluído: G2 FC - No Rules FC",
+  "last_result": "G2 FC - No Rules FC: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T08:39:55.879Z"
 }
