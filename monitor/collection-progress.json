@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 99,
-  "processed_games": 51,
+  "processed_games": 76,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Oriental U19 - Santa Clara U19",
-  "last_result": "Oriental U19 - Santa Clara U19: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T13:51:03.254Z"
+  "current_match": "Último concluído: Benfica U19 - Torreense U19",
+  "last_result": "Benfica U19 - Torreense U19: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T13:51:08.263Z"
 }
