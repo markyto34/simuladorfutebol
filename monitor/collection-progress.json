@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 31,
-  "processed_games": 25,
-  "stats_games": 25,
+  "processed_games": 31,
+  "stats_games": 31,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Penya - Atletic Escaldes",
-  "last_result": "Penya - Atletic Escaldes: 11 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T09:15:57.396Z"
+  "current_match": "Último concluído: Casa de Portugal - Penya",
+  "last_result": "Casa de Portugal - Penya: 11 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T09:16:07.174Z"
 }
