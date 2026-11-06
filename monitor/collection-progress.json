@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 2,
-  "processed_games": 0,
+  "processed_games": 2,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T08:48:42.376Z"
+  "current_match": "Último concluído: Wismut Gera - Staaken",
+  "last_result": "Wismut Gera - Staaken: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T08:48:44.752Z"
 }
