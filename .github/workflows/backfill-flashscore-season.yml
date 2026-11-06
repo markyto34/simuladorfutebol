@@ -106,7 +106,7 @@ jobs:
             node scripts/validate-flashscore-history.mjs || return 1
             node scripts/integrate-flashscore-odds-history.mjs || return 1
             if [[ "$mark_completed" == "true" ]]; then
-              node --input-type=module "$competition_path" <<'NODE'
+              node --input-type=module - "$competition_path" <<'NODE'
           import fs from "node:fs";
           const path = process.argv[2];
           const file = "data/flashscore-season-backfill-checkpoint.json";
