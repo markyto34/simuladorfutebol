@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 216,
-  "processed_games": 201,
-  "stats_games": 201,
-  "bwin_odds": 200,
+  "processed_games": 216,
+  "stats_games": 216,
+  "bwin_odds": 215,
   "failed_games": 0,
-  "current_match": "A consultar jogo 204/216 · SnDPPpct",
-  "last_result": "Anapolis - Inter de Limeira: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T11:52:07.378Z"
+  "current_match": "Último concluído: Maranhao - Guarani",
+  "last_result": "Maranhao - Guarani: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T11:52:10.640Z"
 }
