@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 56,
-  "processed_games": 26,
+  "processed_games": 51,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/56 · QoXPWg04",
-  "last_result": "Sport Sinop U20 - Luverdense U20: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:27:57.361Z"
+  "current_match": "Último concluído: Paulistano FC U20 - Cuiaba U20",
+  "last_result": "Paulistano FC U20 - Cuiaba U20: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:28:02.292Z"
 }
