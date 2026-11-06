@@ -65,7 +65,8 @@ jobs:
           node --check scripts/discover-flashscore-season.mjs
           node --check scripts/build-flashscore-competition-status.mjs
           node --check scripts/select-flashscore-backfill-paths.mjs
-          node --test tests/discover-flashscore-season.test.mjs tests/build-flashscore-competition-status.test.mjs tests/select-flashscore-backfill-paths.test.mjs
+          node --check scripts/split-flashscore-season-manifest.mjs
+          node --test tests/discover-flashscore-season.test.mjs tests/build-flashscore-competition-status.test.mjs tests/select-flashscore-backfill-paths.test.mjs tests/collect-team-last-five.test.mjs
       - name: Preparar lote seguro de competições selecionadas
         env:
           COMPETITION_PATH: ${{ inputs.competition_path }}
@@ -165,8 +166,42 @@ jobs:
               echo "::endgroup::"
               continue
             fi
-            if node scripts/collect-flashscore-csv.mjs --team-last-five="$manifest" >>"$log" 2>&1; then
-              cat "$log"
+            chunk_dir="/tmp/flashscore-season-chunks-$index"
+            if ! node scripts/split-flashscore-season-manifest.mjs --manifest="$manifest" --out-dir="$chunk_dir" --chunk-size=10; then
+              echo "::error::Não foi possível dividir o manifesto em blocos retomáveis."
+              exit 1
+            fi
+            competition_failed=0
+            shopt -s nullglob
+            chunks=("$chunk_dir"/chunk-*.json)
+            shopt -u nullglob
+            if (( ${#chunks[@]} == 0 )); then echo "Não há jogos pendentes nesta época."; fi
+            chunk_index=0
+            for chunk in "${chunks[@]}"; do
+              chunk_index=$((chunk_index + 1))
+              chunk_log="$chunk_dir/chunk-$chunk_index.log"
+              echo "[CHECKPOINT BLOCO] $competition_path · bloco $chunk_index/${#chunks[@]} · até 10 jogos"
+              if node scripts/collect-flashscore-csv.mjs --team-last-five="$chunk" >"$chunk_log" 2>&1; then
+                cat "$chunk_log"
+              else
+                code=$?
+                cat "$chunk_log"
+                competition_failed=1
+                failures=$((failures + 1))
+                if grep -Eiq 'HTTP (401|403|429)|bloqueou/limitou|Flashscore bloqueou' "$chunk_log"; then
+                  blocked=1
+                  echo "Flashscore limitou a recolha; guardar o bloco válido e parar."
+                else
+                  echo "Bloco com falhas: jogos bem recolhidos serão guardados; os restantes serão tentados na próxima execução."
+                fi
+              fi
+              if ! checkpoint; then
+                echo "::error::Falha ao publicar checkpoint após bloco $chunk_index de $competition_path."
+                exit 1
+              fi
+              if (( blocked == 1 )); then break; fi
+            done
+            if (( competition_failed == 0 && blocked == 0 )); then
               completed=$((completed + 1))
               node --input-type=module - "$competition_path" <<'NODE'
           import fs from "node:fs";
@@ -177,20 +212,7 @@ jobs:
           state.updated_at = new Date().toISOString();
           fs.writeFileSync(file, JSON.stringify(state, null, 2) + "\n");
           NODE
-            else
-              code=$?
-              cat "$log"
-              if grep -Eiq 'HTTP (401|403|429)|bloqueou/limitou|Flashscore bloqueou' "$log"; then
-                blocked=1
-                echo "Flashscore limitou a recolha; guardar o progresso válido e parar o lote."
-              else
-                failures=$((failures + 1))
-                echo "Falha na recolha desta competição; guardar progresso válido e avançar."
-              fi
-            fi
-            if ! checkpoint; then
-              echo "::error::Falha ao validar ou guardar checkpoint após $competition_path."
-              exit 1
+              if ! checkpoint; then echo "::error::Falha ao publicar conclusão de $competition_path."; exit 1; fi
             fi
             if (( blocked == 1 )); then
               echo "::endgroup::"

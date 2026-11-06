@@ -25,3 +25,13 @@ test("recovers country and competition labels from team feed fixture context", (
   assert.deepEqual(result.EfGh5678, { status: "identified", country: "ASIA", competition: "AFC Champions League 2" });
   assert.equal(result.IjKl9012, undefined);
 });
+
+test("recolhe todos os jogos pendentes da época, sem limite implícito de cinco", () => {
+  const fixtures = Array.from({ length: 12 }, (_, index) => ({
+    match_id: "Season" + String(index).padStart(3, "0"),
+    stats_status: index === 2 || index === 9 ? "already_complete" : "not_collected"
+  }));
+  const ids = selectTeamLastFiveMatchIds({ fixtures });
+  assert.equal(ids.length, 10);
+  assert.deepEqual(ids, fixtures.filter(f => f.stats_status !== "already_complete").map(f => f.match_id));
+});

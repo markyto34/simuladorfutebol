@@ -18,11 +18,11 @@ export function selectBackfillPaths({catalog, selection, statusReport, competiti
   const missing = [...selected].filter(path => !catalogPaths.has(path));
   if (missing.length) throw new Error("Há competições selecionadas que já não constam do catálogo. Primeira: " + missing[0]);
   const byPath = statusReport?.status_by_path || {};
-  let candidates = [...catalogPaths].filter(path => selected.has(path) && !friendly(path) && byPath[path]?.status !== "complete").sort();
+  let candidates = [...catalogPaths].filter(path => selected.has(path) && !friendly(path) && byPath[path]?.checkpoint_completed !== true).sort();
   if (competitionPath) {
     if (!selected.has(competitionPath)) throw new Error("A competição pedida não está na seleção ativa: " + competitionPath);
     if (!catalogPaths.has(competitionPath)) throw new Error("A competição pedida não existe no catálogo atual: " + competitionPath);
-    if (byPath[competitionPath]?.status === "complete") throw new Error("Esta competição já está completa: " + competitionPath);
+    if (byPath[competitionPath]?.checkpoint_completed === true) throw new Error("Esta competição já está completa: " + competitionPath);
     candidates = [competitionPath];
   } else {
     if (countrySlug) candidates = candidates.filter(path => path.split("/")[2] === countrySlug);

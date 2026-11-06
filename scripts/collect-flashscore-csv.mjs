@@ -357,8 +357,8 @@ async function main() {
     const allIds = selectTeamLastFiveMatchIds(payload, 0);
     matchIds = selectTeamLastFiveMatchIds(payload, teamLastFiveLimit);
     competitionByMatchId = buildTeamLastFiveCompetitionMap(payload);
-    console.log("[TEAM LAST FIVE] " + allIds.length + " jogos únicos pendentes; selecionados " + matchIds.length + "; completos ignorados=" + ((payload.fixtures || []).filter(f => f.stats_status === "already_complete").length) + ".");
-    await setProgress({ phase: "collecting", current_match: "A preparar jogos dos últimos cinco por equipa", total_games: matchIds.length });
+    console.log("[SEASON BACKFILL] " + allIds.length + " jogos concluídos pendentes de TODA a época; selecionados " + matchIds.length + "; jogos já completos ignorados=" + ((payload.fixtures || []).filter(f => f.stats_status === "already_complete").length) + ".");
+    await setProgress({ phase: "collecting", current_match: "A preparar todos os jogos pendentes da época", total_games: matchIds.length });
   }
   if (dateOption) {
     const date = dateOption.slice("--date=".length);
