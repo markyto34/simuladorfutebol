@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 154,
-  "processed_games": 151,
-  "stats_games": 151,
-  "bwin_odds": 150,
+  "processed_games": 154,
+  "stats_games": 154,
+  "bwin_odds": 153,
   "failed_games": 0,
-  "current_match": "A consultar jogo 154/154 · vBoYXYld",
-  "last_result": "Dep. Tachira (Ven) - The Strongest (Bol): 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T09:14:14.901Z"
+  "current_match": "Último concluído: The Strongest (Bol) - Dep. Tachira (Ven)",
+  "last_result": "The Strongest (Bol) - Dep. Tachira (Ven): 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T09:14:15.989Z"
 }
