@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 62,
-  "processed_games": 51,
-  "stats_games": 51,
-  "bwin_odds": 51,
+  "processed_games": 62,
+  "stats_games": 62,
+  "bwin_odds": 62,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/62 · tQOvgZN7",
-  "last_result": "Sampaio Correa FE - Botafogo RJ: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T11:12:53.672Z"
+  "current_match": "Último concluído: Flamengo - Portuguesa RJ",
+  "last_result": "Flamengo - Portuguesa RJ: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T11:12:56.221Z"
 }
