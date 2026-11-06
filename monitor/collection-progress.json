@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 81,
-  "processed_games": 75,
-  "stats_games": 75,
-  "bwin_odds": 75,
+  "processed_games": 81,
+  "stats_games": 81,
+  "bwin_odds": 81,
   "failed_games": 0,
-  "current_match": "Último concluído: AFS - Sporting CP B",
-  "last_result": "AFS - Sporting CP B: 12 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T13:53:22.230Z"
+  "current_match": "Último concluído: Chaves - Académica",
+  "last_result": "Chaves - Académica: 11 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T13:53:23.409Z"
 }
