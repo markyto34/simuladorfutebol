@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 152,
-  "processed_games": 26,
+  "processed_games": 51,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Vilzing - Unterhaching",
-  "last_result": "Vilzing - Unterhaching: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T08:50:12.145Z"
+  "current_match": "Último concluído: Schwaben Augsburg - Vilzing",
+  "last_result": "Schwaben Augsburg - Vilzing: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T08:50:17.129Z"
 }
