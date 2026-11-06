@@ -70,7 +70,7 @@ jobs:
             allPaths = [...new Set((catalog.competitions || []).map(item => {
               try { return new URL(item.url).pathname; } catch { return ""; }
             }).filter(path =>
-              /^\\/futebol\\/[a-z0-9-]+\\/[a-z0-9-]+\\/$/.test(path) &&
+              /^\/futebol\/[a-z0-9-]+\/[a-z0-9-]+\/$/.test(path) &&
               !/friendly|friendlies|amig[aá]v|amistos/i.test(path) &&
               selectedPaths.has(path) &&
               statusByPath[path]?.status !== "complete"
@@ -94,7 +94,8 @@ jobs:
           paths = paths.slice(offset, limit > 0 ? offset + limit : undefined);
           if (!paths.length) throw new Error("Não há competições pendentes no grupo pedido; catálogo=" + allPaths.length + ", concluídas=" + alreadyCompleted + ".");
           fs.writeFileSync("/tmp/flashscore-season-paths.txt", paths.join("\n") + "\n");
-          console.log("Competições selecionadas pelo utilizador: " + selectedPaths.size);\n          console.log("Competições já completas em todos os indicadores e ignoradas: " + alreadyCompleted);
+          console.log("Competições selecionadas pelo utilizador: " + selectedPaths.size);
+          console.log("Competições já completas em todos os indicadores e ignoradas: " + alreadyCompleted);
           console.log("Competições com checkpoint mas indicadores parciais, a completar: " + checkpointPartial);
           console.log("Competições incluídas neste lote: " + allPaths.length);
           console.log("Competições já concluídas e preservadas: " + alreadyCompleted);
