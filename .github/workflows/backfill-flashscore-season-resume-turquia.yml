@@ -139,7 +139,7 @@ jobs:
           show_log_summary() {
             local file="$1"
             echo "[LOG SUMMARY] $file | $(wc -l < "$file") linhas | $(wc -c < "$file") bytes"
-            grep -Ei '\\[(SEASON|SUMMARY|ERROR|WARN|CHECKPOINT|COLLECT|MATCH|STATS)|HTTP [45][0-9]{2}|error|warning|retry|tentativa|jogos concluídos|jogos recolhidos|matches|fixtures' "$file" | tail -n 18 || tail -n 12 "$file"
+            grep -Ei '\[(SEASON|SUMMARY|ERROR|WARN|CHECKPOINT|COLLECT|MATCH|STATS)|HTTP [45][0-9]{2}|error|warning|retry|tentativa|jogos concluídos|jogos recolhidos|matches|fixtures' "$file" | tail -n 18 || tail -n 12 "$file"
           }
           checkpoint() {
             node scripts/validate-flashscore-history.mjs || return 1
