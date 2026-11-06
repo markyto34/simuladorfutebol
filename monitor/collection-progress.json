@@ -2,14 +2,14 @@
   "run_id": "42279171908",
   "run_number": "6",
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
-  "total_games": 10,
-  "processed_games": 10,
-  "stats_games": 10,
+  "status": "running",
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "U. De Concepcion - Cobresal: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T19:43:49.646Z"
+  "current_match": "A descobrir jogos",
+  "last_result": "",
+  "updated_at": "2026-11-06T19:43:55.990Z"
 }
