@@ -68,7 +68,7 @@ async function main() {
     readFile(CHECKPOINT, "utf8").then(JSON.parse)
   ]);
   const report = buildCompetitionStatus({ catalog, stats: parseCsv(statsText), checkpoint });
-  await writeFile(OUTPUT, JSON.stringify(report, null, 2) + "\n");
+  await writeFile(OUTPUT, JSON.stringify(report) + "\n");
   console.log(JSON.stringify(report.summary, null, 2));
 }
 if (process.argv[1] && import.meta.url === new URL(process.argv[1], "file:").href) {
