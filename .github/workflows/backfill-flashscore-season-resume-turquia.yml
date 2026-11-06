@@ -134,6 +134,13 @@ jobs:
             return 1
           }
 
+          # Os logs completos ficam preservados para diagnóstico, mas não são despejados no log do Actions.
+          mkdir -p /tmp/flashscore-backfill-diagnostics
+          show_log_summary() {
+            local file="$1"
+            echo "[LOG SUMMARY] $file | $(wc -l < "$file") linhas | $(wc -c < "$file") bytes"
+            grep -Ei '\\[(SEASON|SUMMARY|ERROR|WARN|CHECKPOINT|COLLECT|MATCH|STATS)|HTTP [45][0-9]{2}|error|warning|retry|tentativa|jogos concluídos|jogos recolhidos|matches|fixtures' "$file" | tail -n 18 || tail -n 12 "$file"
+          }
           checkpoint() {
             node scripts/validate-flashscore-history.mjs || return 1
             node scripts/integrate-flashscore-odds-history.mjs || return 1
@@ -150,10 +157,12 @@ jobs:
             manifest="/tmp/flashscore-season-$index.json"
             echo "::group::Competição $index · $competition_path"
             if node scripts/discover-flashscore-season.mjs --path="$competition_path" --out="$manifest" >"$log" 2>&1; then
-              cat "$log"
+              cp "$log" "/tmp/flashscore-backfill-diagnostics/competition-$index-discovery.log"
+              show_log_summary "$log"
             else
               code=$?
-              cat "$log"
+              cp "$log" "/tmp/flashscore-backfill-diagnostics/competition-$index-discovery.log"
+              show_log_summary "$log"
               if grep -Eiq 'HTTP (401|403|429)|bloqueou/limitou|Flashscore bloqueou' "$log"; then
                 blocked=1
                 echo "Flashscore limitou o acesso; parar o lote para proteger a recolha."
@@ -182,10 +191,12 @@ jobs:
               chunk_log="$chunk_dir/chunk-$chunk_index.log"
               echo "[CHECKPOINT BLOCO] $competition_path · bloco $chunk_index/${#chunks[@]} · até 10 jogos"
               if node scripts/collect-flashscore-csv.mjs --team-last-five="$chunk" >"$chunk_log" 2>&1; then
-                cat "$chunk_log"
+                cp "$chunk_log" "/tmp/flashscore-backfill-diagnostics/competition-$index-chunk-$chunk_index.log"
+                show_log_summary "$chunk_log"
               else
                 code=$?
-                cat "$chunk_log"
+                cp "$chunk_log" "/tmp/flashscore-backfill-diagnostics/competition-$index-chunk-$chunk_index.log"
+                show_log_summary "$chunk_log"
                 competition_failed=1
                 failures=$((failures + 1))
                 if grep -Eiq 'HTTP (401|403|429)|bloqueou/limitou|Flashscore bloqueou' "$chunk_log"; then
@@ -235,3 +246,13 @@ jobs:
             echo "::error::O lote preservou os dados válidos, mas terminou com $failures falhas e bloqueio=$blocked."
             exit 1
           fi
+      - name: Upload complete Flashscore diagnostic logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: flashscore-backfill-diagnostics-${{ github.run_id }}
+          path: |
+            /tmp/flashscore-backfill-diagnostics/
+            /tmp/flashscore-season-*.json
+          if-no-files-found: warn
+          retention-days: 14
