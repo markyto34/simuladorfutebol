@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 24,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 24,
+  "stats_games": 24,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T09:05:47.648Z"
+  "current_match": "Último concluído: Alianza FC F - Washington F",
+  "last_result": "Alianza FC F - Washington F: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T09:05:54.864Z"
 }
