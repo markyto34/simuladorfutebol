@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 182,
-  "processed_games": 101,
-  "stats_games": 62,
+  "processed_games": 126,
+  "stats_games": 85,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 104/182 · IutrcQt4",
-  "last_result": "Khan Tengri - FC Batyr: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T12:23:16.147Z"
+  "current_match": "Último concluído: Yelimay Semey 2 - Jaiyq",
+  "last_result": "Yelimay Semey 2 - Jaiyq: 2 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T12:23:21.663Z"
 }
