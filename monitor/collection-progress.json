@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 70,
-  "processed_games": 26,
-  "stats_games": 26,
-  "bwin_odds": 23,
+  "processed_games": 51,
+  "stats_games": 50,
+  "bwin_odds": 48,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/70 · CSihcmUq",
-  "last_result": "Brusque - Concordia: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T11:15:15.990Z"
+  "current_match": "A consultar jogo 54/70 · rw9mwtEa",
+  "last_result": "Barra FC - Brusque: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T11:15:21.303Z"
 }
