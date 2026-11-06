@@ -151,7 +151,7 @@ function bwinOddsRow(record) {
 }
 const sleep = ms => new Promise(resolveSleep => setTimeout(resolveSleep, ms));
 const PROGRESS_BRANCH = "collection-progress";
-const PROGRESS_PATH = "monitor/collection-progress.json";
+const PROGRESS_PATH = process.env.FLASHSCORE_PROGRESS_PATH || "monitor/collection-progress.json";
 let progressSnapshot = null;
 let progressBranchReady = false;
 
@@ -323,6 +323,15 @@ async function main() {
   progressSnapshot = {
     run_id: process.env.GITHUB_RUN_ID || "local",
     run_number: process.env.GITHUB_RUN_NUMBER || "",
+    collection_type: process.env.FLASHSCORE_COLLECTION_TYPE || "daily",
+    current_competition_path: process.env.FLASHSCORE_BACKFILL_COMPETITION_PATH || "",
+    competition_index: Number(process.env.FLASHSCORE_BACKFILL_COMPETITION_INDEX || 0),
+    total_competitions: Number(process.env.FLASHSCORE_BACKFILL_COMPETITION_TOTAL || 0),
+    selected_competitions: (() => { try { return JSON.parse(process.env.FLASHSCORE_BACKFILL_SELECTED_PATHS_JSON || "[]"); } catch { return []; } })(),
+    competitions_completed: Number(process.env.FLASHSCORE_BACKFILL_COMPLETED || 0),
+    competitions_failed: Number(process.env.FLASHSCORE_BACKFILL_FAILURES || 0),
+    failed_competitions: (() => { try { return JSON.parse(process.env.FLASHSCORE_BACKFILL_FAILED_PATHS_JSON || "[]"); } catch { return []; } })(),
+    blocked: false,
     target_date: "",
     status: "running",
     phase: "discovery",
@@ -507,7 +516,7 @@ async function main() {
   if (uniqueOddsKeys.size !== mergedOdds.length) throw new Error("Validação falhou: existem chaves duplicadas no CSV de odds.");
   console.log("CSV exclusivo Bwin: " + ODDS_FILE + " (" + mergedOdds.length + " registos totais; " + uniqueOddsKeys.size + " chaves únicas).");
   const elapsedSeconds = Math.round((Date.now() - collectionStartedAt) / 1000);
-  await setProgress({ status: stoppedByUpstream ? "blocked" : failures ? "completed_with_errors" : "completed", phase: stoppedByUpstream ? "stopped" : "completed", current_match: stoppedByUpstream ? "Interrompida por bloqueio 403/429" : "Recolha terminada" });
+  await setProgress({ status: stoppedByUpstream ? "blocked" : failures ? "completed_with_errors" : "completed", phase: stoppedByUpstream ? "stopped" : "completed", blocked: stoppedByUpstream, current_match: stoppedByUpstream ? "Interrompida por bloqueio 403/429" : "Recolha terminada" });
   const summary = [
     "## Recolha Flashscore + Bwin",
     "",
