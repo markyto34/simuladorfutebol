@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 37,
-  "processed_games": 26,
+  "processed_games": 37,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Itupiranga - Carajas",
-  "last_result": "Itupiranga - Carajas: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T11:31:31.128Z"
+  "current_match": "Último concluído: Carajas - Atletico Paraense",
+  "last_result": "Carajas - Atletico Paraense: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T11:31:33.444Z"
 }
