@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 105,
-  "processed_games": 50,
-  "stats_games": 49,
-  "bwin_odds": 50,
+  "processed_games": 75,
+  "stats_games": 74,
+  "bwin_odds": 73,
   "failed_games": 0,
-  "current_match": "A consultar jogo 53/105 · d8MJYpno",
-  "last_result": "Marítimo U23 - FC Felgueiras U23: 9 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T13:52:38.284Z"
+  "current_match": "A consultar jogo 78/105 · Gf6mcRT9",
+  "last_result": "Penafiel U23 - Leixões U23: 11 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T13:52:43.249Z"
 }
