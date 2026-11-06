@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 60,
-  "processed_games": 51,
+  "processed_games": 60,
   "stats_games": 30,
-  "bwin_odds": 49,
+  "bwin_odds": 58,
   "failed_games": 0,
-  "current_match": "A consultar jogo 54/60 · vqau5bId",
-  "last_result": "Central Cordoba - Gimnasia Jujuy: 0 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T09:31:08.455Z"
+  "current_match": "Último concluído: Ind. Rivadavia - CA Estudiantes",
+  "last_result": "Ind. Rivadavia - CA Estudiantes: 0 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T09:31:10.841Z"
 }
