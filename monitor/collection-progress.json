@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 38,
-  "processed_games": 27,
+  "processed_games": 38,
   "stats_games": 6,
-  "bwin_odds": 20,
+  "bwin_odds": 21,
   "failed_games": 0,
-  "current_match": "A consultar jogo 30/38 · bgnuRgoe",
-  "last_result": "BGU Minsk - Osipovichi: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T10:40:31.808Z"
+  "current_match": "Último concluído: Drut Belynichi - Orsha",
+  "last_result": "Drut Belynichi - Orsha: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T10:40:34.128Z"
 }
