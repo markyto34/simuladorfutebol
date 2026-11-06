@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 48,
-  "processed_games": 26,
-  "stats_games": 26,
+  "processed_games": 48,
+  "stats_games": 46,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 29/48 · nwV7BEFb",
-  "last_result": "Resende - Sampaio Correa FE: 9 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T12:05:15.905Z"
+  "current_match": "Último concluído: Serrano FC - Sao Goncalo",
+  "last_result": "Serrano FC - Sao Goncalo: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T12:05:20.474Z"
 }
