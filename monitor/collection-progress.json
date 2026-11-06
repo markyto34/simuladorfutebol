@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 216,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 49,
+  "processed_games": 76,
+  "stats_games": 76,
+  "bwin_odds": 75,
   "failed_games": 0,
-  "current_match": "A consultar jogo 53/216 · jXtfnr3s",
-  "last_result": "Confianca - Maringa FC: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T11:51:35.475Z"
+  "current_match": "A consultar jogo 79/216 · YZxSDTuI",
+  "last_result": "Santa Cruz - Figueirense: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T11:51:41.005Z"
 }
