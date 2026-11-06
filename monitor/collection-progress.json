@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 216,
-  "processed_games": 76,
-  "stats_games": 76,
-  "bwin_odds": 75,
+  "processed_games": 101,
+  "stats_games": 101,
+  "bwin_odds": 100,
   "failed_games": 0,
-  "current_match": "A consultar jogo 79/216 · YZxSDTuI",
-  "last_result": "Santa Cruz - Figueirense: 8 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-06T11:51:41.005Z"
+  "current_match": "A consultar jogo 104/216 · M1fFs5aM",
+  "last_result": "Ypiranga FC - Confianca: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-06T11:51:46.270Z"
 }
