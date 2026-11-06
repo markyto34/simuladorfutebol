@@ -2,14 +2,14 @@
   "run_id": "42187345426",
   "run_number": "4",
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 48,
   "processed_games": 48,
   "stats_games": 46,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Serrano FC - Sao Goncalo",
+  "current_match": "Recolha terminada",
   "last_result": "Serrano FC - Sao Goncalo: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-06T12:05:20.474Z"
+  "updated_at": "2026-11-06T12:05:22.102Z"
 }
