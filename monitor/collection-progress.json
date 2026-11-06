@@ -5,11 +5,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 48,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 26,
+  "stats_games": 26,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-06T12:05:08.655Z"
+  "current_match": "A consultar jogo 29/48 · nwV7BEFb",
+  "last_result": "Resende - Sampaio Correa FE: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-06T12:05:15.905Z"
 }
