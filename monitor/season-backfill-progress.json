@@ -37,14 +37,14 @@
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 462,
   "processed_games": 462,
   "stats_games": 461,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Ituzaingo - Deportivo Armenio",
+  "current_match": "Recolha terminada",
   "last_result": "Ituzaingo - Deportivo Armenio: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:26:26.206Z"
+  "updated_at": "2026-11-07T15:26:27.401Z"
 }
