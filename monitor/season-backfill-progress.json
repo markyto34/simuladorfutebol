@@ -2,8 +2,8 @@
   "run_id": "42362053263",
   "run_number": "15",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/america-do-sul/campeonato-do-mundo/",
-  "competition_index": 1,
+  "current_competition_path": "/futebol/america-do-sul/serie-rio-de-la-plata/",
+  "competition_index": 2,
   "total_competitions": 10,
   "selected_competitions": [
     "/futebol/america-do-sul/campeonato-do-mundo/",
@@ -23,13 +23,13 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "collecting",
-  "total_games": 65,
-  "processed_games": 65,
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Paraguai - Peru: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T10:01:48.922Z"
+  "current_match": "A preparar competição",
+  "last_result": "",
+  "updated_at": "2026-11-07T10:01:53.566Z"
 }
