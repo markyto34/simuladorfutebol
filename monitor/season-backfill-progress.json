@@ -37,14 +37,14 @@
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 36,
   "processed_games": 36,
   "stats_games": 35,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Central Stallions (Mon) - Taiwan Steel (Tpe)",
+  "current_match": "Recolha terminada",
   "last_result": "Central Stallions (Mon) - Taiwan Steel (Tpe): 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:08:11.757Z"
+  "updated_at": "2026-11-07T16:08:13.080Z"
 }
