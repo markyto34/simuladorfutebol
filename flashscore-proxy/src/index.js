@@ -2,6 +2,7 @@ import { extractBwin1x2 } from "./extract-bwin.mjs";
 import { extractPeriodCornersFromFeed } from "./extract-period-corners.mjs";
 import { inspectScoreEvidence } from "./extract-scores.mjs";
 import { extractPeriodScores } from "./extract-period-scores.mjs";
+import { mergeValidatedPeriodScores } from "./merge-period-scores.mjs";
 import { inspectMatchDiscovery, extractExplicitCompetitionForMatch } from "./discover-matches.mjs";
 import { extractStructuredMatch } from "./extract-match-record.mjs";
 import { inspectPageStructure } from "./inspect-page-structure.mjs";
@@ -650,25 +651,7 @@ export default {
                   httpStatus: summaryResponse.status,
                   sourceUrl: summaryTarget.toString()
                 });
-                const summaryHasPeriods = Boolean(
-                  summaryRecord?.score?.half_time && summaryRecord?.score?.second_half &&
-                  summaryRecord?.score?.full_time
-                );
-                const statsFullTime = record?.score?.full_time;
-                const summaryFullTime = summaryRecord?.score?.full_time;
-                const sameFullTime = !statsFullTime || (
-                  statsFullTime.home === summaryFullTime?.home &&
-                  statsFullTime.away === summaryFullTime?.away
-                );
-                if (summaryHasPeriods && sameFullTime) {
-                  record.score = {
-                    ...(record.score || {}),
-                    half_time: summaryRecord.score.half_time,
-                    second_half: summaryRecord.score.second_half,
-                    ...(summaryRecord.score.extra_time ? { extra_time: summaryRecord.score.extra_time } : {}),
-                    full_time: statsFullTime || summaryRecord.score.full_time
-                  };
-                  record.missing_fields = (record.missing_fields || []).filter(field => field !== "score_full_time");
+                if (mergeValidatedPeriodScores(record, summaryRecord)) {
                   record.source_capture.evidence.push({
                     field: "score_periods",
                     source: "validated explicit period scores from summary tab fallback",
