@@ -58,11 +58,12 @@
     "/futebol/asia/campeonato-do-mundo/",
     "/futebol/asia/jogos-asiaticoa/",
     "/futebol/asia/taca-asean-da-fifa/",
-    "/futebol/asia/taca-asiatica/"
+    "/futebol/asia/taca-asiatica/",
+    "/futebol/asia/taca-das-nacoes-cafa/"
   ],
-  "updated_at": "2026-11-07T11:01:31.676Z",
+  "updated_at": "2026-11-07T11:02:05.710Z",
   "completed_paths_reset_version": 1,
-  "last_completed_path": "/futebol/asia/taca-asiatica/",
+  "last_completed_path": "/futebol/asia/taca-das-nacoes-cafa/",
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
     "/futebol/arabia-saudita/super-taca/",
