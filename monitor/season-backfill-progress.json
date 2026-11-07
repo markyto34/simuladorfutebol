@@ -2,8 +2,8 @@
   "run_id": "42365820533",
   "run_number": "17",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/aruba/divisao-de-honra/",
-  "competition_index": 7,
+  "current_competition_path": "/futebol/asia/afc-challenge-league/",
+  "competition_index": 8,
   "total_competitions": 10,
   "selected_competitions": [
     "/futebol/argentina/super-taca/",
@@ -23,13 +23,13 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "collecting",
-  "total_games": 11,
-  "processed_games": 11,
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "River Plate - Estrella: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T10:58:17.204Z"
+  "current_match": "A preparar competição",
+  "last_result": "",
+  "updated_at": "2026-11-07T10:58:21.752Z"
 }
