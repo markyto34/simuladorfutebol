@@ -1,6 +1,6 @@
 {
   "generated_from": "data/flashscore-statistics.csv",
-  "generated_at": "2026-11-07T13:59:29.324Z",
+  "generated_at": "2026-11-07T14:53:17.885Z",
   "definition": "At least 5 unique matches and at least one available paired indicator; missing values in individual matches or indicators do not disqualify the competition. Per-indicator coverage is reported.",
   "core_metrics": [
     "goals",
@@ -1544,6 +1544,224 @@
           "complete": 3,
           "total": 45,
           "pct": 6.67
+        }
+      }
+    },
+    {
+      "country_name": "América do Sul",
+      "competition_name": "Campeonato Sul-Americano Sub-20",
+      "stats_source_labels": [
+        "América do Sul / Campeonato Sul-Americano Sub-20"
+      ],
+      "unique_stats_matches": 20,
+      "complete_core": true,
+      "core_metrics": [
+        "goals",
+        "goals_conceded",
+        "goals_ht",
+        "goals_st",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "shots",
+        "shots_on_target",
+        "shots_off_target",
+        "blocked_shots",
+        "shots_inside_box",
+        "shots_outside_box",
+        "fouls",
+        "yellow_cards",
+        "red_cards"
+      ],
+      "metric_coverage": {
+        "goals": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "goals_conceded": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "goals_ht": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "goals_st": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "shots_off_target": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "blocked_shots": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "shots_inside_box": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "shots_outside_box": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 20,
+          "total": 20,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 18,
+          "total": 20,
+          "pct": 90
+        },
+        "red_cards": {
+          "complete": 1,
+          "total": 20,
+          "pct": 5
+        }
+      }
+    },
+    {
+      "country_name": "América do Sul",
+      "competition_name": "Copa América",
+      "stats_source_labels": [
+        "América do Sul / Copa América"
+      ],
+      "unique_stats_matches": 24,
+      "complete_core": true,
+      "core_metrics": [
+        "goals",
+        "goals_conceded",
+        "goals_ht",
+        "goals_st",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "shots",
+        "shots_on_target",
+        "shots_off_target",
+        "blocked_shots",
+        "shots_inside_box",
+        "shots_outside_box",
+        "fouls",
+        "yellow_cards",
+        "red_cards"
+      ],
+      "metric_coverage": {
+        "goals": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "goals_conceded": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "goals_ht": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "goals_st": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "shots_off_target": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "blocked_shots": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "shots_inside_box": {
+          "complete": 0,
+          "total": 24,
+          "pct": 0
+        },
+        "shots_outside_box": {
+          "complete": 0,
+          "total": 24,
+          "pct": 0
+        },
+        "fouls": {
+          "complete": 24,
+          "total": 24,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 23,
+          "total": 24,
+          "pct": 95.83
+        },
+        "red_cards": {
+          "complete": 5,
+          "total": 24,
+          "pct": 20.83
         }
       }
     }
