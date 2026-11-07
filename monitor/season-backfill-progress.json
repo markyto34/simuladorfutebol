@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 488,
-  "processed_games": 200,
-  "stats_games": 200,
+  "processed_games": 225,
+  "stats_games": 225,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Aldosivi - Gimnasia L.P.",
-  "last_result": "Aldosivi - Gimnasia L.P.: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:13:24.269Z"
+  "current_match": "Último concluído: Estudiantes Rio Cuarto - Tigre",
+  "last_result": "Estudiantes Rio Cuarto - Tigre: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:13:49.675Z"
 }
