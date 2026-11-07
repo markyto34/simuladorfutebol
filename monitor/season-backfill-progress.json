@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 28,
-  "processed_games": 25,
-  "stats_games": 25,
+  "processed_games": 28,
+  "stats_games": 28,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Timor Leste - Vietname",
-  "last_result": "Timor Leste - Vietname: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:11:52.325Z"
+  "current_match": "Último concluído: Brunei - Timor Leste",
+  "last_result": "Brunei - Timor Leste: 16 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:11:55.280Z"
 }
