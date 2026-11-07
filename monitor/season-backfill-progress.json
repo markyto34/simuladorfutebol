@@ -47,13 +47,13 @@
     "/futebol/bahrain/primeira-liga/",
     "/futebol/bahrain/taca-do-rei/"
   ],
-  "competitions_completed": 36,
+  "competitions_completed": 37,
   "competitions_failed": 0,
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 0,
   "processed_games": 0,
   "stats_games": 0,
@@ -61,5 +61,5 @@
   "failed_games": 0,
   "current_match": "Sem jogos pendentes",
   "last_result": "",
-  "updated_at": "2026-11-07T16:12:15.387Z"
+  "updated_at": "2026-11-07T16:12:18.514Z"
 }
