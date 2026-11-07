@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 30,
-  "processed_games": 25,
-  "stats_games": 25,
+  "processed_games": 30,
+  "stats_games": 30,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Bayswater City - Marconi",
-  "last_result": "Bayswater City - Marconi: 9 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:18:51.797Z"
+  "current_match": "Último concluído: Preston Lions - Wollongong Wolves",
+  "last_result": "Preston Lions - Wollongong Wolves: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:18:56.071Z"
 }
