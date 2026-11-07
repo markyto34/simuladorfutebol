@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 67,
-  "processed_games": 25,
-  "stats_games": 25,
+  "processed_games": 50,
+  "stats_games": 50,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Kyoto (Jpn) - Newcastle Jets (Aus)",
-  "last_result": "Kyoto (Jpn) - Newcastle Jets (Aus): 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:10:23.892Z"
+  "current_match": "Último concluído: Al Hilal (Sau) - Al Gharafa (Qat)",
+  "last_result": "Al Hilal (Sau) - Al Gharafa (Qat): 16 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:10:49.196Z"
 }
