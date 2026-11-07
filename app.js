@@ -19,7 +19,7 @@ function simulate(){
   const read=id=>{const raw=$(id).value.trim();if(raw==="")return null;const v=Number(raw);if(!Number.isFinite(v)||v<0)throw Error("Confirma os valores numéricos: não podem ser negativos.");return v;};
   const goalValues=["hgFor","agAgainst","agFor","hgAgainst"].map(read);
   const hasGoalHistory=goalValues.every(v=>v!==null);
-  const hasGoals=hasGoalHistory;
+  const hasGoals=hasGoalHistory||(hasHalfTime&&hasSecondHalf);
   const htValues=["hhtFor","ahtAgainst","ahtFor","hhtAgainst"].map(read);
   const hasHalfTime=htValues.every(v=>v!==null);
   const hht=hasHalfTime?(htValues[0]+htValues[1])/2:null;
@@ -54,10 +54,40 @@ function simulate(){
   const seedInput=[h,a,...Array.from(document.querySelectorAll("input")).map(input=>input.id+"="+input.value)].join("|");
   random=seededRandom(hashSeed(seedInput));
   for(let i=0;i<N;i++){
-   if(hasGoals){const x=poisson(hg),y=poisson(ag),gt=x+y;sumG+=gt;sumHG+=x;sumAG+=y;if(x>y)home++;else if(x===y)draw++;else away++;if(x>0&&y>0)btts++;if(gt>=2)g15++;if(gt>=3)g25++;if(gt>=4)g35++;const key=x+"-"+y;scoreMap[key]=(scoreMap[key]||0)+1;}
+   if(hasGoalHistory){const x=poisson(hg),y=poisson(ag),gt=x+y;sumG+=gt;sumHG+=x;sumAG+=y;if(x>y)home++;else if(x===y)draw++;else away++;if(x>0&&y>0)btts++;if(gt>=2)g15++;if(gt>=3)g25++;if(gt>=4)g35++;const key=x+"-"+y;scoreMap[key]=(scoreMap[key]||0)+1;}
    if(hasHalfTime&&poisson(hht)+poisson(aht)>=1)ht05++;
    if(hasSecondHalf){const shHome=poisson(hsh),shAway=poisson(ash),total=shHome+shAway;if(total>=1)sh05++;if(total>=2)sh15++;if(shHome>0&&shAway>0)shBtts++;}
    if(hasCorners){const c=negBin(hc,disp),d=negBin(ac,disp),ct=c+d;sumC+=ct;if(ct>=9)c85++;if(ct>=10)c95++;if(ct>=11)c105++;}
+  }
+  let periodPredictionHtml='<p class="model-note">Para combinar HT, ST e FT são necessárias amostras válidas de golos nas duas partes para ambas as equipas.</p>';
+  if(hasHalfTime&&hasSecondHalf){
+   const periodRandom=seededRandom(hashSeed(seedInput+"|ht-st-ft"));
+   const periodPoisson=lambda=>{const limit=Math.exp(-Math.max(0,lambda));let k=0,p=1;do{k++;p*=periodRandom()}while(p>limit);return k-1;};
+   const htScores={},ftScores={};
+   let htHomeSum=0,htAwaySum=0,stHomeSum=0,stAwaySum=0,ftHomeSum=0,ftAwaySum=0;
+   let htOver05=0,stOver05=0,stOver15=0,stBtts=0,ftOver15=0,ftOver25=0,ftOver35=0,ftBtts=0,ftHomeWins=0,ftDraws=0,ftAwayWins=0;
+   home=0;draw=0;away=0;g15=0;g25=0;g35=0;btts=0;sumG=0;sumHG=0;sumAG=0;scoreMap={};
+   for(let i=0;i<N;i++){
+    const hh=periodPoisson(hht),ha=periodPoisson(aht),sh=periodPoisson(hsh),sa=periodPoisson(ash);
+    const fh=hh+sh,fa=ha+sa,htTotal=hh+ha,stTotal=sh+sa,ftTotal=fh+fa;
+    htHomeSum+=hh;htAwaySum+=ha;stHomeSum+=sh;stAwaySum+=sa;ftHomeSum+=fh;ftAwaySum+=fa;
+    const htKey=hh+"-"+ha,ftKey=fh+"-"+fa;
+    htScores[htKey]=(htScores[htKey]||0)+1;ftScores[ftKey]=(ftScores[ftKey]||0)+1;scoreMap[ftKey]=(scoreMap[ftKey]||0)+1;
+    if(htTotal>=1)htOver05++;if(stTotal>=1)stOver05++;if(stTotal>=2)stOver15++;if(sh>0&&sa>0)stBtts++;
+    if(ftTotal>=2)ftOver15++;if(ftTotal>=3)ftOver25++;if(ftTotal>=4)ftOver35++;
+    if(fh>0&&fa>0)ftBtts++;
+    if(fh>fa){ftHomeWins++;home++;}else if(fh===fa){ftDraws++;draw++;}else{ftAwayWins++;away++;}
+    if(ftTotal>=2)g15++;if(ftTotal>=3)g25++;if(ftTotal>=4)g35++;if(fh>0&&fa>0)btts++;
+    sumG+=ftTotal;sumHG+=fh;sumAG+=fa;
+   }
+   const topScores=map=>Object.entries(map).sort((x,y)=>y[1]-x[1]).slice(0,3);
+   const scoreList=map=>topScores(map).map(([score,count])=>'<span class="period-score">'+score+' <b>'+pct(count)+'</b></span>').join("");
+   const htModal=topScores(htScores)[0]?.[0]||"—",ftModal=topScores(ftScores)[0]?.[0]||"—";
+   periodPredictionHtml='<div class="period-prediction-grid">'+
+    '<section><h4>Resultado ao intervalo (HT)</h4><strong class="period-main-score">'+htModal+'</strong><p>Média prevista: '+(htHomeSum/N).toFixed(2)+' – '+(htAwaySum/N).toFixed(2)+'</p><div class="period-score-list">'+scoreList(htScores)+'</div><div class="line-item"><span>Over 0,5 HT</span><b>'+pct(htOver05)+'</b></div></section>'+
+    '<section><h4>Golos na segunda parte (ST)</h4><strong class="period-main-score">'+(stHomeSum/N).toFixed(2)+' – '+(stAwaySum/N).toFixed(2)+'</strong><p>Média prevista: '+(stHomeSum/N).toFixed(2)+' – '+(stAwaySum/N).toFixed(2)+'</p><div class="line-item"><span>Over 0,5 ST</span><b>'+pct(stOver05)+'</b></div><div class="line-item"><span>Over 1,5 ST</span><b>'+pct(stOver15)+'</b></div><div class="line-item"><span>Ambas marcam ST</span><b>'+pct(stBtts)+'</b></div></section>'+
+    '<section><h4>Resultado final (FT)</h4><strong class="period-main-score">'+ftModal+'</strong><p>Média prevista: '+(ftHomeSum/N).toFixed(2)+' – '+(ftAwaySum/N).toFixed(2)+'</p><div class="period-score-list">'+scoreList(ftScores)+'</div><div class="line-item"><span>Over 1,5 FT</span><b>'+pct(ftOver15)+'</b></div><div class="line-item"><span>Over 2,5 FT</span><b>'+pct(ftOver25)+'</b></div><div class="line-item"><span>Over 3,5 FT</span><b>'+pct(ftOver35)+'</b></div><div class="line-item"><span>Ambas marcam FT</span><b>'+pct(ftBtts)+'</b></div></section></div>';
+   ht05=htOver05;sh05=stOver05;sh15=stOver15;shBtts=stBtts;
   }
   const noData='<p class="model-note">Sem dados suficientes nesta competição/amostra. O indicador não será estimado.</p>';
   const pct=x=>(100*x/N).toFixed(1)+"%";
@@ -68,6 +98,7 @@ function simulate(){
   $("meanGoals").textContent=hasGoals?(sumG/N).toFixed(2):"—";
   $("meanCorners").textContent=hasCorners?(sumC/N).toFixed(2):"—";
   $("goalMarkets").innerHTML=[hasGoals?[line("Mais de 1.5 golos",g15),line("Mais de 2.5 golos",g25),line("Mais de 3.5 golos",g35),line("Ambas marcam — Sim",btts)].join(""):noData,hasHalfTime?line("Over 0,5 golos HT",ht05):'<div class="line-item"><span>Over 0,5 golos HT</span><b>Sem dados</b></div>',hasSecondHalf?[line("Over 0,5 golos 2.ª parte",sh05),line("Over 1,5 golos 2.ª parte",sh15),line("Ambas marcam 2.ª parte",shBtts)].join(""):'<div class="line-item"><span>Golos 2.ª parte</span><b>Sem dados</b></div>'].join("");
+  $("periodPredictions").innerHTML=periodPredictionHtml;
   $("cornerMarkets").innerHTML=hasCorners?[line("Mais de 8.5 cantos",c85),line("Mais de 9.5 cantos",c95),line("Mais de 10.5 cantos",c105)].join(""):noData;
   const extraHtml=[];
   for(const item of extraValues){
