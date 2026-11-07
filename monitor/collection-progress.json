@@ -11,14 +11,14 @@
   "failed_competitions": [],
   "blocked": false,
   "target_date": "2026-11-06",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 415,
   "processed_games": 415,
   "stats_games": 249,
   "bwin_odds": 157,
   "failed_games": 0,
-  "current_match": "Último concluído: Van Hien - Hue",
+  "current_match": "Recolha terminada",
   "last_result": "Van Hien - Hue: 11 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T06:20:49.973Z"
+  "updated_at": "2026-11-07T06:20:51.679Z"
 }
