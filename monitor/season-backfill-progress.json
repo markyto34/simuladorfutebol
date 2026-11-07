@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 63,
-  "processed_games": 50,
+  "processed_games": 63,
   "stats_games": 6,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 51/63 · pbwVKZvo",
-  "last_result": "Kolea - Bordj Menail: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:09:24.613Z"
+  "current_match": "Último concluído: Belouizdad - Oued Fodda",
+  "last_result": "Belouizdad - Oued Fodda: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:09:37.597Z"
 }
