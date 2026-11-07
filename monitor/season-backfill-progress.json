@@ -46,7 +46,7 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 62,
   "processed_games": 62,
   "stats_games": 46,
@@ -54,5 +54,5 @@
   "failed_games": 16,
   "current_match": "Recolha terminada",
   "last_result": "Club America - Portland Timbers: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T13:58:02.121Z"
+  "updated_at": "2026-11-07T13:58:07.479Z"
 }
