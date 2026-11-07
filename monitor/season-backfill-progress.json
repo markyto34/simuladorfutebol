@@ -47,13 +47,13 @@
     "/futebol/bahrain/primeira-liga/",
     "/futebol/bahrain/taca-do-rei/"
   ],
-  "competitions_completed": 42,
+  "competitions_completed": 43,
   "competitions_failed": 0,
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 21,
   "processed_games": 21,
   "stats_games": 1,
@@ -61,5 +61,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Pago (Asa) - Nukuhetulu (Ton): 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:17:18.393Z"
+  "updated_at": "2026-11-07T16:17:22.124Z"
 }
