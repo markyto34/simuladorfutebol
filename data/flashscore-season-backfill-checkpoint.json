@@ -40,15 +40,16 @@
     "/futebol/argentina/primeira-b/",
     "/futebol/argentina/primeira-c/",
     "/futebol/argentina/primeira-liga-nacional/",
-    "/futebol/argentina/super-taca/"
+    "/futebol/argentina/super-taca/",
+    "/futebol/argentina/taca-da-argentina/"
   ],
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
     "/futebol/arabia-saudita/super-taca/",
     "/futebol/argentina/super-taca/"
   ],
-  "note": "Competições em skipped_paths não disponibilizaram contexto de época utilizável no Flashscore; não foram inventados jogos nem estatísticas.",
-  "updated_at": "2026-11-07T15:46:42.992Z",
-  "last_completed_path": "/futebol/argentina/primeira-liga-nacional/",
+  "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
+  "updated_at": "2026-11-07T15:48:18.627Z",
+  "last_completed_path": "/futebol/argentina/taca-da-argentina/",
   "last_skipped_path": "/futebol/argentina/super-taca/"
 }
