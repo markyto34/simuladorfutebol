@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 462,
-  "processed_games": 350,
-  "stats_games": 349,
+  "processed_games": 375,
+  "stats_games": 374,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Sportivo Italiano - Argentino de Quilmes",
-  "last_result": "Sportivo Italiano - Argentino de Quilmes: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:24:33.363Z"
+  "current_match": "Último concluído: Deportivo Merlo - Deportivo Camioneros",
+  "last_result": "Deportivo Merlo - Deportivo Camioneros: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:24:58.582Z"
 }
