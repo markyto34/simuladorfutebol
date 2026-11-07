@@ -25,8 +25,8 @@
   ],
   "blocked": false,
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
+  "status": "running",
+  "phase": "saving",
   "total_games": 0,
   "processed_games": 0,
   "stats_games": 0,
@@ -34,5 +34,5 @@
   "failed_games": 0,
   "current_match": "Sem jogos pendentes",
   "last_result": "",
-  "updated_at": "2026-11-07T09:42:19.689Z"
+  "updated_at": "2026-11-07T09:42:21.688Z"
 }
