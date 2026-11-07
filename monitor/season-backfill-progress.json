@@ -22,14 +22,14 @@
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 22,
   "processed_games": 22,
   "stats_games": 22,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: África do Sul - Moçambique",
+  "current_match": "Recolha terminada",
   "last_result": "África do Sul - Moçambique: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T13:15:17.362Z"
+  "updated_at": "2026-11-07T13:15:18.355Z"
 }
