@@ -54,14 +54,14 @@
   ],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 94,
   "processed_games": 94,
   "stats_games": 94,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Voitsberg - Amstetten",
+  "current_match": "Recolha terminada",
   "last_result": "Voitsberg - Amstetten: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T17:13:00.310Z"
+  "updated_at": "2026-11-07T17:13:01.853Z"
 }
