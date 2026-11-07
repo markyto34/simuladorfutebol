@@ -6,7 +6,7 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: simulator-complete-competitions-hourly
+  group: recolha-diaria-flashscore
   cancel-in-progress: false
 jobs:
   update-index:

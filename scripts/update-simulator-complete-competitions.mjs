@@ -52,6 +52,47 @@ const present = value => String(value ?? "").trim() !== "";
 const numeric = value => present(value) && Number.isFinite(Number(String(value).replace(",", ".")));
 const sourceLabel = (country, competition) => String(country).trim() + " / " + String(competition).trim();
 const labelKey = value => normalize(value).replace(/\s*\/\s*/g, "/");
+
+const STAGE_SUFFIX = /\s+(?:abertura|aberto|apertura|apertura y clausura|clausura|encerramento|apertura|playoffs?|play\s+offs?|fase\s+de\s+grupos|group\s+stage|league\s+phase|fase\s+de\s+liga|final\s+round|championship\s+round|quadrangular|octogonal|hexagonal|grupo\s+campeonato|grupo\s+rebaixamento|grupo\s+de\s+rebaixamento|grupo\s+de\s+promocao|grupo\s+de\s+despromocao|promotion\s+group|relegation\s+group)$/i;
+const COMPETITION_ALIASES = new Map([
+  ["argentina|primera b", "primeira b"]
+]);
+
+function selectedCompetitionKey(country, competition) {
+  const countryKey = normalize(country);
+  const competitionKey = normalize(competition);
+  return countryKey + "|" + (COMPETITION_ALIASES.get(countryKey + "|" + competitionKey) || competitionKey);
+}
+
+function baseCompetitionName(competition) {
+  let value = normalize(competition);
+  let previous;
+  do {
+    previous = value;
+    value = value.replace(STAGE_SUFFIX, "").trim();
+  } while (value !== previous);
+  return value;
+}
+
+export function matchesSelectedCompetition(country, competition, selectedPairs) {
+  const exact = selectedCompetitionKey(country, competition);
+  if (selectedPairs.has(exact)) return true;
+  const base = baseCompetitionName(competition);
+  return Boolean(base && base !== normalize(competition) &&
+    selectedPairs.has(selectedCompetitionKey(country, base)));
+}
+
+function isSelectedIndexItem(item, selectedPairs) {
+  const labels = Array.isArray(item.stats_source_labels) && item.stats_source_labels.length
+    ? item.stats_source_labels
+    : [sourceLabel(item.country_name, item.competition_name)];
+  return labels.some(label => {
+    const parts = String(label).split("/");
+    const country = parts.shift()?.trim() || item.country_name;
+    const competition = parts.join("/").trim() || item.competition_name;
+    return matchesSelectedCompetition(country, competition, selectedPairs);
+  });
+}
 const pct = (complete, total) => total ? Math.round(complete / total * 10000) / 100 : 0;
 
 export function buildCompleteCompetitions(records, previous = {}) {
@@ -166,12 +207,12 @@ async function main() {
     try { return selectedPaths.has(new URL(item.url).pathname); } catch { return false; }
   }).map(item => normalize(item.country_name) + "|" + normalize(item.competition_name)));
   if (!selectedPairs.size) throw new Error("Nenhuma competição selecionada corresponde ao catálogo Flashscore.");
-  const records = allRecords.filter(row => selectedPairs.has(normalize(row.country) + "|" + normalize(row.competition)));
+  const records = allRecords.filter(row => matchesSelectedCompetition(row.country, row.competition, selectedPairs));
   let previous = {};
   try { previous = JSON.parse(await readFile(OUTPUT, "utf8")); }
   catch (error) { if (error.code !== "ENOENT") throw error; }
   previous.complete_competitions = (previous.complete_competitions || []).filter(item =>
-    selectedPairs.has(normalize(item.country_name) + "|" + normalize(item.competition_name))
+    isSelectedIndexItem(item, selectedPairs)
   );
   const { index, newly_eligible, unidentified } = buildCompleteCompetitions(records, previous);
   await writeFile(OUTPUT, JSON.stringify(index, null, 2) + "\n");

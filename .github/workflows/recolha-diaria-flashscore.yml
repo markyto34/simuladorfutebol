@@ -56,6 +56,8 @@ jobs:
           node --check scripts/validate-flashscore-history.mjs
           node --check scripts/integrate-flashscore-odds-history.mjs
           node --check scripts/audit-flashscore-catalog-coverage.mjs
+          node --check scripts/update-simulator-complete-competitions.mjs
+          node --test tests/update-simulator-complete-competitions.test.mjs
       - name: Descobrir jogos e recolher estatísticas + odds Bwin
         id: collect
         continue-on-error: true
@@ -80,12 +82,15 @@ jobs:
       - name: Integrar recolha no CSV histórico de odds
         if: always() && steps.validate.outcome == 'success'
         run: node scripts/integrate-flashscore-odds-history.mjs
+      - name: Atualizar índice do simulador com as estatísticas guardadas
+        if: always() && steps.validate.outcome == 'success'
+        run: node scripts/update-simulator-complete-competitions.mjs
       - name: Guardar CSVs recolhidos e histórico atualizado
         if: always() && steps.validate.outcome == 'success'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/flashscore-statistics.csv data/bwin-odds-flashscore.csv data/flashscore-competition-coverage.json ganhonasodds_com_20261101.csv
+          git add data/flashscore-statistics.csv data/bwin-odds-flashscore.csv data/flashscore-competition-coverage.json data/simulator-complete-competitions.json ganhonasodds_com_20261101.csv
           if git diff --cached --quiet; then
             echo "Sem novos dados para guardar."
           else
