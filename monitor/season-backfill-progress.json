@@ -2,7 +2,7 @@
   "run_id": "42364059578",
   "run_number": "16",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/argentina/taca-da-liga-profissional/",
+  "current_competition_path": "",
   "competition_index": 10,
   "total_competitions": 10,
   "selected_competitions": [
@@ -24,8 +24,8 @@
   ],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "failed",
+  "phase": "failed",
   "total_games": 0,
   "processed_games": 0,
   "stats_games": 0,
@@ -33,5 +33,5 @@
   "failed_games": 0,
   "current_match": "Sem jogos pendentes",
   "last_result": "",
-  "updated_at": "2026-11-07T10:33:10.123Z"
+  "updated_at": "2026-11-07T10:33:14.826Z"
 }
