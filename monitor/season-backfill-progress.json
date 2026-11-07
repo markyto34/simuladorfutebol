@@ -57,11 +57,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 67,
-  "processed_games": 50,
-  "stats_games": 50,
+  "processed_games": 67,
+  "stats_games": 67,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: SK Rapid - Grazer",
-  "last_result": "SK Rapid - Grazer: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T17:10:49.960Z"
+  "current_match": "Último concluído: LASK - Grazer",
+  "last_result": "LASK - Grazer: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T17:11:07.114Z"
 }
