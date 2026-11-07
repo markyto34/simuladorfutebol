@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 468,
-  "processed_games": 250,
-  "stats_games": 247,
+  "processed_games": 275,
+  "stats_games": 272,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Claypole - Deportivo Muniz",
-  "last_result": "Claypole - Deportivo Muniz: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:31:12.514Z"
+  "current_match": "A consultar jogo 276/468 · djKOj08s",
+  "last_result": "Sportivo Barracas - Atlas: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:31:37.445Z"
 }
