@@ -33,19 +33,20 @@
     "/futebol/argelia/taca-da-argelia/"
   ],
   "competitions_completed": 12,
-  "competitions_failed": 6,
+  "competitions_failed": 7,
   "failed_competitions": [
     "/futebol/alemanha/taca-da-alemanha/",
     "/futebol/america-do-norte-e-central/campeonato-do-mundo/",
     "/futebol/america-do-norte-e-central/concacaf-liga-das-nacoes/",
     "/futebol/america-do-norte-e-central/concacaf-liga-dos-campeoes/",
     "/futebol/america-do-norte-e-central/copa-centro-americana-da-concacaf/",
-    "/futebol/america-do-norte-e-central/liga-concacaf/"
+    "/futebol/america-do-norte-e-central/liga-concacaf/",
+    "/futebol/america-do-norte-e-central/taca-das-ligas/"
   ],
   "blocked": false,
   "target_date": "",
-  "status": "completed_with_errors",
-  "phase": "completed",
+  "status": "running",
+  "phase": "saving",
   "total_games": 62,
   "processed_games": 62,
   "stats_games": 46,
@@ -53,5 +54,5 @@
   "failed_games": 16,
   "current_match": "Recolha terminada",
   "last_result": "Club America - Portland Timbers: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T13:58:00.843Z"
+  "updated_at": "2026-11-07T13:58:02.121Z"
 }
