@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 648,
-  "processed_games": 100,
-  "stats_games": 100,
+  "processed_games": 125,
+  "stats_games": 125,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Def. de Belgrano - Ferro",
-  "last_result": "Def. de Belgrano - Ferro: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:37:01.059Z"
+  "current_match": "Último concluído: San Telmo - CA Estudiantes",
+  "last_result": "San Telmo - CA Estudiantes: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:37:26.307Z"
 }
