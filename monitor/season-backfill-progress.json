@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 462,
-  "processed_games": 275,
-  "stats_games": 274,
+  "processed_games": 300,
+  "stats_games": 299,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Dock Sud - Brown Adrogue",
-  "last_result": "Dock Sud - Brown Adrogue: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:23:17.541Z"
+  "current_match": "Último concluído: Deportivo Merlo - Deportivo Armenio",
+  "last_result": "Deportivo Merlo - Deportivo Armenio: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:23:42.823Z"
 }
