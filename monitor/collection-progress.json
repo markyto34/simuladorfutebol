@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 415,
-  "processed_games": 150,
-  "stats_games": 80,
-  "bwin_odds": 53,
+  "processed_games": 175,
+  "stats_games": 101,
+  "bwin_odds": 62,
   "failed_games": 0,
-  "current_match": "A consultar jogo 153/415 · 8zCVtkOp",
-  "last_result": "Koge - Aalborg: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-07T06:19:29.445Z"
+  "current_match": "A consultar jogo 178/415 · 0tRqVXb4",
+  "last_result": "Fort Lauderdale F - Tampa Bay Sun F: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T06:19:36.979Z"
 }
