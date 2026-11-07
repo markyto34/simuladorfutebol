@@ -2,8 +2,8 @@
   "run_id": "42370242713",
   "run_number": "18",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/australia/npl-act/",
-  "competition_index": 8,
+  "current_competition_path": "/futebol/australia/npl-australia-ocidental/",
+  "competition_index": 9,
   "total_competitions": 10,
   "selected_competitions": [
     "/futebol/australia/campeonato-norte-da-tasmania/",
@@ -23,13 +23,13 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "collecting",
-  "total_games": 1,
-  "processed_games": 1,
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Tuggeranong Utd - Brindabella: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T12:10:23.852Z"
+  "current_match": "A preparar competição",
+  "last_result": "",
+  "updated_at": "2026-11-07T12:10:28.392Z"
 }
