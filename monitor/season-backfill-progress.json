@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 468,
-  "processed_games": 450,
-  "stats_games": 443,
+  "processed_games": 468,
+  "stats_games": 461,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 451/468 · 4WTxdNno",
-  "last_result": "Def. de Cambaceres - Argentino de Rosario: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:34:32.602Z"
+  "current_match": "Último concluído: Lugano - Sacachispas",
+  "last_result": "Lugano - Sacachispas: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:34:50.573Z"
 }
