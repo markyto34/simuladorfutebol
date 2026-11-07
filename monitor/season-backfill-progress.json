@@ -37,14 +37,14 @@
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 0,
   "processed_games": 0,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A preparar todos os jogos pendentes da época",
+  "current_match": "Sem jogos pendentes",
   "last_result": "",
-  "updated_at": "2026-11-07T10:59:50.336Z"
+  "updated_at": "2026-11-07T10:59:51.401Z"
 }
