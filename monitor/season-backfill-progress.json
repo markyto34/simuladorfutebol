@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 104,
-  "processed_games": 100,
-  "stats_games": 100,
+  "processed_games": 104,
+  "stats_games": 104,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Al Hilal - Al Faysaly",
-  "last_result": "Al Hilal - Al Faysaly: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:06:13.991Z"
+  "current_match": "Último concluído: Abha - Al Hazem",
+  "last_result": "Abha - Al Hazem: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:06:18.323Z"
 }
