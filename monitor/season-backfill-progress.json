@@ -2,8 +2,8 @@
   "run_id": "42383789441",
   "run_number": "20",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/america-do-norte-e-central/campeonato-do-mundo/",
-  "competition_index": 2,
+  "current_competition_path": "/futebol/america-do-norte-e-central/concacaf-liga-das-nacoes/",
+  "competition_index": 3,
   "total_competitions": 10,
   "selected_competitions": [
     "/futebol/alemanha/taca-da-alemanha/",
@@ -23,13 +23,13 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "collecting",
+  "phase": "discovery",
   "total_games": 0,
   "processed_games": 0,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Sem jogos pendentes",
+  "current_match": "A preparar competição",
   "last_result": "",
-  "updated_at": "2026-11-07T14:55:15.316Z"
+  "updated_at": "2026-11-07T14:55:19.908Z"
 }
