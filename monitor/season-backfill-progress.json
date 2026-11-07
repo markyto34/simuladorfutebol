@@ -43,14 +43,14 @@
   ],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed_with_errors",
+  "phase": "completed",
   "total_games": 42,
   "processed_games": 42,
   "stats_games": 13,
   "bwin_odds": 0,
   "failed_games": 1,
-  "current_match": "Último erro: Mco9lY2h",
+  "current_match": "Recolha terminada",
   "last_result": "Falha em Mco9lY2h: Falha ao recolher Mco9lY2h: HTTP 503",
-  "updated_at": "2026-11-07T13:45:53.468Z"
+  "updated_at": "2026-11-07T13:45:54.731Z"
 }
