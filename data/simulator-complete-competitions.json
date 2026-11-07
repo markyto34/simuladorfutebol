@@ -1,6 +1,6 @@
 {
   "generated_from": "data/flashscore-statistics.csv",
-  "generated_at": "2026-11-07T10:55:25.361Z",
+  "generated_at": "2026-11-07T11:51:25.572Z",
   "definition": "At least 5 unique matches and at least one available paired indicator; missing values in individual matches or indicators do not disqualify the competition. Per-indicator coverage is reported.",
   "core_metrics": [
     "goals",
@@ -2648,6 +2648,115 @@
     },
     {
       "country_name": "Argentina",
+      "competition_name": "Torneio Promocional Amador",
+      "stats_source_labels": [
+        "Argentina / Torneio Promocional Amador"
+      ],
+      "unique_stats_matches": 86,
+      "complete_core": true,
+      "core_metrics": [
+        "goals",
+        "goals_conceded",
+        "goals_ht",
+        "goals_st",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "shots",
+        "shots_on_target",
+        "shots_off_target",
+        "blocked_shots",
+        "shots_inside_box",
+        "shots_outside_box",
+        "fouls",
+        "yellow_cards",
+        "red_cards"
+      ],
+      "metric_coverage": {
+        "goals": {
+          "complete": 86,
+          "total": 86,
+          "pct": 100
+        },
+        "goals_conceded": {
+          "complete": 86,
+          "total": 86,
+          "pct": 100
+        },
+        "goals_ht": {
+          "complete": 84,
+          "total": 86,
+          "pct": 97.67
+        },
+        "goals_st": {
+          "complete": 84,
+          "total": 86,
+          "pct": 97.67
+        },
+        "corners": {
+          "complete": 0,
+          "total": 86,
+          "pct": 0
+        },
+        "corners_ht": {
+          "complete": 0,
+          "total": 86,
+          "pct": 0
+        },
+        "corners_st": {
+          "complete": 0,
+          "total": 86,
+          "pct": 0
+        },
+        "shots": {
+          "complete": 0,
+          "total": 86,
+          "pct": 0
+        },
+        "shots_on_target": {
+          "complete": 0,
+          "total": 86,
+          "pct": 0
+        },
+        "shots_off_target": {
+          "complete": 0,
+          "total": 86,
+          "pct": 0
+        },
+        "blocked_shots": {
+          "complete": 0,
+          "total": 86,
+          "pct": 0
+        },
+        "shots_inside_box": {
+          "complete": 0,
+          "total": 86,
+          "pct": 0
+        },
+        "shots_outside_box": {
+          "complete": 0,
+          "total": 86,
+          "pct": 0
+        },
+        "fouls": {
+          "complete": 0,
+          "total": 86,
+          "pct": 0
+        },
+        "yellow_cards": {
+          "complete": 0,
+          "total": 86,
+          "pct": 0
+        },
+        "red_cards": {
+          "complete": 0,
+          "total": 86,
+          "pct": 0
+        }
+      }
+    },
+    {
+      "country_name": "Argentina",
       "competition_name": "Torneios de Verăo",
       "stats_source_labels": [
         "Argentina / Torneios de Verăo"
@@ -3193,13 +3302,12 @@
       }
     },
     {
-      "country_name": "Austrália",
-      "competition_name": "Campeonato Australiano - Finais NPL",
+      "country_name": "Ásia",
+      "competition_name": "Taça das Nações CAFA",
       "stats_source_labels": [
-        "AUSTRÁLIA / Campeonato Australiano - Finais NPL",
-        "Austrália / Campeonato Australiano - Finais NPL"
+        "Ásia / Taça das Nações CAFA"
       ],
-      "unique_stats_matches": 26,
+      "unique_stats_matches": 12,
       "complete_core": true,
       "core_metrics": [
         "goals",
@@ -3221,84 +3329,194 @@
       ],
       "metric_coverage": {
         "goals": {
-          "complete": 26,
-          "total": 26,
+          "complete": 12,
+          "total": 12,
           "pct": 100
         },
         "goals_conceded": {
-          "complete": 26,
-          "total": 26,
+          "complete": 12,
+          "total": 12,
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
-          "total": 26,
-          "pct": 0
+          "complete": 12,
+          "total": 12,
+          "pct": 100
         },
         "goals_st": {
-          "complete": 0,
-          "total": 26,
-          "pct": 0
+          "complete": 12,
+          "total": 12,
+          "pct": 100
         },
         "corners": {
-          "complete": 25,
-          "total": 26,
-          "pct": 96.15
+          "complete": 0,
+          "total": 12,
+          "pct": 0
         },
         "corners_ht": {
-          "complete": 26,
-          "total": 26,
-          "pct": 100
+          "complete": 0,
+          "total": 12,
+          "pct": 0
         },
         "corners_st": {
-          "complete": 26,
-          "total": 26,
-          "pct": 100
+          "complete": 0,
+          "total": 12,
+          "pct": 0
         },
         "shots": {
-          "complete": 25,
-          "total": 26,
-          "pct": 96.15
+          "complete": 0,
+          "total": 12,
+          "pct": 0
         },
         "shots_on_target": {
-          "complete": 25,
-          "total": 26,
-          "pct": 96.15
+          "complete": 0,
+          "total": 12,
+          "pct": 0
         },
         "shots_off_target": {
-          "complete": 25,
-          "total": 26,
-          "pct": 96.15
+          "complete": 0,
+          "total": 12,
+          "pct": 0
         },
         "blocked_shots": {
           "complete": 0,
-          "total": 26,
+          "total": 12,
           "pct": 0
         },
         "shots_inside_box": {
           "complete": 0,
-          "total": 26,
+          "total": 12,
           "pct": 0
         },
         "shots_outside_box": {
           "complete": 0,
-          "total": 26,
+          "total": 12,
           "pct": 0
         },
         "fouls": {
           "complete": 0,
-          "total": 26,
+          "total": 12,
           "pct": 0
         },
         "yellow_cards": {
-          "complete": 25,
-          "total": 26,
-          "pct": 96.15
+          "complete": 0,
+          "total": 12,
+          "pct": 0
+        },
+        "red_cards": {
+          "complete": 0,
+          "total": 12,
+          "pct": 0
+        }
+      }
+    },
+    {
+      "country_name": "Austrália",
+      "competition_name": "Campeonato Australiano - Finais NPL",
+      "stats_source_labels": [
+        "AUSTRÁLIA / Campeonato Australiano - Finais NPL",
+        "Austrália / Campeonato Australiano - Finais NPL"
+      ],
+      "unique_stats_matches": 30,
+      "complete_core": true,
+      "core_metrics": [
+        "goals",
+        "goals_conceded",
+        "goals_ht",
+        "goals_st",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "shots",
+        "shots_on_target",
+        "shots_off_target",
+        "blocked_shots",
+        "shots_inside_box",
+        "shots_outside_box",
+        "fouls",
+        "yellow_cards",
+        "red_cards"
+      ],
+      "metric_coverage": {
+        "goals": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "goals_conceded": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "goals_ht": {
+          "complete": 4,
+          "total": 30,
+          "pct": 13.33
+        },
+        "goals_st": {
+          "complete": 4,
+          "total": 30,
+          "pct": 13.33
+        },
+        "corners": {
+          "complete": 29,
+          "total": 30,
+          "pct": 96.67
+        },
+        "corners_ht": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 30,
+          "total": 30,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 29,
+          "total": 30,
+          "pct": 96.67
+        },
+        "shots_on_target": {
+          "complete": 29,
+          "total": 30,
+          "pct": 96.67
+        },
+        "shots_off_target": {
+          "complete": 29,
+          "total": 30,
+          "pct": 96.67
+        },
+        "blocked_shots": {
+          "complete": 0,
+          "total": 30,
+          "pct": 0
+        },
+        "shots_inside_box": {
+          "complete": 0,
+          "total": 30,
+          "pct": 0
+        },
+        "shots_outside_box": {
+          "complete": 0,
+          "total": 30,
+          "pct": 0
+        },
+        "fouls": {
+          "complete": 0,
+          "total": 30,
+          "pct": 0
+        },
+        "yellow_cards": {
+          "complete": 28,
+          "total": 30,
+          "pct": 93.33
         },
         "red_cards": {
           "complete": 2,
-          "total": 26,
-          "pct": 7.69
+          "total": 30,
+          "pct": 6.67
         }
       }
     },
