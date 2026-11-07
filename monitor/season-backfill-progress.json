@@ -17,13 +17,13 @@
     "/futebol/arabia-saudita/taca-do-rei/",
     "/futebol/argelia/1-divisao/"
   ],
-  "competitions_completed": 0,
+  "competitions_completed": 1,
   "competitions_failed": 0,
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 65,
   "processed_games": 65,
   "stats_games": 0,
@@ -31,5 +31,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Paraguai - Peru: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T10:01:44.010Z"
+  "updated_at": "2026-11-07T10:01:48.922Z"
 }
