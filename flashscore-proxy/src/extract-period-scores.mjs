@@ -12,15 +12,15 @@ function decodeMarkup(value) {
 
 function visibleText(value) {
   return decodeMarkup(value)
-    .replace(/<script\\b[^>]*>[\\s\\S]*?<\\/script>/gi, " ")
-    .replace(/<style\\b[^>]*>[\\s\\S]*?<\\/style>/gi, " ")
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, " ")
     .replace(/<[^>]+>/g, " ")
-    .replace(/\\s+/g, " ")
+    .replace(/\s+/g, " ")
     .trim();
 }
 
 function parsePair(value) {
-  const match = String(value).match(/^\\s*(\\d{1,2})\\s*[-:]\\s*(\\d{1,2})\\s*$/);
+  const match = String(value).match(/^\s*(\d{1,2})\s*[-:]\s*(\d{1,2})\s*$/);
   if (!match) return null;
   const home = Number(match[1]);
   const away = Number(match[2]);
@@ -30,17 +30,17 @@ function parsePair(value) {
 export function extractPeriodScores(input) {
   const html = decodeMarkup(input);
   const text = visibleText(html);
-  const pair = "(\\\\d{1,2}\\\\s*[-:]\\\\s*\\\\d{1,2})";
-  const firstMatch = text.match(new RegExp("(?:^|\\\\s)1(?:\\\\.|ª|º)\\\\s*Parte\\\\s*:\\\\s*" + pair, "i"));
-  const secondMatch = text.match(new RegExp("(?:^|\\\\s)2(?:\\\\.|ª|º)\\\\s*Parte\\\\s*:\\\\s*" + pair, "i"));
-  const extraTimeMatch = text.match(new RegExp("(?:Prolong(?:amento)?\\\\.?|Extra\\\\s*Time)\\\\s*:\\\\s*" + pair, "i"));
+  const pair = "(\\d{1,2}\\s*[-:]\\s*\\d{1,2})";
+  const firstMatch = text.match(new RegExp("(?:^|\\s)1(?:\\.|ª|º)\\s*Parte\\s*:\\s*" + pair, "i"));
+  const secondMatch = text.match(new RegExp("(?:^|\\s)2(?:\\.|ª|º)\\s*Parte\\s*:\\s*" + pair, "i"));
+  const extraTimeMatch = text.match(new RegExp("(?:Prolong(?:amento)?\\.?|Extra\\s*Time)\\s*:\\s*" + pair, "i"));
 
   // O resumo do jogo aparece imediatamente antes do estado final.
-  const finishedAt = html.search(/>\\s*(?:Terminado|Tempo\\s+Final|Depois\\s+de\\s+Prolongamento|Após\\s+prolongamento)\\s*</i);
+  const finishedAt = html.search(/>\s*(?:Terminado|Tempo\s+Final|Depois\s+de\s+Prolongamento|Após\s+prolongamento)\s*</i);
   const summaryArea = finishedAt >= 0 ? html.slice(Math.max(0, finishedAt - 900), finishedAt) : "";
   const summaryText = visibleText(summaryArea);
   const finalMatches = [...summaryText.matchAll(new RegExp(
-    pair + "\\\\s*\\\\(\\\\s*" + pair + "\\\\s*,\\\\s*" + pair + "(?:\\\\s*,\\\\s*" + pair + ")?\\\\s*\\\\)",
+    pair + "\\s*\\(\\s*" + pair + "\\s*,\\s*" + pair + "(?:\\s*,\\s*" + pair + ")?\\s*\\)",
     "gi"
   ))];
 
