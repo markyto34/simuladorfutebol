@@ -25,11 +25,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 156,
-  "processed_games": 25,
-  "stats_games": 25,
+  "processed_games": 50,
+  "stats_games": 50,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: RB Bragantino (Bra) - Atletico-MG (Bra)",
-  "last_result": "RB Bragantino (Bra) - Atletico-MG (Bra): 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T14:58:27.423Z"
+  "current_match": "Último concluído: Caracas (Ven) - Botafogo RJ (Bra)",
+  "last_result": "Caracas (Ven) - Botafogo RJ (Bra): 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T14:58:52.384Z"
 }
