@@ -52,14 +52,14 @@
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 136,
   "processed_games": 136,
   "stats_games": 136,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Moreton City Excelsior - Gold Coast Knights",
+  "current_match": "Recolha terminada",
   "last_result": "Moreton City Excelsior - Gold Coast Knights: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:48:47.898Z"
+  "updated_at": "2026-11-07T16:48:49.117Z"
 }
