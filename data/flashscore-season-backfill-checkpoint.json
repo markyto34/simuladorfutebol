@@ -46,11 +46,12 @@
     "/futebol/argentina/taca-da-argentina/",
     "/futebol/argentina/taca-da-liga-profissional/",
     "/futebol/argentina/torneio-federal/",
+    "/futebol/argentina/torneio-promocional-amador/",
     "/futebol/asia/afc-liga-dos-campeoes/"
   ],
-  "updated_at": "2026-11-07T10:53:58.899Z",
+  "updated_at": "2026-11-07T10:56:42.834Z",
   "completed_paths_reset_version": 1,
-  "last_completed_path": "/futebol/argentina/torneio-federal/",
+  "last_completed_path": "/futebol/argentina/torneio-promocional-amador/",
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
     "/futebol/arabia-saudita/super-taca/",
