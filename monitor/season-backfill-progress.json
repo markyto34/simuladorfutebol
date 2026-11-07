@@ -44,11 +44,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 51,
-  "processed_games": 50,
+  "processed_games": 51,
   "stats_games": 49,
   "bwin_odds": 0,
-  "failed_games": 1,
-  "current_match": "Último concluído: Forge - Tigres",
-  "last_result": "Forge - Tigres: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T13:35:52.386Z"
+  "failed_games": 2,
+  "current_match": "Último erro: h4NT7ukn",
+  "last_result": "Falha em h4NT7ukn: Falha ao recolher h4NT7ukn: HTTP 503",
+  "updated_at": "2026-11-07T13:36:13.602Z"
 }
