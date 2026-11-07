@@ -32,13 +32,13 @@
     "/futebol/asia/afc-liga-dos-campeoes-2/",
     "/futebol/asia/afc-liga-dos-campeoes/"
   ],
-  "competitions_completed": 20,
+  "competitions_completed": 21,
   "competitions_failed": 0,
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 462,
   "processed_games": 462,
   "stats_games": 461,
@@ -46,5 +46,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Ituzaingo - Deportivo Armenio: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:26:29.012Z"
+  "updated_at": "2026-11-07T15:26:32.727Z"
 }
