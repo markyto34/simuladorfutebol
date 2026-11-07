@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 648,
-  "processed_games": 50,
-  "stats_games": 50,
+  "processed_games": 75,
+  "stats_games": 75,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: San Miguel - Ciudad Bolivar",
-  "last_result": "San Miguel - Ciudad Bolivar: 9 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:36:10.849Z"
+  "current_match": "Último concluído: Godoy Cruz - Los Andes",
+  "last_result": "Godoy Cruz - Los Andes: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:36:35.939Z"
 }
