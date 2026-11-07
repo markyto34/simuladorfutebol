@@ -28,11 +28,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 50,
-  "processed_games": 25,
-  "stats_games": 25,
+  "processed_games": 50,
+  "stats_games": 50,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 26/50 · xlZZ2DZi",
-  "last_result": "Toluca - Los Angeles FC: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T08:55:22.913Z"
+  "current_match": "Último concluído: Columbus Crew - Atlas",
+  "last_result": "Columbus Crew - Atlas: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T08:55:47.925Z"
 }
