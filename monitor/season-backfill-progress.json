@@ -25,11 +25,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 102,
-  "processed_games": 50,
+  "processed_games": 75,
   "stats_games": 44,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Gabão - Gâmbia",
-  "last_result": "Gabão - Gâmbia: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T13:13:46.934Z"
+  "current_match": "Último concluído: Libéria - Senegal",
+  "last_result": "Libéria - Senegal: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T13:14:12.005Z"
 }
