@@ -32,13 +32,13 @@
     "/futebol/asia/afc-liga-dos-campeoes-2/",
     "/futebol/asia/afc-liga-dos-campeoes/"
   ],
-  "competitions_completed": 25,
+  "competitions_completed": 26,
   "competitions_failed": 0,
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 203,
   "processed_games": 203,
   "stats_games": 203,
@@ -46,5 +46,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Tigre - Sarmiento Junin: 12 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:52:18.916Z"
+  "updated_at": "2026-11-07T15:52:22.535Z"
 }
