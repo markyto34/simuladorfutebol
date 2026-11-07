@@ -2,8 +2,8 @@
   "run_id": "42362053263",
   "run_number": "15",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/america-do-sul/serie-rio-de-la-plata/",
-  "competition_index": 2,
+  "current_competition_path": "/futebol/andorra/super-taca/",
+  "competition_index": 3,
   "total_competitions": 10,
   "selected_competitions": [
     "/futebol/america-do-sul/campeonato-do-mundo/",
@@ -25,7 +25,7 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "failed",
+  "phase": "discovery",
   "total_games": 0,
   "processed_games": 0,
   "stats_games": 0,
@@ -33,5 +33,5 @@
   "failed_games": 0,
   "current_match": "A preparar competição",
   "last_result": "",
-  "updated_at": "2026-11-07T10:01:56.324Z"
+  "updated_at": "2026-11-07T10:01:57.790Z"
 }
