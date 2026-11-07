@@ -26,7 +26,7 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 42,
   "processed_games": 42,
   "stats_games": 14,
@@ -34,5 +34,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Waterhouse (Jam) - Pacific FC (Can): 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T07:57:31.009Z"
+  "updated_at": "2026-11-07T07:57:35.850Z"
 }
