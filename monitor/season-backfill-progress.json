@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 504,
-  "processed_games": 100,
-  "stats_games": 97,
+  "processed_games": 125,
+  "stats_games": 122,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Fundacion Amigos - Germinal",
-  "last_result": "Fundacion Amigos - Germinal: 11 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:54:23.565Z"
+  "current_match": "Último concluído: Cipolletti - Biblioteca Atenas",
+  "last_result": "Cipolletti - Biblioteca Atenas: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:54:48.755Z"
 }
