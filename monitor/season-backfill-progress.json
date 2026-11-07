@@ -25,11 +25,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 92,
-  "processed_games": 25,
-  "stats_games": 25,
+  "processed_games": 50,
+  "stats_games": 50,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 26/92 · QDVgIKrT",
-  "last_result": "Furth - Braunschweig: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T13:18:26.653Z"
+  "current_match": "A consultar jogo 51/92 · EsE2Vl0d",
+  "last_result": "Osnabruck - Hertha: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T13:18:51.717Z"
 }
