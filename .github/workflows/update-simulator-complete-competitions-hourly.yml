@@ -3,10 +3,20 @@ on:
   schedule:
     - cron: "17 * * * *"
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "data/flashscore-statistics.csv"
+  workflow_run:
+    workflows:
+      - "Backfill Flashscore por época"
+      - "Recolha diária Flashscore + Bwin"
+    types: [completed]
+    branches: [main]
 permissions:
   contents: write
 concurrency:
-  group: recolha-diaria-flashscore
+  group: simulator-index-refresh
   cancel-in-progress: false
 jobs:
   update-index:
