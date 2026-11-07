@@ -52,14 +52,14 @@
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 30,
   "processed_games": 30,
   "stats_games": 30,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Preston Lions - Wollongong Wolves",
+  "current_match": "Recolha terminada",
   "last_result": "Preston Lions - Wollongong Wolves: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:18:56.071Z"
+  "updated_at": "2026-11-07T16:18:57.596Z"
 }
