@@ -42,11 +42,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 194,
-  "processed_games": 125,
-  "stats_games": 121,
+  "processed_games": 150,
+  "stats_games": 126,
   "bwin_odds": 0,
   "failed_games": 2,
-  "current_match": "Último concluído: Chile - Equador",
-  "last_result": "Chile - Equador: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T13:30:31.027Z"
+  "current_match": "Último concluído: Chile - Brasil",
+  "last_result": "Chile - Brasil: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T13:30:57.126Z"
 }
