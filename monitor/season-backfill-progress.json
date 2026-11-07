@@ -1,9 +1,9 @@
 {
-  "run_id": "42354921883",
-  "run_number": "12",
+  "run_id": "42357327563",
+  "run_number": "13",
   "collection_type": "season_backfill",
   "current_competition_path": "",
-  "competition_index": 10,
+  "competition_index": 0,
   "total_competitions": 10,
   "selected_competitions": [
     "/futebol/america-do-norte-e-central/copa-centro-americana-da-concacaf/",
@@ -18,29 +18,18 @@
     "/futebol/andorra/primeira-divisao/"
   ],
   "competitions_completed": 0,
-  "competitions_failed": 10,
-  "failed_competitions": [
-    "/futebol/america-do-norte-e-central/copa-centro-americana-da-concacaf/",
-    "/futebol/america-do-norte-e-central/liga-concacaf/",
-    "/futebol/america-do-norte-e-central/taca-das-ligas/",
-    "/futebol/america-do-sul/campeonato-do-mundo/",
-    "/futebol/america-do-sul/campeonato-sul-americano-sub-20/",
-    "/futebol/america-do-sul/copa-america/",
-    "/futebol/america-do-sul/serie-rio-de-la-plata/",
-    "/futebol/america-do-sul/taca-dos-libertadores/",
-    "/futebol/america-do-sul/taca-sul-americana/",
-    "/futebol/andorra/primeira-divisao/"
-  ],
+  "competitions_failed": 0,
+  "failed_competitions": [],
   "blocked": false,
   "target_date": "",
-  "status": "failed",
-  "phase": "failed",
-  "total_games": 35,
-  "processed_games": 35,
-  "stats_games": 35,
+  "status": "running",
+  "phase": "queued",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Carroi - FC Santa Coloma: 10 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T08:26:31.133Z"
+  "current_match": "A preparar competição",
+  "last_result": "",
+  "updated_at": "2026-11-07T08:52:57.996Z"
 }
