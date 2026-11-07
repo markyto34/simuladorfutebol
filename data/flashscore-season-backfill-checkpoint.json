@@ -38,14 +38,15 @@
     "/futebol/argelia/taca-da-argelia/",
     "/futebol/argentina/liga-profesional/",
     "/futebol/argentina/primeira-b/",
-    "/futebol/argentina/primeira-c/"
+    "/futebol/argentina/primeira-c/",
+    "/futebol/argentina/primeira-liga-nacional/"
   ],
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
     "/futebol/arabia-saudita/super-taca/"
   ],
   "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
-  "updated_at": "2026-11-07T15:34:54.581Z",
-  "last_completed_path": "/futebol/argentina/primeira-c/",
+  "updated_at": "2026-11-07T15:46:30.271Z",
+  "last_completed_path": "/futebol/argentina/primeira-liga-nacional/",
   "last_skipped_path": "/futebol/arabia-saudita/super-taca/"
 }
