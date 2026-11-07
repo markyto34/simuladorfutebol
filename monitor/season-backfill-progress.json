@@ -2,7 +2,7 @@
   "run_id": "42362053263",
   "run_number": "15",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/argelia/1-divisao/",
+  "current_competition_path": "",
   "competition_index": 10,
   "total_competitions": 10,
   "selected_competitions": [
@@ -25,8 +25,8 @@
   ],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "failed",
+  "phase": "failed",
   "total_games": 1,
   "processed_games": 1,
   "stats_games": 0,
@@ -34,5 +34,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Saoura - Ben Aknoun: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T10:05:29.225Z"
+  "updated_at": "2026-11-07T10:05:33.758Z"
 }
