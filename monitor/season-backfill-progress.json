@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 504,
-  "processed_games": 450,
-  "stats_games": 440,
+  "processed_games": 475,
+  "stats_games": 465,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Chivilcoy - Sportivo Las Parejas",
-  "last_result": "Chivilcoy - Sportivo Las Parejas: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:00:15.797Z"
+  "current_match": "Último concluído: Circulo Deportivo - Germinal",
+  "last_result": "Circulo Deportivo - Germinal: 6 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:00:40.999Z"
 }
