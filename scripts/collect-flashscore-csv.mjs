@@ -410,7 +410,8 @@ async function main() {
     }
   }
   matchIds = [...new Set(matchIds)];
-  const maxMatches = (dateOption || teamLastFiveOption) ? MAX_DAILY_MATCHES : MAX_MANUAL_MATCHES;
+  const recoveryBatch = args.includes("--recovery-batch");
+  const maxMatches = (dateOption || teamLastFiveOption || recoveryBatch) ? MAX_DAILY_MATCHES : MAX_MANUAL_MATCHES;
   if (matchIds.length > maxMatches) {
     throw new Error("Limite de segurança: máximo de " + maxMatches + " jogos por execução" + (dateOption ? " diária." : " manual."));
   }
@@ -428,6 +429,7 @@ async function main() {
     console.error("Uso: node scripts/collect-flashscore-csv.mjs <match_id> [match_id...]");
     console.error("  ou: node scripts/collect-flashscore-csv.mjs --date=YYYY-MM-DD");
     console.error("  ou: node scripts/collect-flashscore-csv.mjs --team-last-five=ficheiro.json [--limit=5]");
+    console.error("  ou: node scripts/collect-flashscore-csv.mjs --recovery-batch <match_id...>");
     process.exitCode = 2;
     return;
   }
