@@ -78,8 +78,11 @@ export function validateHistory(stats, odds, { statsOnly = false } = {}) {
     if (homeBlank) {
       withoutScore++;
       if (FINAL_STATUSES.test(String(row.status || "").trim())) {
+        // O Flashscore pode marcar um evento como terminado sem disponibilizar
+        // o resultado final. É uma lacuna de cobertura, não uma falha estrutural
+        // do CSV: manter a consulta e reportar o resultado em falta sem abortar
+        // o checkpoint de todas as restantes competições.
         finalWithoutScore++;
-        throw new Error("Jogo marcado como finalizado sem resultado: " + id);
       }
     } else {
       optionalNumber(row.score_home, "score_home", id, { integer: true, max: 99 });
