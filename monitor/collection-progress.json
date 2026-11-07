@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 415,
-  "processed_games": 400,
-  "stats_games": 238,
-  "bwin_odds": 149,
+  "processed_games": 415,
+  "stats_games": 249,
+  "bwin_odds": 157,
   "failed_games": 0,
-  "current_match": "A consultar jogo 403/415 · hGXkxREl",
-  "last_result": "Lamphun Warrior - Sukhothai: 14 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-07T06:20:44.883Z"
+  "current_match": "Último concluído: Van Hien - Hue",
+  "last_result": "Van Hien - Hue: 11 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T06:20:49.973Z"
 }
