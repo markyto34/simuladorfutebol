@@ -57,7 +57,8 @@
     "/futebol/asia/jogos-asiaticoa/",
     "/futebol/asia/taca-asean-da-fifa/",
     "/futebol/asia/taca-asiatica/",
-    "/futebol/asia/taca-das-nacoes-cafa/"
+    "/futebol/asia/taca-das-nacoes-cafa/",
+    "/futebol/australia-e-oceania/campeonato-do-mundo/"
   ],
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
@@ -65,7 +66,7 @@
     "/futebol/argentina/super-taca/"
   ],
   "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
-  "updated_at": "2026-11-07T16:16:10.376Z",
-  "last_completed_path": "/futebol/asia/taca-das-nacoes-cafa/",
+  "updated_at": "2026-11-07T16:16:27.813Z",
+  "last_completed_path": "/futebol/australia-e-oceania/campeonato-do-mundo/",
   "last_skipped_path": "/futebol/argentina/super-taca/"
 }
