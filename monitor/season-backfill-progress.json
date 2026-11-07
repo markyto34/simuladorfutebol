@@ -3,7 +3,7 @@
   "run_number": "11",
   "collection_type": "season_backfill",
   "status": "running",
-  "phase": "queued",
+  "phase": "discovery",
   "selected_competitions": [
     "/futebol/america-do-norte-e-central/copa-centro-americana-da-concacaf/",
     "/futebol/america-do-norte-e-central/liga-concacaf/",
@@ -17,8 +17,8 @@
     "/futebol/andorra/primeira-divisao/"
   ],
   "total_competitions": 10,
-  "competition_index": 0,
-  "current_competition_path": "",
+  "competition_index": 1,
+  "current_competition_path": "/futebol/america-do-norte-e-central/copa-centro-americana-da-concacaf/",
   "competitions_completed": 0,
   "competitions_failed": 0,
   "failed_competitions": [],
@@ -30,5 +30,5 @@
   "failed_games": 0,
   "current_match": "A preparar competição",
   "last_result": "",
-  "updated_at": "2026-11-07T07:55:46.122Z"
+  "updated_at": "2026-11-07T07:55:47.541Z"
 }
