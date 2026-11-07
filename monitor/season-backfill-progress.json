@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 488,
-  "processed_games": 250,
-  "stats_games": 250,
+  "processed_games": 275,
+  "stats_games": 275,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Velez Sarsfield - Newells Old Boys",
-  "last_result": "Velez Sarsfield - Newells Old Boys: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:14:14.953Z"
+  "current_match": "Último concluído: Estudiantes Rio Cuarto - Rosario",
+  "last_result": "Estudiantes Rio Cuarto - Rosario: 16 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:14:39.928Z"
 }
