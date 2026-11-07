@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { buildCompleteCompetitions, CORE_METRICS } from "../scripts/update-simulator-complete-competitions.mjs";
+import { buildCompleteCompetitions, CORE_METRICS, matchesSelectedCompetition } from "../scripts/update-simulator-complete-competitions.mjs";
 
 const columns = {
   goals: ["score_home", "score_away"],
@@ -119,4 +119,53 @@ test("reutiliza o país já identificado no índice para uma nova competição d
   );
   const result = buildCompleteCompetitions(records, previous);
   assert.equal(result.newly_eligible[0].country_name, "Bósnia e Herzegovina");
+});
+
+
+test("inclui fases das ligas-base selecionadas em todos os países", () => {
+  const selected = new Set([
+    "argentina|liga profesional",
+    "brasil|brasileirao serie a",
+    "portugal|liga portugal"
+  ]);
+  for (const [country, phase] of [
+    ["Argentina", "Liga Profesional - Apertura"],
+    ["Argentina", "Liga Profesional - Clausura"],
+    ["Argentina", "Liga Profesional - Encerramento"],
+    ["Argentina", "Liga Profesional - Apertura - Play Offs"],
+    ["Brasil", "Brasileirao Serie A - Championship Round"],
+    ["Portugal", "Liga Portugal - Playoffs"]
+  ]) {
+    assert.equal(matchesSelectedCompetition(country, phase, selected), true, country + " / " + phase);
+  }
+});
+
+test("mantém fases da mesma liga como competições estatísticas separadas", () => {
+  const records = [
+    ...Array.from({ length: 5 }, (_, i) => makeRow("ap" + i, {
+      country: "Argentina", competition: "Liga Profesional - Apertura"
+    })),
+    ...Array.from({ length: 5 }, (_, i) => makeRow("cl" + i, {
+      country: "Argentina", competition: "Liga Profesional - Clausura"
+    }))
+  ];
+  const result = buildCompleteCompetitions(records);
+  assert.equal(result.index.complete_competitions.length, 2);
+  assert.deepEqual(
+    result.index.complete_competitions.map(item => item.competition_name).sort(),
+    ["Liga Profesional - Apertura", "Liga Profesional - Clausura"]
+  );
+});
+
+test("reconhece alias de idioma apenas para o país e liga definidos", () => {
+  const selected = new Set(["argentina|primeira b"]);
+  assert.equal(matchesSelectedCompetition("Argentina", "Primera B", selected), true);
+  assert.equal(matchesSelectedCompetition("Argentina", "Primera C", selected), false);
+  assert.equal(matchesSelectedCompetition("Brasil", "Primera B", selected), false);
+});
+
+test("não inclui competição não selecionada nem por semelhança parcial", () => {
+  const selected = new Set(["argentina|liga profesional"]);
+  assert.equal(matchesSelectedCompetition("Argentina", "Copa Argentina", selected), false);
+  assert.equal(matchesSelectedCompetition("Brasil", "Liga Profesional - Apertura", selected), false);
 });
