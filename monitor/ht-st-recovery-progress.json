@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 500,
-  "processed_games": 375,
-  "stats_games": 375,
-  "bwin_odds": 205,
+  "processed_games": 400,
+  "stats_games": 400,
+  "bwin_odds": 222,
   "failed_games": 0,
-  "current_match": "Último concluído: Siauliai 2 - Dainava Alytus",
-  "last_result": "Siauliai 2 - Dainava Alytus: 11 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T06:57:48.990Z"
+  "current_match": "A consultar jogo 401/500 · nu2V8nUQ",
+  "last_result": "Lobos ULMX - Chapulineros: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T06:58:07.200Z"
 }
