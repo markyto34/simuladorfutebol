@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 500,
-  "processed_games": 25,
-  "stats_games": 25,
-  "bwin_odds": 21,
+  "processed_games": 50,
+  "stats_games": 50,
+  "bwin_odds": 30,
   "failed_games": 0,
-  "current_match": "A consultar jogo 26/500 · b9vSp95D",
-  "last_result": "Vizela - Académica: 12 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-07T06:53:23.059Z"
+  "current_match": "Último concluído: Hajer - Al Ula",
+  "last_result": "Hajer - Al Ula: 16 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T06:53:40.739Z"
 }
