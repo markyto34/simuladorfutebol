@@ -41,8 +41,9 @@ jobs:
           const unique = [...new Set(targets)];
           // A recuperação fica agrupada por país/competição, mantendo ordem cronológica
           // dentro de cada competição, em vez de misturar ligas pela ordem original do CSV.
+          const targetIdSet = new Set(unique);
           const targetRows = rows
-            .filter(row => unique.includes(row.match_id))
+            .filter(row => targetIdSet.has(row.match_id))
             .sort((a, b) =>
               String(a.country || "").localeCompare(String(b.country || "")) ||
               String(a.competition || "").localeCompare(String(b.competition || "")) ||
