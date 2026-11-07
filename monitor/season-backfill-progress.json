@@ -17,7 +17,7 @@
     "/futebol/argentina/taca-da-argentina/",
     "/futebol/argentina/taca-da-liga-profissional/"
   ],
-  "competitions_completed": 8,
+  "competitions_completed": 9,
   "competitions_failed": 1,
   "failed_competitions": [
     "/futebol/argentina/super-taca/"
@@ -25,7 +25,7 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 0,
   "processed_games": 0,
   "stats_games": 0,
@@ -33,5 +33,5 @@
   "failed_games": 0,
   "current_match": "Sem jogos pendentes",
   "last_result": "",
-  "updated_at": "2026-11-07T10:33:05.490Z"
+  "updated_at": "2026-11-07T10:33:10.123Z"
 }
