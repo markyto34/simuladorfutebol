@@ -318,7 +318,20 @@ async function discoverMatchIds(date) {
   };
 }
 
-async function filterToSelectedCompetitions(ids, identities) {
+export function normalizeCompetitionIdentity(value) {
+  return String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().replace(/\s+/g, " ");
+}
+
+export function filterMatchIdsToSelectedCompetitions(ids, identities, selectedPairs) {
+  return ids.filter(id => {
+    const identity = identities[id];
+    return identity?.status === "identified" &&
+      selectedPairs.has(normalizeCompetitionIdentity(identity.country) + "|" + normalizeCompetitionIdentity(identity.competition));
+  });
+}
+
+async function loadSelectedCompetitionPairs() {
   const [selection, catalog] = await Promise.all([
     readFile("data/flashscore-competition-selection.json", "utf8").then(JSON.parse),
     readFile("data/flashscore-competition-catalog.json", "utf8").then(JSON.parse)
@@ -327,16 +340,16 @@ async function filterToSelectedCompetitions(ids, identities) {
     throw new Error("A seleção explícita de competições Flashscore está vazia ou inválida; recolha cancelada.");
   }
   const selectedPaths = new Set(selection.selected_paths);
-  const normalizeIdentity = value => String(value || "").normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().replace(/\\s+/g, " ");
   const selectedPairs = new Set((catalog.competitions || []).filter(item => {
     try { return selectedPaths.has(new URL(item.url).pathname); } catch { return false; }
-  }).map(item => normalizeIdentity(item.country_name) + "|" + normalizeIdentity(item.competition_name)));
+  }).map(item => normalizeCompetitionIdentity(item.country_name) + "|" + normalizeCompetitionIdentity(item.competition_name)));
   if (!selectedPairs.size) throw new Error("Nenhuma competição selecionada corresponde ao catálogo Flashscore.");
-  const kept = ids.filter(id => {
-    const identity = identities[id];
-    return identity?.status === "identified" &&
-      selectedPairs.has(normalizeIdentity(identity.country) + "|" + normalizeIdentity(identity.competition));
-  });
+  return { selectedPaths, selectedPairs };
+}
+
+async function filterToSelectedCompetitions(ids, identities) {
+  const { selectedPaths, selectedPairs } = await loadSelectedCompetitionPairs();
+  const kept = filterMatchIdsToSelectedCompetitions(ids, identities, selectedPairs);
   console.log("[COMPETITION SELECTION] " + kept.length + "/" + ids.length + " jogos pertencem às " + selectedPaths.size + " competições escolhidas; restantes excluídos.");
   return kept;
 }
@@ -466,6 +479,17 @@ async function main() {
   const historicalIdentityByMatchId = new Map(existingStats
     .filter(row => row.match_id && row.country && row.competition)
     .map(row => [row.match_id, { country: row.country, competition: row.competition }]));
+  if (!dateOption && !teamLastFiveOption) {
+    const { selectedPaths, selectedPairs } = await loadSelectedCompetitionPairs();
+    const identities = Object.fromEntries([...historicalIdentityByMatchId].map(([id, identity]) => [id, { ...identity, status: "identified" }]));
+    const filteredIds = filterMatchIdsToSelectedCompetitions(matchIds, identities, selectedPairs);
+    if (filteredIds.length !== matchIds.length) {
+      const excluded = matchIds.length - filteredIds.length;
+      throw new Error("Execução cancelada: " + excluded + " IDs manuais/recuperação não têm uma competição selecionada confirmada no histórico. Nenhum jogo foi recolhido.");
+    }
+    matchIds = filteredIds;
+    console.log("[COMPETITION SELECTION] IDs manuais/recuperação validados contra " + selectedPaths.size + " competições selecionadas.");
+  }
   for (const row of existingOdds) {
     const identity = historicalIdentityByMatchId.get(row.match_id);
     if (identity) {
