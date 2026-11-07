@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 16,
-  "processed_games": 0,
+  "processed_games": 16,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-07T16:17:39.618Z"
+  "current_match": "Último concluído: Tonga - Samoa",
+  "last_result": "Tonga - Samoa: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:18:03.377Z"
 }
