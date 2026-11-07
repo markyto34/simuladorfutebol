@@ -37,8 +37,8 @@
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
+  "status": "running",
+  "phase": "saving",
   "total_games": 648,
   "processed_games": 648,
   "stats_games": 647,
@@ -46,5 +46,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "San Miguel - Central Norte: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:46:27.492Z"
+  "updated_at": "2026-11-07T15:46:29.219Z"
 }
