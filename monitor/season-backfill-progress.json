@@ -48,11 +48,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 154,
-  "processed_games": 100,
-  "stats_games": 98,
+  "processed_games": 125,
+  "stats_games": 113,
   "bwin_odds": 0,
-  "failed_games": 1,
-  "current_match": "Último concluído: Libertad (Par) - Rosario (Arg)",
-  "last_result": "Libertad (Par) - Rosario (Arg): 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T14:02:58.237Z"
+  "failed_games": 11,
+  "current_match": "Último erro: U7RTpvIE",
+  "last_result": "Falha em U7RTpvIE: Falha ao recolher U7RTpvIE: HTTP 503",
+  "updated_at": "2026-11-07T14:09:41.372Z"
 }
