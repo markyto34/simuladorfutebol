@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 20,
-  "processed_games": 0,
+  "processed_games": 20,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-07T11:02:37.555Z"
+  "current_match": "Último concluído: Vaivase-Tai (Sam) - Pago (Asa)",
+  "last_result": "Vaivase-Tai (Sam) - Pago (Asa): 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T11:02:58.425Z"
 }
