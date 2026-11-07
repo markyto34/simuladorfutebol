@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 488,
-  "processed_games": 100,
-  "stats_games": 100,
+  "processed_games": 125,
+  "stats_games": 125,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Banfield - Barracas Central",
-  "last_result": "Banfield - Barracas Central: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:11:43.324Z"
+  "current_match": "Último concluído: Aldosivi - Banfield",
+  "last_result": "Aldosivi - Banfield: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:12:08.609Z"
 }
