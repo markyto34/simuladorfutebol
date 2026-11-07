@@ -52,7 +52,7 @@ jobs:
           node --check scripts/publish-flashscore-backfill-progress.mjs
           node --check scripts/validate-flashscore-selected-competition.mjs
           node --check scripts/report-flashscore-season-backfill.mjs
-          node --test tests/discover-flashscore-season.test.mjs tests/select-flashscore-backfill-paths.test.mjs tests/validate-flashscore-selected-competition.test.mjs tests/collect-flashscore-final-score.test.mjs tests/validate-flashscore-history.test.mjs
+          node --test tests/discover-flashscore-season.test.mjs tests/select-flashscore-backfill-paths.test.mjs tests/validate-flashscore-selected-competition.test.mjs tests/collect-flashscore-final-score.test.mjs tests/validate-flashscore-history.test.mjs tests/merge-flashscore-statistics-csv.test.mjs
       - name: Preparar competições selecionadas ainda pendentes
         env:
           COMPETITION_PATH: ${{ inputs.competition_path }}
@@ -133,15 +133,38 @@ jobs:
 
           push_with_retry() {
             local attempt=1 max_attempts=5 delay=2
+            local csv_path="data/flashscore-statistics.csv"
             while (( attempt <= max_attempts )); do
               echo "Publicação na main: tentativa $attempt/$max_attempts."
               if git push origin HEAD:main; then return 0; fi
-              if git fetch origin main; then
-                if git merge-base --is-ancestor HEAD origin/main; then return 0; fi
-                if ! git merge-base --is-ancestor origin/main HEAD; then
-                  if ! git rebase origin/main; then
-                    git rebase --abort || true
-                    echo "::error::Não foi possível rebasear o checkpoint sem conflitos."
+              if ! git fetch origin main; then
+                echo "::warning::Não foi possível atualizar a referência remota; será tentado novamente."
+              elif git merge-base --is-ancestor HEAD origin/main; then
+                # O checkpoint já está incluído na main por outra publicação.
+                git merge --ff-only origin/main
+                return $?
+              elif ! git merge-base --is-ancestor origin/main HEAD; then
+                # Não fazer rebase: o CSV é append/merge por match_id e pode
+                # ter alterações legítimas dos dois lados desde o último checkout.
+                if ! git merge --no-edit origin/main; then
+                  local conflicts
+                  conflicts="$(git diff --name-only --diff-filter=U)"
+                  if [[ "$conflicts" != "$csv_path" ]]; then
+                    echo "::error::Conflito fora do CSV estatístico; não é seguro resolver automaticamente."
+                    git merge --abort || true
+                    return 1
+                  fi
+                  git show ":3:$csv_path" > /tmp/flashscore-statistics-remote.csv
+                  git show ":2:$csv_path" > /tmp/flashscore-statistics-local.csv
+                  if ! node scripts/merge-flashscore-statistics-csv.mjs /tmp/flashscore-statistics-remote.csv /tmp/flashscore-statistics-local.csv "$csv_path"; then
+                    git merge --abort || true
+                    echo "::error::Não foi possível combinar os registos CSV por match_id."
+                    return 1
+                  fi
+                  git add "$csv_path"
+                  if ! git -c core.editor=true commit --no-edit; then
+                    git merge --abort || true
+                    echo "::error::Não foi possível concluir o merge do checkpoint."
                     return 1
                   fi
                 fi
