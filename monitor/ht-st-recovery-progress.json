@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 500,
-  "processed_games": 300,
-  "stats_games": 300,
-  "bwin_odds": 109,
+  "processed_games": 325,
+  "stats_games": 325,
+  "bwin_odds": 122,
   "failed_games": 0,
-  "current_match": "Último concluído: Uruguai - Argentina",
-  "last_result": "Uruguai - Argentina: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-07T07:14:12.825Z"
+  "current_match": "Último concluído: Chippa United - Richards Bay",
+  "last_result": "Chippa United - Richards Bay: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-07T07:14:30.353Z"
 }
