@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 36,
-  "processed_games": 25,
-  "stats_games": 25,
+  "processed_games": 36,
+  "stats_games": 35,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Goa (Ind) - Regar-TadAZ (Taj)",
-  "last_result": "Goa (Ind) - Regar-TadAZ (Taj): 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:08:00.801Z"
+  "current_match": "Último concluído: Central Stallions (Mon) - Taiwan Steel (Tpe)",
+  "last_result": "Central Stallions (Mon) - Taiwan Steel (Tpe): 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:08:11.757Z"
 }
