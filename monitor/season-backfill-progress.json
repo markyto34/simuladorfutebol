@@ -54,14 +54,14 @@
   ],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 118,
   "processed_games": 118,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: SC Imst - Reichenau",
+  "current_match": "Recolha terminada",
   "last_result": "SC Imst - Reichenau: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T17:09:15.646Z"
+  "updated_at": "2026-11-07T17:09:16.849Z"
 }
