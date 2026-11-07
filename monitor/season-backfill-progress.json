@@ -32,13 +32,13 @@
     "/futebol/asia/afc-liga-dos-campeoes-2/",
     "/futebol/asia/afc-liga-dos-campeoes/"
   ],
-  "competitions_completed": 12,
+  "competitions_completed": 13,
   "competitions_failed": 0,
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 1,
   "processed_games": 1,
   "stats_games": 0,
@@ -46,5 +46,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Petro - Wiliete: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:03:52.219Z"
+  "updated_at": "2026-11-07T15:03:55.510Z"
 }
