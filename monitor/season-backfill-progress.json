@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 203,
-  "processed_games": 50,
-  "stats_games": 50,
+  "processed_games": 75,
+  "stats_games": 75,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Lanus - Union Santa Fe",
-  "last_result": "Lanus - Union Santa Fe: 12 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:49:41.198Z"
+  "current_match": "Último concluído: Rosario - Instituto",
+  "last_result": "Rosario - Instituto: 13 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:50:06.635Z"
 }
