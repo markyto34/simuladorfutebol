@@ -29,9 +29,9 @@ test("descobre a época atual e pagina resultados Flashscore", async () => {
 
 test("considera já consultado qualquer jogo com registo Flashscore, mesmo com indicadores vazios", () => {
   const ids = getCollectedMatchIds([
-    { match_id: "match001", source: "Flashscore", corners_ht_home: "" },
+    { match_id: "match001", source: "Flashscore", status: "Terminado", score_home: "1", score_away: "0", corners_ht_home: "" },
     { match_id: "match002", source: "Outro" },
     { match_id: "match003", source: "Flashscore" }
   ]);
-  assert.deepEqual([...ids].sort(), ["match001", "match003"]);
+  assert.deepEqual([...ids].sort(), ["match001"]);
 });
