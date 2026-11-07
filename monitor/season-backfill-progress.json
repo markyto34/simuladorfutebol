@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 142,
-  "processed_games": 50,
+  "processed_games": 75,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 51/142 · As79LQBD",
-  "last_result": "Buenos Aires City - Belgrano Zarate: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:02:21.887Z"
+  "current_match": "A consultar jogo 76/142 · 0Cs9voHa",
+  "last_result": "Uribelarrea - Belgrano Zarate: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:02:47.207Z"
 }
