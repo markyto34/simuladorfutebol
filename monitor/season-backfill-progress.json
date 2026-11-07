@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 468,
-  "processed_games": 350,
-  "stats_games": 344,
+  "processed_games": 375,
+  "stats_games": 368,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Berazategui - Victoriano A.",
-  "last_result": "Berazategui - Victoriano A.: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:32:52.627Z"
+  "current_match": "A consultar jogo 376/468 · 42Ab2vS7",
+  "last_result": "Claypole - Sportivo Barracas: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:33:17.569Z"
 }
