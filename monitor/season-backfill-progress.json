@@ -37,14 +37,14 @@
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed_with_errors",
+  "phase": "completed",
   "total_games": 48,
   "processed_games": 48,
   "stats_games": 47,
   "bwin_odds": 0,
   "failed_games": 1,
-  "current_match": "Último erro: GxshzRaC",
+  "current_match": "Recolha terminada",
   "last_result": "Falha em GxshzRaC: Falha ao recolher GxshzRaC: HTTP 503",
-  "updated_at": "2026-11-07T13:27:00.547Z"
+  "updated_at": "2026-11-07T13:27:01.638Z"
 }
