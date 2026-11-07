@@ -22,8 +22,8 @@
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
+  "status": "running",
+  "phase": "saving",
   "total_games": 10,
   "processed_games": 10,
   "stats_games": 10,
@@ -31,5 +31,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Saprissa (Cos) - Cartagines (Cos): 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T14:56:17.051Z"
+  "updated_at": "2026-11-07T14:56:18.640Z"
 }
