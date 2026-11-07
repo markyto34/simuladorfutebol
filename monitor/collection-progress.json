@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 415,
-  "processed_games": 275,
-  "stats_games": 167,
-  "bwin_odds": 106,
+  "processed_games": 300,
+  "stats_games": 183,
+  "bwin_odds": 118,
   "failed_games": 0,
-  "current_match": "A consultar jogo 277/415 · 8zEkW9SE",
-  "last_result": "RC Riviere-Pilote - Morne des Esses: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T06:20:06.749Z"
+  "current_match": "A consultar jogo 303/415 · CUTwHd7T",
+  "last_result": "Holywell - Airbus: 8 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-07T06:20:14.473Z"
 }
