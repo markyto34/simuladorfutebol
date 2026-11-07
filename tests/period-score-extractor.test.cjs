@@ -29,6 +29,15 @@ const assert = require("node:assert/strict");
     .replace(/"/g, "\\u0022");
   assert.equal(extractPeriodScores(escaped).ft, "1-1");
 
+  // O Flashscore pode trocar <b> por span/strong/em sem alterar os rótulos visíveis.
+  const alternateMarkup = html
+    .replace('<b>1-1</b>', '<span>1-1</span>')
+    .replace('(1-0,0-1)', '(<i>1-0</i>,<em>0-1</em>)')
+    .replace('<b>1-0</b>', '<strong>1-0</strong>')
+    .replace('<b>0-1</b>', '<span>0-1</span>');
+  assert.deepEqual(extractPeriodScores(alternateMarkup).ht, "1-0");
+  assert.equal(extractPeriodScores(alternateMarkup).second_half, "0-1");
+
   const inconsistent = html.replace("2ª Parte: <b>0-1</b>", "2ª Parte: <b>0-0</b>");
   assert.equal(extractPeriodScores(inconsistent), null);
 
