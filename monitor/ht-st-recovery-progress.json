@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 500,
-  "processed_games": 150,
-  "stats_games": 150,
-  "bwin_odds": 78,
+  "processed_games": 175,
+  "stats_games": 175,
+  "bwin_odds": 93,
   "failed_games": 0,
-  "current_match": "Último concluído: Seoul - Incheon",
-  "last_result": "Seoul - Incheon: 11 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-07T06:54:51.027Z"
+  "current_match": "Último concluído: Nordsjaelland - Midtjylland",
+  "last_result": "Nordsjaelland - Midtjylland: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-07T06:55:09.476Z"
 }
