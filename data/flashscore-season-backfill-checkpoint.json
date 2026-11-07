@@ -49,7 +49,8 @@
     "/futebol/armenia/primeira-liga/",
     "/futebol/armenia/taca/",
     "/futebol/aruba/divisao-de-honra/",
-    "/futebol/asia/afc-challenge-league/"
+    "/futebol/asia/afc-challenge-league/",
+    "/futebol/asia/afc-liga-dos-campeoes-2/"
   ],
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
@@ -57,7 +58,7 @@
     "/futebol/argentina/super-taca/"
   ],
   "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
-  "updated_at": "2026-11-07T16:08:15.989Z",
-  "last_completed_path": "/futebol/asia/afc-challenge-league/",
+  "updated_at": "2026-11-07T16:09:44.085Z",
+  "last_completed_path": "/futebol/asia/afc-liga-dos-campeoes-2/",
   "last_skipped_path": "/futebol/argentina/super-taca/"
 }
