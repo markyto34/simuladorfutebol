@@ -15,10 +15,14 @@
     "/futebol/alemanha/bundesliga/",
     "/futebol/america-do-sul/campeonato-do-mundo/",
     "/futebol/america-do-sul/campeonato-sul-americano-sub-20/",
-    "/futebol/america-do-sul/copa-america/"
+    "/futebol/america-do-sul/copa-america/",
+    "/futebol/america-do-sul/serie-rio-de-la-plata/"
   ],
-  "skipped_paths": [],
-  "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
-  "updated_at": "2026-11-07T14:00:42.967Z",
-  "last_completed_path": "/futebol/america-do-sul/copa-america/"
+  "skipped_paths": [
+    "/futebol/america-do-sul/serie-rio-de-la-plata/"
+  ],
+  "note": "Competições em skipped_paths não disponibilizaram contexto de época utilizável no Flashscore; não foram inventados jogos nem estatísticas.",
+  "updated_at": "2026-11-07T14:00:50.950Z",
+  "last_completed_path": "/futebol/america-do-sul/copa-america/",
+  "last_skipped_path": "/futebol/america-do-sul/serie-rio-de-la-plata/"
 }
