@@ -25,13 +25,13 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "discovery",
-  "total_games": 0,
+  "phase": "collecting",
+  "total_games": 9,
   "processed_games": 0,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A descobrir jogos",
+  "current_match": "A preparar todos os jogos pendentes da época",
   "last_result": "",
-  "updated_at": "2026-11-07T10:04:10.125Z"
+  "updated_at": "2026-11-07T10:04:11.177Z"
 }
