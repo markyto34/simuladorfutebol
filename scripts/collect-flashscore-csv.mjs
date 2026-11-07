@@ -479,6 +479,11 @@ async function main() {
   const historicalIdentityByMatchId = new Map(existingStats
     .filter(row => row.match_id && row.country && row.competition)
     .map(row => [row.match_id, { country: row.country, competition: row.competition }]));
+  for (const row of existingOdds) {
+    if (row.match_id && row.country && row.competition && !historicalIdentityByMatchId.has(row.match_id)) {
+      historicalIdentityByMatchId.set(row.match_id, { country: row.country, competition: row.competition });
+    }
+  }
   if (!dateOption && !teamLastFiveOption) {
     const { selectedPaths, selectedPairs } = await loadSelectedCompetitionPairs();
     const identities = Object.fromEntries([...historicalIdentityByMatchId].map(([id, identity]) => [id, { ...identity, status: "identified" }]));
