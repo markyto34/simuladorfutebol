@@ -30,11 +30,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 20,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 20,
+  "stats_games": 20,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-07T08:23:36.369Z"
+  "current_match": "Último concluído: Peru U20 - Paraguai U20",
+  "last_result": "Peru U20 - Paraguai U20: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T08:23:57.641Z"
 }
