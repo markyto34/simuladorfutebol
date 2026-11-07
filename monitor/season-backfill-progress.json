@@ -48,11 +48,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 154,
-  "processed_games": 25,
-  "stats_games": 25,
+  "processed_games": 50,
+  "stats_games": 50,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Platense (Arg) - Coquimbo (Chi)",
-  "last_result": "Platense (Arg) - Coquimbo (Chi): 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T14:01:34.642Z"
+  "current_match": "Último concluído: LDU Quito (Ecu) - Lanus (Arg)",
+  "last_result": "LDU Quito (Ecu) - Lanus (Arg): 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T14:02:02.634Z"
 }
