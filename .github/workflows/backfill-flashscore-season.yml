@@ -52,6 +52,8 @@ jobs:
           node --check scripts/publish-flashscore-backfill-progress.mjs
           node --check scripts/validate-flashscore-selected-competition.mjs
           node --check scripts/report-flashscore-season-backfill.mjs
+          node --check scripts/update-simulator-complete-competitions.mjs
+          node --test tests/update-simulator-complete-competitions.test.mjs
           node --test tests/discover-flashscore-season.test.mjs tests/select-flashscore-backfill-paths.test.mjs tests/validate-flashscore-selected-competition.test.mjs tests/collect-flashscore-final-score.test.mjs tests/validate-flashscore-history.test.mjs tests/merge-flashscore-statistics-csv.test.mjs
       - name: Preparar competições selecionadas ainda pendentes
         env:
@@ -198,7 +200,10 @@ jobs:
           NODE
             fi
             node scripts/build-flashscore-competition-status.mjs || return 1
-            git add data/flashscore-statistics.csv data/flashscore-season-backfill-checkpoint.json data/flashscore-competition-status.json
+            # Atualizar o índice do simulador no mesmo checkpoint de cada competição.
+            # O script respeita a seleção ativa e só publica competições com dados suficientes.
+            node scripts/update-simulator-complete-competitions.mjs || return 1
+            git add data/flashscore-statistics.csv data/flashscore-season-backfill-checkpoint.json data/flashscore-competition-status.json data/simulator-complete-competitions.json
             if ! git diff --cached --quiet; then
               git commit -m "Checkpoint Flashscore: $competition_path" || return 1
               push_with_retry || return 1
