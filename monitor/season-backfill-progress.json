@@ -45,11 +45,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 56,
-  "processed_games": 50,
-  "stats_games": 41,
+  "processed_games": 56,
+  "stats_games": 46,
   "bwin_odds": 0,
-  "failed_games": 9,
-  "current_match": "Último concluído: Alajuelense (Cos) - Xelaju (Gtm)",
-  "last_result": "Alajuelense (Cos) - Xelaju (Gtm): 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T13:44:00.379Z"
+  "failed_games": 10,
+  "current_match": "Último erro: UiB0iDDL",
+  "last_result": "Falha em UiB0iDDL: Falha ao recolher UiB0iDDL: HTTP 503",
+  "updated_at": "2026-11-07T13:44:17.852Z"
 }
