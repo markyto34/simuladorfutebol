@@ -145879,10 +145879,10 @@ date_time,COUNTRY,LEAGUE,TEAM_HOME,TEAM_AWAY,odd_ft_1,odd_ft_x,odd_ft_2,score_fh
 2026-11-05 20:00:00.000,EUROPA,Liga Europa - Fase de liga,Sunderland,Din. Zagreb,1.43,4.50,6.25,,,,,0,2,0,2
 2026-11-05 20:00:00.000,EUROPA,Liga Europa - Fase de liga,Torreense,Ararat-Armenia,1.71,3.60,4.40,,,,,3,2,3,2
 2026-11-05 22:00:00.000,CHILE,Taça Chile - Playoffs,U. De Chile,Antofagasta,1.31,4.40,6.75,,,,,4,0,4,0
-2026-11-06 19:30:00.000,INGLATERRA,Taça de Inglaterra,Bristol Rovers,Cambridge Utd,2.85,3.50,2.20,,,,,,,,
-2026-11-06 19:45:00.000,BÉLGICA,Primeira Liga,St. Liege,Beveren,1.71,3.40,3.50,,,,,,,,
-2026-11-06 19:45:00.000,INGLATERRA,Taça de Inglaterra,Oxford City,Leicester,7.50,5.25,1.32,,,,,,,,
-2026-11-06 20:00:00.000,INGLATERRA,Championship,Derby,Bolton,2.05,3.25,2.75,,,,,,,,
+2026-11-06 19:30:00.000,INGLATERRA,Taça de Inglaterra,Bristol Rovers,Cambridge Utd,2.85,3.50,2.20,,,,,2,0,2,0
+2026-11-06 19:45:00.000,BÉLGICA,Primeira Liga,St. Liege,Beveren,1.71,3.40,3.50,,,,,3,0,3,0
+2026-11-06 19:45:00.000,INGLATERRA,Taça de Inglaterra,Oxford City,Leicester,7.50,5.25,1.32,,,,,2,4,2,4
+2026-11-06 20:00:00.000,INGLATERRA,Championship,Derby,Bolton,2.05,3.25,2.75,,,,,3,1,3,1
 2026-11-07 12:00:00.000,ALEMANHA,2. Bundesliga,Osnabruck,Kaiserslautern,2.40,3.25,2.30,,,,,,,,
 2026-11-07 12:30:00.000,INGLATERRA,Championship,Bristol City,Norwich,2.37,3.20,2.37,,,,,,,,
 2026-11-07 12:30:00.000,INGLATERRA,Championship,Portsmouth,Stoke,2.25,3.00,2.65,,,,,,,,
@@ -146459,3 +146459,786 @@ date_time,COUNTRY,LEAGUE,TEAM_HOME,TEAM_AWAY,odd_ft_1,odd_ft_x,odd_ft_2,score_fh
 2026-11-05T22:00,PARAGUAI,Taça da Primeira - Encerramento,Rubio Nu,Sp. Luqueño,2,3,3.1,,,,,0,5,0,5
 2026-11-05T01:30,PERU,Liga 1 - Encerramento,U. de Deportes,Sport Boys,1.33,3.9,6,,,,,2,2,2,2
 2026-11-05T13:30,UZBEQUISTÃO,Superliga,Bunyodkor,Xorazm Urganch,2.45,3.2,2.25,,,,,1,2,1,2
+2026-10-10T10:00,Ucrânia,Primeira Liga,Obolon,Kryvbas,2.7,3,2.2,,,,,1,0,1,0
+2026-03-31T23:30,Uruguai,Segunda Division - Torneo Competencia,Atenas,Uruguay Montevideo,1.9,2.87,3.5,,,,,0,1,0,1
+2026-03-29T21:00,Uruguai,Segunda Division - Torneo Competencia,Tacuarembo,Cerrito,2.15,2.8,2.9,,,,,1,1,1,1
+2026-03-28T21:00,Uruguai,Segunda Division - Torneo Competencia,Plaza Colonia,River Plate,2.25,2.75,2.85,,,,,3,0,3,0
+2026-03-28T18:00,Uruguai,Segunda Division - Torneo Competencia,Colon,Rentistas,2.35,2.65,2.8,,,,,1,2,1,2
+2026-03-28T00:30,Uruguai,Segunda Division - Torneo Competencia,La Luz,Huracan FC,2.1,2.87,2.95,,,,,2,2,2,2
+2026-03-23T00:00,Uruguai,Segunda Division - Torneo Competencia,Oriental,Colon,2.35,2.8,2.7,,,,,0,0,0,0
+2026-08-02T15:30,Uzbequistão,Superliga,Qizilqum,Bunyodkor,2.3,2.9,2.65,,,,,,,,
+2026-04-04T13:00,África do Sul,Taça,Durban City,Real Native,1.9,2.75,3.75,,,,,1,0,1,0
+2026-03-07T13:00,África do Sul,Taça,AmaZulu,Real Native,1.93,2.8,3.5,,,,,1,2,1,2
+2026-02-21T16:00,África do Sul,Taça,Orlando,Real Native,1.19,5,11,,,,,,,,
+2025-03-09T19:30,África,Campeonato das Nações Africanas - Qualificação - Qualificação Adicional,Egipto,África do Sul,2,2.8,3.4,,,,,,,,
+2024-12-28T17:00,África,Campeonato das Nações Africanas - Qualificação,Senegal,Libéria,1.27,4.2,9,,,,,,,,
+2024-12-28T16:30,África,Campeonato das Nações Africanas - Qualificação,Angola,Lesoto,1.32,4,7.5,,,,,,,,
+2024-12-28T16:00,África,Campeonato das Nações Africanas - Qualificação,Ruanda,Sudão do Sul,2.25,2.85,2.7,,,,,,,,
+2024-12-28T13:00,África,Campeonato das Nações Africanas - Qualificação,Camarões,República Centro Africana,1.2,5,10.5,,,,,,,,
+2024-12-22T16:00,África,Campeonato das Nações Africanas - Qualificação,Costa do Marfim,Burkina Faso,1.85,2.87,3.75,,,,,,,,
+2024-12-21T13:00,África,Campeonato das Nações Africanas - Qualificação,Lesoto,Angola,5.25,3.3,1.51,,,,,,,,
+2025-09-09T23:30,América do Norte e Central,World Championship - Qualification,Bolivia,Brasil,2.95,3.5,2.1,,,,,1,0,1,0
+2025-09-09T23:30,América do Norte e Central,World Championship - Qualification,Chile,Uruguai,3.1,3.1,2.2,,,,,0,0,0,0
+2025-09-09T23:30,América do Norte e Central,World Championship - Qualification,Peru,Paraguai,2.15,2.95,3.3,,,,,0,1,0,1
+2025-09-09T23:30,América do Norte e Central,World Championship - Qualification,Venezuela,Colômbia,2.35,2.95,3,,,,,3,6,3,6
+2025-09-09T23:00,África,World Championship - Qualification,Equador,Argentina,2.95,2.9,2.37,,,,,1,0,1,0
+2025-09-04T23:30,América do Norte e Central,World Championship - Qualification,Argentina,Venezuela,1.23,5.5,11,,,,,3,0,3,0
+2025-09-04T23:30,América do Norte e Central,World Championship - Qualification,Colômbia,Bolivia,1.11,8.5,20,,,,,3,0,3,0
+2025-09-04T23:30,América do Norte e Central,World Championship - Qualification,Paraguai,Equador,2.3,2.55,3.7,,,,,0,0,0,0
+2025-09-04T23:30,América do Norte e Central,World Championship - Qualification,Uruguai,Peru,1.43,3.8,7.75,,,,,3,0,3,0
+2025-06-10T23:00,América do Norte e Central,World Championship - Qualification,Uruguai,Venezuela,1.61,3.4,5.5,,,,,2,0,2,0
+2025-06-05T23:00,América do Norte e Central,World Championship - Qualification,Equador,Brasil,3.7,2.8,2.15,,,,,0,0,0,0
+2025-06-05T23:00,América do Norte e Central,World Championship - Qualification,Paraguai,Uruguai,2.65,2.55,3,,,,,2,0,2,0
+2025-03-26T00:00,América do Norte e Central,World Championship - Qualification,Argentina,Brasil,2.25,2.75,3.4,,,,,,,,
+2025-03-26T00:00,América do Norte e Central,World Championship - Qualification,Chile,Equador,2.8,2.7,2.65,,,,,,,,
+2025-03-26T00:00,América do Norte e Central,World Championship - Qualification,Colômbia,Paraguai,1.42,3.9,7.75,,,,,,,,
+2025-03-26T00:00,América do Norte e Central,World Championship - Qualification,Venezuela,Peru,2,2.9,4,,,,,,,,
+2025-03-21T23:30,África,World Championship - Qualification,Uruguai,Argentina,2.55,2.8,2.87,,,,,0,1,0,1
+2025-03-21T00:45,América do Norte e Central,World Championship - Qualification,Brasil,Colômbia,1.61,3.5,5.25,,,,,2,1,2,1
+2025-03-20T23:00,América do Norte e Central,World Championship - Qualification,Paraguai,Chile,1.88,3,4.33,,,,,1,0,1,0
+2024-11-20T00:45,América do Norte e Central,World Championship - Qualification,Brasil,Uruguai,1.58,3.5,5.5,,,,,,,,
+2024-11-20T00:00,América do Norte e Central,World Championship - Qualification,Argentina,Peru,1.16,6.75,16.5,,,,,,,,
+2024-11-20T00:00,América do Norte e Central,World Championship - Qualification,Chile,Venezuela,2.05,2.9,3.7,,,,,,,,
+2024-11-19T23:00,América do Norte e Central,World Championship - Qualification,Colômbia,Equador,1.7,3.2,5,,,,,,,,
+2024-11-16T00:00,América do Norte e Central,World Championship - Qualification,Uruguai,Colômbia,2.15,2.9,3.5,,,,,,,,
+2024-11-15T00:00,América do Norte e Central,World Championship - Qualification,Equador,Bolivia,1.17,6.5,15,,,,,,,,
+2024-11-14T23:30,América do Norte e Central,World Championship - Qualification,Paraguai,Argentina,4.5,2.95,1.85,,,,,,,,
+2024-10-15T23:00,América do Norte e Central,World Championship - Qualification,Paraguai,Venezuela,1.77,3.1,4.8,,,,,,,,
+2023-11-22T00:30,América do Norte e Central,World Championship - Qualification,Brasil,Argentina,2.45,2.95,2.85,,,,,,,,
+2023-11-21T23:30,América do Norte e Central,World Championship - Qualification,Equador,Chile,1.61,3.4,5.5,,,,,,,,
+2023-11-21T23:30,América do Norte e Central,World Championship - Qualification,Uruguai,Bolivia,1.12,8.25,17,,,,,,,,
+2023-11-21T23:00,América do Norte e Central,World Championship - Qualification,Paraguai,Colômbia,3.25,2.95,2.2,,,,,,,,
+2023-11-17T00:30,América do Norte e Central,World Championship - Qualification,Chile,Paraguai,1.72,3.2,5,,,,,,,,
+2023-11-17T00:00,América do Norte e Central,World Championship - Qualification,Argentina,Uruguai,1.51,3.5,6,,,,,,,,
+2023-11-17T00:00,América do Norte e Central,World Championship - Qualification,Colômbia,Brasil,3.5,3,2.1,,,,,,,,
+2023-10-17T23:30,América do Norte e Central,World Championship - Qualification,Equador,Colômbia,2,2.9,3.9,,,,,,,,
+2023-10-12T23:00,América do Norte e Central,World Championship - Qualification,Argentina,Paraguai,1.2,5.75,11,,,,,,,,
+2023-10-12T23:00,América do Norte e Central,World Championship - Qualification,Bolivia,Equador,5,3.4,1.66,,,,,,,,
+2023-09-13T02:00,América do Norte e Central,World Championship - Qualification,Peru,Brasil,12,5.5,1.22,,,,,,,,
+2023-09-13T00:30,América do Norte e Central,World Championship - Qualification,Chile,Colômbia,3.2,2.9,2.25,,,,,,,,
+2023-09-12T22:00,América do Norte e Central,World Championship - Qualification,Venezuela,Paraguai,2.35,2.8,3.1,,,,,,,,
+2023-09-12T21:00,América do Norte e Central,World Championship - Qualification,Equador,Uruguai,1.95,2.95,4.1,,,,,,,,
+2023-09-12T20:00,América do Norte e Central,World Championship - Qualification,Bolivia,Argentina,5.25,3.4,1.63,,,,,,,,
+2023-09-09T00:45,América do Norte e Central,World Championship - Qualification,Brasil,Bolivia,1.04,15,31,,,,,,,,
+2023-09-08T23:00,América do Norte e Central,World Championship - Qualification,Uruguai,Chile,1.62,3.5,5.25,,,,,,,,
+2023-09-08T00:00,América do Norte e Central,World Championship - Qualification,Argentina,Equador,1.32,4.5,9.25,,,,,,,,
+2023-09-07T23:00,América do Norte e Central,World Championship - Qualification,Colômbia,Venezuela,1.28,4.75,10.5,,,,,,,,
+2023-09-07T22:30,América do Norte e Central,World Championship - Qualification,Paraguai,Peru,1.7,3.1,4.5,,,,,,,,
+2026-09-30T16:00,África,Taça das Nações Africanas - Qualificação,Eritreia,África do Sul,10.5,5.75,1.16,,,,,0,5,0,5
+2026-09-29T19:00,África,Taça das Nações Africanas - Qualificação,Benim,Mauritânia,2.35,2.55,2.9,,,,,2,1,2,1
+2026-09-29T16:00,África,Taça das Nações Africanas - Qualificação,Cabo Verde,Ruanda,1.37,3.6,7.25,,,,,1,2,1,2
+2026-09-29T13:00,África,Taça das Nações Africanas - Qualificação,Lesoto,Marrocos,31,14.5,1.02,,,,,0,2,0,2
+2026-09-26T13:00,África,Taça das Nações Africanas - Qualificação,Quénia,Eritreia,1.32,4.1,7.25,,,,,1,1,1,1
+2026-09-25T19:00,África,Taça das Nações Africanas - Qualificação,Burkina Faso,Benim,1.44,3.4,6,,,,,1,1,1,1
+2026-09-25T16:00,África,Taça das Nações Africanas - Qualificação,Ruanda,Libéria,1.7,3,4.2,,,,,3,1,3,1
+2026-09-25T15:00,África,Taça das Nações Africanas - Qualificação,Níger,Lesoto,1.63,3.2,4.4,,,,,2,1,2,1
+2026-03-31T15:00,África,Taça das Nações Africanas - Qualificação - Preliminar,Maurícia,Somália,1.98,2.6,3.8,,,,,,,,
+2026-03-31T14:00,África,Taça das Nações Africanas - Qualificação - Preliminar,Eswatini,Eritreia,1.63,3.2,4.4,,,,,1,2,1,2
+2026-03-31T13:00,África,Taça das Nações Africanas - Qualificação - Preliminar,Burundi,Chad,1.4,3.75,6,,,,,,,,
+2026-03-31T13:00,África,Taça das Nações Africanas - Qualificação - Preliminar,Etiópia,São Tomé e Príncipe,1.31,4.33,6.75,,,,,1,0,1,0
+2026-03-27T13:00,África,Taça das Nações Africanas - Qualificação - Preliminar,Somália,Maurícia,2.35,2.65,2.85,,,,,0,0,0,0
+2026-03-08T00:00,América do Norte e Central,Campeonato CONCACAF - Feminino - Qualificação,Aruba F,Cuba F,3,3.5,1.85,,,,,0,1,0,1
+2026-03-05T01:00,América do Norte e Central,Campeonato CONCACAF - Feminino - Qualificação,Honduras F,Trindad e Tobago F,3.2,3.6,1.77,,,,,2,2,2,2
+2026-03-03T23:00,América do Norte e Central,Campeonato CONCACAF - Feminino - Qualificação,Bermuda F,Costa Rica F,29,18,1.01,,,,,0,8,0,8
+2026-03-01T23:30,América do Norte e Central,Campeonato CONCACAF - Feminino - Qualificação,El Salvador F,Barbados F,1.01,15.5,29,,,,,13,0,13,0
+2026-09-29T19:00,América do Norte e Central,CONCACAF Liga das Nações - Liga C,Ilhas Virgens Britânicas,Turcas e Caicos,2.9,3.4,2.05,,,,,0,3,0,3
+2026-09-28T01:00,América do Norte e Central,CONCACAF Liga das Nações - Liga A,Trindad e Tobago,República Dominicana,2.3,3.3,2.55,,,,,1,2,1,2
+2026-09-27T19:00,América do Norte e Central,CONCACAF Liga das Nações - Liga B,Guiana,Ilhas Caimão,1.07,9.75,23,,,,,2,0,2,0
+2026-09-25T00:20,América do Norte e Central,CONCACAF Liga das Nações - Liga A,Haiti,Trindad e Tobago,1.44,4.1,5.75,,,,,3,2,3,2
+2026-09-24T19:00,América do Norte e Central,CONCACAF Liga das Nações - Liga B,Porto Rico,Guiana,2.87,3.25,2.15,,,,,0,1,0,1
+2026-09-23T19:00,América do Norte e Central,CONCACAF Liga das Nações - Liga C,Turcas e Caicos,Montserrat,10.5,6.75,1.17,,,,,0,2,0,2
+2026-03-19T23:00,América do Norte e Central,CONCACAF Liga dos Campeões,Mount Pleasant,Los Angeles Galaxy,5.25,4.33,1.38,,,,,0,3,0,3
+2026-03-18T23:00,América do Norte e Central,CONCACAF Liga dos Campeões,Inter Miami,Nashville SC,1.61,3.7,3.8,,,,,1,1,1,1
+2026-03-13T00:00,América do Norte e Central,CONCACAF Liga dos Campeões,Cincinnati,Tigres,2.75,2.9,2.2,,,,,3,0,3,0
+2026-03-11T23:30,América do Norte e Central,CONCACAF Liga dos Campeões,Nashville SC,Inter Miami,2.35,3.3,2.3,,,,,0,0,0,0
+2026-03-10T23:00,América do Norte e Central,CONCACAF Liga dos Campeões,Philadelphia Union,Club America,2.9,2.9,2.1,,,,,0,1,0,1
+2026-02-27T00:00,América do Norte e Central,CONCACAF Liga dos Campeões,Philadelphia Union,Defence Force,1.02,14.5,26,,,,,7,0,7,0
+2026-02-26T00:00,América do Norte e Central,CONCACAF Liga dos Campeões,Cincinnati,Universidad O&M,1.01,15,31,,,,,9,0,9,0
+2026-02-19T01:00,América do Norte e Central,CONCACAF Liga dos Campeões,Universidad O&M,Cincinnati,13.5,7.75,1.1,,,,,0,4,0,4
+2026-02-18T23:00,América do Norte e Central,CONCACAF Liga dos Campeões,Defence Force,Philadelphia Union,9,5.75,1.19,,,,,0,5,0,5
+2026-02-04T00:00,América do Norte e Central,CONCACAF Liga dos Campeões,Forge,Tigres,4.8,3.5,1.51,,,,,0,0,0,0
+2026-03-30T20:30,América do Norte e Central,CONCACAF Series - Segunda ronda,Guiana,Belize,1.44,4.6,5.75,,,,,,,,
+2026-03-29T21:30,América do Norte e Central,CONCACAF Series - Segunda ronda,Ilhas Virgens Britânicas,Anguilha,1.75,3.5,4.33,,,,,,,,
+2026-03-29T20:00,América do Norte e Central,CONCACAF Series - Segunda ronda,Barbados,São Vicente e Grenadines,2.95,3.6,2.1,,,,,,,,
+2026-03-29T19:00,América do Norte e Central,CONCACAF Series - Segunda ronda,Martinica,El Salvador,3.7,3.2,2,,,,,,,,
+2026-03-27T20:30,América do Norte e Central,CONCACAF Series - Segunda ronda,Guiana,Dominica,1.3,5.5,8,,,,,,,,
+2026-03-27T00:00,América do Norte e Central,CONCACAF Series - Segunda ronda,República Dominicana,El Salvador,1.95,3.3,3.6,,,,,,,,
+2017-01-22T21:00,América do Norte e Central,Taça das nações UNCAF,Panamá,Costa Rica,2.45,2.5,2.4,,,,,,,,
+2017-01-22T18:30,América do Norte e Central,Taça das nações UNCAF,El Salvador,Nicarágua,1.77,2.85,3.4,,,,,,,,
+2017-01-22T16:00,América do Norte e Central,Taça das nações UNCAF,Belize,Honduras,9.75,4.9,1.16,,,,,,,,
+2017-01-20T23:30,América do Norte e Central,Taça das nações UNCAF,Honduras,Costa Rica,3.05,2.65,1.95,,,,,,,,
+2017-01-20T21:00,América do Norte e Central,Taça das nações UNCAF,Nicarágua,Belize,1.44,3.25,5.05,,,,,,,,
+2017-01-21T02:00,América do Norte e Central,Taça das nações UNCAF,Panamá,El Salvador,1.63,2.65,4.8,,,,,,,,
+2025-07-06T23:00,América do Norte e Central,Taça Ouro - Playoffs,EUA,México,2.9,2.6,2.3,,,,,1,2,1,2
+2025-07-02T23:00,América do Norte e Central,Taça Ouro - Playoffs,EUA,Guatemala,1.21,5.25,9,,,,,2,1,2,1
+2025-06-29T23:00,América do Norte e Central,Taça Ouro - Playoffs,EUA,Costa Rica,1.5,3.3,5.5,,,,,2,2,2,2
+2025-06-28T23:15,América do Norte e Central,Taça Ouro - Playoffs,Panamá,Honduras,1.75,3.2,3.75,,,,,1,1,1,1
+2025-06-25T02:00,América do Norte e Central,Taça Ouro,Honduras,Curaçau,2.05,2.85,3.1,,,,,2,1,2,1
+2025-06-24T23:00,América do Norte e Central,Taça Ouro,Guadeloupe,Guatemala,3.7,3.4,1.68,,,,,2,3,2,3
+2025-06-24T23:00,América do Norte e Central,Taça Ouro,Panamá,Jamaica,2.2,2.8,2.87,,,,,4,1,4,1
+2025-06-22T23:00,América do Norte e Central,Taça Ouro,Arábia Saudita,Trindad e Tobago,1.16,6,10,,,,,1,1,1,1
+2025-06-22T23:00,América do Norte e Central,Taça Ouro,EUA,Haiti,1.44,3.9,5,,,,,2,1,2,1
+2025-06-21T23:00,América do Norte e Central,Taça Ouro,Curaçau,Canadá,9.75,5.5,1.18,,,,,1,1,1,1
+2025-06-20T23:45,América do Norte e Central,Taça Ouro,Jamaica,Guadeloupe,1.44,3.9,5,,,,,2,1,2,1
+2025-06-19T22:45,América do Norte e Central,Taça Ouro,Trindad e Tobago,Haiti,7.75,5.75,1.2,,,,,1,1,1,1
+2025-06-18T23:00,América do Norte e Central,Taça Ouro,Costa Rica,República Dominicana,1.38,4.2,5.5,,,,,2,1,2,1
+2025-06-18T00:15,América do Norte e Central,Taça Ouro,Curaçau,El Salvador,1.87,3,3.5,,,,,0,0,0,0
+2025-06-16T23:00,América do Norte e Central,Taça Ouro,Panamá,Guadeloupe,1.57,3.5,4.4,,,,,5,2,5,2
+2025-06-15T22:00,América do Norte e Central,Taça Ouro,EUA,Trindad e Tobago,1.05,10.5,18.5,,,,,5,0,5,0
+2025-03-26T00:30,América do Norte e Central,Taça Ouro - Qualificação,Guatemala,Guiana,1.22,5.25,8.25,,,,,,,,
+2025-03-26T00:30,América do Norte e Central,Taça Ouro - Qualificação,Nicarágua,Guadeloupe,1.65,3.2,4.2,,,,,,,,
+2025-03-26T00:00,América do Norte e Central,Taça Ouro - Qualificação,Jamaica,São Vicente e Grenadines,1.09,7.75,14.5,,,,,,,,
+2025-03-25T23:00,América do Norte e Central,Taça Ouro - Qualificação,Trindad e Tobago,Cuba,1.49,3.6,5,,,,,,,,
+2025-03-21T23:00,América do Norte e Central,Taça Ouro - Qualificação,São Vicente e Grenadines,Jamaica,9,4.8,1.22,,,,,,,,
+2025-03-21T20:00,América do Norte e Central,Taça Ouro - Qualificação,Cuba,Trindad e Tobago,2.4,3,2.45,,,,,,,,
+2025-02-16T21:30,América do Sul,Campeonato Sul-Americano Sub-20 - Grupo Final,Brasil U20,Chile U20,1.36,4.2,7.25,,,,,3,0,3,0
+2025-02-16T19:00,América do Sul,Campeonato Sul-Americano Sub-20 - Grupo Final,Uruguai U20,Colômbia U20,2.55,3.1,2.5,,,,,1,3,1,3
+2025-01-26T23:30,América do Sul,Campeonato Sul-Americano Sub-20,Argentina U20,Colômbia U20,1.88,3.2,3.6,,,,,1,1,1,1
+2025-01-26T21:00,América do Sul,Campeonato Sul-Americano Sub-20,Bolivia U20,Brasil U20,12.5,6.75,1.15,,,,,1,2,1,2
+2026-02-27T00:30,América do Sul,Supertaça Sul-Americana,Flamengo,Lanus,1.3,4.33,7.25,,,,,2,3,2,3
+2026-02-20T00:30,América do Sul,Supertaça Sul-Americana,Lanus,Flamengo,3.25,2.7,2.05,,,,,1,0,1,0
+2026-05-08T00:30,América do Sul,Taça dos Libertadores - Fase de Grupos,Ind. Medellin (Col),Flamengo (Bra),4.1,3.4,1.87,,,,,,,,
+2026-03-13T00:30,América do Sul,Copa Libertadores - Qualification,Ind. Medellin (Col),Juventud (Uru),1.53,3.9,6,,,,,2,1,2,1
+2026-03-12T00:30,América do Sul,Copa Libertadores - Qualification,Tolima (Col),O'Higgins (Chi),1.5,4.2,6,,,,,2,0,2,0
+2026-03-11T00:30,América do Sul,Copa Libertadores - Qualification,Botafogo RJ (Bra),Barcelona SC (Ecu),1.53,3.75,6.5,,,,,0,1,0,1
+2026-03-06T00:30,América do Sul,Copa Libertadores - Qualification,Juventud (Uru),Ind. Medellin (Col),3.1,3.1,2.3,,,,,1,1,1,1
+2026-03-05T00:30,América do Sul,Copa Libertadores - Qualification,O'Higgins (Chi),Tolima (Col),2.55,3,2.9,,,,,1,0,1,0
+2026-03-04T00:30,América do Sul,Copa Libertadores - Qualification,Barcelona SC (Ecu),Botafogo RJ (Bra),2.45,3,2.95,,,,,1,1,1,1
+2026-02-27T00:30,América do Sul,Copa Libertadores - Qualification,Tolima (Col),Dep. Tachira (Ven),1.55,3.9,6.25,,,,,0,1,0,1
+2026-02-26T00:30,América do Sul,Copa Libertadores - Qualification,Argentinos Jrs (Arg),Barcelona SC (Ecu),1.51,4.1,6.25,,,,,0,1,0,1
+2026-02-26T00:30,América do Sul,Copa Libertadores - Qualification,Botafogo RJ (Bra),Nacional Potosi (Bol),1.07,14,26,,,,,2,0,2,0
+2026-02-25T00:30,América do Sul,Copa Libertadores - Qualification,Ind. Medellin (Col),Liverpool M. (Uru),1.47,4.1,6.75,,,,,0,0,0,0
+2026-02-25T00:30,América do Sul,Copa Libertadores - Qualification,Sporting Cristal (Per),2 de Mayo (Par),1.49,4.1,6.5,,,,,0,0,0,0
+2026-02-20T00:30,América do Sul,Copa Libertadores - Qualification,Dep. Tachira (Ven),Tolima (Col),3.2,2.9,2.4,,,,,0,1,0,1
+2026-02-19T00:30,América do Sul,Copa Libertadores - Qualification,Barcelona SC (Ecu),Argentinos Jrs (Arg),2.87,3.1,2.5,,,,,0,1,0,1
+2026-02-19T00:30,América do Sul,Copa Libertadores - Qualification,Nacional Potosi (Bol),Botafogo RJ (Bra),2.15,3.3,3.2,,,,,1,0,1,0
+2026-02-18T00:30,América do Sul,Copa Libertadores - Qualification,2 de Mayo (Par),Sporting Cristal (Per),2.7,3.1,2.6,,,,,2,2,2,2
+2026-02-18T00:30,América do Sul,Copa Libertadores - Qualification,Liverpool M. (Uru),Ind. Medellin (Col),2.85,3.1,2.5,,,,,1,2,1,2
+2026-02-13T00:30,América do Sul,Copa Libertadores - Qualification,U. Catolica (Ecu),Juventud (Uru),1.46,4.4,6.25,,,,,3,4,3,4
+2026-02-12T00:30,América do Sul,Copa Libertadores - Qualification,A. Lima (Per),2 de Mayo (Par),1.37,4.5,8.75,,,,,1,1,1,1
+2026-02-11T00:30,América do Sul,Copa Libertadores - Qualification,Dep. Tachira (Ven),The Strongest (Bol),1.62,3.75,5.25,,,,,1,0,1,0
+2026-02-06T00:30,América do Sul,Copa Libertadores - Qualification,Juventud (Uru),U. Catolica (Ecu),3.1,3.1,2.3,,,,,0,1,0,1
+2026-02-05T00:30,América do Sul,Copa Libertadores - Qualification,2 de Mayo (Par),A. Lima (Per),3.7,3,2.15,,,,,1,0,1,0
+2026-02-04T00:30,América do Sul,Copa Libertadores - Qualification,The Strongest (Bol),Dep. Tachira (Ven),1.26,6,10,,,,,2,1,2,1
+2026-03-06T00:30,América do Sul,Copa Sudamericana - Qualification,America De Cali (Col),Bucaramanga (Col),2,2.8,3.3,,,,,2,1,2,1
+2026-03-06T00:30,América do Sul,Copa Sudamericana - Qualification,Cienciano (Per),Melgar (Per),2.15,3,2.75,,,,,1,1,1,1
+2026-03-05T00:30,América do Sul,Copa Sudamericana - Qualification,Atl. Nacional (Col),Millonarios (Col),1.5,3.4,5.25,,,,,1,3,1,3
+2026-03-05T00:30,América do Sul,Copa Sudamericana - Qualification,Sportivo Trinidense (Par),Olimpia Asuncion (Par),4.2,3.2,1.66,,,,,0,1,0,1
+2026-03-05T00:30,América do Sul,Copa Sudamericana - Qualification,U. De Chile (Chi),Palestino (Chi),1.55,3.4,4.6,,,,,1,2,1,2
+2026-03-04T00:30,América do Sul,Copa Sudamericana - Qualification,Cobresal (Chi),A. Italiano (Chi),2.2,3,2.65,,,,,1,1,1,1
+2026-03-04T00:30,América do Sul,Copa Sudamericana - Qualification,Puerto Cabello (Ven),Monagas (Ven),1.85,3,3.5,,,,,0,0,0,0
+2026-08-18T18:00,Arábia Saudita,Taça do Rei,Al Diriyah,Al Nassr,7.25,5.5,1.22,,,,,1,4,1,4
+2026-08-18T18:00,Arábia Saudita,Taça do Rei,Al Faysaly,Neom SC,3.6,3.7,1.65,,,,,1,3,1,3
+2026-08-18T16:15,Arábia Saudita,Taça do Rei,Al-Jabalain,Al Ettifaq,4.4,3.5,1.55,,,,,1,0,1,0
+2026-08-17T18:00,Arábia Saudita,Taça do Rei,Al-Raed,Al Hilal,16,9.25,1.07,,,,,0,2,0,2
+2026-08-17T16:15,Arábia Saudita,Taça do Rei,Al-Zulfi,Al Riyadh,4.6,3.8,1.49,,,,,0,2,0,2
+2026-08-17T16:00,Arábia Saudita,Taça do Rei,Al-Anwar,Al Ahli SC,13.5,8,1.09,,,,,1,2,1,2
+2026-08-16T16:15,Arábia Saudita,Taça do Rei,Al Bukiryah,Al Hazem,4,3.3,1.66,,,,,2,3,2,3
+2026-10-25T00:30,Argentina,Liga Profesional - Encerramento,Rosario,Huracan,1.72,3,4.1,,,,,2,0,2,0
+2026-04-02T23:30,Argentina,Liga Profesional - Apertura,Talleres Cordoba,Boca Juniors,2.25,2.6,3,,,,,0,1,0,1
+2026-03-31T17:00,Argentina,Liga Profesional - Apertura,Aldosivi,Argentinos Jrs,4.2,2.9,1.75,,,,,0,2,0,2
+2026-03-27T00:00,Argentina,Liga Profesional - Apertura,Argentinos Jrs,Lanus,1.95,2.65,3.6,,,,,2,1,2,1
+2026-03-24T00:15,Argentina,Liga Profesional - Apertura,Huracan,Barracas Central,1.77,2.75,4.4,,,,,0,0,0,0
+2026-03-25T22:00,Argentina,Liga Profesional - Apertura,Dep. Riestra,San Lorenzo,2.25,2.4,3.3,,,,,1,1,1,1
+2026-03-22T23:00,Argentina,Liga Profesional - Apertura,Boca Juniors,Instituto,1.55,3.1,5.25,,,,,2,0,2,0
+2026-03-21T23:00,Argentina,Liga Profesional - Apertura,Independiente,Talleres Cordoba,1.83,2.8,3.9,,,,,1,2,1,2
+2026-03-21T00:00,Argentina,Liga Profesional - Apertura,Banfield,Tigre,2.75,2.6,2.45,,,,,1,0,1,0
+2026-03-21T00:00,Argentina,Liga Profesional - Apertura,Atl. Tucuman,Gimnasia L.P.,1.93,2.85,3.5,,,,,1,0,1,0
+2026-03-18T00:15,Argentina,Liga Profesional - Apertura,Gimnasia Mendoza,Estudiantes,3.6,2.65,2,,,,,1,2,1,2
+2026-03-18T00:15,Argentina,Liga Profesional - Apertura,Central Cordoba,Dep. Riestra,2.8,2.4,2.6,,,,,1,0,1,0
+2026-03-16T23:00,Argentina,Liga Profesional - Apertura,Racing Club,Estudiantes Rio Cuarto,1.38,3.75,6.5,,,,,2,0,2,0
+2026-03-15T00:00,Argentina,Liga Profesional - Apertura,Rosario,Banfield,1.53,3.25,5.25,,,,,2,1,2,1
+2026-03-13T23:00,Argentina,Liga Profesional - Apertura,Estudiantes,Lanus,1.93,2.7,3.7,,,,,0,1,0,1
+2026-03-13T00:30,Argentina,Liga Profesional - Apertura,Huracan,River Plate,3,2.6,2.25,,,,,1,2,1,2
+2026-03-05T00:00,Argentina,Liga Profesional - Apertura,Lanus,Boca Juniors,2.65,2.75,2.4,,,,,0,3,0,3
+2026-03-04T00:15,Argentina,Liga Profesional - Apertura,Atl. Tucuman,Racing Club,2.75,2.7,2.35,,,,,0,3,0,3
+2026-03-03T00:30,Argentina,Liga Profesional - Apertura,Banfield,Aldosivi,2,2.7,3.4,,,,,2,0,2,0
+2026-03-03T00:30,Argentina,Liga Profesional - Apertura,Ind. Rivadavia,River Plate,2.75,2.8,2.25,,,,,1,1,1,1
+2026-03-02T00:30,Argentina,Liga Profesional - Apertura,Defensa y Justicia,Lanus,2.05,2.8,3.2,,,,,1,1,1,1
+2026-03-02T00:30,Argentina,Liga Profesional - Apertura,Tigre,Gimnasia L.P.,1.9,2.8,3.6,,,,,2,2,2,2
+2026-02-28T23:00,Argentina,Liga Profesional - Apertura,Independiente,Central Cordoba,1.55,3,5.5,,,,,2,0,2,0
+2026-02-25T00:30,Argentina,Liga Profesional - Apertura,Belgrano,Atl. Tucuman,1.68,3.1,4.2,,,,,3,1,3,1
+2026-02-23T00:30,Argentina,Liga Profesional - Apertura,Union Santa Fe,Aldosivi,1.51,3.3,5.5,,,,,1,0,1,0
+2026-02-22T00:30,Argentina,Liga Profesional - Apertura,Central Cordoba,Tigre,3.2,2.45,2.25,,,,,0,0,0,0
+2026-02-20T23:00,Argentina,Liga Profesional - Apertura,Boca Juniors,Racing Club,2.1,2.75,3.1,,,,,0,0,0,0
+2026-02-20T23:00,Argentina,Liga Profesional - Apertura,Instituto,Atl. Tucuman,1.93,2.9,3.4,,,,,2,1,2,1
+2026-02-13T23:00,Argentina,Liga Profesional - Apertura,Independiente,Lanus,1.95,2.65,3.7,,,,,2,0,2,0
+2026-02-13T00:15,Argentina,Liga Profesional - Apertura,Argentinos Jrs,River Plate,2.15,2.75,3.1,,,,,1,0,1,0
+2026-02-10T00:30,Argentina,Liga Profesional - Apertura,Estudiantes Rio Cuarto,Ind. Rivadavia,3.4,2.6,2.1,,,,,0,1,0,1
+2026-02-07T23:00,Argentina,Liga Profesional - Apertura,River Plate,Tigre,1.57,3.2,5,,,,,1,4,1,4
+2026-02-07T00:00,Argentina,Liga Profesional - Apertura,Central Cordoba,Union Santa Fe,3.1,2.55,2.25,,,,,1,0,1,0
+2026-02-04T00:15,Argentina,Liga Profesional - Apertura,Instituto,Lanus,2.65,2.65,2.5,,,,,2,2,2,2
+2026-02-04T00:15,Argentina,Liga Profesional - Apertura,Ind. Rivadavia,Sarmiento Junin,1.7,2.95,4.4,,,,,2,1,2,1
+2026-02-02T00:30,Argentina,Liga Profesional - Apertura,Rosario,River Plate,2.45,2.65,2.6,,,,,0,0,0,0
+2026-01-30T00:30,Argentina,Liga Profesional - Apertura,Estudiantes Rio Cuarto,Argentinos Jrs,5,2.87,1.65,,,,,0,0,0,0
+2026-01-30T00:30,Argentina,Liga Profesional - Apertura,Sarmiento Junin,Banfield,3.2,2.55,2.2,,,,,1,0,1,0
+2026-01-28T23:00,Argentina,Liga Profesional - Apertura,River Plate,Gimnasia L.P.,1.5,3.4,5.25,,,,,2,0,2,0
+2026-01-27T23:00,Argentina,Liga Profesional - Apertura,Gimnasia Mendoza,San Lorenzo,3.3,2.45,2.2,,,,,0,1,0,1
+2026-01-27T23:00,Argentina,Liga Profesional - Apertura,Huracan,Ind. Rivadavia,1.95,2.55,3.9,,,,,1,2,1,2
+2026-01-26T00:00,Argentina,Liga Profesional - Apertura,Argentinos Jrs,Sarmiento Junin,1.33,3.8,7.75,,,,,1,0,1,0
+2026-01-26T00:00,Argentina,Liga Profesional - Apertura,Tigre,Estudiantes Rio Cuarto,1.9,2.65,3.8,,,,,2,0,2,0
+2026-01-23T23:00,Argentina,Liga Profesional - Apertura,Independiente,Estudiantes,2.3,2.65,2.87,,,,,1,1,1,1
+2026-01-22T23:00,Argentina,Liga Profesional - Apertura,Banfield,Huracan,2.2,2.55,3.2,,,,,1,1,1,1
+2026-01-22T23:00,Argentina,Liga Profesional - Apertura,Union Santa Fe,Platense,1.9,2.6,4.1,,,,,0,0,0,0
+2026-07-22T18:00,Argentina,Primeira A Feminina - Abertura,San Luis F,Racing Club F,5.25,3.25,1.55,,,,,,,,
+2026-07-22T18:00,Argentina,Primeira A Feminina - Abertura,Union Santa Fe F,Newells Old Boys F,3.2,2.9,1.98,,,,,,,,
+2026-07-22T15:00,Argentina,Primeira A Feminina - Abertura,Social Atletico Television F,Ferro F,2.55,2.75,2.45,,,,,,,,
+2026-03-30T18:30,Argentina,Primera A Women - Apertura,Banfield F,San Luis F,1.8,3,3.75,,,,,2,0,2,0
+2026-03-29T18:30,Argentina,Primera A Women - Apertura,Newells Old Boys F,Boca Juniors F,3.8,3,1.77,,,,,1,2,1,2
+2026-03-30T18:00,Argentina,Primera A Women - Apertura,Gimnasia L.P. F,Lanus F,1.31,4.6,6.25,,,,,3,0,3,0
+2026-03-29T18:00,Argentina,Primera A Women - Apertura,Racing Club F,Ferro F,1.34,3.9,7,,,,,2,0,2,0
+2026-03-29T18:00,Argentina,Primera A Women - Apertura,Social Atletico Television F,Huracan F,1.88,2.9,3.6,,,,,1,1,1,1
+2026-03-29T14:00,Argentina,Primera A Women - Apertura,River Plate F,Union Santa Fe F,1.3,4.33,7,,,,,6,1,6,1
+2026-03-28T19:00,Argentina,Primera A Women - Apertura,Belgrano F,Independiente F,1.17,5.5,10.5,,,,,1,0,1,0
+2026-03-31T00:15,Argentina,Taça da Argentina,Union Santa Fe,Agropecuario,1.46,3.5,5.75,,,,,,,,
+2026-03-29T21:00,Argentina,Taça da Argentina,Huracan,Olimpo,1.38,3.8,6.25,,,,,,,,
+2026-03-29T00:15,Argentina,Taça da Argentina,Racing Club,San Martin Formosa,1.19,5.5,9.75,,,,,,,,
+2026-03-28T01:15,Argentina,Taça da Argentina,Belgrano,Atl. Rafaela,1.57,3.25,4.8,,,,,,,,
+2026-03-26T00:15,Argentina,Taça da Argentina,Banfield,Real Pilar,1.44,3.6,5.75,,,,,,,,
+2026-03-21T00:15,Argentina,Taça da Argentina,San Lorenzo,Deportivo Rincon,1.27,4.5,7.75,,,,,,,,
+2026-03-25T22:00,Argentina,Taça da Argentina,Atl. Tucuman,Sportivo Barracas,1.2,5.25,9.5,,,,,,,,
+2026-02-26T00:15,Argentina,Taça da Argentina,Godoy Cruz,Deportivo Moron,2,2.6,3.6,,,,,,,,
+2026-02-25T00:15,Argentina,Taça da Argentina,Boca Juniors,Chivilcoy,1.06,9.75,18,,,,,2,0,2,0
+2026-02-12T00:15,Argentina,Taça da Argentina,Central Cordoba,Gimnasia Jujuy,2.25,2.7,2.87,,,,,,,,
+2026-02-06T00:15,Argentina,Taça da Argentina,Barracas Central,Temperley,2.1,2.65,3.2,,,,,,,,
+2026-02-05T00:15,Argentina,Taça da Argentina,Platense,Argentino MM,1.35,4,6.5,,,,,,,,
+2026-01-22T00:15,Argentina,Taça da Argentina,Argentinos Jrs,Midland,1.2,5.25,9.5,,,,,,,,
+2026-01-20T00:15,Argentina,Taça da Argentina,Estudiantes,Ituzaingo,1.33,4.2,6.25,,,,,,,,
+2026-01-19T00:15,Argentina,Taça da Argentina,Lanus,Sarmiento de La Banda,1.27,4.33,8.75,,,,,,,,
+2024-04-30T23:00,Argentina,Taça da Liga Profissional - Playoffs,Estudiantes,Boca Juniors,2.7,2.7,2.4,,,,,1,1,1,1
+2024-04-15T23:00,Argentina,Taça da Liga Profissional,Argentinos Jrs,Barracas Central,1.77,2.9,4.1,,,,,3,3,3,3
+2024-04-15T23:00,Argentina,Taça da Liga Profissional,Instituto,River Plate,3.1,2.85,2.05,,,,,1,3,1,3
+2024-04-14T23:00,Argentina,Taça da Liga Profissional,Central Cordoba,San Lorenzo,3.2,2.65,2.1,,,,,0,0,0,0
+2024-04-15T23:00,Argentina,Taça da Liga Profissional,Ind. Rivadavia,Velez Sarsfield,3.9,3,1.77,,,,,0,1,0,1
+2024-04-12T22:30,Argentina,Taça da Liga Profissional,Estudiantes,Boca Juniors,2.15,2.75,3,,,,,1,0,1,0
+2024-04-08T23:00,Argentina,Taça da Liga Profissional,Godoy Cruz,Sarmiento Junin,1.41,3.5,6.5,,,,,1,0,1,0
+2024-04-01T00:00,Argentina,Taça da Liga Profissional,Ind. Rivadavia,Banfield,2.87,2.6,2.35,,,,,1,2,1,2
+2024-03-31T00:00,Argentina,Taça da Liga Profissional,Talleres Cordoba,Velez Sarsfield,1.78,3.1,3.7,,,,,1,0,1,0
+2024-03-29T23:30,Argentina,Taça da Liga Profissional,Huracan,River Plate,3.6,3.1,1.8,,,,,1,0,1,0
+2024-03-29T00:00,Argentina,Taça da Liga Profissional,Instituto,Argentinos Jrs,2.15,2.7,3.1,,,,,1,2,1,2
+2024-03-28T23:00,Argentina,Taça da Liga Profissional,Rosario,Barracas Central,1.9,2.9,3.4,,,,,1,2,1,2
+2024-03-28T00:30,Argentina,Taça da Liga Profissional,Lanus,Union Santa Fe,1.85,2.8,3.9,,,,,2,2,2,2
+2024-03-21T22:00,Argentina,Taça da Liga Profissional,San Lorenzo,Godoy Cruz,2.45,2.6,2.7,,,,,1,0,1,0
+2024-03-21T00:15,Argentina,Taça da Liga Profissional,Belgrano,Lanus,2.9,2.8,2.2,,,,,0,1,0,1
+2024-03-20T00:15,Argentina,Taça da Liga Profissional,Argentinos Jrs,Rosario,1.8,2.95,3.8,,,,,3,0,3,0
+2024-03-19T00:15,Argentina,Taça da Liga Profissional,Union Santa Fe,Central Cordoba,1.62,3.1,4.75,,,,,2,2,2,2
+2024-03-18T00:00,Argentina,Taça da Liga Profissional,Banfield,Talleres Cordoba,2.7,2.75,2.35,,,,,0,0,0,0
+2024-03-17T00:30,Argentina,Taça da Liga Profissional,Velez Sarsfield,Instituto,2.1,2.75,3.2,,,,,1,0,1,0
+2024-03-17T00:30,Argentina,Taça da Liga Profissional,Atl. Tucuman,Ind. Rivadavia,1.65,3.1,4.5,,,,,2,2,2,2
+2024-03-16T00:00,Argentina,Taça da Liga Profissional,Newells Old Boys,Platense,1.87,2.7,4,,,,,0,0,0,0
+2024-03-13T00:15,Argentina,Taça da Liga Profissional,Central Cordoba,Belgrano,2.7,2.75,2.37,,,,,2,2,2,2
+2024-03-12T00:45,Argentina,Taça da Liga Profissional,Banfield,Velez Sarsfield,2.7,2.65,2.45,,,,,1,2,1,2
+2024-03-12T00:15,Argentina,Taça da Liga Profissional,Ind. Rivadavia,Dep. Riestra,2.1,2.65,3.2,,,,,1,2,1,2
+2024-03-11T00:30,Argentina,Taça da Liga Profissional,Boca Juniors,Racing Club,2.6,2.8,2.4,,,,,4,2,4,2
+2024-03-10T00:30,Argentina,Taça da Liga Profissional,Platense,San Lorenzo,2.7,2.37,2.7,,,,,0,0,0,0
+2024-03-10T00:30,Argentina,Taça da Liga Profissional,Rosario,Instituto,2.35,2.6,2.85,,,,,1,0,1,0
+2024-03-08T00:15,Argentina,Taça da Liga Profissional,Belgrano,Defensa y Justicia,2.2,2.8,2.87,,,,,1,1,1,1
+2024-03-08T00:15,Argentina,Taça da Liga Profissional,Newells Old Boys,Tigre,1.57,3.1,5,,,,,1,0,1,0
+2024-03-07T00:30,Argentina,Taça da Liga Profissional,Atl. Tucuman,Banfield,2,2.65,3.5,,,,,0,3,0,3
+2024-03-07T00:30,Argentina,Taça da Liga Profissional,River Plate,Ind. Rivadavia,1.2,5.5,8.75,,,,,2,0,2,0
+2024-03-06T00:30,Argentina,Taça da Liga Profissional,Velez Sarsfield,Rosario,1.8,3,3.75,,,,,1,0,1,0
+2024-03-05T23:00,Argentina,Taça da Liga Profissional,Racing Club,Sarmiento Junin,1.33,4,7,,,,,0,1,0,1
+2024-03-05T00:00,Argentina,Taça da Liga Profissional,Instituto,Huracan,1.98,2.65,3.6,,,,,2,0,2,0
+2024-03-04T00:30,Argentina,Taça da Liga Profissional,Newells Old Boys,San Lorenzo,2.05,2.55,3.5,,,,,2,2,2,2
+2024-03-03T00:30,Argentina,Taça da Liga Profissional,Talleres Cordoba,River Plate,2.7,2.95,2.2,,,,,2,2,2,2
+2024-03-02T00:15,Argentina,Copa de la Liga Profesional,Platense,Racing Club,3.3,2.8,2,,,,,0,0,0,0
+2024-03-02T00:15,Argentina,Taça da Liga Profissional,Banfield,Dep. Riestra,1.82,2.75,4.2,,,,,2,0,2,0
+2024-03-01T00:15,Argentina,Copa de la Liga Profesional,Huracan,Rosario,2.05,2.7,3.3,,,,,2,0,2,0
+2024-03-01T00:15,Argentina,Copa de la Liga Profesional,Ind. Rivadavia,Barracas Central,2.3,2.75,2.75,,,,,1,3,1,3
+2024-02-27T00:45,Argentina,Copa de la Liga Profesional,Central Cordoba,Atl. Tucuman,2.65,2.7,2.4,,,,,0,0,0,0
+2024-02-27T00:30,Argentina,Copa de la Liga Profesional,Velez Sarsfield,Tigre,1.46,3.5,5.75,,,,,2,2,2,2
+2024-02-20T23:00,Argentina,Copa de la Liga Profesional,Defensa y Justicia,Central Cordoba,1.55,3.4,4.6,,,,,1,1,1,1
+2024-02-20T00:30,Argentina,Copa de la Liga Profesional,Belgrano,Sarmiento Junin,1.8,2.75,4.2,,,,,4,1,4,1
+2024-02-20T00:30,Argentina,Copa de la Liga Profesional,Union Santa Fe,Platense,2.05,2.6,3.5,,,,,0,0,0,0
+2024-02-19T00:30,Argentina,Copa de la Liga Profesional,Lanus,Boca Juniors,3,2.65,2.2,,,,,2,1,2,1
+2024-02-18T00:00,Argentina,Copa de la Liga Profesional,Rosario,Gimnasia L.P.,2.25,2.75,2.85,,,,,2,1,2,1
+2024-02-16T00:30,Argentina,Copa de la Liga Profesional,Talleres Cordoba,Argentinos Jrs,1.8,3,3.7,,,,,2,1,2,1
+2024-02-16T00:00,Argentina,Copa de la Liga Profesional,Ind. Rivadavia,Instituto,2.87,2.55,2.4,,,,,0,2,0,2
+2024-02-15T00:30,Argentina,Copa de la Liga Profesional,Atl. Tucuman,River Plate,3.4,3,1.88,,,,,0,0,0,0
+2024-02-14T00:30,Argentina,Copa de la Liga Profesional,Godoy Cruz,Union Santa Fe,2.05,2.7,3.4,,,,,0,0,0,0
+2024-02-14T00:30,Argentina,Copa de la Liga Profesional,Independiente,Rosario,1.88,2.85,3.7,,,,,1,0,1,0
+2024-02-13T00:00,Argentina,Copa de la Liga Profesional,Newells Old Boys,Racing Club,2,2.8,3.3,,,,,0,4,0,4
+2024-02-12T00:00,Argentina,Copa de la Liga Profesional,Barracas Central,Atl. Tucuman,2.55,2.6,2.65,,,,,2,0,2,0
+2024-02-11T00:30,Argentina,Copa de la Liga Profesional,Belgrano,Godoy Cruz,2.2,2.6,3.1,,,,,0,1,0,1
+2024-02-11T00:30,Argentina,Copa de la Liga Profesional,Central Cordoba,Sarmiento Junin,2.45,2.5,2.85,,,,,3,0,3,0
+2024-02-10T00:15,Argentina,Copa de la Liga Profesional,Racing Club,San Lorenzo,2.05,2.65,3.3,,,,,4,1,4,1
+2024-02-10T00:15,Argentina,Copa de la Liga Profesional,Velez Sarsfield,Gimnasia L.P.,2.05,2.75,3.3,,,,,3,1,3,1
+2024-02-09T00:15,Argentina,Copa de la Liga Profesional,Huracan,Independiente,2.5,2.55,2.75,,,,,0,0,0,0
+2024-02-07T00:15,Argentina,Copa de la Liga Profesional,Atl. Tucuman,Argentinos Jrs,2.25,2.65,2.9,,,,,0,0,0,0
+2024-02-06T00:30,Argentina,Copa de la Liga Profesional,Estudiantes,Racing Club,2.05,2.85,3.2,,,,,0,0,0,0
+2024-02-05T00:30,Argentina,Copa de la Liga Profesional,Newells Old Boys,Belgrano,1.8,2.75,4.33,,,,,1,0,1,0
+2024-02-04T23:30,Argentina,Copa de la Liga Profesional,Platense,Central Cordoba,1.93,2.7,3.7,,,,,1,0,1,0
+2024-02-04T00:15,Argentina,Copa de la Liga Profesional,Talleres Cordoba,Rosario,1.66,3.1,4.4,,,,,4,1,4,1
+2024-02-02T00:30,Argentina,Copa de la Liga Profesional,Central Cordoba,Godoy Cruz,3.7,2.7,1.95,,,,,0,2,0,2
+2024-02-02T00:30,Argentina,Copa de la Liga Profesional,Union Santa Fe,Estudiantes,2.45,2.65,2.7,,,,,0,1,0,1
+2024-02-01T00:30,Argentina,Copa de la Liga Profesional,Barracas Central,River Plate,4.5,3.4,1.57,,,,,0,2,0,2
+2024-01-31T23:00,Argentina,Copa de la Liga Profesional,Racing Club,Tigre,1.77,3,3.8,,,,,3,0,3,0
+2024-01-31T00:30,Argentina,Copa de la Liga Profesional,Lanus,Newells Old Boys,2.35,2.6,2.87,,,,,0,2,0,2
+2024-01-31T00:30,Argentina,Copa de la Liga Profesional,Velez Sarsfield,Independiente,2.45,2.55,2.75,,,,,0,1,0,1
+2024-01-29T00:00,Argentina,Copa de la Liga Profesional,Estudiantes,Belgrano,1.85,2.8,3.8,,,,,1,0,1,0
+2024-01-30T00:00,Argentina,Copa de la Liga Profesional,Instituto,Atl. Tucuman,2.15,2.5,3.3,,,,,3,0,3,0
+2024-01-28T00:00,Argentina,Copa de la Liga Profesional,Racing Club,Union Santa Fe,1.7,3,4.33,,,,,0,1,0,1
+2024-01-27T00:15,Argentina,Copa de la Liga Profesional,Banfield,Huracan,2.6,2.45,2.7,,,,,0,2,0,2
+2024-01-27T00:15,Argentina,Copa de la Liga Profesional,Ind. Rivadavia,Independiente,3.1,2.6,2.2,,,,,0,1,0,1
+2024-01-26T00:15,Argentina,Copa de la Liga Profesional,Atl. Tucuman,Rosario,1.93,2.8,3.5,,,,,1,1,1,1
+2024-01-26T00:15,Argentina,Copa de la Liga Profesional,Central Cordoba,Newells Old Boys,3,2.55,2.3,,,,,0,1,0,1
+2023-01-18T22:00,Argentina,Torneios de Verăo,San Martin Tucuman,Gimnasia Jujuy,1.55,3.5,5.25,,,,,0,0,0,0
+2023-01-08T00:30,Argentina,Torneios de Verăo,Boca Juniors,Independiente,1.88,3.1,3.7,,,,,0,0,0,0
+2026-09-15T18:15,Ásia,AFC - Liga dos Campeões - Fase de Liga,Al Hilal (Sau),Al Gharafa (Qat),1.03,13,21,,,,,2,1,2,1
+2026-09-15T16:00,Ásia,AFC - Liga dos Campeões - Fase de Liga,Al-Ain (Uae),Al Nassr (Sau),3.1,3.4,1.85,,,,,4,0,4,0
+2026-09-14T18:15,Ásia,AFC - Liga dos Campeões - Fase de Liga,Al Ahli SC (Sau),Pakhtakor (Uzb),1.22,5.25,8,,,,,1,1,1,1
+2026-09-14T18:15,Ásia,AFC - Liga dos Campeões - Fase de Liga,Esteghlal F.C. (Irn),Al Sadd (Qat),3.5,3.25,1.78,,,,,3,0,3,0
+2026-03-31T13:30,Ásia,Taça Asiática - Qualificação - Terceira ronda,Índia,Hong Kong,2.1,2.8,3,,,,,,,,
+2026-03-31T16:15,Ásia,Taça Asiática - Qualificação - Terceira ronda,Siria,Afeganistão,1.06,8.5,26,,,,,,,,
+2026-03-31T14:00,Ásia,Taça Asiática - Qualificação - Terceira ronda,Tajiquistão,Filipinas,1.8,3.1,3.6,,,,,,,,
+2026-03-31T12:30,Ásia,Taça Asiática - Qualificação - Terceira ronda,Bhutan,Brunei,1.65,3.3,4.1,,,,,,,,
+2026-03-31T12:30,Ásia,Taça Asiática - Qualificação - Terceira ronda,Tailândia,Turquemenistão,1.38,4.2,5.5,,,,,,,,
+2026-03-31T12:00,Ásia,Taça Asiática - Qualificação - Terceira ronda,Singapura,Bangladesh,1.51,3.5,5,,,,,,,,
+2026-03-31T12:00,Ásia,Taça Asiática - Qualificação - Terceira ronda,Vietname,Malásia,1.57,3.6,4.33,,,,,,,,
+2026-03-31T10:30,Ásia,Taça Asiática - Qualificação - Terceira ronda,China Taipei,Sri Lanka,1.8,3.2,3.5,,,,,,,,
+2026-03-31T10:30,Ásia,Taça Asiática - Qualificação - Terceira ronda,Maldivas,Timor Leste,2.25,2.8,2.75,,,,,,,,
+2026-03-31T09:00,Ásia,Taça Asiática - Qualificação - Terceira ronda,Paquistão,Myanmar,2.4,2.95,2.45,,,,,,,,
+2025-10-14T10:30,Ásia,Taça Asiática - Qualificação - Terceira ronda,Maldivas,Tajiquistão,13,6,1.14,,,,,,,,
+2025-10-09T13:00,Ásia,Taça Asiática - Qualificação - Terceira ronda,Tajiquistão,Maldivas,1.03,12,34,,,,,,,,
+2025-06-10T06:30,Ásia,Taça Asiática - Qualificação - Terceira ronda,Timor Leste,Maldivas,2.65,2.9,2.3,,,,,,,,
+2025-03-25T11:00,Ásia,Taça Asiática - Qualificação - Terceira ronda,Filipinas,Maldivas,1.15,5.75,13,,,,,,,,
+2024-09-10T12:00,Ásia,Taça Asiática - Qualificação - Playoffs,Cambodia,Sri Lanka,1.55,3.1,5.25,,,,,,,,
+2024-09-10T11:30,Ásia,Taça Asiática - Qualificação - Playoffs,Macau,Brunei,3.1,2.95,2,,,,,,,,
+2024-09-10T08:00,Ásia,Taça Asiática - Qualificação - Playoffs,Mongolia,Timor Leste,2.1,3.1,2.75,,,,,,,,
+2024-09-06T13:00,Ásia,Taça Asiática - Qualificação - Playoffs,Brunei,Macau,2.85,3,2.1,,,,,,,,
+2026-11-06T08:00,AUSTRÁLIA,Liga A Feminina,Adelaide F,Wellington Phoenix F,3.1,3.1,1.93,,,,,0,2,0,2
+2026-03-28T11:00,Austrália,NPL Western Australia,Dianella White Eagle,Bayswater City,2.75,3.3,2,,,,,2,0,2,0
+2026-03-28T07:00,Austrália,NPL Western Australia,Fremantle City,Armadale,2,3.7,2.55,,,,,2,1,2,1
+2026-03-28T07:00,Austrália,NPL Western Australia,Olympic Kingsway,Perth Glory U23,1.5,4.1,4.2,,,,,4,2,4,2
+2026-03-28T07:00,Austrália,NPL Western Australia,Stirling Macedonia,Perth Azzurri,1.8,3.6,3.1,,,,,3,1,3,1
+2026-03-28T07:00,Austrália,NPL Western Australia,Western Knights,Perth RedStar,2.55,3.2,2.2,,,,,4,2,4,2
+2026-03-29T04:00,Austrália,NPL NSW,Blacktown City,SD Raiders,1.93,3.4,2.9,,,,,,,,
+2026-03-29T04:00,Austrália,NPL NSW,Wollongong Wolves,Sydney Olympic,1.95,3.3,2.9,,,,,2,1,2,1
+2026-03-28T07:30,Austrália,NPL NSW,St George Saints,NWS Spirit,1.98,3.25,2.9,,,,,0,3,0,3
+2026-03-28T06:30,Austrália,NPL NSW,Sutherland,Manly Utd,2,3.1,2.9,,,,,3,0,3,0
+2026-03-28T06:00,Austrália,NPL NSW,Rockdale Ilinden,Sydney Utd,2.37,3.1,2.4,,,,,1,2,1,2
+2026-03-28T04:00,Austrália,NPL NSW,WS Wanderers U21,Marconi,3.9,3.5,1.63,,,,,0,1,0,1
+2026-03-28T06:00,Austrália,NPL NSW,UNSW,St. George City,3.2,3.1,1.9,,,,,5,0,5,0
+2026-03-08T04:00,Austrália,NPL NSW,Sydney FC U23,Wollongong Wolves,2.75,3.4,2,,,,,1,2,1,2
+2026-06-03T10:00,Austrália,NPL Queensland,Rochedale,Magic United,1.68,3.8,3.3,,,,,4,0,4,0
+2026-03-29T05:00,Austrália,NPL Queensland,Peninsula,Rochedale,1.39,4.33,5,,,,,3,1,3,1
+2026-03-29T04:00,Austrália,NPL Queensland,Brisbane Roar U23,Magic United,1.66,3.8,3.4,,,,,0,1,0,1
+2026-03-28T09:30,Austrália,NPL Queensland,Olympic FC,Gold Coast Knights,2.5,3.4,2.15,,,,,1,0,1,0
+2026-03-28T09:30,Austrália,NPL Queensland,Queensland Lions,Brisbane City,1.66,3.9,3.4,,,,,2,2,2,2
+2026-03-28T08:00,Austrália,NPL Queensland,Moreton City Excelsior,Eastern Suburbs,1.7,3.9,3.25,,,,,3,0,3,0
+2026-03-29T04:30,Austrália,NPL South Australia,Adelaide United U23,Croydon,1.87,3.6,2.9,,,,,1,1,1,1
+2026-03-28T08:30,Austrália,NPL South Australia,West Adelaide,Campbelltown City,2.85,3.6,1.9,,,,,4,4,4,4
+2026-03-28T04:30,Austrália,NPL South Australia,Sturt Lions,West Torrens,2.2,3.5,2.4,,,,,2,4,2,4
+2026-03-28T04:00,Austrália,NPL South Australia,Adelaide City,Adelaide Comets,1.31,4.6,6.25,,,,,4,1,4,1
+2026-03-31T08:30,Austrália,NPL Victoria,South Melbourne,Dandenong City,1.6,3.5,4.1,,,,,4,2,4,2
+2026-03-28T07:15,Austrália,NPL Victoria,Altona Magic,Green Gully,2.37,3.2,2.35,,,,,1,1,1,1
+2026-03-28T07:00,Austrália,NPL Victoria,George Cross,St Albans,1.98,3.25,2.87,,,,,2,1,2,1
+2026-03-28T04:00,Austrália,NPL Victoria,Avondale FC,Oakleigh,2.6,3.4,2.1,,,,,1,1,1,1
+2026-03-28T03:00,Austrália,NPL Victoria,Hume City,Preston Lions,2.4,3.1,2.35,,,,,3,2,3,2
+2026-09-11T16:00,Bahrain,Primeira Liga,Al Najma,East Riffa,2.37,2.95,2.5,,,,,2,3,2,3
+2026-09-10T16:00,Bahrain,Primeira Liga,Al Muharraq,Manama Club,1.28,4.8,6.75,,,,,,,,
+2026-09-05T16:00,Bahrain,Primeira Liga,Manama Club,Al Riffa,6.5,4.6,1.3,,,,,1,5,1,5
+2026-09-02T16:00,Bahrain,Primeira Liga,Malkia,Al Najma,3.1,3,1.98,,,,,0,1,0,1
+2026-08-28T16:00,Bahrain,Primeira Liga,Al Muharraq,Al Ahli Manama,1.44,3.7,5.25,,,,,1,1,1,1
+2026-02-18T23:00,Brasil,Alagoano - Playoffs,CRB,CSA,1.78,2.85,4.1,,,,,2,0,2,0
+2026-01-21T23:00,Brasil,Alagoano,ASA,Coruripe,1.37,3.6,7.25,,,,,2,0,2,0
+2026-01-21T23:00,Brasil,Alagoano,CRB,Cruzeiro Arapiraca,1.11,6.5,17.5,,,,,1,0,1,0
+2026-01-14T23:00,Brasil,Alagoano,Cruzeiro Arapiraca,ASA,6.75,3.8,1.37,,,,,2,4,2,4
+2026-01-14T23:00,Brasil,Alagoano,CSA,SC Penedense,1.4,3.6,6.5,,,,,2,0,2,0
+2026-03-31T00:30,Brasil,Brasileiro Women,Palmeiras F,Flamengo F,1.31,4.5,6.5,,,,,1,1,1,1
+2026-03-31T00:00,Brasil,Brasileiro Women,Ferroviaria F,Cruzeiro F,2.1,3,2.85,,,,,1,1,1,1
+2026-03-28T20:00,Brasil,Brasileiro Women,RB Bragantino F,Bahia F,1.78,3.1,3.7,,,,,1,2,1,2
+2026-03-28T19:00,Brasil,Brasileiro Women,Internacional F,Gremio F,2.1,2.9,2.95,,,,,1,2,1,2
+2026-03-28T18:00,Brasil,Brasileiro Women,America Mineiro F,Mixto F,2.6,2.87,2.3,,,,,1,1,1,1
+2026-03-28T00:30,Brasil,Brasileiro Women,Sao Paulo F,Palmeiras F,4.6,3.4,1.57,,,,,3,0,3,0
+2026-03-27T22:00,Brasil,Brasileiro Women,Botafogo RJ F,Corinthians F,8.25,5,1.23,,,,,1,3,1,3
+2026-03-27T22:00,Brasil,Brasileiro Women,Santos F,Ferroviaria F,2.7,2.95,2.25,,,,,1,1,1,1
+2026-03-27T00:00,Brasil,Brasileiro Women,Juventude F,Flamengo F,5.25,3.6,1.49,,,,,1,3,1,3
+2026-03-26T22:00,Brasil,Brasileiro Women,Cruzeiro F,Fluminense F,1.57,3.4,4.5,,,,,3,2,3,2
+2026-03-24T00:00,Brasil,Brasileiro Women,Corinthians F,America Mineiro F,1.02,14,31,,,,,4,0,4,0
+2026-03-23T23:00,Brasil,Brasileiro Women,Fluminense F,Sao Paulo F,3.2,2.9,2,,,,,0,0,0,0
+2026-03-21T00:00,Brasil,Brasileiro Women,Flamengo F,Cruzeiro F,2.35,2.95,2.5,,,,,1,1,1,1
+2026-03-17T00:00,Brasil,Brasileiro Women,Bahia F,Vitoria F,1.3,4.6,6.5,,,,,3,2,3,2
+2026-03-14T00:30,Brasil,Brasileiro Women,Palmeiras F,Corinthians F,1.98,3,3.1,,,,,3,2,3,2
+2026-02-24T00:00,Brasil,Brasileiro Women,Sao Paulo F,Bahia F,1.33,4.2,6.5,,,,,2,1,2,1
+2026-02-21T00:30,Brasil,Brasileiro Women,Corinthians F,Fluminense F,1.21,5.25,9,,,,,2,2,2,2
+2026-02-21T00:00,Brasil,Brasileiro Women,Flamengo F,RB Bragantino F,2.05,2.8,3.1,,,,,4,2,4,2
+2026-02-16T23:30,Brasil,Brasileiro Women,Internacional F,Sao Paulo F,4.6,3.4,1.57,,,,,1,2,1,2
+2026-02-15T00:00,Brasil,Brasileiro Women,Botafogo RJ F,Juventude F,1.47,3.6,5.25,,,,,2,1,2,1
+2026-02-14T00:00,Brasil,Brasileiro Women,Atletico-MG F,Corinthians F,8.25,5.25,1.21,,,,,0,1,0,1
+2026-02-14T00:00,Brasil,Brasileiro Women,Palmeiras F,America Mineiro F,1.06,8.5,26,,,,,4,0,4,0
+2026-02-11T23:30,Brasil,Brasiliense,Gama,Ceilandia,1.58,3.1,5,,,,,2,1,2,1
+2026-01-21T23:30,Brasil,Brasiliense,Gama,Samambaia,1.5,3.4,5.25,,,,,0,0,0,0
+2026-01-21T23:00,Brasil,Brasiliense,Capital,Real Brasilia,1.19,4.6,13.5,,,,,0,1,0,1
+2026-03-03T00:00,Brasil,Carioca - Taça Guanabara - Playoffs,Madureira,Flamengo,9.25,5.5,1.19,,,,,0,8,0,8
+2026-03-02T23:00,Brasil,Carioca - Grupo de Despromoção,Portuguesa RJ,Sampaio Correa FE,1.7,3,4.2,,,,,2,0,2,0
+2026-02-27T23:00,Brasil,Carioca - Taça do Rio,Volta Redonda,Bangu,1.42,3.6,6,,,,,1,1,1,1
+2026-02-23T23:00,Brasil,Carioca - Grupo de Despromoção,Sampaio Correa FE,Nova Iguacu,2.5,2.85,2.45,,,,,1,1,1,1
+2026-02-22T23:30,Brasil,Carioca - Taça Guanabara - Playoffs,Flamengo,Madureira,1.09,8,13.5,,,,,3,0,3,0
+2026-02-22T00:00,Brasil,Carioca - Taça do Rio,Boavista,Botafogo RJ,2.4,2.9,2.55,,,,,0,2,0,2
+2026-02-20T23:00,Brasil,Carioca - Taça do Rio,Bangu,Volta Redonda,3.3,3,1.93,,,,,1,0,1,0
+2026-02-20T23:00,Brasil,Carioca - Grupo de Despromoção,Sampaio Correa FE,Portuguesa RJ,2.37,2.8,2.6,,,,,3,2,3,2
+2026-02-15T00:30,Brasil,Carioca - Taça Guanabara - Playoffs,Vasco,Volta Redonda,1.27,4.5,7.75,,,,,1,1,1,1
+2026-02-08T23:30,Brasil,Carioca - Taça Guanabara,Fluminense,Marica,1.14,6,11.5,,,,,1,0,1,0
+2026-02-08T00:00,Brasil,Carioca - Taça Guanabara,Bangu,Boavista,2.8,2.75,2.25,,,,,1,1,1,1
+2026-02-08T00:00,Brasil,Carioca - Taça Guanabara,Flamengo,Sampaio Correa FE,1.05,9.25,23,,,,,7,1,7,1
+2026-02-08T00:00,Brasil,Carioca - Taça Guanabara,Portuguesa RJ,Nova Iguacu,2.55,2.85,2.4,,,,,1,0,1,0
+2026-02-08T00:00,Brasil,Carioca - Taça Guanabara,Volta Redonda,Madureira,1.85,2.9,3.7,,,,,1,1,1,1
+2026-02-02T23:00,Brasil,Carioca - Taça Guanabara,Madureira,Vasco,5.75,3.7,1.42,,,,,0,0,0,0
+2026-02-01T23:30,Brasil,Carioca - Taça Guanabara,Botafogo RJ,Fluminense,2.75,2.85,2.25,,,,,0,1,0,1
+2026-01-30T23:30,Brasil,Carioca - Taça Guanabara,Nova Iguacu,Bangu,1.71,2.95,4.2,,,,,1,2,1,2
+2026-01-26T23:30,Brasil,Carioca - Taça Guanabara,Nova Iguacu,Volta Redonda,2.65,2.55,2.35,,,,,2,2,2,2
+2026-01-25T23:30,Brasil,Carioca - Taça Guanabara,Boavista,Vasco,3.75,3.2,1.73,,,,,0,3,0,3
+2026-01-25T00:00,Brasil,Carioca - Taça Guanabara,Botafogo RJ,Bangu,1.24,4.5,9.25,,,,,2,0,2,0
+2026-01-23T00:30,Brasil,Carioca - Taça Guanabara,Nova Iguacu,Fluminense,5.25,3.4,1.5,,,,,2,3,2,3
+2026-01-22T00:30,Brasil,Carioca - Taça Guanabara,Flamengo,Vasco,1.66,3.2,4.1,,,,,1,0,1,0
+2026-01-18T23:30,Brasil,Carioca - Taça Guanabara,Portuguesa RJ,Marica,1.87,3,3.5,,,,,0,1,0,1
+2026-01-18T23:30,Brasil,Carioca - Taça Guanabara,Sampaio Correa FE,Botafogo RJ,2.1,3.1,2.8,,,,,2,1,2,1
+2026-01-18T00:30,Brasil,Carioca - Taça Guanabara,Volta Redonda,Flamengo,1.85,3.1,3.4,,,,,3,0,3,0
+2026-01-16T00:30,Brasil,Carioca - Taça Guanabara,Vasco,Marica,1.33,4.2,6.5,,,,,4,2,4,2
+2026-01-15T00:30,Brasil,Carioca - Taça Guanabara,Bangu,Flamengo,2.95,3,2.05,,,,,2,1,2,1
+2026-03-06T23:00,Brasil,Catarinense - Grupo de Despromoção,Marcilio Dias,Joinville,1.16,5.5,12,,,,,2,0,2,0
+2026-03-06T23:00,Brasil,Catarinense - Grupo de Despromoção,Figueirense,Carlos Renaux,1.53,3.5,4.75,,,,,2,4,2,4
+2026-03-04T23:00,Brasil,Catarinense - Playoffs - Derrotados,Camboriu,Criciuma,4.4,3.2,1.63,,,,,1,0,1,0
+2026-02-27T23:00,Brasil,Catarinense - Grupo de Despromoção,Joinville,Figueirense,2.95,2.95,2.05,,,,,0,3,0,3
+2026-02-20T23:00,Brasil,Catarinense - Grupo de Despromoção,Figueirense,Marcilio Dias,2,3,3.1,,,,,0,1,0,1
+2026-02-14T00:00,Brasil,Catarinense - Grupo de Despromoção,Joinville,Carlos Renaux,1.9,2.9,3.4,,,,,3,0,3,0
+2026-02-09T23:00,Brasil,Catarinense - Grupo de Despromoção,Marcilio Dias,Carlos Renaux,1.57,3.25,4.8,,,,,1,1,1,1
+2026-02-06T23:00,Brasil,Catarinense - Grupo de Despromoção,Figueirense,Joinville,1.47,3.4,5.5,,,,,1,0,1,0
+2026-02-03T23:00,Brasil,Catarinense - Grupo de Despromoção,Joinville,Marcilio Dias,2.85,3,2.1,,,,,2,4,2,4
+2026-01-23T00:30,Brasil,Catarinense,Camboriu,Criciuma,4.33,3,1.68,,,,,1,2,1,2
+2026-01-22T23:15,Brasil,Catarinense,Concordia,Figueirense,3.6,2.9,1.87,,,,,1,0,1,0
+2026-01-22T00:30,Brasil,Catarinense,Avai,Chapecoense-SC,2.7,2.65,2.4,,,,,1,1,1,1
+2026-01-21T23:00,Brasil,Catarinense,Brusque,Santa Catarina,2,2.87,3.2,,,,,1,1,1,1
+2026-01-15T23:30,Brasil,Catarinense,Marcilio Dias,Santa Catarina,1.9,2.95,3.4,,,,,0,1,0,1
+2026-01-15T23:00,Brasil,Catarinense,Joinville,Criciuma,4,2.95,1.75,,,,,0,0,0,0
+2026-01-15T00:30,Brasil,Catarinense,Avai,Carlos Renaux,1.44,3.6,5.75,,,,,1,0,1,0
+2026-01-15T00:30,Brasil,Catarinense,Brusque,Figueirense,2.25,2.8,2.8,,,,,2,1,2,1
+2026-01-08T00:30,Brasil,Catarinense,Avai,Barra FC,2,2.8,3.25,,,,,2,1,2,1
+2026-01-07T23:00,Brasil,Catarinense,Joinville,Figueirense,2.87,2.8,2.2,,,,,2,3,2,3
+2026-01-06T23:00,Brasil,Catarinense,Santa Catarina,Camboriu,1.71,3.1,4.1,,,,,2,2,2,2
+2026-03-06T23:00,Brasil,Gaucho - Troféu Farroupilha - Play Offs,Novo Hamburgo,Sao Luiz,1.83,2.9,3.75,,,,,1,1,1,1
+2026-02-22T23:00,Brasil,Gaucho - Troféu Farroupilha - Play Offs,EC Sao Jose,Novo Hamburgo,2,2.85,3.2,,,,,1,2,1,2
+2026-02-15T23:30,Brasil,Gaucho - Playoffs,Ypiranga FC,Internacional,4.75,3.2,1.6,,,,,0,3,0,3
+2026-02-14T23:00,Brasil,Gaucho - Troféu Farroupilha - Play Offs,Novo Hamburgo,EC Sao Jose,2.15,2.65,3.1,,,,,3,2,3,2
+2026-02-09T23:00,Brasil,Gaucho - Despromoção,Avenida,Guarany de Bage,2.4,2.7,2.65,,,,,2,1,2,1
+2026-02-09T23:00,Brasil,Gaucho - Playoffs,Juventude,EC Sao Jose,1.44,3.6,5.5,,,,,3,2,3,2
+2026-02-06T23:30,Brasil,Gaucho - Playoffs,SER Caxias,Ypiranga FC,1.82,2.85,3.9,,,,,0,2,0,2
+2026-02-06T00:30,Brasil,Gaucho - Despromoção,Inter Santa Maria,Avenida,1.88,2.85,3.6,,,,,1,1,1,1
+2026-01-25T23:00,Brasil,Gaucho,Internacional,Gremio,2.3,2.85,2.65,,,,,4,2,4,2
+2026-01-24T23:00,Brasil,Gaucho,Guarany de Bage,Inter Santa Maria,1.95,2.75,3.5,,,,,1,0,1,0
+2026-01-23T00:30,Brasil,Gaucho,EC Sao Jose,Monsoon,1.52,3.25,5.25,,,,,1,2,1,2
+2026-01-22T00:30,Brasil,Gaucho,Avenida,Ypiranga FC,4.5,2.87,1.71,,,,,3,0,3,0
+2026-01-22T00:30,Brasil,Gaucho,Guarany de Bage,Gremio,4.6,3.5,1.55,,,,,0,2,0,2
+2026-01-15T00:30,Brasil,Gaucho,Gremio,EC Sao Jose,1.24,4.75,8.75,,,,,0,1,0,1
+2026-01-15T00:30,Brasil,Gaucho,SER Caxias,Avenida,1.49,3.4,5.5,,,,,3,0,3,0
+2026-01-11T00:00,Brasil,Gaucho,Avenida,Gremio,7,4.33,1.3,,,,,0,4,0,4
+2026-02-13T00:00,Brasil,Goiano - Playoffs,Anapolis,Vila Nova,4.1,2.85,1.77,,,,,0,2,0,2
+2026-01-22T23:40,Brasil,Goiano,Vila Nova,Aparecidense,1.49,3.4,5.5,,,,,3,0,3,0
+2026-01-15T23:40,Brasil,Goiano,Aparecidense,Atletico-GO,4.33,2.9,1.72,,,,,1,2,1,2
+2026-01-14T23:40,Brasil,Goiano,Vila Nova,Anapolina,1.52,3.2,5.5,,,,,3,2,3,2
+2026-01-14T23:30,Brasil,Goiano,Anapolis,Centro Oeste,1.88,2.8,3.75,,,,,1,1,1,1
+2026-02-28T23:00,Brasil,Mineiro - 5º-8º lugar,URT,Tombense,2.2,2.65,3,,,,,3,1,3,1
+2026-02-06T23:00,Brasil,Mineiro,Betim,Itabirito,2.1,3,2.9,,,,,0,2,0,2
+2026-02-01T23:00,Brasil,Mineiro,Betim,Cruzeiro,11,5.5,1.17,,,,,0,1,0,1
+2026-01-25T23:00,Brasil,Mineiro,Athletic Club,Betim,1.65,3.2,4.4,,,,,1,1,1,1
+2026-01-25T23:00,Brasil,Mineiro,Tombense,Democrata GV,2,2.7,3.5,,,,,2,0,2,0
+2026-01-24T23:30,Brasil,Mineiro,Uberlandia,America MG,3.3,2.9,1.93,,,,,1,1,1,1
+2026-01-22T00:30,Brasil,Mineiro,America MG,Atletico-MG,3.5,2.85,1.9,,,,,1,1,1,1
+2026-01-21T23:00,Brasil,Mineiro,Uberlandia,Itabirito,1.78,3.2,3.6,,,,,0,1,0,1
+2026-01-17T23:30,Brasil,Mineiro,URT,Pouso Alegre,2.3,2.6,2.95,,,,,0,0,0,0
+2026-01-15T00:30,Brasil,Mineiro,Tombense,Cruzeiro,3.2,3.1,1.9,,,,,1,2,1,2
+2026-01-15T00:00,Brasil,Mineiro,Pouso Alegre,Itabirito,1.95,2.95,3.25,,,,,3,1,3,1
+2026-01-10T23:30,Brasil,Mineiro,URT,North Esporte Clube,2.5,2.65,2.65,,,,,0,0,0,0
+2026-02-11T23:00,Brasil,Paranaense - Playoffs - Despromoção,Cascavel,Andraus,1.31,3.9,8.25,,,,,2,1,2,1
+2026-02-07T23:00,Brasil,Paranaense - Playoffs - Despromoção,Maringa FC,Galo Maringa,1.24,5,7.75,,,,,2,0,2,0
+2026-02-04T23:00,Brasil,Paranaense - Playoffs - Despromoção,Andraus,Cascavel,3,2.9,2.05,,,,,0,1,0,1
+2026-02-03T23:00,Brasil,Paranaense - Playoffs,Athletico-PR,Foz do Iguacu,1.11,7,14,,,,,5,0,5,0
+2026-01-21T23:30,Brasil,Paranaense,Coritiba,Sao Joseense,1.3,4.1,7.75,,,,,0,1,0,1
+2026-01-21T23:00,Brasil,Paranaense,Operario,Cascavel,1.63,3,4.75,,,,,2,1,2,1
+2026-01-20T23:00,Brasil,Paranaense,Azuriz,Athletico-PR,2.7,2.75,2.3,,,,,2,1,2,1
+2026-01-15T23:00,Brasil,Paranaense,Sao Joseense,Cianorte,2.65,2.8,2.37,,,,,0,0,0,0
+2026-01-14T23:30,Brasil,Paranaense,Athletico-PR,Operario,1.98,2.9,3.2,,,,,2,0,2,0
+2026-01-14T23:00,Brasil,Paranaense,Azuriz,Londrina,3.1,2.87,2.05,,,,,0,2,0,2
+2026-01-14T23:00,Brasil,Paranaense,Cascavel,Andraus,1.61,3.1,4.75,,,,,1,1,1,1
+2026-01-13T23:00,Brasil,Paranaense,Maringa FC,Coritiba,3.2,3,1.95,,,,,0,1,0,1
+2026-01-08T23:30,Brasil,Paranaense,Andraus,Athletico-PR,5.75,4.1,1.37,,,,,1,2,1,2
+2026-01-07T23:30,Brasil,Paranaense,Coritiba,Foz do Iguacu,2.3,2.9,2.6,,,,,2,3,2,3
+2026-01-07T23:00,Brasil,Paranaense,Cianorte,Maringa FC,2.8,2.87,2.2,,,,,3,3,3,3
+2026-01-06T23:00,Brasil,Paranaense,Sao Joseense,Galo Maringa,1.98,3,3.1,,,,,2,0,2,0
+2026-03-08T23:30,Brasil,Paulista - Playoffs,Novorizontino,Palmeiras,3.9,2.87,1.71,,,,,1,2,1,2
+2026-03-04T23:00,Brasil,Paulista - Playoffs,Palmeiras,Novorizontino,1.3,4.1,6.5,,,,,1,0,1,0
+2026-03-01T23:30,Brasil,Paulista - Playoffs,Palmeiras,Sao Paulo,1.63,3.2,3.8,,,,,2,1,2,1
+2026-02-22T23:30,Brasil,Paulista - Playoffs,Portuguesa,Corinthians,3.9,2.95,1.68,,,,,1,1,1,1
+2026-02-28T23:30,Brasil,Paulista - Playoffs,Novorizontino,Corinthians,3.1,2.75,1.95,,,,,1,0,1,0
+2026-02-21T23:30,Brasil,Paulista - Playoffs,Palmeiras,Capivariano,1.11,6.25,12,,,,,4,0,4,0
+2026-02-15T23:30,Brasil,Paulista,Botafogo SP,Capivariano,1.9,2.85,3.1,,,,,0,1,0,1
+2026-02-15T23:30,Brasil,Paulista,Mirassol,Portuguesa,1.46,3.4,4.8,,,,,1,2,1,2
+2026-02-15T23:30,Brasil,Paulista,Palmeiras,Guarani,1.28,4.33,6.5,,,,,1,1,1,1
+2026-02-15T23:30,Brasil,Paulista,Ponte Preta,Sao Paulo,7.25,4.1,1.27,,,,,1,2,1,2
+2026-02-15T23:30,Brasil,Paulista,Primavera,Noroeste,1.98,2.85,3,,,,,3,3,3,3
+2026-02-15T23:30,Brasil,Paulista,RB Bragantino,Novorizontino,1.68,2.9,4,,,,,3,0,3,0
+2026-02-15T23:30,Brasil,Paulista,Santos,Velo Clube,1.21,4.6,8.25,,,,,6,0,6,0
+2026-02-15T23:30,Brasil,Paulista,Sao Bernardo,Corinthians,3.5,2.87,1.77,,,,,0,1,0,1
+2026-02-08T23:30,Brasil,Paulista,Corinthians,Palmeiras,2.45,2.8,2.3,,,,,0,1,0,1
+2026-02-07T23:30,Brasil,Paulista,Sao Paulo,Primavera,1.31,4,6,,,,,2,1,2,1
+2026-02-05T23:30,Brasil,Paulista,Corinthians,Capivariano,1.46,3.4,4.75,,,,,3,0,3,0
+2026-02-01T23:30,Brasil,Paulista,Botafogo SP,Palmeiras,4.2,3.3,1.55,,,,,1,0,1,0
+2026-01-31T23:30,Brasil,Paulista,Primavera,Portuguesa,2.25,2.65,2.65,,,,,1,2,1,2
+2026-01-31T23:30,Brasil,Paulista,Sao Paulo,Santos,1.85,2.9,3.25,,,,,2,0,2,0
+2026-01-26T23:00,Brasil,Paulista,Portuguesa,Guarani,1.72,2.87,3.8,,,,,0,1,0,1
+2026-01-25T23:30,Brasil,Paulista,Velo Clube,Corinthians,4.1,2.85,1.68,,,,,0,1,0,1
+2026-01-23T00:30,Brasil,Paulista,Velo Clube,Guarani,2.1,2.65,2.9,,,,,0,1,0,1
+2026-01-22T23:00,Brasil,Paulista,Botafogo SP,Primavera,2.15,2.85,2.65,,,,,1,0,1,0
+2026-01-22T00:30,Brasil,Paulista,Ponte Preta,Sao Bernardo,4.5,3.1,1.57,,,,,0,1,0,1
+2026-01-21T23:00,Brasil,Paulista,Mirassol,RB Bragantino,2.1,2.85,2.7,,,,,0,0,0,0
+2026-01-20T23:00,Brasil,Paulista,Novorizontino,Palmeiras,4.1,3.1,1.62,,,,,4,0,4,0
+2026-01-18T23:30,Brasil,Paulista,Guarani,Santos,4,3.1,1.63,,,,,1,1,1,1
+2026-01-17T23:30,Brasil,Paulista,Palmeiras,Mirassol,1.51,3.3,4.5,,,,,1,0,1,0
+2026-01-16T00:45,Brasil,Paulista,Sao Paulo,Sao Bernardo,1.51,3.3,4.6,,,,,1,0,1,0
+2026-01-15T00:00,Brasil,Paulista,Ponte Preta,Velo Clube,2.5,2.55,2.5,,,,,0,1,0,1
+2026-01-14T00:30,Brasil,Paulista,Capivariano,Portuguesa,2.55,2.8,2.25,,,,,1,0,1,0
+2026-01-11T23:30,Brasil,Paulista,Mirassol,Sao Paulo,2.2,2.87,2.5,,,,,3,0,3,0
+2026-01-10T23:30,Brasil,Paulista,Portuguesa,Palmeiras,4.5,3.25,1.52,,,,,0,1,0,1
+2026-02-12T23:00,Brasil,Serie A,Corinthians,RB Bragantino,1.93,3.2,4.1,,,,,2,0,2,0
+2026-03-19T23:00,Brasil,Taça do Brasil,Volta Redonda,Barra FC,1.83,2.9,3.75,,,,,0,0,0,0
+2026-03-19T00:30,Brasil,Taça do Brasil,Jacuipense,Novorizontino,5.25,3.2,1.55,,,,,0,0,0,0
+2026-03-19T00:00,Brasil,Taça do Brasil,CRB,Figueirense,1.4,3.7,6.25,,,,,1,0,1,0
+2026-03-18T23:00,Brasil,Taça do Brasil,Atletico-GO,Ponte Preta,1.7,3.1,4.1,,,,,1,0,1,0
+2026-03-18T00:30,Brasil,Taça do Brasil,Londrina,Operario,2.3,2.75,2.7,,,,,0,1,0,1
+2026-03-18T00:30,Brasil,Taça do Brasil,Portuguesa,Paysandu,1.93,3,3.3,,,,,2,3,2,3
+2026-03-18T00:30,Brasil,Taça do Brasil,Sport Recife,Athletic Club,1.49,3.6,4.8,,,,,1,3,1,3
+2026-03-13T00:30,Brasil,Taça do Brasil,Barra FC,America MG,2.55,2.9,2.35,,,,,0,0,0,0
+2026-03-13T00:30,Brasil,Taça do Brasil,Sport Recife,Anapolis,1.32,4.1,7.25,,,,,1,1,1,1
+2026-03-13T00:30,Brasil,Taça do Brasil,Tuna Luso,Juventude,3.5,3,1.85,,,,,1,1,1,1
+2026-03-12T23:30,Brasil,Taça do Brasil,Mixto,Novorizontino,3.6,2.85,1.88,,,,,0,3,0,3
+2026-03-12T23:00,Brasil,Taça do Brasil,Amazonas,Figueirense,2.1,2.85,3.1,,,,,0,1,0,1
+2026-03-12T00:30,Brasil,Taça do Brasil,Manaus,Londrina,4.2,3,1.71,,,,,0,0,0,0
+2026-03-12T00:30,Brasil,Taça do Brasil,Paysandu,Portuguesa RJ,1.73,3,4,,,,,3,1,3,1
+2026-03-11T23:30,Brasil,Taça do Brasil,Porto Velho,Atletico-GO,5.25,3.3,1.51,,,,,0,1,0,1
+2026-03-11T23:00,Brasil,Taça do Brasil,Castanhal,Nova Iguacu,2.3,2.8,2.7,,,,,0,4,0,4
+2026-03-11T23:00,Brasil,Taça do Brasil,Confianca,Tombense,2.05,2.85,3.1,,,,,2,0,2,0
+2026-03-11T23:00,Brasil,Taça do Brasil,Santa Catarina,Jacuipense,1.93,2.9,3.4,,,,,0,1,0,1
+2026-03-11T00:30,Brasil,Taça do Brasil,Ponte Preta,Guarany de Bage,1.52,3.8,4.33,,,,,1,0,1,0
+2026-03-06T00:30,Brasil,Taça do Brasil,Juventude,Guapore,1.09,8,14.5,,,,,5,0,5,0
+2026-03-06T00:30,Brasil,Taça do Brasil,Santa Cruz,Sousa,2.05,3,3,,,,,0,0,0,0
+2026-03-05T00:30,Brasil,Taça do Brasil,America MG,Tirol,1.16,6,10.5,,,,,1,1,1,1
+2026-03-05T00:00,Brasil,Copa do Brasil,Manauara,Itabaiana,2.55,3,2.3,,,,,3,1,3,1
+2026-03-04T23:30,Brasil,Copa do Brasil,Ivinhema,Volta Redonda,3.75,3,1.78,,,,,2,4,2,4
+2026-03-04T23:00,Brasil,Copa do Brasil,Rio Branco ES,Athletic Club,2.95,2.87,2.1,,,,,1,1,1,1
+2026-03-04T23:00,Brasil,Copa do Brasil,Santa Catarina,Cuiaba,2.55,2.87,2.4,,,,,1,1,1,1
+2026-03-04T00:30,Brasil,Copa do Brasil,Figueirense,Azuriz,1.93,3,3.25,,,,,1,0,1,0
+2026-03-03T23:00,Brasil,Copa do Brasil,CRB,Porto-BA,1.26,4.8,7.25,,,,,6,0,6,0
+2026-02-27T00:30,Brasil,Copa do Brasil,Portuguesa,AE Altos,1.33,4.2,6.5,,,,,5,1,5,1
+2026-02-27T00:00,Brasil,Copa do Brasil,Operario VG,Porto Velho,2.1,2.75,3.1,,,,,1,1,1,1
+2026-02-26T23:00,Brasil,Copa do Brasil,Ceara,Primavera,1.44,3.7,5.5,,,,,2,1,2,1
+2026-02-26T00:00,Brasil,Copa do Brasil,Mixto,Botafogo PB,2.5,2.7,2.55,,,,,1,1,1,1
+2026-02-25T23:00,Brasil,Copa do Brasil,Aguia De Maraba,Independencia,1.37,4.2,5.75,,,,,2,0,2,0
+2026-02-25T23:00,Brasil,Copa do Brasil,ASA,Operario MS,1.3,4.2,7.5,,,,,1,2,1,2
+2026-02-25T23:00,Brasil,Copa do Brasil,Gama,Goias,3.5,2.85,1.9,,,,,2,2,2,2
+2026-02-25T23:00,Brasil,Copa do Brasil,Sao Bernardo,Alagoinhas,1.24,4.6,9,,,,,2,0,2,0
+2026-02-25T23:00,Brasil,Copa do Brasil,SER Caxias,Guarany de Bage,1.44,3.5,5.75,,,,,0,1,0,1
+2026-02-25T23:00,Brasil,Copa do Brasil,Ypiranga FC,Ji-Parana,1.23,4.8,8.5,,,,,2,0,2,0
+2026-02-25T00:30,Brasil,Copa do Brasil,Fortaleza,Maguary,1.22,5,9,,,,,4,3,4,3
+2026-02-20T00:00,Brasil,Copa do Brasil,Vasco da Gama AC,Velo Clube,8.25,5,1.24,,,,,1,1,1,1
+2026-02-19T23:00,Brasil,Copa do Brasil,Primavera AC,Bragantino,1.98,2.8,3.4,,,,,2,1,2,1
+2026-02-18T23:30,Brasil,Copa do Brasil,Ivinhema,Independente AP,1.78,3,3.8,,,,,1,0,1,0
+2026-02-18T23:30,Brasil,Copa do Brasil,Ji-Parana,Pantanal,1.93,2.95,3.3,,,,,2,0,2,0
+2026-02-18T23:00,Brasil,Copa do Brasil,America SE,Tirol,2.45,2.65,2.7,,,,,1,1,1,1
+2026-02-18T23:00,Brasil,Copa do Brasil,Betim,Piaui,1.57,3.4,4.6,,,,,1,0,1,0
+2026-02-18T23:00,Brasil,Copa do Brasil,Gama,Monte Roraima,1.23,4.5,10,,,,,2,0,2,0
+2026-02-18T23:00,Brasil,Copa do Brasil,Santa Catarina,Iape,1.44,3.5,5.75,,,,,2,0,2,0
+2026-02-17T23:00,Brasil,Copa do Brasil,Sampaio Correa FE,Desportiva Ferroviaria,1.78,3.1,3.6,,,,,1,1,1,1
+2026-03-30T21:30,Brasil,Taça do Nordeste,Jacuipense,America-RN,3.3,2.87,1.98,,,,,,,,
+2026-03-29T21:30,Brasil,Taça do Nordeste,Botafogo PB,ASA,1.65,3,4.5,,,,,,,,
+2026-03-29T21:00,Brasil,Taça do Nordeste,Piaui,Sousa,2.45,2.75,2.55,,,,,,,,
+2026-03-29T20:00,Brasil,Taça do Nordeste,ABC,Sport Recife,2.5,3,2.35,,,,,,,,
+2026-03-29T20:00,Brasil,Taça do Nordeste,Confianca,Fluminense-PI,1.35,3.7,7.5,,,,,,,,
+2026-03-28T20:00,Brasil,Taça do Nordeste,CRB,Vitoria,2.2,3,2.65,,,,,,,,
+2026-03-28T20:00,Brasil,Taça do Nordeste,Maranhao,Ferroviario,1.95,3,3.2,,,,,,,,
+2026-03-28T20:00,Brasil,Taça do Nordeste,Retro,Ceara,3.75,3.1,1.78,,,,,,,,
+2026-03-26T22:00,Brasil,Taça do Nordeste,Sousa,Confianca,2.55,2.87,2.37,,,,,,,,
+2026-03-25T22:30,Brasil,Taça do Nordeste,Fluminense-PI,Juazeirense,2.2,3,2.7,,,,,,,,
+2026-03-25T22:30,Brasil,Taça do Nordeste,Itabaiana,CRB,3.1,2.87,2.05,,,,,,,,
+2026-03-25T22:30,Brasil,Taça do Nordeste,Vitoria,Botafogo PB,1.44,4,5,,,,,,,,
+2026-03-25T22:00,Brasil,Taça do Nordeste,America-RN,Maranhao,1.66,3.2,4.1,,,,,,,,
+2026-03-25T22:00,Brasil,Taça do Nordeste,Ceara,ABC,1.39,3.8,6,,,,,,,,
+2026-03-25T00:30,Brasil,Taça do Nordeste,Ferroviario,Fortaleza,5.5,3.7,1.44,,,,,,,,
+2026-03-25T00:30,Brasil,Taça do Nordeste,Sport Recife,Jacuipense,1.47,3.6,5.25,,,,,,,,
+2026-06-03T19:00,Portugal,Taça Next Gen sub-23,Santa Clara U23,Gil Vicente U23,3.1,3.2,1.93,,,,,1,2,1,2
+2026-03-30T21:00,Chile,Liga de Ascenso,Magallanes,Rangers,1.85,3.1,3.4,,,,,3,2,3,2
+2026-03-29T21:00,Chile,Liga de Ascenso,Cobreloa,San Felipe,1.51,3.7,4.6,,,,,2,0,2,0
+2026-03-29T15:00,Chile,Liga de Ascenso,Antofagasta,Deportes Iquique,1.95,3.1,3.1,,,,,4,0,4,0
+2026-03-28T21:00,Chile,Liga de Ascenso,D. Puerto Montt,S. Wanderers,1.8,3.1,3.6,,,,,0,2,0,2
+2026-03-28T15:00,Chile,Liga de Ascenso,Arica,U. Espanola,1.98,3,3.1,,,,,2,0,2,0
+2026-03-23T23:30,Chile,Liga de Ascenso,Cobreloa,Magallanes,1.68,3.25,4,,,,,1,1,1,1
+2026-03-22T23:30,Chile,Liga de Ascenso,Deportes Temuco,San Luis,2.3,2.87,2.65,,,,,1,1,1,1
+2026-03-21T23:30,Chile,Liga de Ascenso,CD Santa Cruz,Curico Unido,2.2,2.9,2.75,,,,,4,2,4,2
+2026-03-20T23:30,Chile,Liga de Ascenso,U. Espanola,D. Puerto Montt,1.95,2.95,3.25,,,,,2,1,2,1
+2026-03-16T23:30,Chile,Liga de Ascenso,Arica,S. Wanderers,2,3,3,,,,,0,0,0,0
+2026-03-15T23:30,Chile,Liga de Ascenso,D. Puerto Montt,CD Santa Cruz,1.73,3.1,3.9,,,,,2,0,2,0
+2026-03-14T23:30,Chile,Liga de Ascenso,San Luis,Copiapo,2.1,2.85,2.95,,,,,2,2,2,2
+2026-03-13T23:30,Chile,Liga de Ascenso,Deportes Iquique,Cobreloa,2.1,3.1,2.75,,,,,1,2,1,2
+2026-03-09T23:30,Chile,Liga de Ascenso,Copiapo,Deportes Temuco,1.82,3,3.6,,,,,1,1,1,1
+2026-03-08T23:30,Chile,Liga de Ascenso,Rangers,San Luis,2.35,2.9,2.6,,,,,1,1,1,1
+2026-03-07T23:30,Chile,Liga de Ascenso,Deportes Iquique,Arica,1.98,3,3.1,,,,,0,0,0,0
+2026-03-02T23:30,Chile,Liga de Ascenso,San Luis,Curico Unido,2.2,2.75,2.9,,,,,1,1,1,1
+2026-03-01T23:30,Chile,Liga de Ascenso,Deportes Temuco,Deportes Iquique,2.7,2.7,2.37,,,,,1,1,1,1
+2026-02-28T23:30,Chile,Liga de Ascenso,Copiapo,Rangers,1.82,3.1,3.6,,,,,2,0,2,0
+2026-02-23T23:30,Chile,Liga de Ascenso,Curico Unido,Magallanes,2.05,2.95,3.1,,,,,1,2,1,2
+2026-02-27T23:30,Chile,Liga de Ascenso,CD Santa Cruz,Cobreloa,2.25,2.95,2.7,,,,,0,0,0,0
+2026-02-21T23:30,Chile,Liga de Ascenso,Deportes Iquique,San Felipe,1.78,3.1,3.6,,,,,5,0,5,0
+2026-02-22T23:30,Chile,Liga de Ascenso,D. Puerto Montt,Copiapo,2.05,2.95,3,,,,,2,0,2,0
+2026-02-20T23:00,Chile,Liga de Ascenso,Arica,CD Santa Cruz,1.83,3,3.6,,,,,1,1,1,1
+2026-09-27T17:45,Chile,Taça Chile - Playoffs,Everton,U. De Chile,2.65,3.25,2.1,,,,,0,1,0,1
+2026-02-07T23:30,Chile,Copa Chile,Arica,Deportes Iquique,2.37,3.1,2.4,,,,,0,0,0,0
+2026-02-07T23:00,Chile,Copa Chile,San Luis,Copiapo,2.2,3,2.7,,,,,1,1,1,1
+2026-02-01T23:30,Chile,Copa Chile,Curico Unido,Rangers,1.9,3,3.3,,,,,0,1,0,1
+2026-01-31T23:00,Chile,Copa Chile,CD Santa Cruz,Magallanes,2.45,3,2.4,,,,,4,1,4,1
+2026-01-31T23:30,Chile,Copa Chile,Deportes Iquique,Arica,1.77,3.25,3.5,,,,,4,0,4,0
+2026-01-31T23:00,Chile,Copa Chile,Copiapo,San Luis,1.68,3.2,4,,,,,1,0,1,0
+2026-11-06T17:30,ALEMANHA,2. Bundesliga,Braunschweig,Cottbus,1.8,3.5,3.2,,,,,0,0,0,0
+2026-11-06T17:30,ALEMANHA,2. Bundesliga,Dresden,Furth,1.87,3.3,3.1,,,,,3,0,3,0
+2026-11-06T18:00,ALEMANHA,3. Liga,Viktoria Koln,Saarbrucken,1.75,3.5,3.3,,,,,5,3,5,3
+2026-11-06T17:30,ALEMANHA,Bundesliga - Feminina,Bayern F,Bremen F,1.18,6.25,8,,,,,3,1,3,1
+2026-11-06T17:30,ALEMANHA,Bundesliga - Feminina,Eintracht Frankfurt F,Wolfsburg F,3.4,3.6,1.72,,,,,1,3,1,3
+2026-11-06T19:30,ALEMANHA,Bundesliga,Hamburger SV,Monchengladbach,2.25,3.4,2.85,,,,,3,1,3,1
+2026-11-06T19:45,FRANÇA,Liga 1,Toulouse,Strasbourg,2.1,3.4,3.1,,,,,3,1,3,1
+2026-11-06T19:45,ITÁLIA,Série A,Venezia,Udinese,2.35,3.2,2.85,,,,,2,1,2,1
+2026-11-06T20:45,PORTUGAL,Liga Portugal Betclic,Famalicão,Arouca,2.6,3,2.9,,,,,1,0,1,0
+2026-11-06T18:45,PORTUGAL,Liga Portugal 2,AFS,Vizela,2.6,3,2.25,,,,,2,2,2,2
+2026-11-06T20:00,ESPANHA,LaLiga,Sevilla,Alaves,1.93,3.1,4,,,,,0,0,0,0
+2026-11-06T20:00,INGLATERRA,Premier League,Everton,Coventry,1.63,3.9,4.5,,,,,3,1,3,1
+2026-11-06T18:00,ARGENTINA,Liga Profesional - Encerramento,Barracas Central,Racing Club,2.45,2.9,2.45,,,,,2,0,2,0
+2026-11-06T22:15,ARGENTINA,Liga Profesional - Encerramento,San Lorenzo,Platense,2.5,2.75,2.5,,,,,0,2,0,2
+2026-11-06T22:15,ARGENTINA,Liga Profesional - Encerramento,Independiente,Dep. Riestra,1.61,3,5,,,,,2,1,2,1
+2026-11-06T22:15,ARGENTINA,Liga Profesional - Encerramento,Union Santa Fe,Velez Sarsfield,2.45,3,2.37,,,,,2,0,2,0
+2026-11-06T14:00,ARGENTINA,Primeira A Feminina - Encerramento,Huracan F,Racing Club F,7.75,4.4,1.28,,,,,2,2,2,2
+2026-11-06T17:00,ARGENTINA,Primeira A Feminina - Encerramento,Independiente F,San Lorenzo F,6.75,4.33,1.31,,,,,1,5,1,5
+2026-11-06T18:00,ARGENTINA,Primeira A Feminina - Encerramento,Belgrano F,Newells Old Boys F,1.18,5.25,10,,,,,1,0,1,0
+2026-11-06T18:00,ARGENTINA,Primeira A Feminina - Encerramento,River Plate F,Gimnasia L.P. F,1.75,3.2,3.75,,,,,2,1,2,1
+2026-11-06T18:00,ARGENTINA,Primeira A Feminina - Encerramento,San Luis F,Ferro F,2.1,2.9,2.9,,,,,0,2,0,2
+2026-11-06T08:40,AUSTRÁLIA,Liga A,Sydney FC,Central Coast Mariners,1.49,3.75,4.6,,,,,4,1,4,1
+2026-11-06T17:30,ÁUSTRIA,Segunda Liga,Amstetten,Innsbruck,1.73,3.3,3.6,,,,,2,3,2,3
+2026-11-06T17:30,ÁUSTRIA,Segunda Liga,Áustria (Am),First Vienna,4,3.3,1.68,,,,,1,1,1,1
+2026-11-06T17:30,ÁUSTRIA,Segunda Liga,Liefering,A. Salzburg,2.5,3.4,2.15,,,,,4,1,4,1
+2026-11-06T19:30,ÁUSTRIA,Segunda Liga,Admira,St. Polten,2.6,3.25,2.15,,,,,2,2,2,2
+2026-11-06T19:00,BÉLGICA,Segunda Liga,Genk U23,Gent U23,2.1,3.3,2.65,,,,,1,1,1,1
+2026-11-06T19:00,BÉLGICA,Segunda Liga,Hasselt,Patro Eisden,2.05,3.3,2.75,,,,,1,2,1,2
+2026-11-06T19:00,BÉLGICA,Superliga Feminina,Genk F,RSC Anderlecht F,6.25,4.5,1.32,,,,,0,2,0,2
+2026-11-06T15:00,BIELORRÚSSIA,Liga Superior,Gomel,Arsenal Dzerzhinsk,1.5,3.5,5,,,,,2,0,2,0
+2026-11-06T23:00,BRASIL,Série A,Vitoria,Fluminense,3.1,3.2,2.25,,,,,0,3,0,3
+2026-11-06T17:15,BULGÁRIA,Liga Parva,Botev Plovdiv,Dunav Ruse,1.34,4.2,6.25,,,,,1,1,1,1
+2026-11-06T15:00,BULGÁRIA,Liga Parva,Septemvri Sofia,Lok. Sofia,2.8,3.1,2.1,,,,,1,0,1,0
+2026-11-06T14:15,CATAR,Primeira Liga,Al Arabi,Al Ahli Doha,1.95,3.4,2.85,,,,,2,2,2,2
+2026-11-06T16:30,CATAR,Primeira Liga,Al Wakrah,Al Shahaniya,1.68,3.6,3.5,,,,,0,3,0,3
+2026-11-06T17:00,CHIPRE,Primeira Liga,AEK Larnaca,Karmiotissa,1.2,5.5,8.5,,,,,4,1,4,1
+2026-11-06T17:00,CHIPRE,Primeira Liga,Nea Salamis,Omonia Aradippou,2.05,3,2.95,,,,,3,2,3,2
+2026-11-06T23:00,COLÔMBIA,Primeira A - Encerramento,Chico,Inter Bogotá,2.7,3,2.2,,,,,2,1,2,1
+2026-11-06T21:00,COLÔMBIA,Primeira B - Encerramento - Quadrangular,Boca Juniors,Envigado,3.2,2.85,2.05,,,,,1,0,1,0
+2026-11-06T02:00,COSTA RICA,Primeira Divisão - Abertura,Herediano,Saprissa,2.95,3,2.05,,,,,0,2,0,2
+2026-11-06T17:00,CROÁCIA,Primeira Liga,Lok. Zagreb,Rudes,1.93,3.1,3.1,,,,,0,1,0,1
+2026-11-06T13:00,CROÁCIA,Prva NL,Din. Zagreb 2,Jadran LP,2.75,3.1,2.15,,,,,0,1,0,1
+2026-11-06T13:00,CROÁCIA,Prva NL,Sesvete,Bijelo Brdo,2.05,2.8,3.2,,,,,4,1,4,1
+2026-11-06T16:00,CROÁCIA,Prva NL,Karlovac,Vukovar 1991,1.75,3.1,3.8,,,,,1,4,1,4
+2026-11-06T18:00,DINAMARCA,Superliga,Silkeborg,Lyngby,2.15,3.2,2.6,,,,,1,0,1,0
+2026-11-06T17:00,DINAMARCA,Primeira Divisão,Vejle,Fredericia,2.4,3.2,2.35,,,,,1,0,1,0
+2026-11-06T18:00,DINAMARCA,Primeira Divisão,AB Copenhagen,Vendsyssel,1.7,3.3,3.75,,,,,3,0,3,0
+2026-11-06T18:00,DINAMARCA,Primeira Divisão,Koge,Aalborg,3,3.2,1.95,,,,,1,1,1,1
+2026-11-06T12:30,EGIPTO,Taça do Egipto,Smouha,El Minya,1.22,5,8.5,,,,,2,0,2,0
+2026-11-06T15:00,EGIPTO,Taça do Egipto,Enppi,Proxy,1.35,4.1,6.5,,,,,3,2,3,2
+2026-11-06T18:00,EGIPTO,Taça do Egipto,Zamalek,Misr Insurance,1.1,7.75,12.5,,,,,3,2,3,2
+2026-11-06T19:30,ESCÓCIA,Championship,Raith,Dunfermline,2.5,2.8,2.3,,,,,0,0,0,0
+2026-11-06T16:30,ESLOVÉNIA,Primeira Liga,Nafta,O. Ljubljana,3.6,3.3,1.75,,,,,1,1,1,1
+2026-11-06T19:30,ESPANHA,LaLiga2,Castellon,Eibar,1.57,3.6,4.2,,,,,,,,
+2026-11-06T18:00,ESPANHA,Primeira RFEF - Grupo 1,Cacereno,Lugo,2.2,3,2.75,,,,,0,1,0,1
+2026-11-06T20:15,ESPANHA,Primeira RFEF - Grupo 1,Real Aviles,CD Extremadura,2.35,3.1,2.4,,,,,5,2,5,2
+2026-11-06T19:00,FRANÇA,Liga2,Boulogne,Annecy,2.05,2.85,3.1,,,,,3,0,3,0
+2026-11-06T19:00,FRANÇA,Liga2,Dijon,Red Star,2.45,3.2,2.3,,,,,1,0,1,0
+2026-11-06T19:00,FRANÇA,Liga2,Dunkerque,Guingamp,2.55,3.1,2.25,,,,,3,0,3,0
+2026-11-06T19:00,FRANÇA,Liga2,Grenoble,Reims,3.9,3.2,1.7,,,,,3,2,3,2
+2026-11-06T19:00,FRANÇA,Liga2,Montpellier,Metz,1.95,3.1,3.1,,,,,2,3,2,3
+2026-11-06T19:00,FRANÇA,Liga2,Nancy,Sochaux,1.55,3.5,4.5,,,,,1,0,1,0
+2026-11-06T18:00,FRANÇA,Primeira Liga Feminina,Nantes F,Toulouse F,1.85,3.25,3.2,,,,,1,1,1,1
+2026-11-06T18:00,FRANÇA,Primeira Liga Feminina,Paris FC F,Montpellier F,1.22,5,8.75,,,,,5,0,5,0
+2026-11-06T20:00,FRANÇA,Primeira Liga Feminina,PSG F,Le Havre F,1.11,7.25,13,,,,,4,0,4,0
+2026-11-06T01:30,HONDURAS,Liga Nacional - Abertura,Marathon,Platense,1.24,5,8.25,,,,,3,1,3,1
+2026-11-06T14:00,ÍNDIA,Superliga,Goa,Bengaluru FC,2.55,3,2.25,,,,,1,2,1,2
+2026-11-06T08:30,INDONÉSIA,Super League,PSIM Yogyakarta,Dewa United,3.6,3.4,1.71,,,,,1,2,1,2
+2026-11-06T12:00,INDONÉSIA,Super League,Madura United,Arema,1.9,3.3,3,,,,,3,0,3,0
+2026-11-06T13:00,INGLATERRA,Liga Sub23,Birmingham U21,West Ham U21,4.6,4.8,1.39,,,,,2,2,2,2
+2026-11-06T19:00,INGLATERRA,Liga Sub23,Brentford U21,Wolves U21,1.8,3.8,3,,,,,0,2,0,2
+2026-11-06T19:00,INGLATERRA,Liga Sub23,Nottingham U21,Leicester U21,2.05,3.5,2.55,,,,,2,2,2,2
+2026-11-06T19:00,INGLATERRA,Liga Sub23,Reading U21,Newcastle U21,2.35,3.4,2.25,,,,,1,1,1,1
+2026-11-06T19:00,INGLATERRA,Liga Sub23,Stoke U21,Fulham U21,3.1,3.8,1.75,,,,,1,4,1,4
+2026-11-06T19:00,INGLATERRA,Liga Sub23,Sunderland U21,Blackburn U21,1.36,4.8,4.8,,,,,1,2,1,2
+2026-11-06T12:00,IRÃO,Pro Liga,Aluminium Arak,Mes Shahr Babak,1.42,3.3,7.25,,,,,,,,
+2026-11-06T12:00,IRÃO,Pro Liga,Sepahan,Malavan,1.31,4,7.75,,,,,,,,
+2026-11-06T13:00,IRÃO,Pro Liga,Persepolis,Fajr Sepasi,1.29,3.4,15.5,,,,,,,,
+2026-11-06T14:00,IRÃO,Pro Liga,Chadormalu,Foolad,2.45,2.6,2.75,,,,,,,,
+2026-11-06T19:45,IRLANDA DO NORTE,Primeira Liga NIFL,Cliftonville,Larne,3.9,3.3,1.68,,,,,4,2,4,2
+2026-11-06T12:00,ISRAEL,Liga ha'Al,M. Tel Aviv,M. Petach Tikva,1.14,7,10,,,,,2,2,2,2
+2026-11-06T13:00,ISRAEL,Liga Leumit,Bnei Yehuda,M. Nazareth,1.23,5,8,,,,,2,1,2,1
+2026-11-06T13:00,ISRAEL,Liga Leumit,H. Ironi Rishon,H. Raanana,1.93,3.3,2.95,,,,,1,2,1,2
+2026-11-06T13:00,ISRAEL,Liga Leumit,Kiryat Yam,Ashdod,4.2,3.8,1.53,,,,,4,0,4,0
+2026-11-06T13:00,ISRAEL,Liga Leumit,Kiryat Gat,Maccabi Jaffa,1.88,3.3,3.1,,,,,2,1,2,1
+2026-11-06T13:00,ISRAEL,Liga Leumit,M. Herzliya,Hapoel Kfar Shalem,2.55,3.3,2.15,,,,,0,1,0,1
+2026-11-06T19:30,ITÁLIA,Série B,Ascoli,Palermo,2.7,3,2.15,,,,,1,1,1,1
+2026-11-06T19:30,ITÁLIA,Série C - Grupo A,Alcione Milano,Lumezzane,1.93,3.2,3,,,,,0,1,0,1
+2026-11-06T19:30,ITÁLIA,Série C - Grupo A,Brescia,Arzignano,1.43,3.8,5.5,,,,,3,2,3,2
+2026-11-06T14:00,JORDÂNIA,Primeira Liga,Al Jazeera Amman,Al Ramtha,2.45,2.87,2.45,,,,,0,1,0,1
+2026-11-06T14:25,KUWAIT,Primeira Liga,Al Fahaheel,Al Sulaibikhat,1.57,3.6,4.2,,,,,2,2,2,2
+2026-11-06T16:40,KUWAIT,Primeira Liga,Al-Shabab,Al Tadamon,2.55,3.2,2.2,,,,,1,3,1,3
+2026-11-06T12:00,MACEDÓNIA DO NORTE,Primeira Liga,Tikves,FK Skopje,1.19,5.5,9.5,,,,,1,0,1,0
+2026-11-06T20:00,MARROCOS,Botola Pro,Union Touarga,Amal Tiznit,1.78,2.9,3.9,,,,,0,2,0,2
+2026-11-06T17:00,MARROCOS,Botola Pro,Agadir,Berkane,3.6,3,1.85,,,,,2,2,2,2
+2026-11-06T01:00,MÉXICO,Liga de Expansion MX - Abertura - Playoffs,Cancun,Piratas,3,2.85,2.1,,,,,1,1,1,1
+2026-11-06T03:05,MÉXICO,Liga de Expansion MX - Abertura - Playoffs,Alacranes,Leones Negros,2.1,3,2.87,,,,,1,0,1,0
+2026-11-06T01:06,MÉXICO,Liga MX Feminina - Abertura,Queretaro F,Toluca F,4.6,4.33,1.43,,,,,1,1,1,1
+2026-11-06T03:10,MÉXICO,Liga MX Feminina - Abertura,Santos Laguna F,Tijuana F,2.8,3.4,1.95,,,,,4,2,4,2
+2026-11-06T23:00,MÉXICO,Liga MX Feminina - Abertura,Pachuca F,Puebla F,1.02,14.5,26,,,,,4,3,4,3
+2026-11-06T23:00,MÉXICO,Liga MX Feminina - Abertura,U.N.A.M. F,Atl. San Luis F,1.33,4.6,5.75,,,,,3,1,3,1
+2026-11-06T16:00,MONTENEGRO,Primeira Liga,Bokelj,Mornar,3.1,2.75,2.1,,,,,0,1,0,1
+2026-11-06T19:45,PAÍS DE GALES,Primeira Liga Cymru,Ammanford,Briton Ferry,5,3.9,1.44,,,,,3,1,3,1
+2026-11-06T19:45,PAÍS DE GALES,Primeira Liga Cymru,Cambrian United,Barry,2.75,3.3,2.05,,,,,3,3,3,3
+2026-11-06T19:45,PAÍS DE GALES,Primeira Liga Cymru,Haverfordwest,Cardiff Metropolitan,2.1,3.1,2.8,,,,,0,3,0,3
+2026-11-06T19:45,PAÍS DE GALES,Primeira Liga Cymru,Holywell,Airbus,6,4.75,1.31,,,,,2,3,2,3
+2026-11-06T19:45,PAÍS DE GALES,Primeira Liga Cymru,Llandudno,TNS,10,6.75,1.14,,,,,0,1,0,1
+2026-11-06T19:45,PAÍS DE GALES,Primeira Liga Cymru,Penybont,Caernarfon,2.2,3.2,2.6,,,,,2,0,2,0
+2026-11-06T19:45,PAÍS DE GALES,Primeira Liga Cymru,Trefelin,Colwyn Bay,7,4.6,1.29,,,,,1,2,1,2
+2026-11-06T20:00,PAÍS DE GALES,Primeira Liga Cymru,Connah's Q.,Flint,1.37,4.2,5.75,,,,,2,0,2,0
+2026-11-06T19:00,PAÍSES BAIXOS,Eredivisie,Willem II,Zwolle,2.6,3.1,2.2,,,,,1,1,1,1
+2026-11-06T19:00,PAÍSES BAIXOS,Primeira Divisão,Dordrecht,Breda,4.75,4,1.46,,,,,0,0,0,0
+2026-11-06T19:00,PAÍSES BAIXOS,Primeira Divisão,Eindhoven,Jong Ajax,2.35,3.5,2.25,,,,,0,3,0,3
+2026-11-06T19:00,PAÍSES BAIXOS,Primeira Divisão,Helmond,FC Volendam,2.45,3.5,2.1,,,,,2,3,2,3
+2026-11-06T19:00,PAÍSES BAIXOS,Primeira Divisão,Heracles,Roda,1.4,4.1,5.25,,,,,5,1,5,1
+2026-11-06T19:00,PAÍSES BAIXOS,Primeira Divisão,Jong AZ,Almere City,2.45,3.6,2.1,,,,,1,3,1,3
+2026-11-06T19:00,PAÍSES BAIXOS,Primeira Divisão,Oss,Waalwijk,3.7,3.5,1.66,,,,,1,1,1,1
+2026-11-06T19:00,PAÍSES BAIXOS,Primeira Divisão,Venlo,Jong PSV,1.61,3.8,3.7,,,,,1,1,1,1
+2026-11-06T20:00,PERU,Liga 1 - Encerramento,Grau,Cusco,2.25,3,2.4,,,,,3,0,3,0
+2026-11-06T17:00,POLÓNIA,Primeira Liga,Motor Lublin,Plock,1.85,3.25,3.2,,,,,3,2,3,2
+2026-11-06T19:30,POLÓNIA,Primeira Liga,Wisla,Cracovia,1.78,3.2,3.5,,,,,2,1,2,1
+2026-11-06T17:00,POLÓNIA,Liga 1,Puszcza,Legnica,2.65,3.1,2.15,,,,,1,1,1,1
+2026-11-06T19:30,POLÓNIA,Liga 1,Odra Opole,Skierniewice,1.9,3.2,3.1,,,,,3,5,3,5
+2026-11-06T19:00,PORTUGAL,Liga 3,UD Santarém,Mafra,3.1,3.25,1.9,,,,,2,1,2,1
+2026-11-06T20:00,PORTUGAL,Liga 3,CF Os Belenenses,Lusitano Évora,1.47,3.6,5.25,,,,,0,0,0,0
+2026-11-06T17:00,REPÚBLICA CHECA,Segunda Divisão,Dukla Praga,Pribram,1.78,3.25,3.4,,,,,1,0,1,0
+2026-11-06T17:00,REPÚBLICA CHECA,Segunda Divisão,Jihlava,Karvina,2.3,3.3,2.3,,,,,1,3,1,3
+2026-11-06T17:00,REPÚBLICA CHECA,Segunda Divisão,Opava,Vlasim,1.82,3.3,3.3,,,,,1,0,1,0
+2026-11-06T17:00,REPÚBLICA CHECA,Segunda Divisão,Usti n. L.,Zizkov,1.71,3.5,3.5,,,,,0,0,0,0
+2026-11-06T15:30,ROMÉNIA,Superliga,UTA Arad,Petrolul,1.75,3.25,3.7,,,,,0,1,0,1
+2026-11-06T18:30,ROMÉNIA,Superliga,FC Arges,Din. Bucuresti,4.5,3.5,1.57,,,,,2,1,2,1
+2026-11-06T18:00,SUÉCIA,Allsvenskan,Hammarby,Elfsborg,1.32,4.8,7,,,,,4,1,4,1
+2026-11-06T17:00,SUÉCIA,Allsvenskan - Feminino,Djurgarden F,Hacken F,7,5,1.26,,,,,1,1,1,1
+2026-11-06T18:30,SUIÇA,Segunda Liga,Kriens,Rapperswil-Jona,2.1,3.4,2.6,,,,,1,0,1,0
+2026-11-06T18:30,SUIÇA,Segunda Liga,Nyonnais,Lausanne Ouchy,6.5,4.5,1.3,,,,,1,5,1,5
+2026-11-06T19:15,SUIÇA,Segunda Liga,Aarau,Wil,1.75,3.4,3.5,,,,,0,3,0,3
+2026-11-06T12:00,TAILÂNDIA,Liga 1,Lamphun Warrior,Sukhothai,1.72,3.3,3.6,,,,,0,0,0,0
+2026-11-06T17:00,TURQUIA,Superliga,Gaziantep,Kasimpasa,2.2,3.4,2.65,,,,,0,2,0,2
+2026-11-06T17:00,TURQUIA,Liga 1,Antalyaspor,Bursaspor,3.7,3.3,1.71,,,,,1,1,1,1
+2026-11-06T17:00,TURQUIA,Liga 1,Sariyer,Igdir FK,2.3,2.95,2.6,,,,,1,1,1,1
+2026-11-06T11:00,UCRÂNIA,Primeira Liga,Obolon,Livyi Bereg,3.5,2.9,1.9,,,,,1,1,1,1
+2026-11-06T11:00,UCRÂNIA,Primeira Liga,Polissya Zhytomyr,Veres-Rivne,1.16,6.25,9.75,,,,,2,0,2,0
+2026-11-06T11:00,VIETNAME,Liga V,Hong Linh Ha Tinh,Nam Dinh,3.3,3.1,1.87,,,,,1,2,1,2
+2026-11-06T13:30,UZBEQUISTÃO,Superliga,Sogdiana,Din. Samarkand,2.1,3.25,2.65,,,,,1,3,1,3
+2026-11-06T11:00,VIETNAME,Liga V,Truong Tuoi Dong Nai,Da Nang,2.7,2.9,2.25,,,,,1,0,1,0
