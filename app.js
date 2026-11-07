@@ -399,10 +399,12 @@ const TEAM_METRIC_PAIRS=[
  ["yellowFor","hyellowFor","ayellowFor"],["yellowAgainst","hyellowAgainst","ayellowAgainst"],
  ["redFor","hredFor","aredFor"],["redAgainst","hredAgainst","aredAgainst"]
 ];
+const PERIOD_COVERAGE_LABELS=[["Golos 1.ª parte","htGoalsFor","htGoalsAgainst"],["Golos 2.ª parte","secondHalfGoalsFor","secondHalfGoalsAgainst"]];
 function enforcePairedTeamCoverage(){
  const home=$("homePick").value,away=$("awayPick").value;
  if(!home||!away)return "Seleciona as duas equipas para comparar a cobertura.";
  const labels={goalsFor:"Golos marcados",goalsAgainst:"Golos sofridos",htGoalsFor:"Golos marcados HT",htGoalsAgainst:"Golos sofridos HT",secondHalfGoalsFor:"Golos marcados ST",secondHalfGoalsAgainst:"Golos sofridos ST",cornersFor:"Cantos a favor",cornersAgainst:"Cantos concedidos",cornersHtFor:"Cantos HT a favor",cornersHtAgainst:"Cantos HT concedidos",cornersStFor:"Cantos ST a favor",cornersStAgainst:"Cantos ST concedidos",shotsFor:"Remates",shotsAgainst:"Remates concedidos",targetFor:"Remates à baliza",targetAgainst:"Remates à baliza concedidos",shotsOffTargetFor:"Remates fora",shotsOffTargetAgainst:"Remates fora concedidos",blockedShotsFor:"Remates bloqueados",blockedShotsAgainst:"Remates bloqueados sofridos",shotsInsideBoxFor:"Remates dentro da área",shotsInsideBoxAgainst:"Remates dentro da área sofridos",shotsOutsideBoxFor:"Remates fora da área",shotsOutsideBoxAgainst:"Remates fora da área sofridos",foulsFor:"Faltas cometidas",foulsAgainst:"Faltas sofridas",yellowFor:"Amarelos",yellowAgainst:"Amarelos do adversário",redFor:"Vermelhos",redAgainst:"Vermelhos do adversário"};
+ for(const [label,forKey,againstKey] of PERIOD_COVERAGE_LABELS){labels[forKey]=label+" — a favor";labels[againstKey]=label+" — sofridos";}
  const missing=[];
  for(const [metric] of TEAM_METRIC_PAIRS){
   const h=teamSample(home,"home",metric),a=teamSample(away,"away",metric),min=MetricCoverage.minimumFor(metric);
