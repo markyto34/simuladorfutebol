@@ -883,6 +883,7 @@ function setCountryCompetitions(preferred){
   leagueSelect.appendChild(option);
  });
  const allOptions=[...leagueSelect.querySelectorAll("option")];
+ leagueSelect.disabled=allOptions.length===0;
  if(preferred&&allOptions.some(option=>option.value===preferred))leagueSelect.value=preferred;
  else if(allOptions.length)leagueSelect.value=allOptions[0].value;
 }
