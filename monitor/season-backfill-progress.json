@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 139,
-  "processed_games": 125,
-  "stats_games": 125,
+  "processed_games": 139,
+  "stats_games": 139,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 126/139 · SIjVAfeL",
-  "last_result": "West Adelaide - Adelaide Comets: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:51:11.829Z"
+  "current_match": "Último concluído: Croydon - Para",
+  "last_result": "Croydon - Para: 2 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:51:25.916Z"
 }
