@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 83,
-  "processed_games": 75,
+  "processed_games": 83,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 76/83 · UBQ0coaD",
-  "last_result": "Launceston United U21 - Northern Rangers: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:20:49.233Z"
+  "current_match": "Último concluído: Somerset - Launceston United U21",
+  "last_result": "Somerset - Launceston United U21: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:20:57.227Z"
 }
