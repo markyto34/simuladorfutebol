@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 468,
-  "processed_games": 400,
-  "stats_games": 393,
+  "processed_games": 425,
+  "stats_games": 418,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 401/468 · WdK7lVVq",
-  "last_result": "CSR Espanol - Lugano: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:33:42.458Z"
+  "current_match": "Último concluído: General Lamadrid - Def. de Cambaceres",
+  "last_result": "General Lamadrid - Def. de Cambaceres: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:34:07.637Z"
 }
