@@ -47,13 +47,13 @@
     "/futebol/bahrain/primeira-liga/",
     "/futebol/bahrain/taca-do-rei/"
   ],
-  "competitions_completed": 56,
+  "competitions_completed": 57,
   "competitions_failed": 0,
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 143,
   "processed_games": 143,
   "stats_games": 141,
@@ -61,5 +61,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Kahibah - Lambton J.: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:41:43.343Z"
+  "updated_at": "2026-11-07T16:41:47.149Z"
 }
