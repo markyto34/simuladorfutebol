@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 648,
-  "processed_games": 175,
-  "stats_games": 175,
+  "processed_games": 200,
+  "stats_games": 200,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Deportivo Moron - San Miguel",
-  "last_result": "Deportivo Moron - San Miguel: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:38:16.460Z"
+  "current_match": "Último concluído: Nueva Chicago - Atletico Atlanta",
+  "last_result": "Nueva Chicago - Atletico Atlanta: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:38:41.753Z"
 }
