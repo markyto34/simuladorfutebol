@@ -17,13 +17,13 @@
     "/futebol/australia/npl-australia-ocidental/",
     "/futebol/australia/npl-finals-series/"
   ],
-  "competitions_completed": 8,
+  "competitions_completed": 9,
   "competitions_failed": 0,
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 2,
   "processed_games": 2,
   "stats_games": 0,
@@ -31,5 +31,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Sorrento - Fremantle City: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T12:10:44.277Z"
+  "updated_at": "2026-11-07T12:10:49.594Z"
 }
