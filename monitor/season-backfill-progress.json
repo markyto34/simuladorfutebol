@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 7,
-  "processed_games": 0,
+  "processed_games": 7,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-07T16:38:48.531Z"
+  "current_match": "Último concluído: Maitland - Devonport",
+  "last_result": "Maitland - Devonport: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:38:56.552Z"
 }
