@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 136,
-  "processed_games": 125,
-  "stats_games": 124,
+  "processed_games": 136,
+  "stats_games": 135,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Redlands - Broadbeach Utd.",
-  "last_result": "Redlands - Broadbeach Utd.: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:59:16.596Z"
+  "current_match": "Último concluído: Holland Park Hawks - Logan Lightning",
+  "last_result": "Holland Park Hawks - Logan Lightning: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:59:27.562Z"
 }
