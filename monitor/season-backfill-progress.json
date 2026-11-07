@@ -42,11 +42,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 194,
-  "processed_games": 25,
-  "stats_games": 25,
+  "processed_games": 50,
+  "stats_games": 49,
   "bwin_odds": 0,
-  "failed_games": 0,
-  "current_match": "Último concluído: México - Equador",
-  "last_result": "México - Equador: 16 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T13:28:22.009Z"
+  "failed_games": 1,
+  "current_match": "Último concluído: África do Sul - Coreia do Sul",
+  "last_result": "África do Sul - Coreia do Sul: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T13:29:09.214Z"
 }
