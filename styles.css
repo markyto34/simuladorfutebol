@@ -109,3 +109,6 @@ button,.reset{min-height:42px}
 .recent-match-stats b{color:#dce9df;font-variant-numeric:tabular-nums}
 .recent-empty{margin:5px 0;color:#91a198;font-size:10px;line-height:1.5}
 @media(max-width:700px){.recent-matches-grid{grid-template-columns:minmax(0,1fr)}.recent-matches-heading{align-items:flex-start;flex-direction:column}.recent-matches-heading>span{text-align:left}}
+
+/* O detalhe dos últimos jogos permanece disponível internamente, mas não ocupa o painel do simulador. */
+#recent-matches{display:none!important}
