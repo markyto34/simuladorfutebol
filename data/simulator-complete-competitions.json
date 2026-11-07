@@ -1,6 +1,1551 @@
 {
   "generated_from": "data/flashscore-statistics.csv",
-  "generated_at": "2026-11-07T12:25:48.300Z",
-  "definition": "Estado reiniciado; será reconstruído após nova recolha.",
-  "complete_competitions": []
+  "generated_at": "2026-11-07T13:59:29.324Z",
+  "definition": "At least 5 unique matches and at least one available paired indicator; missing values in individual matches or indicators do not disqualify the competition. Per-indicator coverage is reported.",
+  "core_metrics": [
+    "goals",
+    "goals_conceded",
+    "goals_ht",
+    "goals_st",
+    "corners",
+    "corners_ht",
+    "corners_st",
+    "shots",
+    "shots_on_target",
+    "shots_off_target",
+    "blocked_shots",
+    "shots_inside_box",
+    "shots_outside_box",
+    "fouls",
+    "yellow_cards",
+    "red_cards"
+  ],
+  "complete_competitions": [
+    {
+      "country_name": "África",
+      "competition_name": "Campeonato das Nações Africanas",
+      "stats_source_labels": [
+        "África / Campeonato das Nações Africanas"
+      ],
+      "unique_stats_matches": 36,
+      "complete_core": true,
+      "core_metrics": [
+        "goals",
+        "goals_conceded",
+        "goals_ht",
+        "goals_st",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "shots",
+        "shots_on_target",
+        "shots_off_target",
+        "blocked_shots",
+        "shots_inside_box",
+        "shots_outside_box",
+        "fouls",
+        "yellow_cards",
+        "red_cards"
+      ],
+      "metric_coverage": {
+        "goals": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "goals_conceded": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "goals_ht": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "goals_st": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "shots_off_target": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "blocked_shots": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "shots_inside_box": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "shots_outside_box": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 36,
+          "total": 36,
+          "pct": 100
+        },
+        "red_cards": {
+          "complete": 7,
+          "total": 36,
+          "pct": 19.44
+        }
+      }
+    },
+    {
+      "country_name": "África",
+      "competition_name": "Taça COSAFA",
+      "stats_source_labels": [
+        "África / Taça COSAFA"
+      ],
+      "unique_stats_matches": 18,
+      "complete_core": true,
+      "core_metrics": [
+        "goals",
+        "goals_conceded",
+        "goals_ht",
+        "goals_st",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "shots",
+        "shots_on_target",
+        "shots_off_target",
+        "blocked_shots",
+        "shots_inside_box",
+        "shots_outside_box",
+        "fouls",
+        "yellow_cards",
+        "red_cards"
+      ],
+      "metric_coverage": {
+        "goals": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "goals_conceded": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "goals_ht": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "goals_st": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "shots_off_target": {
+          "complete": 18,
+          "total": 18,
+          "pct": 100
+        },
+        "blocked_shots": {
+          "complete": 0,
+          "total": 18,
+          "pct": 0
+        },
+        "shots_inside_box": {
+          "complete": 0,
+          "total": 18,
+          "pct": 0
+        },
+        "shots_outside_box": {
+          "complete": 0,
+          "total": 18,
+          "pct": 0
+        },
+        "fouls": {
+          "complete": 0,
+          "total": 18,
+          "pct": 0
+        },
+        "yellow_cards": {
+          "complete": 16,
+          "total": 18,
+          "pct": 88.89
+        },
+        "red_cards": {
+          "complete": 2,
+          "total": 18,
+          "pct": 11.11
+        }
+      }
+    },
+    {
+      "country_name": "África do Sul",
+      "competition_name": "Primeira Liga",
+      "stats_source_labels": [
+        "África do Sul / Primeira Liga"
+      ],
+      "unique_stats_matches": 73,
+      "complete_core": true,
+      "core_metrics": [
+        "goals",
+        "goals_conceded",
+        "goals_ht",
+        "goals_st",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "shots",
+        "shots_on_target",
+        "shots_off_target",
+        "blocked_shots",
+        "shots_inside_box",
+        "shots_outside_box",
+        "fouls",
+        "yellow_cards",
+        "red_cards"
+      ],
+      "metric_coverage": {
+        "goals": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "goals_conceded": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "goals_ht": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "goals_st": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "shots_off_target": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "blocked_shots": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "shots_inside_box": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "shots_outside_box": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 69,
+          "total": 73,
+          "pct": 94.52
+        },
+        "red_cards": {
+          "complete": 9,
+          "total": 73,
+          "pct": 12.33
+        }
+      }
+    },
+    {
+      "country_name": "África do Sul",
+      "competition_name": "Segunda Liga",
+      "stats_source_labels": [
+        "África do Sul / Segunda Liga"
+      ],
+      "unique_stats_matches": 71,
+      "complete_core": true,
+      "core_metrics": [
+        "goals",
+        "goals_conceded",
+        "goals_ht",
+        "goals_st",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "shots",
+        "shots_on_target",
+        "shots_off_target",
+        "blocked_shots",
+        "shots_inside_box",
+        "shots_outside_box",
+        "fouls",
+        "yellow_cards",
+        "red_cards"
+      ],
+      "metric_coverage": {
+        "goals": {
+          "complete": 71,
+          "total": 71,
+          "pct": 100
+        },
+        "goals_conceded": {
+          "complete": 71,
+          "total": 71,
+          "pct": 100
+        },
+        "goals_ht": {
+          "complete": 67,
+          "total": 71,
+          "pct": 94.37
+        },
+        "goals_st": {
+          "complete": 67,
+          "total": 71,
+          "pct": 94.37
+        },
+        "corners": {
+          "complete": 0,
+          "total": 71,
+          "pct": 0
+        },
+        "corners_ht": {
+          "complete": 0,
+          "total": 71,
+          "pct": 0
+        },
+        "corners_st": {
+          "complete": 0,
+          "total": 71,
+          "pct": 0
+        },
+        "shots": {
+          "complete": 0,
+          "total": 71,
+          "pct": 0
+        },
+        "shots_on_target": {
+          "complete": 0,
+          "total": 71,
+          "pct": 0
+        },
+        "shots_off_target": {
+          "complete": 0,
+          "total": 71,
+          "pct": 0
+        },
+        "blocked_shots": {
+          "complete": 0,
+          "total": 71,
+          "pct": 0
+        },
+        "shots_inside_box": {
+          "complete": 0,
+          "total": 71,
+          "pct": 0
+        },
+        "shots_outside_box": {
+          "complete": 0,
+          "total": 71,
+          "pct": 0
+        },
+        "fouls": {
+          "complete": 0,
+          "total": 71,
+          "pct": 0
+        },
+        "yellow_cards": {
+          "complete": 0,
+          "total": 71,
+          "pct": 0
+        },
+        "red_cards": {
+          "complete": 0,
+          "total": 71,
+          "pct": 0
+        }
+      }
+    },
+    {
+      "country_name": "Alemanha",
+      "competition_name": "2. Bundesliga",
+      "stats_source_labels": [
+        "Alemanha / 2. Bundesliga"
+      ],
+      "unique_stats_matches": 92,
+      "complete_core": true,
+      "core_metrics": [
+        "goals",
+        "goals_conceded",
+        "goals_ht",
+        "goals_st",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "shots",
+        "shots_on_target",
+        "shots_off_target",
+        "blocked_shots",
+        "shots_inside_box",
+        "shots_outside_box",
+        "fouls",
+        "yellow_cards",
+        "red_cards"
+      ],
+      "metric_coverage": {
+        "goals": {
+          "complete": 92,
+          "total": 92,
+          "pct": 100
+        },
+        "goals_conceded": {
+          "complete": 92,
+          "total": 92,
+          "pct": 100
+        },
+        "goals_ht": {
+          "complete": 92,
+          "total": 92,
+          "pct": 100
+        },
+        "goals_st": {
+          "complete": 92,
+          "total": 92,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 92,
+          "total": 92,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 92,
+          "total": 92,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 92,
+          "total": 92,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 92,
+          "total": 92,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 92,
+          "total": 92,
+          "pct": 100
+        },
+        "shots_off_target": {
+          "complete": 92,
+          "total": 92,
+          "pct": 100
+        },
+        "blocked_shots": {
+          "complete": 92,
+          "total": 92,
+          "pct": 100
+        },
+        "shots_inside_box": {
+          "complete": 92,
+          "total": 92,
+          "pct": 100
+        },
+        "shots_outside_box": {
+          "complete": 92,
+          "total": 92,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 92,
+          "total": 92,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 91,
+          "total": 92,
+          "pct": 98.91
+        },
+        "red_cards": {
+          "complete": 13,
+          "total": 92,
+          "pct": 14.13
+        }
+      }
+    },
+    {
+      "country_name": "Alemanha",
+      "competition_name": "3. Liga",
+      "stats_source_labels": [
+        "Alemanha / 3. Liga"
+      ],
+      "unique_stats_matches": 121,
+      "complete_core": true,
+      "core_metrics": [
+        "goals",
+        "goals_conceded",
+        "goals_ht",
+        "goals_st",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "shots",
+        "shots_on_target",
+        "shots_off_target",
+        "blocked_shots",
+        "shots_inside_box",
+        "shots_outside_box",
+        "fouls",
+        "yellow_cards",
+        "red_cards"
+      ],
+      "metric_coverage": {
+        "goals": {
+          "complete": 121,
+          "total": 121,
+          "pct": 100
+        },
+        "goals_conceded": {
+          "complete": 121,
+          "total": 121,
+          "pct": 100
+        },
+        "goals_ht": {
+          "complete": 121,
+          "total": 121,
+          "pct": 100
+        },
+        "goals_st": {
+          "complete": 121,
+          "total": 121,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 121,
+          "total": 121,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 121,
+          "total": 121,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 121,
+          "total": 121,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 121,
+          "total": 121,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 121,
+          "total": 121,
+          "pct": 100
+        },
+        "shots_off_target": {
+          "complete": 121,
+          "total": 121,
+          "pct": 100
+        },
+        "blocked_shots": {
+          "complete": 112,
+          "total": 121,
+          "pct": 92.56
+        },
+        "shots_inside_box": {
+          "complete": 0,
+          "total": 121,
+          "pct": 0
+        },
+        "shots_outside_box": {
+          "complete": 0,
+          "total": 121,
+          "pct": 0
+        },
+        "fouls": {
+          "complete": 121,
+          "total": 121,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 121,
+          "total": 121,
+          "pct": 100
+        },
+        "red_cards": {
+          "complete": 25,
+          "total": 121,
+          "pct": 20.66
+        }
+      }
+    },
+    {
+      "country_name": "Alemanha",
+      "competition_name": "Bundesliga",
+      "stats_source_labels": [
+        "Alemanha / Bundesliga"
+      ],
+      "unique_stats_matches": 73,
+      "complete_core": true,
+      "core_metrics": [
+        "goals",
+        "goals_conceded",
+        "goals_ht",
+        "goals_st",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "shots",
+        "shots_on_target",
+        "shots_off_target",
+        "blocked_shots",
+        "shots_inside_box",
+        "shots_outside_box",
+        "fouls",
+        "yellow_cards",
+        "red_cards"
+      ],
+      "metric_coverage": {
+        "goals": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "goals_conceded": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "goals_ht": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "goals_st": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "shots_off_target": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "blocked_shots": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "shots_inside_box": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "shots_outside_box": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 73,
+          "total": 73,
+          "pct": 100
+        },
+        "red_cards": {
+          "complete": 9,
+          "total": 73,
+          "pct": 12.33
+        }
+      }
+    },
+    {
+      "country_name": "Alemanha",
+      "competition_name": "Bundesliga - Feminina",
+      "stats_source_labels": [
+        "Alemanha / Bundesliga - Feminina"
+      ],
+      "unique_stats_matches": 59,
+      "complete_core": true,
+      "core_metrics": [
+        "goals",
+        "goals_conceded",
+        "goals_ht",
+        "goals_st",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "shots",
+        "shots_on_target",
+        "shots_off_target",
+        "blocked_shots",
+        "shots_inside_box",
+        "shots_outside_box",
+        "fouls",
+        "yellow_cards",
+        "red_cards"
+      ],
+      "metric_coverage": {
+        "goals": {
+          "complete": 59,
+          "total": 59,
+          "pct": 100
+        },
+        "goals_conceded": {
+          "complete": 59,
+          "total": 59,
+          "pct": 100
+        },
+        "goals_ht": {
+          "complete": 59,
+          "total": 59,
+          "pct": 100
+        },
+        "goals_st": {
+          "complete": 59,
+          "total": 59,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 59,
+          "total": 59,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 59,
+          "total": 59,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 59,
+          "total": 59,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 59,
+          "total": 59,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 59,
+          "total": 59,
+          "pct": 100
+        },
+        "shots_off_target": {
+          "complete": 59,
+          "total": 59,
+          "pct": 100
+        },
+        "blocked_shots": {
+          "complete": 59,
+          "total": 59,
+          "pct": 100
+        },
+        "shots_inside_box": {
+          "complete": 59,
+          "total": 59,
+          "pct": 100
+        },
+        "shots_outside_box": {
+          "complete": 59,
+          "total": 59,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 59,
+          "total": 59,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 57,
+          "total": 59,
+          "pct": 96.61
+        },
+        "red_cards": {
+          "complete": 9,
+          "total": 59,
+          "pct": 15.25
+        }
+      }
+    },
+    {
+      "country_name": "Alemanha",
+      "competition_name": "Taça da Alemanha",
+      "stats_source_labels": [
+        "Alemanha / Taça da Alemanha"
+      ],
+      "unique_stats_matches": 47,
+      "complete_core": true,
+      "core_metrics": [
+        "goals",
+        "goals_conceded",
+        "goals_ht",
+        "goals_st",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "shots",
+        "shots_on_target",
+        "shots_off_target",
+        "blocked_shots",
+        "shots_inside_box",
+        "shots_outside_box",
+        "fouls",
+        "yellow_cards",
+        "red_cards"
+      ],
+      "metric_coverage": {
+        "goals": {
+          "complete": 47,
+          "total": 47,
+          "pct": 100
+        },
+        "goals_conceded": {
+          "complete": 47,
+          "total": 47,
+          "pct": 100
+        },
+        "goals_ht": {
+          "complete": 47,
+          "total": 47,
+          "pct": 100
+        },
+        "goals_st": {
+          "complete": 47,
+          "total": 47,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 47,
+          "total": 47,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 47,
+          "total": 47,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 47,
+          "total": 47,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 47,
+          "total": 47,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 47,
+          "total": 47,
+          "pct": 100
+        },
+        "shots_off_target": {
+          "complete": 47,
+          "total": 47,
+          "pct": 100
+        },
+        "blocked_shots": {
+          "complete": 47,
+          "total": 47,
+          "pct": 100
+        },
+        "shots_inside_box": {
+          "complete": 47,
+          "total": 47,
+          "pct": 100
+        },
+        "shots_outside_box": {
+          "complete": 47,
+          "total": 47,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 47,
+          "total": 47,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 44,
+          "total": 47,
+          "pct": 93.62
+        },
+        "red_cards": {
+          "complete": 5,
+          "total": 47,
+          "pct": 10.64
+        }
+      }
+    },
+    {
+      "country_name": "América do Norte e Central",
+      "competition_name": "Campeonato do mundo",
+      "stats_source_labels": [
+        "América do Norte e Central / Campeonato do mundo"
+      ],
+      "unique_stats_matches": 66,
+      "complete_core": true,
+      "core_metrics": [
+        "goals",
+        "goals_conceded",
+        "goals_ht",
+        "goals_st",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "shots",
+        "shots_on_target",
+        "shots_off_target",
+        "blocked_shots",
+        "shots_inside_box",
+        "shots_outside_box",
+        "fouls",
+        "yellow_cards",
+        "red_cards"
+      ],
+      "metric_coverage": {
+        "goals": {
+          "complete": 66,
+          "total": 66,
+          "pct": 100
+        },
+        "goals_conceded": {
+          "complete": 66,
+          "total": 66,
+          "pct": 100
+        },
+        "goals_ht": {
+          "complete": 66,
+          "total": 66,
+          "pct": 100
+        },
+        "goals_st": {
+          "complete": 66,
+          "total": 66,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 66,
+          "total": 66,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 66,
+          "total": 66,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 66,
+          "total": 66,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 66,
+          "total": 66,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 66,
+          "total": 66,
+          "pct": 100
+        },
+        "shots_off_target": {
+          "complete": 66,
+          "total": 66,
+          "pct": 100
+        },
+        "blocked_shots": {
+          "complete": 66,
+          "total": 66,
+          "pct": 100
+        },
+        "shots_inside_box": {
+          "complete": 66,
+          "total": 66,
+          "pct": 100
+        },
+        "shots_outside_box": {
+          "complete": 66,
+          "total": 66,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 66,
+          "total": 66,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 58,
+          "total": 66,
+          "pct": 87.88
+        },
+        "red_cards": {
+          "complete": 6,
+          "total": 66,
+          "pct": 9.09
+        }
+      }
+    },
+    {
+      "country_name": "América do Norte e Central",
+      "competition_name": "CONCACAF Liga dos Campeões",
+      "stats_source_labels": [
+        "América do Norte e Central / CONCACAF Liga dos Campeões"
+      ],
+      "unique_stats_matches": 49,
+      "complete_core": true,
+      "core_metrics": [
+        "goals",
+        "goals_conceded",
+        "goals_ht",
+        "goals_st",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "shots",
+        "shots_on_target",
+        "shots_off_target",
+        "blocked_shots",
+        "shots_inside_box",
+        "shots_outside_box",
+        "fouls",
+        "yellow_cards",
+        "red_cards"
+      ],
+      "metric_coverage": {
+        "goals": {
+          "complete": 49,
+          "total": 49,
+          "pct": 100
+        },
+        "goals_conceded": {
+          "complete": 49,
+          "total": 49,
+          "pct": 100
+        },
+        "goals_ht": {
+          "complete": 49,
+          "total": 49,
+          "pct": 100
+        },
+        "goals_st": {
+          "complete": 49,
+          "total": 49,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 49,
+          "total": 49,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 49,
+          "total": 49,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 49,
+          "total": 49,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 49,
+          "total": 49,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 49,
+          "total": 49,
+          "pct": 100
+        },
+        "shots_off_target": {
+          "complete": 49,
+          "total": 49,
+          "pct": 100
+        },
+        "blocked_shots": {
+          "complete": 49,
+          "total": 49,
+          "pct": 100
+        },
+        "shots_inside_box": {
+          "complete": 49,
+          "total": 49,
+          "pct": 100
+        },
+        "shots_outside_box": {
+          "complete": 49,
+          "total": 49,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 49,
+          "total": 49,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 44,
+          "total": 49,
+          "pct": 89.8
+        },
+        "red_cards": {
+          "complete": 8,
+          "total": 49,
+          "pct": 16.33
+        }
+      }
+    },
+    {
+      "country_name": "América do Norte e Central",
+      "competition_name": "Liga CONCACAF",
+      "stats_source_labels": [
+        "América do Norte e Central / Liga CONCACAF"
+      ],
+      "unique_stats_matches": 41,
+      "complete_core": true,
+      "core_metrics": [
+        "goals",
+        "goals_conceded",
+        "goals_ht",
+        "goals_st",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "shots",
+        "shots_on_target",
+        "shots_off_target",
+        "blocked_shots",
+        "shots_inside_box",
+        "shots_outside_box",
+        "fouls",
+        "yellow_cards",
+        "red_cards"
+      ],
+      "metric_coverage": {
+        "goals": {
+          "complete": 41,
+          "total": 41,
+          "pct": 100
+        },
+        "goals_conceded": {
+          "complete": 41,
+          "total": 41,
+          "pct": 100
+        },
+        "goals_ht": {
+          "complete": 41,
+          "total": 41,
+          "pct": 100
+        },
+        "goals_st": {
+          "complete": 41,
+          "total": 41,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 13,
+          "total": 41,
+          "pct": 31.71
+        },
+        "corners_ht": {
+          "complete": 13,
+          "total": 41,
+          "pct": 31.71
+        },
+        "corners_st": {
+          "complete": 13,
+          "total": 41,
+          "pct": 31.71
+        },
+        "shots": {
+          "complete": 13,
+          "total": 41,
+          "pct": 31.71
+        },
+        "shots_on_target": {
+          "complete": 13,
+          "total": 41,
+          "pct": 31.71
+        },
+        "shots_off_target": {
+          "complete": 13,
+          "total": 41,
+          "pct": 31.71
+        },
+        "blocked_shots": {
+          "complete": 0,
+          "total": 41,
+          "pct": 0
+        },
+        "shots_inside_box": {
+          "complete": 0,
+          "total": 41,
+          "pct": 0
+        },
+        "shots_outside_box": {
+          "complete": 0,
+          "total": 41,
+          "pct": 0
+        },
+        "fouls": {
+          "complete": 13,
+          "total": 41,
+          "pct": 31.71
+        },
+        "yellow_cards": {
+          "complete": 12,
+          "total": 41,
+          "pct": 29.27
+        },
+        "red_cards": {
+          "complete": 2,
+          "total": 41,
+          "pct": 4.88
+        }
+      }
+    },
+    {
+      "country_name": "América do Norte e Central",
+      "competition_name": "Taça Centro-Americana da CONCACAF",
+      "stats_source_labels": [
+        "América do Norte e Central / Taça Centro-Americana da CONCACAF"
+      ],
+      "unique_stats_matches": 40,
+      "complete_core": true,
+      "core_metrics": [
+        "goals",
+        "goals_conceded",
+        "goals_ht",
+        "goals_st",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "shots",
+        "shots_on_target",
+        "shots_off_target",
+        "blocked_shots",
+        "shots_inside_box",
+        "shots_outside_box",
+        "fouls",
+        "yellow_cards",
+        "red_cards"
+      ],
+      "metric_coverage": {
+        "goals": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "goals_conceded": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "goals_ht": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "goals_st": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "shots_off_target": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "blocked_shots": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "shots_inside_box": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "shots_outside_box": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 40,
+          "total": 40,
+          "pct": 100
+        },
+        "red_cards": {
+          "complete": 11,
+          "total": 40,
+          "pct": 27.5
+        }
+      }
+    },
+    {
+      "country_name": "América do Norte e Central",
+      "competition_name": "Taça das Ligas",
+      "stats_source_labels": [
+        "América do Norte e Central / Taça das Ligas"
+      ],
+      "unique_stats_matches": 45,
+      "complete_core": true,
+      "core_metrics": [
+        "goals",
+        "goals_conceded",
+        "goals_ht",
+        "goals_st",
+        "corners",
+        "corners_ht",
+        "corners_st",
+        "shots",
+        "shots_on_target",
+        "shots_off_target",
+        "blocked_shots",
+        "shots_inside_box",
+        "shots_outside_box",
+        "fouls",
+        "yellow_cards",
+        "red_cards"
+      ],
+      "metric_coverage": {
+        "goals": {
+          "complete": 45,
+          "total": 45,
+          "pct": 100
+        },
+        "goals_conceded": {
+          "complete": 45,
+          "total": 45,
+          "pct": 100
+        },
+        "goals_ht": {
+          "complete": 45,
+          "total": 45,
+          "pct": 100
+        },
+        "goals_st": {
+          "complete": 45,
+          "total": 45,
+          "pct": 100
+        },
+        "corners": {
+          "complete": 45,
+          "total": 45,
+          "pct": 100
+        },
+        "corners_ht": {
+          "complete": 45,
+          "total": 45,
+          "pct": 100
+        },
+        "corners_st": {
+          "complete": 45,
+          "total": 45,
+          "pct": 100
+        },
+        "shots": {
+          "complete": 45,
+          "total": 45,
+          "pct": 100
+        },
+        "shots_on_target": {
+          "complete": 45,
+          "total": 45,
+          "pct": 100
+        },
+        "shots_off_target": {
+          "complete": 45,
+          "total": 45,
+          "pct": 100
+        },
+        "blocked_shots": {
+          "complete": 45,
+          "total": 45,
+          "pct": 100
+        },
+        "shots_inside_box": {
+          "complete": 45,
+          "total": 45,
+          "pct": 100
+        },
+        "shots_outside_box": {
+          "complete": 45,
+          "total": 45,
+          "pct": 100
+        },
+        "fouls": {
+          "complete": 45,
+          "total": 45,
+          "pct": 100
+        },
+        "yellow_cards": {
+          "complete": 43,
+          "total": 45,
+          "pct": 95.56
+        },
+        "red_cards": {
+          "complete": 3,
+          "total": 45,
+          "pct": 6.67
+        }
+      }
+    }
+  ]
 }
