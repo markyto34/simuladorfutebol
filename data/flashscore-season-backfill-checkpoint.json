@@ -72,11 +72,12 @@
     "/futebol/australia/liga-a-feminina/",
     "/futebol/australia/liga-a/",
     "/futebol/australia/liga-estadual-do-norte-de-nsw/",
-    "/futebol/australia/npl-act/"
+    "/futebol/australia/npl-act/",
+    "/futebol/australia/npl-australia-ocidental/"
   ],
-  "updated_at": "2026-11-07T12:10:20.679Z",
+  "updated_at": "2026-11-07T12:10:46.303Z",
   "completed_paths_reset_version": 1,
-  "last_completed_path": "/futebol/australia/npl-act/",
+  "last_completed_path": "/futebol/australia/npl-australia-ocidental/",
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
     "/futebol/arabia-saudita/super-taca/",
