@@ -50,7 +50,8 @@ jobs:
           node --check scripts/select-flashscore-backfill-paths.mjs
           node --check scripts/collect-flashscore-csv.mjs
           node --check scripts/publish-flashscore-backfill-progress.mjs
-          node --test tests/discover-flashscore-season.test.mjs tests/select-flashscore-backfill-paths.test.mjs
+          node --check scripts/validate-flashscore-selected-competition.mjs
+          node --test tests/discover-flashscore-season.test.mjs tests/select-flashscore-backfill-paths.test.mjs tests/validate-flashscore-selected-competition.test.mjs
       - name: Preparar competições selecionadas ainda pendentes
         env:
           COMPETITION_PATH: ${{ inputs.competition_path }}
@@ -65,7 +66,7 @@ jobs:
             node scripts/select-flashscore-backfill-paths.mjs
           echo "Lista selecionada pelo catálogo + seleção ativa + checkpoint:"
           cat /tmp/flashscore-season-paths.txt
-      - name: Descobrir épocas e recolher estatísticas + odds Bwin
+      - name: Descobrir épocas e recolher estatísticas dos indicadores do simulador
         env:
           FLASHSCORE_SEASON_PAGE_DELAY_MS: "1500"
           FLASHSCORE_REQUEST_DELAY_MS: "1000"
@@ -146,7 +147,6 @@ jobs:
             local competition_path="$1"
             local mark_completed="$2"
             node scripts/validate-flashscore-history.mjs || return 1
-            node scripts/integrate-flashscore-odds-history.mjs || return 1
             if [[ "$mark_completed" == "true" ]]; then
               node --input-type=module - "$competition_path" <<'NODE'
           import fs from "node:fs";
@@ -165,7 +165,7 @@ jobs:
           NODE
             fi
             node scripts/build-flashscore-competition-status.mjs || return 1
-            git add data/flashscore-statistics.csv data/bwin-odds-flashscore.csv data/flashscore-season-backfill-checkpoint.json data/flashscore-competition-status.json
+            git add data/flashscore-statistics.csv data/flashscore-season-backfill-checkpoint.json data/flashscore-competition-status.json
             if ! git diff --cached --quiet; then
               git commit -m "Checkpoint Flashscore: $competition_path" || return 1
               push_with_retry || return 1
@@ -208,7 +208,8 @@ jobs:
               FLASHSCORE_BACKFILL_COMPLETED="$completed" \
               FLASHSCORE_BACKFILL_FAILURES="$failures" \
               FLASHSCORE_BACKFILL_FAILED_PATHS_JSON="$(node -e 'console.log(JSON.stringify(process.argv.slice(1)))' "${failed_paths[@]}")" \
-              node scripts/collect-flashscore-csv.mjs --team-last-five="$manifest" >>"$log" 2>&1; then
+              node scripts/collect-flashscore-csv.mjs --stats-only --team-last-five="$manifest" >>"$log" 2>&1 && \
+              node scripts/validate-flashscore-selected-competition.mjs "$manifest" >>"$log" 2>&1; then
               cat "$log"
               collect_success=true
             else
