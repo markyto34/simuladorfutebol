@@ -38,11 +38,12 @@
     "/futebol/arabia-saudita/taca-do-rei/",
     "/futebol/argelia/1-divisao/",
     "/futebol/argelia/taca-da-argelia/",
+    "/futebol/argentina/liga-profesional/",
     "/futebol/asia/afc-liga-dos-campeoes/"
   ],
-  "updated_at": "2026-11-07T10:29:37.813Z",
+  "updated_at": "2026-11-07T10:30:10.160Z",
   "completed_paths_reset_version": 1,
-  "last_completed_path": "/futebol/argelia/taca-da-argelia/",
+  "last_completed_path": "/futebol/argentina/liga-profesional/",
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
     "/futebol/arabia-saudita/super-taca/"
