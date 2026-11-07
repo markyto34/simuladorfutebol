@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 187,
-  "processed_games": 150,
-  "stats_games": 150,
+  "processed_games": 175,
+  "stats_games": 175,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Oakleigh - George Cross",
-  "last_result": "Oakleigh - George Cross: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:56:14.863Z"
+  "current_match": "Último concluído: Bentleigh - Avondale FC",
+  "last_result": "Bentleigh - Avondale FC: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:56:39.815Z"
 }
