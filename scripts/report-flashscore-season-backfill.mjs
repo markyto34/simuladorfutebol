@@ -63,6 +63,10 @@ const report = {
   job_status_at_report: process.env.BACKFILL_JOB_STATUS || "unknown",
   scope: "snapshot de todo o CSV estatístico atual; não representa apenas os registos acrescentados nesta execução",
   csv_rows: rows.length,
+  flashscore_consulted_records: rows.filter(row => row.source === "Flashscore" && row.match_id).length,
+  records_with_ft_score: rows.filter(row => present(row, ["score_home", "score_away"])).length,
+  records_with_ht_score: rows.filter(row => present(row, ["ht_home", "ht_away"])).length,
+  records_with_second_half_score: rows.filter(row => present(row, ["sh_home", "sh_away"])).length,
   competitions_count: competitions.length,
   indicators: totals,
   competitions
@@ -74,6 +78,8 @@ summary.push("## Relatório compacto — backfill Flashscore");
 summary.push("");
 summary.push(`- Execução: ${report.run_id || "—"} (${report.job_status_at_report})`);
 summary.push(`- Registos estatísticos no CSV: **${report.csv_rows}**`);
+summary.push(`- Consultas Flashscore guardadas: **${report.flashscore_consulted_records}**`);
+summary.push(`- Resultados FT / HT / segunda parte: **${report.records_with_ft_score} / ${report.records_with_ht_score} / ${report.records_with_second_half_score}**`);
 summary.push(`- Competições presentes no CSV: **${report.competitions_count}**`);
 summary.push("- Âmbito: fotografia do CSV completo, não apenas dos jogos acrescentados nesta execução.");
 summary.push("");
