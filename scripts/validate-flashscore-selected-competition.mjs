@@ -5,8 +5,9 @@ import { parseCsv } from "./validate-flashscore-history.mjs";
 
 /**
  * Uma competição fica consultada quando existe um registo Flashscore válido
- * para cada jogo do manifesto. A cobertura dos indicadores é informativa:
- * campos vazios significam "não disponibilizado", nunca zero nem erro técnico.
+ * para cada jogo elegível. Jogos sem resultado FT confirmado são excluídos
+ * explicitamente do manifesto de validação. Campos estatísticos vazios significam
+ * "não disponibilizado", nunca zero nem erro técnico.
  */
 export function validateSelectedCompetition({ manifest, rows }) {
   const fixtures = Array.isArray(manifest?.fixtures) ? manifest.fixtures : [];
