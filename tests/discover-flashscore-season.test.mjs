@@ -7,8 +7,8 @@ test("descobre a época atual e pagina resultados Flashscore", async () => {
   const html = [
     '<script>window.environment = {"sport_id":1,"selected_season_id":0,"season_list":[{"name":"2026/2027","pathname":"/standings/AbCd1234/EfGh5678/"}],"stages_group":{"stages":[{"countryId":174}]}};</script>',
     "<script>cjs.initialFeeds['results'] = {",
-    " data: " + tick + "ZA÷ENGLAND: Premier League¬~ZEE÷TmPl1234¬~AA÷match001¬AD÷1790000000¬AB÷3¬AE÷Home FC¬AF÷Away FC¬~" + tick + ","
-    " allEventsCount: 2,",
+    " data: " + tick + "ZA÷ENGLAND: Premier League¬~ZEE÷TmPl1234¬~AA÷match001¬AD÷1790000000¬AB÷3¬AE÷Home FC¬AF÷Away FC¬~" + tick + ",",
+    " allEventsCount: 2,"
     " seasonId: 2026",
     "}</script>"
   ].join("\n");
