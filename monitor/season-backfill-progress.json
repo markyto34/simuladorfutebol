@@ -37,14 +37,14 @@
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 67,
   "processed_games": 67,
   "stats_games": 67,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: East Bengal (Ind) - Al Arabi (Kuw)",
+  "current_match": "Recolha terminada",
   "last_result": "East Bengal (Ind) - Al Arabi (Kuw): 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:09:40.308Z"
+  "updated_at": "2026-11-07T16:09:41.459Z"
 }
