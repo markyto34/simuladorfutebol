@@ -28,11 +28,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 1,
-  "processed_games": 0,
+  "processed_games": 1,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-07T10:05:18.320Z"
+  "current_match": "Último concluído: Saoura - Ben Aknoun",
+  "last_result": "Saoura - Ben Aknoun: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T10:05:21.181Z"
 }
