@@ -18,17 +18,18 @@
     "/futebol/andorra/primeira-divisao/"
   ],
   "competitions_completed": 0,
-  "competitions_failed": 4,
+  "competitions_failed": 5,
   "failed_competitions": [
     "/futebol/america-do-norte-e-central/copa-centro-americana-da-concacaf/",
     "/futebol/america-do-norte-e-central/liga-concacaf/",
     "/futebol/america-do-norte-e-central/taca-das-ligas/",
-    "/futebol/america-do-sul/campeonato-do-mundo/"
+    "/futebol/america-do-sul/campeonato-do-mundo/",
+    "/futebol/america-do-sul/campeonato-sul-americano-sub-20/"
   ],
   "blocked": false,
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
+  "status": "running",
+  "phase": "saving",
   "total_games": 20,
   "processed_games": 20,
   "stats_games": 20,
@@ -36,5 +37,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Peru U20 - Paraguai U20: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T08:23:59.239Z"
+  "updated_at": "2026-11-07T08:24:01.459Z"
 }
