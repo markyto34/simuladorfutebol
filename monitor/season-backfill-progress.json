@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 247,
-  "processed_games": 75,
-  "stats_games": 74,
+  "processed_games": 100,
+  "stats_games": 99,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Wollongong Wolves - St. George City",
-  "last_result": "Wollongong Wolves - St. George City: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:43:17.892Z"
+  "current_match": "A consultar jogo 101/247 · lluMs9GD",
+  "last_result": "Sutherland - Blacktown City: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:43:43.106Z"
 }
