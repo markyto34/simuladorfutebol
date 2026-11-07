@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source_run_id": "42183404135",
-  "note": "Competições em skipped_paths não disponibilizaram contexto de época utilizável no Flashscore; não foram inventados jogos nem estatísticas.",
+  "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
   "completed_paths": [
     "/futebol/africa-do-sul/primeira-liga/",
     "/futebol/africa-do-sul/segunda-liga/",
@@ -45,11 +45,12 @@
     "/futebol/argentina/super-taca/",
     "/futebol/argentina/taca-da-argentina/",
     "/futebol/argentina/taca-da-liga-profissional/",
+    "/futebol/argentina/torneio-federal/",
     "/futebol/asia/afc-liga-dos-campeoes/"
   ],
-  "updated_at": "2026-11-07T10:53:23.940Z",
+  "updated_at": "2026-11-07T10:53:58.899Z",
   "completed_paths_reset_version": 1,
-  "last_completed_path": "/futebol/argentina/taca-da-liga-profissional/",
+  "last_completed_path": "/futebol/argentina/torneio-federal/",
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
     "/futebol/arabia-saudita/super-taca/",
