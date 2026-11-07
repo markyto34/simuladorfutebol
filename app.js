@@ -65,7 +65,7 @@ function simulate(){
    const periodPoisson=lambda=>{const limit=Math.exp(-Math.max(0,lambda));let k=0,p=1;do{k++;p*=periodRandom()}while(p>limit);return k-1;};
    const htScores={},ftScores={};
    let htHomeSum=0,htAwaySum=0,stHomeSum=0,stAwaySum=0,ftHomeSum=0,ftAwaySum=0;
-   let htOver05=0,stOver05=0,stOver15=0,stBtts=0,ftOver15=0,ftOver25=0,ftOver35=0,ftBtts=0,ftHomeWins=0,ftDraws=0,ftAwayWins=0;
+   let htOver05=0,htHomeWins=0,htDraws=0,htAwayWins=0,stOver05=0,stOver15=0,stBtts=0,ftOver15=0,ftOver25=0,ftOver35=0,ftBtts=0,ftHomeWins=0,ftDraws=0,ftAwayWins=0;
    home=0;draw=0;away=0;g15=0;g25=0;g35=0;btts=0;sumG=0;sumHG=0;sumAG=0;scoreMap={};
    for(let i=0;i<N;i++){
     const hh=periodPoisson(hht),ha=periodPoisson(aht),sh=periodPoisson(hsh),sa=periodPoisson(ash);
@@ -73,6 +73,7 @@ function simulate(){
     htHomeSum+=hh;htAwaySum+=ha;stHomeSum+=sh;stAwaySum+=sa;ftHomeSum+=fh;ftAwaySum+=fa;
     const htKey=hh+"-"+ha,ftKey=fh+"-"+fa;
     htScores[htKey]=(htScores[htKey]||0)+1;ftScores[ftKey]=(ftScores[ftKey]||0)+1;scoreMap[ftKey]=(scoreMap[ftKey]||0)+1;
+    if(hh>ha)htHomeWins++;else if(hh===ha)htDraws++;else htAwayWins++;
     if(htTotal>=1)htOver05++;if(stTotal>=1)stOver05++;if(stTotal>=2)stOver15++;if(sh>0&&sa>0)stBtts++;
     if(ftTotal>=2)ftOver15++;if(ftTotal>=3)ftOver25++;if(ftTotal>=4)ftOver35++;
     if(fh>0&&fa>0)ftBtts++;
@@ -84,8 +85,8 @@ function simulate(){
    const scoreList=map=>topScores(map).map(([score,count])=>'<span class="period-score">'+score+' <b>'+pct(count)+'</b></span>').join("");
    const htModal=topScores(htScores)[0]?.[0]||"—",ftModal=topScores(ftScores)[0]?.[0]||"—";
    periodPredictionHtml='<div class="period-prediction-grid">'+
-    '<section><h4>Resultado ao intervalo (HT)</h4><strong class="period-main-score">'+htModal+'</strong><p>Média prevista: '+(htHomeSum/N).toFixed(2)+' – '+(htAwaySum/N).toFixed(2)+'</p><div class="period-score-list">'+scoreList(htScores)+'</div><div class="line-item"><span>Over 0,5 HT</span><b>'+pct(htOver05)+'</b></div></section>'+
-    '<section><h4>Golos na segunda parte (ST)</h4><strong class="period-main-score">'+(stHomeSum/N).toFixed(2)+' – '+(stAwaySum/N).toFixed(2)+'</strong><p>Média prevista: '+(stHomeSum/N).toFixed(2)+' – '+(stAwaySum/N).toFixed(2)+'</p><div class="line-item"><span>Over 0,5 ST</span><b>'+pct(stOver05)+'</b></div><div class="line-item"><span>Over 1,5 ST</span><b>'+pct(stOver15)+'</b></div><div class="line-item"><span>Ambas marcam ST</span><b>'+pct(stBtts)+'</b></div></section>'+
+    '<section><h4>Resultado ao intervalo (HT)</h4><strong class="period-main-score">'+htModal+'</strong><p>Média de golos HT — Casa: <b>'+(htHomeSum/N).toFixed(2)+'</b> | Fora: <b>'+(htAwaySum/N).toFixed(2)+'</b></p><div class="line-item"><span>Casa vence HT (1)</span><b>'+pct(htHomeWins)+'</b></div><div class="line-item"><span>Empate HT (X)</span><b>'+pct(htDraws)+'</b></div><div class="line-item"><span>Fora vence HT (2)</span><b>'+pct(htAwayWins)+'</b></div><div class="period-score-list">'+scoreList(htScores)+'</div><div class="line-item"><span>Over 0,5 HT</span><b>'+pct(htOver05)+'</b></div></section>'+
+    '<section><h4>Golos na segunda parte (ST)</h4><strong class="period-main-score">'+(stHomeSum/N).toFixed(2)+' – '+(stAwaySum/N).toFixed(2)+'</strong><p>Média de golos ST — Casa: <b>'+(stHomeSum/N).toFixed(2)+'</b> | Fora: <b>'+(stAwaySum/N).toFixed(2)+'</b></p><div class="line-item"><span>Over 0,5 ST</span><b>'+pct(stOver05)+'</b></div><div class="line-item"><span>Over 1,5 ST</span><b>'+pct(stOver15)+'</b></div><div class="line-item"><span>Ambas marcam ST</span><b>'+pct(stBtts)+'</b></div></section>'+
     '<section><h4>Resultado final (FT)</h4><strong class="period-main-score">'+ftModal+'</strong><p>Média prevista: '+(ftHomeSum/N).toFixed(2)+' – '+(ftAwaySum/N).toFixed(2)+'</p><div class="period-score-list">'+scoreList(ftScores)+'</div><div class="line-item"><span>Over 1,5 FT</span><b>'+pct(ftOver15)+'</b></div><div class="line-item"><span>Over 2,5 FT</span><b>'+pct(ftOver25)+'</b></div><div class="line-item"><span>Over 3,5 FT</span><b>'+pct(ftOver35)+'</b></div><div class="line-item"><span>Ambas marcam FT</span><b>'+pct(ftBtts)+'</b></div></section></div>';
    ht05=htOver05;sh05=stOver05;sh15=stOver15;shBtts=stBtts;
   }
