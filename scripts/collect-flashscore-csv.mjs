@@ -110,7 +110,7 @@ async function readRows(path) {
   try { return parseCsv(await readFile(path, "utf8")); }
   catch (error) { if (error.code === "ENOENT") return []; throw error; }
 }
-function statisticsRow(record) {
+// 0 é uma observação válida; null/ausente permanece vazio (desconhecido), nunca zero.\nexport function statisticsRow(record) {
   const row = {
     match_id: record.match_id,
     date_time: record.date_time_iso_local || record.date_time || "",
