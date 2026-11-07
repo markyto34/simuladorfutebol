@@ -85,7 +85,8 @@
     "/futebol/austria/liga-regional-oeste/",
     "/futebol/austria/liga-regional-play-offs/",
     "/futebol/austria/primeira-liga/",
-    "/futebol/austria/segunda-liga/"
+    "/futebol/austria/segunda-liga/",
+    "/futebol/austria/taca-ofb/"
   ],
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
@@ -94,7 +95,7 @@
     "/futebol/australia-e-oceania/ofc-pro-league/"
   ],
   "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
-  "updated_at": "2026-11-07T17:13:04.699Z",
-  "last_completed_path": "/futebol/austria/segunda-liga/",
+  "updated_at": "2026-11-07T17:14:20.640Z",
+  "last_completed_path": "/futebol/austria/taca-ofb/",
   "last_skipped_path": "/futebol/australia-e-oceania/ofc-pro-league/"
 }
