@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 648,
-  "processed_games": 575,
-  "stats_games": 574,
+  "processed_games": 600,
+  "stats_games": 599,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Almagro - Quilmes",
-  "last_result": "Almagro - Quilmes: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:45:12.883Z"
+  "current_match": "Último concluído: San Martin Tucuman - Deportivo Maipu",
+  "last_result": "San Martin Tucuman - Deportivo Maipu: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:45:38.054Z"
 }
