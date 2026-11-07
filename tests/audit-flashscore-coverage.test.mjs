@@ -91,3 +91,11 @@ test("identifica séries sem as fundir", () => {
  assert.equal(b.division_or_group,"Série B");
  assert.equal(report.competition_count,2);
 });
+
+test("aceita CSV vazio durante o reset e gera cobertura vazia", () => {
+  const report = buildFlashscoreCoverage([]);
+  assert.equal(report.source_rows, 0);
+  assert.equal(report.unique_match_ids, 0);
+  assert.equal(report.competition_count, 0);
+  assert.deepEqual(report.competitions, []);
+});
