@@ -32,13 +32,13 @@
     "/futebol/asia/afc-liga-dos-campeoes-2/",
     "/futebol/asia/afc-liga-dos-campeoes/"
   ],
-  "competitions_completed": 22,
+  "competitions_completed": 23,
   "competitions_failed": 0,
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 648,
   "processed_games": 648,
   "stats_games": 647,
@@ -46,5 +46,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "San Miguel - Central Norte: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:46:29.219Z"
+  "updated_at": "2026-11-07T15:46:35.743Z"
 }
