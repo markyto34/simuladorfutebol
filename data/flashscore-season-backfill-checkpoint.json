@@ -29,13 +29,14 @@
     "/futebol/andorra/primeira-divisao/",
     "/futebol/andorra/super-taca/",
     "/futebol/angola/girabola/",
-    "/futebol/angola/supertaca/"
+    "/futebol/angola/supertaca/",
+    "/futebol/antigua-barbuda/primeira-liga/"
   ],
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/"
   ],
   "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
-  "updated_at": "2026-11-07T15:03:53.325Z",
-  "last_completed_path": "/futebol/angola/supertaca/",
+  "updated_at": "2026-11-07T15:04:19.481Z",
+  "last_completed_path": "/futebol/antigua-barbuda/primeira-liga/",
   "last_skipped_path": "/futebol/america-do-sul/serie-rio-de-la-plata/"
 }
