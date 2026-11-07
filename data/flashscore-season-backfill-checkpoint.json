@@ -7,10 +7,11 @@
     "/futebol/africa/caf-taca-das-confederacoes/",
     "/futebol/africa/campeonato-das-nacoes-africanas/",
     "/futebol/africa/taca-cosafa/",
-    "/futebol/africa/taca-das-nacoes-africanas/"
+    "/futebol/africa/taca-das-nacoes-africanas/",
+    "/futebol/albania/super-liga/"
   ],
   "skipped_paths": [],
   "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
-  "updated_at": "2026-11-07T13:16:37.851Z",
-  "last_completed_path": "/futebol/africa/taca-das-nacoes-africanas/"
+  "updated_at": "2026-11-07T13:17:46.364Z",
+  "last_completed_path": "/futebol/albania/super-liga/"
 }
