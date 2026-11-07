@@ -27,11 +27,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 42,
-  "processed_games": 25,
+  "processed_games": 42,
   "stats_games": 14,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Real Espana (Hon) - Cartagines (Cos)",
-  "last_result": "Real Espana (Hon) - Cartagines (Cos): 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T08:54:21.536Z"
+  "current_match": "Último concluído: Waterhouse (Jam) - Pacific FC (Can)",
+  "last_result": "Waterhouse (Jam) - Pacific FC (Can): 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T08:54:38.586Z"
 }
