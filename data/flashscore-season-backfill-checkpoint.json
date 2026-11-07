@@ -34,15 +34,17 @@
     "/futebol/angola/supertaca/",
     "/futebol/antigua-barbuda/primeira-liga/",
     "/futebol/arabia-saudita/primeira-liga/",
+    "/futebol/arabia-saudita/super-taca/",
     "/futebol/arabia-saudita/taca-do-rei/",
     "/futebol/argelia/1-divisao/",
     "/futebol/asia/afc-liga-dos-campeoes/"
   ],
-  "updated_at": "2026-11-07T10:28:15.512Z",
+  "updated_at": "2026-11-07T10:28:22.564Z",
   "completed_paths_reset_version": 1,
   "last_completed_path": "/futebol/argelia/1-divisao/",
   "skipped_paths": [
-    "/futebol/america-do-sul/serie-rio-de-la-plata/"
+    "/futebol/america-do-sul/serie-rio-de-la-plata/",
+    "/futebol/arabia-saudita/super-taca/"
   ],
-  "last_skipped_path": "/futebol/america-do-sul/serie-rio-de-la-plata/"
+  "last_skipped_path": "/futebol/arabia-saudita/super-taca/"
 }
