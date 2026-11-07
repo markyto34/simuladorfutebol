@@ -32,13 +32,13 @@
     "/futebol/australia/npl-sul/",
     "/futebol/australia/npl-tasmania/"
   ],
-  "competitions_completed": 11,
+  "competitions_completed": 12,
   "competitions_failed": 0,
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 0,
   "processed_games": 0,
   "stats_games": 0,
@@ -46,5 +46,5 @@
   "failed_games": 0,
   "current_match": "Sem jogos pendentes",
   "last_result": "",
-  "updated_at": "2026-11-07T10:59:37.993Z"
+  "updated_at": "2026-11-07T10:59:41.938Z"
 }
