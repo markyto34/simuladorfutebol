@@ -113,9 +113,13 @@ function normalizeFlashscoreMatch(r){
  const hg=sourceNum(r,["score_home"]),ag=sourceNum(r,["score_away"]);
  const home=sourceVal(r,["home_team"]),away=sourceVal(r,["away_team"]);
  if(!home||!away||hg===null||ag===null)return null;
+ const htHome=sourceNum(r,["ht_home"]),htAway=sourceNum(r,["ht_away"]);
+ const rawShHome=sourceNum(r,["sh_home"]),rawShAway=sourceNum(r,["sh_away"]);
+ const derive=window.FootballDataEnrichment?.deriveSecondHalfGoals;
  return {date:sourceDate(sourceVal(r,["date_time"])),home,away,hg,ag,
-  htHome:sourceNum(r,["ht_home"]),htAway:sourceNum(r,["ht_away"]),
-  shHome:sourceNum(r,["sh_home"]),shAway:sourceNum(r,["sh_away"]),
+  htHome,htAway,
+  shHome:rawShHome!==null?rawShHome:(derive?derive(hg,htHome):null),
+  shAway:rawShAway!==null?rawShAway:(derive?derive(ag,htAway):null),
   hc:sourceNum(r,["corners_home"]),ac:sourceNum(r,["corners_away"]),
   homeShots:sourceNum(r,["shots_home"]),awayShots:sourceNum(r,["shots_away"]),
   homeTarget:sourceNum(r,["shots_on_target_home"]),awayTarget:sourceNum(r,["shots_on_target_away"]),
