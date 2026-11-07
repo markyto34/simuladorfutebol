@@ -47,7 +47,7 @@
     "/futebol/bahrain/primeira-liga/",
     "/futebol/bahrain/taca-do-rei/"
   ],
-  "competitions_completed": 69,
+  "competitions_completed": 70,
   "competitions_failed": 1,
   "failed_competitions": [
     "/futebol/australia/taca-da-australia/"
@@ -55,7 +55,7 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 56,
   "processed_games": 56,
   "stats_games": 55,
@@ -63,5 +63,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Wieselburg - Tirol: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T17:14:19.209Z"
+  "updated_at": "2026-11-07T17:14:23.278Z"
 }
