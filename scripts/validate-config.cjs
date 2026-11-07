@@ -20,12 +20,20 @@ if (mapStart < 0 || mapEnd < 0) {
   if (!leagueSelect) fail("Seletor de competições não encontrado.");
   else {
     const options = [...leagueSelect[1].matchAll(/<option value="([^"]+)"/g)].map(m => m[1]);
-    const missing = options.filter(id => !mapped.has(id));
-    const extra = [...mapped].filter(id => !options.includes(id));
-    if (missing.length) fail("Competições sem slug WDW: " + missing.join(", "));
-    if (extra.length) fail("Slugs WDW sem opção correspondente: " + extra.join(", "));
-    if (options.length !== 65) fail("Esperadas 65 competições; encontradas " + options.length + ".");
-    if (!missing.length && !extra.length) console.log("OK: " + options.length + " competições têm mapeamento WDW.");
+    if (options.length === 0) {
+      if (!/<option value="" disabled selected>A carregar competições…<\/option>/.test(leagueSelect[1])) {
+        fail("O seletor deve iniciar vazio e carregar as competições dinamicamente.");
+      } else {
+        console.log("OK: seletor sem lista estática; as competições são carregadas dinamicamente.");
+      }
+    } else {
+      const missing = options.filter(id => !mapped.has(id));
+      const extra = [...mapped].filter(id => !options.includes(id));
+      if (missing.length) fail("Competições sem slug WDW: " + missing.join(", "));
+      if (extra.length) fail("Slugs WDW sem opção correspondente: " + extra.join(", "));
+      if (options.length !== 65) fail("Esperadas 65 competições; encontradas " + options.length + ".");
+      if (!missing.length && !extra.length) console.log("OK: " + options.length + " competições têm mapeamento WDW.");
+    }
   }
 }
 if (!/windrawwinProxyUrl:\s*"https:\/\//.test(config)) fail("URL HTTPS do proxy não configurado em config.js.");
