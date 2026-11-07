@@ -25,11 +25,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 2,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 2,
+  "stats_games": 2,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-07T12:07:55.484Z"
+  "current_match": "Último concluído: Auckland FC - Wellington Phoenix",
+  "last_result": "Auckland FC - Wellington Phoenix: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T12:07:58.563Z"
 }
