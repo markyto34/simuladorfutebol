@@ -32,13 +32,13 @@
     "/futebol/asia/afc-liga-dos-campeoes-2/",
     "/futebol/asia/afc-liga-dos-campeoes/"
   ],
-  "competitions_completed": 10,
+  "competitions_completed": 11,
   "competitions_failed": 0,
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 1,
   "processed_games": 1,
   "stats_games": 1,
@@ -46,5 +46,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Inter Escaldes - Atletic Escaldes: 10 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:02:02.038Z"
+  "updated_at": "2026-11-07T15:02:05.874Z"
 }
