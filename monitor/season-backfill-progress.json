@@ -46,11 +46,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 42,
-  "processed_games": 25,
+  "processed_games": 42,
   "stats_games": 13,
   "bwin_odds": 0,
-  "failed_games": 0,
-  "current_match": "Último concluído: Verdes (Blz) - Alianza FC (Sal)",
-  "last_result": "Verdes (Blz) - Alianza FC (Sal): 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T13:45:20.451Z"
+  "failed_games": 1,
+  "current_match": "Último erro: Mco9lY2h",
+  "last_result": "Falha em Mco9lY2h: Falha ao recolher Mco9lY2h: HTTP 503",
+  "updated_at": "2026-11-07T13:45:53.468Z"
 }
