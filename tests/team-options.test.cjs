@@ -7,7 +7,7 @@ const source = fs.readFileSync(require("node:path").join(__dirname, "../app.js")
 const start = source.indexOf("function teamOptionsForSeason(matches){");
 const end = source.indexOf("async function loadHistoricalData", start);
 assert.ok(start >= 0 && end > start, "A lista de equipas da época carregada deve existir.");
-const helper = source.slice(start, source.indexOf("\n}", start) + 2);
+const helper = source.slice(start, source.indexOf("\\n}", start) + 2);
 const context = {};
 vm.createContext(context);
 vm.runInContext(helper + ";this.selectTeams=teamOptionsForSeason;", context);
@@ -26,19 +26,12 @@ test("A seleção não filtra equipas por completude global do jogo", () => {
  assert.ok(!body.includes("completeMatches"));
  assert.ok(!body.includes("isComplete"));
 });
-test("A época atual combina equipas da fonte principal com o índice WDW", () => {
- assert.ok(source.includes("async function loadWdwLeagueTeams(leagueId)"));
- assert.ok(source.includes("wdwTeams.map(x=>x.name)"));
- assert.ok(source.includes("if(!matches.length&&!teams.length)"));
- assert.ok(source.includes('status.textContent="Dados carregados. "+teams.length+" equipas disponíveis.'));
- assert.ok(!source.includes("Sem resultados Open Matchday"));
-});
-test("O carregamento usa a lista de equipas da fonte principal e do índice WDW", () => {
+test("O carregamento histórico aceita exclusivamente competições Flashscore", () => {
  const loadStart=source.indexOf("async function loadHistoricalData()");
- const loadEnd=source.indexOf("function sameFixtureIdentity(",loadStart);
+ const loadEnd=source.indexOf("\\nfunction teamSample(",loadStart);
  const loader=source.slice(loadStart,loadEnd);
- assert.ok(loader.includes("loadWdwLeagueTeams(league)"));
- assert.ok(loader.includes("primaryTeams,...wdwTeams.map"));
- assert.ok(loader.includes("dataState.matches=matches"));
+ assert.ok(loader.includes('if(!league.startsWith("FS|"))'));
+ assert.ok(loader.includes("fetchSourceCSV(FLASHSCORE_STATS_CSV_URL)"));
  assert.ok(loader.includes("teamOptionsForSeason(matches)"));
+ assert.ok(!/windrawwin|wdw|open-matchday/i.test(loader));
 });
