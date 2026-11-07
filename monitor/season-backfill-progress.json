@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 29,
-  "processed_games": 25,
-  "stats_games": 25,
+  "processed_games": 29,
+  "stats_games": 29,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Tailândia U23 - Quirguistão U23",
-  "last_result": "Tailândia U23 - Quirguistão U23: 10 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:12:59.560Z"
+  "current_match": "Último concluído: Uzbequistão U23 - Filipinas U23",
+  "last_result": "Uzbequistão U23 - Filipinas U23: 11 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:13:03.511Z"
 }
