@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 504,
-  "processed_games": 225,
-  "stats_games": 218,
+  "processed_games": 250,
+  "stats_games": 241,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Argentino MM - Biblioteca Atenas",
-  "last_result": "Argentino MM - Biblioteca Atenas: 1 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:56:29.266Z"
+  "current_match": "Último concluído: Guillermo Brown - Circulo Deportivo",
+  "last_result": "Guillermo Brown - Circulo Deportivo: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:56:54.426Z"
 }
