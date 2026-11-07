@@ -2,8 +2,8 @@
   "run_id": "42365820533",
   "run_number": "17",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/argentina/torneios-de-verao/",
-  "competition_index": 4,
+  "current_competition_path": "/futebol/armenia/primeira-liga/",
+  "competition_index": 5,
   "total_competitions": 10,
   "selected_competitions": [
     "/futebol/argentina/super-taca/",
@@ -23,13 +23,13 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "collecting",
+  "phase": "discovery",
   "total_games": 0,
   "processed_games": 0,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Sem jogos pendentes",
+  "current_match": "A preparar competição",
   "last_result": "",
-  "updated_at": "2026-11-07T10:57:04.993Z"
+  "updated_at": "2026-11-07T10:57:09.501Z"
 }
