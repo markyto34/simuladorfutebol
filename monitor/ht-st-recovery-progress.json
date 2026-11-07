@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 500,
-  "processed_games": 125,
-  "stats_games": 125,
-  "bwin_odds": 64,
+  "processed_games": 150,
+  "stats_games": 150,
+  "bwin_odds": 78,
   "failed_games": 0,
-  "current_match": "A consultar jogo 126/500 · lxpcJZOc",
-  "last_result": "APEJES Academy - Canon Yaounde: 10 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T06:54:33.375Z"
+  "current_match": "Último concluído: Seoul - Incheon",
+  "last_result": "Seoul - Incheon: 11 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-07T06:54:51.027Z"
 }
