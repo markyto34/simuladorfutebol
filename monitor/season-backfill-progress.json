@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 462,
-  "processed_games": 175,
-  "stats_games": 174,
+  "processed_games": 200,
+  "stats_games": 199,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Ituzaingo - Sportivo Italiano",
-  "last_result": "Ituzaingo - Sportivo Italiano: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:21:36.721Z"
+  "current_match": "Último concluído: Brown Adrogue - Ituzaingo",
+  "last_result": "Brown Adrogue - Ituzaingo: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:22:01.837Z"
 }
