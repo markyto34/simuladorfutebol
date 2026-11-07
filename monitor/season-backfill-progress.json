@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 73,
-  "processed_games": 25,
-  "stats_games": 25,
+  "processed_games": 50,
+  "stats_games": 50,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 26/73 · 6yPlFqOc",
-  "last_result": "Hamburger SV - Stuttgart: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T13:23:45.271Z"
+  "current_match": "A consultar jogo 51/73 · 2kmjGV7b",
+  "last_result": "Augsburg - Leverkusen: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T13:24:10.316Z"
 }
