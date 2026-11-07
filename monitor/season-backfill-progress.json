@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 96,
-  "processed_games": 50,
-  "stats_games": 50,
+  "processed_games": 76,
+  "stats_games": 76,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Devonport - Ulverstone",
-  "last_result": "Devonport - Ulverstone: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:52:34.401Z"
+  "current_match": "A consultar jogo 77/96 · vcv3Wzmf",
+  "last_result": "Kingborough Lions - Ulverstone: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:53:00.403Z"
 }
