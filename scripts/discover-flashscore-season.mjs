@@ -163,7 +163,7 @@ export async function discoverSeasonFromHtml({ html, path, fetchFeedPage }) {
 }
 
 export function getCollectedMatchIds(rows) {
-  const finalStatus = /^(Terminado|Tempo Final|Depois de Prolongamento|Após prolongamento|A\\.P\\.|Finished|Full Time|FT)$/i;
+  const finalStatus = /^(Terminado|Tempo Final|Depois de Prolongamento|Após prolongamento|A\.P\.|Finished|Full Time|FT)$/i;
   const hasScore = value => String(value ?? "").trim() !== "" &&
     Number.isInteger(Number(value)) && Number(value) >= 0 && Number(value) <= 99;
   return new Set((rows || [])
