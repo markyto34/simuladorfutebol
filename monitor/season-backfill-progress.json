@@ -52,14 +52,14 @@
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed_with_errors",
+  "phase": "completed",
   "total_games": 31,
   "processed_games": 31,
   "stats_games": 30,
   "bwin_odds": 0,
   "failed_games": 1,
-  "current_match": "Último erro: 6HY1BHTs",
+  "current_match": "Recolha terminada",
   "last_result": "Falha em 6HY1BHTs: Falha ao recolher 6HY1BHTs: HTTP 503",
-  "updated_at": "2026-11-07T17:04:36.671Z"
+  "updated_at": "2026-11-07T17:04:37.956Z"
 }
