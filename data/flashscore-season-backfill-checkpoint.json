@@ -39,11 +39,12 @@
     "/futebol/argelia/1-divisao/",
     "/futebol/argelia/taca-da-argelia/",
     "/futebol/argentina/liga-profesional/",
+    "/futebol/argentina/primeira-b/",
     "/futebol/asia/afc-liga-dos-campeoes/"
   ],
-  "updated_at": "2026-11-07T10:30:10.160Z",
+  "updated_at": "2026-11-07T10:30:40.627Z",
   "completed_paths_reset_version": 1,
-  "last_completed_path": "/futebol/argentina/liga-profesional/",
+  "last_completed_path": "/futebol/argentina/primeira-b/",
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
     "/futebol/arabia-saudita/super-taca/"
