@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 648,
-  "processed_games": 200,
-  "stats_games": 200,
+  "processed_games": 225,
+  "stats_games": 225,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Nueva Chicago - Atletico Atlanta",
-  "last_result": "Nueva Chicago - Atletico Atlanta: 9 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:38:41.753Z"
+  "current_match": "Último concluído: Atl. Rafaela - Def. de Belgrano",
+  "last_result": "Atl. Rafaela - Def. de Belgrano: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:39:06.923Z"
 }
