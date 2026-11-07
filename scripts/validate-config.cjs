@@ -45,11 +45,13 @@ if(!app.includes("function teamOptionsForSeason(matches)"))fail("Seleção de eq
 const statsSection=html.match(/<div class="stats-by-indicator">([\s\S]*?)<p class="source-note">/);
 if(!statsSection)fail("Secção de estatísticas por indicador não encontrada.");
 else{
- if((html.match(/id="axgFor"/g)||[]).length!==1||(html.match(/id="axgAgainst"/g)||[]).length!==1)fail("Campos xG visitante devem existir uma única vez.");
- const home=statsSection[1].indexOf('id="hgFor"'),away=statsSection[1].indexOf('id="agFor"'),xgAway=statsSection[1].indexOf('id="axgFor"');
- if(home<0||away<0||xgAway<away)fail("Campos das equipas ou xG visitante estão na ordem errada.");
+ if(/<h5>xG<\/h5>|id="(?:hxg|axg)/.test(statsSection[1]))fail("O grupo xG deve estar removido do simulador.");
+ const home=statsSection[1].indexOf('id="hgFor"'),away=statsSection[1].indexOf('id="agFor"');
+ if(home<0||away<home)fail("Campos das equipas estão na ordem errada.");
  if(!statsSection[1].includes('class="stat-compare-row"')||!statsSection[1].includes('class="stat-compare-values"'))fail("Indicadores não estão organizados em linhas comparativas.");
  if(!statsSection[1].includes("<h5>Golos por parte</h5>")||!statsSection[1].includes("<h5>Cantos HT</h5>")||!statsSection[1].includes("<h5>Cantos ST</h5>"))fail("Grupos de indicadores por período estão incompletos.");
+ if(!app.includes('{key:"Cantos HT"')||!app.includes('{key:"Cantos ST"'))fail("Previsões de cantos por período não estão configuradas.");
+ if(!app.includes('if(!skipPairCheck&&$("homePick").value&&$("awayPick").value)simulate();'))fail("As previsões não são executadas automaticamente após selecionar as duas equipas.");
 }
 const pairedStart=app.indexOf("function enforcePairedTeamCoverage()"),pairedEnd=app.indexOf("\nfunction applyTeamSelection",pairedStart);
 if(pairedStart<0||pairedEnd<0)fail("Validador de cobertura conjunta não encontrado.");
