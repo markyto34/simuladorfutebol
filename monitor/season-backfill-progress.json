@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 488,
-  "processed_games": 450,
-  "stats_games": 450,
+  "processed_games": 475,
+  "stats_games": 475,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Tigre - Racing Club",
-  "last_result": "Tigre - Racing Club: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:17:36.429Z"
+  "current_match": "Último concluído: Tigre - Estudiantes Rio Cuarto",
+  "last_result": "Tigre - Estudiantes Rio Cuarto: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:18:01.673Z"
 }
