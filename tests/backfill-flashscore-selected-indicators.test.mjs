@@ -39,6 +39,17 @@ test("não seleciona jogos sem resultado final, fora do intervalo ou já tentado
   );
 });
 
+test("trata zeros confirmados como dados completos e só considera vazio como pendente", () => {
+  const confirmedZeros = row("zero01", Object.fromEntries(
+    REQUIRED_PAIRS.flatMap(key => [[key + "_home", "0"], [key + "_away", "0"]])
+  ));
+  const missingValue = row("missing1", { red_cards_home: "" });
+  assert.deepEqual(
+    selectRowsNeedingSelectedIndicators([confirmedZeros, missingValue], "2026-11-01", "2026-11-01", selected).map(item => item.match_id),
+    ["missing1"]
+  );
+});
+
 test("a lista de campos de resultado inclui FT, HT e ST", () => {
   assert.deepEqual(REQUIRED_SCORE_FIELDS, ["score_home", "score_away", "ht_home", "ht_away", "sh_home", "sh_away"]);
 });
