@@ -68,7 +68,8 @@
     "/futebol/australia/liga-1/",
     "/futebol/australia/liga-2-victoria/",
     "/futebol/australia/liga-a-feminina/",
-    "/futebol/australia/liga-a/"
+    "/futebol/australia/liga-a/",
+    "/futebol/australia/liga-estadual-do-norte-de-nsw/"
   ],
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
@@ -77,7 +78,7 @@
     "/futebol/australia-e-oceania/ofc-pro-league/"
   ],
   "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
-  "updated_at": "2026-11-07T16:31:47.809Z",
-  "last_completed_path": "/futebol/australia/liga-a/",
+  "updated_at": "2026-11-07T16:33:36.470Z",
+  "last_completed_path": "/futebol/australia/liga-estadual-do-norte-de-nsw/",
   "last_skipped_path": "/futebol/australia-e-oceania/ofc-pro-league/"
 }
