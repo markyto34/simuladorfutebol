@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source_run_id": "42183404135",
-  "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
+  "note": "Competições em skipped_paths não disponibilizaram contexto de época utilizável no Flashscore; não foram inventados jogos nem estatísticas.",
   "completed_paths": [
     "/futebol/africa-do-sul/primeira-liga/",
     "/futebol/africa-do-sul/segunda-liga/",
@@ -61,15 +61,17 @@
     "/futebol/asia/taca-asiatica/",
     "/futebol/asia/taca-das-nacoes-cafa/",
     "/futebol/australia-e-oceania/campeonato-do-mundo/",
-    "/futebol/australia-e-oceania/liga-dos-campeoes-ofc/"
+    "/futebol/australia-e-oceania/liga-dos-campeoes-ofc/",
+    "/futebol/australia-e-oceania/ofc-pro-league/"
   ],
-  "updated_at": "2026-11-07T11:03:04.064Z",
+  "updated_at": "2026-11-07T11:03:14.259Z",
   "completed_paths_reset_version": 1,
   "last_completed_path": "/futebol/australia-e-oceania/liga-dos-campeoes-ofc/",
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
     "/futebol/arabia-saudita/super-taca/",
-    "/futebol/argentina/super-taca/"
+    "/futebol/argentina/super-taca/",
+    "/futebol/australia-e-oceania/ofc-pro-league/"
   ],
-  "last_skipped_path": "/futebol/argentina/super-taca/"
+  "last_skipped_path": "/futebol/australia-e-oceania/ofc-pro-league/"
 }
