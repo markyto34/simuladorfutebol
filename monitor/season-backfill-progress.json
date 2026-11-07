@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 468,
-  "processed_games": 425,
-  "stats_games": 418,
+  "processed_games": 450,
+  "stats_games": 443,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: General Lamadrid - Def. de Cambaceres",
-  "last_result": "General Lamadrid - Def. de Cambaceres: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:34:07.637Z"
+  "current_match": "A consultar jogo 451/468 · 4WTxdNno",
+  "last_result": "Def. de Cambaceres - Argentino de Rosario: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:34:32.602Z"
 }
