@@ -25,11 +25,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 60,
-  "processed_games": 50,
-  "stats_games": 49,
+  "processed_games": 60,
+  "stats_games": 58,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Eswatini - Eritreia",
-  "last_result": "Eswatini - Eritreia: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T13:16:22.253Z"
+  "current_match": "Último concluído: Eritreia - Eswatini",
+  "last_result": "Eritreia - Eswatini: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T13:16:32.884Z"
 }
