@@ -17,7 +17,7 @@
     "/futebol/arabia-saudita/taca-do-rei/",
     "/futebol/argelia/1-divisao/"
   ],
-  "competitions_completed": 1,
+  "competitions_completed": 2,
   "competitions_failed": 1,
   "failed_competitions": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/"
@@ -25,7 +25,7 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 0,
   "processed_games": 0,
   "stats_games": 0,
@@ -33,5 +33,5 @@
   "failed_games": 0,
   "current_match": "Sem jogos pendentes",
   "last_result": "",
-  "updated_at": "2026-11-07T10:02:05.326Z"
+  "updated_at": "2026-11-07T10:02:09.319Z"
 }
