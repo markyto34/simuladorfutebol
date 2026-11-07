@@ -1,6 +1,6 @@
 {
   "generated_from": "data/flashscore-statistics.csv",
-  "generated_at": "2026-11-07T09:08:42.845Z",
+  "generated_at": "2026-11-07T09:58:32.978Z",
   "definition": "At least 5 unique matches and at least one available paired indicator; missing values in individual matches or indicators do not disqualify the competition. Per-indicator coverage is reported.",
   "core_metrics": [
     "goals",
@@ -1122,7 +1122,7 @@
       "stats_source_labels": [
         "América do Norte e Central / Liga CONCACAF"
       ],
-      "unique_stats_matches": 14,
+      "unique_stats_matches": 42,
       "complete_core": true,
       "core_metrics": [
         "goals",
@@ -1144,84 +1144,84 @@
       ],
       "metric_coverage": {
         "goals": {
-          "complete": 14,
-          "total": 14,
+          "complete": 42,
+          "total": 42,
           "pct": 100
         },
         "goals_conceded": {
-          "complete": 14,
-          "total": 14,
+          "complete": 42,
+          "total": 42,
           "pct": 100
         },
         "goals_ht": {
-          "complete": 14,
-          "total": 14,
+          "complete": 42,
+          "total": 42,
           "pct": 100
         },
         "goals_st": {
-          "complete": 14,
-          "total": 14,
+          "complete": 42,
+          "total": 42,
           "pct": 100
         },
         "corners": {
           "complete": 14,
-          "total": 14,
-          "pct": 100
+          "total": 42,
+          "pct": 33.33
         },
         "corners_ht": {
           "complete": 14,
-          "total": 14,
-          "pct": 100
+          "total": 42,
+          "pct": 33.33
         },
         "corners_st": {
           "complete": 14,
-          "total": 14,
-          "pct": 100
+          "total": 42,
+          "pct": 33.33
         },
         "shots": {
           "complete": 14,
-          "total": 14,
-          "pct": 100
+          "total": 42,
+          "pct": 33.33
         },
         "shots_on_target": {
           "complete": 14,
-          "total": 14,
-          "pct": 100
+          "total": 42,
+          "pct": 33.33
         },
         "shots_off_target": {
           "complete": 14,
-          "total": 14,
-          "pct": 100
+          "total": 42,
+          "pct": 33.33
         },
         "blocked_shots": {
           "complete": 0,
-          "total": 14,
+          "total": 42,
           "pct": 0
         },
         "shots_inside_box": {
           "complete": 0,
-          "total": 14,
+          "total": 42,
           "pct": 0
         },
         "shots_outside_box": {
           "complete": 0,
-          "total": 14,
+          "total": 42,
           "pct": 0
         },
         "fouls": {
           "complete": 14,
-          "total": 14,
-          "pct": 100
+          "total": 42,
+          "pct": 33.33
         },
         "yellow_cards": {
           "complete": 13,
-          "total": 14,
-          "pct": 92.86
+          "total": 42,
+          "pct": 30.95
         },
         "red_cards": {
           "complete": 3,
-          "total": 14,
-          "pct": 21.43
+          "total": 42,
+          "pct": 7.14
         }
       }
     },
