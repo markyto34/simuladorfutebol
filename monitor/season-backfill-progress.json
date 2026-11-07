@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 67,
-  "processed_games": 50,
-  "stats_games": 50,
+  "processed_games": 67,
+  "stats_games": 67,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Phnom Penh Crown (Cam) - Kuching City FC (Mys)",
-  "last_result": "Phnom Penh Crown (Cam) - Kuching City FC (Mys): 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:09:22.988Z"
+  "current_match": "Último concluído: East Bengal (Ind) - Al Arabi (Kuw)",
+  "last_result": "East Bengal (Ind) - Al Arabi (Kuw): 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:09:40.308Z"
 }
