@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 500,
-  "processed_games": 250,
-  "stats_games": 250,
+  "processed_games": 275,
+  "stats_games": 275,
   "bwin_odds": 107,
   "failed_games": 0,
-  "current_match": "Último concluído: África do Sul F - Nigéria F",
-  "last_result": "África do Sul F - Nigéria F: 16 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T07:13:37.664Z"
+  "current_match": "Último concluído: Costa do Marfim U17 - Uganda U17",
+  "last_result": "Costa do Marfim U17 - Uganda U17: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T07:13:55.216Z"
 }
