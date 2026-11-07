@@ -24,8 +24,8 @@
   ],
   "blocked": false,
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
+  "status": "running",
+  "phase": "saving",
   "total_games": 1,
   "processed_games": 1,
   "stats_games": 0,
@@ -33,5 +33,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Petro - Wiliete: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T10:03:55.718Z"
+  "updated_at": "2026-11-07T10:03:57.560Z"
 }
