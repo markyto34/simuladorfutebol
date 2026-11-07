@@ -29,11 +29,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 62,
-  "processed_games": 50,
-  "stats_games": 50,
+  "processed_games": 62,
+  "stats_games": 62,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 51/62 · 4tBriEQH",
-  "last_result": "França - Senegal: 14 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T08:56:59.797Z"
+  "current_match": "Último concluído: Catar - Suiça",
+  "last_result": "Catar - Suiça: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T08:57:11.819Z"
 }
