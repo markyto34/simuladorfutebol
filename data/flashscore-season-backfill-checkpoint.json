@@ -60,11 +60,12 @@
     "/futebol/asia/taca-asean-da-fifa/",
     "/futebol/asia/taca-asiatica/",
     "/futebol/asia/taca-das-nacoes-cafa/",
-    "/futebol/australia-e-oceania/campeonato-do-mundo/"
+    "/futebol/australia-e-oceania/campeonato-do-mundo/",
+    "/futebol/australia-e-oceania/liga-dos-campeoes-ofc/"
   ],
-  "updated_at": "2026-11-07T11:02:24.952Z",
+  "updated_at": "2026-11-07T11:03:04.064Z",
   "completed_paths_reset_version": 1,
-  "last_completed_path": "/futebol/australia-e-oceania/campeonato-do-mundo/",
+  "last_completed_path": "/futebol/australia-e-oceania/liga-dos-campeoes-ofc/",
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
     "/futebol/arabia-saudita/super-taca/",
