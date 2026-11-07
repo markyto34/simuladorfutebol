@@ -17,13 +17,13 @@
     "/futebol/alemanha/2-bundesliga/",
     "/futebol/alemanha/3-liga-alema/"
   ],
-  "competitions_completed": 4,
+  "competitions_completed": 5,
   "competitions_failed": 0,
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 102,
   "processed_games": 102,
   "stats_games": 44,
@@ -31,5 +31,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Togo - Benim: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T13:14:41.352Z"
+  "updated_at": "2026-11-07T13:14:43.822Z"
 }
