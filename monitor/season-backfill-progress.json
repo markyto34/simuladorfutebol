@@ -25,11 +25,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 121,
-  "processed_games": 100,
-  "stats_games": 100,
+  "processed_games": 121,
+  "stats_games": 121,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 101/121 · xOwqJgOr",
-  "last_result": "Wehen - RW Essen: 11 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T13:21:30.772Z"
+  "current_match": "Último concluído: Mannheim - Dusseldorf",
+  "last_result": "Mannheim - Dusseldorf: 11 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T13:21:51.790Z"
 }
