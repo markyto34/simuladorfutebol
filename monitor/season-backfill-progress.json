@@ -25,11 +25,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 121,
-  "processed_games": 50,
-  "stats_games": 50,
+  "processed_games": 75,
+  "stats_games": 75,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 51/121 · tjBtvAIb",
-  "last_result": "Wurzburger Kickers - Rostock: 11 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T13:20:40.721Z"
+  "current_match": "A consultar jogo 76/121 · 6FLQfvsH",
+  "last_result": "Aachen - Regensburg: 11 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T13:21:05.809Z"
 }
