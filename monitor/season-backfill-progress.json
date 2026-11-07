@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 462,
-  "processed_games": 100,
-  "stats_games": 99,
+  "processed_games": 125,
+  "stats_games": 124,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Comunicaciones - Deportivo Merlo",
-  "last_result": "Comunicaciones - Deportivo Merlo: 9 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:20:21.102Z"
+  "current_match": "Último concluído: Argentino de Merlo - Arsenal Sarandi",
+  "last_result": "Argentino de Merlo - Arsenal Sarandi: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:20:46.319Z"
 }
