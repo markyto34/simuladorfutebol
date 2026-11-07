@@ -25,11 +25,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 156,
-  "processed_games": 50,
-  "stats_games": 50,
+  "processed_games": 75,
+  "stats_games": 75,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Caracas (Ven) - Botafogo RJ (Bra)",
-  "last_result": "Caracas (Ven) - Botafogo RJ (Bra): 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T14:58:52.384Z"
+  "current_match": "Último concluído: A. Italiano (Chi) - Barracas Central (Arg)",
+  "last_result": "A. Italiano (Chi) - Barracas Central (Arg): 16 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T14:59:17.690Z"
 }
