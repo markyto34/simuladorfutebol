@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 500,
-  "processed_games": 200,
-  "stats_games": 200,
-  "bwin_odds": 104,
+  "processed_games": 225,
+  "stats_games": 225,
+  "bwin_odds": 117,
   "failed_games": 0,
-  "current_match": "Último concluído: Mura - Grosuplje",
-  "last_result": "Mura - Grosuplje: 11 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-07T06:55:26.768Z"
+  "current_match": "A consultar jogo 226/500 · jBy1dWKs",
+  "last_result": "Osasuna B - Tudelano: 10 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T06:55:44.324Z"
 }
