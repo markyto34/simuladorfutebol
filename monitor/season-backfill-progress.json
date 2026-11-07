@@ -37,14 +37,14 @@
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 504,
   "processed_games": 504,
   "stats_games": 494,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Tucuman Central - Bartolome Mitre",
+  "current_match": "Recolha terminada",
   "last_result": "Tucuman Central - Bartolome Mitre: 5 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:01:10.386Z"
+  "updated_at": "2026-11-07T16:01:11.448Z"
 }
