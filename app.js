@@ -878,7 +878,10 @@ const countryCodes=[...new Set(competitionOptions.map(option=>option.value.split
 const initialLeague=leagueSelect.value;
 function setCountryCompetitions(preferred){
  const selectedCountry=countrySelect.value;
- const staticAvailable=competitionOptions.filter(option=>option.value.startsWith(selectedCountry+"_"));
+ const staticAvailable=competitionOptions.filter(option=>option.value.startsWith(selectedCountry+"_")).sort((a,b)=>{
+  const rank=value=>{if(value.includes("_CUP_"))return 1000;const match=value.match(/^[A-Z]+_(\\d+)_/);return match?Number(match[1]):500;};
+  return rank(a.value)-rank(b.value)||a.textContent.localeCompare(b.textContent,"pt",{numeric:true,sensitivity:"base"});
+ });
  const flashAvailable=flashscoreCompetitionState.items.filter(item=>
   selectedCountry.startsWith("FSCOUNTRY|")
    ? item.country===decodeURIComponent(selectedCountry.slice("FSCOUNTRY|".length))
@@ -901,7 +904,7 @@ function setCountryCompetitions(preferred){
   flashAvailable.forEach(item=>{
    const option=document.createElement("option");
    option.value=item.value;
-   option.textContent=item.competition+" · "+item.count+" jogos · 100% dados";
+   option.textContent=item.competition;
    group.appendChild(option);
   });
   leagueSelect.appendChild(group);
