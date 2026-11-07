@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 500,
-  "processed_games": 475,
-  "stats_games": 475,
-  "bwin_odds": 279,
+  "processed_games": 500,
+  "stats_games": 500,
+  "bwin_odds": 291,
   "failed_games": 0,
-  "current_match": "A consultar jogo 476/500 · fPVetdW0",
-  "last_result": "Oliveira Hospital - AD Nogueirense: 10 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-07T06:59:01.278Z"
+  "current_match": "Último concluído: Pardubice B - Jablonec B",
+  "last_result": "Pardubice B - Jablonec B: 10 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T06:59:18.952Z"
 }
