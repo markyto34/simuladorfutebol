@@ -17,13 +17,13 @@
     "/futebol/america-do-sul/taca-sul-americana/",
     "/futebol/andorra/primeira-divisao/"
   ],
-  "competitions_completed": 8,
+  "competitions_completed": 9,
   "competitions_failed": 0,
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 156,
   "processed_games": 156,
   "stats_games": 156,
@@ -31,5 +31,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Montevideo City (Uru) - Defensor Sp. (Uru): 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:00:42.020Z"
+  "updated_at": "2026-11-07T15:00:53.236Z"
 }
