@@ -2,8 +2,8 @@
   "run_id": "42375418128",
   "run_number": "19",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/america-do-sul/serie-rio-de-la-plata/",
-  "competition_index": 23,
+  "current_competition_path": "/futebol/america-do-sul/taca-dos-libertadores/",
+  "competition_index": 24,
   "total_competitions": 35,
   "selected_competitions": [
     "/futebol/alemanha/bundesliga-senhoras/",
@@ -46,7 +46,7 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "collecting",
+  "phase": "discovery",
   "total_games": 0,
   "processed_games": 0,
   "stats_games": 0,
@@ -54,5 +54,5 @@
   "failed_games": 0,
   "current_match": "A preparar competição",
   "last_result": "",
-  "updated_at": "2026-11-07T14:00:52.764Z"
+  "updated_at": "2026-11-07T14:00:54.012Z"
 }
