@@ -11,14 +11,14 @@
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 500,
   "processed_games": 500,
   "stats_games": 500,
   "bwin_odds": 291,
   "failed_games": 0,
-  "current_match": "Último concluído: Pardubice B - Jablonec B",
+  "current_match": "Recolha terminada",
   "last_result": "Pardubice B - Jablonec B: 10 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T06:59:18.952Z"
+  "updated_at": "2026-11-07T06:59:20.737Z"
 }
