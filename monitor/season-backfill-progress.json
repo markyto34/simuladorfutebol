@@ -40,7 +40,7 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 48,
   "processed_games": 48,
   "stats_games": 47,
@@ -48,5 +48,5 @@
   "failed_games": 1,
   "current_match": "Recolha terminada",
   "last_result": "Falha em GxshzRaC: Falha ao recolher GxshzRaC: HTTP 503",
-  "updated_at": "2026-11-07T13:27:03.249Z"
+  "updated_at": "2026-11-07T13:27:05.933Z"
 }
