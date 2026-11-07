@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 247,
-  "processed_games": 125,
-  "stats_games": 123,
+  "processed_games": 151,
+  "stats_games": 149,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: St. George City - Manly Utd",
-  "last_result": "St. George City - Manly Utd: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:44:08.283Z"
+  "current_match": "A consultar jogo 152/247 · rHgnUzUN",
+  "last_result": "UNSW - Blacktown City: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:44:33.997Z"
 }
