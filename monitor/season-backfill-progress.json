@@ -2,8 +2,8 @@
   "run_id": "42353179482",
   "run_number": "11",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/america-do-sul/serie-rio-de-la-plata/",
-  "competition_index": 7,
+  "current_competition_path": "/futebol/america-do-sul/taca-dos-libertadores/",
+  "competition_index": 8,
   "total_competitions": 10,
   "selected_competitions": [
     "/futebol/america-do-norte-e-central/copa-centro-americana-da-concacaf/",
@@ -31,7 +31,7 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "failed",
+  "phase": "discovery",
   "total_games": 0,
   "processed_games": 0,
   "stats_games": 0,
@@ -39,5 +39,5 @@
   "failed_games": 0,
   "current_match": "A preparar competição",
   "last_result": "",
-  "updated_at": "2026-11-07T08:01:48.911Z"
+  "updated_at": "2026-11-07T08:01:50.301Z"
 }
