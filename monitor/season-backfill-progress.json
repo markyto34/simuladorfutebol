@@ -2,8 +2,8 @@
   "run_id": "42383789441",
   "run_number": "20",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/arabia-saudita/super-taca/",
-  "competition_index": 16,
+  "current_competition_path": "/futebol/arabia-saudita/taca-do-rei/",
+  "competition_index": 17,
   "total_competitions": 35,
   "selected_competitions": [
     "/futebol/andorra/super-taca/",
@@ -38,7 +38,7 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "collecting",
+  "phase": "discovery",
   "total_games": 0,
   "processed_games": 0,
   "stats_games": 0,
@@ -46,5 +46,5 @@
   "failed_games": 0,
   "current_match": "A preparar competição",
   "last_result": "",
-  "updated_at": "2026-11-07T15:06:32.966Z"
+  "updated_at": "2026-11-07T15:06:34.663Z"
 }
