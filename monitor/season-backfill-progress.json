@@ -25,11 +25,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 2,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 2,
+  "stats_games": 2,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-07T10:30:00.803Z"
+  "current_match": "Último concluído: Tigre - Sarmiento Junin",
+  "last_result": "Tigre - Sarmiento Junin: 16 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T10:30:04.924Z"
 }
