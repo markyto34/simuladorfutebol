@@ -53,7 +53,8 @@
     "/futebol/asia/afc-liga-dos-campeoes-2/",
     "/futebol/asia/afc-liga-dos-campeoes/",
     "/futebol/asia/campeonato-asean/",
-    "/futebol/asia/campeonato-do-mundo/"
+    "/futebol/asia/campeonato-do-mundo/",
+    "/futebol/asia/jogos-asiaticoa/"
   ],
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
@@ -61,7 +62,7 @@
     "/futebol/argentina/super-taca/"
   ],
   "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
-  "updated_at": "2026-11-07T16:12:16.456Z",
-  "last_completed_path": "/futebol/asia/campeonato-do-mundo/",
+  "updated_at": "2026-11-07T16:13:07.637Z",
+  "last_completed_path": "/futebol/asia/jogos-asiaticoa/",
   "last_skipped_path": "/futebol/argentina/super-taca/"
 }
