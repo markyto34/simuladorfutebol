@@ -1,12 +1,12 @@
 # Simulador de Futebol
 
-Aplicação independente do repositório `futebol-stats`. Reutiliza o formato de dados históricos Open Matchday, sem alterar o projeto original.
+Aplicação independente que utiliza exclusivamente estatísticas e resultados históricos recolhidos do Flashscore.
 
 ## Funcionalidades atuais
 - Interface responsiva em português.
 - Sem preenchimento manual de estatísticas: todos os campos são de leitura e recebem médias automaticamente após a seleção das equipas.
 - Importação automática de golos, cantos, remates, remates à baliza, faltas e cartões quando disponíveis.
-- Importação automática de resultados CSV por competição e época a partir de Open Matchday.
+- Importação automática de resultados e estatísticas por competição a partir do histórico Flashscore.
 - Seleção de equipas com preenchimento automático de médias casa/fora.
 - Amostras configuráveis: últimos 5, 10, 15 ou todos os jogos disponíveis.
 - Cache persistente no navegador (IndexedDB, 24 horas) e cache de sessão de 15 minutos como fallback, reduzindo pedidos repetidos.
@@ -16,13 +16,7 @@ Aplicação independente do repositório `futebol-stats`. Reutiliza o formato de
 - Resultados independentes por indicador: se uma competição não tiver cantos, a simulação de golos continua disponível; cada mercado só é calculado quando tem as médias necessárias.
 - Simulação adicional de remates, remates à baliza, faltas e cartões amarelos/vermelhos quando as quatro médias necessárias têm cobertura.
 
-## Fontes de dados
-Os resultados são obtidos dos CSV publicados por [oladeeayo/open-matchday](https://github.com/oladeeayo/open-matchday), no formato:
-`https://raw.githubusercontent.com/oladeeayo/open-matchday/master/data/<competicao>/results_<epoca>.csv`
-
-A aplicação apresenta atualmente a época 2026/27; a disponibilidade de ficheiros varia por competição. A fonte publica os CSVs diariamente. O esquema inclui remates, remates à baliza, faltas, cantos, cartões amarelos e vermelhos, mas a cobertura detalhada é desigual (cerca de 19% das linhas no conjunto publicado). Campos vazios significam dados indisponíveis, nunca zero. A aplicação importa os campos disponíveis e mantém cada indicador independente: a falta de cantos, por exemplo, não bloqueia uma simulação de golos. Estatísticas em falta permanecem indisponíveis e não podem ser preenchidas manualmente. A utilização do conjunto Open Matchday é para fins informativos não comerciais, com atribuição à fonte.
-
-## Executar
+## Fontes de dados\nA fonte estatística do simulador é exclusivamente o Flashscore, através dos dados recolhidos e guardados no histórico próprio do projeto. As competições disponíveis são carregadas a partir do índice de competições elegíveis do Flashscore. Os campos sem cobertura permanecem indisponíveis e nunca são convertidos em zero.\n\n## Executar
 Abre `index.html` num navegador moderno. Não requer instalação nem chave API. Para publicação, pode ser alojado como site estático (por exemplo, Cloudflare Pages ou GitHub Pages).
 
 ## Modelo e limitações
@@ -49,14 +43,6 @@ O motor anterior `scripts/backtest.cjs` mantém-se disponível como benchmark in
 ## Publicação
 O ficheiro `render.yaml` prepara a publicação como site estático no Render. O repositório também pode ser alojado no Cloudflare Pages ou GitHub Pages; a ligação da conta de alojamento é necessária para concluir o primeiro deploy.
 
-
-## Atualização automática e cobertura de estatísticas
-A aplicação carrega automaticamente o CSV selecionado ao abrir a página e mantém uma cache persistente local de 24 horas (IndexedDB), além de uma cache de sessão de 15 minutos como fallback. Após selecionar as duas equipas, preenche todos os campos estatísticos de forma automática e bloqueia a edição manual. O Open Matchday publica os dados diariamente. A fonte inclui remates, remates à baliza, faltas, cantos e cartões amarelos/vermelhos, mas a cobertura detalhada é limitada e varia por competição. O esquema atual não inclui posse de bola. Os valores ausentes permanecem nulos e são excluídos das médias. A fonte é utilizada para fins informativos não comerciais e deve ser atribuída a [open-matchday](https://github.com/oladeeayo/open-matchday).
-
-
-## Expansão de fontes gratuitas
-
-A integração de novas fontes é feita apenas depois de verificar cobertura real, formato e condições de utilização. O [openfootball](https://github.com/withqwerty/open-football) e os seus repositórios de resultados históricos podem complementar resultados/golos, mas não substituem estatísticas de cantos, remates ou faltas. Fontes com condições que proíbem recolha automatizada, uso por bots/IA ou redistribuição não são integradas sem autorização explícita. Não existe dependência obrigatória de uma API paga. Os dados em falta continuam identificados como indisponíveis.
 
 ## Recolha diária Flashscore: estatísticas e odds Bwin
 

@@ -16,9 +16,7 @@ jobs:
       - run: node --check data-enrichment.js
       - run: node --check csv-odds-core.js
       - run: node --check csv-odds-app.js
-      - run: node --check config.js
       - run: node --check monitor.js
-      - run: node --check windrawwin-proxy/src/index.js
       - run: node --check flashscore-proxy/src/index.js
       - run: node --check scripts/collect-flashscore-csv.mjs
       - run: node --check scripts/validate-flashscore-history.mjs
