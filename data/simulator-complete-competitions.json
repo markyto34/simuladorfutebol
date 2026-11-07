@@ -1,6 +1,6 @@
 {
   "generated_from": "data/flashscore-statistics.csv",
-  "generated_at": "2026-11-07T09:58:32.978Z",
+  "generated_at": "2026-11-07T10:55:25.361Z",
   "definition": "At least 5 unique matches and at least one available paired indicator; missing values in individual matches or indicators do not disqualify the competition. Per-indicator coverage is reported.",
   "core_metrics": [
     "goals",
@@ -1995,7 +1995,7 @@
       "stats_source_labels": [
         "Argélia / Taça da Argélia"
       ],
-      "unique_stats_matches": 6,
+      "unique_stats_matches": 63,
       "complete_core": true,
       "core_metrics": [
         "goals",
@@ -2017,84 +2017,84 @@
       ],
       "metric_coverage": {
         "goals": {
-          "complete": 6,
-          "total": 6,
+          "complete": 63,
+          "total": 63,
           "pct": 100
         },
         "goals_conceded": {
-          "complete": 6,
-          "total": 6,
+          "complete": 63,
+          "total": 63,
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
-          "total": 6,
-          "pct": 0
+          "complete": 56,
+          "total": 63,
+          "pct": 88.89
         },
         "goals_st": {
-          "complete": 0,
-          "total": 6,
-          "pct": 0
+          "complete": 56,
+          "total": 63,
+          "pct": 88.89
         },
         "corners": {
           "complete": 5,
-          "total": 6,
-          "pct": 83.33
+          "total": 63,
+          "pct": 7.94
         },
         "corners_ht": {
           "complete": 6,
-          "total": 6,
-          "pct": 100
+          "total": 63,
+          "pct": 9.52
         },
         "corners_st": {
           "complete": 5,
-          "total": 6,
-          "pct": 83.33
+          "total": 63,
+          "pct": 7.94
         },
         "shots": {
           "complete": 5,
-          "total": 6,
-          "pct": 83.33
+          "total": 63,
+          "pct": 7.94
         },
         "shots_on_target": {
           "complete": 5,
-          "total": 6,
-          "pct": 83.33
+          "total": 63,
+          "pct": 7.94
         },
         "shots_off_target": {
           "complete": 5,
-          "total": 6,
-          "pct": 83.33
+          "total": 63,
+          "pct": 7.94
         },
         "blocked_shots": {
           "complete": 0,
-          "total": 6,
+          "total": 63,
           "pct": 0
         },
         "shots_inside_box": {
           "complete": 0,
-          "total": 6,
+          "total": 63,
           "pct": 0
         },
         "shots_outside_box": {
           "complete": 0,
-          "total": 6,
+          "total": 63,
           "pct": 0
         },
         "fouls": {
           "complete": 0,
-          "total": 6,
+          "total": 63,
           "pct": 0
         },
         "yellow_cards": {
           "complete": 0,
-          "total": 6,
+          "total": 63,
           "pct": 0
         },
         "red_cards": {
           "complete": 2,
-          "total": 6,
-          "pct": 33.33
+          "total": 63,
+          "pct": 3.17
         }
       }
     },
@@ -2105,7 +2105,7 @@
         "ARGENTINA / Primeira B",
         "Argentina / Primeira B"
       ],
-      "unique_stats_matches": 99,
+      "unique_stats_matches": 100,
       "complete_core": true,
       "core_metrics": [
         "goals",
@@ -2127,84 +2127,84 @@
       ],
       "metric_coverage": {
         "goals": {
-          "complete": 99,
-          "total": 99,
+          "complete": 100,
+          "total": 100,
           "pct": 100
         },
         "goals_conceded": {
-          "complete": 99,
-          "total": 99,
+          "complete": 100,
+          "total": 100,
           "pct": 100
         },
         "goals_ht": {
-          "complete": 9,
-          "total": 99,
-          "pct": 9.09
+          "complete": 10,
+          "total": 100,
+          "pct": 10
         },
         "goals_st": {
-          "complete": 9,
-          "total": 99,
-          "pct": 9.09
+          "complete": 10,
+          "total": 100,
+          "pct": 10
         },
         "corners": {
           "complete": 98,
-          "total": 99,
-          "pct": 98.99
+          "total": 100,
+          "pct": 98
         },
         "corners_ht": {
           "complete": 99,
-          "total": 99,
-          "pct": 100
+          "total": 100,
+          "pct": 99
         },
         "corners_st": {
           "complete": 99,
-          "total": 99,
-          "pct": 100
+          "total": 100,
+          "pct": 99
         },
         "shots": {
           "complete": 98,
-          "total": 99,
-          "pct": 98.99
+          "total": 100,
+          "pct": 98
         },
         "shots_on_target": {
           "complete": 98,
-          "total": 99,
-          "pct": 98.99
+          "total": 100,
+          "pct": 98
         },
         "shots_off_target": {
           "complete": 98,
-          "total": 99,
-          "pct": 98.99
+          "total": 100,
+          "pct": 98
         },
         "blocked_shots": {
           "complete": 0,
-          "total": 99,
+          "total": 100,
           "pct": 0
         },
         "shots_inside_box": {
           "complete": 0,
-          "total": 99,
+          "total": 100,
           "pct": 0
         },
         "shots_outside_box": {
           "complete": 0,
-          "total": 99,
+          "total": 100,
           "pct": 0
         },
         "fouls": {
           "complete": 0,
-          "total": 99,
+          "total": 100,
           "pct": 0
         },
         "yellow_cards": {
           "complete": 95,
-          "total": 99,
-          "pct": 95.96
+          "total": 100,
+          "pct": 95
         },
         "red_cards": {
           "complete": 24,
-          "total": 99,
-          "pct": 24.24
+          "total": 100,
+          "pct": 24
         }
       }
     },
@@ -2214,7 +2214,7 @@
       "stats_source_labels": [
         "Argentina / Primeira C"
       ],
-      "unique_stats_matches": 77,
+      "unique_stats_matches": 80,
       "complete_core": true,
       "core_metrics": [
         "goals",
@@ -2236,84 +2236,84 @@
       ],
       "metric_coverage": {
         "goals": {
-          "complete": 77,
-          "total": 77,
+          "complete": 80,
+          "total": 80,
           "pct": 100
         },
         "goals_conceded": {
-          "complete": 77,
-          "total": 77,
+          "complete": 80,
+          "total": 80,
           "pct": 100
         },
         "goals_ht": {
-          "complete": 17,
-          "total": 77,
-          "pct": 22.08
+          "complete": 20,
+          "total": 80,
+          "pct": 25
         },
         "goals_st": {
-          "complete": 17,
-          "total": 77,
-          "pct": 22.08
+          "complete": 20,
+          "total": 80,
+          "pct": 25
         },
         "corners": {
           "complete": 73,
-          "total": 77,
-          "pct": 94.81
+          "total": 80,
+          "pct": 91.25
         },
         "corners_ht": {
           "complete": 76,
-          "total": 77,
-          "pct": 98.7
+          "total": 80,
+          "pct": 95
         },
         "corners_st": {
           "complete": 76,
-          "total": 77,
-          "pct": 98.7
+          "total": 80,
+          "pct": 95
         },
         "shots": {
           "complete": 73,
-          "total": 77,
-          "pct": 94.81
+          "total": 80,
+          "pct": 91.25
         },
         "shots_on_target": {
           "complete": 73,
-          "total": 77,
-          "pct": 94.81
+          "total": 80,
+          "pct": 91.25
         },
         "shots_off_target": {
           "complete": 73,
-          "total": 77,
-          "pct": 94.81
+          "total": 80,
+          "pct": 91.25
         },
         "blocked_shots": {
           "complete": 0,
-          "total": 77,
+          "total": 80,
           "pct": 0
         },
         "shots_inside_box": {
           "complete": 0,
-          "total": 77,
+          "total": 80,
           "pct": 0
         },
         "shots_outside_box": {
           "complete": 0,
-          "total": 77,
+          "total": 80,
           "pct": 0
         },
         "fouls": {
           "complete": 0,
-          "total": 77,
+          "total": 80,
           "pct": 0
         },
         "yellow_cards": {
           "complete": 14,
-          "total": 77,
-          "pct": 18.18
+          "total": 80,
+          "pct": 17.5
         },
         "red_cards": {
           "complete": 27,
-          "total": 77,
-          "pct": 35.06
+          "total": 80,
+          "pct": 33.75
         }
       }
     },
@@ -2434,7 +2434,7 @@
         "ARGENTINA / Taça da Argentina",
         "Argentina / Taça da Argentina"
       ],
-      "unique_stats_matches": 31,
+      "unique_stats_matches": 61,
       "complete_core": true,
       "core_metrics": [
         "goals",
@@ -2456,84 +2456,84 @@
       ],
       "metric_coverage": {
         "goals": {
-          "complete": 31,
-          "total": 31,
+          "complete": 61,
+          "total": 61,
           "pct": 100
         },
         "goals_conceded": {
-          "complete": 31,
-          "total": 31,
+          "complete": 61,
+          "total": 61,
           "pct": 100
         },
         "goals_ht": {
-          "complete": 11,
-          "total": 31,
-          "pct": 35.48
+          "complete": 41,
+          "total": 61,
+          "pct": 67.21
         },
         "goals_st": {
-          "complete": 11,
-          "total": 31,
-          "pct": 35.48
+          "complete": 41,
+          "total": 61,
+          "pct": 67.21
         },
         "corners": {
           "complete": 31,
-          "total": 31,
-          "pct": 100
+          "total": 61,
+          "pct": 50.82
         },
         "corners_ht": {
           "complete": 31,
-          "total": 31,
-          "pct": 100
+          "total": 61,
+          "pct": 50.82
         },
         "corners_st": {
           "complete": 31,
-          "total": 31,
-          "pct": 100
+          "total": 61,
+          "pct": 50.82
         },
         "shots": {
           "complete": 31,
-          "total": 31,
-          "pct": 100
+          "total": 61,
+          "pct": 50.82
         },
         "shots_on_target": {
           "complete": 31,
-          "total": 31,
-          "pct": 100
+          "total": 61,
+          "pct": 50.82
         },
         "shots_off_target": {
           "complete": 31,
-          "total": 31,
-          "pct": 100
+          "total": 61,
+          "pct": 50.82
         },
         "blocked_shots": {
           "complete": 31,
-          "total": 31,
-          "pct": 100
+          "total": 61,
+          "pct": 50.82
         },
         "shots_inside_box": {
           "complete": 31,
-          "total": 31,
-          "pct": 100
+          "total": 61,
+          "pct": 50.82
         },
         "shots_outside_box": {
           "complete": 31,
-          "total": 31,
-          "pct": 100
+          "total": 61,
+          "pct": 50.82
         },
         "fouls": {
           "complete": 31,
-          "total": 31,
-          "pct": 100
+          "total": 61,
+          "pct": 50.82
         },
         "yellow_cards": {
           "complete": 31,
-          "total": 31,
-          "pct": 100
+          "total": 61,
+          "pct": 50.82
         },
         "red_cards": {
           "complete": 6,
-          "total": 31,
-          "pct": 19.35
+          "total": 61,
+          "pct": 9.84
         }
       }
     },
