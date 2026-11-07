@@ -140,6 +140,12 @@ export async function discoverSeasonFromHtml({ html, path, fetchFeedPage }) {
   return { context: { ...context, first_page: undefined }, fixtures: unique };
 }
 
+export function getCollectedMatchIds(rows) {
+  return new Set((rows || [])
+    .filter(row => row?.source === "Flashscore" && String(row.match_id || "").trim())
+    .map(row => String(row.match_id)));
+}
+
 async function main() {
   const path = process.argv.find(arg => arg.startsWith("--path="))?.slice(7) || "";
   const out = process.argv.find(arg => arg.startsWith("--out="))?.slice(6) || "season-manifest.json";
@@ -185,18 +191,10 @@ async function main() {
       try { return new URL(item.url).pathname === path; } catch { return false; }
     }) || null;
   } catch {}
-  let completeIds = new Set();
+  let collectedIds = new Set();
   try {
     const existing = parseCsv(await readFile("data/flashscore-statistics.csv", "utf8"));
-    const requiredFields = [
-      "score_home", "score_away", "ht_home", "ht_away", "sh_home", "sh_away",
-      ...["shots", "shots_on_target", "corners", "corners_ht", "corners_st",
-        "yellow_cards", "red_cards", "blocked_shots", "fouls"]
-        .flatMap(key => [key + "_home", key + "_away"])
-    ];
-    completeIds = new Set(existing.filter(row =>
-      requiredFields.every(field => String(row[field] ?? "").trim() !== "")
-    ).map(row => row.match_id));
+    collectedIds = getCollectedMatchIds(existing);
   } catch {}
   const fixtures = result.fixtures.map(item => {
     const parts = String(item.competition || "").split(":");
@@ -207,7 +205,7 @@ async function main() {
     const competition = countryName && competitionName ? countryName + ": " + competitionName : item.competition;
     return {
       match_id: item.match_id, competition,
-      stats_status: completeIds.has(item.match_id) ? "already_complete" : "pending"
+      stats_status: collectedIds.has(item.match_id) ? "already_collected" : "pending"
     };
   });
   const manifest = {
@@ -216,13 +214,13 @@ async function main() {
     stage_id: result.context.stage_id, template_id: result.context.template_id,
     season_id: result.context.season_id, expected_events: result.context.total_count,
     finished_matches_discovered: fixtures.length,
-    already_complete_with_period_corners: fixtures.filter(f => f.stats_status === "already_complete").length,
+    already_collected: fixtures.filter(f => f.stats_status === "already_collected").length,
     fixtures
   };
   await writeFile(resolve(out), JSON.stringify(manifest, null, 2) + "\n");
   console.log("[SEASON COMPLETE] " + (manifest.season || "época atual") + " | " +
-    fixtures.length + " jogos concluídos | " + manifest.already_complete_with_period_corners +
-    " já completos com cantos HT/ST | manifesto=" + out);
+    fixtures.length + " jogos concluídos | " + manifest.already_collected +
+    " já consultados anteriormente (a cobertura dos indicadores é avaliada à parte) | manifesto=" + out);
   if (!fixtures.length) throw new Error("O feed de resultados não devolveu jogos concluídos; nenhum CSV foi alterado.");
 }
 

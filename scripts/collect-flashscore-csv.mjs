@@ -41,7 +41,7 @@ export function buildTeamLastFiveCompetitionMap(payload) {
 
 export function selectTeamLastFiveMatchIds(payload, limit = 0) {
   const fixtures = Array.isArray(payload?.fixtures) ? payload.fixtures : [];
-  const ids = [...new Set(fixtures.filter(f => f?.stats_status !== "already_complete" && /^[A-Za-z0-9]{6,16}$/.test(String(f?.match_id || ""))).map(f => f.match_id))];
+  const ids = [...new Set(fixtures.filter(f => f?.stats_status !== "already_complete" && f?.stats_status !== "already_collected" && /^[A-Za-z0-9]{6,16}$/.test(String(f?.match_id || ""))).map(f => f.match_id))];
   const n = Number(limit);
   return Number.isInteger(n) && n > 0 ? ids.slice(0, n) : ids;
 }
@@ -405,7 +405,7 @@ async function main() {
     matchIds = selectTeamLastFiveMatchIds(payload, teamLastFiveLimit);
     competitionByMatchId = buildTeamLastFiveCompetitionMap(payload);
     matchIds = await filterToSelectedCompetitions(matchIds, competitionByMatchId);
-    console.log("[SEASON BACKFILL] " + allIds.length + " jogos concluídos pendentes de TODA a época; selecionados " + matchIds.length + "; jogos já completos ignorados=" + ((payload.fixtures || []).filter(f => f.stats_status === "already_complete").length) + ".");
+    console.log("[SEASON BACKFILL] " + allIds.length + " jogos concluídos pendentes de TODA a época; selecionados " + matchIds.length + "; jogos já consultados ignorados=" + ((payload.fixtures || []).filter(f => f.stats_status === "already_complete" || f.stats_status === "already_collected").length) + ".");
     await setProgress({ phase: "collecting", current_match: "A preparar todos os jogos pendentes da época", total_games: matchIds.length });
   }
   if (dateOption) {
@@ -550,9 +550,13 @@ async function main() {
           : null);
         const keepStatsForSimulator = !dateOption || Boolean(statsIdentity &&
           filterMatchIdsToSelectedCompetitions([matchId], { [matchId]: statsIdentity }, selectedPairsForDailyStats).length);
-        if (keepStatsForSimulator && record.statistics && Object.keys(record.statistics).length) {
+        // No backfill por época, guardar também a consulta bem-sucedida sem
+        // estatísticas: distingue "Flashscore consultado, sem dados" de erro técnico.
+        // A recolha diária continua a guardar apenas registos com estatísticas.
+        const hasStatistics = record.statistics && Object.keys(record.statistics).length > 0;
+        if (keepStatsForSimulator && (hasStatistics || teamLastFiveOption || statsOnly)) {
           statsNew.push(statisticsRow(record));
-          progressSnapshot.stats_games++;
+          if (hasStatistics) progressSnapshot.stats_games++;
         }
         const oddsRow = statsOnly ? null : bwinOddsRow(record);
         if (oddsRow) {
