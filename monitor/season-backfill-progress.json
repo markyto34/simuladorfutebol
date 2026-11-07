@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 14,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 14,
+  "stats_games": 13,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-07T16:06:33.047Z"
+  "current_match": "Último concluído: Hayq - Olympia Yerevan",
+  "last_result": "Hayq - Olympia Yerevan: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:06:47.839Z"
 }
