@@ -18,7 +18,7 @@
     "/futebol/andorra/primeira-divisao/"
   ],
   "competitions_completed": 0,
-  "competitions_failed": 7,
+  "competitions_failed": 8,
   "failed_competitions": [
     "/futebol/america-do-norte-e-central/copa-centro-americana-da-concacaf/",
     "/futebol/america-do-norte-e-central/liga-concacaf/",
@@ -26,12 +26,13 @@
     "/futebol/america-do-sul/campeonato-do-mundo/",
     "/futebol/america-do-sul/campeonato-sul-americano-sub-20/",
     "/futebol/america-do-sul/copa-america/",
-    "/futebol/america-do-sul/serie-rio-de-la-plata/"
+    "/futebol/america-do-sul/serie-rio-de-la-plata/",
+    "/futebol/america-do-sul/taca-dos-libertadores/"
   ],
   "blocked": false,
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
+  "status": "running",
+  "phase": "saving",
   "total_games": 0,
   "processed_games": 0,
   "stats_games": 0,
@@ -39,5 +40,5 @@
   "failed_games": 0,
   "current_match": "Sem jogos pendentes",
   "last_result": "",
-  "updated_at": "2026-11-07T08:58:53.576Z"
+  "updated_at": "2026-11-07T08:58:55.696Z"
 }
