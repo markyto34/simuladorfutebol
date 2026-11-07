@@ -18,16 +18,17 @@
     "/futebol/andorra/primeira-divisao/"
   ],
   "competitions_completed": 0,
-  "competitions_failed": 3,
+  "competitions_failed": 4,
   "failed_competitions": [
     "/futebol/america-do-norte-e-central/copa-centro-americana-da-concacaf/",
     "/futebol/america-do-norte-e-central/liga-concacaf/",
-    "/futebol/america-do-norte-e-central/taca-das-ligas/"
+    "/futebol/america-do-norte-e-central/taca-das-ligas/",
+    "/futebol/america-do-sul/campeonato-do-mundo/"
   ],
   "blocked": false,
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
+  "status": "running",
+  "phase": "saving",
   "total_games": 68,
   "processed_games": 68,
   "stats_games": 68,
@@ -35,5 +36,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Catar - Suiça: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T08:23:19.335Z"
+  "updated_at": "2026-11-07T08:23:21.407Z"
 }
