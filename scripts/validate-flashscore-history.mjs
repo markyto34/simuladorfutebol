@@ -211,9 +211,12 @@ export function validateHistory(stats, odds, { statsOnly = false } = {}) {
 
 async function main() {
   const statsText = await readFile("data/flashscore-statistics.csv", "utf8");
-  const statsOnly = process.argv.includes("--stats-only");
+  const parsedStats = parseCsv(statsText);
+  // O CSV apenas com cabeçalho é esperado durante o reset integral do backfill.
+  // Nesse estado validamos o esquema estatístico vazio sem o tratar como erro.
+  const statsOnly = process.argv.includes("--stats-only") || parsedStats.length === 0;
   const oddsText = statsOnly ? "" : await readFile("data/bwin-odds-flashscore.csv", "utf8");
-  const summary = validateHistory(parseCsv(statsText), statsOnly ? [] : parseCsv(oddsText), { statsOnly });
+  const summary = validateHistory(parsedStats, statsOnly ? [] : parseCsv(oddsText), { statsOnly });
   console.log("Histórico CSV validado: " + JSON.stringify(summary));
 }
 
