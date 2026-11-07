@@ -17,13 +17,13 @@
     "/futebol/america-do-sul/taca-sul-americana/",
     "/futebol/andorra/primeira-divisao/"
   ],
-  "competitions_completed": 4,
+  "competitions_completed": 5,
   "competitions_failed": 0,
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 10,
   "processed_games": 10,
   "stats_games": 10,
@@ -31,5 +31,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Saprissa (Cos) - Cartagines (Cos): 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T14:56:18.640Z"
+  "updated_at": "2026-11-07T14:56:21.663Z"
 }
