@@ -52,14 +52,14 @@
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 28,
   "processed_games": 28,
   "stats_games": 28,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Brunei - Timor Leste",
+  "current_match": "Recolha terminada",
   "last_result": "Brunei - Timor Leste: 16 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:11:55.280Z"
+  "updated_at": "2026-11-07T16:11:56.339Z"
 }
