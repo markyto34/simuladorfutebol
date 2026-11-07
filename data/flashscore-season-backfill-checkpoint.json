@@ -50,11 +50,12 @@
     "/futebol/argentina/torneios-de-verao/",
     "/futebol/armenia/primeira-liga/",
     "/futebol/armenia/taca/",
+    "/futebol/aruba/divisao-de-honra/",
     "/futebol/asia/afc-liga-dos-campeoes/"
   ],
-  "updated_at": "2026-11-07T10:57:43.839Z",
+  "updated_at": "2026-11-07T10:58:14.147Z",
   "completed_paths_reset_version": 1,
-  "last_completed_path": "/futebol/armenia/taca/",
+  "last_completed_path": "/futebol/aruba/divisao-de-honra/",
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
     "/futebol/arabia-saudita/super-taca/",
