@@ -52,14 +52,14 @@
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 21,
   "processed_games": 21,
   "stats_games": 1,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Pago (Asa) - Nukuhetulu (Ton)",
+  "current_match": "Recolha terminada",
   "last_result": "Pago (Asa) - Nukuhetulu (Ton): 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:17:15.428Z"
+  "updated_at": "2026-11-07T16:17:16.715Z"
 }
