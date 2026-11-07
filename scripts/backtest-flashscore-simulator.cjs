@@ -15,7 +15,7 @@ function normalize(rows){
   const id=String(r.match_id||"").trim();if(id){if(seen.has(id))throw Error("Estatísticas duplicadas para match_id "+id+".");seen.add(id);}
   const m={id,date:dateKey(r.date_time),country:String(r.country||"").trim(),competition:String(r.competition||"").trim(),home:String(r.home_team||"").trim(),away:String(r.away_team||"").trim(),
    hg:num(r.score_home),ag:num(r.score_away),htH:num(r.ht_home),htA:num(r.ht_away),shH:num(r.sh_home),shA:num(r.sh_away),
-   xgH:num(r.xg_home),xgA:num(r.xg_away),cornersH:num(r.corners_home),cornersA:num(r.corners_away),
+   cornersH:num(r.corners_home),cornersA:num(r.corners_away),cornersHtH:num(r.corners_ht_home),cornersHtA:num(r.corners_ht_away),cornersStH:num(r.corners_st_home),cornersStA:num(r.corners_st_away),
    shotsH:num(r.shots_home),shotsA:num(r.shots_away),targetH:num(r.shots_on_target_home),targetA:num(r.shots_on_target_away),
    foulsH:num(r.fouls_home),foulsA:num(r.fouls_away),yellowH:num(r.yellow_cards_home),yellowA:num(r.yellow_cards_away),redH:num(r.red_cards_home),redA:num(r.red_cards_away)};
   if(m.date&&m.country&&m.competition&&m.home&&m.away&&m.hg!==null&&m.ag!==null)out.push(m);
@@ -42,33 +42,34 @@ const SPECS={
  target:{h:"targetH",a:"targetA",d:.28,lines:[5.5,7.5,9.5]},
  fouls:{h:"foulsH",a:"foulsA",d:.22,lines:[19.5,21.5,23.5]},
  yellow:{h:"yellowH",a:"yellowA",d:.45,lines:[2.5,3.5,4.5]},
+ cornersHt:{h:"cornersHtH",a:"cornersHtA",d:.45,lines:[3.5,4.5,5.5]},
+ cornersSt:{h:"cornersStH",a:"cornersStA",d:.45,lines:[3.5,4.5,5.5]},
  red:{h:"redH",a:"redA",d:.7,lines:[.5,1.5]}
 };
-const MIN=3,MIN_XG=5;
-function makeHistory(){return {gf:[],ga:[],xgf:[],xga:[],htf:[],hta:[],shf:[],sha:[],stats:Object.fromEntries(Object.keys(SPECS).map(k=>[k,{f:[],a:[]}]))};}
+const MIN=3;
+function makeHistory(){return {gf:[],ga:[],htf:[],hta:[],shf:[],sha:[],stats:Object.fromEntries(Object.keys(SPECS).map(k=>[k,{f:[],a:[]}]))};}
 function push(a,v,n){if(Number.isFinite(v)){a.push(v);if(a.length>n)a.shift();}}
 function historyKey(m,team,venue){return [m.country,m.competition,venue,team].join("\u0000");}
 function getHistory(map,m,team,venue){const k=historyKey(m,team,venue);if(!map.has(k))map.set(k,makeHistory());return map.get(k);}
-function goalsModel(h,a){if(![h.gf,h.ga,a.gf,a.ga].every(x=>x.length>=MIN))return null;let hm=(mean(h.gf)+mean(a.ga))/2,am=(mean(a.gf)+mean(h.ga))/2;const useXg=[h.xgf,h.xga,a.xgf,a.xga].every(x=>x.length>=MIN_XG);if(useXg){hm=.65*hm+.35*(mean(h.xgf)+mean(a.xga))/2;am=.65*am+.35*(mean(a.xgf)+mean(h.xga))/2;}return {hm,am,useXg};}
+function goalsModel(h,a){if(![h.gf,h.ga,a.gf,a.ga].every(x=>x.length>=MIN))return null;return {hm:(mean(h.gf)+mean(a.ga))/2,am:(mean(a.gf)+mean(h.ga))/2};}
 function statModel(h,a,key){const x=h.stats[key],y=a.stats[key];if(![x.f,x.a,y.f,y.a].every(v=>v.length>=MIN))return null;return {hm:(mean(x.f)+mean(y.a))/2,am:(mean(y.f)+mean(x.a))/2,d:SPECS[key].d};}
 function periodModel(h,a,period){const hf=period==="ht"?h.htf:h.shf,ha=period==="ht"?h.hta:h.sha,af=period==="ht"?a.htf:a.shf,aa=period==="ht"?a.hta:a.sha;if(![hf,ha,af,aa].every(x=>x.length>=MIN))return null;return {hm:(mean(hf)+mean(aa))/2,am:(mean(af)+mean(ha))/2};}
 function update(map,m,n){
  const h=getHistory(map,m,m.home,"home"),a=getHistory(map,m,m.away,"away");
  push(h.gf,m.hg,n);push(h.ga,m.ag,n);push(a.gf,m.ag,n);push(a.ga,m.hg,n);
- push(h.xgf,m.xgH,n);push(h.xga,m.xgA,n);push(a.xgf,m.xgA,n);push(a.xga,m.xgH,n);
  if(Number.isFinite(m.htH)&&Number.isFinite(m.htA)){push(h.htf,m.htH,n);push(h.hta,m.htA,n);push(a.htf,m.htA,n);push(a.hta,m.htH,n);}
  if(Number.isFinite(m.shH)&&Number.isFinite(m.shA)){push(h.shf,m.shH,n);push(h.sha,m.shA,n);push(a.shf,m.shA,n);push(a.sha,m.shH,n);}
  for(const [k,s] of Object.entries(SPECS)){push(h.stats[k].f,m[s.h],n);push(h.stats[k].a,m[s.a],n);push(a.stats[k].f,m[s.a],n);push(a.stats[k].a,m[s.h],n);}
 }
 function backtest(matches,{sampleSize=5}={}){
  if(!Number.isInteger(sampleSize)||sampleSize<1)throw Error("A amostra tem de ser um inteiro positivo.");
- const histories=new Map(),errors={},goalRows=[],periodRows={ht:[],st:[]},marketRows={},coverage={};let skippedGoals=0,xgBlendUsed=0,evaluatedGoals=0;
+ const histories=new Map(),errors={},goalRows=[],periodRows={ht:[],st:[]},marketRows={},coverage={};let skippedGoals=0,evaluatedGoals=0;
  const byDate=new Map();for(const m of matches){if(!byDate.has(m.date))byDate.set(m.date,[]);byDate.get(m.date).push(m);}
  for(const [date,todays] of byDate){
   for(const m of todays){
    const h=getHistory(histories,m,m.home,"home"),a=getHistory(histories,m,m.away,"away");
    const g=goalsModel(h,a);
-   if(g){evaluatedGoals++;if(g.useXg)xgBlendUsed++;const p=goalProb(g.hm,g.am);goalRows.push({p,actual:{hg:m.hg,ag:m.ag,total:m.hg+m.ag,btts:m.hg>0&&m.ag>0?1:0}});addError(errors,"homeGoals",g.hm-m.hg);addError(errors,"awayGoals",g.am-m.ag);addError(errors,"totalGoals",g.hm+g.am-m.hg-m.ag);}else skippedGoals++;
+   if(g){evaluatedGoals++;const p=goalProb(g.hm,g.am);goalRows.push({p,actual:{hg:m.hg,ag:m.ag,total:m.hg+m.ag,btts:m.hg>0&&m.ag>0?1:0}});addError(errors,"homeGoals",g.hm-m.hg);addError(errors,"awayGoals",g.am-m.ag);addError(errors,"totalGoals",g.hm+g.am-m.hg-m.ag);}else skippedGoals++;
    for(const period of ["ht","st"]){const model=periodModel(h,a,period),ah=period==="ht"?m.htH:m.shH,aa=period==="ht"?m.htA:m.shA;if(!model||!Number.isFinite(ah)||!Number.isFinite(aa))continue;const x=poisson(model.hm),y=poisson(model.am),actual={total:ah+aa,home:ah,away:aa},p={over05:atLeast(x,y,1),over15:atLeast(x,y,2),btts:(1-x[0])*(1-y[0])};periodRows[period].push({p,actual});}
    for(const [key,s] of Object.entries(SPECS)){const model=statModel(h,a,key);if(!model||!Number.isFinite(m[s.h])||!Number.isFinite(m[s.a]))continue;const actual=m[s.h]+m[s.a],x=negBin(model.hm,model.d),y=negBin(model.am,model.d),probs={};for(const line of s.lines)probs["p"+line]=atLeast(x,y,Math.floor(line)+1);addError(errors,"home"+key,model.hm-m[s.h]);addError(errors,"away"+key,model.am-m[s.a]);addError(errors,"total"+key,model.hm+model.am-actual);if(!marketRows[key])marketRows[key]=[];marketRows[key].push({probs,actual});coverage[key]=(coverage[key]||0)+1;}
   }
@@ -80,7 +81,7 @@ function backtest(matches,{sampleSize=5}={}){
  const goal1x2=goalRows.length?(()=>{let b=0,l=0;for(const r of goalRows){const actual=r.actual.hg>r.actual.ag?0:r.actual.hg===r.actual.ag?1:2,ps=[r.p.home,r.p.draw,r.p.away];b+=ps.reduce((s,p,i)=>s+(p-(i===actual?1:0))**2,0);l-=Math.log(Math.max(1e-15,ps[actual]));}return {n:goalRows.length,brier:b/goalRows.length,logLoss:l/goalRows.length};})():{n:0,brier:null,logLoss:null};
  const periods={};for(const p of ["ht","st"]){const rows=periodRows[p];periods[p]={over05:evaluate(rows.map(r=>({p:{p:r.p.over05},a:{total:r.actual.total}})),"p","total",1)};if(p==="st"){periods[p].over15=evaluate(rows.map(r=>({p:{p:r.p.over15},a:{total:r.actual.total}})),"p","total",2);periods[p].btts=evaluate(rows.map(r=>({p:{p:r.p.btts},a:{btts:r.actual.home>0&&r.actual.away>0?1:0}})),"p","btts",1);}}
  const markets={};for(const [k,rows] of Object.entries(marketRows)){markets[k]={};for(const line of SPECS[k].lines){const key="p"+line;markets[k]["over"+line]=evaluate(rows.map(r=>({p:{p:r.probs[key]},a:{total:r.actual}})),"p","total",Math.floor(line)+1);}}
- return {matches:matches.length,sampleSize,evaluatedGoals,skippedGoals,xgBlendUsed,goalMetrics:{oneXTwo:goal1x2,binary:goalBinary},periodMetrics:periods,metricErrors:Object.fromEntries(Object.entries(errors).map(([k,v])=>[k,summary(v)])),metricCoverage:coverage,extraMarkets:markets};
+ return {matches:matches.length,sampleSize,evaluatedGoals,skippedGoals,goalMetrics:{oneXTwo:goal1x2,binary:goalBinary},periodMetrics:periods,metricErrors:Object.fromEntries(Object.entries(errors).map(([k,v])=>[k,summary(v)])),metricCoverage:coverage,extraMarkets:markets};
 }
 function normalizeCompetitionLabel(label){
  const parts=String(label||"").split(/\s+\/\s+/);
@@ -112,10 +113,10 @@ function run(text,indexOrOptions={},maybeOptions={}){
  const binaryKeys=new Set(reports.flatMap(r=>Object.keys(r.goalMetrics.binary))),goalBinary={};for(const k of binaryKeys)goalBinary[k]=combineEval(reports.map(r=>r.goalMetrics.binary[k]));
  const periodMetrics={};for(const p of ["ht","st"]){const keys=new Set(reports.flatMap(r=>Object.keys(r.periodMetrics[p]||{})));periodMetrics[p]={};for(const k of keys)periodMetrics[p][k]=combineEval(reports.map(r=>r.periodMetrics[p]?.[k]));}
  const extraMarkets={};for(const metric of Object.keys(SPECS)){extraMarkets[metric]={};for(const line of SPECS[metric].lines)extraMarkets[metric]["over"+line]=combineEval(reports.map(r=>r.extraMarkets[metric]?.["over"+line]));}
- return {matches:matches.length,competitions:groups.size,eligibleCompetitions:eligibleCompetitions||groups.size,sampleSize:options.sampleSize||5,evaluatedGoals:reports.reduce((s,r)=>s+r.evaluatedGoals,0),skippedGoals:reports.reduce((s,r)=>s+r.skippedGoals,0),xgBlendUsed:reports.reduce((s,r)=>s+r.xgBlendUsed,0),
+ return {matches:matches.length,competitions:groups.size,eligibleCompetitions:eligibleCompetitions||groups.size,sampleSize:options.sampleSize||5,evaluatedGoals:reports.reduce((s,r)=>s+r.evaluatedGoals,0),skippedGoals:reports.reduce((s,r)=>s+r.skippedGoals,0),
   goalMetrics:{oneXTwo:combineEval(reports.map(r=>r.goalMetrics.oneXTwo)),binary:goalBinary},periodMetrics,metricErrors,metricCoverage,extraMarkets,byCompetition,
-  modelScope:"Walk-forward isolado nas competições completas que o simulador disponibiliza; últimos 5 jogos por defeito; mínimo de 3 jogos por indicador e 5 para xG; ponderação 65% golos + 35% xG; Poisson para golos e binomial negativa com as mesmas dispersões do simulador para cantos, remates, faltas e cartões."};
+  modelScope:"Walk-forward isolado nas competições completas; últimos 5 jogos por defeito; mínimo de 3 jogos válidos por indicador; golos e períodos modelados apenas com resultados históricos; Poisson para golos e binomial negativa para cantos, remates, faltas e cartões."};
 }
 function addError(target,key,value){if(!target[key])target[key]=[];target[key].push(value);}
-if(require.main===module){const input=process.argv[2]||"data/flashscore-statistics.csv",sampleSize=Number(process.argv[3])||5,indexPath=process.argv[4]||"data/simulator-complete-competitions.json",output=process.argv[5]||"backtest-flashscore-report.json";const report=run(fs.readFileSync(path.resolve(input),"utf8"),fs.readFileSync(path.resolve(indexPath),"utf8"),{sampleSize});fs.writeFileSync(output,JSON.stringify({generatedAt:new Date().toISOString(),source:input,competitionIndex:indexPath,...report},null,2));console.log(JSON.stringify({source:input,competitionIndex:indexPath,matches:report.matches,competitions:report.competitions,eligibleCompetitions:report.eligibleCompetitions,sampleSize:report.sampleSize,evaluatedGoals:report.evaluatedGoals,skippedGoals:report.skippedGoals,xgBlendUsed:report.xgBlendUsed,goalMetrics:report.goalMetrics,periodMetrics:report.periodMetrics,metricErrors:report.metricErrors,metricCoverage:report.metricCoverage,extraMarkets:report.extraMarkets,report:output},null,2));}
+if(require.main===module){const input=process.argv[2]||"data/flashscore-statistics.csv",sampleSize=Number(process.argv[3])||5,indexPath=process.argv[4]||"data/simulator-complete-competitions.json",output=process.argv[5]||"backtest-flashscore-report.json";const report=run(fs.readFileSync(path.resolve(input),"utf8"),fs.readFileSync(path.resolve(indexPath),"utf8"),{sampleSize});fs.writeFileSync(output,JSON.stringify({generatedAt:new Date().toISOString(),source:input,competitionIndex:indexPath,...report},null,2));console.log(JSON.stringify({source:input,competitionIndex:indexPath,matches:report.matches,competitions:report.competitions,eligibleCompetitions:report.eligibleCompetitions,sampleSize:report.sampleSize,evaluatedGoals:report.evaluatedGoals,skippedGoals:report.skippedGoals,goalMetrics:report.goalMetrics,periodMetrics:report.periodMetrics,metricErrors:report.metricErrors,metricCoverage:report.metricCoverage,extraMarkets:report.extraMarkets,report:output},null,2));}
 module.exports={parseCSV,normalize,backtest,run,summary,poisson,negBin,goalProb,goalsModel,statModel};
