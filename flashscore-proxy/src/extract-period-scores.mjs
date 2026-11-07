@@ -1,5 +1,5 @@
 // Extract only explicitly labelled period scores from a Flashscore match page.
-// No score is inferred from a bare score candidate or from incident timelines.
+// Parse visible text rather than relying on one specific HTML tag layout.
 function decodeMarkup(value) {
   return String(value)
     .replace(/\\u003c/gi, "<").replace(/\\u003e/gi, ">")
@@ -8,6 +8,15 @@ function decodeMarkup(value) {
     .replace(/&nbsp;/gi, " ").replace(/&amp;/gi, "&")
     .replace(/&lt;/gi, "<").replace(/&gt;/gi, ">")
     .replace(/&quot;/gi, '"').replace(/&#39;|&apos;/gi, "'");
+}
+
+function visibleText(value) {
+  return decodeMarkup(value)
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 function parsePair(value) {
@@ -20,15 +29,20 @@ function parsePair(value) {
 
 export function extractPeriodScores(input) {
   const html = decodeMarkup(input);
-  const firstMatch = html.match(/1(?:\.|ª|º)\s*Parte\s*:\s*<b[^>]*>\s*(\d{1,2}\s*[-:]\s*\d{1,2})\s*<\/b>/i);
-  const secondMatch = html.match(/2(?:\.|ª|º)\s*Parte\s*:\s*<b[^>]*>\s*(\d{1,2}\s*[-:]\s*\d{1,2})\s*<\/b>/i);
-  const extraTimeMatch = html.match(/(?:Prolong(?:amento)?\.?|Extra\s*Time)\s*:\s*<b[^>]*>\s*(\d{1,2}\s*[-:]\s*\d{1,2})\s*<\/b>/i);
+  const text = visibleText(html);
+  const pair = "(\\d{1,2}\\s*[-:]\\s*\\d{1,2})";
+  const firstMatch = text.match(new RegExp("(?:^|\\s)1(?:\\.|ª|º)\\s*Parte\\s*:\\s*" + pair, "i"));
+  const secondMatch = text.match(new RegExp("(?:^|\\s)2(?:\\.|ª|º)\\s*Parte\\s*:\\s*" + pair, "i"));
+  const extraTimeMatch = text.match(new RegExp("(?:Prolong(?:amento)?\\.?|Extra\\s*Time)\\s*:\\s*" + pair, "i"));
 
-  // O resumo do jogo aparece imediatamente antes do estado final. O Flashscore
-  // usa rótulos diferentes em jogos normais e em partidas com prolongamento.
+  // O resumo do jogo aparece imediatamente antes do estado final.
   const finishedAt = html.search(/>\s*(?:Terminado|Tempo\s+Final|Depois\s+de\s+Prolongamento|Após\s+prolongamento)\s*</i);
   const summaryArea = finishedAt >= 0 ? html.slice(Math.max(0, finishedAt - 900), finishedAt) : "";
-  const finalMatches = [...summaryArea.matchAll(/<b[^>]*>\s*(\d{1,2}\s*[-:]\s*\d{1,2})\s*<\/b>\s*\(\s*(\d{1,2}\s*[-:]\s*\d{1,2})\s*,\s*(\d{1,2}\s*[-:]\s*\d{1,2})(?:\s*,\s*(\d{1,2}\s*[-:]\s*\d{1,2}))?\s*\)/gi)];
+  const summaryText = visibleText(summaryArea);
+  const finalMatches = [...summaryText.matchAll(new RegExp(
+    pair + "\\s*\\(\\s*" + pair + "\\s*,\\s*" + pair + "(?:\\s*,\\s*" + pair + ")?\\s*\\)",
+    "gi"
+  ))];
 
   if (!firstMatch || !secondMatch || finalMatches.length !== 1) return null;
   const firstHalf = parsePair(finalMatches[0][2]);
@@ -38,8 +52,6 @@ export function extractPeriodScores(input) {
   const extraTime = extraTimeMatch ? parsePair(extraTimeMatch[1]) : null;
   if (!firstHalf || !secondHalf || !fullTime) return null;
 
-  // Cross-check every explicitly labelled period against the summary and FT
-  // arithmetic. Penalty shootouts are outside this breakdown and never enter FT.
   const labelledFirst = parsePair(firstMatch[1]);
   const labelledSecond = parsePair(secondMatch[1]);
   if (!labelledFirst || !labelledSecond ||
