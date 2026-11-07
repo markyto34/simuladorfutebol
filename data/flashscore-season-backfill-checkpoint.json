@@ -57,11 +57,12 @@
     "/futebol/asia/campeonato-asean/",
     "/futebol/asia/campeonato-do-mundo/",
     "/futebol/asia/jogos-asiaticoa/",
-    "/futebol/asia/taca-asean-da-fifa/"
+    "/futebol/asia/taca-asean-da-fifa/",
+    "/futebol/asia/taca-asiatica/"
   ],
-  "updated_at": "2026-11-07T10:59:54.867Z",
+  "updated_at": "2026-11-07T11:01:31.676Z",
   "completed_paths_reset_version": 1,
-  "last_completed_path": "/futebol/asia/taca-asean-da-fifa/",
+  "last_completed_path": "/futebol/asia/taca-asiatica/",
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
     "/futebol/arabia-saudita/super-taca/",
