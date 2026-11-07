@@ -35,11 +35,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 35,
-  "processed_games": 25,
-  "stats_games": 25,
+  "processed_games": 35,
+  "stats_games": 35,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 26/35 · 4r9MDsUi",
-  "last_result": "Carroi - Penya: 11 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T08:26:07.916Z"
+  "current_match": "Último concluído: Carroi - FC Santa Coloma",
+  "last_result": "Carroi - FC Santa Coloma: 10 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T08:26:17.959Z"
 }
