@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 500,
-  "processed_games": 275,
-  "stats_games": 275,
-  "bwin_odds": 138,
+  "processed_games": 300,
+  "stats_games": 300,
+  "bwin_odds": 151,
   "failed_games": 0,
-  "current_match": "Último concluído: Washington F - Chicago F",
-  "last_result": "Washington F - Chicago F: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-07T06:56:19.437Z"
+  "current_match": "Último concluído: Ujpest - Nyiregyhaza",
+  "last_result": "Ujpest - Nyiregyhaza: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-07T06:56:54.362Z"
 }
