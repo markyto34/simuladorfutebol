@@ -49,11 +49,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 156,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 25,
+  "stats_games": 21,
   "bwin_odds": 0,
-  "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-07T14:14:28.762Z"
+  "failed_games": 4,
+  "current_match": "Último concluído: Tigre (Arg) - Montevideo City (Uru)",
+  "last_result": "Tigre (Arg) - Montevideo City (Uru): 14 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T14:17:32.328Z"
 }
