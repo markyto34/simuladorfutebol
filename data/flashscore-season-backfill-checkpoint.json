@@ -16,6 +16,7 @@
     "/futebol/alemanha/taca-da-alemanha/",
     "/futebol/america-do-norte-e-central/campeonato-do-mundo/",
     "/futebol/america-do-norte-e-central/concacaf-liga-das-nacoes/",
+    "/futebol/america-do-norte-e-central/concacaf-liga-dos-campeoes/",
     "/futebol/america-do-sul/campeonato-do-mundo/",
     "/futebol/america-do-sul/campeonato-sul-americano-sub-20/",
     "/futebol/america-do-sul/copa-america/",
@@ -25,7 +26,7 @@
     "/futebol/america-do-sul/serie-rio-de-la-plata/"
   ],
   "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
-  "updated_at": "2026-11-07T14:55:32.813Z",
-  "last_completed_path": "/futebol/america-do-norte-e-central/concacaf-liga-das-nacoes/",
+  "updated_at": "2026-11-07T14:55:52.378Z",
+  "last_completed_path": "/futebol/america-do-norte-e-central/concacaf-liga-dos-campeoes/",
   "last_skipped_path": "/futebol/america-do-sul/serie-rio-de-la-plata/"
 }
