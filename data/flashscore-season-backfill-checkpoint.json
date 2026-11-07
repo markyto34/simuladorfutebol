@@ -43,7 +43,8 @@
     "/futebol/argentina/super-taca/",
     "/futebol/argentina/taca-da-argentina/",
     "/futebol/argentina/taca-da-liga-profissional/",
-    "/futebol/argentina/torneio-federal/"
+    "/futebol/argentina/torneio-federal/",
+    "/futebol/argentina/torneio-promocional-amador/"
   ],
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
@@ -51,7 +52,7 @@
     "/futebol/argentina/super-taca/"
   ],
   "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
-  "updated_at": "2026-11-07T16:01:14.112Z",
-  "last_completed_path": "/futebol/argentina/torneio-federal/",
+  "updated_at": "2026-11-07T16:04:06.537Z",
+  "last_completed_path": "/futebol/argentina/torneio-promocional-amador/",
   "last_skipped_path": "/futebol/argentina/super-taca/"
 }
