@@ -6,7 +6,7 @@ const path = require("node:path");
 const vm = require("node:vm");
 
 const source = fs.readFileSync(path.join(__dirname, "../app.js"), "utf8");
-const helper = source.match(/function validMetricSampleValue\\(value\\)\\{[^}]+\\}/);
+const helper = source.match(/function validMetricSampleValue\(value\)\{[^}]+\}/);
 assert.ok(helper, "A validação individual de cada indicador deve existir.");
 const context = {};
 vm.createContext(context);
@@ -23,7 +23,7 @@ test("Rejeita valores ausentes, negativos ou não numéricos", () => {
 });
 test("A amostra calcula cada indicador diretamente nos jogos Flashscore", () => {
   const start = source.indexOf("function teamSample(");
-  const end = source.indexOf("\\nfunction mean(", start);
+  const end = source.indexOf("\nfunction mean(", start);
   const body = source.slice(start, end);
   assert.ok(body.includes("dataState.matches.filter"));
   assert.ok(body.includes("matches.map(m=>sourceValue(m,m.home===team))"));
