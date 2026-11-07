@@ -45,11 +45,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 56,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 25,
+  "stats_games": 16,
   "bwin_odds": 0,
-  "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-07T13:36:27.963Z"
+  "failed_games": 9,
+  "current_match": "Último concluído: Alianza (Pan) - Olimpia (Hon)",
+  "last_result": "Alianza (Pan) - Olimpia (Hon): 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T13:43:33.175Z"
 }
