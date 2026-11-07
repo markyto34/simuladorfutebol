@@ -4,10 +4,11 @@
     "/futebol/africa-do-sul/primeira-liga/",
     "/futebol/africa-do-sul/segunda-liga/",
     "/futebol/africa/caf-liga-dos-campeoes/",
-    "/futebol/africa/caf-taca-das-confederacoes/"
+    "/futebol/africa/caf-taca-das-confederacoes/",
+    "/futebol/africa/campeonato-das-nacoes-africanas/"
   ],
   "skipped_paths": [],
   "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
-  "updated_at": "2026-11-07T13:12:45.043Z",
-  "last_completed_path": "/futebol/africa/caf-taca-das-confederacoes/"
+  "updated_at": "2026-11-07T13:14:42.241Z",
+  "last_completed_path": "/futebol/africa/campeonato-das-nacoes-africanas/"
 }
