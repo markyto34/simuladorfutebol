@@ -57,11 +57,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 94,
-  "processed_games": 50,
-  "stats_games": 50,
+  "processed_games": 75,
+  "stats_games": 75,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Bregenz - Floridsdorfer AC",
-  "last_result": "Bregenz - Floridsdorfer AC: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T17:12:16.095Z"
+  "current_match": "Último concluído: Floridsdorfer AC - Amstetten",
+  "last_result": "Floridsdorfer AC - Amstetten: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T17:12:41.223Z"
 }
