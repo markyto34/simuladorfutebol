@@ -32,14 +32,14 @@
   ],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 35,
   "processed_games": 35,
   "stats_games": 35,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Carroi - FC Santa Coloma",
+  "current_match": "Recolha terminada",
   "last_result": "Carroi - FC Santa Coloma: 10 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T09:00:04.359Z"
+  "updated_at": "2026-11-07T09:00:05.816Z"
 }
