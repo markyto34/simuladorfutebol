@@ -28,7 +28,7 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 62,
   "processed_games": 62,
   "stats_games": 62,
@@ -36,5 +36,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Catar - Suiça: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T08:57:15.291Z"
+  "updated_at": "2026-11-07T08:57:20.530Z"
 }
