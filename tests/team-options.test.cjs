@@ -7,7 +7,7 @@ const source = fs.readFileSync(require("node:path").join(__dirname, "../app.js")
 const start = source.indexOf("function teamOptionsForSeason(matches){");
 const end = source.indexOf("async function loadHistoricalData", start);
 assert.ok(start >= 0 && end > start, "A lista de equipas da época carregada deve existir.");
-const helper = source.slice(start, source.indexOf("\\n}", start) + 2);
+const helper = source.slice(start, source.indexOf("\n}", start) + 2);
 const context = {};
 vm.createContext(context);
 vm.runInContext(helper + ";this.selectTeams=teamOptionsForSeason;", context);
@@ -28,7 +28,7 @@ test("A seleção não filtra equipas por completude global do jogo", () => {
 });
 test("O carregamento histórico aceita exclusivamente competições Flashscore", () => {
  const loadStart=source.indexOf("async function loadHistoricalData()");
- const loadEnd=source.indexOf("\\nfunction teamSample(",loadStart);
+ const loadEnd=source.indexOf("\nfunction teamSample(",loadStart);
  const loader=source.slice(loadStart,loadEnd);
  assert.ok(loader.includes('if(!league.startsWith("FS|"))'));
  assert.ok(loader.includes("fetchSourceCSV(FLASHSCORE_STATS_CSV_URL)"));
