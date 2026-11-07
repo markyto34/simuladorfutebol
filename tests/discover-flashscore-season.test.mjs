@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { discoverSeasonFromHtml } from "../scripts/discover-flashscore-season.mjs";
+import { discoverSeasonFromHtml, getCollectedMatchIds } from "../scripts/discover-flashscore-season.mjs";
 
 test("descobre a época atual e pagina resultados Flashscore", async () => {
   const tick = String.fromCharCode(96);
@@ -24,4 +24,14 @@ test("descobre a época atual e pagina resultados Flashscore", async () => {
   assert.equal(result.context.stage_id, "EfGh5678");
   assert.deepEqual(result.fixtures.map(row => row.match_id), ["match001", "match002"]);
   assert.equal(result.fixtures[1].competition, "ENGLAND: Premier League");
+});
+
+
+test("considera já consultado qualquer jogo com registo Flashscore, mesmo com indicadores vazios", () => {
+  const ids = getCollectedMatchIds([
+    { match_id: "match001", source: "Flashscore", corners_ht_home: "" },
+    { match_id: "match002", source: "Outro" },
+    { match_id: "match003", source: "Flashscore" }
+  ]);
+  assert.deepEqual([...ids].sort(), ["match001", "match003"]);
 });
