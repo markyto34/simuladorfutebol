@@ -40,14 +40,14 @@
   ],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed_with_errors",
+  "phase": "completed",
   "total_games": 74,
   "processed_games": 74,
   "stats_games": 73,
   "bwin_odds": 0,
   "failed_games": 1,
-  "current_match": "Último concluído: Porto Rico - Guiana",
+  "current_match": "Recolha terminada",
   "last_result": "Porto Rico - Guiana: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T13:33:22.154Z"
+  "updated_at": "2026-11-07T13:33:23.135Z"
 }
