@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 504,
-  "processed_games": 500,
-  "stats_games": 490,
+  "processed_games": 504,
+  "stats_games": 494,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Guillermo Brown - Santamarina",
-  "last_result": "Guillermo Brown - Santamarina: 6 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:01:06.109Z"
+  "current_match": "Último concluído: Tucuman Central - Bartolome Mitre",
+  "last_result": "Tucuman Central - Bartolome Mitre: 5 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:01:10.386Z"
 }
