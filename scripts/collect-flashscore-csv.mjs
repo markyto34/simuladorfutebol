@@ -318,7 +318,20 @@ async function discoverMatchIds(date) {
   };
 }
 
-async function filterToSelectedCompetitions(ids, identities) {
+export function normalizeCompetitionIdentity(value) {
+  return String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().replace(/\s+/g, " ");
+}
+
+export function filterMatchIdsToSelectedCompetitions(ids, identities, selectedPairs) {
+  return ids.filter(id => {
+    const identity = identities[id];
+    return identity?.status === "identified" &&
+      selectedPairs.has(normalizeCompetitionIdentity(identity.country) + "|" + normalizeCompetitionIdentity(identity.competition));
+  });
+}
+
+async function loadSelectedCompetitionPairs() {
   const [selection, catalog] = await Promise.all([
     readFile("data/flashscore-competition-selection.json", "utf8").then(JSON.parse),
     readFile("data/flashscore-competition-catalog.json", "utf8").then(JSON.parse)
@@ -327,16 +340,16 @@ async function filterToSelectedCompetitions(ids, identities) {
     throw new Error("A seleção explícita de competições Flashscore está vazia ou inválida; recolha cancelada.");
   }
   const selectedPaths = new Set(selection.selected_paths);
-  const normalizeIdentity = value => String(value || "").normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().replace(/\\s+/g, " ");
   const selectedPairs = new Set((catalog.competitions || []).filter(item => {
     try { return selectedPaths.has(new URL(item.url).pathname); } catch { return false; }
-  }).map(item => normalizeIdentity(item.country_name) + "|" + normalizeIdentity(item.competition_name)));
+  }).map(item => normalizeCompetitionIdentity(item.country_name) + "|" + normalizeCompetitionIdentity(item.competition_name)));
   if (!selectedPairs.size) throw new Error("Nenhuma competição selecionada corresponde ao catálogo Flashscore.");
-  const kept = ids.filter(id => {
-    const identity = identities[id];
-    return identity?.status === "identified" &&
-      selectedPairs.has(normalizeIdentity(identity.country) + "|" + normalizeIdentity(identity.competition));
-  });
+  return { selectedPaths, selectedPairs };
+}
+
+async function filterToSelectedCompetitions(ids, identities) {
+  const { selectedPaths, selectedPairs } = await loadSelectedCompetitionPairs();
+  const kept = filterMatchIdsToSelectedCompetitions(ids, identities, selectedPairs);
   console.log("[COMPETITION SELECTION] " + kept.length + "/" + ids.length + " jogos pertencem às " + selectedPaths.size + " competições escolhidas; restantes excluídos.");
   return kept;
 }
@@ -374,6 +387,7 @@ async function main() {
   let matchIds = args.filter(arg => !arg.startsWith("--"));
   let competitionByMatchId = {};
   let fixturesByMatchId = {};
+  let selectedPairsForDailyStats = null;
   if (teamLastFiveOption && (dateOption || matchIds.length)) throw new Error("Usa --team-last-five=ficheiro.json isoladamente, sem IDs nem --date.");
   if (dateOption && matchIds.length) {
     throw new Error("Usa IDs de jogos ou --date=YYYY-MM-DD, não ambos.");
@@ -401,7 +415,9 @@ async function main() {
     matchIds = discovery.matchIds;
     competitionByMatchId = discovery.competitionByMatchId;
     fixturesByMatchId = discovery.fixturesByMatchId;
-    matchIds = await filterToSelectedCompetitions(matchIds, competitionByMatchId);
+    // A recolha diária de odds percorre todos os jogos descobertos; a seleção
+    // Flashscore limita apenas as estatísticas guardadas para o simulador.
+    selectedPairsForDailyStats = (await loadSelectedCompetitionPairs()).selectedPairs;
     const identified = Object.values(competitionByMatchId).filter(identity => identity?.status === "identified").length;
     console.log("[DISCOVERY] Concluída: " + matchIds.length + " IDs únicos válidos encontrados para " + date + "; " + identified + " com país/competição explicitamente identificados.");
     await setProgress({ total_games: matchIds.length, phase: "collecting", current_match: "A preparar recolha" });
@@ -467,6 +483,22 @@ async function main() {
     .filter(row => row.match_id && row.country && row.competition)
     .map(row => [row.match_id, { country: row.country, competition: row.competition }]));
   for (const row of existingOdds) {
+    if (row.match_id && row.country && row.competition && !historicalIdentityByMatchId.has(row.match_id)) {
+      historicalIdentityByMatchId.set(row.match_id, { country: row.country, competition: row.competition });
+    }
+  }
+  if (!dateOption && !teamLastFiveOption) {
+    const { selectedPaths, selectedPairs } = await loadSelectedCompetitionPairs();
+    const identities = Object.fromEntries([...historicalIdentityByMatchId].map(([id, identity]) => [id, { ...identity, status: "identified" }]));
+    const filteredIds = filterMatchIdsToSelectedCompetitions(matchIds, identities, selectedPairs);
+    if (filteredIds.length !== matchIds.length) {
+      const excluded = matchIds.length - filteredIds.length;
+      throw new Error("Execução cancelada: " + excluded + " IDs manuais/recuperação não têm uma competição selecionada confirmada no histórico. Nenhum jogo foi recolhido.");
+    }
+    matchIds = filteredIds;
+    console.log("[COMPETITION SELECTION] IDs manuais/recuperação validados contra " + selectedPaths.size + " competições selecionadas.");
+  }
+  for (const row of existingOdds) {
     const identity = historicalIdentityByMatchId.get(row.match_id);
     if (identity) {
       if (!row.country) row.country = identity.country;
@@ -512,7 +544,12 @@ async function main() {
         }
         if (record.country && record.competition) competitionIdentified++;
         else competitionMissing++;
-        if (record.statistics && Object.keys(record.statistics).length) {
+        const statsIdentity = resolvedIdentity || (record.country && record.competition
+          ? { country: record.country, competition: record.competition, status: "identified" }
+          : null);
+        const keepStatsForSimulator = !dateOption || Boolean(statsIdentity &&
+          filterMatchIdsToSelectedCompetitions([matchId], { [matchId]: statsIdentity }, selectedPairsForDailyStats).length);
+        if (keepStatsForSimulator && record.statistics && Object.keys(record.statistics).length) {
           statsNew.push(statisticsRow(record));
           progressSnapshot.stats_games++;
         }
