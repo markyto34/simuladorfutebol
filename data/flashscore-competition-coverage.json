@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-11-07T07:52:33.682Z",
+  "generated_at": "2026-11-07T08:11:30.803Z",
   "source": "Flashscore catalog + data/flashscore-statistics.csv",
   "scope": "Correspondência por país e competição com normalização e apenas aliases explicitamente confirmados. Nomes repetidos no mesmo país ficam em revisão e não são considerados cobertura validada.",
   "summary": {
     "catalog_candidates": 1299,
-    "candidates_with_stats": 391,
-    "candidates_without_stats": 902,
+    "candidates_with_stats": 390,
+    "candidates_without_stats": 903,
     "candidates_1_to_4_matches": 97,
-    "candidates_5_plus_matches": 294,
+    "candidates_5_plus_matches": 293,
     "candidates_10_plus_matches": 267,
     "candidates_20_plus_matches": 232,
     "duplicate_name_candidates_for_review": 6,
-    "stats_competitions": 671,
-    "stats_competitions_matched_to_catalog": 392,
+    "stats_competitions": 670,
+    "stats_competitions_matched_to_catalog": 391,
     "stats_competitions_not_in_catalog": 279,
     "stats_rows": 26958,
     "stats_unique_match_ids": 26958,
-    "stats_competition_labels": 674,
-    "matched_stats_competition_labels": 394,
+    "stats_competition_labels": 673,
+    "matched_stats_competition_labels": 393,
     "unmatched_stats_competition_labels": 280,
     "unmatched_stage_labels_kept_separate": 168,
     "unmatched_labels_without_catalog_base": 112
@@ -14022,8 +14022,8 @@
           "coverage_pct": 100
         },
         "red_cards": {
-          "complete_matches": 15,
-          "coverage_pct": 7
+          "complete_matches": 16,
+          "coverage_pct": 7.4
         }
       }
     },
@@ -14281,8 +14281,8 @@
           "coverage_pct": 99.2
         },
         "red_cards": {
-          "complete_matches": 26,
-          "coverage_pct": 19.5
+          "complete_matches": 28,
+          "coverage_pct": 21.1
         }
       }
     },
@@ -14346,8 +14346,8 @@
           "coverage_pct": 99.2
         },
         "red_cards": {
-          "complete_matches": 13,
-          "coverage_pct": 9.8
+          "complete_matches": 15,
+          "coverage_pct": 11.3
         }
       }
     },
@@ -14993,8 +14993,8 @@
           "coverage_pct": 94.2
         },
         "red_cards": {
-          "complete_matches": 14,
-          "coverage_pct": 13.6
+          "complete_matches": 16,
+          "coverage_pct": 15.5
         }
       }
     },
@@ -15187,8 +15187,8 @@
           "coverage_pct": 99
         },
         "red_cards": {
-          "complete_matches": 29,
-          "coverage_pct": 28.4
+          "complete_matches": 30,
+          "coverage_pct": 29.4
         }
       }
     },
@@ -15317,8 +15317,8 @@
           "coverage_pct": 96.1
         },
         "red_cards": {
-          "complete_matches": 17,
-          "coverage_pct": 16.7
+          "complete_matches": 18,
+          "coverage_pct": 17.6
         }
       }
     },
@@ -15382,8 +15382,8 @@
           "coverage_pct": 97.1
         },
         "red_cards": {
-          "complete_matches": 10,
-          "coverage_pct": 9.8
+          "complete_matches": 11,
+          "coverage_pct": 10.8
         }
       }
     },
@@ -15447,8 +15447,8 @@
           "coverage_pct": 98
         },
         "red_cards": {
-          "complete_matches": 20,
-          "coverage_pct": 19.6
+          "complete_matches": 21,
+          "coverage_pct": 20.6
         }
       }
     },
@@ -15577,8 +15577,8 @@
           "coverage_pct": 99
         },
         "red_cards": {
-          "complete_matches": 34,
-          "coverage_pct": 33.7
+          "complete_matches": 35,
+          "coverage_pct": 34.7
         }
       }
     },
@@ -15642,8 +15642,8 @@
           "coverage_pct": 95
         },
         "red_cards": {
-          "complete_matches": 7,
-          "coverage_pct": 6.9
+          "complete_matches": 9,
+          "coverage_pct": 8.9
         }
       }
     },
@@ -15837,8 +15837,8 @@
           "coverage_pct": 98
         },
         "red_cards": {
-          "complete_matches": 17,
-          "coverage_pct": 16.8
+          "complete_matches": 18,
+          "coverage_pct": 17.8
         }
       }
     },
@@ -16032,8 +16032,8 @@
           "coverage_pct": 93
         },
         "red_cards": {
-          "complete_matches": 20,
-          "coverage_pct": 20
+          "complete_matches": 22,
+          "coverage_pct": 22
         }
       }
     },
@@ -16227,8 +16227,8 @@
           "coverage_pct": 96
         },
         "red_cards": {
-          "complete_matches": 17,
-          "coverage_pct": 17
+          "complete_matches": 18,
+          "coverage_pct": 18
         }
       }
     },
@@ -16551,8 +16551,8 @@
           "coverage_pct": 99
         },
         "red_cards": {
-          "complete_matches": 21,
-          "coverage_pct": 21
+          "complete_matches": 22,
+          "coverage_pct": 22
         }
       }
     },
@@ -16616,8 +16616,8 @@
           "coverage_pct": 100
         },
         "red_cards": {
-          "complete_matches": 14,
-          "coverage_pct": 14
+          "complete_matches": 15,
+          "coverage_pct": 15
         }
       }
     },
@@ -16876,8 +16876,8 @@
           "coverage_pct": 97
         },
         "red_cards": {
-          "complete_matches": 17,
-          "coverage_pct": 17
+          "complete_matches": 20,
+          "coverage_pct": 20
         }
       }
     },
@@ -17006,8 +17006,8 @@
           "coverage_pct": 90
         },
         "red_cards": {
-          "complete_matches": 7,
-          "coverage_pct": 7
+          "complete_matches": 8,
+          "coverage_pct": 8
         }
       }
     },
@@ -17201,8 +17201,8 @@
           "coverage_pct": 96
         },
         "red_cards": {
-          "complete_matches": 22,
-          "coverage_pct": 22.2
+          "complete_matches": 24,
+          "coverage_pct": 24.2
         }
       }
     },
@@ -17330,8 +17330,8 @@
           "coverage_pct": 100
         },
         "red_cards": {
-          "complete_matches": 21,
-          "coverage_pct": 21.2
+          "complete_matches": 22,
+          "coverage_pct": 22.2
         }
       }
     },
@@ -17395,8 +17395,8 @@
           "coverage_pct": 99
         },
         "red_cards": {
-          "complete_matches": 10,
-          "coverage_pct": 10.1
+          "complete_matches": 11,
+          "coverage_pct": 11.1
         }
       }
     },
@@ -17783,8 +17783,8 @@
           "coverage_pct": 96.9
         },
         "red_cards": {
-          "complete_matches": 14,
-          "coverage_pct": 14.4
+          "complete_matches": 16,
+          "coverage_pct": 16.5
         }
       }
     },
@@ -17848,8 +17848,8 @@
           "coverage_pct": 99
         },
         "red_cards": {
-          "complete_matches": 19,
-          "coverage_pct": 19.6
+          "complete_matches": 20,
+          "coverage_pct": 20.6
         }
       }
     },
@@ -17978,8 +17978,8 @@
           "coverage_pct": 29.9
         },
         "red_cards": {
-          "complete_matches": 28,
-          "coverage_pct": 28.9
+          "complete_matches": 29,
+          "coverage_pct": 29.9
         }
       }
     },
@@ -18107,8 +18107,8 @@
           "coverage_pct": 98.9
         },
         "red_cards": {
-          "complete_matches": 22,
-          "coverage_pct": 23.2
+          "complete_matches": 23,
+          "coverage_pct": 24.2
         }
       }
     },
@@ -18364,8 +18364,8 @@
           "coverage_pct": 98.9
         },
         "red_cards": {
-          "complete_matches": 12,
-          "coverage_pct": 13
+          "complete_matches": 13,
+          "coverage_pct": 14.1
         }
       }
     },
@@ -18494,8 +18494,8 @@
           "coverage_pct": 100
         },
         "red_cards": {
-          "complete_matches": 17,
-          "coverage_pct": 18.5
+          "complete_matches": 18,
+          "coverage_pct": 19.6
         }
       }
     },
@@ -18624,8 +18624,8 @@
           "coverage_pct": 96.7
         },
         "red_cards": {
-          "complete_matches": 19,
-          "coverage_pct": 20.9
+          "complete_matches": 20,
+          "coverage_pct": 22
         }
       }
     },
@@ -18956,8 +18956,8 @@
           "coverage_pct": 97.8
         },
         "red_cards": {
-          "complete_matches": 16,
-          "coverage_pct": 17.8
+          "complete_matches": 17,
+          "coverage_pct": 18.9
         }
       }
     },
@@ -19214,8 +19214,8 @@
           "coverage_pct": 89.7
         },
         "red_cards": {
-          "complete_matches": 17,
-          "coverage_pct": 19.5
+          "complete_matches": 18,
+          "coverage_pct": 20.7
         }
       }
     },
@@ -19343,8 +19343,8 @@
           "coverage_pct": 95.3
         },
         "red_cards": {
-          "complete_matches": 19,
-          "coverage_pct": 22.1
+          "complete_matches": 21,
+          "coverage_pct": 24.4
         }
       }
     },
@@ -19538,8 +19538,8 @@
           "coverage_pct": 97.6
         },
         "red_cards": {
-          "complete_matches": 11,
-          "coverage_pct": 13.4
+          "complete_matches": 12,
+          "coverage_pct": 14.6
         }
       }
     },
@@ -20510,8 +20510,8 @@
           "coverage_pct": 46.1
         },
         "red_cards": {
-          "complete_matches": 13,
-          "coverage_pct": 17.1
+          "complete_matches": 15,
+          "coverage_pct": 19.7
         }
       }
     },
@@ -20704,8 +20704,8 @@
           "coverage_pct": 46.7
         },
         "red_cards": {
-          "complete_matches": 14,
-          "coverage_pct": 18.7
+          "complete_matches": 18,
+          "coverage_pct": 24
         }
       }
     },
@@ -20769,8 +20769,8 @@
           "coverage_pct": 42.7
         },
         "red_cards": {
-          "complete_matches": 17,
-          "coverage_pct": 22.7
+          "complete_matches": 20,
+          "coverage_pct": 26.7
         }
       }
     },
@@ -20899,8 +20899,8 @@
           "coverage_pct": 98.6
         },
         "red_cards": {
-          "complete_matches": 15,
-          "coverage_pct": 20.5
+          "complete_matches": 16,
+          "coverage_pct": 21.9
         }
       }
     },
@@ -21093,8 +21093,8 @@
           "coverage_pct": 45.8
         },
         "red_cards": {
-          "complete_matches": 9,
-          "coverage_pct": 12.5
+          "complete_matches": 11,
+          "coverage_pct": 15.3
         }
       }
     },
@@ -21288,8 +21288,8 @@
           "coverage_pct": 100
         },
         "red_cards": {
-          "complete_matches": 14,
-          "coverage_pct": 19.7
+          "complete_matches": 15,
+          "coverage_pct": 21.1
         }
       }
     },
@@ -21548,8 +21548,8 @@
           "coverage_pct": 53.6
         },
         "red_cards": {
-          "complete_matches": 13,
-          "coverage_pct": 18.8
+          "complete_matches": 16,
+          "coverage_pct": 23.2
         }
       }
     },
@@ -21613,8 +21613,72 @@
           "coverage_pct": 47.8
         },
         "red_cards": {
-          "complete_matches": 8,
-          "coverage_pct": 11.6
+          "complete_matches": 9,
+          "coverage_pct": 13
+        }
+      }
+    },
+    {
+      "country_name": "América do Sul",
+      "country_slug": "america-do-sul",
+      "competition_name": "Campeonato do mundo",
+      "competition_slug": "campeonato-do-mundo",
+      "url": "https://www.flashscore.pt/futebol/america-do-sul/campeonato-do-mundo/",
+      "source_country_url": "https://www.flashscore.pt/futebol/america-do-sul/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Campeonato do mundo",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "non_standard_format": false,
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "regional_ou_global",
+      "stats_match_key": "america do sul|campeonato do mundo",
+      "stats_source_labels": [
+        "América do Sul / Campeonato do mundo"
+      ],
+      "unique_stats_matches": 68,
+      "stats_rows": 68,
+      "sample_status": "amostra_20_plus",
+      "metrics": {
+        "corners": {
+          "complete_matches": 68,
+          "coverage_pct": 100
+        },
+        "corners_ht": {
+          "complete_matches": 68,
+          "coverage_pct": 100
+        },
+        "corners_st": {
+          "complete_matches": 68,
+          "coverage_pct": 100
+        },
+        "shots": {
+          "complete_matches": 68,
+          "coverage_pct": 100
+        },
+        "shots_on_target": {
+          "complete_matches": 68,
+          "coverage_pct": 100
+        },
+        "xg": {
+          "complete_matches": 68,
+          "coverage_pct": 100
+        },
+        "fouls": {
+          "complete_matches": 68,
+          "coverage_pct": 100
+        },
+        "yellow_cards": {
+          "complete_matches": 60,
+          "coverage_pct": 88.2
+        },
+        "red_cards": {
+          "complete_matches": 6,
+          "coverage_pct": 8.8
         }
       }
     },
@@ -22394,70 +22458,6 @@
       }
     },
     {
-      "country_name": "América do Norte e Central",
-      "country_slug": "america-do-norte-e-central",
-      "competition_name": "Campeonato do mundo",
-      "competition_slug": "campeonato-do-mundo",
-      "url": "https://www.flashscore.pt/futebol/america-do-norte-e-central/campeonato-do-mundo/",
-      "source_country_url": "https://www.flashscore.pt/futebol/america-do-norte-e-central/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Campeonato do mundo",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "liga_ou_torneio",
-      "non_standard_format": false,
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "regional_ou_global",
-      "stats_match_key": "america do norte e central|campeonato do mundo",
-      "stats_source_labels": [
-        "América do Norte e Central / Campeonato do mundo"
-      ],
-      "unique_stats_matches": 62,
-      "stats_rows": 62,
-      "sample_status": "amostra_20_plus",
-      "metrics": {
-        "corners": {
-          "complete_matches": 62,
-          "coverage_pct": 100
-        },
-        "corners_ht": {
-          "complete_matches": 62,
-          "coverage_pct": 100
-        },
-        "corners_st": {
-          "complete_matches": 62,
-          "coverage_pct": 100
-        },
-        "shots": {
-          "complete_matches": 62,
-          "coverage_pct": 100
-        },
-        "shots_on_target": {
-          "complete_matches": 62,
-          "coverage_pct": 100
-        },
-        "xg": {
-          "complete_matches": 62,
-          "coverage_pct": 100
-        },
-        "fouls": {
-          "complete_matches": 62,
-          "coverage_pct": 100
-        },
-        "yellow_cards": {
-          "complete_matches": 54,
-          "coverage_pct": 87.1
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
       "country_name": "Grécia",
       "country_slug": "grecia",
       "competition_name": "Superliga",
@@ -22517,8 +22517,8 @@
           "coverage_pct": 95.2
         },
         "red_cards": {
-          "complete_matches": 14,
-          "coverage_pct": 22.6
+          "complete_matches": 18,
+          "coverage_pct": 29
         }
       }
     },
@@ -22777,8 +22777,8 @@
           "coverage_pct": 96.7
         },
         "red_cards": {
-          "complete_matches": 13,
-          "coverage_pct": 21.7
+          "complete_matches": 14,
+          "coverage_pct": 23.3
         }
       }
     },
@@ -23231,8 +23231,8 @@
           "coverage_pct": 98.3
         },
         "red_cards": {
-          "complete_matches": 10,
-          "coverage_pct": 17.2
+          "complete_matches": 11,
+          "coverage_pct": 19
         }
       }
     },
@@ -23684,8 +23684,8 @@
           "coverage_pct": 53.7
         },
         "red_cards": {
-          "complete_matches": 8,
-          "coverage_pct": 14.8
+          "complete_matches": 9,
+          "coverage_pct": 16.7
         }
       }
     },
@@ -23749,8 +23749,8 @@
           "coverage_pct": 98.1
         },
         "red_cards": {
-          "complete_matches": 11,
-          "coverage_pct": 20.4
+          "complete_matches": 12,
+          "coverage_pct": 22.2
         }
       }
     },
@@ -26135,8 +26135,8 @@
           "coverage_pct": 100
         },
         "red_cards": {
-          "complete_matches": 7,
-          "coverage_pct": 20
+          "complete_matches": 8,
+          "coverage_pct": 22.9
         }
       }
     },
@@ -29410,8 +29410,8 @@
           "coverage_pct": 94.4
         },
         "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 5.6
         }
       }
     },
@@ -29475,8 +29475,8 @@
           "coverage_pct": 94.4
         },
         "red_cards": {
-          "complete_matches": 1,
-          "coverage_pct": 5.6
+          "complete_matches": 2,
+          "coverage_pct": 11.1
         }
       }
     },
@@ -31661,70 +31661,6 @@
       }
     },
     {
-      "country_name": "África",
-      "country_slug": "africa",
-      "competition_name": "Campeonato do mundo",
-      "competition_slug": "campeonato-do-mundo",
-      "url": "https://www.flashscore.pt/futebol/africa/campeonato-do-mundo/",
-      "source_country_url": "https://www.flashscore.pt/futebol/africa/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Campeonato do mundo",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "liga_ou_torneio",
-      "non_standard_format": false,
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "regional_ou_global",
-      "stats_match_key": "africa|campeonato do mundo",
-      "stats_source_labels": [
-        "África / Campeonato do mundo"
-      ],
-      "unique_stats_matches": 6,
-      "stats_rows": 6,
-      "sample_status": "amostra_5_9",
-      "metrics": {
-        "corners": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        },
-        "corners_ht": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        },
-        "corners_st": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        },
-        "shots": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        },
-        "shots_on_target": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        },
-        "xg": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        },
-        "fouls": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        },
-        "yellow_cards": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        },
-        "red_cards": {
-          "complete_matches": 6,
-          "coverage_pct": 100
-        }
-      }
-    },
-    {
       "country_name": "Argélia",
       "country_slug": "argelia",
       "competition_name": "Taça da Argélia",
@@ -32937,8 +32873,8 @@
           "coverage_pct": 100
         },
         "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 25
         }
       }
     },
@@ -33385,8 +33321,8 @@
           "coverage_pct": 100
         },
         "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 25
         }
       }
     },
@@ -36459,8 +36395,8 @@
           "coverage_pct": 100
         },
         "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
+          "complete_matches": 1,
+          "coverage_pct": 50
         }
       }
     },
@@ -39275,6 +39211,68 @@
     {
       "country_name": "África",
       "country_slug": "africa",
+      "competition_name": "Campeonato do mundo",
+      "competition_slug": "campeonato-do-mundo",
+      "url": "https://www.flashscore.pt/futebol/africa/campeonato-do-mundo/",
+      "source_country_url": "https://www.flashscore.pt/futebol/africa/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Campeonato do mundo",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "non_standard_format": false,
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "regional_ou_global",
+      "stats_match_key": "africa|campeonato do mundo",
+      "stats_source_labels": [],
+      "unique_stats_matches": 0,
+      "stats_rows": 0,
+      "sample_status": "sem_dados",
+      "metrics": {
+        "corners": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots_on_target": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "yellow_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      }
+    },
+    {
+      "country_name": "África",
+      "country_slug": "africa",
       "competition_name": "CECAFA Campeonato Feminino",
       "competition_slug": "cecafa-campeonato-feminino",
       "url": "https://www.flashscore.pt/futebol/africa/cecafa-campeonato-feminino/",
@@ -41631,6 +41629,68 @@
     {
       "country_name": "América do Norte e Central",
       "country_slug": "america-do-norte-e-central",
+      "competition_name": "Campeonato do mundo",
+      "competition_slug": "campeonato-do-mundo",
+      "url": "https://www.flashscore.pt/futebol/america-do-norte-e-central/campeonato-do-mundo/",
+      "source_country_url": "https://www.flashscore.pt/futebol/america-do-norte-e-central/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Campeonato do mundo",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "non_standard_format": false,
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "regional_ou_global",
+      "stats_match_key": "america do norte e central|campeonato do mundo",
+      "stats_source_labels": [],
+      "unique_stats_matches": 0,
+      "stats_rows": 0,
+      "sample_status": "sem_dados",
+      "metrics": {
+        "corners": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots_on_target": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "yellow_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      }
+    },
+    {
+      "country_name": "América do Norte e Central",
+      "country_slug": "america-do-norte-e-central",
       "competition_name": "Campeonato Sub 17 CONCACAF",
       "competition_slug": "campeonato-sub-17-concacaf",
       "url": "https://www.flashscore.pt/futebol/america-do-norte-e-central/campeonato-sub-17-concacaf/",
@@ -41957,68 +42017,6 @@
       "has_division_or_group_marker": false,
       "geographic_scope": "regional_ou_global",
       "stats_match_key": "america do norte e central|taca ouro feminina",
-      "stats_source_labels": [],
-      "unique_stats_matches": 0,
-      "stats_rows": 0,
-      "sample_status": "sem_dados",
-      "metrics": {
-        "corners": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots_on_target": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "yellow_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "country_name": "América do Sul",
-      "country_slug": "america-do-sul",
-      "competition_name": "Campeonato do mundo",
-      "competition_slug": "campeonato-do-mundo",
-      "url": "https://www.flashscore.pt/futebol/america-do-sul/campeonato-do-mundo/",
-      "source_country_url": "https://www.flashscore.pt/futebol/america-do-sul/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Campeonato do mundo",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "liga_ou_torneio",
-      "non_standard_format": false,
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "regional_ou_global",
-      "stats_match_key": "america do sul|campeonato do mundo",
       "stats_source_labels": [],
       "unique_stats_matches": 0,
       "stats_rows": 0,
