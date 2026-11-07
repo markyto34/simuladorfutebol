@@ -4,7 +4,7 @@ import { REQUIRED_PAIRS, REQUIRED_SCORE_FIELDS, selectRowsNeedingSelectedIndicat
 
 const selected = new Set(["portugal|primeira liga"]);
 const row = (match_id, extra = {}) => ({
-  match_id, date_time: "2026-11-01T15:00:00", country: "Portugal", competition: "Primeira Liga",
+  match_id, date_time: "2026-11-01T15:00:00", country: "Portugal", competition: "Primeira Liga", status: "Terminado",
   score_home: "2", score_away: "1", ht_home: "1", ht_away: "0", sh_home: "1", sh_away: "1",
   ...Object.fromEntries(REQUIRED_PAIRS.flatMap(key => [[key + "_home", "3"], [key + "_away", "2"]])),
   ...extra
