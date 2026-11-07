@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 500,
-  "processed_games": 175,
-  "stats_games": 175,
-  "bwin_odds": 62,
+  "processed_games": 200,
+  "stats_games": 200,
+  "bwin_odds": 87,
   "failed_games": 0,
-  "current_match": "Último concluído: Sudão - Etiópia",
-  "last_result": "Sudão - Etiópia: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-07T07:12:44.880Z"
+  "current_match": "Último concluído: Sudão do Sul - Egipto",
+  "last_result": "Sudão do Sul - Egipto: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-07T07:13:02.438Z"
 }
