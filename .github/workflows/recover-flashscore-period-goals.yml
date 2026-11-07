@@ -39,12 +39,24 @@ jobs:
             return finished && hasFt && (!hasHt || !hasSt) && /^[A-Za-z0-9]{6,16}$/.test(row.match_id || "");
           }).map(row => row.match_id);
           const unique = [...new Set(targets)];
-          fs.writeFileSync("/tmp/ht-st-recovery-ids.txt", unique.join("\n") + (unique.length ? "\n" : ""));
+          // A recuperação fica agrupada por país/competição, mantendo ordem cronológica
+          // dentro de cada competição, em vez de misturar ligas pela ordem original do CSV.
+          const targetIdSet = new Set(unique);
+          const targetRows = rows
+            .filter(row => targetIdSet.has(row.match_id))
+            .sort((a, b) =>
+              String(a.country || "").localeCompare(String(b.country || "")) ||
+              String(a.competition || "").localeCompare(String(b.competition || "")) ||
+              String(a.date_time || "").localeCompare(String(b.date_time || "")) ||
+              String(a.match_id || "").localeCompare(String(b.match_id || ""))
+            );
+          const ordered = [...new Set(targetRows.map(row => row.match_id))];
+          fs.writeFileSync("/tmp/ht-st-recovery-ids.txt", ordered.join("\n") + (ordered.length ? "\n" : ""));
           fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,
             "## Alvos da recuperação HT/ST\n\n- Registos históricos: **" + rows.length +
             "**\n- Jogos únicos com HT/ST em falta: **" + unique.length + "**\n");
           console.log("Registos históricos: " + rows.length);
-          console.log("Jogos únicos a recuperar: " + unique.length);
+          console.log("Jogos únicos a recuperar: " + ordered.length);
           NODE
 
       - name: Recolher novamente em lotes e guardar checkpoints
