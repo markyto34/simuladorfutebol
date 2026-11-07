@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-11-07T08:18:34.105Z",
+  "generated_at": "2026-11-07T10:19:41.309Z",
   "source": "Flashscore catalog + data/flashscore-statistics.csv",
   "scope": "Correspondência por país e competição com normalização e apenas aliases explicitamente confirmados. Nomes repetidos no mesmo país ficam em revisão e não são considerados cobertura validada.",
   "summary": {
     "catalog_candidates": 1299,
-    "candidates_with_stats": 390,
-    "candidates_without_stats": 903,
-    "candidates_1_to_4_matches": 97,
-    "candidates_5_plus_matches": 293,
+    "candidates_with_stats": 392,
+    "candidates_without_stats": 901,
+    "candidates_1_to_4_matches": 98,
+    "candidates_5_plus_matches": 294,
     "candidates_10_plus_matches": 267,
-    "candidates_20_plus_matches": 232,
+    "candidates_20_plus_matches": 233,
     "duplicate_name_candidates_for_review": 6,
-    "stats_competitions": 670,
-    "stats_competitions_matched_to_catalog": 391,
-    "stats_competitions_not_in_catalog": 279,
-    "stats_rows": 26958,
-    "stats_unique_match_ids": 26958,
-    "stats_competition_labels": 673,
-    "matched_stats_competition_labels": 393,
-    "unmatched_stats_competition_labels": 280,
+    "stats_competitions": 674,
+    "stats_competitions_matched_to_catalog": 393,
+    "stats_competitions_not_in_catalog": 281,
+    "stats_rows": 27133,
+    "stats_unique_match_ids": 27133,
+    "stats_competition_labels": 677,
+    "matched_stats_competition_labels": 395,
+    "unmatched_stats_competition_labels": 282,
     "unmatched_stage_labels_kept_separate": 168,
-    "unmatched_labels_without_catalog_base": 112
+    "unmatched_labels_without_catalog_base": 114
   },
   "unmatched_stats_labels": [
     {
@@ -1545,6 +1545,51 @@
       "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
     },
     {
+      "country_name": "Angola",
+      "competition_name": "Girabola",
+      "unique_stats_matches": 71,
+      "stats_rows": 71,
+      "metrics": {
+        "corners": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots_on_target": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "yellow_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      },
+      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+    },
+    {
       "country_name": "Suécia",
       "competition_name": "Allsvenskan Women",
       "unique_stats_matches": 68,
@@ -1630,6 +1675,51 @@
         "red_cards": {
           "complete_matches": 8,
           "coverage_pct": 12.1
+        }
+      },
+      "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
+    },
+    {
+      "country_name": "América do Sul",
+      "competition_name": "World Championship - Qualification",
+      "unique_stats_matches": 65,
+      "stats_rows": 65,
+      "metrics": {
+        "corners": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots_on_target": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "yellow_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
         }
       },
       "reason": "no_exact_catalog_match_review_alias_or_missing_competition"
@@ -22783,6 +22873,71 @@
       }
     },
     {
+      "country_name": "Argélia",
+      "country_slug": "argelia",
+      "competition_name": "1 Divisao",
+      "competition_slug": "1-divisao",
+      "url": "https://www.flashscore.pt/futebol/argelia/1-divisao/",
+      "source_country_url": "https://www.flashscore.pt/futebol/argelia/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "1 Divisao",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "non_standard_format": false,
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao",
+      "stats_match_key": "argelia|1 divisao",
+      "stats_source_labels": [
+        "ARGÉLIA / Primeira Divisão",
+        "Argélia / Primeira Divisão"
+      ],
+      "unique_stats_matches": 59,
+      "stats_rows": 59,
+      "sample_status": "amostra_20_plus",
+      "metrics": {
+        "corners": {
+          "complete_matches": 57,
+          "coverage_pct": 96.6
+        },
+        "corners_ht": {
+          "complete_matches": 58,
+          "coverage_pct": 98.3
+        },
+        "corners_st": {
+          "complete_matches": 58,
+          "coverage_pct": 98.3
+        },
+        "shots": {
+          "complete_matches": 57,
+          "coverage_pct": 96.6
+        },
+        "shots_on_target": {
+          "complete_matches": 57,
+          "coverage_pct": 96.6
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 39,
+          "coverage_pct": 66.1
+        },
+        "yellow_cards": {
+          "complete_matches": 54,
+          "coverage_pct": 91.5
+        },
+        "red_cards": {
+          "complete_matches": 14,
+          "coverage_pct": 23.7
+        }
+      }
+    },
+    {
       "country_name": "Bósnia e Herzegovina",
       "country_slug": "bosnia-e-herzegovina",
       "competition_name": "Wwin Liga Bih",
@@ -22974,71 +23129,6 @@
         "red_cards": {
           "complete_matches": 9,
           "coverage_pct": 15.5
-        }
-      }
-    },
-    {
-      "country_name": "Argélia",
-      "country_slug": "argelia",
-      "competition_name": "1 Divisao",
-      "competition_slug": "1-divisao",
-      "url": "https://www.flashscore.pt/futebol/argelia/1-divisao/",
-      "source_country_url": "https://www.flashscore.pt/futebol/argelia/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "1 Divisao",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "liga_ou_torneio",
-      "non_standard_format": false,
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "pais_ou_regiao",
-      "stats_match_key": "argelia|1 divisao",
-      "stats_source_labels": [
-        "ARGÉLIA / Primeira Divisão",
-        "Argélia / Primeira Divisão"
-      ],
-      "unique_stats_matches": 58,
-      "stats_rows": 58,
-      "sample_status": "amostra_20_plus",
-      "metrics": {
-        "corners": {
-          "complete_matches": 57,
-          "coverage_pct": 98.3
-        },
-        "corners_ht": {
-          "complete_matches": 58,
-          "coverage_pct": 100
-        },
-        "corners_st": {
-          "complete_matches": 58,
-          "coverage_pct": 100
-        },
-        "shots": {
-          "complete_matches": 57,
-          "coverage_pct": 98.3
-        },
-        "shots_on_target": {
-          "complete_matches": 57,
-          "coverage_pct": 98.3
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 39,
-          "coverage_pct": 67.2
-        },
-        "yellow_cards": {
-          "complete_matches": 54,
-          "coverage_pct": 93.1
-        },
-        "red_cards": {
-          "complete_matches": 14,
-          "coverage_pct": 24.1
         }
       }
     },
@@ -25238,6 +25328,70 @@
       }
     },
     {
+      "country_name": "América do Norte e Central",
+      "country_slug": "america-do-norte-e-central",
+      "competition_name": "Liga CONCACAF",
+      "competition_slug": "liga-concacaf",
+      "url": "https://www.flashscore.pt/futebol/america-do-norte-e-central/liga-concacaf/",
+      "source_country_url": "https://www.flashscore.pt/futebol/america-do-norte-e-central/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Liga CONCACAF",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "non_standard_format": false,
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "regional_ou_global",
+      "stats_match_key": "america do norte e central|liga concacaf",
+      "stats_source_labels": [
+        "América do Norte e Central / Liga CONCACAF"
+      ],
+      "unique_stats_matches": 42,
+      "stats_rows": 42,
+      "sample_status": "amostra_20_plus",
+      "metrics": {
+        "corners": {
+          "complete_matches": 14,
+          "coverage_pct": 33.3
+        },
+        "corners_ht": {
+          "complete_matches": 14,
+          "coverage_pct": 33.3
+        },
+        "corners_st": {
+          "complete_matches": 14,
+          "coverage_pct": 33.3
+        },
+        "shots": {
+          "complete_matches": 14,
+          "coverage_pct": 33.3
+        },
+        "shots_on_target": {
+          "complete_matches": 14,
+          "coverage_pct": 33.3
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 14,
+          "coverage_pct": 33.3
+        },
+        "yellow_cards": {
+          "complete_matches": 13,
+          "coverage_pct": 31
+        },
+        "red_cards": {
+          "complete_matches": 3,
+          "coverage_pct": 7.1
+        }
+      }
+    },
+    {
       "country_name": "Bahrain",
       "country_slug": "bahrain",
       "competition_name": "Primeira Liga",
@@ -26095,7 +26249,6 @@
       "geographic_scope": "pais_ou_regiao",
       "stats_match_key": "andorra|primeira divisao",
       "stats_source_labels": [
-        "ANDORRA / Primeira Divisão",
         "Andorra / Primeira Divisão"
       ],
       "unique_stats_matches": 35,
@@ -30060,70 +30213,6 @@
       }
     },
     {
-      "country_name": "América do Norte e Central",
-      "country_slug": "america-do-norte-e-central",
-      "competition_name": "Liga CONCACAF",
-      "competition_slug": "liga-concacaf",
-      "url": "https://www.flashscore.pt/futebol/america-do-norte-e-central/liga-concacaf/",
-      "source_country_url": "https://www.flashscore.pt/futebol/america-do-norte-e-central/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Liga CONCACAF",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "liga_ou_torneio",
-      "non_standard_format": false,
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "regional_ou_global",
-      "stats_match_key": "america do norte e central|liga concacaf",
-      "stats_source_labels": [
-        "América do Norte e Central / Liga CONCACAF"
-      ],
-      "unique_stats_matches": 14,
-      "stats_rows": 14,
-      "sample_status": "amostra_10_19",
-      "metrics": {
-        "corners": {
-          "complete_matches": 14,
-          "coverage_pct": 100
-        },
-        "corners_ht": {
-          "complete_matches": 14,
-          "coverage_pct": 100
-        },
-        "corners_st": {
-          "complete_matches": 14,
-          "coverage_pct": 100
-        },
-        "shots": {
-          "complete_matches": 14,
-          "coverage_pct": 100
-        },
-        "shots_on_target": {
-          "complete_matches": 14,
-          "coverage_pct": 100
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 14,
-          "coverage_pct": 100
-        },
-        "yellow_cards": {
-          "complete_matches": 13,
-          "coverage_pct": 92.9
-        },
-        "red_cards": {
-          "complete_matches": 3,
-          "coverage_pct": 21.4
-        }
-      }
-    },
-    {
       "country_name": "Bósnia e Herzegovina",
       "country_slug": "bosnia-e-herzegovina",
       "competition_name": "Taça",
@@ -31209,6 +31298,70 @@
         "red_cards": {
           "complete_matches": 1,
           "coverage_pct": 11.1
+        }
+      }
+    },
+    {
+      "country_name": "Antigua e Barbuda",
+      "country_slug": "antigua-barbuda",
+      "competition_name": "Primeira Liga",
+      "competition_slug": "primeira-liga",
+      "url": "https://www.flashscore.pt/futebol/antigua-barbuda/primeira-liga/",
+      "source_country_url": "https://www.flashscore.pt/futebol/antigua-barbuda/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Primeira Liga",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "non_standard_format": false,
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao",
+      "stats_match_key": "antigua e barbuda|primeira liga",
+      "stats_source_labels": [
+        "Antigua e Barbuda / Primeira Liga"
+      ],
+      "unique_stats_matches": 9,
+      "stats_rows": 9,
+      "sample_status": "amostra_5_9",
+      "metrics": {
+        "corners": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots_on_target": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "yellow_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
         }
       }
     },
@@ -36849,6 +37002,70 @@
       }
     },
     {
+      "country_name": "Angola",
+      "country_slug": "angola",
+      "competition_name": "Supertaça",
+      "competition_slug": "supertaca",
+      "url": "https://www.flashscore.pt/futebol/angola/supertaca/",
+      "source_country_url": "https://www.flashscore.pt/futebol/angola/",
+      "source_status": "candidate_not_yet_validated",
+      "validation_status": "discovered_not_yet_validated",
+      "competition_family_candidate": "Supertaça",
+      "gender": "masculino_misto",
+      "age_category": "senior",
+      "category": "masculino_misto",
+      "competition_type": "liga_ou_torneio",
+      "non_standard_format": false,
+      "has_stage_or_playoff_marker": false,
+      "has_division_or_group_marker": false,
+      "geographic_scope": "pais_ou_regiao",
+      "stats_match_key": "angola|supertaca",
+      "stats_source_labels": [
+        "Angola / Supertaça"
+      ],
+      "unique_stats_matches": 1,
+      "stats_rows": 1,
+      "sample_status": "amostra_1_4",
+      "metrics": {
+        "corners": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots_on_target": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "yellow_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      }
+    },
+    {
       "country_name": "Arábia Saudita",
       "country_slug": "arabia-saudita",
       "competition_name": "Primeira Liga Feminina",
@@ -42451,130 +42668,6 @@
       "has_division_or_group_marker": false,
       "geographic_scope": "pais_ou_regiao",
       "stats_match_key": "angola|girabola de angola",
-      "stats_source_labels": [],
-      "unique_stats_matches": 0,
-      "stats_rows": 0,
-      "sample_status": "sem_dados",
-      "metrics": {
-        "corners": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots_on_target": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "yellow_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "country_name": "Angola",
-      "country_slug": "angola",
-      "competition_name": "Supertaça",
-      "competition_slug": "supertaca",
-      "url": "https://www.flashscore.pt/futebol/angola/supertaca/",
-      "source_country_url": "https://www.flashscore.pt/futebol/angola/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Supertaça",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "liga_ou_torneio",
-      "non_standard_format": false,
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "pais_ou_regiao",
-      "stats_match_key": "angola|supertaca",
-      "stats_source_labels": [],
-      "unique_stats_matches": 0,
-      "stats_rows": 0,
-      "sample_status": "sem_dados",
-      "metrics": {
-        "corners": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_ht": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "corners_st": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "shots_on_target": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "xg": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "fouls": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "yellow_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        },
-        "red_cards": {
-          "complete_matches": 0,
-          "coverage_pct": 0
-        }
-      }
-    },
-    {
-      "country_name": "Antigua e Barbuda",
-      "country_slug": "antigua-barbuda",
-      "competition_name": "Primeira Liga",
-      "competition_slug": "primeira-liga",
-      "url": "https://www.flashscore.pt/futebol/antigua-barbuda/primeira-liga/",
-      "source_country_url": "https://www.flashscore.pt/futebol/antigua-barbuda/",
-      "source_status": "candidate_not_yet_validated",
-      "validation_status": "discovered_not_yet_validated",
-      "competition_family_candidate": "Primeira Liga",
-      "gender": "masculino_misto",
-      "age_category": "senior",
-      "category": "masculino_misto",
-      "competition_type": "liga_ou_torneio",
-      "non_standard_format": false,
-      "has_stage_or_playoff_marker": false,
-      "has_division_or_group_marker": false,
-      "geographic_scope": "pais_ou_regiao",
-      "stats_match_key": "antigua e barbuda|primeira liga",
       "stats_source_labels": [],
       "unique_stats_matches": 0,
       "stats_rows": 0,
@@ -96635,6 +96728,51 @@
       }
     },
     {
+      "stats_match_key": "angola|girabola",
+      "source_labels": [
+        "Angola / Girabola"
+      ],
+      "unique_stats_matches": 71,
+      "metrics": {
+        "corners": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots_on_target": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "yellow_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        }
+      }
+    },
+    {
       "stats_match_key": "suecia|allsvenskan women",
       "source_labels": [
         "Suécia / Allsvenskan Women"
@@ -96721,6 +96859,51 @@
         "red_cards": {
           "complete_matches": 8,
           "coverage_pct": 12.1
+        }
+      }
+    },
+    {
+      "stats_match_key": "america do sul|world championship qualification",
+      "source_labels": [
+        "América do Sul / World Championship - Qualification"
+      ],
+      "unique_stats_matches": 65,
+      "metrics": {
+        "corners": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_ht": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "corners_st": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "shots_on_target": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "xg": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "fouls": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "yellow_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
+        },
+        "red_cards": {
+          "complete_matches": 0,
+          "coverage_pct": 0
         }
       }
     },
