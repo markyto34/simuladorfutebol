@@ -436,6 +436,18 @@ async function main() {
   await mkdir(dirname(STATS_FILE), { recursive: true });
   const existingStats = await readRows(STATS_FILE);
   const existingOdds = await readRows(ODDS_FILE);
+  // Em recuperação por IDs explícitos, reutilizar a identidade já guardada no histórico.
+  // O endpoint de detalhes do jogo nem sempre devolve país/competição.
+  const historicalIdentityByMatchId = new Map(existingStats
+    .filter(row => row.match_id && row.country && row.competition)
+    .map(row => [row.match_id, { country: row.country, competition: row.competition }]));
+  for (const row of existingOdds) {
+    const identity = historicalIdentityByMatchId.get(row.match_id);
+    if (identity) {
+      if (!row.country) row.country = identity.country;
+      if (!row.competition) row.competition = identity.competition;
+    }
+  }
   const statsNew = [], oddsNew = [];
   let failures = 0, processed = 0, stoppedByUpstream = false;
   let competitionIdentified = 0, competitionMissing = 0;
@@ -467,9 +479,11 @@ async function main() {
       try {
         const record = await collectWithRetry(matchId);
         const identity = competitionByMatchId[matchId];
-        if (identity?.status === "identified") {
-          if (!record.country) record.country = identity.country;
-          if (!record.competition) record.competition = identity.competition;
+        const historicalIdentity = historicalIdentityByMatchId.get(matchId);
+        const resolvedIdentity = identity?.status === "identified" ? identity : historicalIdentity;
+        if (resolvedIdentity) {
+          if (!record.country) record.country = resolvedIdentity.country;
+          if (!record.competition) record.competition = resolvedIdentity.competition;
         }
         if (record.country && record.competition) competitionIdentified++;
         else competitionMissing++;
