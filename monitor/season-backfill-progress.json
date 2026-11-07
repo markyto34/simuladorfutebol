@@ -17,13 +17,13 @@
     "/futebol/australia/npl-australia-ocidental/",
     "/futebol/australia/npl-finals-series/"
   ],
-  "competitions_completed": 4,
+  "competitions_completed": 5,
   "competitions_failed": 0,
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 3,
   "processed_games": 3,
   "stats_games": 3,
@@ -31,5 +31,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Central Coast Mariners F - Newcastle F: 14 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T12:07:38.951Z"
+  "updated_at": "2026-11-07T12:07:44.380Z"
 }
