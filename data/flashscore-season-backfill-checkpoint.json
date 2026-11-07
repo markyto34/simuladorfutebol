@@ -64,7 +64,8 @@
     "/futebol/australia-e-oceania/taca-das-nacoes-ofc/",
     "/futebol/australia/campeonato-australiano-finais-npl/",
     "/futebol/australia/campeonato-norte-da-tasmania/",
-    "/futebol/australia/campeonato-sul-da-tasmania/"
+    "/futebol/australia/campeonato-sul-da-tasmania/",
+    "/futebol/australia/liga-1/"
   ],
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
@@ -73,7 +74,7 @@
     "/futebol/australia-e-oceania/ofc-pro-league/"
   ],
   "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
-  "updated_at": "2026-11-07T16:22:37.240Z",
-  "last_completed_path": "/futebol/australia/campeonato-sul-da-tasmania/",
+  "updated_at": "2026-11-07T16:27:01.852Z",
+  "last_completed_path": "/futebol/australia/liga-1/",
   "last_skipped_path": "/futebol/australia-e-oceania/ofc-pro-league/"
 }
