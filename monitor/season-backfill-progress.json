@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 504,
-  "processed_games": 400,
-  "stats_games": 390,
+  "processed_games": 425,
+  "stats_games": 415,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Germinal - Alvarado",
-  "last_result": "Germinal - Alvarado: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:59:25.386Z"
+  "current_match": "Último concluído: Tucuman Central - Sarmiento Resistencia",
+  "last_result": "Tucuman Central - Sarmiento Resistencia: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:59:50.596Z"
 }
