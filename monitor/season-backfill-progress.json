@@ -2,8 +2,8 @@
   "run_id": "42365820533",
   "run_number": "17",
   "collection_type": "season_backfill",
-  "current_competition_path": "",
-  "competition_index": 0,
+  "current_competition_path": "/futebol/argentina/super-taca/",
+  "competition_index": 1,
   "total_competitions": 10,
   "selected_competitions": [
     "/futebol/argentina/super-taca/",
@@ -23,7 +23,7 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "queued",
+  "phase": "discovery",
   "total_games": 0,
   "processed_games": 0,
   "stats_games": 0,
@@ -31,5 +31,5 @@
   "failed_games": 0,
   "current_match": "A preparar competição",
   "last_result": "",
-  "updated_at": "2026-11-07T10:53:19.617Z"
+  "updated_at": "2026-11-07T10:53:21.196Z"
 }
