@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 500,
-  "processed_games": 300,
-  "stats_games": 300,
-  "bwin_odds": 151,
+  "processed_games": 325,
+  "stats_games": 325,
+  "bwin_odds": 169,
   "failed_games": 0,
-  "current_match": "Último concluído: Ujpest - Nyiregyhaza",
-  "last_result": "Ujpest - Nyiregyhaza: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-07T06:56:54.362Z"
+  "current_match": "Último concluído: Bray - UC Dublin",
+  "last_result": "Bray - UC Dublin: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-07T06:57:12.717Z"
 }
