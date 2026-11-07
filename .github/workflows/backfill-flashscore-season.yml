@@ -79,6 +79,7 @@ jobs:
           set -uo pipefail
           completed=0
           failures=0
+          skipped=0
           blocked=0
           index=0
           git config user.name "github-actions[bot]"
@@ -200,10 +201,39 @@ jobs:
                 echo "::endgroup::"
                 break
               fi
-              failures=$((failures + 1))
-              failed_paths+=("$competition_path")
-              publish_progress "failed" "running" "$competition_path" false false
-              echo "Falha na descoberta; permanece pendente para retoma."
+              if [[ "$competition_path" == "/futebol/america-do-sul/serie-rio-de-la-plata/" || "$competition_path" == "/futebol/arabia-saudita/super-taca/" ]] && grep -Eiq 'Não foi possível validar o contexto da época Flashscore|missing.*(tournament_id|stage_id|template_id)' "$log"; then
+                skipped=$((skipped + 1))
+                echo "Competição sem contexto de época utilizável no Flashscore; será marcada como indisponível e ignorada."
+                node --input-type=module - "$competition_path" <<'NODE'
+          import fs from "node:fs";
+          const path = process.argv[2];
+          const file = "data/flashscore-season-backfill-checkpoint.json";
+          let checkpoint = { version: 1, completed_paths: [], skipped_paths: [] };
+          try { checkpoint = JSON.parse(fs.readFileSync(file, "utf8")); } catch {}
+          const completed = new Set(checkpoint.completed_paths || []);
+          const skipped = new Set(checkpoint.skipped_paths || []);
+          completed.add(path);
+          skipped.add(path);
+          checkpoint.version = 1;
+          checkpoint.completed_paths = [...completed].sort();
+          checkpoint.skipped_paths = [...skipped].sort();
+          checkpoint.updated_at = new Date().toISOString();
+          checkpoint.last_skipped_path = path;
+          checkpoint.note = "Competições em skipped_paths não disponibilizaram contexto de época utilizável no Flashscore; não foram inventados jogos nem estatísticas.";
+          fs.writeFileSync(file, JSON.stringify(checkpoint, null, 2) + "\n");
+          NODE
+                if ! save_checkpoint "$competition_path" "false"; then
+                  echo "::error::Falha ao guardar o estado da competição indisponível."
+                  exit 1
+                fi
+                completed=$((completed + 1))
+                publish_progress "collecting" "running" "$competition_path" false false
+              else
+                failures=$((failures + 1))
+                failed_paths+=("$competition_path")
+                publish_progress "failed" "running" "$competition_path" false false
+                echo "Falha na descoberta; permanece pendente para retoma."
+              fi
               echo "::endgroup::"
               continue
             fi
@@ -275,6 +305,7 @@ jobs:
           fi
           publish_progress "$final_phase" "$final_status" "${competition_path:-}" false "$blocked"
           echo "Competições concluídas nesta execução: $completed"
+          echo "Competições ignoradas por indisponibilidade no Flashscore: $skipped"
           echo "Competições com erros: $failures"
           echo "Interrompido por bloqueio: $blocked"
           if (( blocked == 1 || failures > 0 )); then

@@ -28,6 +28,7 @@ export function buildCompetitionStatus({ catalog, stats, checkpoint }) {
     rowsByCompetition.get(key).push(row);
   }
   const completedPaths = new Set(checkpoint?.completed_paths || []);
+  const skippedPaths = new Set(checkpoint?.skipped_paths || []);
   const statusByPath = {};
   const competitions = catalog.competitions.map(item => {
     const path = pathOf(item);
@@ -36,9 +37,10 @@ export function buildCompetitionStatus({ catalog, stats, checkpoint }) {
     const observedFields = ALL_FIELDS.filter(field => rows.some(row => String(row[field] ?? "").trim() !== ""));
     const missingFields = CORE_FIELDS.filter(field => rows.some(row => String(row[field] ?? "").trim() === ""));
     const allFieldsComplete = rows.length > 0 && missingFields.length === 0;
-    const status = allFieldsComplete ? "complete" : rows.length ? "partial" : "new";
+    const skipped = skippedPaths.has(path);
+    const status = skipped ? "unavailable" : allFieldsComplete ? "complete" : rows.length ? "partial" : "new";
     const result = {
-      path, status, checkpoint_completed: completedPaths.has(path),
+      path, status, checkpoint_completed: completedPaths.has(path), checkpoint_skipped: skipped,
       matches_with_stats: rows.length, observed_indicator_count: observedFields.length,
       missing_indicator_count: missingFields.length, all_available_indicators_complete: allFieldsComplete
     };
@@ -54,7 +56,8 @@ export function buildCompetitionStatus({ catalog, stats, checkpoint }) {
       complete: competitions.filter(x => x.status === "complete").length,
       partial: competitions.filter(x => x.status === "partial").length,
       new: competitions.filter(x => x.status === "new").length,
-      checkpoint_completed: competitions.filter(x => x.checkpoint_completed).length
+      checkpoint_completed: competitions.filter(x => x.checkpoint_completed).length,
+      skipped_unavailable: competitions.filter(x => x.checkpoint_skipped).length
     },
     status_by_path: statusByPath
   };

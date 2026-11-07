@@ -31,3 +31,17 @@ test("competições sem registos ficam como novas",()=>{
   const result=buildCompetitionStatus({catalog:{competitions:[item]},stats:[],checkpoint:{completed_paths:[]}});
   assert.equal(result.status_by_path["/futebol/portugal/liga-portugal/"].status,"new");
 });
+
+test("marca como indisponível uma competição explicitamente ignorada",()=>{
+  const path="/futebol/portugal/liga-portugal/";
+  const result=buildCompetitionStatus({
+    catalog:{competitions:[item]},
+    stats:[],
+    checkpoint:{completed_paths:[path],skipped_paths:[path]}
+  });
+  const status=result.status_by_path[path];
+  assert.equal(status.status,"unavailable");
+  assert.equal(status.checkpoint_completed,true);
+  assert.equal(status.checkpoint_skipped,true);
+  assert.equal(result.summary.skipped_unavailable,1);
+});
