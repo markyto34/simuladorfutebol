@@ -2,8 +2,8 @@
   "run_id": "42353179482",
   "run_number": "11",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/america-do-sul/campeonato-sul-americano-sub-20/",
-  "competition_index": 5,
+  "current_competition_path": "/futebol/america-do-sul/copa-america/",
+  "competition_index": 6,
   "total_competitions": 10,
   "selected_competitions": [
     "/futebol/america-do-norte-e-central/copa-centro-americana-da-concacaf/",
@@ -29,13 +29,13 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "collecting",
-  "total_games": 20,
-  "processed_games": 20,
-  "stats_games": 20,
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Peru U20 - Paraguai U20: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T08:00:58.027Z"
+  "current_match": "A preparar competição",
+  "last_result": "",
+  "updated_at": "2026-11-07T08:01:02.607Z"
 }
