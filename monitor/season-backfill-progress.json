@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 203,
-  "processed_games": 175,
-  "stats_games": 175,
+  "processed_games": 200,
+  "stats_games": 200,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Independiente - Gimnasia L.P.",
-  "last_result": "Independiente - Gimnasia L.P.: 13 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:51:47.361Z"
+  "current_match": "Último concluído: Atl. Tucuman - Rosario",
+  "last_result": "Atl. Tucuman - Rosario: 12 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:52:12.648Z"
 }
