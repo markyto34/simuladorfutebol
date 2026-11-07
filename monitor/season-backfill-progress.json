@@ -17,13 +17,13 @@
     "/futebol/america-do-sul/taca-sul-americana/",
     "/futebol/andorra/primeira-divisao/"
   ],
-  "competitions_completed": 1,
+  "competitions_completed": 2,
   "competitions_failed": 0,
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 28,
   "processed_games": 28,
   "stats_games": 0,
@@ -31,5 +31,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Waterhouse (Jam) - Pacific FC (Can): 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T09:40:06.402Z"
+  "updated_at": "2026-11-07T09:40:11.635Z"
 }
