@@ -19,10 +19,6 @@ function simulate(){
   const read=id=>{const raw=$(id).value.trim();if(raw==="")return null;const v=Number(raw);if(!Number.isFinite(v)||v<0)throw Error("Confirma os valores numéricos: não podem ser negativos.");return v;};
   const goalValues=["hgFor","agAgainst","agFor","hgAgainst"].map(read);
   const hasGoalHistory=goalValues.every(v=>v!==null);
-  const xgValues=["hxgFor","axgAgainst","axgFor","hxgAgainst"].map(read);
-  const hasXg=xgValues.every(v=>v!==null);
-  const xgHome=hasXg?(xgValues[0]+xgValues[1])/2:null;
-  const xgAway=hasXg?(xgValues[2]+xgValues[3])/2:null;
   const hasGoals=hasGoalHistory;
   const htValues=["hhtFor","ahtAgainst","ahtFor","hhtAgainst"].map(read);
   const hasHalfTime=htValues.every(v=>v!==null);
@@ -34,13 +30,14 @@ function simulate(){
   const ash=hasSecondHalf?(secondHalfValues[2]+secondHalfValues[3])/2:null;
   const cornerValues=["hcFor","acAgainst","acFor","hcAgainst"].map(read);
   const hasCorners=cornerValues.every(v=>v!==null);
-  let hg=hasGoalHistory?(goalValues[0]+goalValues[1])/2:xgHome;
-  let ag=hasGoalHistory?(goalValues[2]+goalValues[3])/2:xgAway;
-  if(hasGoalHistory&&hasXg){hg=hg*.65+xgHome*.35;ag=ag*.65+xgAway*.35;}
+  const hg=hasGoalHistory?(goalValues[0]+goalValues[1])/2:null;
+  const ag=hasGoalHistory?(goalValues[2]+goalValues[3])/2:null;
   const hc=hasCorners?(cornerValues[0]+cornerValues[1])/2:null;
   const ac=hasCorners?(cornerValues[2]+cornerValues[3])/2:null;
   if([hg,ag,hc,ac].some(x=>x!==null&&x>30))throw Error("Os dados históricos apresentam uma média fora do intervalo esperado.");
   const extraSpecs=[
+   {key:"Cantos HT",ids:["hchtFor","hchtAgainst","achtFor","achtAgainst"],thresholds:[3.5,4.5,5.5],dispersion:.45},
+   {key:"Cantos ST",ids:["hcstFor","hcstAgainst","acstFor","acstAgainst"],thresholds:[3.5,4.5,5.5],dispersion:.45},
    {key:"Remates",ids:["hshotsFor","hshotsAgainst","ashotsFor","ashotsAgainst"],thresholds:[19.5,21.5,23.5],dispersion:.22},
    {key:"Remates à baliza",ids:["htargetFor","htargetAgainst","atargetFor","atargetAgainst"],thresholds:[5.5,7.5,9.5],dispersion:.28},
    {key:"Faltas",ids:["hfoulsFor","hfoulsAgainst","afoulsFor","afoulsAgainst"],thresholds:[19.5,21.5,23.5],dispersion:.22},
@@ -77,12 +74,10 @@ function simulate(){
   }
   random=Math.random;
   $("extraMarkets").innerHTML=extraHtml.length?extraHtml.join(""):'<p class="model-note">Sem cobertura suficiente para prever remates, faltas ou cartões. Os indicadores adicionais só são simulados quando a fonte contém as quatro médias necessárias.</p>';
-  $("summary").textContent=[hasGoals?"Expectativa de "+(sumG/N).toFixed(2)+" golos ("+h+": "+(sumHG/N).toFixed(2)+"; "+a+": "+(sumAG/N).toFixed(2)+")": "Golos: sem dados suficientes",hasGoals?"BTTS estimado: "+pct(btts):"",hasHalfTime?"Over 0,5 HT estimado: "+pct(ht05):"Over 0,5 HT: sem dados suficientes",hasSecondHalf?"Over 0,5 ST estimado: "+pct(sh05):"Over 0,5 ST: sem dados suficientes",hasXg&&hasGoalHistory?"Expectativa de golos ponderada: 65% golos históricos + 35% xG (amostra mínima de 5 jogos por indicador)":hasXg?"xG disponível, mas o histórico de golos é insuficiente; não foi usada uma previsão baseada apenas em xG":"xG: amostra inferior a 5 jogos ou sem dados",hasCorners?"Expectativa de "+(sumC/N).toFixed(2)+" cantos":"Cantos: sem dados suficientes","Simulação reproduzível: os mesmos dados geram os mesmos resultados.",extraHtml.length?"Indicadores adicionais calculados: "+extraValues.map(x=>x.spec.key.toLowerCase()).join(", "):""].filter(Boolean).join(". ")+".";
-  $("resultados").classList.remove("hidden");$("resultados").scrollIntoView({behavior:"smooth",block:"start"});
- }catch(e){random=Math.random;alert(e.message)}
+  $("summary").textContent=[hasGoals?"Expectativa de "+(sumG/N).toFixed(2)+" golos ("+h+": "+(sumHG/N).toFixed(2)+"; "+a+": "+(sumAG/N).toFixed(2)+")": "Golos: sem dados suficientes",hasGoals?"BTTS estimado: "+pct(btts):"",hasHalfTime?"Over 0,5 HT estimado: "+pct(ht05):"Over 0,5 HT: sem dados suficientes",hasSecondHalf?"Over 0,5 ST estimado: "+pct(sh05):"Over 0,5 ST: sem dados suficientes",hasCorners?"Expectativa de "+(sumC/N).toFixed(2)+" cantos":"Cantos: sem dados suficientes","Simulação reproduzível: os mesmos dados geram os mesmos resultados.",extraHtml.length?"Indicadores adicionais calculados: "+extraValues.map(x=>x.spec.key.toLowerCase()).join(", "):""].filter(Boolean).join(". ")+".";
+  $("resultados").classList.remove("hidden");
+ }catch(e){random=Math.random;const status=$("data-status");if(status)status.textContent=e.message;}
 }
-$("run").addEventListener("click",simulate);
-
 $("reset").addEventListener("click",()=>location.reload());
 
 /* Importação automática baseada no formato CSV já usado no futebol-stats. */
@@ -435,6 +430,7 @@ function applyTeamSelection(side){
   if(details)details.textContent=enforcePairedTeamCoverage();
  }
  document.body.classList.toggle("match-selected",Boolean($("homePick").value&&$("awayPick").value));
+ if(!skipPairCheck&&$("homePick").value&&$("awayPick").value)simulate();
 }
 /* Filtro de competições por país; os IDs originais das ligas mantêm-se inalterados. */
 const COUNTRY_NAMES={
@@ -467,7 +463,7 @@ countrySelect.addEventListener("change",()=>setCountryCompetitions());
 $("load-data").addEventListener("click",loadHistoricalData);
 $("homePick").addEventListener("change",()=>applyTeamSelection("home"));
 $("awayPick").addEventListener("change",()=>applyTeamSelection("away"));
-$("sample").addEventListener("change",()=>{if($("homePick").value)applyTeamSelection("home");if($("awayPick").value)applyTeamSelection("away");});
+$("sample").addEventListener("change",()=>{if($("homePick").value)applyTeamSelection("home");else if($("awayPick").value)applyTeamSelection("away");});
 
 populateFlashscoreCompetitions();
 
