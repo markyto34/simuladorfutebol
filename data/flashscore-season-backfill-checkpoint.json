@@ -13,10 +13,11 @@
     "/futebol/alemanha/3-liga-alema/",
     "/futebol/alemanha/bundesliga-senhoras/",
     "/futebol/alemanha/bundesliga/",
-    "/futebol/america-do-sul/campeonato-do-mundo/"
+    "/futebol/america-do-sul/campeonato-do-mundo/",
+    "/futebol/america-do-sul/campeonato-sul-americano-sub-20/"
   ],
   "skipped_paths": [],
   "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
-  "updated_at": "2026-11-07T13:59:02.153Z",
-  "last_completed_path": "/futebol/america-do-sul/campeonato-do-mundo/"
+  "updated_at": "2026-11-07T13:59:52.637Z",
+  "last_completed_path": "/futebol/america-do-sul/campeonato-sul-americano-sub-20/"
 }
