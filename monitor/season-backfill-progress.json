@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 488,
-  "processed_games": 350,
-  "stats_games": 350,
+  "processed_games": 375,
+  "stats_games": 375,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Union Santa Fe - Boca Juniors",
-  "last_result": "Union Santa Fe - Boca Juniors: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:15:55.437Z"
+  "current_match": "Último concluído: Banfield - Aldosivi",
+  "last_result": "Banfield - Aldosivi: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:16:20.664Z"
 }
