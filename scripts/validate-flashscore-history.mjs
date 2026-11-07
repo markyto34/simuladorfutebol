@@ -78,8 +78,11 @@ export function validateHistory(stats, odds, { statsOnly = false } = {}) {
     if (homeBlank) {
       withoutScore++;
       if (FINAL_STATUSES.test(String(row.status || "").trim())) {
+        // O Flashscore pode marcar um evento como terminado sem disponibilizar
+        // o resultado no registo. Mantemos o resultado em branco (nunca zero)
+        // e contabilizamos a anomalia, sem bloquear checkpoints de outras
+        // competições por causa de um único jogo sem resultado.
         finalWithoutScore++;
-        throw new Error("Jogo marcado como finalizado sem resultado: " + id);
       }
     } else {
       optionalNumber(row.score_home, "score_home", id, { integer: true, max: 99 });
@@ -198,6 +201,9 @@ async function main() {
   const statsOnly = process.argv.includes("--stats-only");
   const oddsText = statsOnly ? "" : await readFile("data/bwin-odds-flashscore.csv", "utf8");
   const summary = validateHistory(parseCsv(statsText), statsOnly ? [] : parseCsv(oddsText), { statsOnly });
+  if (summary.finalWithoutScore > 0) {
+    console.warn("[WARN] " + summary.finalWithoutScore + " jogos marcados como terminados sem resultado; mantidos sem score e excluídos de cálculos que dependam do resultado.");
+  }
   console.log("Histórico CSV validado: " + JSON.stringify(summary));
 }
 
