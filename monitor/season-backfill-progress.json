@@ -17,13 +17,13 @@
     "/futebol/alemanha/2-bundesliga/",
     "/futebol/alemanha/3-liga-alema/"
   ],
-  "competitions_completed": 7,
+  "competitions_completed": 8,
   "competitions_failed": 0,
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 50,
   "processed_games": 50,
   "stats_games": 50,
@@ -31,5 +31,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Vllaznia - Skenderbeu: 10 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T13:17:45.115Z"
+  "updated_at": "2026-11-07T13:17:48.883Z"
 }
