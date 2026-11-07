@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 247,
-  "processed_games": 50,
-  "stats_games": 49,
+  "processed_games": 75,
+  "stats_games": 74,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: St. George City - Sydney Utd",
-  "last_result": "St. George City - Sydney Utd: 9 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:42:52.795Z"
+  "current_match": "Último concluído: Wollongong Wolves - St. George City",
+  "last_result": "Wollongong Wolves - St. George City: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:43:17.892Z"
 }
