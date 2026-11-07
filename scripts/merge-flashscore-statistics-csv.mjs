@@ -6,6 +6,7 @@
  */
 import { readFile, writeFile } from "node:fs/promises";
 import { mergeLatestRows } from "./csv-merge.mjs";
+import { pathToFileURL } from "node:url";
 
 export function parseCsv(text) {
   const rows = [];
@@ -85,7 +86,7 @@ async function main() {
   console.log("[CSV MERGE] CSV combinado por match_id: " + (parseCsv(merged).records.length) + " jogos.");
 }
 
-if (process.argv[1] && import.meta.url === new URL("file://" + process.argv[1]).href) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch(error => {
     console.error("[CSV MERGE] " + error.message);
     process.exitCode = 1;
