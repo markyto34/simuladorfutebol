@@ -60,7 +60,8 @@
     "/futebol/asia/taca-das-nacoes-cafa/",
     "/futebol/australia-e-oceania/campeonato-do-mundo/",
     "/futebol/australia-e-oceania/liga-dos-campeoes-ofc/",
-    "/futebol/australia-e-oceania/ofc-pro-league/"
+    "/futebol/australia-e-oceania/ofc-pro-league/",
+    "/futebol/australia-e-oceania/taca-das-nacoes-ofc/"
   ],
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
@@ -68,8 +69,8 @@
     "/futebol/argentina/super-taca/",
     "/futebol/australia-e-oceania/ofc-pro-league/"
   ],
-  "note": "Competições em skipped_paths não disponibilizaram contexto de época utilizável no Flashscore; não foram inventados jogos nem estatísticas.",
-  "updated_at": "2026-11-07T16:17:29.561Z",
-  "last_completed_path": "/futebol/australia-e-oceania/liga-dos-campeoes-ofc/",
+  "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
+  "updated_at": "2026-11-07T16:18:07.123Z",
+  "last_completed_path": "/futebol/australia-e-oceania/taca-das-nacoes-ofc/",
   "last_skipped_path": "/futebol/australia-e-oceania/ofc-pro-league/"
 }
