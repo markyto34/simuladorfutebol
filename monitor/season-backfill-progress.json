@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 136,
-  "processed_games": 50,
-  "stats_games": 50,
+  "processed_games": 75,
+  "stats_games": 75,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Gold Coast Knights - Eastern Suburbs",
-  "last_result": "Gold Coast Knights - Eastern Suburbs: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:47:21.679Z"
+  "current_match": "A consultar jogo 76/136 · 8jupHDoD",
+  "last_result": "Moreton City Excelsior - Olympic FC: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:47:46.758Z"
 }
