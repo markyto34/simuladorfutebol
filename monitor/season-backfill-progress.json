@@ -45,8 +45,8 @@
   ],
   "blocked": false,
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
+  "status": "running",
+  "phase": "saving",
   "total_games": 35,
   "processed_games": 35,
   "stats_games": 35,
@@ -54,5 +54,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Peru U20 - Paraguai U20: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T13:59:50.217Z"
+  "updated_at": "2026-11-07T13:59:51.503Z"
 }
