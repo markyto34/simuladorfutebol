@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 504,
-  "processed_games": 300,
-  "stats_games": 290,
+  "processed_games": 325,
+  "stats_games": 315,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Sol de Mayo - Olimpo",
-  "last_result": "Sol de Mayo - Olimpo: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:57:45.059Z"
+  "current_match": "Último concluído: San Martin Mendoza - Cipolletti",
+  "last_result": "San Martin Mendoza - Cipolletti: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:58:10.006Z"
 }
