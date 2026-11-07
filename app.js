@@ -260,27 +260,38 @@ async function fetchSourceCSV(url){
  return text;
 }
 function updateLeagueCoverage(matches){
- const box=$("data-coverage");
- if(!matches.length){if(box)box.textContent="";return;}
+ let box=$("data-coverage");
+ if(!box){
+  box=document.createElement("div");
+  box.id="data-coverage";
+  box.className="data-coverage";
+  const status=$("data-status");
+  if(status?.parentNode)status.insertAdjacentElement("afterend",box);
+ }
+ if(!matches.length){box.textContent="";box.classList.add("hidden");return;}
  const has=(...values)=>values.every(v=>v!==null&&v!==undefined&&v!==""&&Number.isFinite(Number(v))&&Number(v)>=0);
  const stats=[
   ["Golos FT",m=>has(m.hg,m.ag)],
-  ["Golos 1.ª parte",m=>has(m.htHome,m.htAway)],
-  ["Golos 2.ª parte",m=>has(m.shHome,m.shAway)],
-  ["Cantos",m=>has(m.hc,m.ac)],
+  ["Golos HT",m=>has(m.htHome,m.htAway)],
+  ["Golos ST",m=>has(m.shHome,m.shAway)],
+  ["Cantos FT",m=>has(m.hc,m.ac)],
+  ["Cantos HT",m=>has(m.homeCornersHt,m.awayCornersHt)],
+  ["Cantos ST",m=>has(m.homeCornersSt,m.awayCornersSt)],
   ["Remates",m=>has(m.homeShots,m.awayShots)],
   ["Remates à baliza",m=>has(m.homeTarget,m.awayTarget)],
+  ["Remates fora",m=>has(m.homeShotsOffTarget,m.awayShotsOffTarget)],
+  ["Remates bloqueados",m=>has(m.homeBlockedShots,m.awayBlockedShots)],
+  ["Remates dentro da área",m=>has(m.homeShotsInsideBox,m.awayShotsInsideBox)],
+  ["Remates fora da área",m=>has(m.homeShotsOutsideBox,m.awayShotsOutsideBox)],
   ["Faltas",m=>has(m.homeFouls,m.awayFouls)],
   ["Amarelos",m=>has(m.homeYellow,m.awayYellow)],
-  ["Vermelhos",m=>has(m.homeRed,m.awayRed)],
-  ["Posse",m=>has(m.homePossession,m.awayPossession)],
-  ["Grandes oportunidades",m=>has(m.homeBigChances,m.awayBigChances)],
-  ["Remates bloqueados",m=>has(m.homeBlocked,m.awayBlocked)],
-  ["Remates fora da área",m=>has(m.homeOutsideBox,m.awayOutsideBox)],
-  ["Impedimentos",m=>has(m.homeOffsides,m.awayOffsides)]
+  ["Vermelhos",m=>has(m.homeRed,m.awayRed)]
  ];
- const parts=stats.map(([label,test])=>{const n=matches.filter(test).length;return label+": "+n+"/"+matches.length+" ("+(100*n/matches.length).toFixed(0)+"%)";});
- if(box)box.textContent="";
+ box.classList.remove("hidden");
+ box.innerHTML='<strong>Cobertura estatística da competição</strong><div class="data-coverage-grid">'+stats.map(([label,test])=>{
+  const count=matches.filter(test).length,pct=Math.round(100*count/matches.length);
+  return '<span><b>'+label+'</b> '+count+'/'+matches.length+' ('+pct+'%)</span>';
+ }).join("")+'</div><small>Conta apenas jogos com valores para as duas equipas. Um zero confirmado é contado; um campo vazio não é.</small>';
 }
 function teamOptionsForSeason(matches){
  // A lista de equipas não deve depender de um jogo ter todas as estatísticas.
@@ -388,10 +399,12 @@ const TEAM_METRIC_PAIRS=[
  ["yellowFor","hyellowFor","ayellowFor"],["yellowAgainst","hyellowAgainst","ayellowAgainst"],
  ["redFor","hredFor","aredFor"],["redAgainst","hredAgainst","aredAgainst"]
 ];
+const PERIOD_COVERAGE_LABELS=[["Golos 1.ª parte","htGoalsFor","htGoalsAgainst"],["Golos 2.ª parte","secondHalfGoalsFor","secondHalfGoalsAgainst"]];
 function enforcePairedTeamCoverage(){
  const home=$("homePick").value,away=$("awayPick").value;
  if(!home||!away)return "Seleciona as duas equipas para comparar a cobertura.";
  const labels={goalsFor:"Golos marcados",goalsAgainst:"Golos sofridos",htGoalsFor:"Golos marcados HT",htGoalsAgainst:"Golos sofridos HT",secondHalfGoalsFor:"Golos marcados ST",secondHalfGoalsAgainst:"Golos sofridos ST",cornersFor:"Cantos a favor",cornersAgainst:"Cantos concedidos",cornersHtFor:"Cantos HT a favor",cornersHtAgainst:"Cantos HT concedidos",cornersStFor:"Cantos ST a favor",cornersStAgainst:"Cantos ST concedidos",shotsFor:"Remates",shotsAgainst:"Remates concedidos",targetFor:"Remates à baliza",targetAgainst:"Remates à baliza concedidos",shotsOffTargetFor:"Remates fora",shotsOffTargetAgainst:"Remates fora concedidos",blockedShotsFor:"Remates bloqueados",blockedShotsAgainst:"Remates bloqueados sofridos",shotsInsideBoxFor:"Remates dentro da área",shotsInsideBoxAgainst:"Remates dentro da área sofridos",shotsOutsideBoxFor:"Remates fora da área",shotsOutsideBoxAgainst:"Remates fora da área sofridos",foulsFor:"Faltas cometidas",foulsAgainst:"Faltas sofridas",yellowFor:"Amarelos",yellowAgainst:"Amarelos do adversário",redFor:"Vermelhos",redAgainst:"Vermelhos do adversário"};
+ for(const [label,forKey,againstKey] of PERIOD_COVERAGE_LABELS){labels[forKey]=label+" — a favor";labels[againstKey]=label+" — sofridos";}
  const missing=[];
  for(const [metric] of TEAM_METRIC_PAIRS){
   const h=teamSample(home,"home",metric),a=teamSample(away,"away",metric),min=MetricCoverage.minimumFor(metric);
@@ -409,18 +422,22 @@ function renderRecentTeamMatches(side){
  const otherSelected=Boolean($(side==="home"?"awayPick":"homePick").value);
  if(!team){
   heading.textContent=side==="home"?"Equipa da casa":"Equipa visitante";
-  target.innerHTML='<p class="recent-empty">Seleciona uma equipa para consultar os últimos 5 jogos.</p>';
+  target.innerHTML='<p class="recent-empty">Seleciona uma equipa para consultar os últimos jogos.</p>';
   section.classList.toggle("hidden",!otherSelected);
   return;
  }
  const key=normalizeTeamName(team);
+ const sample=$("sample").value;
+ const requested=sample==="all"?Infinity:Number(sample);
  const recent=dataState.matches
   .filter(match=>normalizeTeamName(match.home)===key||normalizeTeamName(match.away)===key)
   .sort((a,b)=>(b.date||"").localeCompare(a.date||""))
-  .slice(0,5);
+  .slice(0,requested);
+ const sampleLabel=sample==="all"?"todos os jogos":"últimos "+sample+" jogos";
  heading.textContent=team+" · "+(side==="home"?"casa":"fora");
  const fmt=(value,decimals=0)=>value===null||value===undefined||value===""||!Number.isFinite(Number(value))?"—":Number(value).toFixed(decimals);
  const pair=(home,away,decimals=0)=>fmt(home,decimals)+"–"+fmt(away,decimals);
+ const hasPair=(home,away)=>home!==null&&home!==undefined&&home!==""&&away!==null&&away!==undefined&&away!=="";
  const date=value=>{
   if(!value)return "Data indisponível";
   const match=String(value).match(/^(\d{4})-(\d{2})-(\d{2})$/);
@@ -431,23 +448,27 @@ function renderRecentTeamMatches(side){
  }else{
   target.innerHTML=recent.map(match=>{
    const isHome=normalizeTeamName(match.home)===key;
-   const venue=isHome?"Casa":"Fora";
    const stats=[
-    ["Cantos",pair(match.hc,match.ac)],
+    ["Cantos FT",pair(match.hc,match.ac)],
+    ["Cantos HT",pair(match.homeCornersHt,match.awayCornersHt)],
+    ["Cantos ST",pair(match.homeCornersSt,match.awayCornersSt)],
     ["Remates",pair(match.homeShots,match.awayShots)],
     ["À baliza",pair(match.homeTarget,match.awayTarget)],
+    ["Fora",pair(match.homeShotsOffTarget,match.awayShotsOffTarget)],
+    ["Bloqueados",pair(match.homeBlockedShots,match.awayBlockedShots)],
+    ["Dentro da área",pair(match.homeShotsInsideBox,match.awayShotsInsideBox)],
+    ["Fora da área",pair(match.homeShotsOutsideBox,match.awayShotsOutsideBox)],
     ["Faltas",pair(match.homeFouls,match.awayFouls)],
     ["Amarelos",pair(match.homeYellow,match.awayYellow)],
-    ["xG",pair(match.homeXg,match.awayXg,2)]
+    ["Vermelhos",pair(match.homeRed,match.awayRed)]
    ];
    const available=stats.filter(([,value])=>!value.startsWith("—")&&!value.endsWith("–—")&&!value.startsWith("—–"));
-   const hasPair=(home,away)=>home!==null&&home!==undefined&&home!==""&&away!==null&&away!==undefined&&away!=="";
    const periods=[
     hasPair(match.htHome,match.htAway)?"HT "+pair(match.htHome,match.htAway):"",
     hasPair(match.shHome,match.shAway)?"ST "+pair(match.shHome,match.shAway):""
    ].filter(Boolean).join(" · ");
    return '<article class="recent-match">'+
-    '<div class="recent-match-top"><span>'+date(match.date)+' · '+venue+'</span><strong>'+fmt(match.hg)+'–'+fmt(match.ag)+'</strong></div>'+
+    '<div class="recent-match-top"><span>'+date(match.date)+' · '+(isHome?"Casa":"Fora")+'</span><strong>'+fmt(match.hg)+'–'+fmt(match.ag)+'</strong></div>'+
     '<div class="recent-match-teams">'+escapeHtml(match.home)+' <span>vs</span> '+escapeHtml(match.away)+'</div>'+
     (periods?'<div class="recent-periods">'+periods+'</div>':'')+
     (available.length?'<div class="recent-match-stats">'+available.map(([label,value])=>'<span>'+label+' <b>'+value+'</b></span>').join('')+'</div>':'<p class="recent-empty">Estatísticas detalhadas indisponíveis para este jogo.</p>')+
@@ -455,7 +476,7 @@ function renderRecentTeamMatches(side){
   }).join("");
  }
  const competition=$("league").selectedOptions?.[0]?.textContent||"Competição selecionada";
- $("recent-competition-label").textContent=competition;
+ $("recent-competition-label").textContent=competition+" · "+sampleLabel;
  section.classList.remove("hidden");
 }
 function applyTeamSelection(side){
