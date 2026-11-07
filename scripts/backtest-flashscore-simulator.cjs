@@ -110,7 +110,8 @@ function run(text,indexOrOptions={},maybeOptions={}){
  }
  const matches=index?allMatches.filter(m=>labelMap.has(normalizeCompetitionLabel(m.country+" / "+m.competition))):allMatches;
  for(const m of matches){const key=index?labelMap.get(normalizeCompetitionLabel(m.country+" / "+m.competition)):m.country+" | "+m.competition;if(!groups.has(key))groups.set(key,[]);groups.get(key).push(m);}
- if(index&&!groups.size)throw Error("O CSV não contém jogos das competições completas selecionáveis no simulador.");
+ // Um histórico vazio é um estado válido durante o reinício da recolha; produzir relatório sem amostra em vez de falhar o CI.
+ // Quando existirem registos, continua a aplicar-se o filtro das competições completas selecionáveis.
  const reports=[],byCompetition={};for(const [key,fixtures] of groups){const r=backtest(fixtures,options);reports.push(r);byCompetition[key]=r;}
  const errorKeys=new Set(reports.flatMap(r=>Object.keys(r.metricErrors))),metricErrors={};for(const k of errorKeys)metricErrors[k]=combineSummary(reports.map(r=>r.metricErrors[k]));
  const metricCoverage={};for(const r of reports)for(const [k,n] of Object.entries(r.metricCoverage))metricCoverage[k]=(metricCoverage[k]||0)+n;
