@@ -6,21 +6,15 @@ const CATALOG = process.env.FLASHSCORE_PREPARED_CATALOG || "data/flashscore-comp
 const STATS = process.env.FLASHSCORE_STATS_CSV || "data/flashscore-statistics.csv";
 const CHECKPOINT = process.env.FLASHSCORE_CHECKPOINT || "data/flashscore-season-backfill-checkpoint.json";
 const OUTPUT = process.env.FLASHSCORE_STATUS_OUTPUT || "data/flashscore-competition-status.json";
-const STAT_KEYS = [
-  "xg", "possession", "shots", "shots_on_target", "big_chances", "corners", "corners_ht", "corners_st",
-  "yellow_cards", "red_cards", "shots_off_target", "blocked_shots", "shots_inside_box",
-  "shots_outside_box", "offsides", "fouls"
-];
-const CORE_FIELDS = [
-  "score_home", "score_away",
-  ...["xg", "possession", "shots", "shots_on_target", "corners", "corners_ht", "corners_st", "yellow_cards", "fouls"]
-    .flatMap(key => [key + "_home", key + "_away"])
+const REQUIRED_INDICATORS = [
+  "shots", "shots_on_target", "corners", "corners_ht", "corners_st",
+  "yellow_cards", "red_cards", "blocked_shots", "fouls"
 ];
 const ALL_FIELDS = [
-  ...CORE_FIELDS.filter((value, index, array) => array.indexOf(value) === index),
-  "ht_home", "ht_away", "sh_home", "sh_away",
-  ...STAT_KEYS.flatMap(key => [key + "_home", key + "_away"])
-].filter((value, index, array) => array.indexOf(value) === index);
+  "score_home", "score_away", "ht_home", "ht_away", "sh_home", "sh_away",
+  ...REQUIRED_INDICATORS.flatMap(key => [key + "_home", key + "_away"])
+];
+const CORE_FIELDS = ALL_FIELDS;
 const normalize = value => String(value ?? "").normalize("NFD").replace(/[\u0300-\u036f]/g, "")
   .toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().replace(/\s+/g, " ");
 const pathOf = item => { try { return new URL(item.url).pathname; } catch { return ""; } };
@@ -40,8 +34,7 @@ export function buildCompetitionStatus({ catalog, stats, checkpoint }) {
     const key = normalize(item.country_name) + "|" + normalize(item.competition_name);
     const rows = rowsByCompetition.get(key) || [];
     const observedFields = ALL_FIELDS.filter(field => rows.some(row => String(row[field] ?? "").trim() !== ""));
-    const requiredFields = [...new Set([...CORE_FIELDS, ...observedFields])];
-    const missingFields = requiredFields.filter(field => rows.some(row => String(row[field] ?? "").trim() === ""));
+    const missingFields = CORE_FIELDS.filter(field => rows.some(row => String(row[field] ?? "").trim() === ""));
     const allFieldsComplete = rows.length > 0 && missingFields.length === 0;
     const status = allFieldsComplete ? "complete" : rows.length ? "partial" : "new";
     const result = {
