@@ -153,14 +153,32 @@ export function buildCompleteCompetitions(records, previous = {}) {
 }
 
 async function main() {
-  const records = parseCsv(await readFile(INPUT, "utf8"));
+  const [allRecords, catalog, selection] = await Promise.all([
+    readFile(INPUT, "utf8").then(parseCsv),
+    readFile("data/flashscore-competition-catalog.json", "utf8").then(JSON.parse),
+    readFile("data/flashscore-competition-selection.json", "utf8").then(JSON.parse)
+  ]);
+  if (selection.selection_mode !== "explicit" || !Array.isArray(selection.selected_paths) || !selection.selected_paths.length) {
+    throw new Error("A seleção explícita de competições Flashscore está vazia ou inválida; índice não atualizado.");
+  }
+  const selectedPaths = new Set(selection.selected_paths);
+  const selectedPairs = new Set((catalog.competitions || []).filter(item => {
+    try { return selectedPaths.has(new URL(item.url).pathname); } catch { return false; }
+  }).map(item => normalize(item.country_name) + "|" + normalize(item.competition_name)));
+  if (!selectedPairs.size) throw new Error("Nenhuma competição selecionada corresponde ao catálogo Flashscore.");
+  const records = allRecords.filter(row => selectedPairs.has(normalize(row.country) + "|" + normalize(row.competition)));
   let previous = {};
   try { previous = JSON.parse(await readFile(OUTPUT, "utf8")); }
   catch (error) { if (error.code !== "ENOENT") throw error; }
+  previous.complete_competitions = (previous.complete_competitions || []).filter(item =>
+    selectedPairs.has(normalize(item.country_name) + "|" + normalize(item.competition_name))
+  );
   const { index, newly_eligible, unidentified } = buildCompleteCompetitions(records, previous);
   await writeFile(OUTPUT, JSON.stringify(index, null, 2) + "\n");
   console.log(JSON.stringify({
     source_rows: records.length,
+    selected_competitions: selectedPaths.size,
+    rows_in_selected_competitions: records.length,
     complete_competitions: index.complete_competitions.length,
     newly_eligible: newly_eligible.map(x => ({ country: x.country_name, competition: x.competition_name, unique_matches: x.unique_stats_matches })),
     unidentified_country_labels: unidentified,
