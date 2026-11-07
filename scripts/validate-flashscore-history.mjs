@@ -51,11 +51,11 @@ function optionalNumber(value, label, matchId, { integer = false, max = Infinity
   return number;
 }
 
-export function validateHistory(stats, odds) {
+export function validateHistory(stats, odds, { statsOnly = false } = {}) {
   if (!Array.isArray(stats) || !stats.length) throw new Error("CSV estatístico vazio.");
-  if (!Array.isArray(odds) || !odds.length) throw new Error("CSV de odds vazio.");
+  if (!statsOnly && (!Array.isArray(odds) || !odds.length)) throw new Error("CSV de odds vazio.");
   requireColumns(stats, REQUIRED_STATS, "estatístico");
-  requireColumns(odds, REQUIRED_ODDS, "Bwin");
+  if (!statsOnly) requireColumns(odds, REQUIRED_ODDS, "Bwin");
 
   const seenStats = new Set();
   let withScore = 0, withoutScore = 0, finalWithoutScore = 0, withXg = 0, withCorners = 0, withShots = 0, allStats = 0, cornersTotalChecked = 0;
@@ -152,7 +152,7 @@ export function validateHistory(stats, odds) {
 
   const seenOdds = new Set();
   const oddsByCompetition = new Map();
-  for (const row of odds) {
+  if (!statsOnly) for (const row of odds) {
     if (blank(row.match_id)) throw new Error("Registo de odds sem match_id.");
     if (blank(row.country) || blank(row.competition)) throw new Error("País/competição em falta nas odds do jogo " + row.match_id);
     if (blank(row.home_team) || blank(row.away_team)) throw new Error("Equipa em falta nas odds do jogo " + row.match_id);
@@ -172,7 +172,7 @@ export function validateHistory(stats, odds) {
 
   return {
     statisticsRows: stats.length,
-    oddsRows: odds.length,
+    oddsRows: statsOnly ? null : odds.length,
     metadataComplete: stats.length,
     withScore,
     withoutScore,
@@ -195,8 +195,9 @@ export function validateHistory(stats, odds) {
 
 async function main() {
   const statsText = await readFile("data/flashscore-statistics.csv", "utf8");
-  const oddsText = await readFile("data/bwin-odds-flashscore.csv", "utf8");
-  const summary = validateHistory(parseCsv(statsText), parseCsv(oddsText));
+  const statsOnly = process.argv.includes("--stats-only");
+  const oddsText = statsOnly ? "" : await readFile("data/bwin-odds-flashscore.csv", "utf8");
+  const summary = validateHistory(parseCsv(statsText), statsOnly ? [] : parseCsv(oddsText), { statsOnly });
   console.log("Histórico CSV validado: " + JSON.stringify(summary));
 }
 

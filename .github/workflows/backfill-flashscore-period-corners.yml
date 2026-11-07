@@ -63,10 +63,9 @@ jobs:
           end_epoch=$(date -u -d "$END_DATE" +%s)
           if (( end_epoch < start_epoch )); then echo "Data final anterior à inicial."; exit 2; fi
           days=$(( (end_epoch - start_epoch) / 86400 + 1 ))
-          if (( days > 31 )); then echo "Máximo de 31 dias por execução."; exit 2; fi
           echo "start_date=$START_DATE" >> "$GITHUB_OUTPUT"
           echo "end_date=$END_DATE" >> "$GITHUB_OUTPUT"
-          echo "Intervalo histórico: $START_DATE a $END_DATE ($days dias)"
+          echo "Intervalo histórico: $START_DATE a $END_DATE ($days dias); a recuperação avança em lotes limitados por execução."
       - name: Confirmar proxy publicado e feed HT/ST disponível
         if: steps.marker.outputs.exists == 'true'
         env:
@@ -79,15 +78,16 @@ jobs:
         if: steps.marker.outputs.exists == 'true'
         run: |
           node --check scripts/backfill-flashscore-period-corners.mjs
-          node --test tests/backfill-flashscore-period-corners.test.mjs
-      - name: Recolher cantos HT/ST em falta
+          node --check scripts/backfill-flashscore-selected-indicators.mjs
+          node --test tests/backfill-flashscore-period-corners.test.mjs tests/backfill-flashscore-selected-indicators.test.mjs
+      - name: Recuperar os indicadores escolhidos para o simulador
         id: backfill
         if: steps.marker.outputs.exists == 'true'
         continue-on-error: true
         env:
-          FLASHSCORE_REQUEST_DELAY_MS: "2000"
-          FLASHSCORE_CONCURRENCY: "1"
-        run: node scripts/backfill-flashscore-period-corners.mjs --start-date="${{ steps.dates.outputs.start_date }}" --end-date="${{ steps.dates.outputs.end_date }}"
+          FLASHSCORE_REQUEST_DELAY_MS: "300"
+          FLASHSCORE_CONCURRENCY: "2"
+        run: node scripts/backfill-flashscore-selected-indicators.mjs --start-date="${{ steps.dates.outputs.start_date }}" --end-date="${{ steps.dates.outputs.end_date }}" --limit=500
       - name: Validar histórico e atualizar auditoria
         id: validation
         if: steps.marker.outputs.exists == 'true'
@@ -103,7 +103,7 @@ jobs:
         run: |
           set -euo pipefail
           if [ "$BACKFILL_OUTCOME" = "success" ] && [ "$VALIDATION_OUTCOME" = "success" ]; then
-            rm -f data/force-flashscore-period-corners-backfill.once data/flashscore-period-corners-backfill-progress.json
+            rm -f data/force-flashscore-period-corners-backfill.once data/flashscore-period-corners-backfill-progress.json data/flashscore-selected-indicators-backfill-progress.json
           else
             echo "O marcador e o checkpoint ficam ativos para a próxima tentativa; os valores válidos são preservados."
           fi
@@ -111,12 +111,30 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/flashscore-statistics.csv data/flashscore-competition-coverage.json
           if [ -f data/flashscore-period-corners-backfill-progress.json ]; then git add data/flashscore-period-corners-backfill-progress.json; fi
+          if [ -f data/flashscore-selected-indicators-backfill-progress.json ]; then git add data/flashscore-selected-indicators-backfill-progress.json; fi
           git add -u data/force-flashscore-period-corners-backfill.once 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "Não havia novos valores HT/ST para guardar."
           else
-            git commit -m "Backfill histórico de cantos HT e ST"
-            git push origin HEAD:main
+            git commit -m "Backfill histórico dos indicadores selecionados"
+            # Reintegra sempre a versão mais recente de main antes de publicar.
+            # Se outro workflow avançar main durante o push, tenta novamente sem force-push.
+            for attempt in 1 2 3 4 5; do
+              git fetch origin main
+              if ! git rebase origin/main; then
+                git rebase --abort || true
+                echo "Conflito ao integrar main; os dados locais ficam preservados no runner e o workflow falha em segurança."
+                exit 1
+              fi
+              if git push origin HEAD:main; then
+                echo "Dados publicados em main."
+                exit 0
+              fi
+              echo "main avançou durante a publicação; nova tentativa $attempt/5."
+              sleep $((attempt * 3))
+            done
+            echo "Não foi possível publicar após cinco tentativas."
+            exit 1
           fi
       - name: Assinalar falhas depois de guardar os valores válidos
         if: always() && steps.marker.outputs.exists == 'true' && (steps.backfill.outcome == 'failure' || steps.validation.outcome == 'failure')
