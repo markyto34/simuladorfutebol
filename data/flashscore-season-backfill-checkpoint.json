@@ -68,11 +68,12 @@
     "/futebol/australia/campeonato-norte-da-tasmania/",
     "/futebol/australia/campeonato-sul-da-tasmania/",
     "/futebol/australia/liga-1/",
-    "/futebol/australia/liga-2-victoria/"
+    "/futebol/australia/liga-2-victoria/",
+    "/futebol/australia/liga-a-feminina/"
   ],
-  "updated_at": "2026-11-07T12:07:16.882Z",
+  "updated_at": "2026-11-07T12:07:40.992Z",
   "completed_paths_reset_version": 1,
-  "last_completed_path": "/futebol/australia/liga-2-victoria/",
+  "last_completed_path": "/futebol/australia/liga-a-feminina/",
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
     "/futebol/arabia-saudita/super-taca/",
