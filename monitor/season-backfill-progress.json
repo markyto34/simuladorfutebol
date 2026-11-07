@@ -25,11 +25,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 60,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 25,
+  "stats_games": 25,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-07T13:15:31.424Z"
+  "current_match": "A consultar jogo 26/60 · 8vt6zB4S",
+  "last_result": "África do Sul - Guiné: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T13:15:57.354Z"
 }
