@@ -33,7 +33,7 @@
     "/futebol/argelia/taca-da-argelia/"
   ],
   "competitions_completed": 16,
-  "competitions_failed": 8,
+  "competitions_failed": 9,
   "failed_competitions": [
     "/futebol/alemanha/taca-da-alemanha/",
     "/futebol/america-do-norte-e-central/campeonato-do-mundo/",
@@ -42,12 +42,13 @@
     "/futebol/america-do-norte-e-central/copa-centro-americana-da-concacaf/",
     "/futebol/america-do-norte-e-central/liga-concacaf/",
     "/futebol/america-do-norte-e-central/taca-das-ligas/",
-    "/futebol/america-do-sul/taca-dos-libertadores/"
+    "/futebol/america-do-sul/taca-dos-libertadores/",
+    "/futebol/america-do-sul/taca-sul-americana/"
   ],
   "blocked": false,
   "target_date": "",
-  "status": "completed_with_errors",
-  "phase": "completed",
+  "status": "running",
+  "phase": "saving",
   "total_games": 156,
   "processed_games": 156,
   "stats_games": 151,
@@ -55,5 +56,5 @@
   "failed_games": 5,
   "current_match": "Recolha terminada",
   "last_result": "Montevideo City (Uru) - Defensor Sp. (Uru): 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T14:19:50.782Z"
+  "updated_at": "2026-11-07T14:19:52.155Z"
 }
