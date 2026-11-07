@@ -201,7 +201,7 @@ jobs:
                 echo "::endgroup::"
                 break
               fi
-              if [[ "$competition_path" == "/futebol/america-do-sul/serie-rio-de-la-plata/" || "$competition_path" == "/futebol/arabia-saudita/super-taca/" ]] && grep -Eiq 'Não foi possível validar o contexto da época Flashscore|missing.*(tournament_id|stage_id|template_id)' "$log"; then
+              if grep -Eiq 'Não foi possível validar o contexto da época Flashscore|missing.*(tournament_id|stage_id|template_id)' "$log"; then
                 skipped=$((skipped + 1))
                 echo "Competição sem contexto de época utilizável no Flashscore; será marcada como indisponível e ignorada."
                 node --input-type=module - "$competition_path" <<'NODE'
