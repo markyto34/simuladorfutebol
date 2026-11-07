@@ -2,8 +2,8 @@
   "run_id": "42354921883",
   "run_number": "12",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/america-do-sul/campeonato-do-mundo/",
-  "competition_index": 4,
+  "current_competition_path": "/futebol/america-do-sul/campeonato-sul-americano-sub-20/",
+  "competition_index": 5,
   "total_competitions": 10,
   "selected_competitions": [
     "/futebol/america-do-norte-e-central/copa-centro-americana-da-concacaf/",
@@ -28,13 +28,13 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "collecting",
-  "total_games": 68,
-  "processed_games": 68,
-  "stats_games": 68,
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Catar - Suiça: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T08:23:26.136Z"
+  "current_match": "A preparar competição",
+  "last_result": "",
+  "updated_at": "2026-11-07T08:23:30.607Z"
 }
