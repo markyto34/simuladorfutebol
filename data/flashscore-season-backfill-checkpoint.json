@@ -42,11 +42,12 @@
     "/futebol/argentina/primeira-b/",
     "/futebol/argentina/primeira-c/",
     "/futebol/argentina/primeira-liga-nacional/",
+    "/futebol/argentina/taca-da-argentina/",
     "/futebol/asia/afc-liga-dos-campeoes/"
   ],
-  "updated_at": "2026-11-07T10:31:50.107Z",
+  "updated_at": "2026-11-07T10:32:46.702Z",
   "completed_paths_reset_version": 1,
-  "last_completed_path": "/futebol/argentina/primeira-liga-nacional/",
+  "last_completed_path": "/futebol/argentina/taca-da-argentina/",
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
     "/futebol/arabia-saudita/super-taca/"
