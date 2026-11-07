@@ -65,11 +65,12 @@
     "/futebol/australia-e-oceania/ofc-pro-league/",
     "/futebol/australia-e-oceania/taca-das-nacoes-ofc/",
     "/futebol/australia/campeonato-australiano-finais-npl/",
-    "/futebol/australia/campeonato-norte-da-tasmania/"
+    "/futebol/australia/campeonato-norte-da-tasmania/",
+    "/futebol/australia/campeonato-sul-da-tasmania/"
   ],
-  "updated_at": "2026-11-07T11:57:42.894Z",
+  "updated_at": "2026-11-07T11:59:21.189Z",
   "completed_paths_reset_version": 1,
-  "last_completed_path": "/futebol/australia/campeonato-norte-da-tasmania/",
+  "last_completed_path": "/futebol/australia/campeonato-sul-da-tasmania/",
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
     "/futebol/arabia-saudita/super-taca/",
