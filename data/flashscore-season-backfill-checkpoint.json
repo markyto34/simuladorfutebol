@@ -33,14 +33,15 @@
     "/futebol/antigua-barbuda/primeira-liga/",
     "/futebol/arabia-saudita/primeira-liga/",
     "/futebol/arabia-saudita/super-taca/",
-    "/futebol/arabia-saudita/taca-do-rei/"
+    "/futebol/arabia-saudita/taca-do-rei/",
+    "/futebol/argelia/1-divisao/"
   ],
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
     "/futebol/arabia-saudita/super-taca/"
   ],
   "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
-  "updated_at": "2026-11-07T15:07:01.780Z",
-  "last_completed_path": "/futebol/arabia-saudita/taca-do-rei/",
+  "updated_at": "2026-11-07T15:08:20.280Z",
+  "last_completed_path": "/futebol/argelia/1-divisao/",
   "last_skipped_path": "/futebol/arabia-saudita/super-taca/"
 }
