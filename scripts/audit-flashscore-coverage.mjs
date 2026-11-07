@@ -91,7 +91,7 @@ const csvCell = value => {
 };
 
 export function buildFlashscoreCoverage(records) {
-  if (!Array.isArray(records) || records.length === 0) throw new Error("O CSV Flashscore está vazio.");
+  if (!Array.isArray(records)) throw new Error("Dados Flashscore inválidos.");
   const byCompetition = new Map();
   const ids = new Set();
   let duplicateIds = 0, rowsWithoutIdentity = 0;
