@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { selectTeamLastFiveMatchIds, buildTeamLastFiveCompetitionMap } from "../scripts/collect-flashscore-csv.mjs";
+import { selectTeamLastFiveMatchIds, buildTeamLastFiveCompetitionMap, normalizeCompetitionIdentity, filterMatchIdsToSelectedCompetitions } from "../scripts/collect-flashscore-csv.mjs";
 
 test("selects only unique fixtures without complete core statistics", () => {
   const payload = { fixtures: [
@@ -34,4 +34,22 @@ test("recolhe todos os jogos pendentes da época, sem limite implícito de cinco
   const ids = selectTeamLastFiveMatchIds({ fixtures });
   assert.equal(ids.length, 10);
   assert.deepEqual(ids, fixtures.filter(f => f.stats_status !== "already_complete").map(f => f.match_id));
+});
+
+
+test("filters manual and recovery IDs strictly to selected Flashscore competitions", () => {
+  const ids = ["Selected1", "Other001", "Unknown01"];
+  const identities = {
+    Selected1: { status: "identified", country: "Portugal", competition: "Primeira Liga" },
+    Other001: { status: "identified", country: "Portugal", competition: "Taça da Liga" }
+  };
+  const selectedPairs = new Set([
+    normalizeCompetitionIdentity("Portugal") + "|" + normalizeCompetitionIdentity("Primeira Liga")
+  ]);
+  assert.deepEqual(filterMatchIdsToSelectedCompetitions(ids, identities, selectedPairs), ["Selected1"]);
+});
+
+test("normalizes accents and whitespace in competition identities", () => {
+  assert.equal(normalizeCompetitionIdentity("  ÁUSTRIA  "), "austria");
+  assert.equal(normalizeCompetitionIdentity("Primeira   Liga"), "primeira liga");
 });
