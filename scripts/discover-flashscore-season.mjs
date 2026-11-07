@@ -188,33 +188,15 @@ async function main() {
   let completeIds = new Set();
   try {
     const existing = parseCsv(await readFile("data/flashscore-statistics.csv", "utf8"));
-    const allFields = [
+    const requiredFields = [
       "score_home", "score_away", "ht_home", "ht_away", "sh_home", "sh_away",
-      ...["xg", "possession", "shots", "shots_on_target", "big_chances", "corners", "corners_ht", "corners_st",
-        "yellow_cards", "red_cards", "shots_off_target", "blocked_shots", "shots_inside_box",
-        "shots_outside_box", "offsides", "fouls"].flatMap(key => [key + "_home", key + "_away"])
-    ];
-    const coreFields = [
-      "score_home", "score_away",
-      ...["xg", "possession", "shots", "shots_on_target", "corners", "corners_ht", "corners_st", "yellow_cards", "fouls"]
+      ...["shots", "shots_on_target", "corners", "corners_ht", "corners_st",
+        "yellow_cards", "red_cards", "blocked_shots", "fouls"]
         .flatMap(key => [key + "_home", key + "_away"])
     ];
-    const fieldsByCompetition = new Map();
-    for (const row of existing) {
-      const key = String(row.country || "") + "|" + String(row.competition || "");
-      if (!fieldsByCompetition.has(key)) fieldsByCompetition.set(key, []);
-      fieldsByCompetition.get(key).push(row);
-    }
-    const observedByCompetition = new Map();
-    for (const [key, rows] of fieldsByCompetition) {
-      const observed = allFields.filter(field => rows.some(row => String(row[field] ?? "").trim() !== ""));
-      observedByCompetition.set(key, [...new Set([...coreFields, ...observed])]);
-    }
-    completeIds = new Set(existing.filter(row => {
-      const key = String(row.country || "") + "|" + String(row.competition || "");
-      const required = observedByCompetition.get(key) || coreFields;
-      return required.every(field => String(row[field] ?? "").trim() !== "");
-    }).map(row => row.match_id));
+    completeIds = new Set(existing.filter(row =>
+      requiredFields.every(field => String(row[field] ?? "").trim() !== "")
+    ).map(row => row.match_id));
   } catch {}
   const fixtures = result.fixtures.map(item => {
     const parts = String(item.competition || "").split(":");
