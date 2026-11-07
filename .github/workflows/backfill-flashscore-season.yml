@@ -272,3 +272,18 @@ jobs:
             echo "::error::O lote preservou os dados válidos, mas terminou com $failures falhas e bloqueio=$blocked. As competições incompletas continuam pendentes."
             exit 1
           fi
+
+      - name: Gerar relatório compacto de cobertura
+        if: always()
+        env:
+          BACKFILL_JOB_STATUS: ${{ job.status }}
+        run: node scripts/report-flashscore-season-backfill.mjs
+
+      - name: Publicar relatório como artefacto
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: flashscore-season-backfill-report
+          path: artifacts/flashscore-season-backfill-report.json
+          if-no-files-found: warn
+          retention-days: 14
