@@ -63,11 +63,12 @@
     "/futebol/australia-e-oceania/campeonato-do-mundo/",
     "/futebol/australia-e-oceania/liga-dos-campeoes-ofc/",
     "/futebol/australia-e-oceania/ofc-pro-league/",
-    "/futebol/australia-e-oceania/taca-das-nacoes-ofc/"
+    "/futebol/australia-e-oceania/taca-das-nacoes-ofc/",
+    "/futebol/australia/campeonato-australiano-finais-npl/"
   ],
-  "updated_at": "2026-11-07T11:03:46.785Z",
+  "updated_at": "2026-11-07T11:04:10.138Z",
   "completed_paths_reset_version": 1,
-  "last_completed_path": "/futebol/australia-e-oceania/taca-das-nacoes-ofc/",
+  "last_completed_path": "/futebol/australia/campeonato-australiano-finais-npl/",
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
     "/futebol/arabia-saudita/super-taca/",
