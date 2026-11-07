@@ -48,11 +48,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 154,
-  "processed_games": 125,
-  "stats_games": 113,
+  "processed_games": 150,
+  "stats_games": 134,
   "bwin_odds": 0,
-  "failed_games": 11,
-  "current_match": "Último erro: U7RTpvIE",
-  "last_result": "Falha em U7RTpvIE: Falha ao recolher U7RTpvIE: HTTP 503",
-  "updated_at": "2026-11-07T14:09:41.372Z"
+  "failed_games": 15,
+  "current_match": "Último concluído: Dep. Tachira (Ven) - The Strongest (Bol)",
+  "last_result": "Dep. Tachira (Ven) - The Strongest (Bol): 16 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T14:13:48.507Z"
 }
