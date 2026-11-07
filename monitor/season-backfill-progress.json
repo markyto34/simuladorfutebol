@@ -29,11 +29,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 68,
-  "processed_games": 50,
-  "stats_games": 50,
+  "processed_games": 68,
+  "stats_games": 68,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Gana - Panamá",
-  "last_result": "Gana - Panamá: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T07:59:52.577Z"
+  "current_match": "Último concluído: Catar - Suiça",
+  "last_result": "Catar - Suiça: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T08:00:10.688Z"
 }
