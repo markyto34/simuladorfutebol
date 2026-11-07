@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 462,
-  "processed_games": 325,
-  "stats_games": 324,
+  "processed_games": 350,
+  "stats_games": 349,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Dock Sud - Defensores Unidos",
-  "last_result": "Dock Sud - Defensores Unidos: 9 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:24:08.045Z"
+  "current_match": "Último concluído: Sportivo Italiano - Argentino de Quilmes",
+  "last_result": "Sportivo Italiano - Argentino de Quilmes: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:24:33.363Z"
 }
