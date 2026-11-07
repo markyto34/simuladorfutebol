@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 500,
-  "processed_games": 375,
-  "stats_games": 375,
-  "bwin_odds": 172,
+  "processed_games": 400,
+  "stats_games": 400,
+  "bwin_odds": 192,
   "failed_games": 0,
-  "current_match": "Último concluído: Orlando - TS Galaxy",
-  "last_result": "Orlando - TS Galaxy: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-07T07:15:05.432Z"
+  "current_match": "Último concluído: Sekhukhune - Orlando",
+  "last_result": "Sekhukhune - Orlando: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T07:15:23.110Z"
 }
