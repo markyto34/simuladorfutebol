@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 247,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 25,
+  "stats_games": 24,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-07T16:42:01.140Z"
+  "current_match": "A consultar jogo 26/247 · Q1ttT0zA",
+  "last_result": "Marconi - Sutherland: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:42:27.626Z"
 }
