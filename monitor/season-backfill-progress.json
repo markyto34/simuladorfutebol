@@ -22,14 +22,14 @@
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 156,
   "processed_games": 156,
   "stats_games": 156,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Montevideo City (Uru) - Defensor Sp. (Uru)",
+  "current_match": "Recolha terminada",
   "last_result": "Montevideo City (Uru) - Defensor Sp. (Uru): 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:00:39.174Z"
+  "updated_at": "2026-11-07T15:00:40.460Z"
 }
