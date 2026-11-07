@@ -32,7 +32,7 @@
     "/futebol/argelia/1-divisao/",
     "/futebol/argelia/taca-da-argelia/"
   ],
-  "competitions_completed": 13,
+  "competitions_completed": 14,
   "competitions_failed": 7,
   "failed_competitions": [
     "/futebol/alemanha/taca-da-alemanha/",
@@ -46,7 +46,7 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 35,
   "processed_games": 35,
   "stats_games": 35,
@@ -54,5 +54,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Peru U20 - Paraguai U20: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T13:59:51.503Z"
+  "updated_at": "2026-11-07T13:59:57.216Z"
 }
