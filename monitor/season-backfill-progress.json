@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 185,
-  "processed_games": 100,
+  "processed_games": 125,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 101/185 · d4bRlkug",
-  "last_result": "Werribee City - Malvern: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:28:58.487Z"
+  "current_match": "Último concluído: Springvale - Goulburn Valley Suns",
+  "last_result": "Springvale - Goulburn Valley Suns: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:29:23.633Z"
 }
