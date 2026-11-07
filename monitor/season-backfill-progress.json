@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 61,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 25,
+  "stats_games": 25,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-07T15:46:52.390Z"
+  "current_match": "Último concluído: Platense - San Martin S.J.",
+  "last_result": "Platense - San Martin S.J.: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:47:38.146Z"
 }
