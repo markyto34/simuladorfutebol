@@ -18,11 +18,12 @@ test("seleciona apenas jogos das competições escolhidas com um dos campos esco
     row("match04", { country: "Espanha", competition: "LaLiga", fouls_home: "" }),
     row("match05", { ht_home: "" }),
     row("match06", { score_home: "", score_away: "", status: "Terminado" }),
-    row("match07")
+    row("match07"),
+    row("match08", { score_home: "0", score_away: "0", shots_home: "" })
   ];
   assert.deepEqual(
     selectRowsNeedingSelectedIndicators(rows, "2026-11-01", "2026-11-01", selected).map(item => item.match_id),
-    ["match01", "match02", "match05"]
+    ["match01", "match02", "match05", "match08"]
   );
 });
 
