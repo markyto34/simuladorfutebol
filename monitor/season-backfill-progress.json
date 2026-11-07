@@ -57,11 +57,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 120,
-  "processed_games": 100,
+  "processed_games": 120,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 101/120 · llUqfevI",
-  "last_result": "Kremser - Parndorf: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T17:06:36.885Z"
+  "current_match": "Último concluído: Donaufeld Wien - Horn",
+  "last_result": "Donaufeld Wien - Horn: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T17:06:56.815Z"
 }
