@@ -1,0 +1,85 @@
+name: Recuperar golos HT e ST do histórico Flashscore
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: flashscore-period-goals-recovery
+  cancel-in-progress: false
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - name: Identificar jogos históricos com HT ou ST em falta
+        id: targets
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from "node:fs";
+          import { parseCsv } from "./scripts/validate-flashscore-history.mjs";
+          const rows = parseCsv(fs.readFileSync("data/flashscore-statistics.csv", "utf8"));
+          const finalStatuses = /^(Terminado|Tempo Final|Depois de Prolongamento|Após prolongamento|A\.P\.)$/i;
+          const targets = rows.filter(row => {
+            const finished = finalStatuses.test(String(row.status || "").trim()) ||
+              (row.score_home !== "" && row.score_away !== "");
+            const hasFt = row.score_home !== "" && row.score_away !== "";
+            const hasHt = row.ht_home !== "" && row.ht_away !== "";
+            const hasSt = row.sh_home !== "" && row.sh_away !== "";
+            return finished && hasFt && (!hasHt || !hasSt) && /^[A-Za-z0-9]{6,16}$/.test(row.match_id || "");
+          }).map(row => row.match_id);
+          const unique = [...new Set(targets)];
+          fs.writeFileSync("/tmp/ht-st-recovery-ids.txt", unique.join("\n") + (unique.length ? "\n" : ""));
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,
+            "## Alvos da recuperação HT/ST\n\n- Registos históricos: **" + rows.length +
+            "**\n- Jogos únicos com HT/ST em falta: **" + unique.length + "**\n");
+          console.log("Registos históricos: " + rows.length);
+          console.log("Jogos únicos a recuperar: " + unique.length);
+          NODE
+
+      - name: Recolher novamente em lotes e guardar checkpoints
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          FLASHSCORE_COLLECTION_TYPE: period_goals_recovery
+          FLASHSCORE_REQUEST_DELAY_MS: "700"
+          FLASHSCORE_CONCURRENCY: "2"
+          FLASHSCORE_PROGRESS_PATH: monitor/ht-st-recovery-progress.json
+        run: |
+          set -euo pipefail
+          mapfile -t ids < /tmp/ht-st-recovery-ids.txt
+          total=${#ids[@]}
+          if (( total == 0 )); then
+            echo "Não existem jogos com golos HT/ST em falta."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          batch_size=500
+          recovered_batches=0
+          for ((offset=0; offset<total; offset+=batch_size)); do
+            batch=("${ids[@]:offset:batch_size}")
+            echo "::group::Lote $((recovered_batches+1)) · jogos ${offset}-$((offset+${#batch[@]})) de $total"
+            node scripts/collect-flashscore-csv.mjs --recovery-batch "${batch[@]}"
+            node scripts/validate-flashscore-history.mjs
+            git add data/flashscore-statistics.csv data/bwin-odds-flashscore.csv
+            if ! git diff --cached --quiet; then
+              git commit -m "Recuperar golos HT e ST do histórico Flashscore"
+              git push origin HEAD:main
+              git pull --rebase origin main
+            fi
+            recovered_batches=$((recovered_batches+1))
+            echo "::endgroup::"
+          done
+          echo "Lotes concluídos: $recovered_batches"
+          echo "Jogos alvo nesta execução: $total"
