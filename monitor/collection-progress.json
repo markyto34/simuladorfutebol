@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 415,
-  "processed_games": 100,
-  "stats_games": 42,
-  "bwin_odds": 27,
+  "processed_games": 126,
+  "stats_games": 62,
+  "bwin_odds": 36,
   "failed_games": 0,
-  "current_match": "A consultar jogo 102/415 · 4dtKcIPD",
-  "last_result": "TWL Elektra - Kagran: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T06:19:14.052Z"
+  "current_match": "A consultar jogo 129/415 · hz0K2tcn",
+  "last_result": "Septemvri Sofia - Lok. Sofia: 11 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-07T06:19:22.188Z"
 }
