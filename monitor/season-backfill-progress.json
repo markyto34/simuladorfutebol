@@ -2,8 +2,8 @@
   "run_id": "42375418128",
   "run_number": "19",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/america-do-sul/campeonato-sul-americano-sub-20/",
-  "competition_index": 21,
+  "current_competition_path": "/futebol/america-do-sul/copa-america/",
+  "competition_index": 22,
   "total_competitions": 35,
   "selected_competitions": [
     "/futebol/alemanha/bundesliga-senhoras/",
@@ -46,13 +46,13 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "collecting",
-  "total_games": 35,
-  "processed_games": 35,
-  "stats_games": 35,
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Peru U20 - Paraguai U20: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T13:59:57.216Z"
+  "current_match": "A preparar competição",
+  "last_result": "",
+  "updated_at": "2026-11-07T14:00:01.724Z"
 }
