@@ -25,11 +25,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 17,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 17,
+  "stats_games": 16,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-07T14:57:24.851Z"
+  "current_match": "Último concluído: Barcelona SC (Ecu) - Botafogo RJ (Bra)",
+  "last_result": "Barcelona SC (Ecu) - Botafogo RJ (Bra): 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T14:57:43.660Z"
 }
