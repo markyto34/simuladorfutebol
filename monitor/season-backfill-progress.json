@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 648,
-  "processed_games": 425,
-  "stats_games": 424,
+  "processed_games": 450,
+  "stats_games": 449,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Deportivo Madryn - Ferro",
-  "last_result": "Deportivo Madryn - Ferro: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:42:28.281Z"
+  "current_match": "Último concluído: Tristan Suarez - Midland",
+  "last_result": "Tristan Suarez - Midland: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:42:53.239Z"
 }
