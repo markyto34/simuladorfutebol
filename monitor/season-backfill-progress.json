@@ -47,13 +47,13 @@
     "/futebol/bahrain/primeira-liga/",
     "/futebol/bahrain/taca-do-rei/"
   ],
-  "competitions_completed": 52,
+  "competitions_completed": 53,
   "competitions_failed": 0,
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 90,
   "processed_games": 90,
   "stats_games": 0,
@@ -61,5 +61,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "West Wallsend - Lake Macquarie: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:33:35.321Z"
+  "updated_at": "2026-11-07T16:33:41.903Z"
 }
