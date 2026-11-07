@@ -32,13 +32,13 @@
     "/futebol/asia/afc-liga-dos-campeoes-2/",
     "/futebol/asia/afc-liga-dos-campeoes/"
   ],
-  "competitions_completed": 26,
+  "competitions_completed": 27,
   "competitions_failed": 0,
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 504,
   "processed_games": 504,
   "stats_games": 494,
@@ -46,5 +46,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Tucuman Central - Bartolome Mitre: 5 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:01:12.862Z"
+  "updated_at": "2026-11-07T16:01:16.698Z"
 }
