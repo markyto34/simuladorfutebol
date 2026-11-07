@@ -22,14 +22,14 @@
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 1,
   "processed_games": 1,
   "stats_games": 1,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Bahlinger - Magdeburg",
+  "current_match": "Recolha terminada",
   "last_result": "Bahlinger - Magdeburg: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T14:54:51.574Z"
+  "updated_at": "2026-11-07T14:54:52.633Z"
 }
