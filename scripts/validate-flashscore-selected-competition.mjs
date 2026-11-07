@@ -49,8 +49,11 @@ async function main() {
     games_with_any_indicators: result.with_any_indicators
   }));
   if (!result.complete) {
-    for (const item of result.missing.slice(0, 20)) {
+    for (const item of result.missing.slice(0, 5)) {
       console.error("[NOT CONSULTED] " + item.match_id + ": " + item.reason);
+    }
+    if (result.missing.length > 5) {
+      console.error("[NOT CONSULTED] ... mais " + (result.missing.length - 5) + " jogos omitidos do log; consultar o relatório da execução.");
     }
     throw new Error("A competição continua pendente: " + result.missing.length +
       " jogos sem registo Flashscore válido (falha técnica ou consulta não concluída).");
