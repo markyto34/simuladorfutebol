@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 648,
-  "processed_games": 550,
-  "stats_games": 549,
+  "processed_games": 575,
+  "stats_games": 574,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Nueva Chicago - All Boys",
-  "last_result": "Nueva Chicago - All Boys: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:44:47.755Z"
+  "current_match": "Último concluído: Almagro - Quilmes",
+  "last_result": "Almagro - Quilmes: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:45:12.883Z"
 }
