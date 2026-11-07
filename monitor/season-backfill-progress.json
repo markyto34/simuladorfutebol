@@ -25,11 +25,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 92,
-  "processed_games": 75,
-  "stats_games": 75,
+  "processed_games": 92,
+  "stats_games": 92,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 76/92 · xbh38UdE",
-  "last_result": "Bielefeld - Cottbus: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T13:19:16.741Z"
+  "current_match": "Último concluído: Bochum - Hertha",
+  "last_result": "Bochum - Hertha: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T13:19:33.726Z"
 }
