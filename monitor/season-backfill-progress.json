@@ -47,13 +47,13 @@
     "/futebol/bahrain/primeira-liga/",
     "/futebol/bahrain/taca-do-rei/"
   ],
-  "competitions_completed": 59,
+  "competitions_completed": 60,
   "competitions_failed": 0,
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 139,
   "processed_games": 139,
   "stats_games": 139,
@@ -61,5 +61,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Croydon - Para: 2 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:51:28.685Z"
+  "updated_at": "2026-11-07T16:51:32.490Z"
 }
