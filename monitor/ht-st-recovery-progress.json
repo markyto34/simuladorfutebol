@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 500,
-  "processed_games": 450,
-  "stats_games": 450,
-  "bwin_odds": 256,
+  "processed_games": 475,
+  "stats_games": 475,
+  "bwin_odds": 279,
   "failed_games": 0,
-  "current_match": "Último concluído: Cerro Porteno - Olimpia Asuncion",
-  "last_result": "Cerro Porteno - Olimpia Asuncion: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-07T06:58:43.768Z"
+  "current_match": "A consultar jogo 476/500 · fPVetdW0",
+  "last_result": "Oliveira Hospital - AD Nogueirense: 10 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-07T06:59:01.278Z"
 }
