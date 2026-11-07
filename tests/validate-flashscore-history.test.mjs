@@ -136,3 +136,10 @@ test("valida estatísticas sem depender do CSV diário ou histórico de odds", (
   assert.equal(summary.statisticsRows, 1);
   assert.equal(summary.oddsRows, null);
 });
+
+test("aceita histórico estatístico vazio em modo stats-only", () => {
+  const summary = validateHistory([], [], { statsOnly: true });
+  assert.equal(summary.statisticsRows, 0);
+  assert.equal(summary.withScore, 0);
+  assert.equal(summary.indicatorCoverage.score_ft.coveragePercent, 0);
+});

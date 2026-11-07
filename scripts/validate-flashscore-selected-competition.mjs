@@ -5,8 +5,9 @@ import { parseCsv } from "./validate-flashscore-history.mjs";
 
 /**
  * Uma competição fica consultada quando existe um registo Flashscore válido
- * para cada jogo do manifesto. A cobertura dos indicadores é informativa:
- * campos vazios significam "não disponibilizado", nunca zero nem erro técnico.
+ * para cada jogo elegível. Jogos sem resultado FT confirmado são excluídos
+ * explicitamente do manifesto de validação. Campos estatísticos vazios significam
+ * "não disponibilizado", nunca zero nem erro técnico.
  */
 export function validateSelectedCompetition({ manifest, rows }) {
   const fixtures = Array.isArray(manifest?.fixtures) ? manifest.fixtures : [];
@@ -16,7 +17,12 @@ export function validateSelectedCompetition({ manifest, rows }) {
     .map(row => [String(row.match_id), row]));
   const missing = [];
   let withAnyIndicators = 0;
+  let skippedNoFinalScore = 0;
   for (const fixture of fixtures) {
+    if (fixture.stats_status === "no_final_score") {
+      skippedNoFinalScore++;
+      continue;
+    }
     const row = byId.get(String(fixture.match_id));
     if (!row) {
       missing.push({ match_id: fixture.match_id, reason: "registo Flashscore não encontrado" });
@@ -28,7 +34,8 @@ export function validateSelectedCompetition({ manifest, rows }) {
   }
   return {
     fixtures: fixtures.length,
-    consulted: fixtures.length - missing.length,
+    consulted: fixtures.length - missing.length - skippedNoFinalScore,
+    skipped_no_final_score: skippedNoFinalScore,
     complete: missing.length === 0,
     missing,
     with_any_indicators: withAnyIndicators
@@ -45,6 +52,7 @@ async function main() {
   const result = validateSelectedCompetition({ manifest, rows: parseCsv(csv) });
   console.log("[COMPETITION COLLECTION VALIDATION] " + JSON.stringify({
     fixtures: result.fixtures, consulted: result.consulted,
+    skipped_no_final_score: result.skipped_no_final_score,
     complete: result.complete, games_without_record: result.missing.length,
     games_with_any_indicators: result.with_any_indicators
   }));

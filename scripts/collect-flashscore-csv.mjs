@@ -51,6 +51,17 @@ const STAT_KEYS = [
   "yellow_cards", "red_cards", "shots_off_target", "blocked_shots", "shots_inside_box",
   "shots_outside_box", "offsides", "fouls"
 ];
+const FINAL_MATCH_STATUS = /^(Terminado|Tempo Final|Depois de Prolongamento|Após prolongamento|A\.P\.|Finished|Full Time|FT)$/i;
+
+export function hasConfirmedFinalScore(value) {
+  const status = String(value?.status || "").trim();
+  const home = value?.score?.full_time?.home ?? value?.score_home;
+  const away = value?.score?.full_time?.away ?? value?.score_away;
+  const validScore = score => String(score ?? "").trim() !== "" &&
+    Number.isInteger(Number(score)) && Number(score) >= 0 && Number(score) <= 99;
+  return FINAL_MATCH_STATUS.test(status) && validScore(home) && validScore(away);
+}
+
 const STAT_HEADERS = [
   "match_id", "date_time", "country", "competition", "home_team", "away_team",
   "status", "score_home", "score_away", "ht_home", "ht_away", "sh_home", "sh_away",
@@ -389,6 +400,9 @@ async function main() {
   let competitionByMatchId = {};
   let fixturesByMatchId = {};
   let selectedPairsForDailyStats = null;
+  let teamLastFiveManifest = null;
+  let teamLastFiveManifestPath = null;
+  const skippedNoFinalScore = new Set();
   if (teamLastFiveOption && (dateOption || matchIds.length)) throw new Error("Usa --team-last-five=ficheiro.json isoladamente, sem IDs nem --date.");
   if (dateOption && matchIds.length) {
     throw new Error("Usa IDs de jogos ou --date=YYYY-MM-DD, não ambos.");
@@ -398,9 +412,11 @@ async function main() {
   }
   if (teamLastFiveOption) {
     const file = resolve(teamLastFiveOption.slice("--team-last-five=".length));
+    teamLastFiveManifestPath = file;
     let payload;
     try { payload = JSON.parse(await readFile(file, "utf8")); }
     catch (error) { throw new Error("Não foi possível ler o manifesto de últimos cinco jogos: " + error.message); }
+    teamLastFiveManifest = payload;
     const allIds = selectTeamLastFiveMatchIds(payload, 0);
     matchIds = selectTeamLastFiveMatchIds(payload, teamLastFiveLimit);
     competitionByMatchId = buildTeamLastFiveCompetitionMap(payload);
@@ -557,7 +573,12 @@ async function main() {
         // estatísticas: distingue "Flashscore consultado, sem dados" de erro técnico.
         // A recolha diária continua a guardar apenas registos com estatísticas.
         const hasStatistics = record.statistics && Object.keys(record.statistics).length > 0;
-        if (keepStatsForSimulator && (hasStatistics || teamLastFiveOption || statsOnly)) {
+        const hasFinalScore = hasConfirmedFinalScore(record);
+        if (!hasFinalScore) {
+          skippedNoFinalScore.add(matchId);
+          console.log("[SKIP NO FT] " + matchId + " | estado=" + (record.status || "indisponível") + " | sem resultado final confirmado; não será guardado no CSV estatístico.");
+        }
+        if (keepStatsForSimulator && hasFinalScore && (hasStatistics || teamLastFiveOption || statsOnly)) {
           statsNew.push(statisticsRow(record));
           if (hasStatistics) progressSnapshot.stats_games++;
         }
@@ -593,7 +614,16 @@ async function main() {
   }
 
   await Promise.all(Array.from({ length: Math.min(CONCURRENCY, matchIds.length) }, () => worker()));
-  const mergedStats = mergeRows(existingStats, statsNew, row => row.match_id);
+  // Limpa registos antigos sem resultado FT: não pertencem ao histórico elegível.
+  const eligibleExistingStats = existingStats.filter(hasConfirmedFinalScore);
+  const mergedStats = mergeRows(eligibleExistingStats, statsNew, row => row.match_id);
+  if (teamLastFiveManifest && teamLastFiveManifestPath) {
+    for (const fixture of teamLastFiveManifest.fixtures || []) {
+      if (skippedNoFinalScore.has(fixture.match_id)) fixture.stats_status = "no_final_score";
+    }
+    await writeFile(teamLastFiveManifestPath, JSON.stringify(teamLastFiveManifest, null, 2) + "\n", "utf8");
+    console.log("[SEASON MANIFEST] Jogos sem FT excluídos: " + skippedNoFinalScore.size + ".");
+  }
   const mergedOdds = statsOnly ? existingOdds : mergeLatestRows(existingOdds, oddsNew, row => [row.match_id, row.bookmaker, row.market].join("|"));
   await writeFile(STATS_FILE, toCsv(STAT_HEADERS, mergedStats), "utf8");
   if (!statsOnly) await writeFile(ODDS_FILE, toCsv(ODDS_HEADERS, mergedOdds), "utf8");

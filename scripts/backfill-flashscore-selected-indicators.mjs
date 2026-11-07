@@ -58,7 +58,8 @@ function needsSelectedIndicators(row) {
     REQUIRED_PAIRS.some(key => blank(row[key + "_home"]) || blank(row[key + "_away"]));
 }
 function isFinished(row) {
-  return (!blank(row.score_home) && !blank(row.score_away)) || FINAL_STATUS.test(String(row.status || ""));
+  const validScore = value => !blank(value) && Number.isInteger(Number(value)) && Number(value) >= 0 && Number(value) <= 99;
+  return FINAL_STATUS.test(String(row.status || "")) && validScore(row.score_home) && validScore(row.score_away);
 }
 export function selectRowsNeedingSelectedIndicators(rows, startDate, endDate, selectedPairs, attemptedIds = [], limit = 0) {
   const attempted = new Set(attemptedIds);

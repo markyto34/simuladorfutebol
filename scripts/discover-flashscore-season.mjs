@@ -163,8 +163,14 @@ export async function discoverSeasonFromHtml({ html, path, fetchFeedPage }) {
 }
 
 export function getCollectedMatchIds(rows) {
+  const finalStatus = /^(Terminado|Tempo Final|Depois de Prolongamento|Após prolongamento|A\.P\.|Finished|Full Time|FT)$/i;
+  const hasScore = value => String(value ?? "").trim() !== "" &&
+    Number.isInteger(Number(value)) && Number(value) >= 0 && Number(value) <= 99;
   return new Set((rows || [])
-    .filter(row => row?.source === "Flashscore" && String(row.match_id || "").trim())
+    .filter(row => row?.source === "Flashscore" &&
+      finalStatus.test(String(row.status || "").trim()) &&
+      hasScore(row.score_home) && hasScore(row.score_away) &&
+      String(row.match_id || "").trim())
     .map(row => String(row.match_id)));
 }
 

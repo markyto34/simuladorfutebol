@@ -4,7 +4,7 @@ import { REQUIRED_PAIRS, REQUIRED_SCORE_FIELDS, selectRowsNeedingSelectedIndicat
 
 const selected = new Set(["portugal|primeira liga"]);
 const row = (match_id, extra = {}) => ({
-  match_id, date_time: "2026-11-01T15:00:00", country: "Portugal", competition: "Primeira Liga",
+  match_id, date_time: "2026-11-01T15:00:00", country: "Portugal", competition: "Primeira Liga", status: "Terminado",
   score_home: "2", score_away: "1", ht_home: "1", ht_away: "0", sh_home: "1", sh_away: "1",
   ...Object.fromEntries(REQUIRED_PAIRS.flatMap(key => [[key + "_home", "3"], [key + "_away", "2"]])),
   ...extra
@@ -18,11 +18,12 @@ test("seleciona apenas jogos das competições escolhidas com um dos campos esco
     row("match04", { country: "Espanha", competition: "LaLiga", fouls_home: "" }),
     row("match05", { ht_home: "" }),
     row("match06", { score_home: "", score_away: "", status: "Terminado" }),
-    row("match07")
+    row("match07"),
+    row("match08", { score_home: "0", score_away: "0", shots_home: "" })
   ];
   assert.deepEqual(
     selectRowsNeedingSelectedIndicators(rows, "2026-11-01", "2026-11-01", selected).map(item => item.match_id),
-    ["match01", "match02", "match05", "match06"]
+    ["match01", "match02", "match05", "match08"]
   );
 });
 

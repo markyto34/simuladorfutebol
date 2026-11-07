@@ -52,7 +52,20 @@ function optionalNumber(value, label, matchId, { integer = false, max = Infinity
 }
 
 export function validateHistory(stats, odds, { statsOnly = false } = {}) {
-  if (!Array.isArray(stats) || !stats.length) throw new Error("CSV estatístico vazio.");
+  if (!Array.isArray(stats)) throw new Error("Dados estatísticos inválidos.");
+  if (!stats.length) {
+    if (!statsOnly) throw new Error("CSV estatístico vazio.");
+    return {
+      statisticsRows: 0, oddsRows: null, metadataComplete: 0,
+      withScore: 0, withoutScore: 0, finalWithoutScore: 0,
+      withXg: 0, withCorners: 0, withShots: 0, allStats: 0,
+      cornersTotalChecked: 0, cornerTotalMismatches: [], scorePartMismatches: [],
+      indicatorCoverage: Object.fromEntries(["score_ft","score_ht","score_st", ...STAT_CATEGORIES]
+        .map(key => [key, { complete: 0, missing: 0, coveragePercent: 0 }])),
+      competitionCoverage: [], xgMissingCompetitions: [], xgPartialCompetitions: [],
+      uniqueStatsIds: 0, uniqueOddsKeys: 0
+    };
+  }
   if (!statsOnly && (!Array.isArray(odds) || !odds.length)) throw new Error("CSV de odds vazio.");
   requireColumns(stats, REQUIRED_STATS, "estatístico");
   if (!statsOnly) requireColumns(odds, REQUIRED_ODDS, "Bwin");
