@@ -37,14 +37,14 @@
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 14,
   "processed_games": 14,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Irão - Afeganistão",
+  "current_match": "Recolha terminada",
   "last_result": "Irão - Afeganistão: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T11:02:00.825Z"
+  "updated_at": "2026-11-07T11:02:02.148Z"
 }
