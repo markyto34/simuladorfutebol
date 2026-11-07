@@ -52,8 +52,8 @@
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
+  "status": "running",
+  "phase": "saving",
   "total_games": 29,
   "processed_games": 29,
   "stats_games": 29,
@@ -61,5 +61,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Uzbequistão U23 - Filipinas U23: 11 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:13:04.754Z"
+  "updated_at": "2026-11-07T16:13:06.583Z"
 }
