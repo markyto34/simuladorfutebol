@@ -39,8 +39,10 @@ test("rejeita país ou competição em falta", () => {
   assert.throws(() => validateHistory([statsRow()],[oddsRow({ competition:"" })]),/País\/competição em falta/);
 });
 
-test("rejeita finalizados sem resultado e pares de resultado incompletos", () => {
-  assert.throws(() => validateHistory([statsRow({ score_home:"",score_away:"" })],[oddsRow()]),/finalizado sem resultado/);
+test("não bloqueia o histórico por finalizados sem resultado e continua a rejeitar pares incompletos", () => {
+  const summary = validateHistory([statsRow({ score_home:"",score_away:"" })],[oddsRow()]);
+  assert.equal(summary.finalWithoutScore, 1);
+  assert.equal(summary.withoutScore, 1);
   assert.throws(() => validateHistory([statsRow({ score_home:"2",score_away:"" })],[oddsRow()]),/Resultado parcial/);
 });
 
