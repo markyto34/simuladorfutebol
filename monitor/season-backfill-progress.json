@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 141,
-  "processed_games": 75,
-  "stats_games": 73,
+  "processed_games": 100,
+  "stats_games": 98,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 76/141 · Sn9Zu9C4",
-  "last_result": "Olympic Kingsway - Dianella White Eagle: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:37:26.059Z"
+  "current_match": "A consultar jogo 101/141 · 6LlcgPoS",
+  "last_result": "Dianella White Eagle - Perth RedStar: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:37:51.111Z"
 }
