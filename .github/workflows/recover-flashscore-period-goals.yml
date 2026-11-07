@@ -29,6 +29,17 @@ jobs:
           import fs from "node:fs";
           import { parseCsv } from "./scripts/validate-flashscore-history.mjs";
           const rows = parseCsv(fs.readFileSync("data/flashscore-statistics.csv", "utf8"));
+          const selection = JSON.parse(fs.readFileSync("data/flashscore-competition-selection.json", "utf8"));
+          const catalog = JSON.parse(fs.readFileSync("data/flashscore-competition-catalog.json", "utf8"));
+          if (selection.selection_mode !== "explicit" || !Array.isArray(selection.selected_paths) || !selection.selected_paths.length) {
+            throw new Error("A seleção explícita de competições Flashscore está vazia ou inválida; recuperação cancelada por segurança.");
+          }
+          const normalize = value => String(value || "").normalize("NFD").replace(/[\\u0300-\\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim().replace(/\\s+/g, " ");
+          const selected = new Set(selection.selected_paths);
+          const selectedLabels = new Set((catalog.competitions || []).filter(item => {
+            try { return selected.has(new URL(item.url).pathname); } catch { return false; }
+          }).map(item => normalize(item.country_name) + "|" + normalize(item.competition_name)));
+          if (!selectedLabels.size) throw new Error("Nenhuma competição selecionada corresponde ao catálogo Flashscore.");
           const finalStatuses = /^(Terminado|Tempo Final|Depois de Prolongamento|Após prolongamento|A\.P\.)$/i;
           const targets = rows.filter(row => {
             const finished = finalStatuses.test(String(row.status || "").trim()) ||
@@ -36,7 +47,8 @@ jobs:
             const hasFt = row.score_home !== "" && row.score_away !== "";
             const hasHt = row.ht_home !== "" && row.ht_away !== "";
             const hasSt = row.sh_home !== "" && row.sh_away !== "";
-            return finished && hasFt && (!hasHt || !hasSt) && /^[A-Za-z0-9]{6,16}$/.test(row.match_id || "");
+            const inSelection = selectedLabels.has(normalize(row.country) + "|" + normalize(row.competition));
+            return inSelection && finished && hasFt && (!hasHt || !hasSt) && /^[A-Za-z0-9]{6,16}$/.test(row.match_id || "");
           }).map(row => row.match_id);
           const unique = [...new Set(targets)];
           // A recuperação fica agrupada por país/competição, mantendo ordem cronológica
@@ -55,8 +67,9 @@ jobs:
           fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,
             "## Alvos da recuperação HT/ST\n\n- Registos históricos: **" + rows.length +
             "**\n- Jogos únicos com HT/ST em falta: **" + unique.length + "**\n");
+          console.log("Competições selecionadas: " + selected.size);
           console.log("Registos históricos: " + rows.length);
-          console.log("Jogos únicos a recuperar: " + ordered.length);
+          console.log("Jogos dentro da seleção com HT/ST em falta: " + ordered.length);
           NODE
 
       - name: Recolher novamente em lotes e guardar checkpoints
