@@ -47,7 +47,7 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 154,
   "processed_games": 154,
   "stats_games": 137,
@@ -55,5 +55,5 @@
   "failed_games": 16,
   "current_match": "Recolha terminada",
   "last_result": "Falha em 6aoubNZQ: Falha ao recolher 6aoubNZQ: HTTP 503",
-  "updated_at": "2026-11-07T14:14:14.536Z"
+  "updated_at": "2026-11-07T14:14:17.241Z"
 }
