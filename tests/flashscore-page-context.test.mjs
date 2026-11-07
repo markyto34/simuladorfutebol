@@ -37,6 +37,15 @@ test("extracts common statistics only from paired explicit statistic rows", () =
   assert.deepEqual(result.statistics.possession, { home: 61, away: 39, unit: "%", source_label: "Posse de bola" });
 });
 
+test("preserves explicit zero statistics and does not turn absent rows into zero", () => {
+  const html = `<div class="wcl-row_x"><span>Cartões vermelhos</span><span>0</span><span>0</span></div>
+    <div class="wcl-row_x"><span>Cantos - 1.ª Parte</span><span>0</span><span>3</span></div>`;
+  const result = extractPageContext(html);
+  assert.deepEqual(result.statistics.red_cards, { home: 0, away: 0, unit: null, source_label: "Cartões vermelhos" });
+  assert.deepEqual(result.statistics.corners_ht, { home: 0, away: 3, unit: null, source_label: "Cantos - 1.ª Parte" });
+  assert.equal(Object.hasOwn(result.statistics, "fouls"), false);
+});
+
 test("does not invent fields when the page has no evidence", () => {
   const result = extractPageContext("<html><body>Jogo sem contexto</body></html>");
   assert.equal(result.fields.country, null);
