@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 500,
-  "processed_games": 175,
-  "stats_games": 175,
-  "bwin_odds": 93,
+  "processed_games": 200,
+  "stats_games": 200,
+  "bwin_odds": 104,
   "failed_games": 0,
-  "current_match": "Último concluído: Nordsjaelland - Midtjylland",
-  "last_result": "Nordsjaelland - Midtjylland: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-07T06:55:09.476Z"
+  "current_match": "Último concluído: Mura - Grosuplje",
+  "last_result": "Mura - Grosuplje: 11 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-07T06:55:26.768Z"
 }
