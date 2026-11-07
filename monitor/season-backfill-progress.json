@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 61,
-  "processed_games": 50,
+  "processed_games": 61,
   "stats_games": 31,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Tigre - Claypole",
-  "last_result": "Tigre - Claypole: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:48:03.353Z"
+  "current_match": "Último concluído: Ind. Rivadavia - CA Estudiantes",
+  "last_result": "Ind. Rivadavia - CA Estudiantes: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:48:14.560Z"
 }
