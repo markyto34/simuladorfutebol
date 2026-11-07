@@ -33,17 +33,18 @@
     "/futebol/argelia/taca-da-argelia/"
   ],
   "competitions_completed": 12,
-  "competitions_failed": 4,
+  "competitions_failed": 5,
   "failed_competitions": [
     "/futebol/alemanha/taca-da-alemanha/",
     "/futebol/america-do-norte-e-central/campeonato-do-mundo/",
     "/futebol/america-do-norte-e-central/concacaf-liga-das-nacoes/",
-    "/futebol/america-do-norte-e-central/concacaf-liga-dos-campeoes/"
+    "/futebol/america-do-norte-e-central/concacaf-liga-dos-campeoes/",
+    "/futebol/america-do-norte-e-central/copa-centro-americana-da-concacaf/"
   ],
   "blocked": false,
   "target_date": "",
-  "status": "completed_with_errors",
-  "phase": "completed",
+  "status": "running",
+  "phase": "saving",
   "total_games": 56,
   "processed_games": 56,
   "stats_games": 46,
@@ -51,5 +52,5 @@
   "failed_games": 10,
   "current_match": "Recolha terminada",
   "last_result": "Falha em UiB0iDDL: Falha ao recolher UiB0iDDL: HTTP 503",
-  "updated_at": "2026-11-07T13:44:18.782Z"
+  "updated_at": "2026-11-07T13:44:19.960Z"
 }
