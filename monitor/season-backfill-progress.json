@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 648,
-  "processed_games": 275,
-  "stats_games": 275,
+  "processed_games": 300,
+  "stats_games": 300,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: San Miguel - Acassuso",
-  "last_result": "San Miguel - Acassuso: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:39:57.284Z"
+  "current_match": "Último concluído: All Boys - Almirante Brown",
+  "last_result": "All Boys - Almirante Brown: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:40:22.219Z"
 }
