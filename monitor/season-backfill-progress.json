@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 141,
-  "processed_games": 50,
-  "stats_games": 48,
+  "processed_games": 75,
+  "stats_games": 73,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Olympic Kingsway - Balcatta",
-  "last_result": "Olympic Kingsway - Balcatta: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:37:01.061Z"
+  "current_match": "A consultar jogo 76/141 · Sn9Zu9C4",
+  "last_result": "Olympic Kingsway - Dianella White Eagle: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:37:26.059Z"
 }
