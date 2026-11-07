@@ -54,11 +54,12 @@
     "/futebol/asia/afc-challenge-league/",
     "/futebol/asia/afc-liga-dos-campeoes-2/",
     "/futebol/asia/afc-liga-dos-campeoes/",
-    "/futebol/asia/campeonato-asean/"
+    "/futebol/asia/campeonato-asean/",
+    "/futebol/asia/campeonato-do-mundo/"
   ],
-  "updated_at": "2026-11-07T10:59:04.921Z",
+  "updated_at": "2026-11-07T10:59:23.970Z",
   "completed_paths_reset_version": 1,
-  "last_completed_path": "/futebol/asia/campeonato-asean/",
+  "last_completed_path": "/futebol/asia/campeonato-do-mundo/",
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
     "/futebol/arabia-saudita/super-taca/",
