@@ -2,8 +2,8 @@
   "run_id": "42383789441",
   "run_number": "20",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/australia-e-oceania/ofc-pro-league/",
-  "competition_index": 44,
+  "current_competition_path": "/futebol/australia-e-oceania/taca-das-nacoes-ofc/",
+  "competition_index": 45,
   "total_competitions": 75,
   "selected_competitions": [
     "/futebol/asia/campeonato-asean/",
@@ -53,7 +53,7 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "collecting",
+  "phase": "discovery",
   "total_games": 0,
   "processed_games": 0,
   "stats_games": 0,
@@ -61,5 +61,5 @@
   "failed_games": 0,
   "current_match": "A preparar competição",
   "last_result": "",
-  "updated_at": "2026-11-07T16:17:31.778Z"
+  "updated_at": "2026-11-07T16:17:33.340Z"
 }
