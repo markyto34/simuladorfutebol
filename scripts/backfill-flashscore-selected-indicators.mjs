@@ -52,9 +52,13 @@ function dateKey(value) {
   const pt = text.match(/^(\d{2})\.(\d{2})\.(\d{4})/);
   return pt ? pt[3] + "-" + pt[2] + "-" + pt[1] : "";
 }
+const FINAL_STATUS = /(terminad|tempo final|finalizad|depois de prolongamento|ap[oó]s prolongamento|a\\.p\\.|finished|full time|\\bft\\b)/i;
 function needsSelectedIndicators(row) {
   return REQUIRED_SCORE_FIELDS.some(field => blank(row[field])) ||
     REQUIRED_PAIRS.some(key => blank(row[key + "_home"]) || blank(row[key + "_away"]));
+}
+function isFinished(row) {
+  return (!blank(row.score_home) && !blank(row.score_away)) || FINAL_STATUS.test(String(row.status || ""));
 }
 export function selectRowsNeedingSelectedIndicators(rows, startDate, endDate, selectedPairs, attemptedIds = [], limit = 0) {
   const attempted = new Set(attemptedIds);
@@ -66,7 +70,7 @@ export function selectRowsNeedingSelectedIndicators(rows, startDate, endDate, se
       const date = dateKey(row.date_time);
       return /^[A-Za-z0-9]{6,16}$/.test(String(row.match_id || "")) &&
         date >= startDate && date <= endDate &&
-        !blank(row.score_home) && !blank(row.score_away) &&
+        isFinished(row) &&
         needsSelectedIndicators(row) && !attempted.has(row.match_id);
     }).map(row => row.match_id),
     identities,
