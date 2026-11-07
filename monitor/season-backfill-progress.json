@@ -47,13 +47,13 @@
     "/futebol/bahrain/primeira-liga/",
     "/futebol/bahrain/taca-do-rei/"
   ],
-  "competitions_completed": 63,
+  "competitions_completed": 64,
   "competitions_failed": 0,
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 185,
   "processed_games": 185,
   "stats_games": 0,
@@ -61,5 +61,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Brunswick City - Northcote City: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T17:02:55.050Z"
+  "updated_at": "2026-11-07T17:03:01.559Z"
 }
