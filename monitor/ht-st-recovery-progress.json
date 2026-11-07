@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 500,
-  "processed_games": 475,
-  "stats_games": 475,
+  "processed_games": 500,
+  "stats_games": 500,
   "bwin_odds": 193,
   "failed_games": 0,
-  "current_match": "Último concluído: Dinamo City - Laci",
-  "last_result": "Dinamo City - Laci: 11 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T07:16:15.763Z"
+  "current_match": "Último concluído: Skenderbeu - Vllaznia",
+  "last_result": "Skenderbeu - Vllaznia: 10 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T07:16:33.212Z"
 }
