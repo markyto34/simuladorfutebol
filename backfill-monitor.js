@@ -33,32 +33,52 @@ function renderCompetitions(progress,checkpoint){
  });
 }
 async function fetchJson(url){const r=await fetch(url+"?t="+Date.now(),{cache:"no-store"});if(!r.ok)throw new Error("HTTP "+r.status);return r.json()}
+let cachedProgress=null,cachedCheckpoint=null,cachedRun=null;
+let nextApiPollAt=0,lastApiMessage="",lastRawSuccess=0;
+const API_POLL_MS=120000;
+const API_RETRY_LIMIT_MS=300000;
 async function refresh(){
- $("refresh-indicator").classList.add("loading");$("refresh-label").textContent="A atualizar…";
+ $("refresh-indicator").classList.add("loading");
  try{
-  const runsResponse=await fetch(API+"/actions/workflows/"+WORKFLOW+"/runs?per_page=1",{headers:{Accept:"application/vnd.github+json"},cache:"no-store"});
-  if(!runsResponse.ok)throw new Error("GitHub Actions indisponível (HTTP "+runsResponse.status+").");
-  const runsData=await runsResponse.json();const run=runsData.workflow_runs?.[0];
-  const [progress,checkpoint,jobsData]=await Promise.all([
-   fetchJson(PROGRESS_URL).catch(()=>null),
-   fetchJson(CHECKPOINT_URL).catch(()=>null),
-   run?fetchJson(API+"/actions/runs/"+run.id+"/jobs?per_page=20").catch(()=>null):Promise.resolve(null)
-  ]);
-  const jobs=jobsData?.jobs||[];
-  const activeJob=jobs.find(job=>job.status==="in_progress")||jobs[0];
-  const activeStep=activeJob?.steps?.find(step=>step.status==="in_progress")||[...(activeJob?.steps||[])].reverse().find(step=>step.status==="completed");
-  latestRun=run||null;
+  const rawResults=await Promise.allSettled([fetchJson(PROGRESS_URL),fetchJson(CHECKPOINT_URL)]);
+  if(rawResults[0].status==="fulfilled"){cachedProgress=rawResults[0].value;lastRawSuccess=Date.now();}
+  if(rawResults[1].status==="fulfilled")cachedCheckpoint=rawResults[1].value;
+
+  if(Date.now()>=nextApiPollAt){
+   try{
+    const response=await fetch(API+"/actions/workflows/"+WORKFLOW+"/runs?per_page=1",{headers:{Accept:"application/vnd.github+json"},cache:"no-store"});
+    if(!response.ok){
+     const err=new Error("HTTP "+response.status);
+     err.status=response.status;
+     throw err;
+    }
+    const data=await response.json();
+    cachedRun=data.workflow_runs?.[0]||null;
+    lastApiMessage="";
+    nextApiPollAt=Date.now()+API_POLL_MS;
+   }catch(error){
+    const limited=error.status===403||error.status===429;
+    lastApiMessage=limited
+      ?"API do GitHub temporariamente limitada ("+error.message+"); a manter último estado."
+      :"Não foi possível atualizar o estado do GitHub ("+(error.message||"erro de ligação")+"); a manter último estado.";
+    nextApiPollAt=Date.now()+(limited?API_RETRY_LIMIT_MS:API_POLL_MS);
+   }
+  }
+
+  const progress=cachedProgress,checkpoint=cachedCheckpoint,run=cachedRun;
   if(run){
    $("run-title").textContent="Backfill da época · Execução #"+run.run_number;
    setStatus(run.status==="completed"?run.conclusion:run.status,statusKind(run));
    $("github-run-link").href=run.html_url;
    $("run-id").textContent="RUN ID · "+run.id+" · Atualizado "+dateLabel(run.updated_at);
    $("live-dot").classList.toggle("paused",run.status==="completed");
-  }else{
-   $("run-title").textContent="Ainda não existem execuções";
-   setStatus("Sem execução","loading");
+  }else if(progress?.run_number){
+   $("run-title").textContent="Backfill da época · Execução #"+progress.run_number;
+   if(progress.status==="running")setStatus("in_progress","running");
+   $("run-id").textContent="RUN ID · "+(progress.run_id||"—");
   }
-  const matching=Boolean(progress&&run&&String(progress.run_id)===String(run.id)&&progress.collection_type==="season_backfill");
+
+  const matching=Boolean(progress&&progress.collection_type==="season_backfill"&&(!run||String(progress.run_id)===String(run.id)));
   if(matching){
    const total=Number(progress.total_competitions)||0;
    const completed=Number(progress.competitions_completed)||0;
@@ -84,25 +104,28 @@ async function refresh(){
    renderCompetitions(progress,checkpoint);
   }else{
    $("completed-count").textContent=String(checkpoint?.completed_paths?.length??"—");
-   $("batch-count").textContent=run?.status==="in_progress"?"Estado básico do GitHub":"A aguardar o primeiro estado detalhado";
-   $("current-competition").textContent=activeStep?.name||"A aguardar";
-   $("competition-position").textContent=run?.status==="in_progress"?"Etapa atual do workflow":"O progresso surge quando o workflow começar";
-   $("games-progress").textContent="—";$("games-detail").textContent="Contador detalhado indisponível nesta execução";
-   $("errors-progress").textContent="—";$("last-update").textContent=run?.updated_at?dateLabel(run.updated_at):(progress?.updated_at?dateLabel(progress.updated_at):"—");
+   $("batch-count").textContent="A aguardar progresso detalhado";
+   $("current-competition").textContent="A aguardar";
+   $("competition-position").textContent="Estado básico do GitHub";
+   $("games-progress").textContent="—";$("games-detail").textContent="Contador detalhado indisponível";
+   $("errors-progress").textContent="—";
    $("stats-progress").textContent="—";$("bwin-progress").textContent="—";
-   $("current-match").textContent=run?.status==="in_progress"?"Esta execução começou antes do canal de progresso detalhado. O estado da etapa é atualizado pelo GitHub.":"Ainda não foi publicado progresso detalhado desta execução.";
-   $("last-result").textContent=activeJob?.conclusion?nice(activeJob.conclusion):"—";$("progress-fill").style.width="0%";
-   $("progress-label").textContent=run?.status==="in_progress"?"A acompanhar o estado da etapa no GitHub":"A aguardar publicação do coletor";$("progress-percent").textContent="—";
+   $("current-match").textContent="Ainda não foi publicado progresso detalhado desta execução.";
+   $("last-result").textContent="—";$("progress-fill").style.width="0%";
+   $("progress-label").textContent="A aguardar publicação do coletor";$("progress-percent").textContent="—";
    renderCompetitions(null,checkpoint);
   }
   $("checkpoint-label").textContent="Checkpoint: "+(checkpoint?.completed_paths?.length??"—")+" competições concluídas no histórico";
-  $("refresh-label").textContent="Atualizado "+new Intl.DateTimeFormat("pt-PT",{timeStyle:"medium",timeZone:"Europe/Lisbon"}).format(new Date());
-  $("refresh-indicator").classList.remove("loading");
+  if(lastApiMessage){
+   $("refresh-label").textContent=lastApiMessage;
+  }else if(rawResults.every(x=>x.status==="fulfilled")){
+   $("refresh-label").textContent="Atualizado "+new Intl.DateTimeFormat("pt-PT",{timeStyle:"medium",timeZone:"Europe/Lisbon"}).format(new Date());
+  }else{
+   $("refresh-label").textContent="GitHub acessível; progresso temporariamente indisponível. A manter último estado.";
+  }
  }catch(error){
-  $("refresh-label").textContent="Sem ligação ao GitHub";
-  $("refresh-indicator").classList.remove("loading");
-  $("current-match").textContent=error.message;
-  setStatus("Sem dados","loading");
+  $("refresh-label").textContent="Falha ao atualizar o monitor: "+(error.message||"erro desconhecido")+". A manter último estado.";
  }
+ $("refresh-indicator").classList.remove("loading");
 }
 refresh();setInterval(refresh,10000);
