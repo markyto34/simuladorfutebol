@@ -71,7 +71,8 @@
     "/futebol/australia/liga-a/",
     "/futebol/australia/liga-estadual-do-norte-de-nsw/",
     "/futebol/australia/npl-act/",
-    "/futebol/australia/npl-australia-ocidental/"
+    "/futebol/australia/npl-australia-ocidental/",
+    "/futebol/australia/npl-finals-series/"
   ],
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
@@ -80,7 +81,7 @@
     "/futebol/australia-e-oceania/ofc-pro-league/"
   ],
   "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
-  "updated_at": "2026-11-07T16:38:36.429Z",
-  "last_completed_path": "/futebol/australia/npl-australia-ocidental/",
+  "updated_at": "2026-11-07T16:39:00.418Z",
+  "last_completed_path": "/futebol/australia/npl-finals-series/",
   "last_skipped_path": "/futebol/australia-e-oceania/ofc-pro-league/"
 }
