@@ -41,7 +41,7 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 194,
   "processed_games": 194,
   "stats_games": 126,
@@ -49,5 +49,5 @@
   "failed_games": 3,
   "current_match": "Recolha terminada",
   "last_result": "Paraguai - Peru: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T13:31:43.514Z"
+  "updated_at": "2026-11-07T13:31:46.107Z"
 }
