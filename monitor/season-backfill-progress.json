@@ -25,11 +25,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 90,
-  "processed_games": 25,
+  "processed_games": 50,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 26/90 · EDilFkV1",
-  "last_result": "Singleton Strikers - South Cardiff: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T12:08:44.180Z"
+  "current_match": "Último concluído: Cessnock City Hornets - New Lambton",
+  "last_result": "Cessnock City Hornets - New Lambton: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T12:09:09.149Z"
 }
