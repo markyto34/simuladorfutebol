@@ -44,7 +44,7 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 56,
   "processed_games": 56,
   "stats_games": 46,
@@ -52,5 +52,5 @@
   "failed_games": 10,
   "current_match": "Recolha terminada",
   "last_result": "Falha em UiB0iDDL: Falha ao recolher UiB0iDDL: HTTP 503",
-  "updated_at": "2026-11-07T13:44:19.960Z"
+  "updated_at": "2026-11-07T13:44:22.523Z"
 }
