@@ -52,7 +52,7 @@ jobs:
           node --check scripts/publish-flashscore-backfill-progress.mjs
           node --check scripts/validate-flashscore-selected-competition.mjs
           node --check scripts/report-flashscore-season-backfill.mjs
-          node --test tests/discover-flashscore-season.test.mjs tests/select-flashscore-backfill-paths.test.mjs tests/validate-flashscore-selected-competition.test.mjs
+          node --test tests/discover-flashscore-season.test.mjs tests/select-flashscore-backfill-paths.test.mjs tests/validate-flashscore-selected-competition.test.mjs tests/collect-flashscore-final-score.test.mjs
       - name: Preparar competições selecionadas ainda pendentes
         env:
           COMPETITION_PATH: ${{ inputs.competition_path }}
