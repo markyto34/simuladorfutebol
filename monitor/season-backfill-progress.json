@@ -43,11 +43,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 74,
-  "processed_games": 50,
-  "stats_games": 50,
+  "processed_games": 74,
+  "stats_games": 73,
   "bwin_odds": 0,
-  "failed_games": 0,
-  "current_match": "Último concluído: Curaçau - Nicarágua",
-  "last_result": "Curaçau - Nicarágua: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T13:32:55.488Z"
+  "failed_games": 1,
+  "current_match": "Último concluído: Porto Rico - Guiana",
+  "last_result": "Porto Rico - Guiana: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T13:33:22.154Z"
 }
