@@ -2,8 +2,8 @@
   "run_id": "42360614316",
   "run_number": "14",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/america-do-sul/campeonato-sul-americano-sub-20/",
-  "competition_index": 5,
+  "current_competition_path": "/futebol/america-do-sul/copa-america/",
+  "competition_index": 6,
   "total_competitions": 10,
   "selected_competitions": [
     "/futebol/america-do-norte-e-central/copa-centro-americana-da-concacaf/",
@@ -25,13 +25,13 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "collecting",
+  "phase": "discovery",
   "total_games": 0,
   "processed_games": 0,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Sem jogos pendentes",
+  "current_match": "A preparar competição",
   "last_result": "",
-  "updated_at": "2026-11-07T09:41:07.100Z"
+  "updated_at": "2026-11-07T09:41:11.865Z"
 }
