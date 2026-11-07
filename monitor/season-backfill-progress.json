@@ -22,8 +22,8 @@
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
+  "status": "running",
+  "phase": "saving",
   "total_games": 0,
   "processed_games": 0,
   "stats_games": 0,
@@ -31,5 +31,5 @@
   "failed_games": 0,
   "current_match": "Sem jogos pendentes",
   "last_result": "",
-  "updated_at": "2026-11-07T09:40:23.005Z"
+  "updated_at": "2026-11-07T09:40:25.433Z"
 }
