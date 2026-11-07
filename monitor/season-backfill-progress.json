@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 462,
-  "processed_games": 150,
-  "stats_games": 149,
+  "processed_games": 175,
+  "stats_games": 174,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Defensores Unidos - Liniers",
-  "last_result": "Defensores Unidos - Liniers: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:21:11.656Z"
+  "current_match": "Último concluído: Ituzaingo - Sportivo Italiano",
+  "last_result": "Ituzaingo - Sportivo Italiano: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:21:36.721Z"
 }
