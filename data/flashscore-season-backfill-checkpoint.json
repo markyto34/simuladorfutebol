@@ -5,10 +5,11 @@
     "/futebol/africa-do-sul/segunda-liga/",
     "/futebol/africa/caf-liga-dos-campeoes/",
     "/futebol/africa/caf-taca-das-confederacoes/",
-    "/futebol/africa/campeonato-das-nacoes-africanas/"
+    "/futebol/africa/campeonato-das-nacoes-africanas/",
+    "/futebol/africa/taca-cosafa/"
   ],
   "skipped_paths": [],
   "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
-  "updated_at": "2026-11-07T13:14:42.241Z",
-  "last_completed_path": "/futebol/africa/campeonato-das-nacoes-africanas/"
+  "updated_at": "2026-11-07T13:15:20.633Z",
+  "last_completed_path": "/futebol/africa/taca-cosafa/"
 }
