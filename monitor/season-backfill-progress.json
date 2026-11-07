@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 142,
-  "processed_games": 125,
+  "processed_games": 142,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 126/142 · zg8tK4HP",
-  "last_result": "Juventud de Bernal - Nautico Hacoaj: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:03:45.457Z"
+  "current_match": "Último concluído: Las Mandarinas - Academia Control Orientado",
+  "last_result": "Las Mandarinas - Academia Control Orientado: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:04:02.380Z"
 }
