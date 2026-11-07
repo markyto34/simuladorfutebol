@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 415,
-  "processed_games": 200,
-  "stats_games": 111,
-  "bwin_odds": 71,
+  "processed_games": 225,
+  "stats_games": 129,
+  "bwin_odds": 89,
   "failed_games": 0,
-  "current_match": "A consultar jogo 202/415 · zgKX5XTa",
-  "last_result": "Orbi - Geórgia: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T06:19:44.276Z"
+  "current_match": "A consultar jogo 227/415 · WhqJQlCi",
+  "last_result": "Chadormalu - Foolad: 0 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-07T06:19:51.828Z"
 }
