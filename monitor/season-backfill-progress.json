@@ -2,8 +2,9 @@
   "run_id": "42353179482",
   "run_number": "11",
   "collection_type": "season_backfill",
-  "status": "running",
-  "phase": "discovery",
+  "current_competition_path": "/futebol/america-do-norte-e-central/copa-centro-americana-da-concacaf/",
+  "competition_index": 1,
+  "total_competitions": 10,
   "selected_competitions": [
     "/futebol/america-do-norte-e-central/copa-centro-americana-da-concacaf/",
     "/futebol/america-do-norte-e-central/liga-concacaf/",
@@ -16,19 +17,19 @@
     "/futebol/america-do-sul/taca-sul-americana/",
     "/futebol/andorra/primeira-divisao/"
   ],
-  "total_competitions": 10,
-  "competition_index": 1,
-  "current_competition_path": "/futebol/america-do-norte-e-central/copa-centro-americana-da-concacaf/",
   "competitions_completed": 0,
   "competitions_failed": 0,
   "failed_competitions": [],
   "blocked": false,
+  "target_date": "",
+  "status": "running",
+  "phase": "discovery",
   "total_games": 0,
   "processed_games": 0,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A preparar competição",
+  "current_match": "A descobrir jogos",
   "last_result": "",
-  "updated_at": "2026-11-07T07:55:47.541Z"
+  "updated_at": "2026-11-07T07:55:51.213Z"
 }
