@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 247,
-  "processed_games": 25,
-  "stats_games": 24,
+  "processed_games": 50,
+  "stats_games": 49,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 26/247 · Q1ttT0zA",
-  "last_result": "Marconi - Sutherland: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:42:27.626Z"
+  "current_match": "Último concluído: St. George City - Sydney Utd",
+  "last_result": "St. George City - Sydney Utd: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:42:52.795Z"
 }
