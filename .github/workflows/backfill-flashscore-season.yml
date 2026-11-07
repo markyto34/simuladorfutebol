@@ -146,7 +146,7 @@ jobs:
           save_checkpoint() {
             local competition_path="$1"
             local mark_completed="$2"
-            node scripts/validate-flashscore-history.mjs || return 1
+            node scripts/validate-flashscore-history.mjs --stats-only || return 1
             if [[ "$mark_completed" == "true" ]]; then
               node --input-type=module - "$competition_path" <<'NODE'
           import fs from "node:fs";
