@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 648,
-  "processed_games": 125,
-  "stats_games": 125,
+  "processed_games": 150,
+  "stats_games": 150,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: San Telmo - CA Estudiantes",
-  "last_result": "San Telmo - CA Estudiantes: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:37:26.307Z"
+  "current_match": "Último concluído: Chaco For Ever - CA Estudiantes",
+  "last_result": "Chaco For Ever - CA Estudiantes: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:37:51.416Z"
 }
