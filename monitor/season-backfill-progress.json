@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 504,
-  "processed_games": 475,
-  "stats_games": 465,
+  "processed_games": 500,
+  "stats_games": 490,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Circulo Deportivo - Germinal",
-  "last_result": "Circulo Deportivo - Germinal: 6 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:00:40.999Z"
+  "current_match": "Último concluído: Guillermo Brown - Santamarina",
+  "last_result": "Guillermo Brown - Santamarina: 6 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:01:06.109Z"
 }
