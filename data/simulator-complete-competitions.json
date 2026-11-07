@@ -1,6 +1,6 @@
 {
   "generated_from": "data/flashscore-statistics.csv",
-  "generated_at": "2026-11-07T08:16:31.839Z",
+  "generated_at": "2026-11-07T09:08:42.845Z",
   "definition": "At least 5 unique matches and at least one available paired indicator; missing values in individual matches or indicators do not disqualify the competition. Per-indicator coverage is reported.",
   "core_metrics": [
     "goals",
@@ -278,14 +278,14 @@
           "pct": 91.25
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 73,
           "total": 80,
-          "pct": 0
+          "pct": 91.25
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 73,
           "total": 80,
-          "pct": 0
+          "pct": 91.25
         },
         "corners": {
           "complete": 80,
@@ -388,14 +388,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 10,
+          "complete": 57,
           "total": 92,
-          "pct": 10.87
+          "pct": 61.96
         },
         "goals_st": {
-          "complete": 10,
+          "complete": 57,
           "total": 92,
-          "pct": 10.87
+          "pct": 61.96
         },
         "corners": {
           "complete": 92,
@@ -498,14 +498,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 1,
           "total": 121,
-          "pct": 0
+          "pct": 0.83
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 1,
           "total": 121,
-          "pct": 0
+          "pct": 0.83
         },
         "corners": {
           "complete": 121,
@@ -608,14 +608,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 7,
           "total": 73,
-          "pct": 0
+          "pct": 9.59
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 7,
           "total": 73,
-          "pct": 0
+          "pct": 9.59
         },
         "corners": {
           "complete": 73,
@@ -1372,14 +1372,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 6,
+          "complete": 54,
           "total": 54,
-          "pct": 11.11
+          "pct": 100
         },
         "goals_st": {
-          "complete": 6,
+          "complete": 54,
           "total": 54,
-          "pct": 11.11
+          "pct": 100
         },
         "corners": {
           "complete": 54,
@@ -1481,14 +1481,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 68,
           "total": 68,
-          "pct": 0
+          "pct": 100
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 68,
           "total": 68,
-          "pct": 0
+          "pct": 100
         },
         "corners": {
           "complete": 68,
@@ -1590,14 +1590,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 20,
           "total": 20,
-          "pct": 0
+          "pct": 100
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 20,
           "total": 20,
-          "pct": 0
+          "pct": 100
         },
         "corners": {
           "complete": 20,
@@ -1699,14 +1699,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 24,
           "total": 24,
-          "pct": 0
+          "pct": 100
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 24,
           "total": 24,
-          "pct": 0
+          "pct": 100
         },
         "corners": {
           "complete": 24,
@@ -1809,14 +1809,14 @@
           "pct": 94.55
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 5,
           "total": 110,
-          "pct": 0
+          "pct": 4.55
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 5,
           "total": 110,
-          "pct": 0
+          "pct": 4.55
         },
         "corners": {
           "complete": 110,
@@ -2356,14 +2356,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 23,
+          "complete": 32,
           "total": 100,
-          "pct": 23
+          "pct": 32
         },
         "goals_st": {
-          "complete": 23,
+          "complete": 32,
           "total": 100,
-          "pct": 23
+          "pct": 32
         },
         "corners": {
           "complete": 96,
@@ -3341,14 +3341,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 4,
           "total": 18,
-          "pct": 0
+          "pct": 22.22
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 4,
           "total": 18,
-          "pct": 0
+          "pct": 22.22
         },
         "corners": {
           "complete": 18,
@@ -3451,14 +3451,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 2,
           "total": 16,
-          "pct": 0
+          "pct": 12.5
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 2,
           "total": 16,
-          "pct": 0
+          "pct": 12.5
         },
         "corners": {
           "complete": 16,
@@ -4651,14 +4651,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 11,
+          "complete": 14,
           "total": 67,
-          "pct": 16.42
+          "pct": 20.9
         },
         "goals_st": {
-          "complete": 11,
+          "complete": 14,
           "total": 67,
-          "pct": 16.42
+          "pct": 20.9
         },
         "corners": {
           "complete": 67,
@@ -4761,14 +4761,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 33,
+          "complete": 38,
           "total": 92,
-          "pct": 35.87
+          "pct": 41.3
         },
         "goals_st": {
-          "complete": 33,
+          "complete": 38,
           "total": 92,
-          "pct": 35.87
+          "pct": 41.3
         },
         "corners": {
           "complete": 92,
@@ -4981,14 +4981,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 21,
+          "complete": 26,
           "total": 91,
-          "pct": 23.08
+          "pct": 28.57
         },
         "goals_st": {
-          "complete": 21,
+          "complete": 26,
           "total": 91,
-          "pct": 23.08
+          "pct": 28.57
         },
         "corners": {
           "complete": 91,
@@ -5091,14 +5091,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 8,
+          "complete": 13,
           "total": 65,
-          "pct": 12.31
+          "pct": 20
         },
         "goals_st": {
-          "complete": 8,
+          "complete": 13,
           "total": 65,
-          "pct": 12.31
+          "pct": 20
         },
         "corners": {
           "complete": 65,
@@ -6621,14 +6621,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 7,
           "total": 339,
-          "pct": 0
+          "pct": 2.06
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 7,
           "total": 339,
-          "pct": 0
+          "pct": 2.06
         },
         "corners": {
           "complete": 339,
@@ -7170,14 +7170,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 26,
+          "complete": 29,
           "total": 92,
-          "pct": 28.26
+          "pct": 31.52
         },
         "goals_st": {
-          "complete": 26,
+          "complete": 29,
           "total": 92,
-          "pct": 28.26
+          "pct": 31.52
         },
         "corners": {
           "complete": 92,
@@ -7389,14 +7389,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 6,
           "total": 50,
-          "pct": 0
+          "pct": 12
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 6,
           "total": 50,
-          "pct": 0
+          "pct": 12
         },
         "corners": {
           "complete": 50,
@@ -7717,14 +7717,14 @@
           "pct": 99.04
         },
         "goals_ht": {
-          "complete": 128,
+          "complete": 129,
           "total": 208,
-          "pct": 61.54
+          "pct": 62.02
         },
         "goals_st": {
-          "complete": 128,
+          "complete": 129,
           "total": 208,
-          "pct": 61.54
+          "pct": 62.02
         },
         "corners": {
           "complete": 208,
@@ -7826,14 +7826,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 33,
+          "complete": 34,
           "total": 97,
-          "pct": 34.02
+          "pct": 35.05
         },
         "goals_st": {
-          "complete": 33,
+          "complete": 34,
           "total": 97,
-          "pct": 34.02
+          "pct": 35.05
         },
         "corners": {
           "complete": 93,
@@ -8154,14 +8154,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 8,
           "total": 100,
-          "pct": 0
+          "pct": 8
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 8,
           "total": 100,
-          "pct": 0
+          "pct": 8
         },
         "corners": {
           "complete": 100,
@@ -8264,14 +8264,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 8,
+          "complete": 11,
           "total": 58,
-          "pct": 13.79
+          "pct": 18.97
         },
         "goals_st": {
-          "complete": 8,
+          "complete": 11,
           "total": 58,
-          "pct": 13.79
+          "pct": 18.97
         },
         "corners": {
           "complete": 58,
@@ -8374,14 +8374,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 4,
           "total": 100,
-          "pct": 0
+          "pct": 4
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 4,
           "total": 100,
-          "pct": 0
+          "pct": 4
         },
         "corners": {
           "complete": 100,
@@ -8484,14 +8484,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 23,
+          "complete": 25,
           "total": 60,
-          "pct": 38.33
+          "pct": 41.67
         },
         "goals_st": {
-          "complete": 23,
+          "complete": 25,
           "total": 60,
-          "pct": 38.33
+          "pct": 41.67
         },
         "corners": {
           "complete": 60,
@@ -8594,14 +8594,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 12,
+          "complete": 17,
           "total": 92,
-          "pct": 13.04
+          "pct": 18.48
         },
         "goals_st": {
-          "complete": 12,
+          "complete": 17,
           "total": 92,
-          "pct": 13.04
+          "pct": 18.48
         },
         "corners": {
           "complete": 92,
@@ -8704,14 +8704,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 4,
           "total": 81,
-          "pct": 0
+          "pct": 4.94
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 4,
           "total": 81,
-          "pct": 0
+          "pct": 4.94
         },
         "corners": {
           "complete": 81,
@@ -8814,14 +8814,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 6,
           "total": 80,
-          "pct": 0
+          "pct": 7.5
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 6,
           "total": 80,
-          "pct": 0
+          "pct": 7.5
         },
         "corners": {
           "complete": 80,
@@ -8923,14 +8923,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 1,
           "total": 6,
-          "pct": 0
+          "pct": 16.67
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 1,
           "total": 6,
-          "pct": 0
+          "pct": 16.67
         },
         "corners": {
           "complete": 6,
@@ -9142,14 +9142,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 5,
           "total": 65,
-          "pct": 0
+          "pct": 7.69
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 5,
           "total": 65,
-          "pct": 0
+          "pct": 7.69
         },
         "corners": {
           "complete": 61,
@@ -9252,14 +9252,14 @@
           "pct": 99.25
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 4,
           "total": 133,
-          "pct": 0
+          "pct": 3.01
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 4,
           "total": 133,
-          "pct": 0
+          "pct": 3.01
         },
         "corners": {
           "complete": 133,
@@ -9362,14 +9362,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 27,
+          "complete": 29,
           "total": 102,
-          "pct": 26.47
+          "pct": 28.43
         },
         "goals_st": {
-          "complete": 27,
+          "complete": 29,
           "total": 102,
-          "pct": 26.47
+          "pct": 28.43
         },
         "corners": {
           "complete": 102,
@@ -9472,14 +9472,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 9,
+          "complete": 13,
           "total": 99,
-          "pct": 9.09
+          "pct": 13.13
         },
         "goals_st": {
-          "complete": 9,
+          "complete": 13,
           "total": 99,
-          "pct": 9.09
+          "pct": 13.13
         },
         "corners": {
           "complete": 99,
@@ -10241,14 +10241,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 33,
+          "complete": 40,
           "total": 495,
-          "pct": 6.67
+          "pct": 8.08
         },
         "goals_st": {
-          "complete": 33,
+          "complete": 40,
           "total": 495,
-          "pct": 6.67
+          "pct": 8.08
         },
         "corners": {
           "complete": 495,
@@ -10351,14 +10351,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 3,
           "total": 100,
-          "pct": 0
+          "pct": 3
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 3,
           "total": 100,
-          "pct": 0
+          "pct": 3
         },
         "corners": {
           "complete": 100,
@@ -10461,14 +10461,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 4,
           "total": 82,
-          "pct": 0
+          "pct": 4.88
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 4,
           "total": 82,
-          "pct": 0
+          "pct": 4.88
         },
         "corners": {
           "complete": 82,
@@ -10571,14 +10571,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 11,
+          "complete": 17,
           "total": 105,
-          "pct": 10.48
+          "pct": 16.19
         },
         "goals_st": {
-          "complete": 11,
+          "complete": 17,
           "total": 105,
-          "pct": 10.48
+          "pct": 16.19
         },
         "corners": {
           "complete": 105,
@@ -10681,14 +10681,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 9,
+          "complete": 10,
           "total": 62,
-          "pct": 14.52
+          "pct": 16.13
         },
         "goals_st": {
-          "complete": 9,
+          "complete": 10,
           "total": 62,
-          "pct": 14.52
+          "pct": 16.13
         },
         "corners": {
           "complete": 62,
@@ -10901,14 +10901,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 3,
           "total": 71,
-          "pct": 0
+          "pct": 4.23
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 3,
           "total": 71,
-          "pct": 0
+          "pct": 4.23
         },
         "corners": {
           "complete": 71,
@@ -11011,14 +11011,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 3,
           "total": 86,
-          "pct": 0
+          "pct": 3.49
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 3,
           "total": 86,
-          "pct": 0
+          "pct": 3.49
         },
         "corners": {
           "complete": 84,
@@ -11121,14 +11121,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 15,
           "total": 169,
-          "pct": 0
+          "pct": 8.88
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 15,
           "total": 169,
-          "pct": 0
+          "pct": 8.88
         },
         "corners": {
           "complete": 169,
@@ -11231,14 +11231,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 12,
           "total": 99,
-          "pct": 0
+          "pct": 12.12
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 12,
           "total": 99,
-          "pct": 0
+          "pct": 12.12
         },
         "corners": {
           "complete": 99,
@@ -11341,14 +11341,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 8,
           "total": 90,
-          "pct": 0
+          "pct": 8.89
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 8,
           "total": 90,
-          "pct": 0
+          "pct": 8.89
         },
         "corners": {
           "complete": 90,
@@ -11561,14 +11561,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 19,
+          "complete": 23,
           "total": 100,
-          "pct": 19
+          "pct": 23
         },
         "goals_st": {
-          "complete": 19,
+          "complete": 23,
           "total": 100,
-          "pct": 19
+          "pct": 23
         },
         "corners": {
           "complete": 100,
@@ -11671,14 +11671,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 14,
+          "complete": 18,
           "total": 81,
-          "pct": 17.28
+          "pct": 22.22
         },
         "goals_st": {
-          "complete": 14,
+          "complete": 18,
           "total": 81,
-          "pct": 17.28
+          "pct": 22.22
         },
         "corners": {
           "complete": 77,
@@ -11781,14 +11781,14 @@
           "pct": 98.41
         },
         "goals_ht": {
-          "complete": 54,
+          "complete": 56,
           "total": 63,
-          "pct": 85.71
+          "pct": 88.89
         },
         "goals_st": {
-          "complete": 54,
+          "complete": 56,
           "total": 63,
-          "pct": 85.71
+          "pct": 88.89
         },
         "corners": {
           "complete": 63,
@@ -11891,14 +11891,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 63,
+          "complete": 64,
           "total": 100,
-          "pct": 63
+          "pct": 64
         },
         "goals_st": {
-          "complete": 63,
+          "complete": 64,
           "total": 100,
-          "pct": 63
+          "pct": 64
         },
         "corners": {
           "complete": 100,
@@ -12001,14 +12001,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 3,
           "total": 101,
-          "pct": 0
+          "pct": 2.97
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 3,
           "total": 101,
-          "pct": 0
+          "pct": 2.97
         },
         "corners": {
           "complete": 101,
@@ -12111,14 +12111,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 10,
+          "complete": 15,
           "total": 101,
-          "pct": 9.9
+          "pct": 14.85
         },
         "goals_st": {
-          "complete": 10,
+          "complete": 15,
           "total": 101,
-          "pct": 9.9
+          "pct": 14.85
         },
         "corners": {
           "complete": 101,
@@ -12221,14 +12221,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 3,
           "total": 102,
-          "pct": 0
+          "pct": 2.94
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 3,
           "total": 102,
-          "pct": 0
+          "pct": 2.94
         },
         "corners": {
           "complete": 102,
@@ -12331,14 +12331,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 4,
           "total": 100,
-          "pct": 0
+          "pct": 4
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 4,
           "total": 100,
-          "pct": 0
+          "pct": 4
         },
         "corners": {
           "complete": 100,
@@ -12441,14 +12441,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 6,
           "total": 100,
-          "pct": 0
+          "pct": 6
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 6,
           "total": 100,
-          "pct": 0
+          "pct": 6
         },
         "corners": {
           "complete": 100,
@@ -12661,14 +12661,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 10,
+          "complete": 16,
           "total": 100,
-          "pct": 10
+          "pct": 16
         },
         "goals_st": {
-          "complete": 10,
+          "complete": 16,
           "total": 100,
-          "pct": 10
+          "pct": 16
         },
         "corners": {
           "complete": 100,
@@ -12771,14 +12771,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 10,
           "total": 100,
-          "pct": 0
+          "pct": 10
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 10,
           "total": 100,
-          "pct": 0
+          "pct": 10
         },
         "corners": {
           "complete": 100,
@@ -12991,14 +12991,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 5,
           "total": 48,
-          "pct": 0
+          "pct": 10.42
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 5,
           "total": 48,
-          "pct": 0
+          "pct": 10.42
         },
         "corners": {
           "complete": 48,
@@ -13101,14 +13101,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 3,
           "total": 100,
-          "pct": 0
+          "pct": 3
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 3,
           "total": 100,
-          "pct": 0
+          "pct": 3
         },
         "corners": {
           "complete": 100,
@@ -13321,14 +13321,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 11,
+          "complete": 15,
           "total": 100,
-          "pct": 11
+          "pct": 15
         },
         "goals_st": {
-          "complete": 11,
+          "complete": 15,
           "total": 100,
-          "pct": 11
+          "pct": 15
         },
         "corners": {
           "complete": 100,
@@ -13431,14 +13431,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 5,
           "total": 103,
-          "pct": 0
+          "pct": 4.85
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 5,
           "total": 103,
-          "pct": 0
+          "pct": 4.85
         },
         "corners": {
           "complete": 103,
@@ -13651,14 +13651,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 48,
+          "complete": 50,
           "total": 102,
-          "pct": 47.06
+          "pct": 49.02
         },
         "goals_st": {
-          "complete": 48,
+          "complete": 50,
           "total": 102,
-          "pct": 47.06
+          "pct": 49.02
         },
         "corners": {
           "complete": 101,
@@ -13761,14 +13761,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 6,
           "total": 102,
-          "pct": 0
+          "pct": 5.88
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 6,
           "total": 102,
-          "pct": 0
+          "pct": 5.88
         },
         "corners": {
           "complete": 102,
@@ -14198,14 +14198,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 1,
           "total": 49,
-          "pct": 0
+          "pct": 2.04
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 1,
           "total": 49,
-          "pct": 0
+          "pct": 2.04
         },
         "corners": {
           "complete": 49,
@@ -14416,14 +14416,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 1,
           "total": 47,
-          "pct": 0
+          "pct": 2.13
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 1,
           "total": 47,
-          "pct": 0
+          "pct": 2.13
         },
         "corners": {
           "complete": 47,
@@ -14526,14 +14526,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 8,
+          "complete": 14,
           "total": 82,
-          "pct": 9.76
+          "pct": 17.07
         },
         "goals_st": {
-          "complete": 8,
+          "complete": 14,
           "total": 82,
-          "pct": 9.76
+          "pct": 17.07
         },
         "corners": {
           "complete": 82,
@@ -14744,14 +14744,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 2,
           "total": 104,
-          "pct": 0
+          "pct": 1.92
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 2,
           "total": 104,
-          "pct": 0
+          "pct": 1.92
         },
         "corners": {
           "complete": 104,
@@ -14854,14 +14854,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 5,
           "total": 82,
-          "pct": 0
+          "pct": 6.1
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 5,
           "total": 82,
-          "pct": 0
+          "pct": 6.1
         },
         "corners": {
           "complete": 82,
@@ -15182,14 +15182,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 14,
+          "complete": 17,
           "total": 107,
-          "pct": 13.08
+          "pct": 15.89
         },
         "goals_st": {
-          "complete": 14,
+          "complete": 17,
           "total": 107,
-          "pct": 13.08
+          "pct": 15.89
         },
         "corners": {
           "complete": 107,
@@ -15292,14 +15292,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 23,
+          "complete": 30,
           "total": 133,
-          "pct": 17.29
+          "pct": 22.56
         },
         "goals_st": {
-          "complete": 23,
+          "complete": 30,
           "total": 133,
-          "pct": 17.29
+          "pct": 22.56
         },
         "corners": {
           "complete": 133,
@@ -15402,14 +15402,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 54,
+          "complete": 56,
           "total": 100,
-          "pct": 54
+          "pct": 56
         },
         "goals_st": {
-          "complete": 54,
+          "complete": 56,
           "total": 100,
-          "pct": 54
+          "pct": 56
         },
         "corners": {
           "complete": 100,
@@ -15732,14 +15732,14 @@
           "pct": 98.95
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 1,
           "total": 95,
-          "pct": 0
+          "pct": 1.05
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 1,
           "total": 95,
-          "pct": 0
+          "pct": 1.05
         },
         "corners": {
           "complete": 95,
@@ -15842,14 +15842,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 3,
           "total": 215,
-          "pct": 0
+          "pct": 1.4
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 3,
           "total": 215,
-          "pct": 0
+          "pct": 1.4
         },
         "corners": {
           "complete": 215,
@@ -15952,14 +15952,14 @@
           "pct": 99.57
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 4,
           "total": 231,
-          "pct": 0
+          "pct": 1.73
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 4,
           "total": 231,
-          "pct": 0
+          "pct": 1.73
         },
         "corners": {
           "complete": 223,
@@ -16062,14 +16062,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 4,
           "total": 62,
-          "pct": 0
+          "pct": 6.45
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 4,
           "total": 62,
-          "pct": 0
+          "pct": 6.45
         },
         "corners": {
           "complete": 62,
@@ -16172,14 +16172,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 12,
+          "complete": 14,
           "total": 72,
-          "pct": 16.67
+          "pct": 19.44
         },
         "goals_st": {
-          "complete": 12,
+          "complete": 14,
           "total": 72,
-          "pct": 16.67
+          "pct": 19.44
         },
         "corners": {
           "complete": 72,
@@ -16282,14 +16282,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 3,
           "total": 54,
-          "pct": 0
+          "pct": 5.56
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 3,
           "total": 54,
-          "pct": 0
+          "pct": 5.56
         },
         "corners": {
           "complete": 54,
@@ -16392,14 +16392,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 5,
           "total": 102,
-          "pct": 0
+          "pct": 4.9
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 5,
           "total": 102,
-          "pct": 0
+          "pct": 4.9
         },
         "corners": {
           "complete": 102,
@@ -16502,14 +16502,14 @@
           "pct": 97.7
         },
         "goals_ht": {
-          "complete": 20,
+          "complete": 21,
           "total": 87,
-          "pct": 22.99
+          "pct": 24.14
         },
         "goals_st": {
-          "complete": 20,
+          "complete": 21,
           "total": 87,
-          "pct": 22.99
+          "pct": 24.14
         },
         "corners": {
           "complete": 81,
@@ -16612,14 +16612,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 3,
           "total": 97,
-          "pct": 0
+          "pct": 3.09
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 3,
           "total": 97,
-          "pct": 0
+          "pct": 3.09
         },
         "corners": {
           "complete": 96,
@@ -16722,14 +16722,14 @@
           "pct": 100
         },
         "goals_ht": {
-          "complete": 0,
+          "complete": 5,
           "total": 43,
-          "pct": 0
+          "pct": 11.63
         },
         "goals_st": {
-          "complete": 0,
+          "complete": 5,
           "total": 43,
-          "pct": 0
+          "pct": 11.63
         },
         "corners": {
           "complete": 43,
