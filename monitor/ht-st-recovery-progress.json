@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 500,
-  "processed_games": 225,
-  "stats_games": 225,
-  "bwin_odds": 117,
+  "processed_games": 250,
+  "stats_games": 250,
+  "bwin_odds": 120,
   "failed_games": 0,
-  "current_match": "A consultar jogo 226/500 · jBy1dWKs",
-  "last_result": "Osasuna B - Tudelano: 10 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T06:55:44.324Z"
+  "current_match": "Último concluído: Sevilla F - Real Madrid F",
+  "last_result": "Sevilla F - Real Madrid F: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-07T06:56:01.884Z"
 }
