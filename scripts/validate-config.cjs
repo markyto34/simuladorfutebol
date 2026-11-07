@@ -42,12 +42,14 @@ if(html.includes('<section class="intro" aria-hidden="true">'))fail("A introduç
 const applyStart=app.indexOf("function applyTeamSelection(side)");
 if(applyStart<0||!app.slice(applyStart,applyStart+1800).includes('if(!team){for(const [,id] of fields)fillInput(id,null)'))fail("Seleção vazia não limpa médias antigas.");
 if(!app.includes("function teamOptionsForSeason(matches)"))fail("Seleção de equipas por época não existe.");
-const statsSection=html.match(/<div class="all-stats-columns">([\s\S]*?)<p class="source-note">/);
-if(!statsSection)fail("Secção de estatísticas não encontrada.");
+const statsSection=html.match(/<div class="stats-by-indicator">([\s\S]*?)<p class="source-note">/);
+if(!statsSection)fail("Secção de estatísticas por indicador não encontrada.");
 else{
  if((html.match(/id="axgFor"/g)||[]).length!==1||(html.match(/id="axgAgainst"/g)||[]).length!==1)fail("Campos xG visitante devem existir uma única vez.");
- const home=statsSection[1].indexOf("<h4>CASA</h4>"),away=statsSection[1].indexOf("<h4>FORA</h4>"),xg=statsSection[1].indexOf('id="axgFor"');
- if(home<0||away<0||xg<away)fail("Campos xG visitante estão na coluna errada.");
+ const home=statsSection[1].indexOf('id="hgFor"'),away=statsSection[1].indexOf('id="agFor"'),xgAway=statsSection[1].indexOf('id="axgFor"');
+ if(home<0||away<0||xgAway<away)fail("Campos das equipas ou xG visitante estão na ordem errada.");
+ if(!statsSection[1].includes('class="stat-compare-row"')||!statsSection[1].includes('class="stat-compare-values"'))fail("Indicadores não estão organizados em linhas comparativas.");
+ if(!statsSection[1].includes("<h5>Golos por parte</h5>")||!statsSection[1].includes("<h5>Cantos HT</h5>")||!statsSection[1].includes("<h5>Cantos ST</h5>"))fail("Grupos de indicadores por período estão incompletos.");
 }
 const pairedStart=app.indexOf("function enforcePairedTeamCoverage()"),pairedEnd=app.indexOf("\nfunction applyTeamSelection",pairedStart);
 if(pairedStart<0||pairedEnd<0)fail("Validador de cobertura conjunta não encontrado.");

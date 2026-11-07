@@ -126,6 +126,8 @@ function normalizeFlashscoreMatch(r){
   homeFouls:sourceNum(r,["fouls_home"]),awayFouls:sourceNum(r,["fouls_away"]),
   homeYellow:sourceNum(r,["yellow_cards_home"]),awayYellow:sourceNum(r,["yellow_cards_away"]),
   homeRed:sourceNum(r,["red_cards_home"]),awayRed:sourceNum(r,["red_cards_away"]),
+  homeCornersHt:sourceNum(r,["corners_ht_home"]),awayCornersHt:sourceNum(r,["corners_ht_away"]),
+  homeCornersSt:sourceNum(r,["corners_st_home"]),awayCornersSt:sourceNum(r,["corners_st_away"]),
   homeXg:sourceNum(r,["xg_home"]),awayXg:sourceNum(r,["xg_away"])};
 }
 function flashscoreCompetitionValue(country,competition){return "FS|"+encodeURIComponent(country)+"|"+encodeURIComponent(competition);}
