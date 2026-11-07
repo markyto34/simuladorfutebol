@@ -2,8 +2,8 @@
   "run_id": "42375418128",
   "run_number": "19",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/alemanha/2-bundesliga/",
-  "competition_index": 9,
+  "current_competition_path": "/futebol/alemanha/3-liga-alema/",
+  "competition_index": 10,
   "total_competitions": 10,
   "selected_competitions": [
     "/futebol/africa-do-sul/primeira-liga/",
@@ -23,13 +23,13 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "collecting",
-  "total_games": 92,
-  "processed_games": 92,
-  "stats_games": 92,
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Bochum - Hertha: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T13:19:38.346Z"
+  "current_match": "A preparar competição",
+  "last_result": "",
+  "updated_at": "2026-11-07T13:19:42.841Z"
 }
