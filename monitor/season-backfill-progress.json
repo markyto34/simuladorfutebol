@@ -28,11 +28,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 53,
-  "processed_games": 50,
-  "stats_games": 50,
+  "processed_games": 53,
+  "stats_games": 53,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Minnesota - Juarez",
-  "last_result": "Minnesota - Juarez: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T08:21:43.611Z"
+  "current_match": "Último concluído: Columbus Crew - Atlas",
+  "last_result": "Columbus Crew - Atlas: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T08:21:46.801Z"
 }
