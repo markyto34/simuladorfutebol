@@ -2,8 +2,8 @@
   "run_id": "42383789441",
   "run_number": "20",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/australia-e-oceania/liga-dos-campeoes-ofc/",
-  "competition_index": 43,
+  "current_competition_path": "/futebol/australia-e-oceania/ofc-pro-league/",
+  "competition_index": 44,
   "total_competitions": 75,
   "selected_competitions": [
     "/futebol/asia/campeonato-asean/",
@@ -53,13 +53,13 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "collecting",
-  "total_games": 21,
-  "processed_games": 21,
-  "stats_games": 1,
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Pago (Asa) - Nukuhetulu (Ton): 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:17:22.124Z"
+  "current_match": "A preparar competição",
+  "last_result": "",
+  "updated_at": "2026-11-07T16:17:26.617Z"
 }
