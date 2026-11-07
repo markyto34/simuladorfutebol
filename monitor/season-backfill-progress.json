@@ -2,8 +2,8 @@
   "run_id": "42383789441",
   "run_number": "20",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/asia/taca-das-nacoes-cafa/",
-  "competition_index": 41,
+  "current_competition_path": "/futebol/australia-e-oceania/campeonato-do-mundo/",
+  "competition_index": 42,
   "total_competitions": 75,
   "selected_competitions": [
     "/futebol/asia/campeonato-asean/",
@@ -53,13 +53,13 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "collecting",
-  "total_games": 14,
-  "processed_games": 14,
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Irão - Afeganistão: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:16:12.681Z"
+  "current_match": "A preparar competição",
+  "last_result": "",
+  "updated_at": "2026-11-07T16:16:17.234Z"
 }
