@@ -61,6 +61,7 @@ const report = {
   run_id: process.env.GITHUB_RUN_ID || null,
   run_number: process.env.GITHUB_RUN_NUMBER || null,
   job_status_at_report: process.env.BACKFILL_JOB_STATUS || "unknown",
+  scope: "snapshot de todo o CSV estatístico atual; não representa apenas os registos acrescentados nesta execução",
   csv_rows: rows.length,
   competitions_count: competitions.length,
   indicators: totals,
@@ -74,6 +75,7 @@ summary.push("");
 summary.push(`- Execução: ${report.run_id || "—"} (${report.job_status_at_report})`);
 summary.push(`- Registos estatísticos no CSV: **${report.csv_rows}**`);
 summary.push(`- Competições presentes no CSV: **${report.competitions_count}**`);
+summary.push("- Âmbito: fotografia do CSV completo, não apenas dos jogos acrescentados nesta execução.");
 summary.push("");
 summary.push("| Indicador | Com valores | Em falta |");
 summary.push("|---|---:|---:|");
