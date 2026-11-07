@@ -126,3 +126,10 @@ test("mostra campos em falta na cobertura em vez de os esconder", () => {
   assert.equal(summary.indicatorCoverage.corners_ht.missing, 1);
   assert.equal(summary.competitionCoverage[0].indicators.corners_st.coveragePercent, 0);
 });
+
+
+test("valida estatísticas sem depender do CSV diário ou histórico de odds", () => {
+  const summary = validateHistory([statsRow()], [], { statsOnly: true });
+  assert.equal(summary.statisticsRows, 1);
+  assert.equal(summary.oddsRows, null);
+});
