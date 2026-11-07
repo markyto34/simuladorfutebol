@@ -37,14 +37,14 @@
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 16,
   "processed_games": 16,
   "stats_games": 16,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Al Bukiryah - Al Hazem",
+  "current_match": "Recolha terminada",
   "last_result": "Al Bukiryah - Al Hazem: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:06:57.702Z"
+  "updated_at": "2026-11-07T15:06:58.955Z"
 }
