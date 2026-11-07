@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 136,
-  "processed_games": 75,
-  "stats_games": 74,
+  "processed_games": 100,
+  "stats_games": 99,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 76/136 · fFBr48Cc",
-  "last_result": "Ipswich - Broadbeach Utd.: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:58:26.464Z"
+  "current_match": "A consultar jogo 101/136 · zFrWKxyG",
+  "last_result": "Ipswich - Logan Lightning: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:58:51.555Z"
 }
