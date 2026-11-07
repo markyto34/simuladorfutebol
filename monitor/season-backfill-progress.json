@@ -2,8 +2,8 @@
   "run_id": "42375418128",
   "run_number": "19",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/america-do-norte-e-central/liga-concacaf/",
-  "competition_index": 18,
+  "current_competition_path": "/futebol/america-do-norte-e-central/taca-das-ligas/",
+  "competition_index": 19,
   "total_competitions": 35,
   "selected_competitions": [
     "/futebol/alemanha/bundesliga-senhoras/",
@@ -45,13 +45,13 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "collecting",
-  "total_games": 42,
-  "processed_games": 42,
-  "stats_games": 13,
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
   "bwin_odds": 0,
-  "failed_games": 1,
-  "current_match": "Recolha terminada",
-  "last_result": "Falha em Mco9lY2h: Falha ao recolher Mco9lY2h: HTTP 503",
-  "updated_at": "2026-11-07T13:45:58.783Z"
+  "failed_games": 0,
+  "current_match": "A preparar competição",
+  "last_result": "",
+  "updated_at": "2026-11-07T13:46:03.321Z"
 }
