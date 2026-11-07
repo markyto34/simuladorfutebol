@@ -32,13 +32,13 @@
     "/futebol/asia/afc-liga-dos-campeoes-2/",
     "/futebol/asia/afc-liga-dos-campeoes/"
   ],
-  "competitions_completed": 21,
+  "competitions_completed": 22,
   "competitions_failed": 0,
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 468,
   "processed_games": 468,
   "stats_games": 461,
@@ -46,5 +46,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Lugano - Sacachispas: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:34:53.391Z"
+  "updated_at": "2026-11-07T15:34:56.979Z"
 }
