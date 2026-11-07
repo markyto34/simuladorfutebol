@@ -48,11 +48,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 154,
-  "processed_games": 75,
-  "stats_games": 73,
+  "processed_games": 100,
+  "stats_games": 98,
   "bwin_odds": 0,
   "failed_games": 1,
-  "current_match": "Último concluído: Sporting Cristal (Per) - Palmeiras (Bra)",
-  "last_result": "Sporting Cristal (Per) - Palmeiras (Bra): 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T14:02:30.498Z"
+  "current_match": "Último concluído: Libertad (Par) - Rosario (Arg)",
+  "last_result": "Libertad (Par) - Rosario (Arg): 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T14:02:58.237Z"
 }
