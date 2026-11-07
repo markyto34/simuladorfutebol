@@ -25,11 +25,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 90,
-  "processed_games": 25,
+  "processed_games": 50,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Sidama Bunna (Eth) - Al-Hilal Omdurman (Sud)",
-  "last_result": "Sidama Bunna (Eth) - Al-Hilal Omdurman (Sud): 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T13:09:59.789Z"
+  "current_match": "Último concluído: Rahimo (Bfa) - Maghreb Fez (Mar)",
+  "last_result": "Rahimo (Bfa) - Maghreb Fez (Mar): 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T13:10:24.757Z"
 }
