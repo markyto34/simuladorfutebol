@@ -32,7 +32,7 @@
     "/futebol/argelia/1-divisao/",
     "/futebol/argelia/taca-da-argelia/"
   ],
-  "competitions_completed": 15,
+  "competitions_completed": 16,
   "competitions_failed": 7,
   "failed_competitions": [
     "/futebol/alemanha/taca-da-alemanha/",
@@ -46,7 +46,7 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "discovery",
+  "phase": "collecting",
   "total_games": 0,
   "processed_games": 0,
   "stats_games": 0,
@@ -54,5 +54,5 @@
   "failed_games": 0,
   "current_match": "A preparar competição",
   "last_result": "",
-  "updated_at": "2026-11-07T14:00:49.043Z"
+  "updated_at": "2026-11-07T14:00:52.764Z"
 }
