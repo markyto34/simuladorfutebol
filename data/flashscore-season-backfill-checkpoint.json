@@ -66,7 +66,8 @@
     "/futebol/australia/campeonato-norte-da-tasmania/",
     "/futebol/australia/campeonato-sul-da-tasmania/",
     "/futebol/australia/liga-1/",
-    "/futebol/australia/liga-2-victoria/"
+    "/futebol/australia/liga-2-victoria/",
+    "/futebol/australia/liga-a-feminina/"
   ],
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
@@ -75,7 +76,7 @@
     "/futebol/australia-e-oceania/ofc-pro-league/"
   ],
   "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
-  "updated_at": "2026-11-07T16:30:28.193Z",
-  "last_completed_path": "/futebol/australia/liga-2-victoria/",
+  "updated_at": "2026-11-07T16:31:08.734Z",
+  "last_completed_path": "/futebol/australia/liga-a-feminina/",
   "last_skipped_path": "/futebol/australia-e-oceania/ofc-pro-league/"
 }
