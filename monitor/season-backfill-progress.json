@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 247,
-  "processed_games": 200,
-  "stats_games": 196,
+  "processed_games": 225,
+  "stats_games": 221,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 201/247 · Cxmh9KZ7",
-  "last_result": "Sydney Utd - Sydney FC U23: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:45:23.390Z"
+  "current_match": "Último concluído: Sydney Utd - WS Wanderers U21",
+  "last_result": "Sydney Utd - WS Wanderers U21: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:45:48.449Z"
 }
