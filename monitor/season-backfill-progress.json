@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 115,
-  "processed_games": 25,
-  "stats_games": 25,
+  "processed_games": 50,
+  "stats_games": 50,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Queanbeyan City - Brindabella",
-  "last_result": "Queanbeyan City - Brindabella: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:34:20.323Z"
+  "current_match": "A consultar jogo 51/115 · 29Bk6DaS",
+  "last_result": "Tigers FC - Canberra Croatia: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:34:45.481Z"
 }
