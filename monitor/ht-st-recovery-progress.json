@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 500,
-  "processed_games": 75,
-  "stats_games": 75,
-  "bwin_odds": 40,
+  "processed_games": 100,
+  "stats_games": 100,
+  "bwin_odds": 56,
   "failed_games": 0,
-  "current_match": "Último concluído: Canberra F - WS Wanderers F",
-  "last_result": "Canberra F - WS Wanderers F: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-07T06:53:58.330Z"
+  "current_match": "Último concluído: BSK Banja Luka - Sarajevo",
+  "last_result": "BSK Banja Luka - Sarajevo: 9 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-07T06:54:15.813Z"
 }
