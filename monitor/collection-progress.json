@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 415,
-  "processed_games": 51,
-  "stats_games": 23,
-  "bwin_odds": 12,
+  "processed_games": 75,
+  "stats_games": 42,
+  "bwin_odds": 27,
   "failed_games": 0,
-  "current_match": "Último concluído: Taghit - Arba",
-  "last_result": "Taghit - Arba: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T06:18:59.376Z"
+  "current_match": "A consultar jogo 77/415 · pCad6G2U",
+  "last_result": "Kremser - Leobendorf: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T06:19:06.590Z"
 }
