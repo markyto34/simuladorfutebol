@@ -27,11 +27,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 30,
-  "processed_games": 0,
+  "processed_games": 25,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-07T10:32:09.373Z"
+  "current_match": "Último concluído: Platense - Argentino MM",
+  "last_result": "Platense - Argentino MM: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T10:32:36.093Z"
 }
