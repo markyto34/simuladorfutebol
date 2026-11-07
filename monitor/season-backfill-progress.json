@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 488,
-  "processed_games": 300,
-  "stats_games": 300,
+  "processed_games": 325,
+  "stats_games": 325,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Huracan - Rosario",
-  "last_result": "Huracan - Rosario: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:15:05.100Z"
+  "current_match": "Último concluído: Argentinos Jrs - Lanus",
+  "last_result": "Argentinos Jrs - Lanus: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:15:30.213Z"
 }
