@@ -49,11 +49,12 @@
     "/futebol/argentina/torneio-promocional-amador/",
     "/futebol/argentina/torneios-de-verao/",
     "/futebol/armenia/primeira-liga/",
+    "/futebol/armenia/taca/",
     "/futebol/asia/afc-liga-dos-campeoes/"
   ],
-  "updated_at": "2026-11-07T10:57:24.147Z",
+  "updated_at": "2026-11-07T10:57:43.839Z",
   "completed_paths_reset_version": 1,
-  "last_completed_path": "/futebol/armenia/primeira-liga/",
+  "last_completed_path": "/futebol/armenia/taca/",
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
     "/futebol/arabia-saudita/super-taca/",
