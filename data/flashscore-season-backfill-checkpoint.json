@@ -81,7 +81,8 @@
     "/futebol/australia/npl-victoria/",
     "/futebol/australia/primeira-liga-de-queensland/",
     "/futebol/australia/primeira-liga-de-victoria/",
-    "/futebol/austria/liga-regional-este/"
+    "/futebol/austria/liga-regional-este/",
+    "/futebol/austria/liga-regional-oeste/"
   ],
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
@@ -90,7 +91,7 @@
     "/futebol/australia-e-oceania/ofc-pro-league/"
   ],
   "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
-  "updated_at": "2026-11-07T17:07:00.764Z",
-  "last_completed_path": "/futebol/austria/liga-regional-este/",
+  "updated_at": "2026-11-07T17:09:19.587Z",
+  "last_completed_path": "/futebol/austria/liga-regional-oeste/",
   "last_skipped_path": "/futebol/australia-e-oceania/ofc-pro-league/"
 }
