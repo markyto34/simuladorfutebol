@@ -331,7 +331,7 @@ export function filterMatchIdsToSelectedCompetitions(ids, identities, selectedPa
   });
 }
 
-async function loadSelectedCompetitionPairs() {
+export async function loadSelectedCompetitionPairs() {
   const [selection, catalog] = await Promise.all([
     readFile("data/flashscore-competition-selection.json", "utf8").then(JSON.parse),
     readFile("data/flashscore-competition-catalog.json", "utf8").then(JSON.parse)
@@ -382,6 +382,7 @@ async function main() {
   await publishProgress();
   const dateOption = args.find(arg => arg.startsWith("--date="));
   const historicalOddsOnly = args.includes("--historical-odds");
+  const statsOnly = args.includes("--stats-only");
   const teamLastFiveOption = args.find(arg => arg.startsWith("--team-last-five="));
   const teamLastFiveLimit = Number(args.find(arg => arg.startsWith("--limit="))?.slice("--limit=".length) || 0);
   let matchIds = args.filter(arg => !arg.startsWith("--"));
@@ -553,7 +554,7 @@ async function main() {
           statsNew.push(statisticsRow(record));
           progressSnapshot.stats_games++;
         }
-        const oddsRow = bwinOddsRow(record);
+        const oddsRow = statsOnly ? null : bwinOddsRow(record);
         if (oddsRow) {
           oddsNew.push(oddsRow);
           progressSnapshot.bwin_odds++;
@@ -586,9 +587,9 @@ async function main() {
 
   await Promise.all(Array.from({ length: Math.min(CONCURRENCY, matchIds.length) }, () => worker()));
   const mergedStats = mergeRows(existingStats, statsNew, row => row.match_id);
-  const mergedOdds = mergeLatestRows(existingOdds, oddsNew, row => [row.match_id, row.bookmaker, row.market].join("|"));
+  const mergedOdds = statsOnly ? existingOdds : mergeLatestRows(existingOdds, oddsNew, row => [row.match_id, row.bookmaker, row.market].join("|"));
   await writeFile(STATS_FILE, toCsv(STAT_HEADERS, mergedStats), "utf8");
-  await writeFile(ODDS_FILE, toCsv(ODDS_HEADERS, mergedOdds), "utf8");
+  if (!statsOnly) await writeFile(ODDS_FILE, toCsv(ODDS_HEADERS, mergedOdds), "utf8");
   console.log("CSV de estatísticas: " + STATS_FILE + " (" + mergedStats.length + " jogos).");
   const uniqueOddsKeys = new Set(mergedOdds.map(row => [row.match_id, row.bookmaker, row.market].join("|")));
   if (uniqueOddsKeys.size !== mergedOdds.length) throw new Error("Validação falhou: existem chaves duplicadas no CSV de odds.");
