@@ -1,6 +1,6 @@
 {
-  "run_id": "42348905281",
-  "run_number": "1",
+  "run_id": "42350146168",
+  "run_number": "2",
   "collection_type": "period_goals_recovery",
   "current_competition_path": "",
   "competition_index": 0,
@@ -11,14 +11,14 @@
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
-  "total_games": 500,
-  "processed_games": 500,
-  "stats_games": 500,
-  "bwin_odds": 291,
+  "status": "running",
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
+  "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Pardubice B - Jablonec B: 10 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T06:59:20.737Z"
+  "current_match": "A descobrir jogos",
+  "last_result": "",
+  "updated_at": "2026-11-07T07:10:37.292Z"
 }
