@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 203,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 25,
+  "stats_games": 25,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-07T15:48:33.837Z"
+  "current_match": "Último concluído: Dep. Riestra - Huracan",
+  "last_result": "Dep. Riestra - Huracan: 12 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:49:16.049Z"
 }
