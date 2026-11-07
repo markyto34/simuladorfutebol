@@ -17,7 +17,7 @@ O identificador e o separador são validados. O destino é sempre construído in
 - Não segue redirecionamentos.
 - Não contorna CAPTCHA, bloqueios, limites de pedidos ou controlos de acesso.
 - Não usa rotação de IPs nem falsificação de impressões digitais.
-- `/match` devolve HTML; `/record` devolve os campos estruturados extraídos desse mesmo HTML. As odds só são incluídas quando o identificador de bookmaker Bwin (459), a indicação `bwin.pt` e o triplo 1X2 são confirmados.
+- `/match` devolve HTML; `/record` devolve os campos estruturados extraídos da página de estatísticas e, quando faltam os parciais HT/ST num jogo terminado, consulta também o Sumário para tentar recuperar os golos por parte. Só aceita os parciais quando a decomposição é validada e o FT coincide. As odds só são incluídas quando o identificador de bookmaker Bwin (459), a indicação `bwin.pt` e o triplo 1X2 são confirmados.
 - Respostas bem-sucedidas são colocadas em cache durante 10 minutos.
 - Respostas de erro não são guardadas em cache.
 - Pedidos recusados (incluindo HTTP 403/429) são interrompidos e reportados. `/record` faz apenas um pedido ao Flashscore por jogo e não executa descoberta secundária.
