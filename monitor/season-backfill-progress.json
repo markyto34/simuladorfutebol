@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 648,
-  "processed_games": 475,
-  "stats_games": 474,
+  "processed_games": 500,
+  "stats_games": 499,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Deportivo Madryn - Def. de Belgrano",
-  "last_result": "Deportivo Madryn - Def. de Belgrano: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:43:19.306Z"
+  "current_match": "Último concluído: Quilmes - Nueva Chicago",
+  "last_result": "Quilmes - Nueva Chicago: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:43:57.152Z"
 }
