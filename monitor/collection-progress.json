@@ -10,7 +10,7 @@
   "competitions_failed": 0,
   "failed_competitions": [],
   "blocked": false,
-  "target_date": "",
+  "target_date": "2026-11-06",
   "status": "running",
   "phase": "discovery",
   "total_games": 0,
@@ -20,5 +20,5 @@
   "failed_games": 0,
   "current_match": "A descobrir jogos",
   "last_result": "",
-  "updated_at": "2026-11-07T07:29:07.915Z"
+  "updated_at": "2026-11-07T07:29:09.037Z"
 }
