@@ -49,11 +49,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 156,
-  "processed_games": 150,
-  "stats_games": 145,
+  "processed_games": 156,
+  "stats_games": 151,
   "bwin_odds": 0,
   "failed_games": 5,
-  "current_match": "Último concluído: Blooming (Bol) - SA Bulo Bulo (Bol)",
-  "last_result": "Blooming (Bol) - SA Bulo Bulo (Bol): 16 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T14:19:43.605Z"
+  "current_match": "Último concluído: Montevideo City (Uru) - Defensor Sp. (Uru)",
+  "last_result": "Montevideo City (Uru) - Defensor Sp. (Uru): 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T14:19:49.650Z"
 }
