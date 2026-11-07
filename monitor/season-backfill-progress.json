@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 139,
-  "processed_games": 50,
-  "stats_games": 50,
+  "processed_games": 75,
+  "stats_games": 75,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Adelaide City - NE Metrostars",
-  "last_result": "Adelaide City - NE Metrostars: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:49:56.804Z"
+  "current_match": "Último concluído: Adelaide United U23 - West Torrens",
+  "last_result": "Adelaide United U23 - West Torrens: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:50:21.742Z"
 }
