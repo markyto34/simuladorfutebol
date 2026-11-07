@@ -99,6 +99,17 @@ async function readRows(path) {
   try { return parseCsv(await readFile(path, "utf8")); }
   catch (error) { if (error.code === "ENOENT") return []; throw error; }
 }
+const FINAL_STATUSES_WITHOUT_FT = /^(Terminado|Tempo Final|Depois de Prolongamento|Após prolongamento|A\\.P\\.)$/i;
+
+export function shouldStoreStatisticsRecord(record) {
+  const status = String(record?.status || "").trim();
+  if (!FINAL_STATUSES_WITHOUT_FT.test(status)) return true;
+  const score = record?.score?.full_time;
+  const hasHome = score?.home !== null && score?.home !== undefined && String(score.home).trim() !== "";
+  const hasAway = score?.away !== null && score?.away !== undefined && String(score.away).trim() !== "";
+  return hasHome && hasAway;
+}
+
 function statisticsRow(record) {
   const row = {
     match_id: record.match_id,
@@ -558,8 +569,12 @@ async function main() {
         // A recolha diária continua a guardar apenas registos com estatísticas.
         const hasStatistics = record.statistics && Object.keys(record.statistics).length > 0;
         if (keepStatsForSimulator && (hasStatistics || teamLastFiveOption || statsOnly)) {
-          statsNew.push(statisticsRow(record));
-          if (hasStatistics) progressSnapshot.stats_games++;
+          if (shouldStoreStatisticsRecord(record)) {
+            statsNew.push(statisticsRow(record));
+            if (hasStatistics) progressSnapshot.stats_games++;
+          } else {
+            console.log("[SKIP] Jogo finalizado sem resultado FT; não entra no CSV estatístico: " + matchId);
+          }
         }
         const oddsRow = statsOnly ? null : bwinOddsRow(record);
         if (oddsRow) {
