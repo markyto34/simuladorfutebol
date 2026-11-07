@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 415,
-  "processed_games": 225,
-  "stats_games": 129,
-  "bwin_odds": 89,
+  "processed_games": 251,
+  "stats_games": 152,
+  "bwin_odds": 97,
   "failed_games": 0,
-  "current_match": "A consultar jogo 227/415 · WhqJQlCi",
-  "last_result": "Chadormalu - Foolad: 0 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-07T06:19:51.828Z"
+  "current_match": "Último concluído: Ascoli - Palermo",
+  "last_result": "Ascoli - Palermo: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-07T06:19:59.628Z"
 }
