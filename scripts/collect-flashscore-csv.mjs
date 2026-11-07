@@ -405,7 +405,7 @@ async function main() {
     matchIds = selectTeamLastFiveMatchIds(payload, teamLastFiveLimit);
     competitionByMatchId = buildTeamLastFiveCompetitionMap(payload);
     matchIds = await filterToSelectedCompetitions(matchIds, competitionByMatchId);
-    console.log("[SEASON BACKFILL] " + allIds.length + " jogos concluídos pendentes de TODA a época; selecionados " + matchIds.length + "; jogos já completos ignorados=" + ((payload.fixtures || []).filter(f => f.stats_status === "already_complete").length) + ".");
+    console.log("[SEASON BACKFILL] " + allIds.length + " jogos concluídos pendentes de TODA a época; selecionados " + matchIds.length + "; jogos já consultados ignorados=" + ((payload.fixtures || []).filter(f => f.stats_status === "already_complete" || f.stats_status === "already_collected").length) + ".");
     await setProgress({ phase: "collecting", current_match: "A preparar todos os jogos pendentes da época", total_games: matchIds.length });
   }
   if (dateOption) {
