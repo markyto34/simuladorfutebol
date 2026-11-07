@@ -45,14 +45,14 @@
   ],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed_with_errors",
+  "phase": "completed",
   "total_games": 154,
   "processed_games": 154,
   "stats_games": 137,
   "bwin_odds": 0,
   "failed_games": 16,
-  "current_match": "Último erro: 6aoubNZQ",
+  "current_match": "Recolha terminada",
   "last_result": "Falha em 6aoubNZQ: Falha ao recolher 6aoubNZQ: HTTP 503",
-  "updated_at": "2026-11-07T14:14:11.886Z"
+  "updated_at": "2026-11-07T14:14:13.147Z"
 }
