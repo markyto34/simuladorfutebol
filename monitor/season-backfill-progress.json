@@ -47,13 +47,13 @@
     "/futebol/bahrain/primeira-liga/",
     "/futebol/bahrain/taca-do-rei/"
   ],
-  "competitions_completed": 57,
+  "competitions_completed": 58,
   "competitions_failed": 0,
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 247,
   "processed_games": 247,
   "stats_games": 243,
@@ -61,5 +61,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Sydney FC U23 - SD Raiders: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:46:14.145Z"
+  "updated_at": "2026-11-07T16:46:17.892Z"
 }
