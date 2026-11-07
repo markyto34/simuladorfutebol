@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 203,
-  "processed_games": 125,
-  "stats_games": 125,
+  "processed_games": 150,
+  "stats_games": 150,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Estudiantes - Newells Old Boys",
-  "last_result": "Estudiantes - Newells Old Boys: 13 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:50:56.950Z"
+  "current_match": "Último concluído: Lanus - Platense",
+  "last_result": "Lanus - Platense: 12 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:51:22.192Z"
 }
