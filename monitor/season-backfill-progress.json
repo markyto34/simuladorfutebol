@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 648,
-  "processed_games": 225,
-  "stats_games": 225,
+  "processed_games": 250,
+  "stats_games": 250,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Atl. Rafaela - Def. de Belgrano",
-  "last_result": "Atl. Rafaela - Def. de Belgrano: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:39:06.923Z"
+  "current_match": "Último concluído: Deportivo Madryn - All Boys",
+  "last_result": "Deportivo Madryn - All Boys: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:39:31.949Z"
 }
