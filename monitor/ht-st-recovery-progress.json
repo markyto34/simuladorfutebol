@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 500,
-  "processed_games": 200,
-  "stats_games": 200,
-  "bwin_odds": 87,
+  "processed_games": 225,
+  "stats_games": 225,
+  "bwin_odds": 107,
   "failed_games": 0,
-  "current_match": "Último concluído: Sudão do Sul - Egipto",
-  "last_result": "Sudão do Sul - Egipto: 15 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-07T07:13:02.438Z"
+  "current_match": "Último concluído: Argélia F - Senegal F",
+  "last_result": "Argélia F - Senegal F: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T07:13:20.154Z"
 }
