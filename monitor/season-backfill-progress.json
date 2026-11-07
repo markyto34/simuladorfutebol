@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 468,
-  "processed_games": 225,
-  "stats_games": 222,
+  "processed_games": 250,
+  "stats_games": 247,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 226/468 · Qmu3DYAk",
-  "last_result": "Victoriano A. - Deportivo Paraguayo: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:30:47.405Z"
+  "current_match": "Último concluído: Claypole - Deportivo Muniz",
+  "last_result": "Claypole - Deportivo Muniz: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:31:12.514Z"
 }
