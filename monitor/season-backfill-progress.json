@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 203,
-  "processed_games": 200,
-  "stats_games": 200,
+  "processed_games": 203,
+  "stats_games": 203,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Atl. Tucuman - Rosario",
-  "last_result": "Atl. Tucuman - Rosario: 12 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:52:12.648Z"
+  "current_match": "Último concluído: Tigre - Sarmiento Junin",
+  "last_result": "Tigre - Sarmiento Junin: 12 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:52:15.851Z"
 }
