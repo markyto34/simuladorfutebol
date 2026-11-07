@@ -27,7 +27,7 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 50,
   "processed_games": 50,
   "stats_games": 50,
@@ -35,5 +35,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Columbus Crew - Atlas: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T08:55:51.011Z"
+  "updated_at": "2026-11-07T08:55:56.028Z"
 }
