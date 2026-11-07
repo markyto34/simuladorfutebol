@@ -42,11 +42,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 194,
-  "processed_games": 75,
-  "stats_games": 74,
+  "processed_games": 100,
+  "stats_games": 98,
   "bwin_odds": 0,
-  "failed_games": 1,
-  "current_match": "Último concluído: EUA - Austrália",
-  "last_result": "EUA - Austrália: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T13:29:37.255Z"
+  "failed_games": 2,
+  "current_match": "Último concluído: EUA - Paraguai",
+  "last_result": "EUA - Paraguai: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T13:30:03.870Z"
 }
