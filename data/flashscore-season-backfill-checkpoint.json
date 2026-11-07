@@ -27,13 +27,14 @@
     "/futebol/america-do-sul/taca-dos-libertadores/",
     "/futebol/america-do-sul/taca-sul-americana/",
     "/futebol/andorra/primeira-divisao/",
-    "/futebol/andorra/super-taca/"
+    "/futebol/andorra/super-taca/",
+    "/futebol/angola/girabola/"
   ],
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/"
   ],
   "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
-  "updated_at": "2026-11-07T15:02:03.130Z",
-  "last_completed_path": "/futebol/andorra/super-taca/",
+  "updated_at": "2026-11-07T15:03:33.176Z",
+  "last_completed_path": "/futebol/angola/girabola/",
   "last_skipped_path": "/futebol/america-do-sul/serie-rio-de-la-plata/"
 }
