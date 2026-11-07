@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 143,
-  "processed_games": 75,
-  "stats_games": 73,
+  "processed_games": 100,
+  "stats_games": 98,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Belmont Swansea Utd. - Valentine",
-  "last_result": "Belmont Swansea Utd. - Valentine: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:40:32.127Z"
+  "current_match": "Último concluído: Maitland - Lambton J.",
+  "last_result": "Maitland - Lambton J.: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:40:57.198Z"
 }
