@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 500,
-  "processed_games": 50,
-  "stats_games": 50,
-  "bwin_odds": 34,
+  "processed_games": 76,
+  "stats_games": 76,
+  "bwin_odds": 53,
   "failed_games": 0,
-  "current_match": "Último concluído: Sudão - Senegal",
-  "last_result": "Sudão - Senegal: 16 estatísticas; Bwin 1X2 encontradas",
-  "updated_at": "2026-11-07T07:11:16.799Z"
+  "current_match": "Último concluído: Maurícia U20 - Seicheles U20",
+  "last_result": "Maurícia U20 - Seicheles U20: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T07:11:34.733Z"
 }
