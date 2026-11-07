@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 504,
-  "processed_games": 150,
-  "stats_games": 146,
+  "processed_games": 175,
+  "stats_games": 171,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Sol de Mayo - Germinal",
-  "last_result": "Sol de Mayo - Germinal: 9 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:55:13.869Z"
+  "current_match": "Último concluído: Boca Unidos - Independiente Chivilcoy",
+  "last_result": "Boca Unidos - Independiente Chivilcoy: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:55:39.082Z"
 }
