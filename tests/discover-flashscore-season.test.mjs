@@ -9,7 +9,7 @@ test("descobre a época atual e pagina resultados Flashscore", async () => {
     "<script>cjs.initialFeeds['results'] = {",
     " data: " + tick + "ZA÷ENGLAND: Premier League¬~ZEE÷TmPl1234¬~AA÷match001¬AD÷1790000000¬AB÷3¬AE÷Home FC¬AF÷Away FC¬~" + tick + ",",
     " allEventsCount: 2,",
-    " seasonId: 2026",
+    " seasonId: 2026",,
     "}</script>"
   ].join("\n");
   const result = await discoverSeasonFromHtml({
