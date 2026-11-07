@@ -18,7 +18,7 @@
     "/futebol/andorra/primeira-divisao/"
   ],
   "competitions_completed": 0,
-  "competitions_failed": 9,
+  "competitions_failed": 10,
   "failed_competitions": [
     "/futebol/america-do-norte-e-central/copa-centro-americana-da-concacaf/",
     "/futebol/america-do-norte-e-central/liga-concacaf/",
@@ -28,12 +28,13 @@
     "/futebol/america-do-sul/copa-america/",
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
     "/futebol/america-do-sul/taca-dos-libertadores/",
-    "/futebol/america-do-sul/taca-sul-americana/"
+    "/futebol/america-do-sul/taca-sul-americana/",
+    "/futebol/andorra/primeira-divisao/"
   ],
   "blocked": false,
   "target_date": "",
-  "status": "completed",
-  "phase": "completed",
+  "status": "running",
+  "phase": "saving",
   "total_games": 35,
   "processed_games": 35,
   "stats_games": 35,
@@ -41,5 +42,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Carroi - FC Santa Coloma: 10 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T08:26:19.915Z"
+  "updated_at": "2026-11-07T08:26:22.057Z"
 }
