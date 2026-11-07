@@ -36,14 +36,15 @@
     "/futebol/arabia-saudita/taca-do-rei/",
     "/futebol/argelia/1-divisao/",
     "/futebol/argelia/taca-da-argelia/",
-    "/futebol/argentina/liga-profesional/"
+    "/futebol/argentina/liga-profesional/",
+    "/futebol/argentina/primeira-b/"
   ],
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
     "/futebol/arabia-saudita/super-taca/"
   ],
   "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
-  "updated_at": "2026-11-07T15:18:18.981Z",
-  "last_completed_path": "/futebol/argentina/liga-profesional/",
+  "updated_at": "2026-11-07T15:26:30.186Z",
+  "last_completed_path": "/futebol/argentina/primeira-b/",
   "last_skipped_path": "/futebol/arabia-saudita/super-taca/"
 }
