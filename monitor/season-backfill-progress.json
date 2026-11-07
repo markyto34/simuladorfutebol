@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 488,
-  "processed_games": 50,
-  "stats_games": 50,
+  "processed_games": 75,
+  "stats_games": 75,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Banfield - Argentinos Jrs",
-  "last_result": "Banfield - Argentinos Jrs: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:10:53.107Z"
+  "current_match": "Último concluído: Argentinos Jrs - Tigre",
+  "last_result": "Argentinos Jrs - Tigre: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:11:18.191Z"
 }
