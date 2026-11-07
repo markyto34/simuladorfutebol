@@ -64,16 +64,38 @@ function getCurrentSeasonContext(html, path) {
   const selected = Number.isInteger(Number(env?.selected_season_id)) ? Number(env.selected_season_id) : 0;
   const selectedSeason = seasonList[selected] || seasonList[0] || {};
   const ids = String(selectedSeason.pathname || "").split("/").filter(Boolean).filter(v => /^[A-Za-z0-9]{8}$/.test(v));
-  const header = parseRecords(feed.text).find(row => row.ZA || row.ZEE) || {};
+  const feedRows = parseRecords(feed.text);
+  // O Flashscore pode enviar ZA (nome da competição) e ZEE (template)
+  // em registos diferentes. Não assumir que ambos estão no primeiro cabeçalho.
+  const competitionHeader = feedRows.find(row => row.ZA) || {};
+  const templateHeader = feedRows.find(row => row.ZEE) || {};
   const context = {
     path, season_name: String(selectedSeason.name || ""),
     tournament_id: ids[0] || null, stage_id: ids[1] || null,
-    template_id: header.ZEE || null, season_id: feed.season_id,
+    template_id: templateHeader.ZEE || null, season_id: feed.season_id,
     sport_id: Number(env?.sport_id || 1), country_id: Number(stages[0]?.countryId || 0),
-    total_count: feed.total_count, feed_competition: header.ZA || ""
+    total_count: feed.total_count, feed_competition: competitionHeader.ZA || ""
   };
-  if (!context.tournament_id || !context.stage_id || !context.template_id || !context.season_id) {
-    throw new Error("Não foi possível validar os IDs da época, template e feed de resultados Flashscore.");
+  const missing = [
+    !context.tournament_id && "tournament_id (season_list.pathname)",
+    !context.stage_id && "stage_id (season_list.pathname)",
+    !context.template_id && "template_id (ZEE no feed inicial)",
+    !context.season_id && "season_id (feed inicial)"
+  ].filter(Boolean);
+  if (missing.length) {
+    const diagnostic = {
+      missing,
+      season_list_count: seasonList.length,
+      selected_season_id: env?.selected_season_id ?? null,
+      selected_season_name: selectedSeason.name || null,
+      selected_season_pathname: selectedSeason.pathname || null,
+      pathname_ids_found: ids,
+      feed_row_count: feedRows.length,
+      feed_row_keys: feedRows.slice(0, 5).map(row => Object.keys(row)),
+      feed_season_id: feed.season_id,
+      feed_total_count: feed.total_count
+    };
+    throw new Error("Não foi possível validar o contexto da época Flashscore: " + JSON.stringify(diagnostic));
   }
   if (isFriendlyCompetition(path) || isFriendlyCompetition(context.feed_competition)) {
     throw new Error("Competições amigáveis estão excluídas.");
