@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 648,
-  "processed_games": 300,
-  "stats_games": 300,
+  "processed_games": 325,
+  "stats_games": 325,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: All Boys - Almirante Brown",
-  "last_result": "All Boys - Almirante Brown: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:40:22.219Z"
+  "current_match": "Último concluído: Colegiales - Gimnasia y Tiro",
+  "last_result": "Colegiales - Gimnasia y Tiro: 8 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:40:47.262Z"
 }
