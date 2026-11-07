@@ -2,8 +2,8 @@
   "run_id": "42375418128",
   "run_number": "19",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/america-do-sul/taca-dos-libertadores/",
-  "competition_index": 24,
+  "current_competition_path": "/futebol/america-do-sul/taca-sul-americana/",
+  "competition_index": 25,
   "total_competitions": 35,
   "selected_competitions": [
     "/futebol/alemanha/bundesliga-senhoras/",
@@ -47,13 +47,13 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "collecting",
-  "total_games": 154,
-  "processed_games": 154,
-  "stats_games": 137,
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
   "bwin_odds": 0,
-  "failed_games": 16,
-  "current_match": "Recolha terminada",
-  "last_result": "Falha em 6aoubNZQ: Falha ao recolher 6aoubNZQ: HTTP 503",
-  "updated_at": "2026-11-07T14:14:17.241Z"
+  "failed_games": 0,
+  "current_match": "A preparar competição",
+  "last_result": "",
+  "updated_at": "2026-11-07T14:14:21.667Z"
 }
