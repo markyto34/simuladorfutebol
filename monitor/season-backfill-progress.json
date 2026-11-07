@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 136,
-  "processed_games": 100,
-  "stats_games": 100,
+  "processed_games": 125,
+  "stats_games": 125,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Wynnum Wolves - Queensland Lions",
-  "last_result": "Wynnum Wolves - Queensland Lions: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:48:11.801Z"
+  "current_match": "Último concluído: Eastern Suburbs - Brisbane Roar U23",
+  "last_result": "Eastern Suburbs - Brisbane Roar U23: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:48:36.825Z"
 }
