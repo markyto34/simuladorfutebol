@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 648,
-  "processed_games": 25,
-  "stats_games": 25,
+  "processed_games": 50,
+  "stats_games": 50,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Gimnasia Jujuy - Atletico Atlanta",
-  "last_result": "Gimnasia Jujuy - Atletico Atlanta: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:35:45.772Z"
+  "current_match": "Último concluído: San Miguel - Ciudad Bolivar",
+  "last_result": "San Miguel - Ciudad Bolivar: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:36:10.849Z"
 }
