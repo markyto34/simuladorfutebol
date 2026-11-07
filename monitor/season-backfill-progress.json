@@ -2,8 +2,8 @@
   "run_id": "42383789441",
   "run_number": "20",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/australia/campeonato-sul-da-tasmania/",
-  "competition_index": 48,
+  "current_competition_path": "/futebol/australia/liga-1/",
+  "competition_index": 49,
   "total_competitions": 75,
   "selected_competitions": [
     "/futebol/asia/campeonato-asean/",
@@ -53,13 +53,13 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "collecting",
-  "total_games": 78,
-  "processed_games": 78,
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Glenorchy Knights U21 - Hobart City: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:22:39.820Z"
+  "current_match": "A preparar competição",
+  "last_result": "",
+  "updated_at": "2026-11-07T16:22:44.308Z"
 }
