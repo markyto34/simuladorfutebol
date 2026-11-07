@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 59,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 25,
+  "stats_games": 25,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-07T13:22:06.243Z"
+  "current_match": "Último concluído: Bremen F - Stuttgart F",
+  "last_result": "Bremen F - Stuttgart F: 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T13:22:32.192Z"
 }
