@@ -48,11 +48,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 154,
-  "processed_games": 150,
-  "stats_games": 134,
+  "processed_games": 154,
+  "stats_games": 137,
   "bwin_odds": 0,
-  "failed_games": 15,
-  "current_match": "Último concluído: Dep. Tachira (Ven) - The Strongest (Bol)",
-  "last_result": "Dep. Tachira (Ven) - The Strongest (Bol): 16 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T14:13:48.507Z"
+  "failed_games": 16,
+  "current_match": "Último erro: 6aoubNZQ",
+  "last_result": "Falha em 6aoubNZQ: Falha ao recolher 6aoubNZQ: HTTP 503",
+  "updated_at": "2026-11-07T14:14:11.886Z"
 }
