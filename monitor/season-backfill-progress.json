@@ -45,7 +45,7 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 42,
   "processed_games": 42,
   "stats_games": 13,
@@ -53,5 +53,5 @@
   "failed_games": 1,
   "current_match": "Recolha terminada",
   "last_result": "Falha em Mco9lY2h: Falha ao recolher Mco9lY2h: HTTP 503",
-  "updated_at": "2026-11-07T13:45:56.035Z"
+  "updated_at": "2026-11-07T13:45:58.783Z"
 }
