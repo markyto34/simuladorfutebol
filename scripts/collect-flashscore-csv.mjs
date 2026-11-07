@@ -387,6 +387,7 @@ async function main() {
   let matchIds = args.filter(arg => !arg.startsWith("--"));
   let competitionByMatchId = {};
   let fixturesByMatchId = {};
+  let selectedPairsForDailyStats = null;
   if (teamLastFiveOption && (dateOption || matchIds.length)) throw new Error("Usa --team-last-five=ficheiro.json isoladamente, sem IDs nem --date.");
   if (dateOption && matchIds.length) {
     throw new Error("Usa IDs de jogos ou --date=YYYY-MM-DD, não ambos.");
@@ -414,7 +415,9 @@ async function main() {
     matchIds = discovery.matchIds;
     competitionByMatchId = discovery.competitionByMatchId;
     fixturesByMatchId = discovery.fixturesByMatchId;
-    matchIds = await filterToSelectedCompetitions(matchIds, competitionByMatchId);
+    // A recolha diária de odds percorre todos os jogos descobertos; a seleção
+    // Flashscore limita apenas as estatísticas guardadas para o simulador.
+    selectedPairsForDailyStats = (await loadSelectedCompetitionPairs()).selectedPairs;
     const identified = Object.values(competitionByMatchId).filter(identity => identity?.status === "identified").length;
     console.log("[DISCOVERY] Concluída: " + matchIds.length + " IDs únicos válidos encontrados para " + date + "; " + identified + " com país/competição explicitamente identificados.");
     await setProgress({ total_games: matchIds.length, phase: "collecting", current_match: "A preparar recolha" });
@@ -541,7 +544,12 @@ async function main() {
         }
         if (record.country && record.competition) competitionIdentified++;
         else competitionMissing++;
-        if (record.statistics && Object.keys(record.statistics).length) {
+        const statsIdentity = resolvedIdentity || (record.country && record.competition
+          ? { country: record.country, competition: record.competition, status: "identified" }
+          : null);
+        const keepStatsForSimulator = !dateOption || Boolean(statsIdentity &&
+          filterMatchIdsToSelectedCompetitions([matchId], { [matchId]: statsIdentity }, selectedPairsForDailyStats).length);
+        if (keepStatsForSimulator && record.statistics && Object.keys(record.statistics).length) {
           statsNew.push(statisticsRow(record));
           progressSnapshot.stats_games++;
         }
