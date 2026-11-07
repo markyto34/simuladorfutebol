@@ -2,8 +2,8 @@
   "run_id": "42383789441",
   "run_number": "20",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/australia/taca-da-australia/",
-  "competition_index": 65,
+  "current_competition_path": "/futebol/austria/liga-regional-este/",
+  "competition_index": 66,
   "total_competitions": 75,
   "selected_competitions": [
     "/futebol/asia/campeonato-asean/",
@@ -55,13 +55,13 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "collecting",
-  "total_games": 31,
-  "processed_games": 31,
-  "stats_games": 30,
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
   "bwin_odds": 0,
-  "failed_games": 1,
-  "current_match": "Recolha terminada",
-  "last_result": "Falha em 6HY1BHTs: Falha ao recolher 6HY1BHTs: HTTP 503",
-  "updated_at": "2026-11-07T17:04:43.384Z"
+  "failed_games": 0,
+  "current_match": "A preparar competição",
+  "last_result": "",
+  "updated_at": "2026-11-07T17:04:48.198Z"
 }
