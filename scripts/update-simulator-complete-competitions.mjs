@@ -53,7 +53,7 @@ const numeric = value => present(value) && Number.isFinite(Number(String(value).
 const sourceLabel = (country, competition) => String(country).trim() + " / " + String(competition).trim();
 const labelKey = value => normalize(value).replace(/\s*\/\s*/g, "/");
 
-const STAGE_SUFFIX = /\\s+(?:abertura|aberto|apertura|apertura y clausura|clausura|encerramento|apertura|playoffs?|play\\s+offs?|fase\\s+de\\s+grupos|group\\s+stage|league\\s+phase|fase\\s+de\\s+liga|final\\s+round|championship\\s+round|quadrangular|octogonal|hexagonal|grupo\\s+campeonato|grupo\\s+rebaixamento|grupo\\s+de\\s+rebaixamento|grupo\\s+de\\s+promocao|grupo\\s+de\\s+despromocao|promotion\\s+group|relegation\\s+group)$/i;
+const STAGE_SUFFIX = /\s+(?:abertura|aberto|apertura|apertura y clausura|clausura|encerramento|apertura|playoffs?|play\s+offs?|fase\s+de\s+grupos|group\s+stage|league\s+phase|fase\s+de\s+liga|final\s+round|championship\s+round|quadrangular|octogonal|hexagonal|grupo\s+campeonato|grupo\s+rebaixamento|grupo\s+de\s+rebaixamento|grupo\s+de\s+promocao|grupo\s+de\s+despromocao|promotion\s+group|relegation\s+group)$/i;
 const COMPETITION_ALIASES = new Map([
   ["argentina|primera b", "primeira b"]
 ]);
