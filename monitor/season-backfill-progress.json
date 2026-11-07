@@ -52,14 +52,14 @@
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 19,
   "processed_games": 19,
   "stats_games": 19,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: WS Wanderers F - Melbourne Victory F",
+  "current_match": "Recolha terminada",
   "last_result": "WS Wanderers F - Melbourne Victory F: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:31:04.972Z"
+  "updated_at": "2026-11-07T16:31:06.171Z"
 }
