@@ -31,13 +31,15 @@
     "/futebol/angola/girabola/",
     "/futebol/angola/supertaca/",
     "/futebol/antigua-barbuda/primeira-liga/",
-    "/futebol/arabia-saudita/primeira-liga/"
+    "/futebol/arabia-saudita/primeira-liga/",
+    "/futebol/arabia-saudita/super-taca/"
   ],
   "skipped_paths": [
-    "/futebol/america-do-sul/serie-rio-de-la-plata/"
+    "/futebol/america-do-sul/serie-rio-de-la-plata/",
+    "/futebol/arabia-saudita/super-taca/"
   ],
-  "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
-  "updated_at": "2026-11-07T15:06:22.021Z",
+  "note": "Competições em skipped_paths não disponibilizaram contexto de época utilizável no Flashscore; não foram inventados jogos nem estatísticas.",
+  "updated_at": "2026-11-07T15:06:30.972Z",
   "last_completed_path": "/futebol/arabia-saudita/primeira-liga/",
-  "last_skipped_path": "/futebol/america-do-sul/serie-rio-de-la-plata/"
+  "last_skipped_path": "/futebol/arabia-saudita/super-taca/"
 }
