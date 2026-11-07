@@ -2,6 +2,7 @@ import { extractBwin1x2 } from "./extract-bwin.mjs";
 import { extractPeriodCornersFromFeed } from "./extract-period-corners.mjs";
 import { inspectScoreEvidence } from "./extract-scores.mjs";
 import { extractPeriodScores } from "./extract-period-scores.mjs";
+import { mergeValidatedPeriodScores } from "./merge-period-scores.mjs";
 import { inspectMatchDiscovery, extractExplicitCompetitionForMatch } from "./discover-matches.mjs";
 import { extractStructuredMatch } from "./extract-match-record.mjs";
 import { inspectPageStructure } from "./inspect-page-structure.mjs";
@@ -628,7 +629,8 @@ export default {
             record.missing_fields = (record.missing_fields || []).filter(field => field !== "statistics");
           }
         }
-        if (requestedTab === "statistics" && finishedStatus && !record?.score?.full_time) {
+        if (requestedTab === "statistics" && finishedStatus &&
+            (!record?.score?.half_time || !record?.score?.second_half)) {
           const summaryTarget = new URL(buildMatchTabUrl(matchId, "summary"), UPSTREAM);
           try {
             const summaryResponse = await fetch(summaryTarget.toString(), {
@@ -649,20 +651,13 @@ export default {
                   httpStatus: summaryResponse.status,
                   sourceUrl: summaryTarget.toString()
                 });
-                if (summaryRecord?.score?.full_time) {
-                  record.score = summaryRecord.score;
-                  record.missing_fields = (record.missing_fields || []).filter(field => field !== "score_full_time");
-                  record.source_capture.evidence.push({
-                    field: "score",
-                    source: "validated score breakdown from summary tab fallback",
-                    value: summaryRecord.score.full_time
-                  });
+                if (mergeValidatedPeriodScores(record, summaryRecord)) {
                   record.source_capture.evidence.push({
                     field: "score_periods",
-                    source: "summary tab explicit period labels",
+                    source: "validated explicit period scores from summary tab fallback",
                     value: {
-                      half_time: summaryRecord.score.half_time,
-                      second_half: summaryRecord.score.second_half
+                      half_time: record.score.half_time,
+                      second_half: record.score.second_half
                     }
                   });
                 }
