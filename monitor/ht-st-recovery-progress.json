@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 500,
-  "processed_games": 275,
-  "stats_games": 275,
-  "bwin_odds": 107,
+  "processed_games": 300,
+  "stats_games": 300,
+  "bwin_odds": 109,
   "failed_games": 0,
-  "current_match": "Último concluído: Costa do Marfim U17 - Uganda U17",
-  "last_result": "Costa do Marfim U17 - Uganda U17: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T07:13:55.216Z"
+  "current_match": "Último concluído: Uruguai - Argentina",
+  "last_result": "Uruguai - Argentina: 16 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-07T07:14:12.825Z"
 }
