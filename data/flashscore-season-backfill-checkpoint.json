@@ -67,11 +67,12 @@
     "/futebol/australia/campeonato-australiano-finais-npl/",
     "/futebol/australia/campeonato-norte-da-tasmania/",
     "/futebol/australia/campeonato-sul-da-tasmania/",
-    "/futebol/australia/liga-1/"
+    "/futebol/australia/liga-1/",
+    "/futebol/australia/liga-2-victoria/"
   ],
-  "updated_at": "2026-11-07T12:03:48.173Z",
+  "updated_at": "2026-11-07T12:07:16.882Z",
   "completed_paths_reset_version": 1,
-  "last_completed_path": "/futebol/australia/liga-1/",
+  "last_completed_path": "/futebol/australia/liga-2-victoria/",
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
     "/futebol/arabia-saudita/super-taca/",
