@@ -2,8 +2,8 @@
   "run_id": "42383789441",
   "run_number": "20",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/argelia/1-divisao/",
-  "competition_index": 18,
+  "current_competition_path": "/futebol/argelia/taca-da-argelia/",
+  "competition_index": 19,
   "total_competitions": 35,
   "selected_competitions": [
     "/futebol/andorra/super-taca/",
@@ -38,13 +38,13 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "collecting",
-  "total_games": 60,
-  "processed_games": 60,
-  "stats_games": 59,
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Setif - Ben Aknoun: 10 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:08:22.470Z"
+  "current_match": "A preparar competição",
+  "last_result": "",
+  "updated_at": "2026-11-07T15:08:27.092Z"
 }
