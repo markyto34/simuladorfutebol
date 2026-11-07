@@ -404,8 +404,11 @@ async function main() {
     const allIds = selectTeamLastFiveMatchIds(payload, 0);
     matchIds = selectTeamLastFiveMatchIds(payload, teamLastFiveLimit);
     competitionByMatchId = buildTeamLastFiveCompetitionMap(payload);
-    matchIds = await filterToSelectedCompetitions(matchIds, competitionByMatchId);
-    console.log("[SEASON BACKFILL] " + allIds.length + " jogos concluídos pendentes de TODA a época; selecionados " + matchIds.length + "; jogos já consultados ignorados=" + ((payload.fixtures || []).filter(f => f.stats_status === "already_complete" || f.stats_status === "already_collected").length) + ".");
+    // O manifesto é criado para uma competição já selecionada pelo workflow.
+    // Reaplicar aqui o filtro global por nomes do catálogo pode excluir jogos
+    // legítimos quando a designação do feed difere da designação do catálogo.
+    // A validação posterior compara todos os jogos do manifesto com o CSV.
+    console.log("[SEASON BACKFILL] " + allIds.length + " jogos concluídos pendentes no manifesto desta competição; selecionados " + matchIds.length + "; jogos já consultados ignorados=" + ((payload.fixtures || []).filter(f => f.stats_status === "already_complete" || f.stats_status === "already_collected").length) + ".");
     await setProgress({ phase: "collecting", current_match: "A preparar todos os jogos pendentes da época", total_games: matchIds.length });
   }
   if (dateOption) {

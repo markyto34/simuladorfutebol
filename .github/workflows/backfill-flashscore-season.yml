@@ -122,6 +122,14 @@ jobs:
 
           publish_progress "queued" "running" "" true false
 
+          # Os logs completos ficam no ficheiro temporário; no GitHub Actions
+          # mostramos apenas o fim de cada etapa para evitar truncagem do passo.
+          show_compact_log() {
+            local file="$1" lines="${2:-25}"
+            echo "Resumo do log (últimas ${lines} linhas de ${file}):"
+            tail -n "$lines" "$file"
+          }
+
           push_with_retry() {
             local attempt=1 max_attempts=5 delay=2
             while (( attempt <= max_attempts )); do
@@ -183,7 +191,7 @@ jobs:
             echo "::group::Competição $index · $competition_path"
             publish_progress "discovery" "running" "$competition_path" true false
             if ! node scripts/discover-flashscore-season.mjs --path="$competition_path" --out="$manifest" >"$log" 2>&1; then
-              cat "$log"
+              show_compact_log "$log" 25
               if grep -Eiq 'HTTP (401|403|429)|bloqueou/limitou|Flashscore bloqueou' "$log"; then
                 blocked=1
                 failed_paths+=("$competition_path")
@@ -199,7 +207,7 @@ jobs:
               echo "::endgroup::"
               continue
             fi
-            cat "$log"
+            show_compact_log "$log" 25
             if FLASHSCORE_PROGRESS_PATH="monitor/season-backfill-progress.json" \
               FLASHSCORE_COLLECTION_TYPE="season_backfill" \
               FLASHSCORE_BACKFILL_COMPETITION_PATH="$competition_path" \
@@ -211,10 +219,10 @@ jobs:
               FLASHSCORE_BACKFILL_FAILED_PATHS_JSON="$(node -e 'console.log(JSON.stringify(process.argv.slice(1)))' "${failed_paths[@]}")" \
               node scripts/collect-flashscore-csv.mjs --stats-only --team-last-five="$manifest" >>"$log" 2>&1 && \
               node scripts/validate-flashscore-selected-competition.mjs "$manifest" >>"$log" 2>&1; then
-              cat "$log"
+              show_compact_log "$log" 25
               collect_success=true
             else
-              cat "$log"
+              show_compact_log "$log" 25
               failures=$((failures + 1))
               failed_paths+=("$competition_path")
               if grep -Eiq 'HTTP (401|403|429)|bloqueou/limitou|Flashscore bloqueou' "$log"; then
