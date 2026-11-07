@@ -52,14 +52,14 @@
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 21,
   "processed_games": 21,
   "stats_games": 21,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Sydney FC - WS Wanderers",
+  "current_match": "Recolha terminada",
   "last_result": "Sydney FC - WS Wanderers: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:31:43.853Z"
+  "updated_at": "2026-11-07T16:31:45.101Z"
 }
