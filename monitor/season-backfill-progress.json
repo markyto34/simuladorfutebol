@@ -2,8 +2,8 @@
   "run_id": "42365820533",
   "run_number": "17",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/asia/taca-asean-da-fifa/",
-  "competition_index": 13,
+  "current_competition_path": "/futebol/asia/taca-asiatica/",
+  "competition_index": 14,
   "total_competitions": 35,
   "selected_competitions": [
     "/futebol/asia/campeonato-do-mundo/",
@@ -38,13 +38,13 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "collecting",
+  "phase": "discovery",
   "total_games": 0,
   "processed_games": 0,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Sem jogos pendentes",
+  "current_match": "A preparar competição",
   "last_result": "",
-  "updated_at": "2026-11-07T10:59:57.184Z"
+  "updated_at": "2026-11-07T11:00:01.706Z"
 }
