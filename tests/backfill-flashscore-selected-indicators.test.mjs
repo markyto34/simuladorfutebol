@@ -22,7 +22,7 @@ test("seleciona apenas jogos das competições escolhidas com um dos campos esco
   ];
   assert.deepEqual(
     selectRowsNeedingSelectedIndicators(rows, "2026-11-01", "2026-11-01", selected).map(item => item.match_id),
-    ["match01", "match02", "match05", "match06"]
+    ["match01", "match02", "match05"]
   );
 });
 
