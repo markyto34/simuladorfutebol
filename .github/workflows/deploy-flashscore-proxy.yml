@@ -66,6 +66,15 @@ jobs:
           set -euo pipefail
           curl --fail --show-error --silent --retry 3 --retry-all-errors --retry-delay 2 "$PROXY_URL/record?id=hW5lOaOP&tab=statistics" -o /tmp/period-corners.json
           node -e 'const fs=require("node:fs"); const d=JSON.parse(fs.readFileSync("/tmp/period-corners.json","utf8")); const r=d.record||{}; const ht=r.statistics?.corners_ht; const st=r.statistics?.corners_st; const status=r.period_statistics_feed?.status; if(!d.ok || status!=="available" || !ht || !st || ![ht.home,ht.away,st.home,st.away].every(Number.isFinite)) { console.error(JSON.stringify({ok:d.ok,status,feed:r.period_statistics_feed,corners_ht:ht,corners_st:st})); process.exit(1); } console.log(JSON.stringify({match_id:d.match_id,feed_status:status,corners_ht:{home:ht.home,away:ht.away},corners_st:{home:st.home,away:st.away}}));'
+      - name: Smoke test golos HT e ST reais do Flashscore
+        env:
+          PROXY_URL: https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev
+        run: |
+          set -euo pipefail
+          # Jogo concluído recente: Shakhtar Donetsk - Sporting CP (03/11/2026).
+          # O teste valida HT/ST reais e confirma que a soma coincide com o FT.
+          curl --fail --show-error --silent --retry 3 --retry-all-errors --retry-delay 2 "$PROXY_URL/record?id=QXNphZjA&tab=statistics" -o /tmp/period-goals.json
+          node -e 'const fs=require("node:fs"); const d=JSON.parse(fs.readFileSync("/tmp/period-goals.json","utf8")); const s=d.record?.score||{}; const ht=s.half_time; const st=s.second_half; const ft=s.full_time; const valid=x=>x&&Number.isInteger(x.home)&&Number.isInteger(x.away)&&x.home>=0&&x.away>=0; if(!d.ok||!valid(ht)||!valid(st)||!valid(ft)||ht.home+st.home!==ft.home||ht.away+st.away!==ft.away){console.error(JSON.stringify({ok:d.ok,match_id:d.match_id,status:d.record?.status,score:s,missing_fields:d.record?.missing_fields}));process.exit(1);} const outcome=x=>x.home>x.away?"vitória da equipa da casa":x.home<x.away?"vitória da equipa visitante":"empate"; console.log(JSON.stringify({match_id:d.match_id,status:d.record.status,half_time:ht,half_time_outcome:outcome(ht),second_half:st,second_half_outcome:outcome(st),full_time:ft,validation:"HT + ST = FT"}));'
       - name: Smoke test descoberta real de jogos e nomes das equipas
         env:
           PROXY_URL: https://simuladorfutebol-flashscore-proxy.marcolourenco2024.workers.dev
