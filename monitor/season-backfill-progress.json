@@ -2,8 +2,8 @@
   "run_id": "42383789441",
   "run_number": "20",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/arabia-saudita/primeira-liga/",
-  "competition_index": 15,
+  "current_competition_path": "/futebol/arabia-saudita/super-taca/",
+  "competition_index": 16,
   "total_competitions": 35,
   "selected_competitions": [
     "/futebol/andorra/super-taca/",
@@ -38,13 +38,13 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "collecting",
-  "total_games": 104,
-  "processed_games": 104,
-  "stats_games": 104,
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Abha - Al Hazem: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:06:24.261Z"
+  "current_match": "A preparar competição",
+  "last_result": "",
+  "updated_at": "2026-11-07T15:06:28.890Z"
 }
