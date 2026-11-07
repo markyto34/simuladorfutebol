@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 90,
-  "processed_games": 75,
+  "processed_games": 90,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A consultar jogo 76/90 · Ol4NaeDO",
-  "last_result": "New Lambton - South Cardiff: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:33:17.453Z"
+  "current_match": "Último concluído: West Wallsend - Lake Macquarie",
+  "last_result": "West Wallsend - Lake Macquarie: 0 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:33:32.366Z"
 }
