@@ -496,16 +496,12 @@ async function populateFlashscoreCompetitions(){
    flashscoreCompetitionSortRank(a)-flashscoreCompetitionSortRank(b)||
    a.competition.localeCompare(b.competition,"pt",{numeric:true,sensitivity:"base"}));
   flashscoreCompetitionState.loaded=true;
-  const currentCountry=countrySelect.value;
-  const flashCountries=[...new Set(flashscoreCompetitionState.items
-   .filter(item=>!item.countryCode||!countryCodes.includes(item.countryCode))
-   .map(item=>item.country))].sort((a,b)=>a.localeCompare(b,"pt"));
-  countrySelect.innerHTML=countryCodes.map(code=>'<option value="'+code+'">'+(COUNTRY_NAMES[code]||code)+'</option>').join("")+
-   flashCountries.map(country=>'<option value="FSCOUNTRY|'+encodeURIComponent(country)+'">'+country+'</option>').join("");
-  const availableCountries=[...countrySelect.options].map(option=>option.value);
-  countrySelect.value=availableCountries.includes(currentCountry)?currentCountry:
-   (availableCountries.includes(initialLeague.split("_")[0])?initialLeague.split("_")[0]:availableCountries[0]||"");
-  setCountryCompetitions(initialLeague);
+  const flashCountries=[...new Set(flashscoreCompetitionState.items.map(item=>item.country))]
+   .sort((a,b)=>a.localeCompare(b,"pt"));
+  countrySelect.innerHTML=flashCountries.map(country=>'<option value="FSCOUNTRY|'+encodeURIComponent(country)+'">'+country+'</option>').join("");
+  const preferredCountry=flashCountries.includes("Portugal")?"Portugal":flashCountries[0];
+  if(preferredCountry)countrySelect.value="FSCOUNTRY|"+encodeURIComponent(preferredCountry);
+  setCountryCompetitions();
  }catch(error){console.warn("Não foi possível carregar o índice de competições completas:",error);}
 }
 function normalizeSourceMatch(r){const home=sourceVal(r,["home","home_team","HomeTeam"]),away=sourceVal(r,["away","away_team","AwayTeam"]);const hg=sourceNum(r,["ft_home","home_score","home_goals","FTHG"]),ag=sourceNum(r,["ft_away","away_score","away_goals","FTAG"]);if(!home||!away||hg===null||ag===null)return null;return {date:sourceDate(sourceVal(r,["date","match_date","Date"])),home,away,hg,ag,htHome:sourceNum(r,["ht_home"]),htAway:sourceNum(r,["ht_away"]),hc:sourceNum(r,["home_corners","HomeCorners","HC","home_corner"]),ac:sourceNum(r,["away_corners","AwayCorners","AC","away_corner"]),homeShots:sourceNum(r,["home_shots"]),awayShots:sourceNum(r,["away_shots"]),homeTarget:sourceNum(r,["home_target"]),awayTarget:sourceNum(r,["away_target"]),homeFouls:sourceNum(r,["home_fouls"]),awayFouls:sourceNum(r,["away_fouls"]),homeYellow:sourceNum(r,["home_yellow"]),awayYellow:sourceNum(r,["away_yellow"]),homeRed:sourceNum(r,["home_red"]),awayRed:sourceNum(r,["away_red"])};}
@@ -589,6 +585,7 @@ async function loadHistoricalData(){
  try{
   const league=$("league").value,season=$("season").value;
   const flashscoreMode=league.startsWith("FS|");
+  if(!flashscoreMode)throw new Error("Seleciona uma competição disponível no índice Flashscore.");
   if(flashscoreMode){
    const [,countryEncoded,competitionEncoded]=league.split("|");
    const country=decodeURIComponent(countryEncoded||""),competition=decodeURIComponent(competitionEncoded||"");
@@ -873,49 +870,22 @@ const COUNTRY_NAMES={
  BRA:"Brasil",ARG:"Argentina",MEX:"México",USA:"Estados Unidos",JPN:"Japão",AUS:"Austrália",CHN:"China"
 };
 const countrySelect=$("country"),leagueSelect=$("league");
-const competitionOptions=[...leagueSelect.options].map(option=>option.cloneNode(true));
-const countryCodes=[...new Set(competitionOptions.map(option=>option.value.split("_")[0]))];
-const initialLeague=leagueSelect.value;
 function setCountryCompetitions(preferred){
  const selectedCountry=countrySelect.value;
- const staticAvailable=competitionOptions.filter(option=>option.value.startsWith(selectedCountry+"_")).sort((a,b)=>{
-  const rank=value=>{if(value.includes("_CUP_"))return 1000;const match=value.match(/^[A-Z]+_(\\d+)_/);return match?Number(match[1]):500;};
-  return rank(a.value)-rank(b.value)||a.textContent.localeCompare(b.textContent,"pt",{numeric:true,sensitivity:"base"});
- });
- const flashAvailable=flashscoreCompetitionState.items.filter(item=>
-  selectedCountry.startsWith("FSCOUNTRY|")
-   ? item.country===decodeURIComponent(selectedCountry.slice("FSCOUNTRY|".length))
-   : item.countryCode===selectedCountry
- );
+ const country=selectedCountry.startsWith("FSCOUNTRY|")
+  ?decodeURIComponent(selectedCountry.slice("FSCOUNTRY|".length)):"";
+ const flashAvailable=flashscoreCompetitionState.items.filter(item=>item.country===country);
  leagueSelect.innerHTML="";
- if(staticAvailable.length){
-  const group=document.createElement("optgroup");
-  group.label="Competições disponíveis";
-  staticAvailable.forEach(option=>{
-   const copy=option.cloneNode(true);
-   copy.textContent=copy.textContent.replace(/^[^—]+—\\s*/,"");
-   group.appendChild(copy);
-  });
-  leagueSelect.appendChild(group);
- }
- if(flashAvailable.length){
-  const group=document.createElement("optgroup");
-  group.label="Outras competições";
-  flashAvailable.forEach(item=>{
-   const option=document.createElement("option");
-   option.value=item.value;
-   option.textContent=item.competition;
-   group.appendChild(option);
-  });
-  leagueSelect.appendChild(group);
- }
+ flashAvailable.forEach(item=>{
+  const option=document.createElement("option");
+  option.value=item.value;
+  option.textContent=item.competition;
+  leagueSelect.appendChild(option);
+ });
  const allOptions=[...leagueSelect.querySelectorAll("option")];
  if(preferred&&allOptions.some(option=>option.value===preferred))leagueSelect.value=preferred;
  else if(allOptions.length)leagueSelect.value=allOptions[0].value;
 }
-countrySelect.innerHTML=countryCodes.map(code=>'<option value="'+code+'">'+(COUNTRY_NAMES[code]||code)+'</option>').join("");
-countrySelect.value=initialLeague.split("_")[0];
-setCountryCompetitions(initialLeague);
 countrySelect.addEventListener("change",()=>setCountryCompetitions());
 $("load-data").addEventListener("click",loadHistoricalData);
 $("homePick").addEventListener("change",()=>{applyTeamSelection("home");loadWdwMatchPair();});
