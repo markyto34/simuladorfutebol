@@ -49,11 +49,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 156,
-  "processed_games": 25,
-  "stats_games": 21,
+  "processed_games": 50,
+  "stats_games": 46,
   "bwin_odds": 0,
   "failed_games": 4,
-  "current_match": "Último concluído: Tigre (Arg) - Montevideo City (Uru)",
-  "last_result": "Tigre (Arg) - Montevideo City (Uru): 14 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T14:17:32.328Z"
+  "current_match": "Último concluído: Cienciano (Per) - Juventud (Uru)",
+  "last_result": "Cienciano (Per) - Juventud (Uru): 15 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T14:18:00.469Z"
 }
