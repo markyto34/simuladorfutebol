@@ -2,8 +2,8 @@
   "run_id": "42383789441",
   "run_number": "20",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/america-do-norte-e-central/copa-centro-americana-da-concacaf/",
-  "competition_index": 5,
+  "current_competition_path": "/futebol/america-do-norte-e-central/liga-concacaf/",
+  "competition_index": 6,
   "total_competitions": 10,
   "selected_competitions": [
     "/futebol/alemanha/taca-da-alemanha/",
@@ -23,13 +23,13 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "collecting",
-  "total_games": 10,
-  "processed_games": 10,
-  "stats_games": 10,
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Saprissa (Cos) - Cartagines (Cos): 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T14:56:21.663Z"
+  "current_match": "A preparar competição",
+  "last_result": "",
+  "updated_at": "2026-11-07T14:56:26.304Z"
 }
