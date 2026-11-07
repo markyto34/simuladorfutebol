@@ -49,3 +49,17 @@ test("não aceita linha sem origem Flashscore como consulta válida", () => {
 test("não conclui manifesto vazio", () => {
   assert.throws(() => validateSelectedCompetition({ manifest: { fixtures: [] }, rows: [] }), /sem jogos/);
 });
+
+test("ignora jogos sem resultado FT confirmados ao validar a competição", () => {
+  const result = validateSelectedCompetition({
+    manifest: { fixtures: [
+      { match_id: "match001" },
+      { match_id: "match002", stats_status: "no_final_score" }
+    ] },
+    rows: [{ match_id: "match001", source: "Flashscore", shots_home: "", shots_away: "" }]
+  });
+  assert.equal(result.complete, true);
+  assert.equal(result.consulted, 1);
+  assert.equal(result.skipped_no_final_score, 1);
+  assert.equal(result.missing.length, 0);
+});
