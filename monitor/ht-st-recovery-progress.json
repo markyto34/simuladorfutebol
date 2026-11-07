@@ -14,11 +14,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 500,
-  "processed_games": 0,
-  "stats_games": 0,
-  "bwin_odds": 0,
+  "processed_games": 25,
+  "stats_games": 25,
+  "bwin_odds": 11,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-07T07:10:39.197Z"
+  "current_match": "Último concluído: DR Congo - Zâmbia",
+  "last_result": "DR Congo - Zâmbia: 15 estatísticas; Bwin 1X2 encontradas",
+  "updated_at": "2026-11-07T07:10:59.212Z"
 }
