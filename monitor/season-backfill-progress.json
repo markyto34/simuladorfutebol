@@ -17,13 +17,13 @@
     "/futebol/america-do-sul/taca-sul-americana/",
     "/futebol/andorra/primeira-divisao/"
   ],
-  "competitions_completed": 0,
+  "competitions_completed": 1,
   "competitions_failed": 0,
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "saving",
+  "phase": "collecting",
   "total_games": 1,
   "processed_games": 1,
   "stats_games": 1,
@@ -31,5 +31,5 @@
   "failed_games": 0,
   "current_match": "Recolha terminada",
   "last_result": "Bahlinger - Magdeburg: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T14:54:54.191Z"
+  "updated_at": "2026-11-07T14:54:57.620Z"
 }
