@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 203,
-  "processed_games": 75,
-  "stats_games": 75,
+  "processed_games": 100,
+  "stats_games": 100,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Rosario - Instituto",
-  "last_result": "Rosario - Instituto: 13 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T15:50:06.635Z"
+  "current_match": "Último concluído: Banfield - Dep. Riestra",
+  "last_result": "Banfield - Dep. Riestra: 12 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:50:31.768Z"
 }
