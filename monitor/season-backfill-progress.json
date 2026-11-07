@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 31,
-  "processed_games": 25,
-  "stats_games": 25,
+  "processed_games": 31,
+  "stats_games": 30,
   "bwin_odds": 0,
-  "failed_games": 0,
-  "current_match": "Último concluído: Preston Lions - Newcastle Jets",
-  "last_result": "Preston Lions - Newcastle Jets: 15 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T17:03:56.909Z"
+  "failed_games": 1,
+  "current_match": "Último erro: 6HY1BHTs",
+  "last_result": "Falha em 6HY1BHTs: Falha ao recolher 6HY1BHTs: HTTP 503",
+  "updated_at": "2026-11-07T17:04:36.671Z"
 }
