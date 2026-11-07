@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source_run_id": "42183404135",
-  "note": "Competições em skipped_paths não disponibilizaram contexto de época utilizável no Flashscore; não foram inventados jogos nem estatísticas.",
+  "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
   "completed_paths": [
     "/futebol/africa-do-sul/primeira-liga/",
     "/futebol/africa-do-sul/segunda-liga/",
@@ -37,11 +37,12 @@
     "/futebol/arabia-saudita/super-taca/",
     "/futebol/arabia-saudita/taca-do-rei/",
     "/futebol/argelia/1-divisao/",
+    "/futebol/argelia/taca-da-argelia/",
     "/futebol/asia/afc-liga-dos-campeoes/"
   ],
-  "updated_at": "2026-11-07T10:28:22.564Z",
+  "updated_at": "2026-11-07T10:29:37.813Z",
   "completed_paths_reset_version": 1,
-  "last_completed_path": "/futebol/argelia/1-divisao/",
+  "last_completed_path": "/futebol/argelia/taca-da-argelia/",
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
     "/futebol/arabia-saudita/super-taca/"
