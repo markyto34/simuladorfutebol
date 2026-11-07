@@ -52,14 +52,14 @@
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 83,
   "processed_games": 83,
   "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Somerset - Launceston United U21",
+  "current_match": "Recolha terminada",
   "last_result": "Somerset - Launceston United U21: 0 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:20:57.227Z"
+  "updated_at": "2026-11-07T16:20:58.415Z"
 }
