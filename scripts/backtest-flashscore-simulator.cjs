@@ -16,7 +16,7 @@ function normalize(rows){
   const m={id,date:dateKey(r.date_time),country:String(r.country||"").trim(),competition:String(r.competition||"").trim(),home:String(r.home_team||"").trim(),away:String(r.away_team||"").trim(),
    hg:num(r.score_home),ag:num(r.score_away),htH:num(r.ht_home),htA:num(r.ht_away),shH:num(r.sh_home),shA:num(r.sh_away),
    cornersH:num(r.corners_home),cornersA:num(r.corners_away),cornersHtH:num(r.corners_ht_home),cornersHtA:num(r.corners_ht_away),cornersStH:num(r.corners_st_home),cornersStA:num(r.corners_st_away),
-   shotsH:num(r.shots_home),shotsA:num(r.shots_away),targetH:num(r.shots_on_target_home),targetA:num(r.shots_on_target_away),
+   shotsH:num(r.shots_home),shotsA:num(r.shots_away),targetH:num(r.shots_on_target_home),targetA:num(r.shots_on_target_away),offH:num(r.shots_off_target_home),offA:num(r.shots_off_target_away),blockedH:num(r.blocked_shots_home),blockedA:num(r.blocked_shots_away),insideH:num(r.shots_inside_box_home),insideA:num(r.shots_inside_box_away),outsideH:num(r.shots_outside_box_home),outsideA:num(r.shots_outside_box_away),
    foulsH:num(r.fouls_home),foulsA:num(r.fouls_away),yellowH:num(r.yellow_cards_home),yellowA:num(r.yellow_cards_away),redH:num(r.red_cards_home),redA:num(r.red_cards_away)};
   if(m.date&&m.country&&m.competition&&m.home&&m.away&&m.hg!==null&&m.ag!==null)out.push(m);
  }
@@ -40,6 +40,10 @@ const SPECS={
  corners:{h:"cornersH",a:"cornersA",d:.45,lines:[8.5,9.5,10.5]},
  shots:{h:"shotsH",a:"shotsA",d:.22,lines:[19.5,21.5,23.5]},
  target:{h:"targetH",a:"targetA",d:.28,lines:[5.5,7.5,9.5]},
+ off:{h:"offH",a:"offA",d:.28,lines:[8.5,10.5,12.5]},
+ blocked:{h:"blockedH",a:"blockedA",d:.45,lines:[2.5,3.5,4.5]},
+ inside:{h:"insideH",a:"insideA",d:.25,lines:[8.5,10.5,12.5]},
+ outside:{h:"outsideH",a:"outsideA",d:.3,lines:[4.5,6.5,8.5]},
  fouls:{h:"foulsH",a:"foulsA",d:.22,lines:[19.5,21.5,23.5]},
  yellow:{h:"yellowH",a:"yellowA",d:.45,lines:[2.5,3.5,4.5]},
  cornersHt:{h:"cornersHtH",a:"cornersHtA",d:.45,lines:[3.5,4.5,5.5]},
