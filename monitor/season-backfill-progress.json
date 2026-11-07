@@ -55,11 +55,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 139,
-  "processed_games": 100,
-  "stats_games": 100,
+  "processed_games": 125,
+  "stats_games": 125,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Para - Campbelltown City",
-  "last_result": "Para - Campbelltown City: 7 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T16:50:46.791Z"
+  "current_match": "A consultar jogo 126/139 · SIjVAfeL",
+  "last_result": "West Adelaide - Adelaide Comets: 7 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T16:51:11.829Z"
 }
