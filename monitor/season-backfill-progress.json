@@ -37,14 +37,14 @@
   "failed_competitions": [],
   "blocked": false,
   "target_date": "",
-  "status": "running",
-  "phase": "collecting",
+  "status": "completed",
+  "phase": "completed",
   "total_games": 4,
   "processed_games": 4,
   "stats_games": 4,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Último concluído: Wests APIA - Broadmeadow",
+  "current_match": "Recolha terminada",
   "last_result": "Wests APIA - Broadmeadow: 8 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T11:04:05.148Z"
+  "updated_at": "2026-11-07T11:04:06.513Z"
 }
