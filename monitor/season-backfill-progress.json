@@ -48,12 +48,14 @@
     "/futebol/bahrain/taca-do-rei/"
   ],
   "competitions_completed": 64,
-  "competitions_failed": 0,
-  "failed_competitions": [],
+  "competitions_failed": 1,
+  "failed_competitions": [
+    "/futebol/australia/taca-da-australia/"
+  ],
   "blocked": false,
   "target_date": "",
-  "status": "completed_with_errors",
-  "phase": "completed",
+  "status": "running",
+  "phase": "saving",
   "total_games": 31,
   "processed_games": 31,
   "stats_games": 30,
@@ -61,5 +63,5 @@
   "failed_games": 1,
   "current_match": "Recolha terminada",
   "last_result": "Falha em 6HY1BHTs: Falha ao recolher 6HY1BHTs: HTTP 503",
-  "updated_at": "2026-11-07T17:04:37.956Z"
+  "updated_at": "2026-11-07T17:04:39.562Z"
 }
