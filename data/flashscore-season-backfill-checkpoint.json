@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source_run_id": "42183404135",
-  "note": "Competições em skipped_paths não disponibilizaram contexto de época utilizável no Flashscore; não foram inventados jogos nem estatísticas.",
+  "note": "Só contém competições cuja descoberta e recolha terminaram sem erros.",
   "completed_paths": [
     "/futebol/africa-do-sul/primeira-liga/",
     "/futebol/africa-do-sul/segunda-liga/",
@@ -62,11 +62,12 @@
     "/futebol/asia/taca-das-nacoes-cafa/",
     "/futebol/australia-e-oceania/campeonato-do-mundo/",
     "/futebol/australia-e-oceania/liga-dos-campeoes-ofc/",
-    "/futebol/australia-e-oceania/ofc-pro-league/"
+    "/futebol/australia-e-oceania/ofc-pro-league/",
+    "/futebol/australia-e-oceania/taca-das-nacoes-ofc/"
   ],
-  "updated_at": "2026-11-07T11:03:14.259Z",
+  "updated_at": "2026-11-07T11:03:46.785Z",
   "completed_paths_reset_version": 1,
-  "last_completed_path": "/futebol/australia-e-oceania/liga-dos-campeoes-ofc/",
+  "last_completed_path": "/futebol/australia-e-oceania/taca-das-nacoes-ofc/",
   "skipped_paths": [
     "/futebol/america-do-sul/serie-rio-de-la-plata/",
     "/futebol/arabia-saudita/super-taca/",
