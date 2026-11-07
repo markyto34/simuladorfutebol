@@ -40,11 +40,11 @@
   "status": "running",
   "phase": "collecting",
   "total_games": 60,
-  "processed_games": 0,
-  "stats_games": 0,
+  "processed_games": 25,
+  "stats_games": 24,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "A iniciar recolha",
-  "last_result": "",
-  "updated_at": "2026-11-07T15:07:14.810Z"
+  "current_match": "Último concluído: Setif - JS Kabylie",
+  "last_result": "Setif - JS Kabylie: 9 estatísticas; Bwin 1X2 não confirmado",
+  "updated_at": "2026-11-07T15:07:41.046Z"
 }
