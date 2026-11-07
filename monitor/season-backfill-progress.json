@@ -2,8 +2,8 @@
   "run_id": "42357327563",
   "run_number": "13",
   "collection_type": "season_backfill",
-  "current_competition_path": "/futebol/america-do-sul/copa-america/",
-  "competition_index": 6,
+  "current_competition_path": "/futebol/america-do-sul/serie-rio-de-la-plata/",
+  "competition_index": 7,
   "total_competitions": 10,
   "selected_competitions": [
     "/futebol/america-do-norte-e-central/copa-centro-americana-da-concacaf/",
@@ -30,13 +30,13 @@
   "blocked": false,
   "target_date": "",
   "status": "running",
-  "phase": "collecting",
-  "total_games": 19,
-  "processed_games": 19,
-  "stats_games": 19,
+  "phase": "discovery",
+  "total_games": 0,
+  "processed_games": 0,
+  "stats_games": 0,
   "bwin_odds": 0,
   "failed_games": 0,
-  "current_match": "Recolha terminada",
-  "last_result": "Argentina - Canadá: 12 estatísticas; Bwin 1X2 não confirmado",
-  "updated_at": "2026-11-07T08:58:37.296Z"
+  "current_match": "A preparar competição",
+  "last_result": "",
+  "updated_at": "2026-11-07T08:58:42.105Z"
 }
